@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Jenny.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Jenny.properties" afterDir="false" />
-    </list>
+    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="Setup Jenny-server" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +21,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "rider.run.widget.enabled.cache": "false",
     "vue.rearranger.settings.migration": "true"
   }
@@ -66,6 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660853373139</updated>
       <workItem from="1660853402027" duration="231000" />
+      <workItem from="1660853714820" duration="362000" />
     </task>
     <task id="LOCAL-00001" summary="Reorganize Entitas's files">
       <created>1660853534424</created>
@@ -74,7 +77,21 @@
       <option name="project" value="LOCAL" />
       <updated>1660853534424</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Jenny initial setup">
+      <created>1660853775574</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660853775574</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Setup Jenny-server">
+      <created>1660853911224</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1660853911224</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,6 +114,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Reorganize Entitas's files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reorganize Entitas's files" />
+    <MESSAGE value="Jenny initial setup" />
+    <MESSAGE value="Setup Jenny-server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup Jenny-server" />
   </component>
 </project>
