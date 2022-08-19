@@ -1,0 +1,70 @@
+Index: .idea/.idea.RerollKnight/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"aa71d1b4-9b2a-4776-81a0-6df994efd359\" name=\"Changes\" comment=\"Setup Jenny-server\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2DXla4ljlUdjUp9KkSgEGXtn5m7\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"Discover.Launch.Via.Unity\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"rider.run.widget.enabled.cache\": \"false\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\".NET Executable.Jenny client gen\">\r\n    <configuration name=\"Jenny client gen\" type=\"RunExe\" factoryName=\".NET Executable\">\r\n      <option name=\"EXE_PATH\" value=\"$PROJECT_DIR$/Jenny/Jenny.exe\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"client gen\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/Jenny\" />\r\n      <option name=\"PASS_PARENT_ENVS\" value=\"1\" />\r\n      <option name=\"USE_EXTERNAL_CONSOLE\" value=\"0\" />\r\n      <option name=\"USE_MONO\" value=\"0\" />\r\n      <option name=\"RUNTIME_ARGUMENTS\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"UnitTests (batch mode)\" type=\"RunUnityExe\" factoryName=\"Unity Executable\">\r\n      <option name=\"EXE_PATH\" value=\"C:\\soft\\Unity\\Editor\\Unity 2021.3.7f1\\Editor\\Unity.exe\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"-runTests -batchmode -projectPath C:\\Users\\nikol\\source\\UnityProjects\\RerollKnight -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"C:\\Users\\nikol\\source\\UnityProjects\\RerollKnight\" />\r\n      <option name=\"PASS_PARENT_ENVS\" value=\"1\" />\r\n      <option name=\"USE_EXTERNAL_CONSOLE\" value=\"0\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Attach to Unity Editor &amp; Play\" type=\"UNITY_DEBUG_RUN_CONFIGURATION\" factoryName=\"UNITY_ATTACH_AND_PLAY\" show_console_on_std_err=\"false\" show_console_on_std_out=\"false\" port=\"50000\" address=\"localhost\">\r\n      <option name=\"allowRunningInParallel\" value=\"false\" />\r\n      <option name=\"listenPortForConnections\" value=\"false\" />\r\n      <option name=\"pid\" />\r\n      <option name=\"projectPathOnTarget\" />\r\n      <option name=\"selectedOptions\">\r\n        <list />\r\n      </option>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Attach to Unity Editor\" type=\"UNITY_DEBUG_RUN_CONFIGURATION\" factoryName=\"Unity Debug\" show_console_on_std_err=\"false\" show_console_on_std_out=\"false\" port=\"50000\" address=\"localhost\" ignored-value-for-modified-check=\"15064\">\r\n      <option name=\"allowRunningInParallel\" value=\"false\" />\r\n      <option name=\"listenPortForConnections\" value=\"false\" />\r\n      <option name=\"pid\" value=\"15064\" />\r\n      <option name=\"projectPathOnTarget\" />\r\n      <option name=\"selectedOptions\">\r\n        <list />\r\n      </option>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\".NET Executable.Jenny client gen\" />\r\n      <item itemvalue=\"Attach to Unity Editor.Attach to Unity Editor\" />\r\n      <item itemvalue=\"Attach to Unity Editor.Attach to Unity Editor &amp; Play\" />\r\n      <item itemvalue=\"Standalone Player.UnitTests (batch mode)\" />\r\n    </list>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"aa71d1b4-9b2a-4776-81a0-6df994efd359\" name=\"Changes\" comment=\"\" />\r\n      <created>1660853373139</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1660853373139</updated>\r\n      <workItem from=\"1660853402027\" duration=\"231000\" />\r\n      <workItem from=\"1660853714820\" duration=\"501000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Reorganize Entitas's files\">\r\n      <created>1660853534424</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1660853534424</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Jenny initial setup\">\r\n      <created>1660853775574</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1660853775574</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Setup Jenny-server\">\r\n      <created>1660853911224</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1660853911224</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Setup Jenny-server\">\r\n      <created>1660854088885</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1660854088885</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"UnityCheckinConfiguration\" checkUnsavedScenes=\"true\" />\r\n  <component name=\"UnityProjectConfiguration\" hasMinimizedUI=\"true\" />\r\n  <component name=\"UnityUnitTestConfiguration\" currentTestLauncher=\"EditMode\" />\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <option name=\"CLEAR_INITIAL_COMMIT_MESSAGE\" value=\"true\" />\r\n    <MESSAGE value=\"Reorganize Entitas's files\" />\r\n    <MESSAGE value=\"Jenny initial setup\" />\r\n    <MESSAGE value=\"Setup Jenny-server\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Setup Jenny-server\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.RerollKnight/.idea/workspace.xml b/.idea/.idea.RerollKnight/.idea/workspace.xml
+--- a/.idea/.idea.RerollKnight/.idea/workspace.xml	(revision b0ed5de064953366e8f6fe079375d3cd72c5a374)
++++ b/.idea/.idea.RerollKnight/.idea/workspace.xml	(date 1660855017051)
+@@ -4,7 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="Setup Jenny-server" />
++    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="Added Jenny Run Configuration" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -91,7 +91,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1660853373139</updated>
+       <workItem from="1660853402027" duration="231000" />
+-      <workItem from="1660853714820" duration="501000" />
++      <workItem from="1660853714820" duration="1209000" />
+     </task>
+     <task id="LOCAL-00001" summary="Reorganize Entitas's files">
+       <created>1660853534424</created>
+@@ -121,7 +121,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1660854088885</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="Added Jenny Run Configuration">
++      <created>1660854331275</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1660854331275</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -147,6 +154,7 @@
+     <MESSAGE value="Reorganize Entitas's files" />
+     <MESSAGE value="Jenny initial setup" />
+     <MESSAGE value="Setup Jenny-server" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Setup Jenny-server" />
++    <MESSAGE value="Added Jenny Run Configuration" />
++    <option name="LAST_COMMIT_MESSAGE" value="Added Jenny Run Configuration" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># This .gitignore file should be placed at the root of your Unity project directory\r\n#\r\n# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore\r\n#\r\n/[Ll]ibrary/\r\n/[Tt]emp/\r\n/[Oo]bj/\r\n/[Bb]uild/\r\n/[Bb]uilds/\r\n/[Ll]ogs/\r\n/[Uu]ser[Ss]ettings/\r\n\r\n# MemoryCaptures can get excessive in size.\r\n# They also could contain extremely sensitive data\r\n/[Mm]emoryCaptures/\r\n\r\n# Recordings can get excessive in size\r\n/[Rr]ecordings/\r\n\r\n# Uncomment this line if you wish to ignore the asset store tools plugin\r\n# /[Aa]ssets/AssetStoreTools*\r\n\r\n# Autogenerated Jetbrains Rider plugin\r\n/[Aa]ssets/Plugins/Editor/JetBrains*\r\n\r\n# Visual Studio cache directory\r\n.vs/\r\n\r\n# Gradle cache directory\r\n.gradle/\r\n\r\n# Autogenerated VS/MD/Consulo solution and project files\r\nExportedObj/\r\n.consulo/\r\n*.csproj\r\n*.unityproj\r\n*.sln\r\n*.suo\r\n*.tmp\r\n*.user\r\n*.userprefs\r\n*.pidb\r\n*.booproj\r\n*.svd\r\n*.pdb\r\n*.mdb\r\n*.opendb\r\n*.VC.db\r\n\r\n# Unity3D generated meta files\r\n*.pidb.meta\r\n*.pdb.meta\r\n*.mdb.meta\r\n\r\n# Unity3D generated file on crash reports\r\nsysinfo.txt\r\n\r\n# Builds\r\n*.apk\r\n*.aab\r\n*.unitypackage\r\n*.app\r\n\r\n# Crashlytics generated file\r\ncrashlytics-build.properties\r\n\r\n# Packed Addressables\r\n/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*\r\n\r\n# Temporary auto-generated Android Assets\r\n/[Aa]ssets/[Ss]treamingAssets/aa.meta\r\n/[Aa]ssets/[Ss]treamingAssets/aa/*\r\n.idea/.idea.RerollKnight/.idea/workspace.xml\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision b0ed5de064953366e8f6fe079375d3cd72c5a374)
++++ b/.gitignore	(date 1660855134302)
+@@ -71,3 +71,5 @@
+ /[Aa]ssets/[Ss]treamingAssets/aa.meta
+ /[Aa]ssets/[Ss]treamingAssets/aa/*
+ .idea/.idea.RerollKnight/.idea/workspace.xml
++.idea/.idea.RerollKnight/.idea/workspace.xml
++.idea/.idea.RerollKnight/.idea/workspace.xml

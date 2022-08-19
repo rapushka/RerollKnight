@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="Setup Jenny-server" />
+    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="Added Jenny Run Configuration" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660853373139</updated>
       <workItem from="1660853402027" duration="231000" />
-      <workItem from="1660853714820" duration="501000" />
+      <workItem from="1660853714820" duration="1209000" />
     </task>
     <task id="LOCAL-00001" summary="Reorganize Entitas's files">
       <created>1660853534424</created>
@@ -121,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660854088885</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added Jenny Run Configuration">
+      <created>1660854331275</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1660854331275</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +154,7 @@
     <MESSAGE value="Reorganize Entitas's files" />
     <MESSAGE value="Jenny initial setup" />
     <MESSAGE value="Setup Jenny-server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup Jenny-server" />
+    <MESSAGE value="Added Jenny Run Configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Jenny Run Configuration" />
   </component>
 </project>
