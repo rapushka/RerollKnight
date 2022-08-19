@@ -1,4 +1,5 @@
 using Code.Ecs.Systems.ExecuteSystems;
+using Code.Ecs.Systems.InitializeSystems;
 using Code.Unity.Services;
 
 namespace Code.Ecs.Features
@@ -9,6 +10,8 @@ namespace Code.Ecs.Features
 			: base(nameof(CommonSystems))
 		{
 			Add(new ServicesRegistrationSystems(contexts, services));
+			Add(new SpawnPlayerSystem(contexts));
+			Add(new BindRigidbodyViewSystem(contexts));
 			Add(new ApplyGravitySystem(contexts));
 		}
 	}

@@ -7,7 +7,9 @@ namespace Code.Unity.Services
 	[Serializable]
 	public class ServicesCollection
 	{
-		public SerializableBalanceService Balance;
+		public IBalanceService Balance;
 		public ITimeService Time;
+		public IResourcesService Resources;
+		public IViewsService Views;
 	}
 }

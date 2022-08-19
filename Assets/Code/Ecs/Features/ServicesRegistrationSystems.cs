@@ -1,6 +1,6 @@
+using System;
 using Code.Ecs.Systems.InitializeSystems;
 using Code.Unity.Services;
-using Code.Unity.Services.Interfaces;
 
 namespace Code.Ecs.Features
 {
@@ -11,8 +11,12 @@ namespace Code.Ecs.Features
 		{
 			GameContext game = contexts.game;
 			
-			Add(new RegisterServiceSystem<ITimeService>(services.Time, game.ReplaceTimeService));
-			Add(new RegisterServiceSystem<IBalanceService>(services.Balance, game.ReplaceBalanceService));
+			Register(services.Time, game.ReplaceTimeService);
+			Register(services.Balance, game.ReplaceBalanceService);
+			Register(services.Resources, game.ReplaceResourcesService);
 		}
+
+		private void Register<T>(T service, Action<T> replaceService)
+			=> Add(new RegisterServiceSystem<T>(service, replaceService));
 	}
 }

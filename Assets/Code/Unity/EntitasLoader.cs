@@ -7,7 +7,8 @@ namespace Code.Unity
 {
 	public class EntitasLoader : MonoBehaviour
 	{
-		[SerializeField] private SerializableBalanceService serializableBalanceService;
+		[SerializeField] private SerializableBalanceService _balance;
+		[SerializeField] private SerializableResourcesService _resources;
 
 		private CommonSystems _systems;
 
@@ -17,8 +18,9 @@ namespace Code.Unity
 
 			ServicesCollection services = new()
 			{
-				Balance = serializableBalanceService,
 				Time = new UnityTimeService(),
+				Balance = _balance,
+				Resources = _resources,
 			};
 
 			_systems = new CommonSystems(contexts, services);
