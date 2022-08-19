@@ -1,11 +1,13 @@
 using System;
+using Code.Unity.Services.Interfaces;
+using Code.Unity.Services.Realizations;
 
 namespace Code.Unity.Services
 {
 	[Serializable]
 	public class ServicesCollection
 	{
-		public BalanceService Balance;
-		public TimeService Time;
+		public SerializableBalanceService Balance;
+		public ITimeService Time;
 	}
 }

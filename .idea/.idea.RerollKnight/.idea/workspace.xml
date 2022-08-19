@@ -4,18 +4,60 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="Added Jenny Run Configuration">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/BalanceService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/BalanceService.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/ServicesCollection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/ServicesCollection.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/TimeService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/TimeService.cs.meta" afterDir="false" />
+    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ServicesRegistrationSystems.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ServicesRegistrationSystems.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ExecuteSystems.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ExecuteSystems/ApplyGravitySystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ExecuteSystems/ApplyGravitySystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/RegisterServiceSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/RegisterServiceSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IBalanceService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IBalanceService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/ITimeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/ITimeService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/SerializableBalanceService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/UnityTimeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/UnityTimeService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/Components.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/Components/PositionListenerComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/Components/PositionListenerComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/GameEventSystems.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/GameEventSystems.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/Interfaces.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/Interfaces/IPositionListener.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/Interfaces/IPositionListener.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/Systems.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/Systems/PositionEventSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Events/Systems/PositionEventSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GameBalanceServiceComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GamePositionComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GamePositionComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GamePositionListenerComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GamePositionListenerComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GameTimeServiceComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GameWeightyComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GameWeightyComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RerollKnight.sln.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/GameWorldSetupSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SetGravityScaleSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/GameWorldSetupSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SetGravityScaleSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/EcsLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/EcsLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SetGravityScaleSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SetGravityScaleSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/EcsLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/EntitasLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/EcsLoader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/EntitasLoader.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/BalanceService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/BalanceService.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/SerializableBalanceService.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/ServicesCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/ServicesCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Workflow/ComponentsTemplates/FlagComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Workflow/ComponentsTemplates/FlagComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Workflow/ComponentsTemplates/IndexComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Workflow/ComponentsTemplates/IndexComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Workflow/ComponentsTemplates/PrimaryComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Workflow/ComponentsTemplates/PrimaryComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GameGravityScaleComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GameGravityScaleComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameComponentsLookup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +87,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderUnityFileTemplatesSettings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -104,7 +147,8 @@
       <updated>1660853373139</updated>
       <workItem from="1660853402027" duration="231000" />
       <workItem from="1660853714820" duration="2493000" />
-      <workItem from="1660892448943" duration="1834000" />
+      <workItem from="1660892448943" duration="4646000" />
+      <workItem from="1660904099012" duration="3091000" />
     </task>
     <task id="LOCAL-00001" summary="Reorganize Entitas's files">
       <created>1660853534424</created>
@@ -176,5 +220,9 @@
     <MESSAGE value="Setup Jenny-server" />
     <MESSAGE value="Added Jenny Run Configuration" />
     <option name="LAST_COMMIT_MESSAGE" value="Added Jenny Run Configuration" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

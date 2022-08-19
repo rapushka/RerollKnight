@@ -3,7 +3,7 @@ using Entitas.CodeGeneration.Attributes;
 
 namespace Code.WorkFlow.ComponentsTemplates
 {
-	public sealed class IndexComponent<T> : IComponent
+	public class IndexComponent<T> : IComponent
 	{
 		[EntityIndex] public T Value;
 

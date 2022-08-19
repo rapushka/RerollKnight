@@ -8,15 +8,30 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int GravityScale = 0;
+    public const int BalanceService = 0;
+    public const int GravityScale = 1;
+    public const int Position = 2;
+    public const int TimeService = 3;
+    public const int Weighty = 4;
+    public const int PositionListener = 5;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
-        "GravityScale"
+        "BalanceService",
+        "GravityScale",
+        "Position",
+        "TimeService",
+        "Weighty",
+        "PositionListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Ecs.Components.GravityScaleComponent)
+        typeof(Code.Ecs.Components.BalanceService),
+        typeof(Code.Ecs.Components.GravityScaleComponent),
+        typeof(Code.Ecs.Components.PositionComponent),
+        typeof(Code.Ecs.Components.TimeService),
+        typeof(Code.Ecs.Components.WeightyComponent),
+        typeof(PositionListenerComponent)
     };
 }
