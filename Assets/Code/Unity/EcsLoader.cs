@@ -1,11 +1,13 @@
 using Code.Ecs.Features;
+using Code.Unity.Services;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Code.Unity
 {
 	public class EcsLoader : MonoBehaviour
 	{
-		[SerializeField] private float _gravityScale;
+		[SerializeField] private ServicesCollection _services;
 		
 		private CommonSystems _systems;
 
@@ -13,9 +15,16 @@ namespace Code.Unity
 		{
 			var contexts = Contexts.sharedInstance;
 
-			_systems = new CommonSystems(contexts, _gravityScale);
+			SetUpServices();
+			
+			_systems = new CommonSystems(contexts, _services);
 			
 			_systems.Initialize();
+		}
+
+		private void SetUpServices()
+		{
+			_services.Time.DeltaTime = Time.deltaTime;
 		}
 
 		private void Update() => _systems.Execute();

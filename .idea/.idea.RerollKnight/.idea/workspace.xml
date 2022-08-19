@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="Added Jenny Run Configuration">
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/Components/GameGravityScaleComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Contexts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Contexts.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Feature.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Feature.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameAttribute.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameComponentsLookup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameMatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Game/GameMatcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Input/InputAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Input/InputAttribute.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Input/InputComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Input/InputComponentsLookup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Input/InputContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Input/InputContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Input/InputEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Input/InputEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Input/InputMatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Entitas/Generated/Input/InputMatcher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/BalanceService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/BalanceService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/ServicesCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/ServicesCollection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/TimeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/TimeService.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/GameWorldSetupSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SetGravityScaleSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/GameWorldSetupSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SetGravityScaleSystem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/EcsLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/EcsLoader.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +104,7 @@
       <updated>1660853373139</updated>
       <workItem from="1660853402027" duration="231000" />
       <workItem from="1660853714820" duration="2493000" />
-      <workItem from="1660892448943" duration="690000" />
+      <workItem from="1660892448943" duration="1834000" />
     </task>
     <task id="LOCAL-00001" summary="Reorganize Entitas's files">
       <created>1660853534424</created>

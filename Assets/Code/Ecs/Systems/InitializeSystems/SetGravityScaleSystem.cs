@@ -2,12 +2,12 @@ using Entitas;
 
 namespace Code.Ecs.Systems.InitializeSystems
 {
-	public sealed class GameWorldSetupSystem : IInitializeSystem
+	public sealed class SetGravityScaleSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly float _gravityScale;
 
-		public GameWorldSetupSystem(Contexts contexts, float gravityScale)
+		public SetGravityScaleSystem(Contexts contexts, float gravityScale)
 		{
 			_contexts = contexts;
 			_gravityScale = gravityScale;
