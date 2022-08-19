@@ -4,27 +4,33 @@ using UnityEngine;
 
 namespace Code.Ecs.Systems.ExecuteSystems
 {
-	public sealed class ApplyGravitySystem : IExecuteSystem
+	public sealed class ApplyGravitySystem : IInitializeSystem, IExecuteSystem
 	{
-		private readonly ITimeService _time;
-		private readonly IGroup<GameEntity> _entities;
-		private readonly float _gravityScale;
+		private readonly Contexts _contexts;
+		private IGroup<GameEntity> _entities;
+		private float _gravityScale;
+		private ITimeService _time;
 
 		public ApplyGravitySystem(Contexts contexts)
 		{
-			_time = contexts.game.timeService.Value;
+			_contexts = contexts;
+		}
 
-			_entities = contexts.game.GetGroup
+		public void Initialize()
+		{
+			_time = _contexts.game.timeService.Value;
+			
+			_entities = _contexts.game.GetGroup
 			(
 				GameMatcher.AllOf(GameMatcher.Weighty, GameMatcher.Position)
 			);
-			_gravityScale = contexts.game.gravityScaleEntity.gravityScale;
 		}
 
 		public void Execute()
 		{
-			Vector2 gravity = new(0, _gravityScale);
-			gravity.y *= _time.DeltaTime;
+			float gravityScale = _contexts.game.balanceService.Value.GravityScale;
+			float scaledY = gravityScale * _time.DeltaTime;
+			Vector2 gravity = new(0, scaledY);
 
 			foreach (GameEntity e in _entities)
 			{

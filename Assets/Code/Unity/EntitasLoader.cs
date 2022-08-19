@@ -8,23 +8,21 @@ namespace Code.Unity
 	public class EntitasLoader : MonoBehaviour
 	{
 		[SerializeField] private SerializableBalanceService serializableBalanceService;
-		
-		private ServicesCollection _services;
+
 		private CommonSystems _systems;
-		private Contexts _contexts;
 
 		private void Start()
 		{
-			_contexts = Contexts.sharedInstance;
+			var contexts = Contexts.sharedInstance;
 
-			_services = new ServicesCollection
+			ServicesCollection services = new()
 			{
 				Balance = serializableBalanceService,
 				Time = new UnityTimeService(),
 			};
 
-			_systems = new CommonSystems(_contexts, _services);
-			
+			_systems = new CommonSystems(contexts, services);
+
 			_systems.Initialize();
 		}
 
