@@ -14,6 +14,7 @@ namespace Code.Ecs.Features
 			Register(services.Time, game.ReplaceTimeService);
 			Register(services.Balance, game.ReplaceBalanceService);
 			Register(services.Resources, game.ReplaceResourcesService);
+			Register(services.Views, game.ReplaceViewService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)

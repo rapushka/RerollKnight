@@ -17,8 +17,11 @@ namespace Code.Ecs.Systems.InitializeSystems
 
 		public void Initialize()
 		{
-			GameEntity entity = _contexts.game.CreateEntity();
-			entity.AddPosition(SpawnPosition);
+			GameEntity player = _contexts.game.CreateEntity();
+			player.isPlayer = true;
+			player.isWeighty = true;
+
+			player.AddPosition(SpawnPosition);
 		}
 	}
 }

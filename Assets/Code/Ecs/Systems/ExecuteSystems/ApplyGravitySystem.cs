@@ -23,7 +23,7 @@ namespace Code.Ecs.Systems.ExecuteSystems
 			
 			_entities = _contexts.game.GetGroup
 			(
-				GameMatcher.AllOf(GameMatcher.Weighty, GameMatcher.Rigidbody)
+				GameMatcher.AllOf(GameMatcher.Weighty, GameMatcher.Position)
 			);
 		}
 
@@ -35,7 +35,7 @@ namespace Code.Ecs.Systems.ExecuteSystems
 
 			foreach (GameEntity e in _entities)
 			{
-				e.rigidbody.Value.velocity = gravity;
+				e.position.Value += gravity;
 			}
 		}
 	}

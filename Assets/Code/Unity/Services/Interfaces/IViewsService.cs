@@ -4,6 +4,6 @@ namespace Code.Unity.Services.Interfaces
 {
 	public interface IViewsService : IService
 	{
-		RigidbodyView Rigidbody { get; }
+		PositionView PlayerPosition { get; }
 	}
 }

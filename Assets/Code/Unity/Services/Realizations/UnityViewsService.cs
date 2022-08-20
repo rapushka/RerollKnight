@@ -6,14 +6,14 @@ namespace Code.Unity.Services.Realizations
 	public class UnityViewsService : IViewsService
 	{
 		private readonly IResourcesService _resources;
-		private RigidbodyView _rigidbodyCash;
+		private PositionView _positionCash;
 
 		public UnityViewsService(IResourcesService resources)
 		{
-			_resources = Contexts.sharedInstance.game.resourcesService.Value;
+			_resources = resources;
 		}
 
-		public RigidbodyView Rigidbody => _rigidbodyCash
-			??= _resources.PlayerPrefab.GetComponent<RigidbodyView>();
+		public PositionView PlayerPosition => _positionCash
+			??= _resources.PlayerPrefab.GetComponent<PositionView>();
 	}
 }
