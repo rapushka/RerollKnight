@@ -4,7 +4,7 @@ using Entitas.CodeGeneration.Attributes;
 
 namespace Packages.Code.Ecs.Components.Workflow
 {
-	public sealed class PrimaryComponent<T> : IComponent
+	public class PrimaryComponent<T> : IComponent
 	{
 		[PrimaryEntityIndex] public T Value;
 
