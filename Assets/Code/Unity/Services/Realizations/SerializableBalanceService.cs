@@ -8,7 +8,9 @@ namespace Code.Unity.Services.Realizations
 	public class SerializableBalanceService : IBalanceService
 	{
 		[SerializeField] private float _gravityScale;
+		[SerializeField] private float _playerSpeed;
 		
 		public float GravityScale => _gravityScale;
+		public float PlayerSpeed => _playerSpeed;
 	}
 }

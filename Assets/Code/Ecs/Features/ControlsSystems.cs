@@ -1,3 +1,4 @@
+using Code.Ecs.Systems.ControlsSystems;
 using Code.Ecs.Systems.InputSystems;
 
 namespace Code.Ecs.Features
@@ -10,7 +11,7 @@ namespace Code.Ecs.Features
 			Add(new InputLiveCycleSystem(contexts));
 			Add(new EmitInputsSystem(contexts));
 			
-			
+			Add(new MovementSystem(contexts));
 		}
 	}
 }
