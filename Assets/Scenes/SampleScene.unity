@@ -559,6 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _balance:
     _gravityScale: 9.8
+    _playerSpeed: 10
   _resources:
     _playerPrefab: {fileID: 4929742070666120890, guid: c6f003abe6a3e3e47acd9b27dd6fea96, type: 3}
     _playerSpawnPoint: {fileID: 290012883}
