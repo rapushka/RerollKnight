@@ -1,6 +1,7 @@
 using Code.Unity.Services.Interfaces;
 using Code.Workflow;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Ecs.Systems.InitializeSystems
 {
@@ -17,9 +18,11 @@ namespace Code.Ecs.Systems.InitializeSystems
 
 		public void Initialize()
 		{
+			const string prefabPath = Constants.ResourcePath.PlayerPrefab;
 			GameEntity playerEntity = _contexts.game.playerEntity;
 
-			ViewService.BindViewToEntity(Constants.ResourcePath.PlayerPrefab, playerEntity);
+			GameObject playerObject = ViewService.BindViewToEntity(prefabPath, playerEntity);
+			playerEntity.AddRigidbody(playerObject.GetComponent<Rigidbody>());
 		}
 	}
 }

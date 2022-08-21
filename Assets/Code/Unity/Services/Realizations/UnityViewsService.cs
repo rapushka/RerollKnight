@@ -18,12 +18,12 @@ namespace Code.Unity.Services.Realizations
 		private static IResourcesService ResourcesService 
 			=> Contexts.sharedInstance.services.resourcesService.Value;
 
-		public void BindViewToEntity(string viewPath, IEntity entity)
+		public GameObject BindViewToEntity(string viewPath, IEntity entity)
 		{
 			GameObject viewPrefab = ResourcesService.LoadResourceBy(viewPath);
-			
 			GameObject view = Object.Instantiate(viewPrefab, _viewRoot, false);
-			view.RegisterListeners(entity);
+
+			return view.RegisterListeners(entity);
 		}
 	}
 }

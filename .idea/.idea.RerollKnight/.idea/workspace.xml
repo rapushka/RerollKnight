@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Components.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Components/Interfaces.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameRigidbodyComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameRigidbodyComponent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameViewToLoadComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameViewToLoadComponent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Workflow/Constants.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Workflow/Constants.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Player.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/VIewComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/VIewComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializeSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializationSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializeSystems.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializationSystems.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameplaySystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameplaySystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ExecuteSystems/ApplyGravitySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ExecuteSystems/ApplyGravitySystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SpawnPlayerSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SpawnPlayerSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IResourcesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IResourcesService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/SerializableResourcesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/SerializableResourcesService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-    </list>
+    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +102,7 @@
       <workItem from="1660892448943" duration="4646000" />
       <workItem from="1660904099012" duration="3858000" />
       <workItem from="1660917559714" duration="11797000" />
-      <workItem from="1661070115334" duration="2656000" />
+      <workItem from="1661070115334" duration="2968000" />
     </task>
     <task id="LOCAL-00001" summary="Reorganize Entitas's files">
       <created>1660853534424</created>
