@@ -13,7 +13,7 @@ namespace Code.Ecs.Systems.InitializeSystems
 		}
 
 		private Vector2 SpawnPosition
-			=> _contexts.game.resourcesService.Value.PlayerSpawnPoint.position;
+			=> _contexts.services.resourcesService.Value.PlayerSpawnPoint.position;
 
 		public void Initialize()
 		{

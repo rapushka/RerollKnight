@@ -5,29 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/VIewComponents.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/VIewComponents.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializeSystems.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializeSystems.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameplaySystems.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameplaySystems.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/BindPlayerViewSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/BindPlayerViewSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/IEventListener.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/IEventListener.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Workflow/Extensions.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Workflow/Extensions/ArrayExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Workflow/Extensions/ArrayExtensions.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Workflow/Extensions/GameObjectExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Workflow/Extensions/GameObjectExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ReactiveSystems/BindPositionViewSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ReactiveSystems/BindPositionViewSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/EntitasLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/EntitasLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IViewsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IViewsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/UnityViewsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/UnityViewsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Views/PositionView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/PositionView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components/ServicesBalanceServiceComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components/ServicesBalanceServiceComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components/ServicesResourcesServiceComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components/ServicesResourcesServiceComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components/ServicesTimeServiceComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components/ServicesTimeServiceComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components/ServicesViewServiceComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components/ServicesViewServiceComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesComponentsLookup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesComponentsLookup.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesContext.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesEntity.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesMatcher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesMatcher.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/ServicesComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/ServicesComponents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ServicesRegistrationSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ServicesRegistrationSystems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ExecuteSystems/ApplyGravitySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ExecuteSystems/ApplyGravitySystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/BindPlayerViewSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/BindPlayerViewSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SpawnPlayerSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SpawnPlayerSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Contexts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Contexts.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Events/GameEventSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Events/GameEventSystems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Events/Interfaces/IPositionListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Events/Interfaces/IPositionListener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameBalanceServiceComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameBalanceServiceComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GamePositionComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GamePositionComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameResourcesServiceComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameResourcesServiceComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameTimeServiceComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameTimeServiceComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameViewServiceComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameViewServiceComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenny.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Jenny.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +141,7 @@
       <workItem from="1660892448943" duration="4646000" />
       <workItem from="1660904099012" duration="3858000" />
       <workItem from="1660917559714" duration="11797000" />
-      <workItem from="1661070115334" duration="318000" />
+      <workItem from="1661070115334" duration="784000" />
     </task>
     <task id="LOCAL-00001" summary="Reorganize Entitas's files">
       <created>1660853534424</created>

@@ -6,13 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameContext {
+public partial class ServicesContext {
 
-    public GameEntity resourcesServiceEntity { get { return GetGroup(GameMatcher.ResourcesService).GetSingleEntity(); } }
+    public ServicesEntity resourcesServiceEntity { get { return GetGroup(ServicesMatcher.ResourcesService).GetSingleEntity(); } }
     public Code.Ecs.Components.ResourcesService resourcesService { get { return resourcesServiceEntity.resourcesService; } }
     public bool hasResourcesService { get { return resourcesServiceEntity != null; } }
 
-    public GameEntity SetResourcesService(Code.Unity.Services.Interfaces.IResourcesService newValue) {
+    public ServicesEntity SetResourcesService(Code.Unity.Services.Interfaces.IResourcesService newValue) {
         if (hasResourcesService) {
             throw new Entitas.EntitasException("Could not set ResourcesService!\n" + this + " already has an entity with Code.Ecs.Components.ResourcesService!",
                 "You should check if the context already has a resourcesServiceEntity before setting it or use context.ReplaceResourcesService().");
@@ -44,27 +44,27 @@ public partial class GameContext {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class ServicesEntity {
 
-    public Code.Ecs.Components.ResourcesService resourcesService { get { return (Code.Ecs.Components.ResourcesService)GetComponent(GameComponentsLookup.ResourcesService); } }
-    public bool hasResourcesService { get { return HasComponent(GameComponentsLookup.ResourcesService); } }
+    public Code.Ecs.Components.ResourcesService resourcesService { get { return (Code.Ecs.Components.ResourcesService)GetComponent(ServicesComponentsLookup.ResourcesService); } }
+    public bool hasResourcesService { get { return HasComponent(ServicesComponentsLookup.ResourcesService); } }
 
     public void AddResourcesService(Code.Unity.Services.Interfaces.IResourcesService newValue) {
-        var index = GameComponentsLookup.ResourcesService;
+        var index = ServicesComponentsLookup.ResourcesService;
         var component = (Code.Ecs.Components.ResourcesService)CreateComponent(index, typeof(Code.Ecs.Components.ResourcesService));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceResourcesService(Code.Unity.Services.Interfaces.IResourcesService newValue) {
-        var index = GameComponentsLookup.ResourcesService;
+        var index = ServicesComponentsLookup.ResourcesService;
         var component = (Code.Ecs.Components.ResourcesService)CreateComponent(index, typeof(Code.Ecs.Components.ResourcesService));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
     public void RemoveResourcesService() {
-        RemoveComponent(GameComponentsLookup.ResourcesService);
+        RemoveComponent(ServicesComponentsLookup.ResourcesService);
     }
 }
 
@@ -76,15 +76,15 @@ public partial class GameEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class ServicesMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherResourcesService;
+    static Entitas.IMatcher<ServicesEntity> _matcherResourcesService;
 
-    public static Entitas.IMatcher<GameEntity> ResourcesService {
+    public static Entitas.IMatcher<ServicesEntity> ResourcesService {
         get {
             if (_matcherResourcesService == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.ResourcesService);
-                matcher.componentNames = GameComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<ServicesEntity>)Entitas.Matcher<ServicesEntity>.AllOf(ServicesComponentsLookup.ResourcesService);
+                matcher.componentNames = ServicesComponentsLookup.componentNames;
                 _matcherResourcesService = matcher;
             }
 
