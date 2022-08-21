@@ -10,5 +10,6 @@ namespace Code.Unity.Services
 		public ITimeService Time;
 		public IResourcesService Resources;
 		public IViewsService Views;
+		public IInputService Input;
 	}
 }

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int GravityScale = 0;
+    public const int InputReceiver = 0;
     public const int Player = 1;
     public const int Position = 2;
     public const int Rigidbody = 3;
@@ -20,7 +20,7 @@ public static class GameComponentsLookup {
     public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
-        "GravityScale",
+        "InputReceiver",
         "Player",
         "Position",
         "Rigidbody",
@@ -31,7 +31,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Ecs.Components.GravityScaleComponent),
+        typeof(Code.Ecs.Components.InputReceiverComponent),
         typeof(Code.Ecs.Components.PlayerComponent),
         typeof(Code.Ecs.Components.PositionComponent),
         typeof(Code.Ecs.Components.RigidbodyComponent),

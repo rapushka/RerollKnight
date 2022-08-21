@@ -11,5 +11,6 @@ namespace Code.Ecs.Components
 	[Services] [Unique] public sealed class ResourcesService : ValueComponent<IResourcesService> { }
 
 	[Services] [Unique] public sealed class ViewService : ValueComponent<IViewsService> { }
+	[Services] [Unique] public sealed class InputService : ValueComponent<IInputService> { }
 
 }

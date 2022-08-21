@@ -1,7 +1,7 @@
 using System;
 using Entitas;
 
-namespace Code.Ecs.Systems.InitializeSystems
+namespace Code.Ecs.Systems.Services
 {
 	public sealed class RegisterServiceSystem<TService> : IInitializeSystem
 	{

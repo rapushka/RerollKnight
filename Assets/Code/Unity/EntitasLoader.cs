@@ -18,10 +18,11 @@ namespace Code.Unity
 
 			ServicesCollection services = new()
 			{
-				Time = new UnityTimeService(),
 				Balance = _balance,
 				Resources = _resources,
+				Time = new UnityTimeService(),
 				Views = new UnityViewsService(),
+				Input = new UnityNewInputService(),
 			};
 
 			_systems = new CommonSystems(contexts, services);

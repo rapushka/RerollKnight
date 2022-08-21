@@ -3,7 +3,7 @@ using Code.Workflow.Extensions;
 using Entitas;
 using UnityEngine;
 
-namespace Code.Ecs.Systems.ExecuteSystems
+namespace Code.Ecs.Systems.ModelSystems
 {
 	public sealed class ApplyGravitySystem : IInitializeSystem, IExecuteSystem
 	{
