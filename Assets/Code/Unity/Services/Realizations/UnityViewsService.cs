@@ -1,19 +1,24 @@
 using Code.Unity.Services.Interfaces;
-using Code.Unity.Views;
+using Code.Workflow.Extensions;
+using Entitas;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Code.Unity.Services.Realizations
 {
 	public class UnityViewsService : IViewsService
 	{
-		private readonly IResourcesService _resources;
-		private PositionView _positionCash;
+		private Transform _viewRoot;
 
-		public UnityViewsService(IResourcesService resources)
+		public UnityViewsService()
 		{
-			_resources = resources;
+			_viewRoot = new GameObject(nameof(_viewRoot)).transform;
 		}
 
-		public PositionView PlayerPosition => _positionCash
-			??= _resources.PlayerPrefab.GetComponent<PositionView>();
+		public GameObject BindViewToEntity(GameObject viewPrefab, IEntity entity)
+		{
+			GameObject view = Object.Instantiate(viewPrefab, _viewRoot, false);
+			return view.RegisterListeners(entity);
+		}
 	}
 }

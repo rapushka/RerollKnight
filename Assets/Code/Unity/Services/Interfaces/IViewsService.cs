@@ -1,9 +1,11 @@
 using Code.Unity.Views;
+using Entitas;
+using UnityEngine;
 
 namespace Code.Unity.Services.Interfaces
 {
 	public interface IViewsService : IService
 	{
-		PositionView PlayerPosition { get; }
+		GameObject BindViewToEntity(GameObject viewPrefab, IEntity entity);
 	}
 }
