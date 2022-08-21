@@ -17,10 +17,28 @@ namespace Code.Unity.Views.ViewController
 			return this;
 		}
 
+		public void Mirror()
+			=> SetRotation(90);
+
+		public void Unmirror()
+			=> SetRotation(0);
+
+		private void SetRotation(int y)
+			=> transform.rotation = transform.rotation.SetY(y);
+
 		private void RegisterViewComponents()
 		{
 			GetComponents<IViewComponentRegistrar>()
 			   .ForEach((r) => r.Register(_entity));
+		}
+	}
+
+	public static class QuaternionExtensions
+	{
+		public static Quaternion SetY(this Quaternion @this, float y)
+		{
+			@this.y = y;
+			return @this;
 		}
 	}
 }
