@@ -1,5 +1,5 @@
-using Code.Ecs.Systems.InitializeSystems;
-using Code.Ecs.Systems.ReactiveSystems;
+using Code.Ecs.Systems.ModelSystems;
+using Code.Ecs.Systems.ViewSystems;
 
 namespace Code.Ecs.Features
 {
@@ -8,7 +8,7 @@ namespace Code.Ecs.Features
 		public GameInitializationSystems(Contexts contexts)
 			: base(nameof(GameInitializationSystems))
 		{
-			Add(new SpawnPlayerSystem(contexts));
+			Add(new PlayerFactorySystem(contexts));
 			Add(new AddPlayerViewToLoadSystem(contexts));
 			Add(new LoadViewSystem(contexts));
 		}

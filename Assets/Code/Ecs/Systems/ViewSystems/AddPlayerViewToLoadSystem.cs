@@ -1,7 +1,7 @@
 using Code.Workflow;
 using Entitas;
 
-namespace Code.Ecs.Systems.InitializeSystems
+namespace Code.Ecs.Systems.ViewSystems
 {
 	public sealed class AddPlayerViewToLoadSystem : IInitializeSystem
     {

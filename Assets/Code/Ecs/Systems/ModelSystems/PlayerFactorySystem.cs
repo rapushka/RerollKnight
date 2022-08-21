@@ -1,14 +1,13 @@
-using Code.Workflow;
 using Entitas;
 using UnityEngine;
 
-namespace Code.Ecs.Systems.InitializeSystems
+namespace Code.Ecs.Systems.ModelSystems
 {
-	public sealed class SpawnPlayerSystem : IInitializeSystem
+	public sealed class PlayerFactorySystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 
-		public SpawnPlayerSystem(Contexts contexts)
+		public PlayerFactorySystem(Contexts contexts)
 		{
 			_contexts = contexts;
 		}
@@ -21,7 +20,8 @@ namespace Code.Ecs.Systems.InitializeSystems
 			GameEntity player = _contexts.game.CreateEntity();
 			player.isPlayer = true;
 			player.isWeighty = true;
-
+			player.isInputReceiver = true;
+			
 			player.AddPosition(SpawnPosition);
 		}
 	}

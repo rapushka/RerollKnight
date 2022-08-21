@@ -1,5 +1,5 @@
 using System;
-using Code.Ecs.Systems.InitializeSystems;
+using Code.Ecs.Systems.Services;
 using Code.Unity.Services;
 
 namespace Code.Ecs.Features
@@ -15,6 +15,7 @@ namespace Code.Ecs.Features
 			Register(services.Balance, servicesContext.ReplaceBalanceService);
 			Register(services.Resources, servicesContext.ReplaceResourcesService);
 			Register(services.Views, servicesContext.ReplaceViewService);
+			Register(services.Input, servicesContext.ReplaceInputService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)
