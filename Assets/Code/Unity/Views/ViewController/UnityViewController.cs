@@ -20,11 +20,11 @@ namespace Code.Unity.Views.ViewController
 		public void Mirror()
 			=> SetRotation(90);
 
-		public void Unmirror()
+		public void UnMirror()
 			=> SetRotation(0);
 
 		private void SetRotation(int y)
-			=> transform.rotation = transform.rotation.SetY(y);
+			=> transform.eulerAngles = transform.eulerAngles.SetY(y);
 
 		private void RegisterViewComponents()
 		{
@@ -37,7 +37,9 @@ namespace Code.Unity.Views.ViewController
 	{
 		public static Quaternion SetY(this Quaternion @this, float y)
 		{
-			@this.y = y;
+			Quaternion temp = @this;
+			temp.y = y;
+			@this = temp;
 			return @this;
 		}
 	}

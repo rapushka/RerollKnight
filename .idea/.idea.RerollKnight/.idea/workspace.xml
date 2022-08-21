@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="Preparation commit">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ViewSystems.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ViewSystems.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/MirrorByDirectionSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/MirrorByDirectionSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializationSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializationSystems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/MirrorByDirectionSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/MirrorByDirectionSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/IViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/IViewController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/UnityViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/UnityViewController.cs" afterDir="false" />
     </list>

@@ -7,6 +7,6 @@ namespace Code.Unity.Views.ViewController
 		IViewController Initialize(GameEntity entity);
 
 		void Mirror();
-		void Unmirror();
+		void UnMirror();
 	}
 }

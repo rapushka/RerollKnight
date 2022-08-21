@@ -24,8 +24,8 @@ namespace Code.Ecs.Systems.ViewSystems
 		{
 			foreach (GameEntity e in _entities)
 			{
-				e.Do((x) => ViewController(x).Mirror(), @if: VelocityX(e) > 0f)
-				 .Do((x) => ViewController(x).Unmirror(), @if: VelocityX(e) < 0f);
+				e.Do((x) => ViewController(x).UnMirror(), @if: VelocityX(e) > 0f)
+				 .Do((x) => ViewController(x).Mirror(), @if: VelocityX(e) < 0f);
 			}
 		}
 
