@@ -1,4 +1,5 @@
 using Code.Unity.Services.Interfaces;
+using Code.Workflow.Extensions;
 using Entitas;
 using UnityEngine;
 
@@ -19,10 +20,10 @@ namespace Code.Ecs.Systems.ExecuteSystems
 		public void Initialize()
 		{
 			_time = _contexts.services.timeService.Value;
-			
+
 			_entities = _contexts.game.GetGroup
 			(
-				GameMatcher.AllOf(GameMatcher.Weighty, GameMatcher.Position)
+				GameMatcher.AllOf(GameMatcher.Rigidbody, GameMatcher.Weighty)
 			);
 		}
 
@@ -31,10 +32,8 @@ namespace Code.Ecs.Systems.ExecuteSystems
 			float gravityScale = _contexts.services.balanceService.Value.GravityScale;
 			Vector3 scaledGravity = Physics.gravity * gravityScale * _time.DeltaTime;
 
-			foreach (GameEntity e in _entities)
-			{
-				e.rigidbody.Value.velocity += scaledGravity;
-			}
+			_entities.GetEntities()
+			         .ForEach((e) => e.rigidbody.Value.velocity += scaledGravity);
 		}
 	}
 }

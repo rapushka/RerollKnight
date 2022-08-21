@@ -1,4 +1,5 @@
 using Code.Ecs.Systems.InitializeSystems;
+using Code.Ecs.Systems.ReactiveSystems;
 
 namespace Code.Ecs.Features
 {
@@ -8,7 +9,8 @@ namespace Code.Ecs.Features
 			: base(nameof(GameInitializationSystems))
 		{
 			Add(new SpawnPlayerSystem(contexts));
-			Add(new BindPlayerViewSystem(contexts));
+			Add(new AddPlayerViewToLoadSystem(contexts));
+			Add(new LoadViewSystem(contexts));
 		}
 	}
 }

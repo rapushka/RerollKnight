@@ -12,17 +12,19 @@ public static class GameComponentsLookup {
     public const int Player = 1;
     public const int Position = 2;
     public const int Rigidbody = 3;
-    public const int ViewToLoad = 4;
-    public const int Weighty = 5;
-    public const int PositionListener = 6;
+    public const int ViewController = 4;
+    public const int ViewToLoad = 5;
+    public const int Weighty = 6;
+    public const int PositionListener = 7;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "GravityScale",
         "Player",
         "Position",
         "Rigidbody",
+        "ViewController",
         "ViewToLoad",
         "Weighty",
         "PositionListener"
@@ -33,6 +35,7 @@ public static class GameComponentsLookup {
         typeof(Code.Ecs.Components.PlayerComponent),
         typeof(Code.Ecs.Components.PositionComponent),
         typeof(Code.Ecs.Components.RigidbodyComponent),
+        typeof(Code.Ecs.Components.ViewControllerComponent),
         typeof(Code.Ecs.Components.ViewToLoadComponent),
         typeof(Code.Ecs.Components.WeightyComponent),
         typeof(PositionListenerComponent)

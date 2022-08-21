@@ -1,4 +1,6 @@
+using Code.Ecs.Features;
 using Code.Unity.Services.Interfaces;
+using Code.Unity.Views.ViewController;
 using Code.Workflow.Extensions;
 using Entitas;
 using UnityEngine;
@@ -15,15 +17,17 @@ namespace Code.Unity.Services.Realizations
 			_viewRoot = new GameObject(nameof(_viewRoot)).transform;
 		}
 
-		private static IResourcesService ResourcesService 
+		private static IResourcesService ResourcesService
 			=> Contexts.sharedInstance.services.resourcesService.Value;
 
-		public GameObject BindViewToEntity(string viewPath, IEntity entity)
+		public void LoadViewForEntity(string viewPath, IEntity entity)
 		{
 			GameObject viewPrefab = ResourcesService.LoadResourceBy(viewPath);
 			GameObject view = Object.Instantiate(viewPrefab, _viewRoot, false);
 
-			return view.RegisterListeners(entity);
+			view
+			   .CreateController<UnityViewController>(entity)
+			   .RegisterListeners(entity);
 		}
 	}
 }

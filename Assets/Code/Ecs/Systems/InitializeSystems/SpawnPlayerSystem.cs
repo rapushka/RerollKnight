@@ -21,7 +21,6 @@ namespace Code.Ecs.Systems.InitializeSystems
 			GameEntity player = _contexts.game.CreateEntity();
 			player.isPlayer = true;
 			player.isWeighty = true;
-			player.AddViewToLoad(Constants.ResourcePath.PlayerPrefab);
 
 			player.AddPosition(SpawnPosition);
 		}
