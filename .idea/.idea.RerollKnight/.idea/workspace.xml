@@ -5,26 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameViewControllerComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameViewControllerComponent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/Registrars.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/Registrars/IViewComponentRegistrar.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/Registrars/IViewComponentRegistrar.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/Registrars/RigidbodyRegistrar.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/Registrars/RigidbodyRegistrar.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/IViewController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/IViewController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/UnityViewController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/UnityViewController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ReactiveSystems/LoadViewSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ReactiveSystems/LoadViewSystem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/VIewComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/VIewComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/BindPlayerViewSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/BindPlayerViewSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IViewsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IViewsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/UnityViewsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/UnityViewsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Workflow/Extensions/GameObjectExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Workflow/Extensions/GameObjectExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializationSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializationSystems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ExecuteSystems/ApplyGravitySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ExecuteSystems/ApplyGravitySystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/BindPlayerViewSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/AddPlayerViewToLoadSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/BindPlayerViewSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/AddPlayerViewToLoadSystem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SpawnPlayerSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/InitializeSystems/SpawnPlayerSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +113,7 @@
       <workItem from="1660904099012" duration="3858000" />
       <workItem from="1660917559714" duration="11797000" />
       <workItem from="1661070115334" duration="2968000" />
-      <workItem from="1661091940791" duration="4948000" />
+      <workItem from="1661091940791" duration="6714000" />
     </task>
     <task id="LOCAL-00001" summary="Reorganize Entitas's files">
       <created>1660853534424</created>
