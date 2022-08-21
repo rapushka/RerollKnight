@@ -6,13 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameContext {
+public partial class ServicesContext {
 
-    public GameEntity balanceServiceEntity { get { return GetGroup(GameMatcher.BalanceService).GetSingleEntity(); } }
+    public ServicesEntity balanceServiceEntity { get { return GetGroup(ServicesMatcher.BalanceService).GetSingleEntity(); } }
     public Code.Ecs.Components.BalanceService balanceService { get { return balanceServiceEntity.balanceService; } }
     public bool hasBalanceService { get { return balanceServiceEntity != null; } }
 
-    public GameEntity SetBalanceService(Code.Unity.Services.Interfaces.IBalanceService newValue) {
+    public ServicesEntity SetBalanceService(Code.Unity.Services.Interfaces.IBalanceService newValue) {
         if (hasBalanceService) {
             throw new Entitas.EntitasException("Could not set BalanceService!\n" + this + " already has an entity with Code.Ecs.Components.BalanceService!",
                 "You should check if the context already has a balanceServiceEntity before setting it or use context.ReplaceBalanceService().");
@@ -44,27 +44,27 @@ public partial class GameContext {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class ServicesEntity {
 
-    public Code.Ecs.Components.BalanceService balanceService { get { return (Code.Ecs.Components.BalanceService)GetComponent(GameComponentsLookup.BalanceService); } }
-    public bool hasBalanceService { get { return HasComponent(GameComponentsLookup.BalanceService); } }
+    public Code.Ecs.Components.BalanceService balanceService { get { return (Code.Ecs.Components.BalanceService)GetComponent(ServicesComponentsLookup.BalanceService); } }
+    public bool hasBalanceService { get { return HasComponent(ServicesComponentsLookup.BalanceService); } }
 
     public void AddBalanceService(Code.Unity.Services.Interfaces.IBalanceService newValue) {
-        var index = GameComponentsLookup.BalanceService;
+        var index = ServicesComponentsLookup.BalanceService;
         var component = (Code.Ecs.Components.BalanceService)CreateComponent(index, typeof(Code.Ecs.Components.BalanceService));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceBalanceService(Code.Unity.Services.Interfaces.IBalanceService newValue) {
-        var index = GameComponentsLookup.BalanceService;
+        var index = ServicesComponentsLookup.BalanceService;
         var component = (Code.Ecs.Components.BalanceService)CreateComponent(index, typeof(Code.Ecs.Components.BalanceService));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
     public void RemoveBalanceService() {
-        RemoveComponent(GameComponentsLookup.BalanceService);
+        RemoveComponent(ServicesComponentsLookup.BalanceService);
     }
 }
 
@@ -76,15 +76,15 @@ public partial class GameEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class ServicesMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherBalanceService;
+    static Entitas.IMatcher<ServicesEntity> _matcherBalanceService;
 
-    public static Entitas.IMatcher<GameEntity> BalanceService {
+    public static Entitas.IMatcher<ServicesEntity> BalanceService {
         get {
             if (_matcherBalanceService == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.BalanceService);
-                matcher.componentNames = GameComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<ServicesEntity>)Entitas.Matcher<ServicesEntity>.AllOf(ServicesComponentsLookup.BalanceService);
+                matcher.componentNames = ServicesComponentsLookup.componentNames;
                 _matcherBalanceService = matcher;
             }
 

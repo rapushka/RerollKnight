@@ -11,5 +11,6 @@ namespace Code.Ecs.Components
 
 	[Game] public sealed class WeightyComponent : FlagComponent { }
 	
+	[Game] public sealed class RigidbodyComponent : ValueComponent<Rigidbody> { }
 	[Game] [Event(Self)] public sealed class PositionComponent : ValueComponent<Vector2> { }
 }

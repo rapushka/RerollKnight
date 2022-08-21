@@ -21,7 +21,7 @@ namespace Code.Unity
 				Time = new UnityTimeService(),
 				Balance = _balance,
 				Resources = _resources,
-				Views = new UnityViewsService(_resources),
+				Views = new UnityViewsService(),
 			};
 
 			_systems = new CommonSystems(contexts, services);
