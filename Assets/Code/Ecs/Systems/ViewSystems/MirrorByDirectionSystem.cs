@@ -1,5 +1,5 @@
-using System;
 using Code.Unity.Views.ViewController;
+using Code.Workflow.Extensions;
 using Entitas;
 
 namespace Code.Ecs.Systems.ViewSystems
@@ -34,18 +34,5 @@ namespace Code.Ecs.Systems.ViewSystems
 
 		private static float VelocityX(GameEntity e)
 			=> e.rigidbody.Value.velocity.x;
-	}
-
-	public static class CommonExtensions
-	{
-		public static T Do<T>(this T @this, Action<T> action, bool @if)
-		{
-			if (@if)
-			{
-				action.Invoke(@this);
-			}
-
-			return @this;
-		}
 	}
 }

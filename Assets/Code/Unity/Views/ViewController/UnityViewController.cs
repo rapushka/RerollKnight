@@ -32,15 +32,4 @@ namespace Code.Unity.Views.ViewController
 			   .ForEach((r) => r.Register(_entity));
 		}
 	}
-
-	public static class QuaternionExtensions
-	{
-		public static Quaternion SetY(this Quaternion @this, float y)
-		{
-			Quaternion temp = @this;
-			temp.y = y;
-			@this = temp;
-			return @this;
-		}
-	}
 }
