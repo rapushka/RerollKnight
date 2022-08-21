@@ -5,6 +5,6 @@ namespace Code.Unity.Services.Interfaces
 {
 	public interface IViewsService : IService
 	{
-		GameObject BindViewToEntity(string viewPath, IEntity entity);
+		void LoadViewForEntity(string viewPath, IEntity entity);
 	}
 }

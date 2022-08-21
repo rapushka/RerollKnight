@@ -21,8 +21,7 @@ namespace Code.Ecs.Systems.InitializeSystems
 			const string prefabPath = Constants.ResourcePath.PlayerPrefab;
 			GameEntity playerEntity = _contexts.game.playerEntity;
 
-			GameObject playerObject = ViewService.BindViewToEntity(prefabPath, playerEntity);
-			playerEntity.AddRigidbody(playerObject.GetComponent<Rigidbody>());
+			ViewService.LoadViewForEntity(prefabPath, playerEntity);
 		}
 	}
 }
