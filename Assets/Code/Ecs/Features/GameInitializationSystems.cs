@@ -9,8 +9,6 @@ namespace Code.Ecs.Features
 			: base(nameof(GameInitializationSystems))
 		{
 			Add(new PlayerFactorySystem(contexts));
-			Add(new AddPlayerViewToLoadSystem(contexts));
-			Add(new LoadViewSystem(contexts));
 		}
 	}
 }
