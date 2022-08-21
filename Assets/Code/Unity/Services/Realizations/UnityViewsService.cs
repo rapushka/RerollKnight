@@ -15,10 +15,15 @@ namespace Code.Unity.Services.Realizations
 			_viewRoot = new GameObject(nameof(_viewRoot)).transform;
 		}
 
-		public GameObject BindViewToEntity(GameObject viewPrefab, IEntity entity)
+		private static IResourcesService ResourcesService 
+			=> Contexts.sharedInstance.services.resourcesService.Value;
+
+		public void BindViewToEntity(string viewPath, IEntity entity)
 		{
+			GameObject viewPrefab = ResourcesService.LoadResourceBy(viewPath);
+			
 			GameObject view = Object.Instantiate(viewPrefab, _viewRoot, false);
-			return view.RegisterListeners(entity);
+			view.RegisterListeners(entity);
 		}
 	}
 }

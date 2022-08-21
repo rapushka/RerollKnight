@@ -8,8 +8,10 @@ namespace Code.Ecs.Features
 			: base(nameof(CommonSystems))
 		{
 			Add(new ServicesRegistrationSystems(contexts, services));
-			Add(new GameInitializeSystems(contexts));
+			
+			Add(new GameInitializationSystems(contexts));
 			Add(new GameplaySystems(contexts));
+			
 			Add(new GameEventSystems(contexts));
 		}
 	}

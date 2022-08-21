@@ -1,4 +1,4 @@
-using Code.Ecs.Systems.InitializeSystems;
+using Code.Ecs.Systems.ExecuteSystems;
 
 namespace Code.Ecs.Features
 {
@@ -6,7 +6,8 @@ namespace Code.Ecs.Features
 	{
 		public GameplaySystems(Contexts contexts)
 			: base(nameof(GameplaySystems))
-		{			
+		{
+			Add(new ApplyGravitySystem(contexts));
 		}
 	}
 }

@@ -1,5 +1,6 @@
+using Code.Unity.Services.Interfaces;
+using Code.Workflow;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Ecs.Systems.InitializeSystems
 {
@@ -12,12 +13,13 @@ namespace Code.Ecs.Systems.InitializeSystems
 			_contexts = contexts;
 		}
 
+		private IViewsService ViewService => _contexts.services.viewService.Value;
+
 		public void Initialize()
 		{
-			GameObject playerPrefab = _contexts.services.resourcesService.Value.PlayerPrefab;
 			GameEntity playerEntity = _contexts.game.playerEntity;
 
-			_contexts.services.viewService.Value.BindViewToEntity(playerPrefab, playerEntity);
+			ViewService.BindViewToEntity(Constants.ResourcePath.PlayerPrefab, playerEntity);
 		}
 	}
 }

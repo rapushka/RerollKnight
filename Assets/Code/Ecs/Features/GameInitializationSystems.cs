@@ -2,10 +2,10 @@ using Code.Ecs.Systems.InitializeSystems;
 
 namespace Code.Ecs.Features
 {
-	public sealed class GameInitializeSystems : Feature
+	public sealed class GameInitializationSystems : Feature
 	{
-		public GameInitializeSystems(Contexts contexts)
-			: base(nameof(GameInitializeSystems))
+		public GameInitializationSystems(Contexts contexts)
+			: base(nameof(GameInitializationSystems))
 		{
 			Add(new SpawnPlayerSystem(contexts));
 			Add(new BindPlayerViewSystem(contexts));
