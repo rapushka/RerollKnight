@@ -6,13 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameContext {
+public partial class ServicesContext {
 
-    public GameEntity timeServiceEntity { get { return GetGroup(GameMatcher.TimeService).GetSingleEntity(); } }
+    public ServicesEntity timeServiceEntity { get { return GetGroup(ServicesMatcher.TimeService).GetSingleEntity(); } }
     public Code.Ecs.Components.TimeService timeService { get { return timeServiceEntity.timeService; } }
     public bool hasTimeService { get { return timeServiceEntity != null; } }
 
-    public GameEntity SetTimeService(Code.Unity.Services.Interfaces.ITimeService newValue) {
+    public ServicesEntity SetTimeService(Code.Unity.Services.Interfaces.ITimeService newValue) {
         if (hasTimeService) {
             throw new Entitas.EntitasException("Could not set TimeService!\n" + this + " already has an entity with Code.Ecs.Components.TimeService!",
                 "You should check if the context already has a timeServiceEntity before setting it or use context.ReplaceTimeService().");
@@ -44,27 +44,27 @@ public partial class GameContext {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class ServicesEntity {
 
-    public Code.Ecs.Components.TimeService timeService { get { return (Code.Ecs.Components.TimeService)GetComponent(GameComponentsLookup.TimeService); } }
-    public bool hasTimeService { get { return HasComponent(GameComponentsLookup.TimeService); } }
+    public Code.Ecs.Components.TimeService timeService { get { return (Code.Ecs.Components.TimeService)GetComponent(ServicesComponentsLookup.TimeService); } }
+    public bool hasTimeService { get { return HasComponent(ServicesComponentsLookup.TimeService); } }
 
     public void AddTimeService(Code.Unity.Services.Interfaces.ITimeService newValue) {
-        var index = GameComponentsLookup.TimeService;
+        var index = ServicesComponentsLookup.TimeService;
         var component = (Code.Ecs.Components.TimeService)CreateComponent(index, typeof(Code.Ecs.Components.TimeService));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceTimeService(Code.Unity.Services.Interfaces.ITimeService newValue) {
-        var index = GameComponentsLookup.TimeService;
+        var index = ServicesComponentsLookup.TimeService;
         var component = (Code.Ecs.Components.TimeService)CreateComponent(index, typeof(Code.Ecs.Components.TimeService));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
     public void RemoveTimeService() {
-        RemoveComponent(GameComponentsLookup.TimeService);
+        RemoveComponent(ServicesComponentsLookup.TimeService);
     }
 }
 
@@ -76,15 +76,15 @@ public partial class GameEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class ServicesMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherTimeService;
+    static Entitas.IMatcher<ServicesEntity> _matcherTimeService;
 
-    public static Entitas.IMatcher<GameEntity> TimeService {
+    public static Entitas.IMatcher<ServicesEntity> TimeService {
         get {
             if (_matcherTimeService == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.TimeService);
-                matcher.componentNames = GameComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<ServicesEntity>)Entitas.Matcher<ServicesEntity>.AllOf(ServicesComponentsLookup.TimeService);
+                matcher.componentNames = ServicesComponentsLookup.componentNames;
                 _matcherTimeService = matcher;
             }
 

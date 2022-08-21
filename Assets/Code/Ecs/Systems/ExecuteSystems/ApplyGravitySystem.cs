@@ -19,7 +19,7 @@ namespace Code.Ecs.Systems.ExecuteSystems
 
 		public void Initialize()
 		{
-			_time = _contexts.game.timeService.Value;
+			_time = _contexts.services.timeService.Value;
 			
 			_entities = _contexts.game.GetGroup
 			(
@@ -29,7 +29,7 @@ namespace Code.Ecs.Systems.ExecuteSystems
 
 		public void Execute()
 		{
-			float gravityScale = _contexts.game.balanceService.Value.GravityScale;
+			float gravityScale = _contexts.services.balanceService.Value.GravityScale;
 			float scaledY = gravityScale * _time.DeltaTime;
 			Vector2 gravity = new(0, -scaledY);
 

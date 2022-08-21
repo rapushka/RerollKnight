@@ -8,38 +8,26 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int BalanceService = 0;
-    public const int GravityScale = 1;
-    public const int Player = 2;
-    public const int Position = 3;
-    public const int ResourcesService = 4;
-    public const int TimeService = 5;
-    public const int ViewService = 6;
-    public const int Weighty = 7;
-    public const int PositionListener = 8;
+    public const int GravityScale = 0;
+    public const int Player = 1;
+    public const int Position = 2;
+    public const int Weighty = 3;
+    public const int PositionListener = 4;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
-        "BalanceService",
         "GravityScale",
         "Player",
         "Position",
-        "ResourcesService",
-        "TimeService",
-        "ViewService",
         "Weighty",
         "PositionListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Ecs.Components.BalanceService),
         typeof(Code.Ecs.Components.GravityScaleComponent),
         typeof(Code.Ecs.Components.PlayerComponent),
         typeof(Code.Ecs.Components.PositionComponent),
-        typeof(Code.Ecs.Components.ResourcesService),
-        typeof(Code.Ecs.Components.TimeService),
-        typeof(Code.Ecs.Components.ViewService),
         typeof(Code.Ecs.Components.WeightyComponent),
         typeof(PositionListenerComponent)
     };

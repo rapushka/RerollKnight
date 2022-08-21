@@ -14,10 +14,10 @@ namespace Code.Ecs.Systems.InitializeSystems
 
 		public void Initialize()
 		{
-			GameObject playerPrefab = _contexts.game.resourcesService.Value.PlayerPrefab;
+			GameObject playerPrefab = _contexts.services.resourcesService.Value.PlayerPrefab;
 			GameEntity playerEntity = _contexts.game.playerEntity;
 
-			_contexts.game.viewService.Value.BindViewToEntity(playerPrefab, playerEntity);
+			_contexts.services.viewService.Value.BindViewToEntity(playerPrefab, playerEntity);
 		}
 	}
 }
