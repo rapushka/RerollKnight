@@ -12,7 +12,7 @@ public partial class ServicesContext {
     public Code.Ecs.Components.InputService inputService { get { return inputServiceEntity.inputService; } }
     public bool hasInputService { get { return inputServiceEntity != null; } }
 
-    public ServicesEntity SetInputService(Code.Unity.Services.Interfaces.IInputService newValue) {
+    public ServicesEntity SetInputService(Code.Services.Interfaces.IInputService newValue) {
         if (hasInputService) {
             throw new Entitas.EntitasException("Could not set InputService!\n" + this + " already has an entity with Code.Ecs.Components.InputService!",
                 "You should check if the context already has a inputServiceEntity before setting it or use context.ReplaceInputService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceInputService(Code.Unity.Services.Interfaces.IInputService newValue) {
+    public void ReplaceInputService(Code.Services.Interfaces.IInputService newValue) {
         var entity = inputServiceEntity;
         if (entity == null) {
             entity = SetInputService(newValue);
@@ -49,14 +49,14 @@ public partial class ServicesEntity {
     public Code.Ecs.Components.InputService inputService { get { return (Code.Ecs.Components.InputService)GetComponent(ServicesComponentsLookup.InputService); } }
     public bool hasInputService { get { return HasComponent(ServicesComponentsLookup.InputService); } }
 
-    public void AddInputService(Code.Unity.Services.Interfaces.IInputService newValue) {
+    public void AddInputService(Code.Services.Interfaces.IInputService newValue) {
         var index = ServicesComponentsLookup.InputService;
         var component = (Code.Ecs.Components.InputService)CreateComponent(index, typeof(Code.Ecs.Components.InputService));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceInputService(Code.Unity.Services.Interfaces.IInputService newValue) {
+    public void ReplaceInputService(Code.Services.Interfaces.IInputService newValue) {
         var index = ServicesComponentsLookup.InputService;
         var component = (Code.Ecs.Components.InputService)CreateComponent(index, typeof(Code.Ecs.Components.InputService));
         component.Value = newValue;

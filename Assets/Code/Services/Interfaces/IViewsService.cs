@@ -1,8 +1,8 @@
 using Entitas;
 
-namespace Code.Unity.Services.Interfaces
+namespace Code.Services.Interfaces
 {
-	public interface IViewsService : IService
+	public interface IViewsService
 	{
 		void LoadViewForEntity(string viewPath, IEntity entity);
 	}

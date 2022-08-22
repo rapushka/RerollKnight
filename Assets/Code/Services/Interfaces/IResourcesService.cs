@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Code.Unity.Services.Interfaces
+namespace Code.Services.Interfaces
 {
-	public interface IResourcesService : IService
+	public interface IResourcesService
 	{
 		GameObject LoadResourceBy(string path);
 		

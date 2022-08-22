@@ -1,6 +1,6 @@
 using System;
 using Code.Ecs.Systems.Services;
-using Code.Unity.Services;
+using Code.Services;
 
 namespace Code.Ecs.Features
 {
@@ -17,6 +17,7 @@ namespace Code.Ecs.Features
 			Register(services.Views, servicesContext.ReplaceViewService);
 			Register(services.Input, servicesContext.ReplaceInputService);
 			Register(services.Physics, servicesContext.ReplacePhysicsService);
+			Register(services.Identifier, servicesContext.ReplaceIdentifierService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)

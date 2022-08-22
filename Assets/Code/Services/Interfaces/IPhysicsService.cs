@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Unity.Services.Interfaces
+namespace Code.Services.Interfaces
 {
 	public interface IPhysicsService
 	{

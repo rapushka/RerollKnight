@@ -1,6 +1,6 @@
-namespace Code.Unity.Services.Interfaces
+namespace Code.Services.Interfaces
 {
-	public interface IBalanceService : IService
+	public interface IBalanceService
 	{
 		public float GravityScale { get; }
 		public IPlayer Player { get; }

@@ -12,7 +12,7 @@ public partial class ServicesContext {
     public Code.Ecs.Components.BalanceService balanceService { get { return balanceServiceEntity.balanceService; } }
     public bool hasBalanceService { get { return balanceServiceEntity != null; } }
 
-    public ServicesEntity SetBalanceService(Code.Unity.Services.Interfaces.IBalanceService newValue) {
+    public ServicesEntity SetBalanceService(Code.Services.Interfaces.IBalanceService newValue) {
         if (hasBalanceService) {
             throw new Entitas.EntitasException("Could not set BalanceService!\n" + this + " already has an entity with Code.Ecs.Components.BalanceService!",
                 "You should check if the context already has a balanceServiceEntity before setting it or use context.ReplaceBalanceService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceBalanceService(Code.Unity.Services.Interfaces.IBalanceService newValue) {
+    public void ReplaceBalanceService(Code.Services.Interfaces.IBalanceService newValue) {
         var entity = balanceServiceEntity;
         if (entity == null) {
             entity = SetBalanceService(newValue);
@@ -49,14 +49,14 @@ public partial class ServicesEntity {
     public Code.Ecs.Components.BalanceService balanceService { get { return (Code.Ecs.Components.BalanceService)GetComponent(ServicesComponentsLookup.BalanceService); } }
     public bool hasBalanceService { get { return HasComponent(ServicesComponentsLookup.BalanceService); } }
 
-    public void AddBalanceService(Code.Unity.Services.Interfaces.IBalanceService newValue) {
+    public void AddBalanceService(Code.Services.Interfaces.IBalanceService newValue) {
         var index = ServicesComponentsLookup.BalanceService;
         var component = (Code.Ecs.Components.BalanceService)CreateComponent(index, typeof(Code.Ecs.Components.BalanceService));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceBalanceService(Code.Unity.Services.Interfaces.IBalanceService newValue) {
+    public void ReplaceBalanceService(Code.Services.Interfaces.IBalanceService newValue) {
         var index = ServicesComponentsLookup.BalanceService;
         var component = (Code.Ecs.Components.BalanceService)CreateComponent(index, typeof(Code.Ecs.Components.BalanceService));
         component.Value = newValue;

@@ -1,11 +1,11 @@
-using Code.Unity.Services.Interfaces;
+using Code.Services.Interfaces;
 using Code.Unity.Views.ViewController;
 using Code.Workflow.Extensions;
 using Entitas;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Code.Unity.Services.Realizations
+namespace Code.Services.Realizations
 {
 	public class UnityViewsService : IViewsService
 	{

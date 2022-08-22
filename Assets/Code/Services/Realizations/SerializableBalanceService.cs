@@ -1,8 +1,8 @@
 using System;
-using Code.Unity.Services.Interfaces;
+using Code.Services.Interfaces;
 using UnityEngine;
 
-namespace Code.Unity.Services.Realizations
+namespace Code.Services.Realizations
 {
 	[Serializable]
 	public class SerializableBalanceService : IBalanceService

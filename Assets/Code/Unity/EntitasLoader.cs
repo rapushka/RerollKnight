@@ -1,6 +1,6 @@
 using Code.Ecs.Features;
-using Code.Unity.Services;
-using Code.Unity.Services.Realizations;
+using Code.Services;
+using Code.Services.Realizations;
 using UnityEngine;
 
 namespace Code.Unity
@@ -24,6 +24,7 @@ namespace Code.Unity
 				Views = new UnityViewsService(),
 				Input = new UnityNewInputService(),
 				Physics = new UnityPhysicsService(),
+				Identifier = new IntIdentifierService(),
 			};
 
 			_systems = new CommonSystems(contexts, services);

@@ -1,7 +1,7 @@
 using System;
-using Code.Unity.Services.Interfaces;
+using Code.Services.Interfaces;
 
-namespace Code.Unity.Services
+namespace Code.Services
 {
 	[Serializable]
 	public class ServicesCollection
@@ -12,5 +12,6 @@ namespace Code.Unity.Services
 		public IViewsService Views;
 		public IInputService Input;
 		public IPhysicsService Physics;
+		public IIdentifierService<int> Identifier;
 	}
 }
