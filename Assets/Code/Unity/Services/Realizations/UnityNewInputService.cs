@@ -6,10 +6,8 @@ namespace Code.Unity.Services.Realizations
 	{
 		private readonly PlayerInput _input;
 
-		public UnityNewInputService()
-		{
-			_input = new PlayerInput();
-		}
+		public UnityNewInputService() 
+			=> _input = new PlayerInput();
 
 		public void Enable()
 			=> _input.Enable();
@@ -17,7 +15,10 @@ namespace Code.Unity.Services.Realizations
 		public void Disable()
 			=> _input.Disable();
 
-		public float Horizontal()
+		public float Walk
 			=> _input.Gameplay.Walk.ReadValue<float>();
+
+		public bool IsJumping 
+			=> _input.Gameplay.Jump.triggered;
 	}
 }

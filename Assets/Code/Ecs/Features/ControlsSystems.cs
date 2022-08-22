@@ -1,5 +1,4 @@
 using Code.Ecs.Systems.ControlsSystems;
-using Code.Ecs.Systems.InputSystems;
 
 namespace Code.Ecs.Features
 {

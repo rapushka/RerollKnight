@@ -1,5 +1,4 @@
 using Code.Ecs.Systems.ModelSystems;
-using Code.Ecs.Systems.ViewSystems;
 
 namespace Code.Ecs.Features
 {
