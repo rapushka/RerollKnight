@@ -1,4 +1,4 @@
-using Code.Ecs.Systems.ModelSystems;
+using Code.Ecs.Systems.GameLogicSystems;
 
 namespace Code.Ecs.Features
 {

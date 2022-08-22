@@ -13,5 +13,7 @@ namespace Code.Ecs.Components
 
 	[Game] public sealed class RigidbodyComponent : ValueComponent<Rigidbody> { }
 
+	[Game] public sealed class LegsPointTransformComponent : ValueComponent<Transform> { }
+
 	[Game] [Event(Self)] public sealed class PositionComponent : ValueComponent<Vector2> { }
 }

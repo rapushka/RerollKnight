@@ -1,4 +1,5 @@
 using Code.Ecs.Systems.ControlsSystems;
+using Code.Ecs.Systems.ControlsSystems.Jumping;
 using Code.Ecs.Systems.ControlsSystems.Movement;
 
 namespace Code.Ecs.Features
@@ -12,6 +13,7 @@ namespace Code.Ecs.Features
 			Add(new EmitInputsSystem(contexts));
 			
 			Add(new MovementSystem(contexts));
+			Add(new GroundCheckSystem(contexts));
 		}
 	}
 }
