@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/JumpSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/JumpSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameJumpComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameJumpComponent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameCleanupSystems.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameCleanupSystems.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Systems.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Systems/RemoveJumpGameSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Systems/RemoveJumpGameSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ControlsSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ControlsSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GrounCheckSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GrounCheckSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IBalanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IBalanceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/SerializableBalanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/SerializableBalanceService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -24,7 +24,7 @@ namespace Code.Ecs.Systems.ControlsSystems.Movement
 
 		private float VelocityX => MoveDirection * PlayerSpeed;
 		private float MoveDirection => _contexts.input.moveDirectionReceive.Value;
-		private float PlayerSpeed => _contexts.services.balanceService.Value.PlayerSpeed;
+		private float PlayerSpeed => _contexts.services.balanceService.Value.Player.MoveSpeed;
 
 		public void Execute()
 			=> _entities.GetEntities().ForEach(SetVelocityX);

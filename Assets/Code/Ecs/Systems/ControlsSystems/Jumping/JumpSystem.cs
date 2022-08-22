@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Code.Unity.Services.Interfaces;
 using Entitas;
 using UnityEngine;
 
@@ -6,8 +7,15 @@ namespace Code.Ecs.Systems.ControlsSystems.Jumping
 {
 	public sealed class JumpSystem : ReactiveSystem<GameEntity>
 	{
+		private readonly Contexts _contexts;
+
 		public JumpSystem(Contexts contexts)
-			: base(contexts.game) { }
+			: base(contexts.game)
+		{
+			_contexts = contexts;
+		}
+
+		private IBalanceService BalanceService => _contexts.services.balanceService.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Jump);
@@ -18,7 +26,8 @@ namespace Code.Ecs.Systems.ControlsSystems.Jumping
 		{
 			foreach (GameEntity e in entites)
 			{
-				e.rigidbody.Value.AddForce(Vector3.up * 20, ForceMode.Impulse);
+				float jumpForce = BalanceService.Player.JumpForce;
+				e.rigidbody.Value.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 			}
 		}
 	}

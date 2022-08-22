@@ -24,6 +24,7 @@ namespace Code.Ecs.Systems.ControlsSystems.Jumping
 		}
 
 		private IPhysicsService Physics => _contexts.services.physicsService.Value;
+		private IBalanceService BalanceService => _contexts.services.balanceService.Value;
 
 		protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context)
 			=> context.CreateCollector(InputMatcher.JumpReceive.Added());
@@ -36,8 +37,9 @@ namespace Code.Ecs.Systems.ControlsSystems.Jumping
 			foreach (GameEntity e in _jumpers.GetEntities())
 			{
 				Vector3 overlapPosition = e.legsPointTransform.Value.position;
+				float radius = BalanceService.Player.GroundCheckerRadius;
 
-				e.performJump = Physics.Collided(overlapPosition, 0.1f, excludedLayerName);
+				e.performJump = Physics.Collided(overlapPosition, radius, excludedLayerName);
 			}
 		}
 	}
