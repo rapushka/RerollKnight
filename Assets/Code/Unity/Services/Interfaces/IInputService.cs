@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Code.Unity.Services.Interfaces
 {
 	public interface IInputService
@@ -9,5 +11,7 @@ namespace Code.Unity.Services.Interfaces
 		float Walk { get; }
 
 		bool IsJumping { get; }
+
+		Vector2 CursorPosition { get; }
 	}
 }

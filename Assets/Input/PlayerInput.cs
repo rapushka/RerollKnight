@@ -73,7 +73,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Look"",
+                    ""name"": ""Aim"",
                     ""type"": ""Value"",
                     ""id"": ""e1e5054f-2fc9-4453-8be3-d721165114e6"",
                     ""expectedControlType"": ""Vector2"",
@@ -420,7 +420,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Look"",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -431,7 +431,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Look"",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -475,7 +475,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
         m_Gameplay_PrimaryAction = m_Gameplay.FindAction("PrimaryAction", throwIfNotFound: true);
         m_Gameplay_SecondaryAction = m_Gameplay.FindAction("SecondaryAction", throwIfNotFound: true);
-        m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
+        m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -540,7 +540,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Dash;
     private readonly InputAction m_Gameplay_PrimaryAction;
     private readonly InputAction m_Gameplay_SecondaryAction;
-    private readonly InputAction m_Gameplay_Look;
+    private readonly InputAction m_Gameplay_Aim;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -550,7 +550,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
         public InputAction @PrimaryAction => m_Wrapper.m_Gameplay_PrimaryAction;
         public InputAction @SecondaryAction => m_Wrapper.m_Gameplay_SecondaryAction;
-        public InputAction @Look => m_Wrapper.m_Gameplay_Look;
+        public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -575,9 +575,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @SecondaryAction.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondaryAction;
                 @SecondaryAction.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondaryAction;
                 @SecondaryAction.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondaryAction;
-                @Look.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
-                @Look.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
-                @Look.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
+                @Aim.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                @Aim.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                @Aim.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -597,9 +597,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @SecondaryAction.started += instance.OnSecondaryAction;
                 @SecondaryAction.performed += instance.OnSecondaryAction;
                 @SecondaryAction.canceled += instance.OnSecondaryAction;
-                @Look.started += instance.OnLook;
-                @Look.performed += instance.OnLook;
-                @Look.canceled += instance.OnLook;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
             }
         }
     }
@@ -629,6 +629,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnPrimaryAction(InputAction.CallbackContext context);
         void OnSecondaryAction(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
     }
 }

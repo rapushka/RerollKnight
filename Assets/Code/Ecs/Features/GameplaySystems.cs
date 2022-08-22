@@ -10,6 +10,7 @@ namespace Code.Ecs.Features
 			Add(new ControlsSystems(contexts));
 			
 			Add(new ApplyGravitySystem(contexts));
+			Add(new LookAtSystem(contexts));
 		}
 	}
 }
