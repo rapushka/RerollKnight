@@ -1,7 +1,7 @@
 using Code.Unity.Services.Interfaces;
 using Entitas;
 
-namespace Code.Ecs.Systems.InputSystems
+namespace Code.Ecs.Systems.ControlsSystems
 {
 	public sealed class InputLiveCycleSystem : IInitializeSystem, ITearDownSystem
 	{

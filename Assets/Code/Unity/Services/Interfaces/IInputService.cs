@@ -6,6 +6,8 @@ namespace Code.Unity.Services.Interfaces
 
 		void Disable();
 
-		float Horizontal();
+		float Walk { get; }
+
+		bool IsJumping { get; }
 	}
 }

@@ -28,8 +28,8 @@ namespace Code.Unity.Views.ViewController
 
 		private void RegisterViewComponents()
 		{
-			GetComponents<IViewComponentRegistrar>()
-			   .ForEach((r) => r.Register(_entity));
+			GetComponentsInChildren<IViewComponentRegistrar>(includeInactive: true)
+				.ForEach((r) => r.Register(_entity));
 		}
 	}
 }

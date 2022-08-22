@@ -14,6 +14,7 @@ namespace Code.Ecs.Features
 			Add(new ViewSystems(contexts));
 			
 			Add(new GameEventSystems(contexts));
+			Add(new GameCleanupSystems(contexts));
 		}
 	}
 }

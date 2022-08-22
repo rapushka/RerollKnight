@@ -8,15 +8,18 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
-    public const int MoveDirection = 0;
+    public const int JumpReceive = 0;
+    public const int MoveDirectionReceive = 1;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 2;
 
     public static readonly string[] componentNames = {
-        "MoveDirection"
+        "JumpReceive",
+        "MoveDirectionReceive"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Ecs.Components.MoveDirectionComponent)
+        typeof(Code.Ecs.Components.JumpReceiveComponent),
+        typeof(Code.Ecs.Components.MoveDirectionReceiveComponent)
     };
 }

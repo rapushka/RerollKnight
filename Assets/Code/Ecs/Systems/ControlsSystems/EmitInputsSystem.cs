@@ -1,7 +1,7 @@
 using Code.Unity.Services.Interfaces;
 using Entitas;
 
-namespace Code.Ecs.Systems.InputSystems
+namespace Code.Ecs.Systems.ControlsSystems
 {
 	public sealed class EmitInputsSystem : IExecuteSystem
 	{
@@ -18,7 +18,8 @@ namespace Code.Ecs.Systems.InputSystems
 
 		public void Execute()
 		{
-			Input.ReplaceMoveDirection(InputService.Horizontal());
+			Input.ReplaceMoveDirectionReceive(InputService.Walk);
+			Input.isJumpReceive = InputService.IsJumping;
 		}
 	}
 }

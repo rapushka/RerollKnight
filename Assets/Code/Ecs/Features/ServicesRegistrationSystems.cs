@@ -16,6 +16,7 @@ namespace Code.Ecs.Features
 			Register(services.Resources, servicesContext.ReplaceResourcesService);
 			Register(services.Views, servicesContext.ReplaceViewService);
 			Register(services.Input, servicesContext.ReplaceInputService);
+			Register(services.Physics, servicesContext.ReplacePhysicsService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)

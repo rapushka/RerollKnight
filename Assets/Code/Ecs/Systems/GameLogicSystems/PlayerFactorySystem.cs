@@ -1,7 +1,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace Code.Ecs.Systems.ModelSystems
+namespace Code.Ecs.Systems.GameLogicSystems
 {
 	public sealed class PlayerFactorySystem : IInitializeSystem
 	{

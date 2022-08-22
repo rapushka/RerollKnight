@@ -1,7 +1,7 @@
 using Code.Workflow.Extensions;
 using Entitas;
 
-namespace Code.Ecs.Systems.ControlsSystems
+namespace Code.Ecs.Systems.ControlsSystems.Movement
 {
 	public sealed class MovementSystem : IExecuteSystem
 	{
@@ -23,8 +23,8 @@ namespace Code.Ecs.Systems.ControlsSystems
 		}
 
 		private float VelocityX => MoveDirection * PlayerSpeed;
-		private float MoveDirection => _contexts.input.moveDirection.Value;
-		private float PlayerSpeed => _contexts.services.balanceService.Value.PlayerSpeed;
+		private float MoveDirection => _contexts.input.moveDirectionReceive.Value;
+		private float PlayerSpeed => _contexts.services.balanceService.Value.Player.MoveSpeed;
 
 		public void Execute()
 			=> _entities.GetEntities().ForEach(SetVelocityX);

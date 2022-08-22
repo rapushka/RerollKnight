@@ -10,13 +10,10 @@ namespace Code.Ecs.Systems.ViewSystems
 
 		public MirrorByDirectionSystem(Contexts contexts)
 		{
-			_entities = contexts.game.GetGroup
+			_entities = contexts.game.GetAllOf
 			(
-				GameMatcher.AllOf
-				(
-					GameMatcher.Rigidbody,
-					GameMatcher.ViewController
-				)
+				GameMatcher.Rigidbody, 
+				GameMatcher.ViewController
 			);
 		}
 

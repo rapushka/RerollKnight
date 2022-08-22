@@ -8,9 +8,22 @@ namespace Code.Unity.Services.Realizations
 	public class SerializableBalanceService : IBalanceService
 	{
 		[SerializeField] private float _gravityScale;
-		[SerializeField] private float _playerSpeed;
-		
+		[SerializeField] private PlayerRealization _player;
+
 		public float GravityScale => _gravityScale;
-		public float PlayerSpeed => _playerSpeed;
+
+		public IBalanceService.IPlayer Player => _player;
+
+		[Serializable]
+		public class PlayerRealization : IBalanceService.IPlayer
+		{
+			[SerializeField] private float _moveSpeed;
+			[SerializeField] private float _groundCheckerRadius;
+			[SerializeField] private float _jumpForce;
+
+			public float MoveSpeed => _moveSpeed;
+			public float GroundCheckerRadius => _groundCheckerRadius;
+			public float JumpForce => _jumpForce;
+		}
 	}
 }

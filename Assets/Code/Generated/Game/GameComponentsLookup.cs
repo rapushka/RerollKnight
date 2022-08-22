@@ -9,18 +9,22 @@
 public static class GameComponentsLookup {
 
     public const int InputReceiver = 0;
-    public const int Player = 1;
-    public const int Position = 2;
-    public const int Rigidbody = 3;
-    public const int ViewController = 4;
-    public const int ViewToLoad = 5;
-    public const int Weighty = 6;
-    public const int PositionListener = 7;
+    public const int Jump = 1;
+    public const int LegsPointTransform = 2;
+    public const int Player = 3;
+    public const int Position = 4;
+    public const int Rigidbody = 5;
+    public const int ViewController = 6;
+    public const int ViewToLoad = 7;
+    public const int Weighty = 8;
+    public const int PositionListener = 9;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "InputReceiver",
+        "Jump",
+        "LegsPointTransform",
         "Player",
         "Position",
         "Rigidbody",
@@ -32,6 +36,8 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Ecs.Components.InputReceiverComponent),
+        typeof(Code.Ecs.Components.JumpComponent),
+        typeof(Code.Ecs.Components.LegsPointTransformComponent),
         typeof(Code.Ecs.Components.PlayerComponent),
         typeof(Code.Ecs.Components.PositionComponent),
         typeof(Code.Ecs.Components.RigidbodyComponent),
