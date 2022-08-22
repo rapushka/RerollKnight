@@ -18,8 +18,8 @@ namespace Code.Ecs.Systems.ControlsSystems
 
 		public void Execute()
 		{
-			Input.ReplaceMoveDirection(InputService.Walk);
-			Input.isJumping = InputService.IsJumping;
+			Input.ReplaceMoveDirectionReceive(InputService.Walk);
+			Input.isJumpReceive = InputService.IsJumping;
 		}
 	}
 }

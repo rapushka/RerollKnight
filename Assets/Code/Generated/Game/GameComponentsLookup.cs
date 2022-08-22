@@ -23,7 +23,7 @@ public static class GameComponentsLookup {
     public static readonly string[] componentNames = {
         "InputReceiver",
         "LegsPointTransform",
-        "Player",
+        "Creature",
         "Position",
         "Rigidbody",
         "ViewController",

@@ -4,7 +4,12 @@ namespace Code.Workflow
 	{
 		public static class ResourcePath
 		{
-			public const string PlayerPrefab = "Player/Prefab";
+			public const string PlayerPrefab = "Creature/Prefab";
+		}
+
+		public static class LayerName
+		{
+			public const string Creature = nameof(Creature);
 		}
 	}
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8676001088030643382}
   - component: {fileID: 1328320855703965968}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Legs Overlap Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 1280160556677026088}
   - component: {fileID: 3394869118465060268}
   - component: {fileID: 8496153488878552986}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 6948400405591900177}
   - component: {fileID: 6937115977034897717}
   - component: {fileID: 382913761989805690}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Dot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 1040958994}
   - component: {fileID: 3810343707888150301}
   - component: {fileID: 6407382007328210504}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 7621987440711357875}
   - component: {fileID: 4414810135277434059}
   - component: {fileID: 3815221578204021679}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 5634290576089231666}
   - component: {fileID: 9153882025722672325}
   - component: {fileID: 4455217423840711309}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leg right
   m_TagString: Untagged
   m_Icon: {fileID: 0}

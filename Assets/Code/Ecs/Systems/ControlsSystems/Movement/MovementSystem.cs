@@ -23,7 +23,7 @@ namespace Code.Ecs.Systems.ControlsSystems.Movement
 		}
 
 		private float VelocityX => MoveDirection * PlayerSpeed;
-		private float MoveDirection => _contexts.input.moveDirection.Value;
+		private float MoveDirection => _contexts.input.moveDirectionReceive.Value;
 		private float PlayerSpeed => _contexts.services.balanceService.Value.PlayerSpeed;
 
 		public void Execute()

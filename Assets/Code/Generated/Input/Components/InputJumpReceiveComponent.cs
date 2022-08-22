@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 public partial class InputContext {
 
-    public InputEntity jumpingEntity { get { return GetGroup(InputMatcher.Jumping).GetSingleEntity(); } }
+    public InputEntity jumpReceiveEntity { get { return GetGroup(InputMatcher.JumpReceive).GetSingleEntity(); } }
 
-    public bool isJumping {
-        get { return jumpingEntity != null; }
+    public bool isJumpReceive {
+        get { return jumpReceiveEntity != null; }
         set {
-            var entity = jumpingEntity;
+            var entity = jumpReceiveEntity;
             if (value != (entity != null)) {
                 if (value) {
-                    CreateEntity().isJumping = true;
+                    CreateEntity().isJumpReceive = true;
                 } else {
                     entity.Destroy();
                 }
@@ -35,18 +35,18 @@ public partial class InputContext {
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    static readonly Code.Ecs.Components.JumpingComponent jumpingComponent = new Code.Ecs.Components.JumpingComponent();
+    static readonly Code.Ecs.Components.JumpReceiveComponent jumpReceiveComponent = new Code.Ecs.Components.JumpReceiveComponent();
 
-    public bool isJumping {
-        get { return HasComponent(InputComponentsLookup.Jumping); }
+    public bool isJumpReceive {
+        get { return HasComponent(InputComponentsLookup.JumpReceive); }
         set {
-            if (value != isJumping) {
-                var index = InputComponentsLookup.Jumping;
+            if (value != isJumpReceive) {
+                var index = InputComponentsLookup.JumpReceive;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : jumpingComponent;
+                            : jumpReceiveComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -67,17 +67,17 @@ public partial class InputEntity {
 //------------------------------------------------------------------------------
 public sealed partial class InputMatcher {
 
-    static Entitas.IMatcher<InputEntity> _matcherJumping;
+    static Entitas.IMatcher<InputEntity> _matcherJumpReceive;
 
-    public static Entitas.IMatcher<InputEntity> Jumping {
+    public static Entitas.IMatcher<InputEntity> JumpReceive {
         get {
-            if (_matcherJumping == null) {
-                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.Jumping);
+            if (_matcherJumpReceive == null) {
+                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.JumpReceive);
                 matcher.componentNames = InputComponentsLookup.componentNames;
-                _matcherJumping = matcher;
+                _matcherJumpReceive = matcher;
             }
 
-            return _matcherJumping;
+            return _matcherJumpReceive;
         }
     }
 }

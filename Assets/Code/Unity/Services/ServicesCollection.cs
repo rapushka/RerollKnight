@@ -11,5 +11,6 @@ namespace Code.Unity.Services
 		public IResourcesService Resources;
 		public IViewsService Views;
 		public IInputService Input;
+		public IPhysicsService Physics;
 	}
 }

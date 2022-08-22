@@ -23,6 +23,7 @@ namespace Code.Unity
 				Time = new UnityTimeService(),
 				Views = new UnityViewsService(),
 				Input = new UnityNewInputService(),
+				Physics = new UnityPhysicsService(),
 			};
 
 			_systems = new CommonSystems(contexts, services);
