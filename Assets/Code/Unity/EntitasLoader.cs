@@ -25,6 +25,7 @@ namespace Code.Unity
 				Input = new UnityNewInputService(),
 				Physics = new UnityPhysicsService(),
 				Identifier = new IntIdentifierService(),
+				Scene = new UnitySceneService(),
 			};
 
 			_systems = new CommonSystems(contexts, services);

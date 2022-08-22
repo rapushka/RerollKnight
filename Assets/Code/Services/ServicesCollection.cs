@@ -13,5 +13,6 @@ namespace Code.Services
 		public IInputService Input;
 		public IPhysicsService Physics;
 		public IIdentifierService<int> Identifier;
+		public ISceneService Scene;
 	}
 }

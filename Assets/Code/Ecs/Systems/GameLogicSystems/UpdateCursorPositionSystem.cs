@@ -1,3 +1,4 @@
+using Code.Services.Interfaces;
 using Entitas;
 using UnityEngine;
 
@@ -13,7 +14,9 @@ namespace Code.Ecs.Systems.GameLogicSystems
 		}
 
 		private GameEntity Cursor => _contexts.game.cursorEntity;
-
+		private ISceneService Scene => _contexts.services.sceneService.Value;
+		private Vector2 AimingValue => _contexts.input.lookReceive.Value;
+		
 		public void Initialize()
 		{
 			GameEntity cursor = _contexts.game.CreateEntity();
@@ -21,9 +24,6 @@ namespace Code.Ecs.Systems.GameLogicSystems
 			cursor.AddPosition(Vector2.zero);
 		}
 
-		public void Execute()
-		{
-			Cursor.position.Value = _contexts.input.lookReceive.Value;
-		}
+		public void Execute() => Cursor.position.Value = Scene.ScreenToWorldPoint(AimingValue);
 	}
 }

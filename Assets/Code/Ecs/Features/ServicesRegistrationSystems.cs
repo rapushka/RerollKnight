@@ -18,6 +18,7 @@ namespace Code.Ecs.Features
 			Register(services.Input, servicesContext.ReplaceInputService);
 			Register(services.Physics, servicesContext.ReplacePhysicsService);
 			Register(services.Identifier, servicesContext.ReplaceIdentifierService);
+			Register(services.Scene, servicesContext.ReplaceSceneService);
 		}
 
 		private void Register<T>(T service, Action<T> replaceService)
