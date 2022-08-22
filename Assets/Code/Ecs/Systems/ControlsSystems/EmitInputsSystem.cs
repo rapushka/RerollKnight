@@ -1,6 +1,5 @@
 using Code.Unity.Services.Interfaces;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Ecs.Systems.ControlsSystems
 {
