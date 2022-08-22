@@ -13,5 +13,11 @@ namespace Code.Workflow.Extensions
 
 			return @this;
 		}
+
+		public static T Do<T>(this T @this, Action<T> action)
+		{
+			action.Invoke(@this);
+			return @this;
+		}
 	}
 }

@@ -9,6 +9,7 @@ namespace Code.Ecs.Features
 		{
 			Add(new MirrorByDirectionSystem(contexts));
 			Add(new AddPlayerViewToLoadSystem(contexts));
+			Add(new SetupAimingAtCursorSystem(contexts));
 			Add(new LoadViewSystem(contexts));
 		}
 	}
