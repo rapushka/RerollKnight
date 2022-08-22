@@ -1,6 +1,7 @@
 using Code.WorkFlow.ComponentsTemplates;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
+using static Entitas.CodeGeneration.Attributes.CleanupMode;
 using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace Code.Ecs.Components
@@ -16,4 +17,6 @@ namespace Code.Ecs.Components
 	[Game] public sealed class LegsPointTransformComponent : ValueComponent<Transform> { }
 
 	[Game] [Event(Self)] public sealed class PositionComponent : ValueComponent<Vector2> { }
+
+	[Game] [Cleanup(RemoveComponent)] [FlagPrefix("Perform")] public sealed class JumpComponent : FlagComponent { }
 }

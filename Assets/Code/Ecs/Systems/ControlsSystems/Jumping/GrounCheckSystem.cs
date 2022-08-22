@@ -36,9 +36,8 @@ namespace Code.Ecs.Systems.ControlsSystems.Jumping
 			foreach (GameEntity e in _jumpers.GetEntities())
 			{
 				Vector3 overlapPosition = e.legsPointTransform.Value.position;
-				bool collided = Physics.Collided(overlapPosition, 1f, excludedLayerName);
 
-				Debug.Log("collided = " + collided);
+				e.performJump = Physics.Collided(overlapPosition, 0.1f, excludedLayerName);
 			}
 		}
 	}

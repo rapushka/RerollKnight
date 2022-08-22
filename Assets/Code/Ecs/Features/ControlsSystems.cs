@@ -14,6 +14,7 @@ namespace Code.Ecs.Features
 			
 			Add(new MovementSystem(contexts));
 			Add(new GroundCheckSystem(contexts));
+			Add(new JumpSystem(contexts));
 		}
 	}
 }

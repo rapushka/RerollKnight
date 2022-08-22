@@ -5,35 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Input/Components/InputJumpReceiveComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Input/Components/InputJumpReceiveComponent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Input/Components/InputMoveDirectionReceiveComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Input/Components/InputMoveDirectionReceiveComponent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components/ServicesPhysicsServiceComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/Components/ServicesPhysicsServiceComponent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IPhysicsService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Interfaces/IPhysicsService.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/UnityPhysicsService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/Realizations/UnityPhysicsService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/JumpSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/JumpSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameJumpComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameJumpComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameCleanupSystems.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameCleanupSystems.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Systems.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Systems/RemoveJumpGameSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Systems/RemoveJumpGameSystem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/InputComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/InputComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/ServicesComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/ServicesComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ServicesRegistrationSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ServicesRegistrationSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/EmitInputsSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/EmitInputsSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/CommonSystems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ControlsSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ControlsSystems.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GrounCheckSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GrounCheckSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Movement/MovementSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Movement/MovementSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Input/Components/InputJumpingComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Input/Components/InputJumpingComponent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Input/Components/InputMoveDirectionComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Input/Components/InputMoveDirectionComponent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Input/InputComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Input/InputComponentsLookup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Services/ServicesComponentsLookup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/EntitasLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/EntitasLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Services/ServicesCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Services/ServicesCollection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Workflow/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Workflow/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +61,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "rider.run.widget.enabled.cache": "false",
-    "settings.editor.selected.configurable": "RiderUnityFileTemplatesSettings",
+    "settings.editor.selected.configurable": "RiderUnityLiveTemplatesSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
