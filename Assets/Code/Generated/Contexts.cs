@@ -60,11 +60,17 @@ public partial class Contexts : Entitas.IContexts {
 //------------------------------------------------------------------------------
 public partial class Contexts {
 
+    public const string Id = "Id";
     public const string LookAtObjectId = "LookAtObjectId";
     public const string LookAtSubjectId = "LookAtSubjectId";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
+        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, int>(
+            Id,
+            game.GetGroup(GameMatcher.Id),
+            (e, c) => ((Code.Ecs.Components.IdComponent)c).Value));
+
         game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, int>(
             LookAtObjectId,
             game.GetGroup(GameMatcher.LookAtObjectId),
@@ -78,6 +84,10 @@ public partial class Contexts {
 }
 
 public static class ContextsExtensions {
+
+    public static GameEntity GetEntityWithId(this GameContext context, int Value) {
+        return ((Entitas.PrimaryEntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.Id)).GetEntity(Value);
+    }
 
     public static GameEntity GetEntityWithLookAtObjectId(this GameContext context, int Value) {
         return ((Entitas.PrimaryEntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.LookAtObjectId)).GetEntity(Value);

@@ -27,17 +27,17 @@ namespace Code.Ecs.Systems.GameLogicSystems
 		private void TurnSubjectsTo(GameEntity @object)
 		{
 			_gameContext
-				.GetEntitiesWithLookAtSubjectId(@object.lookAtObjectId.Value)
-				.Where((s) => s.hasTransform)
+				.GetEntitiesWithLookAtSubjectId(@object.lookAtObjectId)
+				.Where((s) => s.hasPosition)
 				.ForEach((s) => TurnSubjectToObject(s, @object));
 		}
 
 		private static void TurnSubjectToObject(GameEntity entitySubject, GameEntity entityObject)
 		{
-			Transform transformObject = entityObject.transform.Value;
-			Transform transformSubject = entitySubject.transform.Value;
+			Transform subject = entitySubject.transform;
+			Vector2 @object = entityObject.position;
 
-			transformObject.LookAt(transformSubject.position);
+			subject.LookAt(@object);
 		}
 	}
 }

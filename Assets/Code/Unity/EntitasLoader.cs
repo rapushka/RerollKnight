@@ -32,10 +32,7 @@ namespace Code.Unity
 			_systems.Initialize();
 		}
 
-		private void Update()
-		{
-			_systems.Execute();
-		}
+		private void Update() => _systems.Execute();
 
 		private void LateUpdate() => _systems.Cleanup();
 

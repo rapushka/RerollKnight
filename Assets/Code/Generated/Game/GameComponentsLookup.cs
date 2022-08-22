@@ -8,23 +8,27 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int InputReceiver = 0;
-    public const int Jump = 1;
-    public const int LegsPointTransform = 2;
-    public const int LookAtObjectId = 3;
-    public const int LookAtSubjectId = 4;
-    public const int Player = 5;
-    public const int Position = 6;
-    public const int Rigidbody = 7;
-    public const int Transform = 8;
-    public const int ViewController = 9;
-    public const int ViewToLoad = 10;
-    public const int Weighty = 11;
-    public const int PositionListener = 12;
+    public const int ArmsTransform = 0;
+    public const int Id = 1;
+    public const int InputReceiver = 2;
+    public const int Jump = 3;
+    public const int LegsPointTransform = 4;
+    public const int LookAtObjectId = 5;
+    public const int LookAtSubjectId = 6;
+    public const int Player = 7;
+    public const int Position = 8;
+    public const int Rigidbody = 9;
+    public const int Transform = 10;
+    public const int ViewController = 11;
+    public const int ViewToLoad = 12;
+    public const int Weighty = 13;
+    public const int PositionListener = 14;
 
-    public const int TotalComponents = 13;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
+        "ArmsTransform",
+        "Id",
         "InputReceiver",
         "Jump",
         "LegsPointTransform",
@@ -41,6 +45,8 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.Ecs.Components.ArmsTransformComponent),
+        typeof(Code.Ecs.Components.IdComponent),
         typeof(Code.Ecs.Components.InputReceiverComponent),
         typeof(Code.Ecs.Components.JumpComponent),
         typeof(Code.Ecs.Components.LegsPointTransformComponent),
