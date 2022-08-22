@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 677711443532553955}
   - component: {fileID: 3169988970537802131}
   - component: {fileID: 6245097624130722179}
+  - component: {fileID: 6545567412690476905}
   m_Layer: 0
   m_Name: Left Arm
   m_TagString: Untagged
@@ -105,7 +106,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 95219a8d1cc2fa54ab0e7aecf09d503d, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,6 +128,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &6545567412690476905
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857788506961806564}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2218194909862001832
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +413,7 @@ GameObject:
   - component: {fileID: 1957165535291996726}
   - component: {fileID: 7799539674342993782}
   - component: {fileID: 5098406859355556386}
+  - component: {fileID: 3220208086684130510}
   m_Layer: 0
   m_Name: Weapone
   m_TagString: Untagged
@@ -470,6 +486,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3220208086684130510
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092569086318145755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6998690384584225352
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,6 +740,7 @@ GameObject:
   - component: {fileID: 6082328850101570629}
   - component: {fileID: 1379162987877419086}
   - component: {fileID: 4150250432344984981}
+  - component: {fileID: 8201125102215169816}
   m_Layer: 0
   m_Name: Right Arm
   m_TagString: Untagged
@@ -761,7 +791,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 95219a8d1cc2fa54ab0e7aecf09d503d, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -783,3 +813,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &8201125102215169816
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858461731074291868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
