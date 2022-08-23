@@ -14,8 +14,7 @@ namespace Code.Ecs.Systems.GameLogicSystems
 		{
 			_gameContext = contexts.game;
 
-			contexts.game.GetAllOf(GameMatcher.LookAtSubjectId, GameMatcher.Transform);
-			_objects = contexts.game.GetAllOf(GameMatcher.LookAtObjectId, GameMatcher.Transform);
+			_objects = contexts.game.GetAllOf(GameMatcher.LookAtObjectId, GameMatcher.Position);
 		}
 
 		public void Execute()
@@ -28,15 +27,14 @@ namespace Code.Ecs.Systems.GameLogicSystems
 		{
 			_gameContext
 				.GetEntitiesWithLookAtSubjectId(@object.lookAtObjectId)
-				.Where((s) => s.hasPosition)
+				.Where((s) => s.hasTransform)
 				.ForEach((s) => TurnSubjectToObject(s, @object));
 		}
 
 		private static void TurnSubjectToObject(GameEntity entitySubject, GameEntity entityObject)
 		{
 			Transform subject = entitySubject.transform;
-			Vector2 @object = entityObject.position;
-
+			Vector3 @object = entityObject.position.Value;
 			subject.LookAt(@object);
 		}
 	}

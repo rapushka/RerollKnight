@@ -24,6 +24,9 @@ namespace Code.Ecs.Systems.GameLogicSystems
 			cursor.AddPosition(Vector2.zero);
 		}
 
-		public void Execute() => Cursor.position.Value = Scene.ScreenToWorldPoint(AimingValue);
+		public void Execute()
+		{
+			Cursor.position.Value = Scene.ScreenToWorldPoint(AimingValue);
+		}
 	}
 }
