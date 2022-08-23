@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/LookAtSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/LookAtSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/UpdateCursorPositionSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/UpdateCursorPositionSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +115,7 @@
       <workItem from="1660917559714" duration="11797000" />
       <workItem from="1661070115334" duration="2968000" />
       <workItem from="1661091940791" duration="6714000" />
-      <workItem from="1661177952903" duration="15564000" />
+      <workItem from="1661177952903" duration="15984000" />
     </task>
     <task id="LOCAL-00001" summary="Reorganize Entitas's files">
       <created>1660853534424</created>
