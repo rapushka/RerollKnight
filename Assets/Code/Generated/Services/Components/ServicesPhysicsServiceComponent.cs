@@ -12,7 +12,7 @@ public partial class ServicesContext {
     public Code.Ecs.Components.PhysicsService physicsService { get { return physicsServiceEntity.physicsService; } }
     public bool hasPhysicsService { get { return physicsServiceEntity != null; } }
 
-    public ServicesEntity SetPhysicsService(Code.Unity.Services.Interfaces.IPhysicsService newValue) {
+    public ServicesEntity SetPhysicsService(Code.Services.Interfaces.IPhysicsService newValue) {
         if (hasPhysicsService) {
             throw new Entitas.EntitasException("Could not set PhysicsService!\n" + this + " already has an entity with Code.Ecs.Components.PhysicsService!",
                 "You should check if the context already has a physicsServiceEntity before setting it or use context.ReplacePhysicsService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplacePhysicsService(Code.Unity.Services.Interfaces.IPhysicsService newValue) {
+    public void ReplacePhysicsService(Code.Services.Interfaces.IPhysicsService newValue) {
         var entity = physicsServiceEntity;
         if (entity == null) {
             entity = SetPhysicsService(newValue);
@@ -49,14 +49,14 @@ public partial class ServicesEntity {
     public Code.Ecs.Components.PhysicsService physicsService { get { return (Code.Ecs.Components.PhysicsService)GetComponent(ServicesComponentsLookup.PhysicsService); } }
     public bool hasPhysicsService { get { return HasComponent(ServicesComponentsLookup.PhysicsService); } }
 
-    public void AddPhysicsService(Code.Unity.Services.Interfaces.IPhysicsService newValue) {
+    public void AddPhysicsService(Code.Services.Interfaces.IPhysicsService newValue) {
         var index = ServicesComponentsLookup.PhysicsService;
         var component = (Code.Ecs.Components.PhysicsService)CreateComponent(index, typeof(Code.Ecs.Components.PhysicsService));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplacePhysicsService(Code.Unity.Services.Interfaces.IPhysicsService newValue) {
+    public void ReplacePhysicsService(Code.Services.Interfaces.IPhysicsService newValue) {
         var index = ServicesComponentsLookup.PhysicsService;
         var component = (Code.Ecs.Components.PhysicsService)CreateComponent(index, typeof(Code.Ecs.Components.PhysicsService));
         component.Value = newValue;

@@ -12,7 +12,7 @@ public partial class ServicesContext {
     public Code.Ecs.Components.ViewService viewService { get { return viewServiceEntity.viewService; } }
     public bool hasViewService { get { return viewServiceEntity != null; } }
 
-    public ServicesEntity SetViewService(Code.Unity.Services.Interfaces.IViewsService newValue) {
+    public ServicesEntity SetViewService(Code.Services.Interfaces.IViewsService newValue) {
         if (hasViewService) {
             throw new Entitas.EntitasException("Could not set ViewService!\n" + this + " already has an entity with Code.Ecs.Components.ViewService!",
                 "You should check if the context already has a viewServiceEntity before setting it or use context.ReplaceViewService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceViewService(Code.Unity.Services.Interfaces.IViewsService newValue) {
+    public void ReplaceViewService(Code.Services.Interfaces.IViewsService newValue) {
         var entity = viewServiceEntity;
         if (entity == null) {
             entity = SetViewService(newValue);
@@ -49,14 +49,14 @@ public partial class ServicesEntity {
     public Code.Ecs.Components.ViewService viewService { get { return (Code.Ecs.Components.ViewService)GetComponent(ServicesComponentsLookup.ViewService); } }
     public bool hasViewService { get { return HasComponent(ServicesComponentsLookup.ViewService); } }
 
-    public void AddViewService(Code.Unity.Services.Interfaces.IViewsService newValue) {
+    public void AddViewService(Code.Services.Interfaces.IViewsService newValue) {
         var index = ServicesComponentsLookup.ViewService;
         var component = (Code.Ecs.Components.ViewService)CreateComponent(index, typeof(Code.Ecs.Components.ViewService));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceViewService(Code.Unity.Services.Interfaces.IViewsService newValue) {
+    public void ReplaceViewService(Code.Services.Interfaces.IViewsService newValue) {
         var index = ServicesComponentsLookup.ViewService;
         var component = (Code.Ecs.Components.ViewService)CreateComponent(index, typeof(Code.Ecs.Components.ViewService));
         component.Value = newValue;

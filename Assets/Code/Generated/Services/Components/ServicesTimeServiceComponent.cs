@@ -12,7 +12,7 @@ public partial class ServicesContext {
     public Code.Ecs.Components.TimeService timeService { get { return timeServiceEntity.timeService; } }
     public bool hasTimeService { get { return timeServiceEntity != null; } }
 
-    public ServicesEntity SetTimeService(Code.Unity.Services.Interfaces.ITimeService newValue) {
+    public ServicesEntity SetTimeService(Code.Services.Interfaces.ITimeService newValue) {
         if (hasTimeService) {
             throw new Entitas.EntitasException("Could not set TimeService!\n" + this + " already has an entity with Code.Ecs.Components.TimeService!",
                 "You should check if the context already has a timeServiceEntity before setting it or use context.ReplaceTimeService().");
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceTimeService(Code.Unity.Services.Interfaces.ITimeService newValue) {
+    public void ReplaceTimeService(Code.Services.Interfaces.ITimeService newValue) {
         var entity = timeServiceEntity;
         if (entity == null) {
             entity = SetTimeService(newValue);
@@ -49,14 +49,14 @@ public partial class ServicesEntity {
     public Code.Ecs.Components.TimeService timeService { get { return (Code.Ecs.Components.TimeService)GetComponent(ServicesComponentsLookup.TimeService); } }
     public bool hasTimeService { get { return HasComponent(ServicesComponentsLookup.TimeService); } }
 
-    public void AddTimeService(Code.Unity.Services.Interfaces.ITimeService newValue) {
+    public void AddTimeService(Code.Services.Interfaces.ITimeService newValue) {
         var index = ServicesComponentsLookup.TimeService;
         var component = (Code.Ecs.Components.TimeService)CreateComponent(index, typeof(Code.Ecs.Components.TimeService));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceTimeService(Code.Unity.Services.Interfaces.ITimeService newValue) {
+    public void ReplaceTimeService(Code.Services.Interfaces.ITimeService newValue) {
         var index = ServicesComponentsLookup.TimeService;
         var component = (Code.Ecs.Components.TimeService)CreateComponent(index, typeof(Code.Ecs.Components.TimeService));
         component.Value = newValue;

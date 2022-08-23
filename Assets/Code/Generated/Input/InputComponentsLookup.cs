@@ -9,17 +9,20 @@
 public static class InputComponentsLookup {
 
     public const int JumpReceive = 0;
-    public const int MoveDirectionReceive = 1;
+    public const int LookReceive = 1;
+    public const int MoveDirectionReceive = 2;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
         "JumpReceive",
+        "LookReceive",
         "MoveDirectionReceive"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Ecs.Components.JumpReceiveComponent),
+        typeof(Code.Ecs.Components.LookReceiveComponent),
         typeof(Code.Ecs.Components.MoveDirectionReceiveComponent)
     };
 }

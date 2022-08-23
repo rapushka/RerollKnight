@@ -9,28 +9,34 @@
 public static class ServicesComponentsLookup {
 
     public const int BalanceService = 0;
-    public const int InputService = 1;
-    public const int PhysicsService = 2;
-    public const int ResourcesService = 3;
-    public const int TimeService = 4;
-    public const int ViewService = 5;
+    public const int IdentifierService = 1;
+    public const int InputService = 2;
+    public const int PhysicsService = 3;
+    public const int ResourcesService = 4;
+    public const int SceneService = 5;
+    public const int TimeService = 6;
+    public const int ViewService = 7;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "BalanceService",
+        "IdentifierService",
         "InputService",
         "PhysicsService",
         "ResourcesService",
+        "SceneService",
         "TimeService",
         "ViewService"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Ecs.Components.BalanceService),
+        typeof(Code.Ecs.Components.IdentifierService),
         typeof(Code.Ecs.Components.InputService),
         typeof(Code.Ecs.Components.PhysicsService),
         typeof(Code.Ecs.Components.ResourcesService),
+        typeof(Code.Ecs.Components.SceneService),
         typeof(Code.Ecs.Components.TimeService),
         typeof(Code.Ecs.Components.ViewService)
     };

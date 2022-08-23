@@ -1,4 +1,4 @@
-using Code.Unity.Services.Interfaces;
+using Code.Services.Interfaces;
 using Entitas;
 
 namespace Code.Ecs.Systems.ControlsSystems
@@ -13,13 +13,13 @@ namespace Code.Ecs.Systems.ControlsSystems
 		}
 
 		private IInputService InputService => _contexts.services.inputService.Value;
-		private InputContext Input => _contexts.input;
-
-
+		private InputContext InputContext => _contexts.input;
+		
 		public void Execute()
 		{
-			Input.ReplaceMoveDirectionReceive(InputService.Walk);
-			Input.isJumpReceive = InputService.IsJumping;
+			InputContext.ReplaceMoveDirectionReceive(InputService.Walk);
+			InputContext.isJumpReceive = InputService.IsJumping;
+			InputContext.ReplaceLookReceive(InputService.CursorPosition);
 		}
 	}
 }

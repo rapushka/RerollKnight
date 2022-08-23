@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290012882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.28, y: -2.2100005, z: 0}
+  m_LocalPosition: {x: -6.28, y: -2.2100005, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -338,7 +338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935026558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -5.34, z: 0}
+  m_LocalPosition: {x: 0, y: -5.34, z: 1}
   m_LocalScale: {x: 18.173605, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -559,7 +559,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _balance:
     _gravityScale: 9.8
-    _playerSpeed: 10
+    _player:
+      _moveSpeed: 10
+      _groundCheckerRadius: 0.1
+      _jumpForce: 20
   _resources:
     _playerPrefab: {fileID: 4929742070666120890, guid: c6f003abe6a3e3e47acd9b27dd6fea96, type: 3}
     _playerSpawnPoint: {fileID: 290012883}
