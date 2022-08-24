@@ -560,7 +560,7 @@ MonoBehaviour:
   _balance:
     _gravityScale: 9.8
     _player:
-      _moveSpeed: 10
+      _moveSpeed: 0.1
       _groundCheckerRadius: 0.1
       _jumpForce: 20
   _resources:

@@ -27,13 +27,11 @@ namespace Code.Ecs.Systems.ControlsSystems.Movement
 		private Vector2 MoveDirection => _contexts.input.moveDirectionReceive.Value;
 		private float PlayerSpeed => _contexts.services.balanceService.Value.Player.MoveSpeed;
 
-		public void Execute()
-			=> _entities.GetEntities().ForEach(SetVelocity);
+		public void Execute() => _entities.GetEntities().ForEach(SetVelocity);
 
-		private void SetVelocity(GameEntity e)
-			=> e.rigidbody.Value.velocity = VelocityToTopDown(e);
+		private void SetVelocity(GameEntity e) => e.characterController.Value.Move(DirectionToTopDown(e));
 
-		private Vector3 VelocityToTopDown(GameEntity e) 
-			=> new(Velocity.x, e.rigidbody.Value.velocity.y, Velocity.y);
+		private Vector3 DirectionToTopDown(GameEntity e)
+			=> new(Velocity.x, e.characterController.Value.velocity.y, Velocity.y);
 	}
 }

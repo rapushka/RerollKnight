@@ -14,6 +14,8 @@ namespace Code.Ecs.Components
 	[Game] public sealed class InputReceiverComponent : FlagComponent { }
 
 	[Game] public sealed class RigidbodyComponent : ValueComponent<Rigidbody> { }
+	
+	[Game] public sealed class CharacterControllerComponent : ValueComponent<CharacterController> { }
 
 	[Game] public sealed class TransformComponent : ValueComponent<Transform> { }
 

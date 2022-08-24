@@ -10,30 +10,23 @@ namespace Code.Ecs.Systems.GameLogicSystems
 		private readonly Contexts _contexts;
 		private IGroup<GameEntity> _entities;
 		private float _gravityScale;
-		private ITimeService _time;
 
 		public ApplyGravitySystem(Contexts contexts)
 		{
 			_contexts = contexts;
 		}
 
-		public void Initialize()
-		{
-			_time = _contexts.services.timeService.Value;
+		private Vector3 ScaledGravity => Physics.gravity * GravityScale * Time.DeltaTime;
+		private float GravityScale => _contexts.services.balanceService.Value.GravityScale;
+		private ITimeService Time => _contexts.services.timeService.Value;
 
-			_entities = _contexts.game.GetGroup
-			(
-				GameMatcher.AllOf(GameMatcher.Rigidbody, GameMatcher.Weighty)
-			);
-		}
+		public void Initialize()
+			=> _entities = _contexts.game.GetAllOf(GameMatcher.CharacterController, GameMatcher.Weighty);
 
 		public void Execute()
-		{
-			float gravityScale = _contexts.services.balanceService.Value.GravityScale;
-			Vector3 scaledGravity = Physics.gravity * gravityScale * _time.DeltaTime;
+			=> _entities.GetEntities().ForEach(ApplyGravity);
 
-			_entities.GetEntities()
-			         .ForEach((e) => e.rigidbody.Value.velocity += scaledGravity);
-		}
+		private void ApplyGravity(GameEntity e)
+			=> e.characterController.Value.Move(ScaledGravity);
 	}
 }

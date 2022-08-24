@@ -3,7 +3,7 @@ using Entitas;
 
 namespace Code.Ecs.Systems.ControlsSystems
 {
-	public sealed class EmitInputsSystem : IExecuteSystem
+	public sealed class EmitInputsSystem : IInitializeSystem, IExecuteSystem
 	{
 		private readonly Contexts _contexts;
 
@@ -14,12 +14,18 @@ namespace Code.Ecs.Systems.ControlsSystems
 
 		private IInputService InputService => _contexts.services.inputService.Value;
 		private InputContext InputContext => _contexts.input;
-		
+
+		public void Initialize()
+		{
+			InputContext.SetMoveDirectionReceive(InputService.Walk);
+			InputContext.SetLookReceive(InputService.CursorPosition);
+		}
+
 		public void Execute()
 		{
-			InputContext.ReplaceMoveDirectionReceive(InputService.Walk);
+			InputContext.moveDirectionReceive.Value = InputService.Walk;
 			InputContext.isJumpReceive = InputService.IsJumping;
-			InputContext.ReplaceLookReceive(InputService.CursorPosition);
+			InputContext.lookReceive.Value = InputService.CursorPosition;
 		}
 	}
 }
