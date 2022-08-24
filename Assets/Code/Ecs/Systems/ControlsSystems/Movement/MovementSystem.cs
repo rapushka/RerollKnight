@@ -1,5 +1,6 @@
 using Code.Workflow.Extensions;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Ecs.Systems.ControlsSystems.Movement
 {
@@ -22,14 +23,17 @@ namespace Code.Ecs.Systems.ControlsSystems.Movement
 			);
 		}
 
-		private float VelocityX => MoveDirection * PlayerSpeed;
-		private float MoveDirection => _contexts.input.moveDirectionReceive.Value;
+		private Vector2 Velocity => MoveDirection * PlayerSpeed;
+		private Vector2 MoveDirection => _contexts.input.moveDirectionReceive.Value;
 		private float PlayerSpeed => _contexts.services.balanceService.Value.Player.MoveSpeed;
 
 		public void Execute()
-			=> _entities.GetEntities().ForEach(SetVelocityX);
+			=> _entities.GetEntities().ForEach(SetVelocity);
 
-		private void SetVelocityX(GameEntity e)
-			=> e.rigidbody.Value.velocity = e.rigidbody.Value.velocity.SetX(VelocityX);
+		private void SetVelocity(GameEntity e)
+			=> e.rigidbody.Value.velocity = VelocityToTopDown(e);
+
+		private Vector3 VelocityToTopDown(GameEntity e) 
+			=> new(Velocity.x, e.rigidbody.Value.velocity.y, Velocity.y);
 	}
 }

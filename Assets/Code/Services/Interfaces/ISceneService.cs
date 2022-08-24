@@ -4,6 +4,6 @@ namespace Code.Services.Interfaces
 {
 	public interface ISceneService
 	{
-		Vector2 ScreenToWorldPoint(Vector2 position);
+		Vector3 ScreenToWorldPoint(Vector2 position);
 	}
 }

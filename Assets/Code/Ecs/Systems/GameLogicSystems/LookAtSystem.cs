@@ -35,6 +35,7 @@ namespace Code.Ecs.Systems.GameLogicSystems
 		{
 			Transform subject = entitySubject.transform;
 			Vector3 @object = entityObject.position.Value;
+			
 			subject.LookAt(@object);
 		}
 	}

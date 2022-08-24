@@ -29,7 +29,7 @@ namespace Code.Unity.Views
 			_entity.RemovePositionListener(this);
 		}
 
-		public void OnPosition(GameEntity entity, Vector2 value)
+		public void OnPosition(GameEntity entity, Vector3 value)
 		{
 			_rigidbody.position = value;
 		}
