@@ -558,11 +558,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _balance:
-    _gravityScale: 9.81
+    _gravityScale: 1.5
     _player:
       _moveSpeed: 10
       _groundCheckerRadius: 0.1
-      _jumpForce: 3
+      _jumpForce: 0.3
   _resources:
     _playerPrefab: {fileID: 4929742070666120890, guid: c6f003abe6a3e3e47acd9b27dd6fea96, type: 3}
     _playerSpawnPoint: {fileID: 290012883}
