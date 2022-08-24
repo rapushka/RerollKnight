@@ -16,17 +16,16 @@ namespace Code.Ecs.Systems.GameLogicSystems
 			_contexts = contexts;
 		}
 
-		private Vector3 ScaledGravity => Physics.gravity * GravityScale * Time.DeltaTime;
+		private Vector3 ScaledGravity => Vector3.down * GravityScale * Time.DeltaTime;
 		private float GravityScale => _contexts.services.balanceService.Value.GravityScale;
 		private ITimeService Time => _contexts.services.timeService.Value;
 
 		public void Initialize()
-			=> _entities = _contexts.game.GetAllOf(GameMatcher.CharacterController, GameMatcher.Weighty);
+			=> _entities = _contexts.game.GetAllOf(GameMatcher.Velocity, GameMatcher.Weighty);
 
-		public void Execute()
-			=> _entities.GetEntities().ForEach(ApplyGravity);
+		public void Execute() => _entities.ForEach(ApplyGravity);
 
-		private void ApplyGravity(GameEntity e)
-			=> e.characterController.Value.Move(ScaledGravity);
+		private void ApplyGravity(GameEntity e) 
+			=> e.velocity.Value += ScaledGravity;
 	}
 }

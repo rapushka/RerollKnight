@@ -12,7 +12,7 @@ public partial class InputContext {
     public Code.Ecs.Components.MoveDirectionReceiveComponent moveDirectionReceive { get { return moveDirectionReceiveEntity.moveDirectionReceive; } }
     public bool hasMoveDirectionReceive { get { return moveDirectionReceiveEntity != null; } }
 
-    public InputEntity SetMoveDirectionReceive(UnityEngine.Vector2 newValue) {
+    public InputEntity SetMoveDirectionReceive(UnityEngine.Vector3 newValue) {
         if (hasMoveDirectionReceive) {
             throw new Entitas.EntitasException("Could not set MoveDirectionReceive!\n" + this + " already has an entity with Code.Ecs.Components.MoveDirectionReceiveComponent!",
                 "You should check if the context already has a moveDirectionReceiveEntity before setting it or use context.ReplaceMoveDirectionReceive().");
@@ -22,7 +22,7 @@ public partial class InputContext {
         return entity;
     }
 
-    public void ReplaceMoveDirectionReceive(UnityEngine.Vector2 newValue) {
+    public void ReplaceMoveDirectionReceive(UnityEngine.Vector3 newValue) {
         var entity = moveDirectionReceiveEntity;
         if (entity == null) {
             entity = SetMoveDirectionReceive(newValue);
@@ -49,14 +49,14 @@ public partial class InputEntity {
     public Code.Ecs.Components.MoveDirectionReceiveComponent moveDirectionReceive { get { return (Code.Ecs.Components.MoveDirectionReceiveComponent)GetComponent(InputComponentsLookup.MoveDirectionReceive); } }
     public bool hasMoveDirectionReceive { get { return HasComponent(InputComponentsLookup.MoveDirectionReceive); } }
 
-    public void AddMoveDirectionReceive(UnityEngine.Vector2 newValue) {
+    public void AddMoveDirectionReceive(UnityEngine.Vector3 newValue) {
         var index = InputComponentsLookup.MoveDirectionReceive;
         var component = (Code.Ecs.Components.MoveDirectionReceiveComponent)CreateComponent(index, typeof(Code.Ecs.Components.MoveDirectionReceiveComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceMoveDirectionReceive(UnityEngine.Vector2 newValue) {
+    public void ReplaceMoveDirectionReceive(UnityEngine.Vector3 newValue) {
         var index = InputComponentsLookup.MoveDirectionReceive;
         var component = (Code.Ecs.Components.MoveDirectionReceiveComponent)CreateComponent(index, typeof(Code.Ecs.Components.MoveDirectionReceiveComponent));
         component.Value = newValue;

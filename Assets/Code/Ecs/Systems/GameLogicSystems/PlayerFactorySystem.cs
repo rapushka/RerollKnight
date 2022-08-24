@@ -23,6 +23,7 @@ namespace Code.Ecs.Systems.GameLogicSystems
 			player.isInputReceiver = true;
 			
 			player.AddPosition(SpawnPosition);
+			player.AddVelocity(Vector3.zero);
 		}
 	}
 }

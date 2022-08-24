@@ -8,8 +8,6 @@ namespace Code.Ecs.Features
 			: base(nameof(GameplaySystems))
 		{
 			Add(new ControlsSystems(contexts));
-			
-			Add(new ApplyGravitySystem(contexts));
 		}
 	}
 }

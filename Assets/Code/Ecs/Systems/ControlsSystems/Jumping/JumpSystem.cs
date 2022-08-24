@@ -15,20 +15,20 @@ namespace Code.Ecs.Systems.ControlsSystems.Jumping
 			_contexts = contexts;
 		}
 
+		private Vector3 JumpDirection => Vector3.up * JumpForce;
+		private float JumpForce => BalanceService.Player.JumpForce;
 		private IBalanceService BalanceService => _contexts.services.balanceService.Value;
+		private ITimeService Time => _contexts.services.timeService.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Jump);
 
-		protected override bool Filter(GameEntity entity) => entity.hasRigidbody;
+		protected override bool Filter(GameEntity entity) => entity.hasVelocity;
 
 		protected override void Execute(List<GameEntity> entites)
-		{
-			foreach (GameEntity e in entites)
-			{
-				float jumpForce = BalanceService.Player.JumpForce;
-				e.rigidbody.Value.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-			}
-		}
+			=> entites.ForEach(PerformJump);
+
+		private void PerformJump(GameEntity e) 
+			=> e.velocity.Value.y = JumpForce;
 	}
 }

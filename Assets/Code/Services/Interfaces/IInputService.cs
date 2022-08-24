@@ -8,7 +8,7 @@ namespace Code.Services.Interfaces
 
 		void Disable();
 
-		Vector2 Walk { get; }
+		Vector2 Movement { get; }
 
 		bool IsJumping { get; }
 
