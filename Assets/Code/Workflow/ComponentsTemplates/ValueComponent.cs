@@ -1,5 +1,4 @@
 using Entitas;
-using UnityEngine;
 
 namespace Code.WorkFlow.ComponentsTemplates
 {

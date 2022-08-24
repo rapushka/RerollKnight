@@ -8,7 +8,7 @@ namespace Code.Services.Interfaces
 
 		void Disable();
 
-		float Walk { get; }
+		Vector2 Walk { get; }
 
 		bool IsJumping { get; }
 

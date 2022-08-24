@@ -5,15 +5,15 @@ namespace Code.Services.Realizations
 {
 	public class UnityNewInputService : IInputService
 	{
-		private readonly PlayerInput _input;
+		private readonly TopDownControls _input;
 
-		public UnityNewInputService() => _input = new PlayerInput();
+		public UnityNewInputService() => _input = new TopDownControls();
 
 		public void Enable() => _input.Enable();
 
 		public void Disable() => _input.Disable();
 
-		public float Walk => _input.Gameplay.Walk.ReadValue<float>();
+		public Vector2 Walk => _input.Gameplay.Movement.ReadValue<Vector2>();
 
 		public bool IsJumping => _input.Gameplay.Jump.triggered;
 
