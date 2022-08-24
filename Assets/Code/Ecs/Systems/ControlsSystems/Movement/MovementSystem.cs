@@ -1,3 +1,4 @@
+using Code.Services.Interfaces;
 using Code.Workflow.Extensions;
 using Entitas;
 using UnityEngine;
@@ -13,27 +14,24 @@ namespace Code.Ecs.Systems.ControlsSystems.Movement
 		{
 			_contexts = contexts;
 
-			_entities = contexts.game.GetGroup
+			_entities = contexts.game.GetAllOf
 			(
-				GameMatcher.AllOf
-				(
-					GameMatcher.InputReceiver,
-					GameMatcher.Rigidbody
-				)
+				GameMatcher.InputReceiver,
+				GameMatcher.Velocity
 			);
 		}
 
-		private Vector2 Velocity => MoveDirection * PlayerSpeed;
-		private Vector2 MoveDirection => _contexts.input.moveDirectionReceive.Value;
+		private ITimeService Time => _contexts.services.timeService.Value;
+		private Vector3 ScaledDirection => MoveDirection * PlayerSpeed * Time.DeltaTime;
+		private Vector3 MoveDirection => _contexts.input.moveDirectionReceive.Value;
 		private float PlayerSpeed => _contexts.services.balanceService.Value.Player.MoveSpeed;
 
-		public void Execute()
-			=> _entities.GetEntities().ForEach(SetVelocity);
+		public void Execute() => _entities.ForEach(SetVelocity);
 
 		private void SetVelocity(GameEntity e)
-			=> e.rigidbody.Value.velocity = VelocityToTopDown(e);
-
-		private Vector3 VelocityToTopDown(GameEntity e) 
-			=> new(Velocity.x, e.rigidbody.Value.velocity.y, Velocity.y);
+		{
+			e.velocity.Value.x = ScaledDirection.x;
+			e.velocity.Value.z = ScaledDirection.z;
+		}
 	}
 }

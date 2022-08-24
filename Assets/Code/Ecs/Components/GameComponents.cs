@@ -15,6 +15,10 @@ namespace Code.Ecs.Components
 
 	[Game] public sealed class RigidbodyComponent : ValueComponent<Rigidbody> { }
 
+	[Game] public sealed class CharacterControllerComponent : ValueComponent<CharacterController> { }
+
+	[Game] public sealed class VelocityComponent : ValueComponent<Vector3> { }
+
 	[Game] public sealed class TransformComponent : ValueComponent<Transform> { }
 
 	[Game] public sealed class LegsPointTransformComponent : ValueComponent<Transform> { }

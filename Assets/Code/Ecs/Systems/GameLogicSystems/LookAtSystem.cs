@@ -17,11 +17,8 @@ namespace Code.Ecs.Systems.GameLogicSystems
 			_objects = contexts.game.GetAllOf(GameMatcher.LookAtObjectId, GameMatcher.Position);
 		}
 
-		public void Execute()
-		{
-			_objects.GetEntities()
-			        .ForEach(TurnSubjectsTo);
-		}
+		public void Execute() 
+			=> _objects.ForEach(TurnSubjectsTo);
 
 		private void TurnSubjectsTo(GameEntity @object)
 		{

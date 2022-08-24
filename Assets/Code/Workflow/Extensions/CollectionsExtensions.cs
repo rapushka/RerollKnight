@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Entitas;
+using Unity.VisualScripting;
 
 namespace Code.Workflow.Extensions
 {
@@ -21,6 +23,12 @@ namespace Code.Workflow.Extensions
 			{
 				action.Invoke(t);
 			}
+		}
+
+		public static void ForEach<T>(this IGroup<T> @this, Action<T> action)
+			where T : class, IEntity
+		{
+			@this.GetEntities().ForEach(action);
 		}
 	}
 }

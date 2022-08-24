@@ -13,7 +13,7 @@ namespace Code.Services.Realizations
 
 		public void Disable() => _input.Disable();
 
-		public Vector2 Walk => _input.Gameplay.Movement.ReadValue<Vector2>();
+		public Vector2 Movement => _input.Gameplay.Movement.ReadValue<Vector2>();
 
 		public bool IsJumping => _input.Gameplay.Jump.triggered;
 

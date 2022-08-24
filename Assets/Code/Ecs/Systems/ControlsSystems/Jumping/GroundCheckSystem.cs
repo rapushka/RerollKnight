@@ -31,16 +31,16 @@ namespace Code.Ecs.Systems.ControlsSystems.Jumping
 
 		protected override bool Filter(InputEntity entity) => true;
 
-		protected override void Execute(List<InputEntity> entites)
-		{
-			const string excludedLayerName = Constants.LayerName.Creature;
-			foreach (GameEntity e in _jumpers.GetEntities())
-			{
-				Vector3 overlapPosition = e.legsPointTransform.Value.position;
-				float radius = BalanceService.Player.GroundCheckerRadius;
+		protected override void Execute(List<InputEntity> entites) 
+			=> _jumpers.ForEach(CheckGround);
 
-				e.performJump = Physics.Collided(overlapPosition, radius, excludedLayerName);
-			}
+		private void CheckGround(GameEntity e)
+		{
+			Vector3 overlapPosition = e.legsPointTransform.Value.position;
+			float radius = BalanceService.Player.GroundCheckerRadius;
+			const string excludedLayerName = Constants.LayerName.Creature;
+
+			e.performJump = Physics.Collided(overlapPosition, radius, excludedLayerName);
 		}
 	}
 }

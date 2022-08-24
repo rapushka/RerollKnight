@@ -24,6 +24,10 @@ namespace Code.Ecs.Features
 			// Aiming
 			Add(new UpdateCursorPositionSystem(contexts));
 			Add(new LookAtSystem(contexts));
+			
+			// Apply
+			Add(new ApplyVelocitySystem(contexts));
+			Add(new ApplyGravitySystem(contexts));
 		}
 	}
 }
