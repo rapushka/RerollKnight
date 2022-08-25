@@ -20,10 +20,12 @@ namespace Code.Services.Realizations
 			[SerializeField] private float _moveSpeed;
 			[SerializeField] private float _groundCheckerRadius;
 			[SerializeField] private float _jumpForce;
+			[SerializeField] private Vector3 _crosshairLock;
 
 			public float MoveSpeed => _moveSpeed;
 			public float GroundCheckerRadius => _groundCheckerRadius;
 			public float JumpForce => _jumpForce;
+			public Vector3 CrosshairLock => _crosshairLock;
 		}
 	}
 }

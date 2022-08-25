@@ -23,6 +23,7 @@ namespace Code.Ecs.Features
 			
 			// Aiming
 			Add(new UpdateCursorPositionSystem(contexts));
+			Add(new LockCursorYPosition(contexts));
 			Add(new LookAtSystem(contexts));
 			
 			// Apply
