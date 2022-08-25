@@ -4,11 +4,11 @@ using Entitas;
 
 namespace Code.Ecs.Systems.ViewSystems
 {
-	public sealed class MirrorByDirectionSystem : IExecuteSystem
+	public sealed class TurnByDirectionSystem : IExecuteSystem
 	{
 		private readonly IGroup<GameEntity> _entities;
 
-		public MirrorByDirectionSystem(Contexts contexts)
+		public TurnByDirectionSystem(Contexts contexts)
 		{
 			_entities = contexts.game.GetAllOf
 			(

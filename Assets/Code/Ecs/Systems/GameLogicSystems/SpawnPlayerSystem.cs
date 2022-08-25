@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Code.Ecs.Systems.GameLogicSystems
 {
-	public sealed class PlayerFactorySystem : IInitializeSystem
+	public sealed class SpawnPlayerSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 
-		public PlayerFactorySystem(Contexts contexts)
+		public SpawnPlayerSystem(Contexts contexts)
 		{
 			_contexts = contexts;
 		}
