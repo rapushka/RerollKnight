@@ -5,32 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/ApplyVelocitySystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/ApplyVelocitySystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameVelocityComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/LockCursorYPosition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/LockCursorYPosition.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/InputComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/InputComponents.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ControlsSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ControlsSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameplaySystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameplaySystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ViewSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ViewSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/EmitInputsSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/EmitInputsSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GrounCheckSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GroundCheckSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GrounCheckSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GroundCheckSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/JumpSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/JumpSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Movement/MovementSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Movement/MovementSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/ApplyGravitySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/ApplyGravitySystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/LookAtSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/LookAtSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/PlayerFactorySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/PlayerFactorySystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Input/Components/InputMoveDirectionReceiveComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Input/Components/InputMoveDirectionReceiveComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Services/Interfaces/IInputService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Services/Interfaces/IInputService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Services/Realizations/UnityNewInputService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Services/Realizations/UnityNewInputService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Views/Registrars/IViewComponentRegistrar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/Registrars/IViewComponentRegistrar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Workflow/Extensions/CollectionsExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Workflow/Extensions/CollectionsExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Aiming.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/UpdateCursorPositionSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/UpdateCursorPositionSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Services/Interfaces/IBalanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Services/Interfaces/IBalanceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Services/Realizations/SerializableBalanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Services/Realizations/SerializableBalanceService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +20,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6afd1274f120405096bc1ad9e2010ba6157a00/89/61a64073/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6afd1274f120405096bc1ad9e2010ba6157a00/a3/4fa63634/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6afd1274f120405096bc1ad9e2010ba6157a00/f3/b4ec0115/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6afd1274f120405096bc1ad9e2010ba6157a00/fb/cd2a3a91/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/77b5607d2b8c49fa940386158c43f2341a000/0a/3064cd5d/Physics.cs" root0="SKIP_HIGHLIGHTING" />
@@ -45,12 +29,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/861e23c672704a4a8eca9c234af0cac552e590/06/5419c1d6/EnumerableToIterableAdapter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/af9ebbbc858e49bba726051ff5571e171f800/ea/f4239a2b/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bfff7c0b1952412cb8118dddd204a124b800/60/57c00808/ReactiveSystem`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bfff7c0b1952412cb8118dddd204a124b800/61/4f19ba81/Context`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bfff7c0b1952412cb8118dddd204a124b800/99/57621b8f/Matcher`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bfff7c0b1952412cb8118dddd204a124b800/9a/85915cac/Entity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bfff7c0b1952412cb8118dddd204a124b800/bf/3041dd4c/IEntity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c008397304f84e50a33374c87ae489473800/a2/e61be102/EntityBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c1e168f34344456fadf29f9707a009799600/a8/0588341f/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d303c2bf72cd4cec95665b89c457d265d2b8ef3ed6da17cd4f85587c2f9de7/System.Linq.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/EmitInputsSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GroundCheckSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.1/Editor/PlasticSCM/AssetsUtils/LoadAsset.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@3.0.15/Rider/Editor/RiderScriptEditor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

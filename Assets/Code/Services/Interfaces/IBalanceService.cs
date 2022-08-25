@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Code.Services.Interfaces
 {
 	public interface IBalanceService
@@ -10,6 +12,7 @@ namespace Code.Services.Interfaces
 			public float MoveSpeed { get; }
 			public float GroundCheckerRadius { get; }
 			public float JumpForce { get; }
+			Vector3 CrosshairLock { get; }
 		}
 	}
 }
