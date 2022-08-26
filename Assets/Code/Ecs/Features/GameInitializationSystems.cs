@@ -1,4 +1,4 @@
-using Code.Ecs.Systems.GameLogicSystems;
+using Code.Ecs.Systems.GameLogic;
 
 namespace Code.Ecs.Features
 {
@@ -7,7 +7,7 @@ namespace Code.Ecs.Features
 		public GameInitializationSystems(Contexts contexts)
 			: base(nameof(GameInitializationSystems))
 		{
-			Add(new PlayerFactorySystem(contexts));
+			Add(new SpawnPlayerSystem(contexts));
 		}
 	}
 }

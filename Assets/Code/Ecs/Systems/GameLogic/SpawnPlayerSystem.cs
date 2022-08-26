@@ -1,13 +1,13 @@
 using Entitas;
 using UnityEngine;
 
-namespace Code.Ecs.Systems.GameLogicSystems
+namespace Code.Ecs.Systems.GameLogic
 {
-	public sealed class PlayerFactorySystem : IInitializeSystem
+	public sealed class SpawnPlayerSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 
-		public PlayerFactorySystem(Contexts contexts)
+		public SpawnPlayerSystem(Contexts contexts)
 		{
 			_contexts = contexts;
 		}

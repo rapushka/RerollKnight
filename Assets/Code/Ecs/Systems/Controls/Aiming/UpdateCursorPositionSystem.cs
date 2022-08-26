@@ -3,7 +3,7 @@ using Code.Workflow.Extensions;
 using Entitas;
 using UnityEngine;
 
-namespace Code.Ecs.Systems.GameLogicSystems
+namespace Code.Ecs.Systems.Controls.Aiming
 {
 	public sealed class UpdateCursorPositionSystem : IInitializeSystem, IExecuteSystem
 	{

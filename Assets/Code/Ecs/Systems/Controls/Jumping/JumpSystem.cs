@@ -3,7 +3,7 @@ using Code.Services.Interfaces;
 using Entitas;
 using UnityEngine;
 
-namespace Code.Ecs.Systems.ControlsSystems.Jumping
+namespace Code.Ecs.Systems.Controls.Jumping
 {
 	public sealed class JumpSystem : ReactiveSystem<GameEntity>
 	{

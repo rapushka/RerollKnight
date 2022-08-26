@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Code.Services.Interfaces;
 using Entitas;
 
-namespace Code.Ecs.Systems.ViewSystems
+namespace Code.Ecs.Systems.View
 {
 	public sealed class LoadViewSystem : ReactiveSystem<GameEntity>
 	{

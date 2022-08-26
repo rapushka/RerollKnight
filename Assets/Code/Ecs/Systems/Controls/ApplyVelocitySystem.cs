@@ -1,7 +1,7 @@
 using Code.Workflow.Extensions;
 using Entitas;
 
-namespace Code.Ecs.Systems.ControlsSystems
+namespace Code.Ecs.Systems.Controls
 {
 	public sealed class ApplyVelocitySystem : IExecuteSystem
 	{

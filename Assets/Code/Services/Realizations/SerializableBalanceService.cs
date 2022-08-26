@@ -9,8 +9,10 @@ namespace Code.Services.Realizations
 	{
 		[SerializeField] private float _gravityScale;
 		[SerializeField] private PlayerRealization _player;
+		[SerializeField] private float _toDirectionRotationSpeed;
 
 		public float GravityScale => _gravityScale;
+		public float ToDirectionRotationSpeed => _toDirectionRotationSpeed;
 
 		public IBalanceService.IPlayer Player => _player;
 

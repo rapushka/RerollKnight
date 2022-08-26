@@ -1,7 +1,9 @@
-using Code.Ecs.Systems.ControlsSystems;
-using Code.Ecs.Systems.ControlsSystems.Jumping;
-using Code.Ecs.Systems.ControlsSystems.Movement;
-using Code.Ecs.Systems.GameLogicSystems;
+using Code.Ecs.Systems.Controls;
+using Code.Ecs.Systems.Controls.Aiming;
+using Code.Ecs.Systems.Controls.Jumping;
+using Code.Ecs.Systems.Controls.Movement;
+using Code.Ecs.Systems.GameLogic;
+using Code.Ecs.Systems.View;
 
 namespace Code.Ecs.Features
 {
@@ -16,6 +18,7 @@ namespace Code.Ecs.Features
 			
 			// Movement
 			Add(new MovementSystem(contexts));
+			Add(new TurnByDirectionSystem(contexts));
 			
 			// Jumping
 			Add(new GroundCheckSystem(contexts));
