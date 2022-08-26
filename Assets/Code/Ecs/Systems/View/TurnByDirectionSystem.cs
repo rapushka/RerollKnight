@@ -15,28 +15,25 @@ namespace Code.Ecs.Systems.View
 			_contexts = contexts;
 			_entities = contexts.game.GetAllOf
 			(
-				GameMatcher.CharacterController
+				GameMatcher.CharacterController,
+				GameMatcher.TargetRotation
 			);	
 		}
-
-		private Quaternion TargetRotation => Quaternion.LookRotation(ReceivedDirection, Vector3.up);
-		private bool IsMoved => ReceivedDirection != Vector3.zero;
-		private Vector3 ReceivedDirection => _contexts.input.moveDirectionReceive.Value;
+		
 		private float ScaledRotationSpeed => RotationSpeed * Time.DeltaTime;
 		private float RotationSpeed => _contexts.services.balanceService.Value.ToDirectionRotationSpeed;
 		private ITimeService Time => _contexts.services.timeService.Value;
 
 		public void Execute() => _entities.ForEach(Turn);
 
-		private void Turn(GameEntity e) 
-			=> e.transform.Value.Do(RotateToMoveDirection, @if: IsMoved);
+		private void Turn(GameEntity entity) => Rotate(entity, entity.transform);
 
-		private void RotateToMoveDirection(Transform t)
+		private void Rotate(GameEntity entity, Transform transform)
 		{
-			t.rotation = Quaternion.RotateTowards
+			transform.rotation = Quaternion.RotateTowards
 			(
-				t.rotation,
-				TargetRotation,
+				transform.rotation,
+				entity.targetRotation,
 				ScaledRotationSpeed
 			);
 		}

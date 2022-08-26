@@ -18,6 +18,7 @@ namespace Code.Ecs.Features
 			
 			// Movement
 			Add(new MovementSystem(contexts));
+			Add(new InputToRotationSystem(contexts));
 			Add(new TurnByDirectionSystem(contexts));
 			
 			// Jumping
