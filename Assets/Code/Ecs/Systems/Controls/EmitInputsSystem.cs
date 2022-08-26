@@ -2,7 +2,7 @@ using Code.Services.Interfaces;
 using Entitas;
 using UnityEngine;
 
-namespace Code.Ecs.Systems.ControlsSystems
+namespace Code.Ecs.Systems.Controls
 {
 	public sealed class EmitInputsSystem : IInitializeSystem, IExecuteSystem
 	{

@@ -5,6 +5,7 @@ namespace Code.Services.Interfaces
 	public interface IBalanceService
 	{
 		public float GravityScale { get; }
+		public float ToDirectionRotationSpeed { get; }
 		public IPlayer Player { get; }
 
 		public interface IPlayer

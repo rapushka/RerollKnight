@@ -3,7 +3,7 @@ using Code.Workflow.Extensions;
 using Entitas;
 using UnityEngine;
 
-namespace Code.Ecs.Systems.ControlsSystems.Movement
+namespace Code.Ecs.Systems.Controls.Movement
 {
 	public sealed class MovementSystem : IExecuteSystem
 	{

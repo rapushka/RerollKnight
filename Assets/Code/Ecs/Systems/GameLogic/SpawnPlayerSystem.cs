@@ -1,7 +1,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace Code.Ecs.Systems.GameLogicSystems
+namespace Code.Ecs.Systems.GameLogic
 {
 	public sealed class SpawnPlayerSystem : IInitializeSystem
 	{
