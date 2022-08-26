@@ -564,6 +564,7 @@ MonoBehaviour:
       _groundCheckerRadius: 0.1
       _jumpForce: 0.3
       _crosshairLock: {x: 0, y: -3.5, z: 0}
+    _toDirectionRotationSpeed: 720
   _resources:
     _playerPrefab: {fileID: 4929742070666120890, guid: c6f003abe6a3e3e47acd9b27dd6fea96, type: 3}
     _playerSpawnPoint: {fileID: 290012883}

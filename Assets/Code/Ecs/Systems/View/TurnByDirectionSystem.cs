@@ -16,9 +16,11 @@ namespace Code.Ecs.Systems.View
 			_entities = contexts.game.GetAllOf
 			(
 				GameMatcher.CharacterController
-			);
+			);	
 		}
 
+		private Quaternion TargetRotation => Quaternion.LookRotation(ReceivedDirection, Vector3.up);
+		private bool IsMoved => ReceivedDirection != Vector3.zero;
 		private Vector3 ReceivedDirection => _contexts.input.moveDirectionReceive.Value;
 		private float ScaledRotationSpeed => RotationSpeed * Time.DeltaTime;
 		private float RotationSpeed => _contexts.services.balanceService.Value.ToDirectionRotationSpeed;
@@ -26,24 +28,17 @@ namespace Code.Ecs.Systems.View
 
 		public void Execute() => _entities.ForEach(Turn);
 
-		private void Turn(GameEntity e)
-		{
-			if (ReceivedDirection == Vector3.zero) 
-			{
-				return;
-			}
+		private void Turn(GameEntity e) 
+			=> e.transform.Value.Do(RotateToMoveDirection, @if: IsMoved);
 
-			Quaternion targetRotation = Quaternion.LookRotation(ReceivedDirection, Vector3.up);
-			
-			GetTransform(e).rotation = Quaternion.RotateTowards
+		private void RotateToMoveDirection(Transform t)
+		{
+			t.rotation = Quaternion.RotateTowards
 			(
-				GetTransform(e).rotation,
-				targetRotation,
+				t.rotation,
+				TargetRotation,
 				ScaledRotationSpeed
 			);
 		}
-		
-		private static Transform GetTransform(GameEntity e) 
-			=> e.characterController.Value.transform;
 	}
 }

@@ -5,54 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/Registrars/TransformRegistrar.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/Registrars/TransformRegistrar.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ControlsSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ControlsSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializationSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameInitializationSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameplaySystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/GameplaySystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ViewSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ViewSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Aiming.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Aiming/LockCursorYPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming/LockCursorYPosition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Aiming/LockCursorYPosition.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming/LockCursorYPosition.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Aiming/UpdateCursorPositionSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming/UpdateCursorPositionSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Aiming/UpdateCursorPositionSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming/UpdateCursorPositionSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/ApplyVelocitySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/ApplyVelocitySystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/ApplyVelocitySystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/ApplyVelocitySystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/EmitInputsSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/EmitInputsSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/EmitInputsSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/EmitInputsSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/InputLiveCycleSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/InputLiveCycleSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/InputLiveCycleSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/InputLiveCycleSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Jumping.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GroundCheckSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Jumping/GroundCheckSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/GroundCheckSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Jumping/GroundCheckSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/JumpSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Jumping/JumpSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Jumping/JumpSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Jumping/JumpSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Movement.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Movement.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Movement/MovementSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Movement/MovementSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ControlsSystems/Movement/MovementSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Movement/MovementSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/ApplyGravitySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic/ApplyGravitySystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/ApplyGravitySystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic/ApplyGravitySystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/LookAtSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic/LookAtSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/LookAtSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic/LookAtSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/SpawnPlayerSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic/SpawnPlayerSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogicSystems/SpawnPlayerSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic/SpawnPlayerSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/AddPlayerViewToLoadSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/AddPlayerViewToLoadSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/AddPlayerViewToLoadSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/AddPlayerViewToLoadSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/LoadViewSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/LoadViewSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/LoadViewSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/LoadViewSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/SetupAimingAtCursorSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming/SetupAimingAtCursorSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/SetupAimingAtCursorSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming/SetupAimingAtCursorSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/TurnByDirectionSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/TurnByDirectionSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/ViewSystems/TurnByDirectionSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/TurnByDirectionSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameArmsTransformComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameArmsTransformComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameVelocityComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameVelocityComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameViewControllerComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameViewControllerComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/GameComponentsLookup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Services/Interfaces/IBalanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Services/Interfaces/IBalanceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Services/Realizations/SerializableBalanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Services/Realizations/SerializableBalanceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/TurnByDirectionSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/TurnByDirectionSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/IViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/IViewController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/UnityViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/UnityViewController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6afd1274f120405096bc1ad9e2010ba6157a00/89/61a64073/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6afd1274f120405096bc1ad9e2010ba6157a00/a3/4fa63634/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6afd1274f120405096bc1ad9e2010ba6157a00/f3/b4ec0115/Debug.cs" root0="SKIP_HIGHLIGHTING" />

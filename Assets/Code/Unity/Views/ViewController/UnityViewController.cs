@@ -17,15 +17,6 @@ namespace Code.Unity.Views.ViewController
 			return this;
 		}
 
-		public void Mirror() => RotationY = 90;
-
-		public void UnMirror() => RotationY = 0;
-
-		private float RotationY
-		{
-			set => transform.eulerAngles = transform.eulerAngles.SetY(value);
-		}
-
 		private void RegisterViewComponents()
 		{
 			GetComponentsInChildren<IViewComponentRegistrar>(includeInactive: true)
