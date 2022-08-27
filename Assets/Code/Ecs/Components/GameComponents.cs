@@ -7,35 +7,28 @@ using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace Code.Ecs.Components
 {
+	// Singletons
 	[Game] [Unique] public sealed class PlayerComponent : FlagComponent { }
 
+	[Game] [Unique] public sealed class CursorComponent : FlagComponent { }
+
+	// Entity Parameters
 	[Game] public sealed class WeightyComponent : FlagComponent { }
 
 	[Game] public sealed class InputReceiverComponent : FlagComponent { }
 
-	[Game] public sealed class RigidbodyComponent : ValueComponent<Rigidbody> { }
-
-	[Game] public sealed class CharacterControllerComponent : ValueComponent<CharacterController> { }
-
-	[Game] public sealed class VelocityComponent : ValueComponent<Vector3> { }
-
-	[Game] public sealed class TargetRotationComponent : ValueComponent<Quaternion> { }
-
-	[Game] public sealed class TransformComponent : ValueComponent<Transform> { }
-
-	[Game] public sealed class LegsPointTransformComponent : ValueComponent<Transform> { }
-
-	[Game] public sealed class ArmsTransformComponent : ValueComponent<Transform> { }
-
+	// Events
 	[Game] [Event(Self)] public sealed class PositionComponent : ValueComponent<Vector3> { }
 
+	// Cleanups
 	[Game] [Cleanup(RemoveComponent)] [FlagPrefix("Perform")] public sealed class JumpComponent : FlagComponent { }
 
+	// Identifiers
 	[Game] public sealed class IdComponent : PrimaryComponent<int> { }
 
 	[Game] public sealed class LookAtObjectIdComponent : PrimaryComponent<int> { }
 
 	[Game] public sealed class LookAtSubjectIdComponent : IndexComponent<int> { }
 
-	[Game] [Unique] public sealed class CursorComponent : FlagComponent { }
+	[Game] public sealed class CurrentWeaponComponent : ValueComponent<GameEntity> { }
 }

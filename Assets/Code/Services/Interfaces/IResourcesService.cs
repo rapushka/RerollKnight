@@ -7,6 +7,7 @@ namespace Code.Services.Interfaces
 		GameObject LoadResourceBy(string path);
 		
 		GameObject PlayerPrefab { get; }
+		GameObject DebugWeaponPrefab { get; }
 		Transform PlayerSpawnPoint { get; }
 	}
 }

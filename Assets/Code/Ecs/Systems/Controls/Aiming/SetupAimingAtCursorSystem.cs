@@ -5,9 +5,10 @@ using Entitas;
 
 namespace Code.Ecs.Systems.Controls.Aiming
 {
-	public sealed class SetupAimingAtCursorSystem : ReactiveSystem<GameEntity>
+	public sealed class SetupAimingAtCursorSystem : ReactiveSystem<GameEntity>, IInitializeSystem
 	{
 		private readonly Contexts _contexts;
+		private GameEntity _cursor;
 
 		public SetupAimingAtCursorSystem(Contexts contexts)
 			: base(contexts.game)
@@ -19,21 +20,23 @@ namespace Code.Ecs.Systems.Controls.Aiming
 		private IIdentifierService<int> Identifier => _contexts.services.identifierService.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.ArmsTransform);
+			=> context.CreateCollector(GameMatcher.WeaponTransform);
 
-		protected override bool Filter(GameEntity entity) => entity.isPlayer;
+		protected override bool Filter(GameEntity entity) => true;
+
+		public void Initialize()
+		{
+			_cursor = GameContext.cursorEntity
+			                     .Do((c) => c.AddId(Identifier.Next()))
+			                     .Do((c) => c.AddLookAtObjectId(c.id));
+		}
 
 		protected override void Execute(List<GameEntity> entites)
-			=> entites.ForEach((p) => InitializeWeapon(p, InitializeCursor()));
+			=> entites.ForEach(InitializeWeapon);
 
-		private GameEntity InitializeCursor()
-			=> GameContext.cursorEntity
-			              .Do((c) => c.AddId(Identifier.Next()))
-			              .Do((c) => c.AddLookAtObjectId(c.id));
-
-		private void InitializeWeapon(GameEntity player, GameEntity cursor)
-			=> GameContext.CreateEntity()
-			              .Do((a) => a.AddTransform(player.armsTransform))
-			              .Do((a) => a.AddLookAtSubjectId(cursor.id));
+		private void InitializeWeapon(GameEntity weapon)
+			=> weapon
+			   		.Do((w) => w.AddTransform(weapon.weaponTransform))
+			   		.Do((w) => w.AddLookAtSubjectId(_cursor.id));
 	}
 }
