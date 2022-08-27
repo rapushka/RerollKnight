@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="" />
+    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming/SetupAimingAtCursorSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming/SetupAimingAtCursorSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/WeaponToPlayerParentSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/WeaponToPlayerParentSystem.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

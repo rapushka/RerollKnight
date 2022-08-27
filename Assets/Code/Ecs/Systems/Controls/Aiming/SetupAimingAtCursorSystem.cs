@@ -22,7 +22,7 @@ namespace Code.Ecs.Systems.Controls.Aiming
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.WeaponTransform);
 
-		protected override bool Filter(GameEntity entity) => entity.isPlayer;
+		protected override bool Filter(GameEntity entity) => true;
 
 		public void Initialize()
 		{
@@ -34,9 +34,9 @@ namespace Code.Ecs.Systems.Controls.Aiming
 		protected override void Execute(List<GameEntity> entites)
 			=> entites.ForEach(InitializeWeapon);
 
-		private void InitializeWeapon(GameEntity player)
-			=> player.currentWeapon.Value
-			   		.Do((w) => w.AddTransform(player.weaponTransform))
+		private void InitializeWeapon(GameEntity weapon)
+			=> weapon
+			   		.Do((w) => w.AddTransform(weapon.weaponTransform))
 			   		.Do((w) => w.AddLookAtSubjectId(_cursor.id));
 	}
 }
