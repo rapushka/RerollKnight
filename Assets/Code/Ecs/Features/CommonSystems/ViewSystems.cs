@@ -1,7 +1,7 @@
 using Code.Ecs.Systems.Controls.Aiming;
 using Code.Ecs.Systems.View;
 
-namespace Code.Ecs.Features
+namespace Code.Ecs.Features.CommonSystems
 {
 	public sealed class ViewSystems : Feature
 	{

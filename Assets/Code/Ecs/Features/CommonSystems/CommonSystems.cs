@@ -1,6 +1,6 @@
 using Code.Services;
 
-namespace Code.Ecs.Features
+namespace Code.Ecs.Features.CommonSystems
 {
 	public sealed class CommonSystems : Feature
 	{

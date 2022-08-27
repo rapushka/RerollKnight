@@ -2,7 +2,7 @@ using System;
 using Code.Ecs.Systems.Services;
 using Code.Services;
 
-namespace Code.Ecs.Features
+namespace Code.Ecs.Features.CommonSystems
 {
 	public sealed class ServicesRegistrationSystems : Feature
 	{
