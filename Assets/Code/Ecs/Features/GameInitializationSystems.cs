@@ -1,4 +1,4 @@
-using Code.Ecs.Systems.GameLogic;
+using Code.Ecs.Systems.GameLogic.GameInitialization;
 
 namespace Code.Ecs.Features
 {
@@ -8,6 +8,7 @@ namespace Code.Ecs.Features
 			: base(nameof(GameInitializationSystems))
 		{
 			Add(new SpawnPlayerSystem(contexts));
+			Add(new LoadWeaponSystem(contexts));
 		}
 	}
 }

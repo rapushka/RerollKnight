@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Code.Services.Interfaces;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Ecs.Systems.Controls.Jumping
 {
@@ -15,10 +14,8 @@ namespace Code.Ecs.Systems.Controls.Jumping
 			_contexts = contexts;
 		}
 
-		private Vector3 JumpDirection => Vector3.up * JumpForce;
 		private float JumpForce => BalanceService.Player.JumpForce;
 		private IBalanceService BalanceService => _contexts.services.balanceService.Value;
-		private ITimeService Time => _contexts.services.timeService.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Jump);

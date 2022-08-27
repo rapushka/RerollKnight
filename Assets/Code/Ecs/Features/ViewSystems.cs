@@ -8,7 +8,7 @@ namespace Code.Ecs.Features
 		public ViewSystems(Contexts contexts)
 			: base(nameof(ViewSystems))
 		{
-			Add(new AddPlayerViewToLoadSystem(contexts));
+			Add(new BindViewsToLoadSystem(contexts));
 			Add(new LoadViewSystem(contexts));
 			
 			Add(new SetupAimingAtCursorSystem(contexts));

@@ -4,7 +4,8 @@ namespace Code.Workflow
 	{
 		public static class ResourcePath
 		{
-			public const string PlayerPrefab = "Creature/Prefab";
+			public const string Player = "Creature/Prefab";
+			public const string DebugWeapon = "Weapons/DebugWeapon/Prefab";
 		}
 
 		public static class LayerName

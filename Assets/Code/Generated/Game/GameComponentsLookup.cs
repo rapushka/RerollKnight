@@ -8,8 +8,8 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int ArmsTransform = 0;
-    public const int CharacterController = 1;
+    public const int CharacterController = 0;
+    public const int CurrentWeapon = 1;
     public const int Cursor = 2;
     public const int Id = 3;
     public const int InputReceiver = 4;
@@ -25,14 +25,15 @@ public static class GameComponentsLookup {
     public const int Velocity = 14;
     public const int ViewController = 15;
     public const int ViewToLoad = 16;
-    public const int Weighty = 17;
-    public const int PositionListener = 18;
+    public const int WeaponTransform = 17;
+    public const int Weighty = 18;
+    public const int PositionListener = 19;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
-        "ArmsTransform",
         "CharacterController",
+        "CurrentWeapon",
         "Cursor",
         "Id",
         "InputReceiver",
@@ -48,13 +49,14 @@ public static class GameComponentsLookup {
         "Velocity",
         "ViewController",
         "ViewToLoad",
+        "WeaponTransform",
         "Weighty",
         "PositionListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Ecs.Components.ArmsTransformComponent),
         typeof(Code.Ecs.Components.CharacterControllerComponent),
+        typeof(Code.Ecs.Components.CurrentWeaponComponent),
         typeof(Code.Ecs.Components.CursorComponent),
         typeof(Code.Ecs.Components.IdComponent),
         typeof(Code.Ecs.Components.InputReceiverComponent),
@@ -70,6 +72,7 @@ public static class GameComponentsLookup {
         typeof(Code.Ecs.Components.VelocityComponent),
         typeof(Code.Ecs.Components.ViewControllerComponent),
         typeof(Code.Ecs.Components.ViewToLoadComponent),
+        typeof(Code.Ecs.Components.WeaponTransformComponent),
         typeof(Code.Ecs.Components.WeightyComponent),
         typeof(PositionListenerComponent)
     };

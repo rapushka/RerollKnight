@@ -10,18 +10,21 @@ namespace Code.Services.Realizations
 	{
 		[SerializeField] private GameObject _playerPrefab;
 		[SerializeField] private Transform _playerSpawnPoint;
+		[SerializeField] private GameObject _weaponPrefab;
 
 		public GameObject LoadResourceBy(string path)
 			=> path switch
 			{
-				ResourcePath.PlayerPrefab => PlayerPrefab,
-				_                         => Exception(),
+				ResourcePath.Player      => PlayerPrefab,
+				ResourcePath.DebugWeapon => DebugWeaponPrefab,
+				_                        => Exception(),
 			};
 
 		private static GameObject Exception()
 			=> throw new ArgumentException("Unknown resource path");
 
 		public GameObject PlayerPrefab => _playerPrefab;
+		public GameObject DebugWeaponPrefab => _weaponPrefab;
 		public Transform PlayerSpawnPoint => _playerSpawnPoint;
 	}
 }
