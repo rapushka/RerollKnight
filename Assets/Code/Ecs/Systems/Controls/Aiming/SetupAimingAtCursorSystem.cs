@@ -20,9 +20,9 @@ namespace Code.Ecs.Systems.Controls.Aiming
 		private IIdentifierService<int> Identifier => _contexts.services.identifierService.Value;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.WeaponTransform);
+			=> context.CreateCollector(GameMatcher.Weapon);
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasTransform;
 
 		public void Initialize()
 		{
@@ -36,7 +36,6 @@ namespace Code.Ecs.Systems.Controls.Aiming
 
 		private void InitializeWeapon(GameEntity weapon)
 			=> weapon
-			   		.Do((w) => w.AddTransform(weapon.weaponTransform))
 			   		.Do((w) => w.AddLookAtSubjectId(_cursor.id));
 	}
 }

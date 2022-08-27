@@ -25,7 +25,7 @@ public static class GameComponentsLookup {
     public const int Velocity = 14;
     public const int ViewController = 15;
     public const int ViewToLoad = 16;
-    public const int WeaponTransform = 17;
+    public const int Weapon = 17;
     public const int Weighty = 18;
     public const int PositionListener = 19;
 
@@ -49,7 +49,7 @@ public static class GameComponentsLookup {
         "Velocity",
         "ViewController",
         "ViewToLoad",
-        "WeaponTransform",
+        "Weapon",
         "Weighty",
         "PositionListener"
     };
@@ -72,7 +72,7 @@ public static class GameComponentsLookup {
         typeof(Code.Ecs.Components.VelocityComponent),
         typeof(Code.Ecs.Components.ViewControllerComponent),
         typeof(Code.Ecs.Components.ViewToLoadComponent),
-        typeof(Code.Ecs.Components.WeaponTransformComponent),
+        typeof(Code.Ecs.Components.WeaponComponent),
         typeof(Code.Ecs.Components.WeightyComponent),
         typeof(PositionListenerComponent)
     };
