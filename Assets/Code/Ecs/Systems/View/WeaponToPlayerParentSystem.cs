@@ -16,10 +16,10 @@ namespace Code.Ecs.Systems.View
 		private GameEntity Player => _contexts.game.playerEntity;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.CurrentWeapon);
+			=> context.CreateCollector(GameMatcher.WeaponTransform);
 
 		protected override bool Filter(GameEntity entity)
-			=> entity.hasViewController && entity.hasWeaponTransform;
+			=> true;
 
 		protected override void Execute(List<GameEntity> entites) 
 			=> entites.ForEach(SetPlayerAsParent);

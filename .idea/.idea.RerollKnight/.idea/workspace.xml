@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/WeaponToPlayerParentSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/WeaponToPlayerParentSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ViewSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ViewSystems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/IViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/IViewController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/UnityViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/UnityViewController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
