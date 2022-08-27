@@ -16,14 +16,14 @@ namespace Code.Ecs.Systems.View
 		private GameEntity Player => _contexts.game.playerEntity;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.WeaponTransform);
+			=> context.CreateCollector(GameMatcher.Weapon);
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.hasTransform;
 
 		protected override void Execute(List<GameEntity> entites) 
 			=> entites.ForEach(SetPlayerAsParent);
 
 		private void SetPlayerAsParent(GameEntity weapon) 
-			=> weapon.weaponTransform.Value.SetParent(Player.transform);
+			=> weapon.transform.Value.SetParent(Player.transform);
 	}
 }

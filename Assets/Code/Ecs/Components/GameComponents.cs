@@ -17,6 +17,8 @@ namespace Code.Ecs.Components
 
 	[Game] public sealed class InputReceiverComponent : FlagComponent { }
 
+	[Game] public sealed class WeaponComponent : FlagComponent { }
+
 	// Events
 	[Game] [Event(Self)] public sealed class PositionComponent : ValueComponent<Vector3> { }
 
