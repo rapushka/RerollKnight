@@ -30,5 +30,5 @@ namespace Code.Ecs.Components
 
 	[Game] public sealed class LookAtSubjectIdComponent : IndexComponent<int> { }
 
-	[Game] public sealed class CurrentWeaponComponent : IndexComponent<int> { }
+	[Game] public sealed class CurrentWeaponComponent : ValueComponent<GameEntity> { }
 }

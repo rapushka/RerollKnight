@@ -35,8 +35,8 @@ namespace Code.Ecs.Systems.Controls.Aiming
 			=> entites.ForEach(InitializeWeapon);
 
 		private void InitializeWeapon(GameEntity player)
-			=> GameContext.CreateEntity()
-			              .Do((a) => a.AddTransform(player.weaponTransform))
-			              .Do((a) => a.AddLookAtSubjectId(_cursor.id));
+			=> player.currentWeapon.Value
+			   		.Do((w) => w.AddTransform(player.weaponTransform))
+			   		.Do((w) => w.AddLookAtSubjectId(_cursor.id));
 	}
 }

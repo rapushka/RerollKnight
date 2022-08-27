@@ -11,9 +11,13 @@ namespace Code.Ecs.Systems.GameLogic.GameInitialization
 			_contexts = contexts;
 		}
 
+		private GameEntity Player => _contexts.game.playerEntity;
+		
 		public void Initialize()
 		{
-			
+			GameEntity weapon = _contexts.game.CreateEntity();
+
+			Player.AddCurrentWeapon(weapon);
 		}
 	}
 }

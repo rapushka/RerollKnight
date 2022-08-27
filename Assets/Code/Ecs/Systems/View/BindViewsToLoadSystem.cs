@@ -1,6 +1,5 @@
-using Code.Ecs.Components;
-using Code.Workflow;
 using Entitas;
+using static Code.Workflow.Constants;
 
 namespace Code.Ecs.Systems.View
 {
@@ -12,17 +11,14 @@ namespace Code.Ecs.Systems.View
 		{
 			_contexts = contexts;
 		}
-		
+
+		private GameEntity Player => _contexts.game.playerEntity;
+		private GameEntity CurrentWeapon => Player.currentWeapon.Value;
+
 		public void Initialize()
 		{
-			GameEntity player = _contexts.game.playerEntity;
-			
-			player.AddViewToLoad(Constants.ResourcePath.Player);
-			
-			CurrentWeaponComponent weapon = player.currentWeapon;
-
-			// _contexts.services.resourcesService.Value
-			//          .DebugWeaponPrefab.
+			Player.AddViewToLoad(ResourcePath.Player);
+			CurrentWeapon.AddViewToLoad(ResourcePath.DebugWeapon);
 		}
-	}
+    }
 }

@@ -11,14 +11,14 @@ public partial class GameEntity {
     public Code.Ecs.Components.CurrentWeaponComponent currentWeapon { get { return (Code.Ecs.Components.CurrentWeaponComponent)GetComponent(GameComponentsLookup.CurrentWeapon); } }
     public bool hasCurrentWeapon { get { return HasComponent(GameComponentsLookup.CurrentWeapon); } }
 
-    public void AddCurrentWeapon(int newValue) {
+    public void AddCurrentWeapon(GameEntity newValue) {
         var index = GameComponentsLookup.CurrentWeapon;
         var component = (Code.Ecs.Components.CurrentWeaponComponent)CreateComponent(index, typeof(Code.Ecs.Components.CurrentWeaponComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceCurrentWeapon(int newValue) {
+    public void ReplaceCurrentWeapon(GameEntity newValue) {
         var index = GameComponentsLookup.CurrentWeapon;
         var component = (Code.Ecs.Components.CurrentWeaponComponent)CreateComponent(index, typeof(Code.Ecs.Components.CurrentWeaponComponent));
         component.Value = newValue;
