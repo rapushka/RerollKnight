@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa71d1b4-9b2a-4776-81a0-6df994efd359" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RerollKnight/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Components/GameComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming/SetupAimingAtCursorSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/Controls/Aiming/SetupAimingAtCursorSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic/GameInitialization/LoadWeaponSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic/GameInitialization/LoadWeaponSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic/GameInitialization/LoadWeaponSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/GameLogic/GameInitialization/LoadWeaponSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/BindViewsToLoadSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/BindViewsToLoadSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Contexts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Contexts.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameCurrentWeaponComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Generated/Game/Components/GameCurrentWeaponComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Player/Prefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Weapons/In Arms prefabs/Debug Weapon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Weapons/In Arms prefabs/Debug Weapon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/WeaponToPlayerParentSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Systems/View/WeaponToPlayerParentSystem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ViewSystems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Ecs/Features/ViewSystems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/IViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/IViewController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/UnityViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Unity/Views/ViewController/UnityViewController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

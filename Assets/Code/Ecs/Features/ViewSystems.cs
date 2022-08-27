@@ -10,7 +10,8 @@ namespace Code.Ecs.Features
 		{
 			Add(new BindViewsToLoadSystem(contexts));
 			Add(new LoadViewSystem(contexts));
-			
+
+			Add(new WeaponToPlayerParentSystem(contexts));
 			Add(new SetupAimingAtCursorSystem(contexts));
 		}
 	}
