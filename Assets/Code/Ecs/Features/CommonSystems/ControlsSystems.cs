@@ -1,8 +1,6 @@
 using Code.Ecs.Systems.Controls;
 using Code.Ecs.Systems.Controls.Aiming;
 using Code.Ecs.Systems.Controls.Jumping;
-using Code.Ecs.Systems.Controls.Movement;
-using Code.Ecs.Systems.GameLogic;
 using Code.Ecs.Systems.View;
 
 namespace Code.Ecs.Features.CommonSystems
