@@ -22,6 +22,7 @@ namespace Code.Ecs.Components
 	[Game] public sealed class PositionComponent : ValueComponent<Vector3> { }
 
 	// Cleanups
+	[Game] [Cleanup(RemoveComponent)] public sealed class SpawnPositionComponent : ValueComponent<Vector3> { }
 	[Game] [Cleanup(RemoveComponent)] [FlagPrefix("Perform")] public sealed class JumpComponent : FlagComponent { }
 
 	// Identifiers

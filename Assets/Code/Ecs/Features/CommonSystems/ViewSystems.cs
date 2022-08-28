@@ -14,7 +14,7 @@ namespace Code.Ecs.Features.CommonSystems
 
 			Add(new WeaponToPlayerParentSystem(contexts));
 			Add(new SetupAimingAtCursorSystem(contexts));
-			Add(new MoveViewToInitialPositionSystem(contexts));
+			Add(new MoveViewToSpawnPositionSystem(contexts));
 		}
 	}
 }

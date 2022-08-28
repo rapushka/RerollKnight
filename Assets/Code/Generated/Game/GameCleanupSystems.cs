@@ -9,6 +9,7 @@
 public sealed class GameCleanupSystems : Feature {
 
     public GameCleanupSystems(Contexts contexts) {
+        Add(new RemoveSpawnPositionGameSystem(contexts));
         Add(new RemoveJumpGameSystem(contexts));
     }
 }
