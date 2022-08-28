@@ -1,4 +1,5 @@
-using Code.Ecs.Features;
+using Code.Ecs.Features.CommonSystems;
+using Code.Ecs.Features.FixedUpdateSystems;
 using Code.Services;
 using Code.Services.Realizations;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Code.Unity
 		[SerializeField] private SerializableResourcesService _resources;
 
 		private CommonSystems _systems;
+		private FixedUpdateSystems _fixedUpdateSystems;
 
 		private void Start()
 		{
@@ -29,14 +31,26 @@ namespace Code.Unity
 			};
 
 			_systems = new CommonSystems(contexts, services);
+			_fixedUpdateSystems = new FixedUpdateSystems(contexts);
 
 			_systems.Initialize();
+			_fixedUpdateSystems.Initialize();
 		}
 
 		private void Update() => _systems.Execute();
 
-		private void LateUpdate() => _systems.Cleanup();
+		private void FixedUpdate() => _fixedUpdateSystems.Execute();
 
-		private void OnDestroy() => _systems.TearDown();
+		private void LateUpdate()
+		{
+			_systems.Cleanup();
+			_fixedUpdateSystems.Cleanup();
+		}
+
+		private void OnDestroy()
+		{
+			_systems.TearDown();
+			_fixedUpdateSystems.TearDown();
+		}
 	}
 }

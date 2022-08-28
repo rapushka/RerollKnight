@@ -22,7 +22,7 @@ namespace Code.Ecs.Systems.Controls.Movement
 		}
 
 		private ITimeService Time => _contexts.services.timeService.Value;
-		private Vector3 ScaledDirection => MoveDirection * PlayerSpeed * Time.DeltaTime;
+		private Vector3 ScaledDirection => MoveDirection * PlayerSpeed * Time.FixedDeltaTime;
 		private Vector3 MoveDirection => _contexts.input.moveDirectionReceive.Value;
 		private float PlayerSpeed => _contexts.services.balanceService.Value.Player.MoveSpeed;
 

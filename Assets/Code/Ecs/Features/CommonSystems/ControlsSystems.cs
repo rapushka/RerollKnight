@@ -1,11 +1,9 @@
 using Code.Ecs.Systems.Controls;
 using Code.Ecs.Systems.Controls.Aiming;
 using Code.Ecs.Systems.Controls.Jumping;
-using Code.Ecs.Systems.Controls.Movement;
-using Code.Ecs.Systems.GameLogic;
 using Code.Ecs.Systems.View;
 
-namespace Code.Ecs.Features
+namespace Code.Ecs.Features.CommonSystems
 {
 	public sealed class ControlsSystems : Feature
 	{
@@ -17,22 +15,14 @@ namespace Code.Ecs.Features
 			Add(new EmitInputsSystem(contexts));
 			
 			// Movement
-			Add(new MovementSystem(contexts));
 			Add(new InputToRotationSystem(contexts));
-			Add(new TurnByDirectionSystem(contexts));
 			
-			// Jumping
-			Add(new GroundCheckSystem(contexts));
+			// Jumps
 			Add(new JumpSystem(contexts));
 			
-			// Aiming
+			// Aim
 			Add(new UpdateCursorPositionSystem(contexts));
 			Add(new LockCursorYPosition(contexts));
-			Add(new LookAtSystem(contexts));
-			
-			// Apply
-			Add(new ApplyVelocitySystem(contexts));
-			Add(new ApplyGravitySystem(contexts));
 		}
 	}
 }

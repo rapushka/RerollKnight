@@ -20,7 +20,7 @@ namespace Code.Ecs.Systems.View
 			);	
 		}
 		
-		private float ScaledRotationSpeed => RotationSpeed * Time.DeltaTime;
+		private float ScaledRotationSpeed => RotationSpeed * Time.FixedDeltaTime;
 		private float RotationSpeed => _contexts.services.balanceService.Value.ToDirectionRotationSpeed;
 		private ITimeService Time => _contexts.services.timeService.Value;
 

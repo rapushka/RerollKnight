@@ -1,4 +1,4 @@
-namespace Code.Ecs.Features
+namespace Code.Ecs.Features.CommonSystems
 {
 	public sealed class GameplaySystems : Feature
 	{
