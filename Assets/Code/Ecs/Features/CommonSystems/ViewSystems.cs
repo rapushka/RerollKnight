@@ -1,5 +1,6 @@
 using Code.Ecs.Systems.Controls.Aiming;
 using Code.Ecs.Systems.View;
+using Code.Ecs.Systems.View.Initialization;
 
 namespace Code.Ecs.Features.CommonSystems
 {
@@ -13,6 +14,7 @@ namespace Code.Ecs.Features.CommonSystems
 
 			Add(new WeaponToPlayerParentSystem(contexts));
 			Add(new SetupAimingAtCursorSystem(contexts));
+			Add(new MoveViewToInitialPositionSystem(contexts));
 		}
 	}
 }
