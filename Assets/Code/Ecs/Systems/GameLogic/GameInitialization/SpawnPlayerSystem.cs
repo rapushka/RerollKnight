@@ -22,8 +22,7 @@ namespace Code.Ecs.Systems.GameLogic.GameInitialization
 			player.isWeighty = true;
 			player.isInputReceiver = true;
 			
-			player.AddPosition(SpawnPosition);
-			player.AddVelocity(Vector3.zero);
+			player.AddVelocity(SpawnPosition);
 		}
 	}
 }

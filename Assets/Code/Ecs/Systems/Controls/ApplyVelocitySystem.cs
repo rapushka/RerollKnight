@@ -14,7 +14,7 @@ namespace Code.Ecs.Systems.Controls
 
 		public void Execute() => _entities.ForEach(Move);
 
-		private static void Move(GameEntity e)
+		private static void Move(GameEntity e) 
 			=> e.characterController.Value.Move(e.velocity);
 	}
 }

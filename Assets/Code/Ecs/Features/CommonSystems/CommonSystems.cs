@@ -13,7 +13,6 @@ namespace Code.Ecs.Features.CommonSystems
 			Add(new GameplaySystems(contexts));
 			Add(new ViewSystems(contexts));
 			
-			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
 		}
 	}

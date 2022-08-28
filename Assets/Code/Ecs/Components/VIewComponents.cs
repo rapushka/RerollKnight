@@ -12,8 +12,6 @@ namespace Code.Ecs.Components
 
 	[Game] public sealed class CharacterControllerComponent : ValueComponent<CharacterController> { }
 
-	[Game] public sealed class VelocityComponent : ValueComponent<Vector3> { }
-
 	[Game] public sealed class TargetRotationComponent : ValueComponent<Quaternion> { }
 
 	[Game] public sealed class TransformComponent : ValueComponent<Transform> { }

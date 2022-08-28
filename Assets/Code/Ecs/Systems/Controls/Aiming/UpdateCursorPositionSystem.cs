@@ -21,8 +21,8 @@ namespace Code.Ecs.Systems.Controls.Aiming
 		public void Initialize()
 			=> _contexts.game.CreateEntity()
 			            .Do((c) => c.isCursor = true)
-			            .Do((c) => c.AddPosition(Vector2.zero));
+			            .Do((c) => c.AddVelocity(Vector2.zero));
 
-		public void Execute() => Cursor.position.Value = Scene.ScreenToWorldPoint(AimingValue);
+		public void Execute() => Cursor.velocity.Value = Scene.ScreenToWorldPoint(AimingValue);
 	}
 }

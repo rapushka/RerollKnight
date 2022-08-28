@@ -14,7 +14,7 @@ namespace Code.Ecs.Systems.GameLogic
 		{
 			_gameContext = contexts.game;
 
-			_objects = contexts.game.GetAllOf(GameMatcher.LookAtObjectId, GameMatcher.Position);
+			_objects = contexts.game.GetAllOf(GameMatcher.LookAtObjectId, GameMatcher.Velocity);
 		}
 
 		public void Execute() 
@@ -31,7 +31,7 @@ namespace Code.Ecs.Systems.GameLogic
 		private static void TurnSubjectToObject(GameEntity entitySubject, GameEntity entityObject)
 		{
 			Transform subject = entitySubject.transform;
-			Vector3 @object = entityObject.position.Value;
+			Vector3 @object = entityObject.velocity.Value;
 			
 			subject.LookAt(@object);
 		}
