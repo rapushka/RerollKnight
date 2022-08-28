@@ -17,7 +17,7 @@ namespace Code.Ecs.Systems.Controls.Movement
 			_entities = contexts.game.GetAllOf
 			(
 				GameMatcher.InputReceiver,
-				GameMatcher.Velocity
+				GameMatcher.Position
 			);
 		}
 
@@ -30,8 +30,8 @@ namespace Code.Ecs.Systems.Controls.Movement
 
 		private void SetVelocity(GameEntity e)
 		{
-			e.velocity.Value.x = ScaledDirection.x;
-			e.velocity.Value.z = ScaledDirection.z;
+			e.position.Value.x = ScaledDirection.x;
+			e.position.Value.z = ScaledDirection.z;
 		}
 	}
 }
