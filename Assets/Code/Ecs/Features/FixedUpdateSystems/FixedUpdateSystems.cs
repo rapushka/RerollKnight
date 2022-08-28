@@ -23,7 +23,7 @@ namespace Code.Ecs.Features.FixedUpdateSystems
 
 			// Apply
 			Add(new ApplyGravitySystem(contexts));
-			Add(new ApplyVelocitySystem(contexts));
+			Add(new ApplyPositionSystem(contexts));
 		}
 	}
 }
