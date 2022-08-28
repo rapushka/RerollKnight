@@ -20,12 +20,12 @@ namespace Code.Ecs.Systems.Controls.Jumping
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.Jump);
 
-		protected override bool Filter(GameEntity entity) => entity.hasVelocity;
+		protected override bool Filter(GameEntity entity) => entity.hasPosition;
 
 		protected override void Execute(List<GameEntity> entites)
 			=> entites.ForEach(PerformJump);
 
 		private void PerformJump(GameEntity e) 
-			=> e.velocity.Value.y = JumpForce;
+			=> e.position.Value.y = JumpForce;
 	}
 }

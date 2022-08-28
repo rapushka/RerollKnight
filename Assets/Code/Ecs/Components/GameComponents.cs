@@ -19,7 +19,7 @@ namespace Code.Ecs.Components
 	[Game] public sealed class WeaponComponent : FlagComponent { }
 
 	// Events
-	[Game] public sealed class VelocityComponent : ValueComponent<Vector3> { }
+	[Game] public sealed class PositionComponent : ValueComponent<Vector3> { }
 
 	// Cleanups
 	[Game] [Cleanup(RemoveComponent)] [FlagPrefix("Perform")] public sealed class JumpComponent : FlagComponent { }

@@ -21,11 +21,11 @@ namespace Code.Ecs.Systems.GameLogic
 		private ITimeService Time => _contexts.services.timeService.Value;
 
 		public void Initialize()
-			=> _entities = _contexts.game.GetAllOf(GameMatcher.Velocity, GameMatcher.Weighty);
+			=> _entities = _contexts.game.GetAllOf(GameMatcher.Position, GameMatcher.Weighty);
 
 		public void Execute() => _entities.ForEach(ApplyGravity);
 
 		private void ApplyGravity(GameEntity e) 
-			=> e.velocity.Value += ScaledGravity;
+			=> e.position.Value += ScaledGravity;
 	}
 }
