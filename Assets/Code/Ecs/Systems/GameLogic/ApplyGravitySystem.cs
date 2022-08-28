@@ -16,7 +16,7 @@ namespace Code.Ecs.Systems.GameLogic
 			_contexts = contexts;
 		}
 
-		private Vector3 ScaledGravity => Vector3.down * GravityScale * Time.DeltaTime;
+		private Vector3 ScaledGravity => Vector3.down * GravityScale * Time.FixedDeltaTime;
 		private float GravityScale => _contexts.services.balanceService.Value.GravityScale;
 		private ITimeService Time => _contexts.services.timeService.Value;
 

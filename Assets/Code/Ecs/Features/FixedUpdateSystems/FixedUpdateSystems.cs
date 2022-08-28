@@ -22,8 +22,8 @@ namespace Code.Ecs.Features.FixedUpdateSystems
 			Add(new LookAtSystem(contexts));
 
 			// Apply
-			Add(new ApplyVelocitySystem(contexts));
 			Add(new ApplyGravitySystem(contexts));
+			Add(new ApplyVelocitySystem(contexts));
 		}
 	}
 }
