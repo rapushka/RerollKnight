@@ -3,6 +3,7 @@ using Entitas.CodeGeneration.Attributes;
 using Packages.Code.Ecs.Components.Workflow;
 using UnityEngine;
 using static Entitas.CodeGeneration.Attributes.CleanupMode;
+using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace Code.Ecs.Components
 {
@@ -20,6 +21,8 @@ namespace Code.Ecs.Components
 
 	// Events
 	[Game] public sealed class PositionComponent : ValueComponent<Vector3> { }
+
+	[Event(Self)] [Game] public sealed class SpawnPositionComponent : ValueComponent<Vector3> { }
 
 	// Cleanups
 	[Game] [Cleanup(RemoveComponent)] [FlagPrefix("Perform")] public sealed class JumpComponent : FlagComponent { }

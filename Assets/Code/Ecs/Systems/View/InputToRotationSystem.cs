@@ -13,7 +13,8 @@ namespace Code.Ecs.Systems.View
 		{
 			_contexts = contexts;
 		}
-		
+
+		private static Quaternion InitialRotation => Quaternion.LookRotation(Vector3.forward, Vector3.up);
 		private Quaternion TargetRotation => Quaternion.LookRotation(ReceivedDirection, Vector3.up);
 		private bool IsMoved => ReceivedDirection != Vector3.zero;
 		private Vector3 ReceivedDirection => _contexts.input.moveDirectionReceive.Value;
@@ -21,7 +22,7 @@ namespace Code.Ecs.Systems.View
 		public void Initialize()
 		{
 			_player = _contexts.game.playerEntity;
-			_player.AddTargetRotation(TargetRotation);
+			_player.AddTargetRotation(InitialRotation);
 		}
 
 		public void Execute() => _player.Do(SetRotation, @if: IsMoved);

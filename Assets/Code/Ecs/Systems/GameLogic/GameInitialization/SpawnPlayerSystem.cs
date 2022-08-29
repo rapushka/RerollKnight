@@ -12,9 +12,6 @@ namespace Code.Ecs.Systems.GameLogic.GameInitialization
 			_contexts = contexts;
 		}
 
-		private Vector2 SpawnPosition
-			=> _contexts.services.resourcesService.Value.PlayerSpawnPoint.position;
-
 		public void Initialize()
 		{
 			GameEntity player = _contexts.game.CreateEntity();
@@ -22,7 +19,7 @@ namespace Code.Ecs.Systems.GameLogic.GameInitialization
 			player.isWeighty = true;
 			player.isInputReceiver = true;
 			
-			player.AddPosition(SpawnPosition);
+			player.AddPosition(Vector3.zero);
 		}
 	}
 }

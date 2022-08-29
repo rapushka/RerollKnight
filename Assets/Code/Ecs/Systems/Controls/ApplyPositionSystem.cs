@@ -3,11 +3,11 @@ using Entitas;
 
 namespace Code.Ecs.Systems.Controls
 {
-	public sealed class ApplyVelocitySystem : IExecuteSystem
+	public sealed class ApplyPositionSystem : IExecuteSystem
 	{
 		private readonly IGroup<GameEntity> _entities;
 
-		public ApplyVelocitySystem(Contexts contexts)
+		public ApplyPositionSystem(Contexts contexts)
 		{
 			_entities = contexts.game.GetAllOf(GameMatcher.CharacterController, GameMatcher.Position);
 		}

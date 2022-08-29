@@ -16,7 +16,8 @@ namespace Code.Ecs.Systems.GameLogic
 			_contexts = contexts;
 		}
 
-		private Vector3 ScaledGravity => Vector3.down * GravityScale * Time.FixedDeltaTime;
+		private Vector3 ScaledGravity => DirectedGravity * Time.FixedDeltaTime;
+		private Vector3 DirectedGravity => Vector3.down * GravityScale;
 		private float GravityScale => _contexts.services.balanceService.Value.GravityScale;
 		private ITimeService Time => _contexts.services.timeService.Value;
 
@@ -25,7 +26,16 @@ namespace Code.Ecs.Systems.GameLogic
 
 		public void Execute() => _entities.ForEach(ApplyGravity);
 
-		private void ApplyGravity(GameEntity e) 
-			=> e.position.Value += ScaledGravity;
+		private void ApplyGravity(GameEntity e)
+		{
+			if (e.position.Value.y > DirectedGravity.y)
+			{
+				e.position.Value += ScaledGravity;
+			}
+			else
+			{
+				e.position.Value = ScaledGravity;
+			}
+		}
 	}
 }

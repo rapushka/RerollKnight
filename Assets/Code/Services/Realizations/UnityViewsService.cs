@@ -9,11 +9,11 @@ namespace Code.Services.Realizations
 {
 	public class UnityViewsService : IViewsService
 	{
-		private Transform _viewRoot;
+		private readonly Transform _viewRoot;
 
 		public UnityViewsService()
 		{
-			_viewRoot = new GameObject(nameof(_viewRoot)).transform;
+			_viewRoot = new GameObject("View Root").transform;
 		}
 
 		private static IResourcesService ResourcesService
@@ -22,11 +22,10 @@ namespace Code.Services.Realizations
 		public void LoadViewForEntity(string viewPath, IEntity entity)
 		{
 			GameObject viewPrefab = ResourcesService.LoadResourceBy(viewPath);
-			GameObject view = Object.Instantiate(viewPrefab, _viewRoot, false);
+			GameObject view = Object.Instantiate(viewPrefab, _viewRoot, worldPositionStays: true);
 
-			view
-			   .CreateController<UnityViewController>(entity)
-			   .RegisterListeners(entity);
+			view.CreateController<UnityViewController>(entity)
+			    .RegisterListeners(entity);
 		}
 	}
 }
