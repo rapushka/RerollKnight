@@ -12,7 +12,7 @@ namespace Code.Ecs.Systems.View.Initialization
 			_entities = contexts.game.GetAllOf
 			(
 				GameMatcher.SpawnPosition,
-				GameMatcher.Position
+				GameMatcher.Transform
 			);
 		}
 
@@ -20,7 +20,7 @@ namespace Code.Ecs.Systems.View.Initialization
 
 		private static void Move(GameEntity e)
 		{
-			e.position.Value = e.spawnPosition;
+			e.transform.Value.position = e.spawnPosition;
 		}
 	}
 }

@@ -14,6 +14,16 @@ namespace Code.Workflow.Extensions
 			return @this;
 		}
 
+		public static T Do<T>(this T @this, Action<T> action, Func<T, bool> @if)
+		{
+			if (@if.Invoke(@this))
+			{
+				action.Invoke(@this);
+			}
+
+			return @this;
+		}
+
 		public static T Do<T>(this T @this, Action<T> action)
 		{
 			action.Invoke(@this);

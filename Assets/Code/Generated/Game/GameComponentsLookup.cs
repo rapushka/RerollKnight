@@ -27,8 +27,9 @@ public static class GameComponentsLookup {
     public const int ViewToLoad = 16;
     public const int Weapon = 17;
     public const int Weighty = 18;
+    public const int SpawnPositionListener = 19;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
         "CharacterController",
@@ -49,7 +50,8 @@ public static class GameComponentsLookup {
         "ViewController",
         "ViewToLoad",
         "Weapon",
-        "Weighty"
+        "Weighty",
+        "SpawnPositionListener"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -71,6 +73,7 @@ public static class GameComponentsLookup {
         typeof(Code.Ecs.Components.ViewControllerComponent),
         typeof(Code.Ecs.Components.ViewToLoadComponent),
         typeof(Code.Ecs.Components.WeaponComponent),
-        typeof(Code.Ecs.Components.WeightyComponent)
+        typeof(Code.Ecs.Components.WeightyComponent),
+        typeof(SpawnPositionListenerComponent)
     };
 }
