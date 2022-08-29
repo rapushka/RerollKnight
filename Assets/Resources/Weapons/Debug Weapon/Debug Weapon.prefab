@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8666578892095144144}
   - component: {fileID: 6446315476012599360}
+  - component: {fileID: -2215184873698596719}
   m_Layer: 0
   m_Name: Debug Weapon
   m_TagString: Untagged
@@ -128,6 +129,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b44a09816676437baf43f9a62ffe529b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2215184873698596719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091449949181364944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea602e25e644de9a7cfd395589f46e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7102347201486190549

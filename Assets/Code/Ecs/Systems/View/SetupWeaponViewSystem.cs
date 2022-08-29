@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Ecs.Systems.View
 {
-	public sealed class WeaponToPlayerParentSystem : ReactiveSystem<GameEntity>
+	public sealed class SetupWeaponViewSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
 
-		public WeaponToPlayerParentSystem(Contexts contexts)
+		public SetupWeaponViewSystem(Contexts contexts)
 			: base(contexts.game)
 		{
 			_contexts = contexts;
@@ -21,7 +22,14 @@ namespace Code.Ecs.Systems.View
 		protected override bool Filter(GameEntity entity) => entity.hasTransform;
 
 		protected override void Execute(List<GameEntity> entites) 
-			=> entites.ForEach(SetPlayerAsParent);
+			=> entites.ForEach(Setup);
+
+		private void Setup(GameEntity e)
+		{
+			SetPlayerAsParent(e);
+			
+			e.AddSpawnPosition(Vector3.zero);
+		}
 
 		private void SetPlayerAsParent(GameEntity weapon) 
 			=> weapon.transform.Value.SetParent(Player.transform);
