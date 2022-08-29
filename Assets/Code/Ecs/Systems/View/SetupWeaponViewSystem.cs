@@ -22,16 +22,9 @@ namespace Code.Ecs.Systems.View
 		protected override bool Filter(GameEntity entity) => entity.hasTransform;
 
 		protected override void Execute(List<GameEntity> entites) 
-			=> entites.ForEach(Setup);
-
-		private void Setup(GameEntity e)
-		{
-			SetPlayerAsParent(e);
-			
-			e.AddSpawnPosition(Vector3.zero);
-		}
+			=> entites.ForEach(SetPlayerAsParent);
 
 		private void SetPlayerAsParent(GameEntity weapon) 
-			=> weapon.transform.Value.SetParent(Player.transform);
+			=> weapon.transform.Value.SetParent(Player.transform, worldPositionStays: false);
 	}
 }
