@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Code.Services.Interfaces;
+using Code.Workflow.Extensions;
 using Entitas;
 using UnityEngine;
 
@@ -16,23 +17,21 @@ namespace Code.Ecs.Systems.GameLogic.GameInitialization
 		private IViewsService ViewsService => _contexts.services.viewService.Value;
 
 		public void Initialize()
-		{
-			_contexts.game.SetWeaponsPool(LoadEntities());
-		}
+			=> _contexts.game.SetWeaponsPool(LoadEntities());
 
-		private IEnumerable<GameEntity> LoadEntities() 
+		private IEnumerable<GameEntity> LoadEntities()
 			=> BalanceService.Weapons.Select(Load);
 
 		private GameEntity Load(GameObject prefab)
-		{
-			GameEntity newWeapon = _contexts.game.CreateEntity();
-			newWeapon.isWeapon = true;
-			
-			GameObject weaponObject = ViewsService.LoadViewForEntity(prefab, newWeapon);
-			weaponObject.SetActive(false);
-			newWeapon.AddGameObject(weaponObject);
-			
-			return newWeapon;
-		}
+			=> _contexts.game.CreateEntity()
+			            .Do((e) => e.isWeapon = true)
+			            .Do((e) => BindGameObject(prefab, e));
+
+		private void BindGameObject(GameObject viewPrefab, GameEntity entity)
+			=> entity.AddGameObject(LoadInactiveGameObject(viewPrefab, entity));
+
+		private GameObject LoadInactiveGameObject(GameObject viewPrefab, IEntity entity)
+			=> ViewsService.LoadViewForEntity(viewPrefab, entity)
+			               .Do((o) => o.SetActive(false));
 	}
 }
