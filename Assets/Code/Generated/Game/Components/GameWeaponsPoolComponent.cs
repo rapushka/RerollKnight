@@ -12,7 +12,7 @@ public partial class GameContext {
     public Code.Ecs.Components.WeaponsPoolComponent weaponsPool { get { return weaponsPoolEntity.weaponsPool; } }
     public bool hasWeaponsPool { get { return weaponsPoolEntity != null; } }
 
-    public GameEntity SetWeaponsPool(System.Collections.Generic.IEnumerable<UnityEngine.GameObject> newValue) {
+    public GameEntity SetWeaponsPool(System.Collections.Generic.IEnumerable<GameEntity> newValue) {
         if (hasWeaponsPool) {
             throw new Entitas.EntitasException("Could not set WeaponsPool!\n" + this + " already has an entity with Code.Ecs.Components.WeaponsPoolComponent!",
                 "You should check if the context already has a weaponsPoolEntity before setting it or use context.ReplaceWeaponsPool().");
@@ -22,7 +22,7 @@ public partial class GameContext {
         return entity;
     }
 
-    public void ReplaceWeaponsPool(System.Collections.Generic.IEnumerable<UnityEngine.GameObject> newValue) {
+    public void ReplaceWeaponsPool(System.Collections.Generic.IEnumerable<GameEntity> newValue) {
         var entity = weaponsPoolEntity;
         if (entity == null) {
             entity = SetWeaponsPool(newValue);
@@ -49,14 +49,14 @@ public partial class GameEntity {
     public Code.Ecs.Components.WeaponsPoolComponent weaponsPool { get { return (Code.Ecs.Components.WeaponsPoolComponent)GetComponent(GameComponentsLookup.WeaponsPool); } }
     public bool hasWeaponsPool { get { return HasComponent(GameComponentsLookup.WeaponsPool); } }
 
-    public void AddWeaponsPool(System.Collections.Generic.IEnumerable<UnityEngine.GameObject> newValue) {
+    public void AddWeaponsPool(System.Collections.Generic.IEnumerable<GameEntity> newValue) {
         var index = GameComponentsLookup.WeaponsPool;
         var component = (Code.Ecs.Components.WeaponsPoolComponent)CreateComponent(index, typeof(Code.Ecs.Components.WeaponsPoolComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceWeaponsPool(System.Collections.Generic.IEnumerable<UnityEngine.GameObject> newValue) {
+    public void ReplaceWeaponsPool(System.Collections.Generic.IEnumerable<GameEntity> newValue) {
         var index = GameComponentsLookup.WeaponsPool;
         var component = (Code.Ecs.Components.WeaponsPoolComponent)CreateComponent(index, typeof(Code.Ecs.Components.WeaponsPoolComponent));
         component.Value = newValue;

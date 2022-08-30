@@ -11,31 +11,33 @@ public static class GameComponentsLookup {
     public const int CharacterController = 0;
     public const int CurrentWeapon = 1;
     public const int Cursor = 2;
-    public const int Id = 3;
-    public const int InputReceiver = 4;
-    public const int Jump = 5;
-    public const int LegsPointTransform = 6;
-    public const int LookAtObjectId = 7;
-    public const int LookAtSubjectId = 8;
-    public const int Player = 9;
-    public const int Position = 10;
-    public const int Rigidbody = 11;
-    public const int SpawnPosition = 12;
-    public const int TargetRotation = 13;
-    public const int Transform = 14;
-    public const int ViewController = 15;
-    public const int ViewToLoad = 16;
-    public const int Weapon = 17;
-    public const int WeaponsPool = 18;
-    public const int Weighty = 19;
-    public const int SpawnPositionListener = 20;
+    public const int GameObject = 3;
+    public const int Id = 4;
+    public const int InputReceiver = 5;
+    public const int Jump = 6;
+    public const int LegsPointTransform = 7;
+    public const int LookAtObjectId = 8;
+    public const int LookAtSubjectId = 9;
+    public const int Player = 10;
+    public const int Position = 11;
+    public const int Rigidbody = 12;
+    public const int SpawnPosition = 13;
+    public const int TargetRotation = 14;
+    public const int Transform = 15;
+    public const int ViewController = 16;
+    public const int ViewToLoad = 17;
+    public const int Weapon = 18;
+    public const int WeaponsPool = 19;
+    public const int Weighty = 20;
+    public const int SpawnPositionListener = 21;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "CharacterController",
         "CurrentWeapon",
         "Cursor",
+        "GameObject",
         "Id",
         "InputReceiver",
         "Jump",
@@ -60,6 +62,7 @@ public static class GameComponentsLookup {
         typeof(Code.Ecs.Components.CharacterControllerComponent),
         typeof(Code.Ecs.Components.CurrentWeaponComponent),
         typeof(Code.Ecs.Components.CursorComponent),
+        typeof(Code.Ecs.Components.GameObjectComponent),
         typeof(Code.Ecs.Components.IdComponent),
         typeof(Code.Ecs.Components.InputReceiverComponent),
         typeof(Code.Ecs.Components.JumpComponent),

@@ -19,13 +19,18 @@ namespace Code.Services.Realizations
 		private static IResourcesService ResourcesService
 			=> Contexts.sharedInstance.services.resourcesService.Value;
 
-		public void LoadViewForEntity(string viewPath, IEntity entity)
+		public GameObject LoadViewForEntity(string viewPath, IEntity entity)
 		{
 			GameObject viewPrefab = ResourcesService.LoadResourceBy(viewPath);
-			GameObject view = Object.Instantiate(viewPrefab, _viewRoot, worldPositionStays: true);
+			
+			return LoadViewForEntity(viewPrefab, entity);
+		}
 
-			view.CreateController<UnityViewController>(entity)
-			    .RegisterListeners(entity);
+		public GameObject LoadViewForEntity(GameObject viewPrefab, IEntity entity)
+		{
+			return Object.Instantiate(viewPrefab, _viewRoot, worldPositionStays: true)
+			      .CreateController<UnityViewController>(entity)
+			      .RegisterListeners(entity);
 		}
 	}
 }

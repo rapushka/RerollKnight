@@ -13,7 +13,7 @@ namespace Code.Ecs.Components
 
 	[Game] [Unique] public sealed class CursorComponent : FlagComponent { }
 
-	[Game] [Unique] public sealed class WeaponsPoolComponent : ValueComponent<IEnumerable<GameObject>> { }
+	[Game] [Unique] public sealed class WeaponsPoolComponent : ValueComponent<IEnumerable<GameEntity>> { }
 
 	// Entity Parameters
 	[Game] public sealed class WeightyComponent : FlagComponent { }
