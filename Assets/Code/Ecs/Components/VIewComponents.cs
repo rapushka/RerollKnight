@@ -16,5 +16,7 @@ namespace Code.Ecs.Components
 
 	[Game] public sealed class TransformComponent : ValueComponent<Transform> { }
 
+	[Game] public sealed class GameObjectComponent : ValueComponent<GameObject> { }
+
 	[Game] public sealed class LegsPointTransformComponent : ValueComponent<Transform> { }
 }

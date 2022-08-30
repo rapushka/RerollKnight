@@ -8,6 +8,7 @@ namespace Code.Ecs.Features.CommonSystems
 			: base(nameof(GameInitializationSystems))
 		{
 			Add(new SpawnPlayerSystem(contexts));
+			Add(new LoadWeaponsPoolSystem(contexts));
 			Add(new LoadWeaponSystem(contexts));
 		}
 	}

@@ -1,3 +1,4 @@
+using Code.Workflow.Extensions;
 using Entitas;
 
 namespace Code.Ecs.Systems.GameLogic.GameInitialization
@@ -15,10 +16,10 @@ namespace Code.Ecs.Systems.GameLogic.GameInitialization
 
 		public void Initialize()
 		{
-			GameEntity weapon = _contexts.game.CreateEntity();
-			weapon.isWeapon = true;
-
-			Player.AddCurrentWeapon(weapon);
+			GameEntity randomWeapon = _contexts.game.weaponsPool.Value.PickRandom();
+			randomWeapon.gameObject.Value.SetActive(true);
+			
+			Player.AddCurrentWeapon(randomWeapon);
 		}
 	}
 }

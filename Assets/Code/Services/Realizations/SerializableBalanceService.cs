@@ -1,6 +1,7 @@
 using System;
 using Code.Services.Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Code.Services.Realizations
 {
@@ -9,10 +10,10 @@ namespace Code.Services.Realizations
 	{
 		[SerializeField] private float _gravityScale;
 		[SerializeField] private PlayerRealization _player;
-		[SerializeField] private float _toDirectionRotationSpeed;
+		[SerializeField] private float _rotationSpeedToDirection;
 
 		public float GravityScale => _gravityScale;
-		public float ToDirectionRotationSpeed => _toDirectionRotationSpeed;
+		public float ToDirectionRotationSpeed => _rotationSpeedToDirection;
 
 		public IBalanceService.IPlayer Player => _player;
 
