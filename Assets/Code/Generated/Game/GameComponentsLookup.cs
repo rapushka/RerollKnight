@@ -26,10 +26,11 @@ public static class GameComponentsLookup {
     public const int ViewController = 15;
     public const int ViewToLoad = 16;
     public const int Weapon = 17;
-    public const int Weighty = 18;
-    public const int SpawnPositionListener = 19;
+    public const int WeaponsPool = 18;
+    public const int Weighty = 19;
+    public const int SpawnPositionListener = 20;
 
-    public const int TotalComponents = 20;
+    public const int TotalComponents = 21;
 
     public static readonly string[] componentNames = {
         "CharacterController",
@@ -50,6 +51,7 @@ public static class GameComponentsLookup {
         "ViewController",
         "ViewToLoad",
         "Weapon",
+        "WeaponsPool",
         "Weighty",
         "SpawnPositionListener"
     };
@@ -73,6 +75,7 @@ public static class GameComponentsLookup {
         typeof(Code.Ecs.Components.ViewControllerComponent),
         typeof(Code.Ecs.Components.ViewToLoadComponent),
         typeof(Code.Ecs.Components.WeaponComponent),
+        typeof(Code.Ecs.Components.WeaponsPoolComponent),
         typeof(Code.Ecs.Components.WeightyComponent),
         typeof(SpawnPositionListenerComponent)
     };

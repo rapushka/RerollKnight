@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Code.WorkFlow.ComponentsTemplates;
 using Entitas.CodeGeneration.Attributes;
 using Packages.Code.Ecs.Components.Workflow;
@@ -11,6 +12,8 @@ namespace Code.Ecs.Components
 	[Game] [Unique] public sealed class PlayerComponent : FlagComponent { }
 
 	[Game] [Unique] public sealed class CursorComponent : FlagComponent { }
+
+	[Game] [Unique] public sealed class WeaponsPoolComponent : ValueComponent<IEnumerable<GameObject>> { }
 
 	// Entity Parameters
 	[Game] public sealed class WeightyComponent : FlagComponent { }

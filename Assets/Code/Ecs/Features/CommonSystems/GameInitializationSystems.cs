@@ -9,6 +9,7 @@ namespace Code.Ecs.Features.CommonSystems
 		{
 			Add(new SpawnPlayerSystem(contexts));
 			Add(new LoadWeaponSystem(contexts));
+			Add(new LoadWeaponsPoolSystem(contexts));
 		}
 	}
 }
