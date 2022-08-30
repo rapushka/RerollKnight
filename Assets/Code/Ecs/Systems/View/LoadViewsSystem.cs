@@ -4,11 +4,11 @@ using Entitas;
 
 namespace Code.Ecs.Systems.View
 {
-	public sealed class LoadViewSystem : ReactiveSystem<GameEntity>
+	public sealed class LoadViewsSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly ServicesContext _services;
 
-		public LoadViewSystem(Contexts contexts) : base(contexts.game)
+		public LoadViewsSystem(Contexts contexts) : base(contexts.game)
 		{
 			_services = contexts.services;
 		}

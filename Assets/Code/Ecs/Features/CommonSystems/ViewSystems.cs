@@ -10,7 +10,7 @@ namespace Code.Ecs.Features.CommonSystems
 			: base(nameof(ViewSystems))
 		{
 			Add(new BindViewsToLoadSystem(contexts));
-			Add(new LoadViewSystem(contexts));
+			Add(new LoadViewsSystem(contexts));
 
 			Add(new SetupWeaponViewSystem(contexts));
 			Add(new SetupAimingAtCursorSystem(contexts));
