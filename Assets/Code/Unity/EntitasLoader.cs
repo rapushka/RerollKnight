@@ -37,13 +37,15 @@ namespace Code.Unity
 			_fixedUpdateSystems.Initialize();
 		}
 
-		private void Update() => _systems.Execute();
-
-		private void FixedUpdate() => _fixedUpdateSystems.Execute();
-
-		private void LateUpdate()
+		private void Update()
 		{
+			_systems.Execute();
 			_systems.Cleanup();
+		}
+
+		private void FixedUpdate()
+		{
+			_fixedUpdateSystems.Execute();
 			_fixedUpdateSystems.Cleanup();
 		}
 

@@ -9,7 +9,7 @@ namespace Code.Ecs.Features.CommonSystems
 		public ServicesRegistrationSystems(Contexts contexts, ServicesCollection services) 
 			: base(nameof(ServicesRegistrationSystems))
 		{
-			ServicesContext servicesContext = contexts.services;
+			var servicesContext = contexts.services;
 			
 			Register(services.Time, servicesContext.ReplaceTimeService);
 			Register(services.Balance, servicesContext.ReplaceBalanceService);

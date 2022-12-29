@@ -9,10 +9,7 @@ namespace Code.Unity.Views
 		private GameEntity _entity;
 		private CharacterController _characterController;
 
-		private void Awake()
-		{
-			_characterController = GetComponent<CharacterController>();
-		}
+		private void Awake() => _characterController = GetComponent<CharacterController>();
 
 		public void OnSpawnPosition(GameEntity entity, Vector3 value)
 		{
@@ -20,16 +17,6 @@ namespace Code.Unity.Views
 
 			entity.RemoveSpawnPosition();
 			UnRegister();
-		}
-
-		private void SetActualPosition(Vector3 position)
-		{
-			_characterController.Do
-			(
-				@if: (c) => c != null,
-				@do: (c) => c.WarpToLocal(position),
-				elseDo: (_) => transform.localPosition = position
-			);
 		}
 
 		public void Register(IEntity entity)
@@ -44,7 +31,16 @@ namespace Code.Unity.Views
 			void MoveToSpawnPosition(GameEntity e) => OnSpawnPosition(e, e.spawnPosition);
 		}
 
-		public void UnRegister()
-			=> _entity.RemoveSpawnPositionListener(this);
+		public void UnRegister() => _entity.RemoveSpawnPositionListener(this);
+
+		private void SetActualPosition(Vector3 position)
+		{
+			_characterController.Do
+			(
+				@if: (c) => c != null,
+				@do: (c) => c.WarpToLocal(position),
+				elseDo: (_) => transform.localPosition = position
+			);
+		}
 	}
 }

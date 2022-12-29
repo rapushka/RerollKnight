@@ -11,26 +11,16 @@ namespace Code.Services.Realizations
 	{
 		private readonly Transform _viewRoot;
 
-		public UnityViewsService()
-		{
-			_viewRoot = new GameObject("View Root").transform;
-		}
+		public UnityViewsService() => _viewRoot = new GameObject("View Root").transform;
 
-		private static IResourcesService ResourcesService
-			=> Contexts.sharedInstance.services.resourcesService.Value;
+		private static IResourcesService ResourcesService => Contexts.sharedInstance.services.resourcesService.Value;
 
 		public GameObject LoadViewForEntity(string viewPath, IEntity entity)
-		{
-			GameObject viewPrefab = ResourcesService.LoadResourceBy(viewPath);
-			
-			return LoadViewForEntity(viewPrefab, entity);
-		}
+			=> LoadViewForEntity(ResourcesService.LoadResourceBy(viewPath), entity);
 
 		public GameObject LoadViewForEntity(GameObject viewPrefab, IEntity entity)
-		{
-			return Object.Instantiate(viewPrefab, _viewRoot, worldPositionStays: true)
-			      .CreateController<UnityViewController>(entity)
-			      .RegisterListeners(entity);
-		}
+			=> Object.Instantiate(viewPrefab, _viewRoot, worldPositionStays: true)
+			         .CreateController<UnityViewController>(entity)
+			         .RegisterListeners(entity);
 	}
 }
