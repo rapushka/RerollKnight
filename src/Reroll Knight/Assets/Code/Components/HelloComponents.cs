@@ -1,4 +1,4 @@
 ﻿namespace Code
 {
-	// [Game] public sealed class HelloComponent : ValueComponent<string> { }
+	[Game] public sealed class HelloComponent : ValueComponent<string> { }
 }
