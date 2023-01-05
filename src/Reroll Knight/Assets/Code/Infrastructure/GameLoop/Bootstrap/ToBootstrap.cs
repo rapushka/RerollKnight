@@ -1,10 +1,10 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using Code.Services;
+using UnityEngine;
 
 namespace Code
 {
 	public class ToBootstrap : MonoBehaviour
 	{
-		private void Awake() => SceneManager.LoadScene("BootstrapScene");
+		private void Awake() => new SceneTransferService().ToBootstrapScene();
 	}
 }
