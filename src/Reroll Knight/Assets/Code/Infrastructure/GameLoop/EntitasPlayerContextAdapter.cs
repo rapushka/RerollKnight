@@ -4,11 +4,11 @@ namespace Code
 {
 	public class EntitasPlayerContextAdapter : MonoBehaviour
 	{
-		private GameFeature _systems;
+		private PlayerFeature _systems;
 
 		private void Start()
 		{
-			_systems = new GameFeature(Contexts.sharedInstance);
+			_systems = new PlayerFeature(Contexts.sharedInstance);
 			_systems.Initialize();
 		}
 
