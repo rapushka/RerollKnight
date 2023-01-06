@@ -1,6 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 
-namespace Code.Services
+namespace Code
 {
 	public interface ISceneTransferService : IService
 	{
