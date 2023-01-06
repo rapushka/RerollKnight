@@ -5,7 +5,7 @@
 		public PlayerFeature(Contexts contexts)
 			: base(nameof(PlayerFeature))
 		{
-			
+			Add(new ServicesRegistrationFeature(contexts));
 		}
 	}
 }

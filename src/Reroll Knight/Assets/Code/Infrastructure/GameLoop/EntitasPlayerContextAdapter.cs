@@ -1,23 +1,7 @@
-﻿using UnityEngine;
-
-namespace Code
+﻿namespace Code
 {
-	public class EntitasPlayerContextAdapter : MonoBehaviour
+	public class EntitasPlayerContextAdapter : EntitasAdapterBase
 	{
-		private PlayerFeature _systems;
-
-		private void Start()
-		{
-			_systems = new PlayerFeature(Contexts.sharedInstance);
-			_systems.Initialize();
-		}
-
-		private void Update()
-		{
-			_systems.Execute();
-			_systems.Cleanup();
-		}
-
-		private void OnDestroy() => _systems.TearDown();
+		protected override Feature GetFeature() => new PlayerFeature(Contexts.sharedInstance);
 	}
 }
