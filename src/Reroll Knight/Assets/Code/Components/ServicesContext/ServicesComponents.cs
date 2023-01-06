@@ -1,4 +1,6 @@
-﻿namespace Code
+﻿using Entitas.CodeGeneration.Attributes;
+
+namespace Code
 {
-	[Services] public sealed class SceneTransferComponent : ValueComponent<SceneTransferService> { }
+	[Services] [Unique] public sealed class SceneTransferComponent : ValueComponent<SceneTransferService> { }
 }
