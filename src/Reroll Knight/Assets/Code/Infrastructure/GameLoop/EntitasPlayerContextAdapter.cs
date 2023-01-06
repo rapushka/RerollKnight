@@ -2,7 +2,7 @@
 
 namespace Code
 {
-	public class EntitasAdapter : MonoBehaviour
+	public class EntitasPlayerContextAdapter : MonoBehaviour
 	{
 		private GameFeature _systems;
 
