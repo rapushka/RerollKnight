@@ -9,12 +9,12 @@
 public partial class ServicesContext {
 
     public ServicesEntity sceneTransferEntity { get { return GetGroup(ServicesMatcher.SceneTransfer).GetSingleEntity(); } }
-    public Code.SceneTransferComponent sceneTransfer { get { return sceneTransferEntity.sceneTransfer; } }
+    public SceneTransferComponent sceneTransfer { get { return sceneTransferEntity.sceneTransfer; } }
     public bool hasSceneTransfer { get { return sceneTransferEntity != null; } }
 
-    public ServicesEntity SetSceneTransfer(Code.SceneTransferService newValue) {
+    public ServicesEntity SetSceneTransfer(Code.SceneTransferComponent newValue) {
         if (hasSceneTransfer) {
-            throw new Entitas.EntitasException("Could not set SceneTransfer!\n" + this + " already has an entity with Code.SceneTransferComponent!",
+            throw new Entitas.EntitasException("Could not set SceneTransfer!\n" + this + " already has an entity with SceneTransferComponent!",
                 "You should check if the context already has a sceneTransferEntity before setting it or use context.ReplaceSceneTransfer().");
         }
         var entity = CreateEntity();
@@ -22,7 +22,7 @@ public partial class ServicesContext {
         return entity;
     }
 
-    public void ReplaceSceneTransfer(Code.SceneTransferService newValue) {
+    public void ReplaceSceneTransfer(Code.SceneTransferComponent newValue) {
         var entity = sceneTransferEntity;
         if (entity == null) {
             entity = SetSceneTransfer(newValue);
@@ -46,20 +46,20 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.SceneTransferComponent sceneTransfer { get { return (Code.SceneTransferComponent)GetComponent(ServicesComponentsLookup.SceneTransfer); } }
+    public SceneTransferComponent sceneTransfer { get { return (SceneTransferComponent)GetComponent(ServicesComponentsLookup.SceneTransfer); } }
     public bool hasSceneTransfer { get { return HasComponent(ServicesComponentsLookup.SceneTransfer); } }
 
-    public void AddSceneTransfer(Code.SceneTransferService newValue) {
+    public void AddSceneTransfer(Code.SceneTransferComponent newValue) {
         var index = ServicesComponentsLookup.SceneTransfer;
-        var component = (Code.SceneTransferComponent)CreateComponent(index, typeof(Code.SceneTransferComponent));
-        component.Value = newValue;
+        var component = (SceneTransferComponent)CreateComponent(index, typeof(SceneTransferComponent));
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceSceneTransfer(Code.SceneTransferService newValue) {
+    public void ReplaceSceneTransfer(Code.SceneTransferComponent newValue) {
         var index = ServicesComponentsLookup.SceneTransfer;
-        var component = (Code.SceneTransferComponent)CreateComponent(index, typeof(Code.SceneTransferComponent));
-        component.Value = newValue;
+        var component = (SceneTransferComponent)CreateComponent(index, typeof(SceneTransferComponent));
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 

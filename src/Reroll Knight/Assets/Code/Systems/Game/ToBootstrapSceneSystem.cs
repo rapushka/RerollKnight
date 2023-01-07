@@ -8,6 +8,9 @@ namespace Code
 
 		public ToBootstrapSceneSystem(Contexts contexts) => _contexts = contexts;
 
-		public void Initialize() => _contexts.services.sceneTransfer.Value.ToBootstrapScene();
+		public void Initialize()
+		{
+			_contexts.services.sceneTransfer.Value.ToBootstrapScene();
+		}
 	}
 }
