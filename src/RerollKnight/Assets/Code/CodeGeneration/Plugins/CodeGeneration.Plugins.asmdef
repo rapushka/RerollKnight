@@ -20,7 +20,8 @@
         "DesperateDevs.Roslyn.CodeGeneration.Plugins.dll",
         "Entitas.CodeGeneration.Attributes.dll",
         "Microsoft.CodeAnalysis.dll",
-        "System.Collections.Immutable.dll"
+        "System.Collections.Immutable.dll",
+        "DesperateDevs.Utils.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

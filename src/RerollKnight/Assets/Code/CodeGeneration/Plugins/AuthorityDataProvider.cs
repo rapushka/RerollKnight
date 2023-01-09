@@ -29,14 +29,15 @@ namespace Code
 			   .GetCachedProjectParser(objectCache, _projectPathConfig.projectPath)
 			   .GetTypes()
 			   .Where((t) => t.HasAttribute<AuthoringAttribute>())
-			   .Select(AsCoolData)
+			   .Select(AsAuthorityData)
 			   .ToArray();
 
-		private static AuthorityData AsCoolData(INamedTypeSymbol t)
+		private static AuthorityData AsAuthorityData(INamedTypeSymbol type)
 			=> new()
 			{
-				Name = t.Name,
-				MemberData = t.GetData(),
+				Name = type.Name,
+				MemberData = type.GetData(),
+				Context = type.GetContext(),
 			};
 	}
 }

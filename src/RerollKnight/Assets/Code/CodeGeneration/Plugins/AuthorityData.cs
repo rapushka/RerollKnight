@@ -5,9 +5,10 @@ namespace Code
 {
 	public class AuthorityData : CodeGeneratorData
 	{
-		public const string NameKey = "Authority.Name";
-		public const string DataKey = "Authority.Data";
-
+		private const string NameKey = "Authority.Name";
+		private const string DataKey = "Authority.Data";
+		private const string ContextKey = "Authority.Context";
+		
 		public string Name
 		{
 			get => (string)this[NameKey];
@@ -19,5 +20,10 @@ namespace Code
 			get => (MemberData[])this[DataKey];
 			set => this[DataKey] = value;
 		}
-	}
+
+		public string Context
+		{
+			get => (string)this[ContextKey];
+			set => this[ContextKey] = value;
+		}	}
 }
