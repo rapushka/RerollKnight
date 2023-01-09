@@ -5,8 +5,8 @@ namespace Code
 {
 	public abstract class EntitasAdapterBase : MonoBehaviour
 	{
-		private Feature _systems;
 		[CanBeNull] private Feature _fixedUpdateSystems;
+		private Feature _systems;
 
 		protected static Contexts Contexts => Contexts.sharedInstance;
 
