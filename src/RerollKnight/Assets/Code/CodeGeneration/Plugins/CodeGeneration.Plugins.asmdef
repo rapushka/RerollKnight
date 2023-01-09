@@ -1,15 +1,26 @@
 {
     "name": "CodeGeneration.Plugins",
     "rootNamespace": "",
-    "references": [],
-    "includePlatforms": [],
+    "references": [
+        "GUID:8a3288bd640c4f98b514eadfe0389a0b"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
         "DesperateDevs.CodeGeneration.dll",
         "DesperateDevs.CodeGeneration.CodeGenerator.dll",
-        "Entitas.CodeGeneration.Plugins.dll"
+        "Entitas.CodeGeneration.Plugins.dll",
+        "DesperateDevs.Serialization.dll",
+        "DesperateDevs.CodeGeneration.Plugins.dll",
+        "DesperateDevs.Roslyn.dll",
+        "DesperateDevs.Roslyn.CodeGeneration.Plugins.dll",
+        "Entitas.CodeGeneration.Attributes.dll",
+        "Microsoft.CodeAnalysis.dll",
+        "System.Collections.Immutable.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
