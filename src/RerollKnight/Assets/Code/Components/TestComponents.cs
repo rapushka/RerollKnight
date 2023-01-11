@@ -1,6 +1,8 @@
+using Code.CodeGeneration.Attributes;
+
 namespace Code
 {
-	[Game] public sealed class EnemyComponent : FlagComponent { }
+	[Game] [Authoring] public sealed class EnemyComponent : FlagComponent { }
 
-	[Game] public sealed class HealthComponent : ValueComponent<int> { }
+	[Game] [Authoring] public sealed class HealthComponent : ValueComponent<int> { }
 }
