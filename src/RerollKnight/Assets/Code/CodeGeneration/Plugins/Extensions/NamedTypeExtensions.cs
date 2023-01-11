@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using DesperateDevs.Roslyn;
 using Entitas.CodeGeneration.Attributes;
@@ -9,6 +10,10 @@ namespace Code.Extensions
 	public static class NamedTypeSymbolExtensions
 	{
 		private const string Attribute = nameof(Attribute);
+
+		public static IEnumerable<INamedTypeSymbol> WithAttribute<T>(this IEnumerable<INamedTypeSymbol> @this)
+			=> @this.Where((t) => t.HasAttribute<T>());
+
 		public static bool HasAttribute<T>(this INamedTypeSymbol @this) => @this.GetAttribute<T>() != null;
 
 		private static string RemoveAttributeSuffix(this string @this)
@@ -25,5 +30,7 @@ namespace Code.Extensions
 			        .OfType<IFieldSymbol>()
 			        .Select((f) => new MemberData(f.Type.ToCompilableString(), f.Name))
 			        .ToArray();
+
+		public static bool IsFlag(this AuthorityData @this) => @this.MemberData.ToArray().Any() == false;
 	}
 }

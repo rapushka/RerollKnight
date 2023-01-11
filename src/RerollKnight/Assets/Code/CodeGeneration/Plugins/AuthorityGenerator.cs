@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Code.Extensions;
 using DesperateDevs.CodeGeneration;
 using DesperateDevs.Utils;
 using Entitas.CodeGeneration.Plugins;
@@ -27,15 +28,13 @@ namespace Code
 			var componentName = data.Name.ToComponentName(ignoreNamespaces: true);
 			
 			var fileName = Path.Combine(DirectoryName, data.Context, $"{Template.ClassName(componentName)}.cs");
-			var fileContent = IsFlag(data)
+			var fileContent = data.IsFlag()
 				? Template.FlagComponent(componentName, data.Context)
 				: Template.ValuableComponent(componentName, data.Context, data.MemberData);
 			var generatorName = GetType().FullName;
 
 			return new CodeGenFile(fileName, fileContent, generatorName);
 		}
-
-		private static bool IsFlag(AuthorityData data) => data.MemberData.ToArray().Any() == false;
 
 		private static class Template
 		{

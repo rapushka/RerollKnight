@@ -14,7 +14,7 @@ namespace Code
 	{
 		private readonly ProjectPathConfig _projectPathConfig = new();
 
-		public string name         => "Cool";
+		public string name         => "Authority";
 		public int    priority     => 0;
 		public bool   runInDryMode => true;
 
@@ -28,7 +28,7 @@ namespace Code
 			=> PluginUtil
 			   .GetCachedProjectParser(objectCache, _projectPathConfig.projectPath)
 			   .GetTypes()
-			   .Where((t) => t.HasAttribute<AuthoringAttribute>())
+			   .WithAttribute<AuthoringAttribute>()
 			   .Select(AsAuthorityData)
 			   .ToArray();
 

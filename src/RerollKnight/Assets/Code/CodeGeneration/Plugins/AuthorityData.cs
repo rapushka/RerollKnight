@@ -8,7 +8,7 @@ namespace Code
 		private const string NameKey = "Authority.Name";
 		private const string DataKey = "Authority.Data";
 		private const string ContextKey = "Authority.Context";
-		
+
 		public string Name
 		{
 			get => (string)this[NameKey];
@@ -25,5 +25,6 @@ namespace Code
 		{
 			get => (string)this[ContextKey];
 			set => this[ContextKey] = value;
-		}	}
+		}
+	}
 }
