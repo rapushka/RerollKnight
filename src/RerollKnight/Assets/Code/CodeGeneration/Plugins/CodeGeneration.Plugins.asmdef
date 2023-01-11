@@ -21,7 +21,8 @@
         "Entitas.CodeGeneration.Attributes.dll",
         "Microsoft.CodeAnalysis.dll",
         "System.Collections.Immutable.dll",
-        "DesperateDevs.Utils.dll"
+        "DesperateDevs.Utils.dll",
+        "Entitas.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

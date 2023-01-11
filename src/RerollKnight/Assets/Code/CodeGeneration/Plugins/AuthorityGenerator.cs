@@ -10,9 +10,9 @@ namespace Code
 {
 	public class AuthorityGenerator : ICodeGenerator
 	{
-		private const string DirectoryName = "DependenciesSystems";
+		private const string DirectoryName = "Authorities";
 
-		public string name         => "Dependency";
+		public string name         => "Authority";
 		public int    priority     => 0;
 		public bool   runInDryMode => true;
 
@@ -25,12 +25,12 @@ namespace Code
 		private CodeGenFile DataToSystem(AuthorityData data)
 		{
 			var componentName = data.Name.ToComponentName(ignoreNamespaces: true);
-			var fileName = Path.Combine(DirectoryName, $"{Template.ClassName(componentName)}.cs");
-			var generatorName = GetType().FullName;
-
+			
+			var fileName = Path.Combine(DirectoryName, data.Context, $"{Template.ClassName(componentName)}.cs");
 			var fileContent = IsFlag(data)
 				? Template.FlagComponent(componentName, data.Context)
 				: Template.ValuableComponent(componentName, data.Context, data.MemberData);
+			var generatorName = GetType().FullName;
 
 			return new CodeGenFile(fileName, fileContent, generatorName);
 		}
@@ -39,18 +39,9 @@ namespace Code
 
 		private static class Template
 		{
-			public static string Base(string context)
-				=> $@"
-using UnityEngine;
-
-public abstract class {context}AuthoringBase : MonoBehaviour
-{{
-	public abstract void Register(ref {context}Entity entity);
-}}";
-
 			public static string FlagComponent(string component, string context)
 				=> $@"
-public class {ClassName(component)} : {context}RegistrarBase
+public class {ClassName(component)} : {context}AuthoringBase
 {{
 	public override void Register(ref {context}Entity entity) => entity.is{component} = true;
 }}
@@ -60,7 +51,7 @@ public class {ClassName(component)} : {context}RegistrarBase
 				=> $@"
 using UnityEngine;
 
-public class {ClassName(component)} : {context}RegistrarBase
+public class {ClassName(component)} : {context}AuthoringBase
 {{
 {GenerateFields(data)}
 
