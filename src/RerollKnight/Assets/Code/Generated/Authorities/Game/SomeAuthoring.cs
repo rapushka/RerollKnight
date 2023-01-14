@@ -13,5 +13,5 @@ public class SomeAuthoring : GameAuthoringBase
 {
 	[SerializeField] private string _Value;
 
-	public override void Register(ref GameEntity entity) => entity.AddSome(_Value);
+	public override void Register(ref GameEntity entity) => entity.AddSome(value);
 }

@@ -14,9 +14,10 @@ namespace Code.Extensions
 		private const string Attribute = nameof(Attribute);
 
 		public static IEnumerable<INamedTypeSymbol> WithAttribute<T>(this IEnumerable<INamedTypeSymbol> @this)
-			=> @this.Where((t) => Enumerable.Any(t.GetAttributes(), (a) => a.ToString() == "Authoring"));
+			=> @this.Where((t) => t.HasAttribute<T>());
 
-		public static bool HasAttribute<T>(this INamedTypeSymbol @this) => @this.GetAttribute<T>() != null;
+		private static bool HasAttribute<T>(this ISymbol @this)
+			=> Enumerable.Any(@this.GetAttributes(), (a) => a.ToString() == typeof(T).Name.RemoveAttributeSuffix());
 
 		private static string RemoveAttributeSuffix(this string @this)
 			=> @this.EndsWith(Attribute) ? @this[..^Attribute.Length] : @this;

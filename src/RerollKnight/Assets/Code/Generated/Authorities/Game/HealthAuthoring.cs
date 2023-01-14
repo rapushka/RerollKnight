@@ -13,5 +13,5 @@ public class HealthAuthoring : GameAuthoringBase
 {
 	[SerializeField] private int _Value;
 
-	public override void Register(ref GameEntity entity) => entity.AddHealth(_Value);
+	public override void Register(ref GameEntity entity) => entity.AddHealth(value);
 }
