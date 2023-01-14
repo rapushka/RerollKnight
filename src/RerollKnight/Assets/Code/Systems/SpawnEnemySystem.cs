@@ -14,6 +14,7 @@ namespace Code
 
 			entity.isEnemy = true;
 			entity.AddHealth(100);
+			entity.AddSome("abc");
 		}
 	}
 }
