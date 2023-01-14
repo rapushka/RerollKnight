@@ -6,9 +6,7 @@ namespace Code
 	{
 		[SerializeField] private GameAuthoringBase[] _registrars;
 
-		private void OnEnable() => _registrars = GetComponents<GameAuthoringBase>();
-
-		public void Initialize(Contexts contexts)
+		public virtual void Initialize(Contexts contexts)
 		{
 			var entity = contexts.game.CreateEntity();
 
