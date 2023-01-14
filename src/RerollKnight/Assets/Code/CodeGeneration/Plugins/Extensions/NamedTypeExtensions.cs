@@ -17,8 +17,11 @@ namespace Code.Extensions
 			=> @this.Where((t) => t.HasAttribute<T>());
 
 		private static bool HasAttribute<T>(this ISymbol @this)
-			=> Enumerable.Any(@this.GetAttributes(), (a) => a.ToString() == typeof(T).Name.RemoveAttributeSuffix());
+			=> @this.GetAttributes().Any((a) => a.ToString() == typeof(T).Name.RemoveAttributeSuffix());
 
+		private static bool Any(this ImmutableArray<AttributeData> @this, Func<AttributeData, bool> predicate)
+			=> Enumerable.Any(@this, predicate);
+		
 		private static string RemoveAttributeSuffix(this string @this)
 			=> @this.EndsWith(Attribute) ? @this[..^Attribute.Length] : @this;
 

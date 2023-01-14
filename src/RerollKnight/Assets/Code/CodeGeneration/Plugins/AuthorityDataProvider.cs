@@ -1,14 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.CodeGeneration.Attributes;
 using Code.Extensions;
 using DesperateDevs.CodeGeneration;
 using DesperateDevs.CodeGeneration.Plugins;
-using DesperateDevs.Roslyn;
 using DesperateDevs.Serialization;
 using Microsoft.CodeAnalysis;
-using UnityEngine.UI;
 using PluginUtil = DesperateDevs.Roslyn.CodeGeneration.Plugins.PluginUtil;
 
 namespace Code
