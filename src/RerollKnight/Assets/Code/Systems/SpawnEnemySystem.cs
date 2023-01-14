@@ -11,7 +11,7 @@ namespace Code
 		public void Initialize()
 		{
 			var entity = _contexts.game.CreateEntity();
-			
+
 			entity.isEnemy = true;
 			entity.AddHealth(100);
 			entity.AddSome("abc");
