@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DesperateDevs.Roslyn;
@@ -20,10 +21,25 @@ namespace Code.Extensions
 			=> @this.EndsWith(Attribute) ? @this[..^Attribute.Length] : @this;
 
 		public static string GetContext(this INamedTypeSymbol @this)
-			=> @this.GetAttributes()
-			        .Select((ad) => ad.AttributeClass)
-			        .Single((a) => a.BaseType.Name == nameof(ContextAttribute))
-			        .Name.RemoveAttributeSuffix();
+		{
+			Console.Write("attributeData - ");
+			var attributeData = @this.GetAttributes();
+			Console.WriteLine("OK");
+			
+			Console.Write("namedTypeSymbols - ");
+			var namedTypeSymbols = attributeData.Select((ad) => ad.AttributeClass);
+			Console.WriteLine("OK");
+			
+			Console.Write("namedTypeSymbol - ");
+			var namedTypeSymbol = namedTypeSymbols.Single((a) => a.BaseType is not null && a.BaseType.Name == nameof(ContextAttribute));
+			Console.WriteLine("OK");
+			
+			Console.Write("removeAttributeSuffix - ");
+			var removeAttributeSuffix = namedTypeSymbol.Name.RemoveAttributeSuffix();
+			Console.WriteLine("OK");
+			
+			return removeAttributeSuffix;
+		}
 
 		public static MemberData[] GetData(this INamedTypeSymbol @this)
 			=> @this.GetMembers()

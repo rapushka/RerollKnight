@@ -26,7 +26,7 @@ namespace Code
 		private CodeGenFile DataToSystem(AuthorityData data)
 		{
 			var componentName = data.Name.ToComponentName(ignoreNamespaces: true);
-			
+
 			var fileName = Path.Combine(DirectoryName, data.Context, $"{Template.ClassName(componentName)}.cs");
 			var fileContent = data.IsFlag()
 				? Template.FlagComponent(componentName, data.Context)
