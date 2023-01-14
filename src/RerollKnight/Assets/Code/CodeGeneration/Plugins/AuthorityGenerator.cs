@@ -54,7 +54,7 @@ public class {ClassName(component)} : {context}AuthoringBase
 {{
 {GenerateFields(data)}
 
-	public override void Register(ref {context}Entity entity) => entity.Add{component}({GenerateArgs(data)});
+	public override void Register(ref {context}Entity entity) => entity.Add{component}(_{GenerateArgs(data)});
 }}
 ";
 
@@ -62,15 +62,15 @@ public class {ClassName(component)} : {context}AuthoringBase
 
 			private static string GenerateFields(IEnumerable<MemberData> data) => Generate(data, "\n", AsField);
 
-			private static string GenerateArgs(IEnumerable<MemberData> data) => Generate(data, ", ", AsCamelCase);
+			private static string GenerateArgs(IEnumerable<MemberData> data) => Generate(data, ", ", InCamelCase);
 
 			private static string Generate
 				(IEnumerable<MemberData> data, string separator, Func<MemberData, string> template)
 				=> string.Join(separator, data.Select(template.Invoke).ToArray());
 
-			private static string AsField(MemberData member) => FieldTemplate(member.name, member.type);
+			private static string AsField(MemberData member) => FieldTemplate(InCamelCase(member), member.type);
 
-			private static string AsCamelCase(MemberData member) => member.name.LowercaseFirst();
+			private static string InCamelCase(MemberData member) => member.name.LowercaseFirst();
 
 			private static string FieldTemplate(string name, string type)
 				=> $"\t[SerializeField] private {type} _{name};";

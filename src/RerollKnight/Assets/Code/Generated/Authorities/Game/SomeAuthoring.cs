@@ -11,7 +11,7 @@ using UnityEngine;
 
 public class SomeAuthoring : GameAuthoringBase
 {
-	[SerializeField] private string _Value;
+	[SerializeField] private string _value;
 
-	public override void Register(ref GameEntity entity) => entity.AddSome(value);
+	public override void Register(ref GameEntity entity) => entity.AddSome(_value);
 }

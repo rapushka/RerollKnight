@@ -11,7 +11,7 @@ using UnityEngine;
 
 public class HealthAuthoring : GameAuthoringBase
 {
-	[SerializeField] private int _Value;
+	[SerializeField] private int _value;
 
-	public override void Register(ref GameEntity entity) => entity.AddHealth(value);
+	public override void Register(ref GameEntity entity) => entity.AddHealth(_value);
 }
