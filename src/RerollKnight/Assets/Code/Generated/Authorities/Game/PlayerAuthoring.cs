@@ -7,11 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using UnityEngine;
-
-public class HealthAuthoring : GameAuthoringBase
+public class PlayerAuthoring : GameAuthoringBase
 {
-	[SerializeField] private int _value;
-
-	public override void Register(ref GameEntity entity) => entity.AddHealth(_value);
+	public override void Register(ref GameEntity entity) => entity.isPlayer = true;
 }
