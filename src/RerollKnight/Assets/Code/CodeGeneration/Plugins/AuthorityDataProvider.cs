@@ -31,7 +31,7 @@ namespace Code
 			=> PluginUtil
 			   .GetCachedProjectParser(objectCache, _projectPathConfig.projectPath)
 			   .GetTypes()
-			   .Where((t) => Enumerable.Any(t.GetAttributes(), (a) => a.ToString() == "Authoring"))
+			   .WithAttribute<AuthoringAttribute>()
 			   .Select(AsAuthorityData)
 			   .ToArray();
 
