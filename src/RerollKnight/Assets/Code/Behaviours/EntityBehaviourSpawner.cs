@@ -11,7 +11,7 @@ namespace Code
 			var entityBehaviour = Instantiate(_prefab, transform.position, Quaternion.identity);
 			entityBehaviour.Initialize(contexts);
 			
-			base.Initialize(contexts);
+			Destroy(gameObject);
 		}
 	}
 }
