@@ -1,6 +1,4 @@
-using Code.CodeGeneration.Plugins.Behaviours;
-
-namespace Code.CodeGeneration.Plugins
+namespace Code.CodeGeneration.Plugins.Behaviours
 {
 	public class BehaviourData : ComponentDataBase
 	{

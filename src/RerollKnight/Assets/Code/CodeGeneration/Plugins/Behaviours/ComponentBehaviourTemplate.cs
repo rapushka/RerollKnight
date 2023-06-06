@@ -1,10 +1,9 @@
 using System;
 using System.IO;
 using System.Linq;
-using Code.CodeGeneration.Plugins.Behaviours;
 using Entitas.CodeGeneration.Plugins;
 
-namespace Code.CodeGeneration.Plugins
+namespace Code.CodeGeneration.Plugins.Behaviours
 {
 	public class ComponentBehaviourTemplate
 	{

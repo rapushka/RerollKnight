@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using Code.CodeGeneration.Attributes;
-using Code.CodeGeneration.Plugins.Behaviours;
 using DesperateDevs.CodeGeneration;
 using DesperateDevs.CodeGeneration.Plugins;
 using DesperateDevs.Serialization;
 using PluginUtil = DesperateDevs.Roslyn.CodeGeneration.Plugins.PluginUtil;
 
-namespace Code.CodeGeneration.Plugins
+namespace Code.CodeGeneration.Plugins.Behaviours
 {
 	// ReSharper disable once UnusedType.Global – used in Jenny
 	public class ComponentBehaviourDataProvider : IDataProvider, IConfigurable, ICachable

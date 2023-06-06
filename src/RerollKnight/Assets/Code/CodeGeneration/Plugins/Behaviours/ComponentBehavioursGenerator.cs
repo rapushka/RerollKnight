@@ -1,8 +1,9 @@
 using System.Linq;
 using DesperateDevs.CodeGeneration;
 
-namespace Code.CodeGeneration.Plugins
+namespace Code.CodeGeneration.Plugins.Behaviours
 {
+	// ReSharper disable once UnusedType.Global – used by Jenny
 	public class ComponentBehavioursGenerator : ICodeGenerator
 	{
 		public string name         => "Behaviour";
