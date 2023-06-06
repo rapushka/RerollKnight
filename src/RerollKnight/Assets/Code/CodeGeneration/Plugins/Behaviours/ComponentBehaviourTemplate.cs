@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Linq;
-using DesperateDevs.Utils;
 using Entitas.CodeGeneration.Plugins;
 
 namespace Code.CodeGeneration.Plugins
@@ -14,16 +13,14 @@ namespace Code.CodeGeneration.Plugins
 		private readonly string _name;
 		private readonly string _context;
 		private readonly MemberData[] _memberData;
-		private readonly string _component;
 		private readonly bool _isFlag;
 
-		public ComponentBehaviourTemplate(ICodeGeneratorData data)
+		public ComponentBehaviourTemplate(ComponentDataBase data)
 		{
 			_name = data.Name;
 			_context = data.Context;
 			_memberData = data.MemberData;
 
-			_component = data.Name.ToComponentName(ignoreNamespaces: true);
 			_isFlag = data.IsFlag();
 		}
 
@@ -35,7 +32,7 @@ namespace Code.CodeGeneration.Plugins
 			=> $@"
 public class {ClassName} : {BaseClassName}
 {{
-	public override void Register(ref {_context}Entity entity) => entity.is{_component} = true;
+	public override void Register(ref {_context}Entity entity) => entity.is{ComponentName} = true;
 }}
 ";
 
@@ -47,13 +44,15 @@ public class {ClassName} : {BaseClassName}
 {{
 {Fields}
 
-	public override void Register(ref {_context}Entity entity) => entity.Add{_component}({Args});
+	public override void Register(ref {_context}Entity entity) => entity.Add{ComponentName}({Args});
 	}}
 ";
 
-		private string ClassName => $"{_component}ComponentBehaviour";
+		private string ClassName => $"{ComponentName}ComponentBehaviour";
 
 		private string BaseClassName => $"{_context}ComponentBehaviourBase";
+
+		private string ComponentName => _name.ToComponentName(ignoreNamespaces: true);
 
 		private string Fields => MembersAs(Field, separator: LineBreak);
 

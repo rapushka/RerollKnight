@@ -1,7 +1,7 @@
 using DesperateDevs.Utils;
 using Entitas.CodeGeneration.Plugins;
 
-namespace Code.CodeGeneration.Plugins
+namespace Code.CodeGeneration
 {
 	public static class MemberDataExtensions
 	{

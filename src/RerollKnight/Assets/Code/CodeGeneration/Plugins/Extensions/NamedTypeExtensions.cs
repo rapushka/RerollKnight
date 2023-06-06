@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using Code.CodeGeneration.Plugins;
 using DesperateDevs.Roslyn;
 using Entitas.CodeGeneration.Attributes;
 using Entitas.CodeGeneration.Plugins;
 using Microsoft.CodeAnalysis;
 
-namespace Code
+namespace Code.CodeGeneration.Plugins
 {
 	public static class NamedTypeSymbolExtensions
 	{
@@ -38,6 +37,6 @@ namespace Code
 			        .Select((f) => new MemberData(f.Type.ToCompilableString(), f.Name))
 			        .ToArray();
 
-		public static bool IsFlag(this ICodeGeneratorData @this) => @this.MemberData.ToArray().Any() == false;
+		public static bool IsFlag(this ComponentDataBase @this) => @this.MemberData.ToArray().Any() == false;
 	}
 }
