@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using Code.CodeGeneration.Plugins;
 using DesperateDevs.Roslyn;
 using Entitas.CodeGeneration.Attributes;
 using Entitas.CodeGeneration.Plugins;
 using Microsoft.CodeAnalysis;
 
-namespace Code.Extensions
+namespace Code
 {
 	public static class NamedTypeSymbolExtensions
 	{
@@ -21,7 +22,7 @@ namespace Code.Extensions
 
 		private static bool Any(this ImmutableArray<AttributeData> @this, Func<AttributeData, bool> predicate)
 			=> Enumerable.Any(@this, predicate);
-		
+
 		private static string RemoveAttributeSuffix(this string @this)
 			=> @this.EndsWith(Attribute) ? @this[..^Attribute.Length] : @this;
 
@@ -37,6 +38,6 @@ namespace Code.Extensions
 			        .Select((f) => new MemberData(f.Type.ToCompilableString(), f.Name))
 			        .ToArray();
 
-		public static bool IsFlag(this AuthorityData @this) => @this.MemberData.ToArray().Any() == false;
+		public static bool IsFlag(this ICodeGeneratorData @this) => @this.MemberData.ToArray().Any() == false;
 	}
 }

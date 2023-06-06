@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-public class PlayerAuthoring : GameAuthoringBase
+public class PlayerComponentBehaviour : GameComponentBehaviourBase
 {
 	public override void Register(ref GameEntity entity) => entity.isPlayer = true;
 }

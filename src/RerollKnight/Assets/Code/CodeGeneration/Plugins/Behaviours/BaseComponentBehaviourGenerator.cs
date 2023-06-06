@@ -2,19 +2,19 @@ using System.IO;
 using System.Linq;
 using DesperateDevs.CodeGeneration;
 
-namespace Code
+namespace Code.CodeGeneration.Plugins
 {
-	public class BaseAuthorityGenerator : ICodeGenerator
+	public class BaseComponentBehaviourGenerator : ICodeGenerator
 	{
-		private const string DirectoryName = "Authorities";
+		private const string DirectoryName = "ComponentBehaviours";
 
-		public string name         => "Authority";
+		public string name         => "ComponentBehaviour";
 		public int    priority     => 0;
 		public bool   runInDryMode => true;
 
 		public CodeGenFile[] Generate(CodeGeneratorData[] data)
 			=> data
-			   .OfType<AuthorityData>()
+			   .OfType<BehaviourData>()
 			   .Select((d) => d.Context)
 			   .ToHashSet()
 			   .Select(AsFile)
@@ -39,7 +39,7 @@ public abstract class {ClassName(context)} : MonoBehaviour
 	public abstract void Register(ref {context}Entity entity);
 }}";
 
-			public static string ClassName(string context) => $"{context}AuthoringBase";
+			public static string ClassName(string context) => $"{context}ComponentBehaviourBase";
 		}
 	}
 }

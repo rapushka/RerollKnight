@@ -3,5 +3,5 @@ using Entitas;
 
 namespace Code
 {
-	[Game] [Authoring] public sealed class PlayerComponent : IComponent { }
+	[Game] [Behaviour] public sealed class PlayerComponent : IComponent { }
 }

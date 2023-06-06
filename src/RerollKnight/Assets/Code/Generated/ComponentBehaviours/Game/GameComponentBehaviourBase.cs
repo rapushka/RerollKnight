@@ -9,7 +9,7 @@
 
 using UnityEngine;
 
-public abstract class GameAuthoringBase : MonoBehaviour
+public abstract class GameComponentBehaviourBase : MonoBehaviour
 {
 	public abstract void Register(ref GameEntity entity);
 }

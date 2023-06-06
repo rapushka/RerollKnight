@@ -4,7 +4,7 @@ namespace Code
 {
 	public class GameEntityBehaviour : MonoBehaviour
 	{
-		[SerializeField] private GameAuthoringBase[] _registrars;
+		[SerializeField] private GameComponentBehaviourBase[] _registrars;
 
 		public virtual void Initialize(Contexts contexts)
 		{
