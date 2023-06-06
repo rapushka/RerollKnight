@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Code.CodeGeneration.Attributes;
+using Code.CodeGeneration.Plugins.Behaviours;
 using DesperateDevs.CodeGeneration;
 using DesperateDevs.CodeGeneration.Plugins;
 using DesperateDevs.Serialization;
-using Microsoft.CodeAnalysis;
 using PluginUtil = DesperateDevs.Roslyn.CodeGeneration.Plugins.PluginUtil;
 
 namespace Code.CodeGeneration.Plugins
@@ -14,9 +14,9 @@ namespace Code.CodeGeneration.Plugins
 	{
 		private readonly ProjectPathConfig _projectPathConfig = new();
 
-		public string name         => "ComponentBehaviour";
-		public int    priority     => 0;
-		public bool   runInDryMode => true;
+		public string name         => Constants.GeneratorName;
+		public int    priority     => Constants.GeneratorPriority;
+		public bool   runInDryMode => Constants.GeneratorRunInDryMode;
 
 		public Dictionary<string, object> objectCache { get; set; }
 
@@ -30,15 +30,7 @@ namespace Code.CodeGeneration.Plugins
 			   .GetCachedProjectParser(objectCache, _projectPathConfig.projectPath)
 			   .GetTypes()
 			   .WithAttribute<BehaviourAttribute>()
-			   .Select(AsAuthorityData)
+			   .Select(ComponentDataBase.Create<BehaviourData>)
 			   .ToArray();
-
-		private static BehaviourData AsAuthorityData(INamedTypeSymbol type)
-			=> new()
-			{
-				Name = type.Name,
-				MemberData = type.GetData(),
-				Context = type.GetContext(),
-			};
 	}
 }

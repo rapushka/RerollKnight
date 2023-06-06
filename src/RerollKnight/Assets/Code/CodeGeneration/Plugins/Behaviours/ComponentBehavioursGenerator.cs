@@ -5,8 +5,6 @@ namespace Code.CodeGeneration.Plugins
 {
 	public class ComponentBehavioursGenerator : ICodeGenerator
 	{
-		public const string DirectoryName = "ComponentBehaviours";
-
 		public string name         => "Behaviour";
 		public int    priority     => 0;
 		public bool   runInDryMode => true;

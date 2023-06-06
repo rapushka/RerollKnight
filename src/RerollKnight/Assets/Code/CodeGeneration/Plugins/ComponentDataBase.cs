@@ -1,5 +1,6 @@
 using DesperateDevs.CodeGeneration;
 using Entitas.CodeGeneration.Plugins;
+using Microsoft.CodeAnalysis;
 
 namespace Code.CodeGeneration.Plugins
 {
@@ -26,5 +27,14 @@ namespace Code.CodeGeneration.Plugins
 			get => (string)this[ContextKey];
 			set => this[ContextKey] = value;
 		}
+
+		public static T Create<T>(INamedTypeSymbol type)
+			where T : ComponentDataBase, new()
+			=> new()
+			{
+				Name = type.Name,
+				MemberData = type.GetData(),
+				Context = type.GetContext(),
+			};
 	}
 }

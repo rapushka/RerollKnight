@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using Code.CodeGeneration.Plugins.Behaviours;
 using Entitas.CodeGeneration.Plugins;
 
 namespace Code.CodeGeneration.Plugins
@@ -24,7 +25,7 @@ namespace Code.CodeGeneration.Plugins
 			_isFlag = data.IsFlag();
 		}
 
-		public string FileName => Path.Combine(ComponentBehavioursGenerator.DirectoryName, _context, $"{ClassName}.cs");
+		public string FileName => Path.Combine(Constants.DirectoryName, _context, $"{ClassName}.cs");
 
 		public string FileContent => _isFlag ? FlagClass : ValuedClass;
 
@@ -48,9 +49,9 @@ public class {ClassName} : {BaseClassName}
 	}}
 ";
 
-		private string ClassName => $"{ComponentName}ComponentBehaviour";
+		private string ClassName => ComponentName + Constants.GeneratorClassPostfix;
 
-		private string BaseClassName => $"{_context}ComponentBehaviourBase";
+		private string BaseClassName => _context + Constants.BaseClassPostfix;
 
 		private string ComponentName => _name.ToComponentName(ignoreNamespaces: true);
 

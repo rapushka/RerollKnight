@@ -2,15 +2,14 @@ using System.IO;
 using System.Linq;
 using DesperateDevs.CodeGeneration;
 
-namespace Code.CodeGeneration.Plugins
+namespace Code.CodeGeneration.Plugins.Behaviours
 {
+	// ReSharper disable once UnusedType.Global – used by Jenny
 	public class BaseComponentBehaviourGenerator : ICodeGenerator
 	{
-		private const string DirectoryName = "ComponentBehaviours";
-
-		public string name         => "ComponentBehaviour";
-		public int    priority     => 0;
-		public bool   runInDryMode => true;
+		public string name         => Constants.GeneratorName;
+		public int    priority     => Constants.GeneratorPriority;
+		public bool   runInDryMode => Constants.GeneratorRunInDryMode;
 
 		public CodeGenFile[] Generate(CodeGeneratorData[] data)
 			=> data
@@ -23,14 +22,14 @@ namespace Code.CodeGeneration.Plugins
 		private CodeGenFile AsFile(string context)
 			=> new
 			(
-				Path.Combine(DirectoryName, context, $"{Template.ClassName(context)}.cs"),
-				Template.AuthoringBase(context),
+				Path.Combine(Constants.DirectoryName, context, $"{Template.ClassName(context)}.cs"),
+				Template.ClassContent(context),
 				GetType().FullName
 			);
 
 		private static class Template
 		{
-			public static string AuthoringBase(string context)
+			public static string ClassContent(string context)
 				=> $@"
 using UnityEngine;
 
@@ -39,7 +38,7 @@ public abstract class {ClassName(context)} : MonoBehaviour
 	public abstract void Register(ref {context}Entity entity);
 }}";
 
-			public static string ClassName(string context) => $"{context}ComponentBehaviourBase";
+			public static string ClassName(string context) => context + Constants.BaseClassPostfix;
 		}
 	}
 }
