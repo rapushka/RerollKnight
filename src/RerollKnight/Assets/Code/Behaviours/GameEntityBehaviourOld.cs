@@ -4,15 +4,15 @@ namespace Code
 {
 	public class GameEntityBehaviourOld : MonoBehaviour
 	{
-		[SerializeField] private GameComponentBehaviourBase[] _registrars;
+		[SerializeField] private GameComponentBehaviourBase[] _componentBehaviours;
 
 		public virtual void Initialize(Contexts contexts)
 		{
 			var entity = contexts.game.CreateEntity();
 
-			foreach (var registrar in _registrars)
+			foreach (var component in _componentBehaviours)
 			{
-				registrar.Register(ref entity);
+				component.AddToEntity(ref entity);
 			}
 		}
 	}
