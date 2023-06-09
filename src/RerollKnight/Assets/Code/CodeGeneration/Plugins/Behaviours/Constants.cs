@@ -22,6 +22,11 @@ namespace Code.CodeGeneration.Plugins.Behaviours
 			public const string BaseClassName = "EntityBehaviourBase";
 		}
 
+		public static class RegistrationSystem
+		{
+			public const string DirectoryName = "RegistrationSystems";
+		}
+
 		public static class Method
 		{
 			public const string AddToEntity = nameof(AddToEntity);
