@@ -2,12 +2,13 @@ using static Code.CodeGeneration.Plugins.Behaviours.Constants.MethodName;
 
 namespace Code.CodeGeneration.Plugins.Behaviours
 {
-	public class ComponentBehaviourTemplate
-		: TemplateBase
+	public class ComponentBehaviourTemplate : TemplateBase
 	{
 		public ComponentBehaviourTemplate(ComponentDataBase data) : base(data) { }
 
-		public override string FileContent => IsFlag ? FlagClass : ValuedClass;
+		protected override string DirectoryName => Constants.ComponentBehaviour.DirectoryName;
+
+		public override    string FileContent   => IsFlag ? FlagClass : ValuedClass;
 
 		private string FlagClass
 			=> $@"

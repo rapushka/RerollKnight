@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using DesperateDevs.CodeGeneration;
 
@@ -11,12 +12,22 @@ namespace Code.CodeGeneration.Plugins.Behaviours
 		public bool   runInDryMode => Constants.GeneratorRunInDryMode;
 
 		public CodeGenFile[] Generate(CodeGeneratorData[] data)
-			=> data
-			   .OfType<BehaviourData>()
-			   .Select((d) => d.Context)
-			   .ToHashSet()
-			   .Select(AsFile)
-			   .ToArray();
+		{
+			try
+			{
+				return data
+				       .OfType<BehaviourData>()
+				       .Select((d) => d.Context)
+				       .ToHashSet()
+				       .Select(AsFile)
+				       .ToArray();
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+				throw;
+			}
+		}
 
 		private CodeGenFile AsFile(string context)
 		{

@@ -6,9 +6,13 @@ namespace Code.CodeGeneration.Plugins.Behaviours
 	{
 		public EntityBehaviourTemplate(string context) : base(context) { }
 
-		protected override string ClassName => ComponentName + EntityBehaviour.GeneratorClassPostfix;
+		protected override string DirectoryName => EntityBehaviour.DirectoryName;
+
+		protected override string ClassName => Context + EntityBehaviour.GeneratorClassPostfix;
 
 		public override string FileContent => $@"
+using UnityEngine;
+
 public class {Context}{EntityBehaviour.GeneratorClassPostfix} : {EntityBehaviour.BaseClassName}
 {{
 	[SerializeField] private {Context}{ComponentBehaviour.BaseClassPostfix}[] {ComponentsCollection};
