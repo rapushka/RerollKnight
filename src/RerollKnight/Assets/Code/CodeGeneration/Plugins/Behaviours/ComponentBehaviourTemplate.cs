@@ -1,41 +1,21 @@
-using System;
-using System.IO;
-using System.Linq;
-using Entitas.CodeGeneration.Plugins;
 using static Code.CodeGeneration.Plugins.Behaviours.Constants.MethodName;
 
 namespace Code.CodeGeneration.Plugins.Behaviours
 {
 	public class ComponentBehaviourTemplate
+		: TemplateBase
 	{
-		private const string Coma = ", ";
-		private const string LineBreak = "\n";
+		public ComponentBehaviourTemplate(ComponentDataBase data) : base(data) { }
 
-		private readonly string _name;
-		private readonly string _context;
-		private readonly MemberData[] _memberData;
-		private readonly bool _isFlag;
-
-		public ComponentBehaviourTemplate(ComponentDataBase data)
-		{
-			_name = data.Name;
-			_context = data.Context;
-			_memberData = data.MemberData;
-
-			_isFlag = data.IsFlag();
-		}
-
-		public string FileName => Path.Combine(Constants.DirectoryName, _context, $"{ClassName}.cs");
-
-		public string FileContent => _isFlag ? FlagClass : ValuedClass;
+		public override string FileContent => IsFlag ? FlagClass : ValuedClass;
 
 		private string FlagClass
 			=> $@"
 public class {ClassName} : {BaseClassName}
 {{
-	public override void {AddToEntity}(ref {_context}Entity entity) => entity.is{ComponentName} = true;
+	public override void {AddToEntity}(ref {Context}Entity entity) => entity.is{ComponentName} = true;
 
-	public override void {RemoveFromEntity}(ref {_context}Entity entity) => entity.is{ComponentName} = false;
+	public override void {RemoveFromEntity}(ref {Context}Entity entity) => entity.is{ComponentName} = false;
 }}
 ";
 
@@ -47,26 +27,18 @@ public class {ClassName} : {BaseClassName}
 {{
 {Fields}
 
-	public override void {AddToEntity}(ref {_context}Entity entity) => entity.Add{ComponentName}({Args});
+	public override void {AddToEntity}(ref {Context}Entity entity) => entity.Add{ComponentName}({Args});
 
-	public override void {RemoveFromEntity}(ref {_context}Entity entity) => entity.Remove{ComponentName}();
+	public override void {RemoveFromEntity}(ref {Context}Entity entity) => entity.Remove{ComponentName}();
 }}
 ";
 
-		private string ClassName => ComponentName + Constants.GeneratorClassPostfix;
+		protected override string ClassName => ComponentName + Constants.ComponentBehaviour.GeneratorClassPostfix;
 
-		private string BaseClassName => _context + Constants.BaseClassPostfix;
-
-		private string ComponentName => _name.ToComponentName(ignoreNamespaces: true);
+		private string BaseClassName => Context + Constants.ComponentBehaviour.BaseClassPostfix;
 
 		private string Fields => MembersAs(Field, separator: LineBreak);
 
 		private string Args => MembersAs((m) => m.GetCamelCaseName(), separator: Coma);
-
-		private string MembersAs(Func<MemberData, string> format, string separator)
-			=> string.Join(separator, _memberData.Select(format.Invoke).ToArray());
-
-		private static string Field(MemberData member)
-			=> $"\t[SerializeField] private {member.type} _{member.GetCamelCaseName()};";
 	}
 }

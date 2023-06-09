@@ -23,7 +23,7 @@ namespace Code.CodeGeneration.Plugins.Behaviours
 		private CodeGenFile AsFile(string context)
 			=> new
 			(
-				Path.Combine(Constants.DirectoryName, context, $"{Template.ClassName(context)}.cs"),
+				Path.Combine(Constants.ComponentBehaviour.DirectoryName, context, $"{Template.ClassName(context)}.cs"),
 				Template.ClassContent(context),
 				GetType().FullName
 			);
@@ -41,7 +41,7 @@ public abstract class {ClassName(context)} : MonoBehaviour
 	public abstract void {RemoveFromEntity}(ref {context}Entity entity);
 }}";
 
-			public static string ClassName(string context) => context + Constants.BaseClassPostfix;
+			public static string ClassName(string context) => context + Constants.ComponentBehaviour.BaseClassPostfix;
 		}
 	}
 }

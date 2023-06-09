@@ -4,7 +4,7 @@ using DesperateDevs.CodeGeneration;
 namespace Code.CodeGeneration.Plugins.Behaviours
 {
 	// ReSharper disable once UnusedType.Global – used by Jenny
-	public class ComponentBehavioursGenerator : ICodeGenerator
+	public class EntityBehaviourGenerator : ICodeGenerator
 	{
 		public string name         => Constants.GeneratorName;
 		public int    priority     => Constants.GeneratorPriority;
@@ -13,12 +13,14 @@ namespace Code.CodeGeneration.Plugins.Behaviours
 		public CodeGenFile[] Generate(CodeGeneratorData[] data)
 			=> data
 			   .OfType<BehaviourData>()
-			   .Select(DataToSystem)
+			   .Select((d) => d.Context)
+			   .ToHashSet()
+			   .Select(AsFile)
 			   .ToArray();
 
-		private CodeGenFile DataToSystem(BehaviourData data)
+		private CodeGenFile AsFile(string context)
 		{
-			var template = new ComponentBehaviourTemplate(data);
+			var template = new EntityBehaviourTemplate(context);
 
 			return new CodeGenFile(template.FileName, template.FileContent, GeneratorName);
 		}
