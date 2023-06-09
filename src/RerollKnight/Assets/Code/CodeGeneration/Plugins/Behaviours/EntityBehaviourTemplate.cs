@@ -1,3 +1,4 @@
+using System.IO;
 using static Code.CodeGeneration.Plugins.Behaviours.Constants;
 
 namespace Code.CodeGeneration.Plugins.Behaviours
@@ -7,6 +8,8 @@ namespace Code.CodeGeneration.Plugins.Behaviours
 		public EntityBehaviourTemplate(string context) : base(context) { }
 
 		protected override string DirectoryName => EntityBehaviour.DirectoryName;
+
+		public override string FileName => Path.Combine(DirectoryName, $"{ClassName}.cs");
 
 		protected override string ClassName => Context + EntityBehaviour.GeneratorClassPostfix;
 

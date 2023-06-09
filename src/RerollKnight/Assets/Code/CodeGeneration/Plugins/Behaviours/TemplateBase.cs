@@ -29,7 +29,7 @@ namespace Code.CodeGeneration.Plugins.Behaviours
 		protected MemberData[] MemberData { get; }
 		protected bool         IsFlag     { get; }
 
-		public             string FileName      => Path.Combine(DirectoryName, Context, $"{ClassName}.cs");
+		public virtual     string FileName      => Path.Combine(DirectoryName, Context, $"{ClassName}.cs");
 		protected abstract string DirectoryName { get; }
 		public abstract    string FileContent   { get; }
 		protected abstract string ClassName     { get; }
