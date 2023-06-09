@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Entitas.CodeGeneration.Plugins;
+using static Code.CodeGeneration.Plugins.Behaviours.Constants.MethodName;
 
 namespace Code.CodeGeneration.Plugins.Behaviours
 {
@@ -32,7 +33,9 @@ namespace Code.CodeGeneration.Plugins.Behaviours
 			=> $@"
 public class {ClassName} : {BaseClassName}
 {{
-	public override void Register(ref {_context}Entity entity) => entity.is{ComponentName} = true;
+	public override void {AddToEntity}(ref {_context}Entity entity) => entity.is{ComponentName} = true;
+
+	public override void {RemoveFromEntity}(ref {_context}Entity entity) => entity.is{ComponentName} = false;
 }}
 ";
 
@@ -44,8 +47,10 @@ public class {ClassName} : {BaseClassName}
 {{
 {Fields}
 
-	public override void Register(ref {_context}Entity entity) => entity.Add{ComponentName}({Args});
-	}}
+	public override void {AddToEntity}(ref {_context}Entity entity) => entity.Add{ComponentName}({Args});
+
+	public override void {RemoveFromEntity}(ref {_context}Entity entity) => entity.Remove{ComponentName}();
+}}
 ";
 
 		private string ClassName => ComponentName + Constants.GeneratorClassPostfix;

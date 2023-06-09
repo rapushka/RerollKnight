@@ -10,5 +10,11 @@ namespace Code.CodeGeneration.Plugins.Behaviours
 
 		public const string GeneratorClassPostfix = "ComponentBehaviour";
 		public const string BaseClassPostfix = "ComponentBehaviourBase";
+
+		public static class MethodName
+		{
+			public const string AddToEntity = nameof(AddToEntity);
+			public const string RemoveFromEntity = nameof(RemoveFromEntity);
+		}
 	}
 }

@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using DesperateDevs.CodeGeneration;
+using static Code.CodeGeneration.Plugins.Behaviours.Constants.MethodName;
 
 namespace Code.CodeGeneration.Plugins.Behaviours
 {
@@ -35,7 +36,9 @@ using UnityEngine;
 
 public abstract class {ClassName(context)} : MonoBehaviour
 {{
-	public abstract void Register(ref {context}Entity entity);
+	public abstract void {AddToEntity}(ref {context}Entity entity);
+
+	public abstract void {RemoveFromEntity}(ref {context}Entity entity);
 }}";
 
 			public static string ClassName(string context) => context + Constants.BaseClassPostfix;

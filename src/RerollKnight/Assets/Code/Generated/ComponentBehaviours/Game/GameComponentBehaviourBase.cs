@@ -11,5 +11,7 @@ using UnityEngine;
 
 public abstract class GameComponentBehaviourBase : MonoBehaviour
 {
-	public abstract void Register(ref GameEntity entity);
+	public abstract void AddToEntity(ref GameEntity entity);
+
+	public abstract void RemoveFromEntity(ref GameEntity entity);
 }

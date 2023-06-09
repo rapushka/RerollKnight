@@ -9,5 +9,7 @@
 
 public class PlayerComponentBehaviour : GameComponentBehaviourBase
 {
-	public override void Register(ref GameEntity entity) => entity.isPlayer = true;
+	public override void AddToEntity(ref GameEntity entity) => entity.isPlayer = true;
+
+	public override void RemoveFromEntity(ref GameEntity entity) => entity.isPlayer = false;
 }
