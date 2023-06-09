@@ -22,10 +22,12 @@ namespace Code.CodeGeneration.Plugins.Behaviours
 			public const string BaseClassName = "EntityBehaviourBase";
 		}
 
-		public static class MethodName
+		public static class Method
 		{
 			public const string AddToEntity = nameof(AddToEntity);
 			public const string RemoveFromEntity = nameof(RemoveFromEntity);
+			public const string Register = nameof(Register);
+			public const string CollectComponentsFromGameObject = nameof(CollectComponentsFromGameObject);
 		}
 	}
 }

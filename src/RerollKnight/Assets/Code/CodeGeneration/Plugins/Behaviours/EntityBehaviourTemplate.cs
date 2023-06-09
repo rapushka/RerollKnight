@@ -31,16 +31,16 @@ public class {Context}{EntityBehaviour.GeneratorClassPostfix} : {EntityBehaviour
 	}}
 #endif
 
-	public override void Register()
+	public override void {Method.Register}()
 	{{
 		_entity = Contexts.sharedInstance.{Context.ToCamelCase()}.CreateEntity();
 		foreach (var component in {ComponentsCollection})
 		{{
-			component.{MethodName.AddToEntity}(ref _entity);
+			component.{Method.AddToEntity}(ref _entity);
 		}}
 	}}
 
-	public override void CollectComponentsFromGameObject()
+	public override void {Method.CollectComponentsFromGameObject}()
 	{{
 		{ComponentsCollection} = GetComponents<{Context}{ComponentBehaviour.BaseClassPostfix}>();
 	}}

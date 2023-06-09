@@ -1,4 +1,4 @@
-using static Code.CodeGeneration.Plugins.Behaviours.Constants.MethodName;
+using static Code.CodeGeneration.Plugins.Behaviours.Constants.Method;
 
 namespace Code.CodeGeneration.Plugins.Behaviours
 {

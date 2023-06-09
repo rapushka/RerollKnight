@@ -1,7 +1,7 @@
 using System.IO;
 using System.Linq;
 using DesperateDevs.CodeGeneration;
-using static Code.CodeGeneration.Plugins.Behaviours.Constants.MethodName;
+using static Code.CodeGeneration.Plugins.Behaviours.Constants.Method;
 
 namespace Code.CodeGeneration.Plugins.Behaviours
 {
