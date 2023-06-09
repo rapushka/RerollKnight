@@ -28,8 +28,9 @@ namespace Code.CodeGeneration.Plugins
 		public static string GetContext(this INamedTypeSymbol @this)
 			=> @this.GetAttributes()
 			        .Select((ad) => ad.AttributeClass)
-			        .Single((a) => a.BaseType is not null && a.BaseType.Name == nameof(ContextAttribute))
-			        .Name.RemoveAttributeSuffix();
+			        .SingleOrDefault((a) => a.BaseType is not null && a.BaseType.Name == nameof(ContextAttribute))
+			        ?.Name.RemoveAttributeSuffix()
+			   ?? string.Empty;
 
 		public static MemberData[] GetData(this INamedTypeSymbol @this)
 			=> @this.GetMembers()

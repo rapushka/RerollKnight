@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Code
 {
-	public class EntityBehaviourSpawner : GameEntityBehaviour
+	public class EntityBehaviourOldSpawner : GameEntityBehaviourOld
 	{
-		[SerializeField] private GameEntityBehaviour _prefab;
+		[SerializeField] private GameEntityBehaviourOld _prefab;
 
 		public override void Initialize(Contexts contexts)
 		{

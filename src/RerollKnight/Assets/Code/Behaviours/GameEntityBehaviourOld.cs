@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Code
 {
-	public class GameEntityBehaviour : MonoBehaviour
+	public class GameEntityBehaviourOld : MonoBehaviour
 	{
 		[SerializeField] private GameComponentBehaviourBase[] _registrars;
 
