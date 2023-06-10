@@ -4,7 +4,7 @@ namespace Code
 {
 	public class GameContextAdapter : EntitasAdapterBase
 	{
-		[SerializeField] private GameEntityBehaviourOld[] _entityBehaviours;
+		[SerializeField] private EntityBehaviourBase[] _entityBehaviours;
 
 		protected override Feature GetFeature() => new GameFeature(Contexts, _entityBehaviours);
 	}
