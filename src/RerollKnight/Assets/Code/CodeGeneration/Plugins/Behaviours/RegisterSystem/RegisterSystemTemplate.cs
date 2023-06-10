@@ -13,15 +13,17 @@ using Entitas;
 public sealed class {ClassName} : IInitializeSystem
 {{
 	private readonly Contexts _contexts;
+	private readonly EntityBehaviourBase[] _allBehaviours;
 
-	public {ClassName}(Contexts contexts)
+	public {ClassName}(Contexts contexts, EntityBehaviourBase[] allBehaviours)
 	{{
 		_contexts = contexts;
+		_allBehaviours = allBehaviours;
 	}}
 
 	public void Initialize()
 	{{
-		foreach (var behaviour in _contexts.services.BehavioursService.AllBehaviours)
+		foreach (var behaviour in _allBehaviours)
 		{{
 			behaviour.Register();
 		}}
