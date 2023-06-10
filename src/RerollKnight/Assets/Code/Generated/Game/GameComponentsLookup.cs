@@ -8,15 +8,24 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Player = 0;
+    public const int Coordinates = 0;
+    public const int Player = 1;
+    public const int RequireSpawnPlayer = 2;
+    public const int CoordinatesListener = 3;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
-        "Player"
+        "Coordinates",
+        "Player",
+        "RequireSpawnPlayer",
+        "CoordinatesListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.PlayerComponent)
+        typeof(Code.CoordinatesComponent),
+        typeof(Code.PlayerComponent),
+        typeof(Code.RequireSpawnPlayerComponent),
+        typeof(CoordinatesListenerComponent)
     };
 }
