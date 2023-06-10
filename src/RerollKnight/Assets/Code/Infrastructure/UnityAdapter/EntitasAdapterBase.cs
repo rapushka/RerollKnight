@@ -10,10 +10,14 @@ namespace Code
 
 		protected static Contexts Contexts => Contexts.sharedInstance;
 
+		protected abstract Feature Feature { get; }
+
+		protected virtual Feature FixedUpdateFeature => null;
+
 		private void Start()
 		{
-			_systems = GetFeature();
-			_fixedUpdateSystems = GetFeatureForFixedUpdate();
+			_systems = Feature;
+			_fixedUpdateSystems = FixedUpdateFeature;
 
 			_systems.Initialize();
 			_fixedUpdateSystems?.Initialize();
@@ -36,9 +40,5 @@ namespace Code
 			_systems.TearDown();
 			_fixedUpdateSystems?.TearDown();
 		}
-
-		protected abstract Feature GetFeature();
-
-		protected virtual Feature GetFeatureForFixedUpdate() => null;
 	}
 }

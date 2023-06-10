@@ -6,6 +6,6 @@ namespace Code
 	{
 		[SerializeField] private EntityBehaviourBase[] _entityBehaviours;
 
-		protected override Feature GetFeature() => new GameFeature(Contexts, _entityBehaviours);
+		protected override Feature Feature => new GameFeature(Contexts, _entityBehaviours);
 	}
 }
