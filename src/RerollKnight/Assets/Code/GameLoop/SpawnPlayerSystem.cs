@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Entitas;
-using UnityEngine;
 using static GameMatcher;
 
 namespace Code
@@ -20,13 +19,8 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
-				var playerPrefab = ServicesMediator.Resources.PlayerPrefab;
-				var player = Object.Instantiate(playerPrefab);
-
-				player.Register();
-				var playerEntity = player.Entity;
-
-				playerEntity.ReplaceCoordinates(e.coordinates.Value);
+				var playerBehaviour = ServicesMediator.SpawnPlayer();
+				playerBehaviour.Entity.ReplaceCoordinates(e.coordinates.Value);
 			}
 		}
 	}
