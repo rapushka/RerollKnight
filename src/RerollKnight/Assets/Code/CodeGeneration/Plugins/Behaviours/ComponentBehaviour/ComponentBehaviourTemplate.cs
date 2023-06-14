@@ -40,6 +40,6 @@ public class {ClassName} : {BaseClassName}
 
 		private string Fields => MembersAs(Field, separator: LineBreak);
 
-		private string Args => MembersAs((m) => m.GetCamelCaseName(), separator: Coma);
+		private string Args => MembersAs((m) => $"_{m.GetCamelCaseName()}", separator: Coma);
 	}
 }

@@ -13,7 +13,7 @@ public class CoordinatesComponentBehaviour : GameComponentBehaviourBase
 {
 	[SerializeField] private Code.Coordinates _value;
 
-	public override void AddToEntity(ref GameEntity entity) => entity.AddCoordinates(value);
+	public override void AddToEntity(ref GameEntity entity) => entity.AddCoordinates(_value);
 
 	public override void RemoveFromEntity(ref GameEntity entity) => entity.RemoveCoordinates();
 }
