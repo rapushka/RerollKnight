@@ -9,5 +9,5 @@ namespace Code
 
 	[Game] [Behaviour] public sealed class RequireSpawnPlayerComponent : IComponent { }
 
-	[Game] [Event(Self)] public sealed class CoordinatesComponent : IComponent { [PrimaryEntityIndex] public Coordinates Value; }
+	[Game] [Behaviour] [Event(Self)] public sealed class CoordinatesComponent : IComponent { [PrimaryEntityIndex] public Coordinates Value; }
 }
