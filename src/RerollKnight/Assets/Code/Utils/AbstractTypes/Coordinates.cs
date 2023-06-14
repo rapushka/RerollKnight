@@ -12,10 +12,15 @@ namespace Code
 		public int Column => _column;
 		public int Row    => _row;
 
-		public Coordinates(Vector3 vector)
+		public Coordinates(Vector2 vector)
 		{
 			_column = (int)vector.x;
 			_row = (int)vector.y;
 		}
+
+		public Vector3 ToTopDown() => ((Vector2)this).ToTopDown();
+
+		public static explicit operator Vector2(Coordinates coordinates)
+			=> new(coordinates.Column, coordinates.Row);
 	}
 }
