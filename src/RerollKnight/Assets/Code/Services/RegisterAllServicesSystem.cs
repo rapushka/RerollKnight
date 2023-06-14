@@ -11,6 +11,7 @@ namespace Code
 		public void Initialize()
 		{
 			_contexts.services.ReplaceResources(new ResourcesService());
+			_contexts.services.ReplaceAssets(new AssetsService());
 		}
 	}
 }
