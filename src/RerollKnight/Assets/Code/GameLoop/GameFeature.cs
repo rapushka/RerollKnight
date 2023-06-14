@@ -5,7 +5,10 @@ namespace Code
 		public GameFeature(Contexts contexts, EntityBehaviourBase[] entityBehaviours)
 			: base(nameof(GameFeature))
 		{
+			Add(new RegisterAllServicesSystem(contexts));
 			Add(new RegisterEntityBehavioursSystem(contexts, entityBehaviours));
-		}	
+
+			Add(new SpawnPlayerSystem(contexts));
+		}
 	}
 }

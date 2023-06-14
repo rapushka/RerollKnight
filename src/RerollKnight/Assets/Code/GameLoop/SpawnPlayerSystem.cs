@@ -1,15 +1,13 @@
 using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 using static GameMatcher;
 
 namespace Code
 {
 	public sealed class SpawnPlayerSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly Contexts _contexts;
-
-		public SpawnPlayerSystem(Contexts contexts) : base(contexts.game)
-			=> _contexts = contexts;
+		public SpawnPlayerSystem(Contexts contexts) : base(contexts.game) { }
 
 		private static IMatcher<GameEntity> Coordinates => GameMatcher.Coordinates;
 
@@ -22,9 +20,13 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
-				var player = _contexts.game.CreateEntity();
-				player.isPlayer = true;
-				player.AddCoordinates(e.coordinates.Value);
+				var playerPrefab = ServicesMediator.Resources.PlayerPrefab;
+				var player = Object.Instantiate(playerPrefab);
+
+				player.Register();
+				var playerEntity = player.Entity;
+
+				playerEntity.ReplaceCoordinates(e.coordinates.Value);
 			}
 		}
 	}

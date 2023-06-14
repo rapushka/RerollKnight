@@ -4,11 +4,11 @@ namespace Code
 {
 	public interface IResourcesService
 	{
-		EntityBehaviourBase PlayerPrefab { get; }
+		GameEntityBehaviour PlayerPrefab { get; }
 	}
 	
 	public class ResourcesService : IResourcesService
 	{
-		public EntityBehaviourBase PlayerPrefab => Resources.Load<EntityBehaviourBase>("Prefabs/Player");
+		public GameEntityBehaviour PlayerPrefab => Resources.Load<GameEntityBehaviour>("Prefabs/Player");
 	}
 }
