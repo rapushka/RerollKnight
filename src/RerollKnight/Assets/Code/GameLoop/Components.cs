@@ -7,7 +7,9 @@ namespace Code
 {
 	[Game] [Behaviour] public sealed class PlayerComponent : IComponent { }
 
-	[Game] [Behaviour] public sealed class RequireSpawnPlayerComponent : IComponent { }
+	[Request] [Behaviour] public sealed class SpawnPlayerComponent : IComponent { }
 
 	[Game] [Behaviour] [Event(Self)] public sealed class CoordinatesComponent : IComponent { [PrimaryEntityIndex] public Coordinates Value; }
+
+	[Request] [Behaviour] public sealed class CoordinatesRequest : IComponent { public Coordinates Value; }
 }

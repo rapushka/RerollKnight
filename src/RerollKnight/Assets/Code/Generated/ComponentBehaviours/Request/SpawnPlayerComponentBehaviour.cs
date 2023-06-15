@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-public class RequireSpawnPlayerComponentBehaviour : GameComponentBehaviourBase
+public class SpawnPlayerComponentBehaviour : RequestComponentBehaviourBase
 {
-	public override void AddToEntity(ref GameEntity entity) => entity.isRequireSpawnPlayer = true;
+	public override void AddToEntity(ref RequestEntity entity) => entity.isSpawnPlayer = true;
 
-	public override void RemoveFromEntity(ref GameEntity entity) => entity.isRequireSpawnPlayer = false;
+	public override void RemoveFromEntity(ref RequestEntity entity) => entity.isSpawnPlayer = false;
 }

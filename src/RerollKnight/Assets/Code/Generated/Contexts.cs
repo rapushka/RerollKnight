@@ -24,14 +24,16 @@ public partial class Contexts : Entitas.IContexts {
     public GameContext game { get; set; }
     public InputContext input { get; set; }
     public PlayerContext player { get; set; }
+    public RequestContext request { get; set; }
     public ServicesContext services { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game, input, player, services }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game, input, player, request, services }; } }
 
     public Contexts() {
         game = new GameContext();
         input = new InputContext();
         player = new PlayerContext();
+        request = new RequestContext();
         services = new ServicesContext();
 
         var postConstructors = System.Linq.Enumerable.Where(
@@ -97,6 +99,7 @@ public partial class Contexts {
             CreateContextObserver(game);
             CreateContextObserver(input);
             CreateContextObserver(player);
+            CreateContextObserver(request);
             CreateContextObserver(services);
         } catch(System.Exception) {
         }

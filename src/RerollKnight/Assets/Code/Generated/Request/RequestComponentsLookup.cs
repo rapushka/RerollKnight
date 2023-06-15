@@ -6,23 +6,20 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public static class GameComponentsLookup {
+public static class RequestComponentsLookup {
 
-    public const int Coordinates = 0;
-    public const int Player = 1;
-    public const int CoordinatesListener = 2;
+    public const int CoordinatesRequest = 0;
+    public const int SpawnPlayer = 1;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 2;
 
     public static readonly string[] componentNames = {
-        "Coordinates",
-        "Player",
-        "CoordinatesListener"
+        "CoordinatesRequest",
+        "SpawnPlayer"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.CoordinatesComponent),
-        typeof(Code.PlayerComponent),
-        typeof(CoordinatesListenerComponent)
+        typeof(Code.CoordinatesRequest),
+        typeof(Code.SpawnPlayerComponent)
     };
 }
