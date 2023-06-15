@@ -1,5 +1,4 @@
 using System.IO;
-using System.Linq;
 using DesperateDevs.CodeGeneration;
 
 namespace Code.CodeGeneration.Plugins.Behaviours
