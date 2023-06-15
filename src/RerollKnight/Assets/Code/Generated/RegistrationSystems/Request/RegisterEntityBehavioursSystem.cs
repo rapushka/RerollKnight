@@ -9,22 +9,3 @@
 
 using Entitas;
 	
-public sealed class RegisterEntityBehavioursSystem : IInitializeSystem
-{
-	private readonly Contexts _contexts;
-	private readonly EntityBehaviourBase[] _allBehaviours;
-
-	public RegisterEntityBehavioursSystem(Contexts contexts, EntityBehaviourBase[] allBehaviours)
-	{
-		_contexts = contexts;
-		_allBehaviours = allBehaviours;
-	}
-
-	public void Initialize()
-	{
-		foreach (var behaviour in _allBehaviours)
-		{
-			behaviour.Register();
-		}
-	}
-}

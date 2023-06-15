@@ -8,10 +8,8 @@ namespace Code
 	{
 		public SpawnPlayerSystem(Contexts contexts) : base(contexts.request) { }
 
-		private static IMatcher<RequestEntity> Coordinates => RequestMatcher.CoordinatesRequest;
-
 		protected override ICollector<RequestEntity> GetTrigger(IContext<RequestEntity> context)
-			=> context.CreateCollector(AllOf(SpawnPlayer, Coordinates));
+			=> context.CreateCollector(AllOf(SpawnPlayer, CoordinatesRequest));
 
 		protected override bool Filter(RequestEntity entity) => true;
 
