@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class RequestEntity {
 
-    public Code.CoordinatesRequest coordinatesRequest { get { return (Code.CoordinatesRequest)GetComponent(RequestComponentsLookup.CoordinatesRequest); } }
+    public Code.CoordinatesRequestComponent coordinatesRequest { get { return (Code.CoordinatesRequestComponent)GetComponent(RequestComponentsLookup.CoordinatesRequest); } }
     public bool hasCoordinatesRequest { get { return HasComponent(RequestComponentsLookup.CoordinatesRequest); } }
 
     public void AddCoordinatesRequest(Code.Coordinates newValue) {
         var index = RequestComponentsLookup.CoordinatesRequest;
-        var component = (Code.CoordinatesRequest)CreateComponent(index, typeof(Code.CoordinatesRequest));
+        var component = (Code.CoordinatesRequestComponent)CreateComponent(index, typeof(Code.CoordinatesRequestComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceCoordinatesRequest(Code.Coordinates newValue) {
         var index = RequestComponentsLookup.CoordinatesRequest;
-        var component = (Code.CoordinatesRequest)CreateComponent(index, typeof(Code.CoordinatesRequest));
+        var component = (Code.CoordinatesRequestComponent)CreateComponent(index, typeof(Code.CoordinatesRequestComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

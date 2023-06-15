@@ -19,7 +19,7 @@ public static class RequestComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.CoordinatesRequest),
+        typeof(Code.CoordinatesRequestComponent),
         typeof(Code.SpawnPlayerComponent)
     };
 }
