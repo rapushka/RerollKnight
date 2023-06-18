@@ -25,6 +25,12 @@ namespace Code.CodeGeneration.Plugins
 		private static string RemoveAttributeSuffix(this string @this)
 			=> @this.EndsWith(Attribute) ? @this[..^Attribute.Length] : @this;
 
+		public static IEnumerable<string> GetContexts(this INamedTypeSymbol @this)
+			=> @this.GetAttributes()
+			        .Select((ad) => ad.AttributeClass)
+			        .Where((a) => a.BaseType?.Name == nameof(ContextAttribute))
+			        .Select((a) => a.Name.RemoveAttributeSuffix());
+
 		public static string GetContext(this INamedTypeSymbol @this)
 			=> @this.GetAttributes()
 			        .Select((ad) => ad.AttributeClass)
