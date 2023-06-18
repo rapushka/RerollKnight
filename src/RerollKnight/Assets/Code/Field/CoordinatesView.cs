@@ -17,6 +17,6 @@ namespace Code
 		}
 
 		public void OnCoordinates(GameEntity entity, Coordinates value)
-			=> _transform.position = value.ToTopDown();
+			=> _transform.position = value.ToTopDown() + Constants.CoordinatesOnFieldOffset;
 	}
 }

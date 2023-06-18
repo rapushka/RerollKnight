@@ -9,6 +9,8 @@ namespace Code
 			Add(new RegisterEntityBehavioursSystem(contexts, entityBehaviours));
 
 			Add(new SpawnPlayerSystem(contexts));
+			
+			Add(new GameEventSystems(contexts));
 		}
 	}
 }

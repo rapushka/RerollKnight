@@ -18,6 +18,8 @@ namespace Code
 			foreach (var e in entites)
 			{
 				var playerBehaviour = ServicesMediator.SpawnPlayer();
+				var coordinatesView = playerBehaviour.GetComponent<CoordinatesView>();
+				coordinatesView.Register(playerBehaviour.Entity);
 				playerBehaviour.Entity.ReplaceCoordinates(e.coordinatesRequest.Value);
 			}
 		}

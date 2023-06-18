@@ -1,10 +1,11 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace Code
 {
 	[Serializable]
-	public struct Coordinates
+	public class Coordinates
 	{
 		[SerializeField] private int _column;
 		[SerializeField] private int _row;
@@ -22,5 +23,7 @@ namespace Code
 
 		public static explicit operator Vector2(Coordinates coordinates)
 			=> new(coordinates.Column, coordinates.Row);
+
+		public override string ToString() => $"{nameof(Column)}: {Column}, {nameof(Row)}: {Row}";
 	}
 }
