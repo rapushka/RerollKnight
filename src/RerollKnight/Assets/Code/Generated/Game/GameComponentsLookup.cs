@@ -8,19 +8,25 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Coordinates = 0;
-    public const int Player = 1;
-    public const int CoordinatesListener = 2;
+    public const int Chip = 0;
+    public const int Draggable = 1;
+    public const int Coordinates = 2;
+    public const int Player = 3;
+    public const int CoordinatesListener = 4;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
+        "Chip",
+        "Draggable",
         "Coordinates",
         "Player",
         "CoordinatesListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ChipComponent),
+        typeof(Code.DraggableComponent),
         typeof(Code.CoordinatesComponent),
         typeof(Code.PlayerComponent),
         typeof(CoordinatesListenerComponent)

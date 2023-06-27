@@ -8,17 +8,26 @@
 //------------------------------------------------------------------------------
 public static class RequestComponentsLookup {
 
-    public const int CoordinatesRequest = 0;
-    public const int SpawnPlayer = 1;
+    public const int Click = 0;
+    public const int Drag = 1;
+    public const int Drop = 2;
+    public const int CoordinatesRequest = 3;
+    public const int SpawnPlayer = 4;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
+        "Click",
+        "Drag",
+        "Drop",
         "CoordinatesRequest",
         "SpawnPlayer"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.ClickComponent),
+        typeof(Code.DragComponent),
+        typeof(Code.DropComponent),
         typeof(Code.CoordinatesRequestComponent),
         typeof(Code.SpawnPlayerComponent)
     };
