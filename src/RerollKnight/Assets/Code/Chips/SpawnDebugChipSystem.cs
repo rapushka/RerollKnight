@@ -12,8 +12,7 @@ namespace Code
 
 		public void Initialize() => SpawnChip(at: new Vector3(2.9f, 3f, 2.9f));
 
-		private static GameEntityBehaviour SpawnChip(Vector3 at)
-			=> ServicesMediator.Assets.SpawnBehaviour(ChipPrefab, at);
+		private static void SpawnChip(Vector3 at) => ServicesMediator.Assets.SpawnBehaviour(ChipPrefab, at);
 
 		private static GameEntityBehaviour ChipPrefab => ServicesMediator.Resources.ChipPrefab;
 	}
