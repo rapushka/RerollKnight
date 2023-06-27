@@ -13,9 +13,9 @@ namespace Code
 
 		public void Initialize()
 		{
-			for (var x = -1; x <= 1; x++)
+			for (var x = 0; x < 3; x++)
 			{
-				for (var y = -1; y <= 1; y++)
+				for (var y = 0; y < 3; y++)
 				{
 					var cell = SpawnCellAt(x, y);
 				}
