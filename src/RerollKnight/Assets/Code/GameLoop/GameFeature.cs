@@ -13,8 +13,8 @@ namespace Code
 			Add(new SpawnFieldSystem(contexts));
 			Add(new SpawnPlayerSystem(contexts));
 			Add(new SpawnDebugChipSystem(contexts));
-			
-			Add(new PickChipSystem(contexts));
+
+			Add(new ChipsPickingFeature(contexts));
 
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
