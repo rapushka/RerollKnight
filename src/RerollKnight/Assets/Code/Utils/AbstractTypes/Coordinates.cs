@@ -6,29 +6,24 @@ namespace Code
 	[Serializable]
 	public class Coordinates
 	{
-		[SerializeField] private int _column;
-		[SerializeField] private int _row;
-
-		public int Column => _column;
-		public int Row    => _row;
+		[field: SerializeField] public int Column { get; private set; }
+		[field: SerializeField] public int Row    { get; private set; }
 
 		public Coordinates(Vector2 vector)
 		{
-			_column = (int)vector.x;
-			_row = (int)vector.y;
+			Column = (int)vector.x;
+			Row = (int)vector.y;
 		}
 
 		public Coordinates(int column, int row)
 		{
-			_column = column;
-			_row = row;
+			Column = column;
+			Row = row;
 		}
 
 		public Vector3 ToTopDown() => ((Vector2)this).ToTopDown();
 
 		public static explicit operator Vector2(Coordinates coordinates)
 			=> new(coordinates.Column, coordinates.Row);
-
-		public override string ToString() => $"{nameof(Column)}: {Column}, {nameof(Row)}: {Row}";
 	}
 }
