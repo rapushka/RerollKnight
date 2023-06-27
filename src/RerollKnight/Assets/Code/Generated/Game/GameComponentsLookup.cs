@@ -11,33 +11,48 @@ public static class GameComponentsLookup {
     public const int Chip = 0;
     public const int Clicked = 1;
     public const int Coordinates = 2;
-    public const int Draggable = 3;
-    public const int GameState = 4;
-    public const int PickedChip = 5;
-    public const int Player = 6;
-    public const int CoordinatesListener = 7;
+    public const int DestinationPosition = 3;
+    public const int Draggable = 4;
+    public const int GameState = 5;
+    public const int InitialPosition = 6;
+    public const int MovingSpeed = 7;
+    public const int PickedChip = 8;
+    public const int Player = 9;
+    public const int Position = 10;
+    public const int CoordinatesListener = 11;
+    public const int PositionListener = 12;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 13;
 
     public static readonly string[] componentNames = {
         "Chip",
         "Clicked",
         "Coordinates",
+        "DestinationPosition",
         "Draggable",
         "GameState",
+        "InitialPosition",
+        "MovingSpeed",
         "PickedChip",
         "Player",
-        "CoordinatesListener"
+        "Position",
+        "CoordinatesListener",
+        "PositionListener"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.ChipComponent),
         typeof(Code.ClickedComponent),
         typeof(Code.CoordinatesComponent),
+        typeof(Code.DestinationPositionComponent),
         typeof(Code.DraggableComponent),
         typeof(Code.GameStateComponent),
+        typeof(Code.InitialPositionComponent),
+        typeof(Code.MovingSpeedComponent),
         typeof(Code.PickedChipComponent),
         typeof(Code.PlayerComponent),
-        typeof(CoordinatesListenerComponent)
+        typeof(Code.PositionComponent),
+        typeof(CoordinatesListenerComponent),
+        typeof(PositionListenerComponent)
     };
 }
