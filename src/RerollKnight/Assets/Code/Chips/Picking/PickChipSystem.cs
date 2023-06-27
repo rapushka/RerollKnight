@@ -16,7 +16,7 @@ namespace Code
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Clicked, Chip));
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.isClicked;
 
 		protected override void Execute(List<GameEntity> entites)
 		{
@@ -24,7 +24,7 @@ namespace Code
 			{
 				_contexts.ToGameState(GameState.PickingTarget);
 				e.isPickedChip = true;
-				Debug.Log("chip is picked");
+				Debug.Log("is picked");
 			}
 		}
 	}

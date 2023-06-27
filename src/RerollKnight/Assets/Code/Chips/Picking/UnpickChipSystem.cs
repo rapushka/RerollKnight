@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 using static GameMatcher;
 
 namespace Code
@@ -12,7 +13,7 @@ namespace Code
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Clicked, PickedChip));
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(GameEntity entity) => entity.isClicked;
 
 		protected override void Execute(List<GameEntity> entites)
 		{
@@ -21,6 +22,7 @@ namespace Code
 				_contexts.ToGameState(GameState.PickingChip);
 				e.Unpick();
 				e.isClicked = false;
+				Debug.Log("is unpicked");
 			}
 		}
 	}
