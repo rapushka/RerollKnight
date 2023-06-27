@@ -26,7 +26,6 @@ namespace Code
 				previousPickedChip.Unpick();
 				e.Pick();
 				e.isClicked = false;
-				Debug.Log("is repicked");
 			}
 		}
 	}

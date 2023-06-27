@@ -24,7 +24,6 @@ namespace Code
 			{
 				_contexts.ToGameState(GameState.PickingTarget);
 				e.isPickedChip = true;
-				Debug.Log("is picked");
 			}
 		}
 	}

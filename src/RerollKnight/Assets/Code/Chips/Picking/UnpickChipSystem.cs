@@ -22,7 +22,6 @@ namespace Code
 				_contexts.ToGameState(GameState.PickingChip);
 				e.Unpick();
 				e.isClicked = false;
-				Debug.Log("is unpicked");
 			}
 		}
 	}
