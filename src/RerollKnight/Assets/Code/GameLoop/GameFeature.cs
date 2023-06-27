@@ -5,16 +5,23 @@ namespace Code
 		public GameFeature(Contexts contexts, EntityBehaviourBase[] entityBehaviours)
 			: base(nameof(GameFeature))
 		{
+			// Registrations
 			Add(new RegisterAllServicesSystem(contexts));
 			Add(new RegisterEntityBehavioursSystem(contexts, entityBehaviours));
 
+			// Initialization
 			Add(new StartGameSystem(contexts));
 
 			Add(new SpawnFieldSystem(contexts));
 			Add(new SpawnPlayerSystem(contexts));
 
+			// Game Logic
 			Add(new ChipsPickingFeature(contexts));
+			
+			// Visuals
+			Add(new MoveToDestinationSystem(contexts));
 
+			// Entitas Generated
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
 		}
