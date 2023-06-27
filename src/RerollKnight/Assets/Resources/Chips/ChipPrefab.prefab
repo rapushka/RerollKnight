@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 1075550987905627101}
   - component: {fileID: 4876991291457472533}
   - component: {fileID: 6377253687662020744}
+  - component: {fileID: 2319941255851677331}
   m_Layer: 0
   m_Name: ChipPrefab
   m_TagString: Untagged
@@ -143,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6075682246088965771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.853, y: 4, z: 2.878}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -169,6 +170,7 @@ MonoBehaviour:
   - {fileID: 1075550987905627101}
   - {fileID: 4876991291457472533}
   - {fileID: 6377253687662020744}
+  - {fileID: 2319941255851677331}
 --- !u!114 &4073123595870786127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,3 +247,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 1
+--- !u!114 &2319941255851677331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075682246088965771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b1064bda784483a85d181b351d8b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 6769141772819899787}

@@ -16,6 +16,7 @@ namespace Code
 			Add(new SpawnPlayerSystem(contexts));
 
 			// Game Logic
+			Add(new StoreChipPositionSystem(contexts));
 			Add(new ChipsPickingFeature(contexts));
 			
 			// Visuals

@@ -13,7 +13,7 @@ namespace Code
 
 		public void Execute()
 		{
-			foreach (var e in _entities)
+			foreach (var e in _entities.GetEntities())
 			{
 				var position = e.position.Value;
 				var destination = e.destinationPosition.Value;
