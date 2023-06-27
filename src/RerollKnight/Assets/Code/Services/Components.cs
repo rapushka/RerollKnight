@@ -7,4 +7,5 @@ namespace Code
 
 	[Services] [Unique] public sealed class AssetsComponent : IComponent { public IAssetsService Value; }
 
+	[Services] [Unique] public sealed class LayoutComponent : IComponent { public ILayoutService Value; }
 }
