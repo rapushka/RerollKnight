@@ -9,6 +9,6 @@ namespace Code
 	
 	public class ResourcesService : IResourcesService
 	{
-		public GameEntityBehaviour PlayerPrefab => Resources.Load<GameEntityBehaviour>("Prefabs/Player");
+		public GameEntityBehaviour PlayerPrefab => Resources.Load<GameEntityBehaviour>("Player/Prefab");
 	}
 }
