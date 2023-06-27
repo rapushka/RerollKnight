@@ -17,6 +17,7 @@ namespace Code
 			Add(new PickChipSystem(contexts));
 
 			Add(new GameEventSystems(contexts));
+			Add(new GameCleanupSystems(contexts));
 		}
 	}
 }
