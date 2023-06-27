@@ -18,6 +18,12 @@ namespace Code
 			_row = (int)vector.y;
 		}
 
+		public Coordinates(int column, int row)
+		{
+			_column = column;
+			_row = row;
+		}
+
 		public Vector3 ToTopDown() => ((Vector2)this).ToTopDown();
 
 		public static explicit operator Vector2(Coordinates coordinates)

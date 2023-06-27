@@ -5,7 +5,9 @@ namespace Code
 {
 	public sealed class SpawnFieldSystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
+		// ReSharper disable once NotAccessedField.Local – keep the contexts for persist systems adding
+		private Contexts _contexts;
+		private const int FieldSizes = 3;
 
 		public SpawnFieldSystem(Contexts contexts) => _contexts = contexts;
 
@@ -13,11 +15,12 @@ namespace Code
 
 		public void Initialize()
 		{
-			for (var x = 0; x < 3; x++)
+			for (var x = 0; x < FieldSizes; x++)
 			{
-				for (var y = 0; y < 3; y++)
+				for (var y = 0; y < FieldSizes; y++)
 				{
-					var cell = SpawnCellAt(x, y);
+					var cell = ServicesMediator.Assets.SpawnBehaviour(CellPrefab);
+					cell.Entity.AddCoordinates(new Coordinates(x, y));
 				}
 			}
 		}
