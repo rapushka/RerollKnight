@@ -16,6 +16,8 @@ namespace Code
 	[Request] [Cleanup(DestroyEntity)] public sealed class DropComponent : IComponent { }
 
 	[Request] public sealed class ClickedEntityComponent : IComponent { public GameEntity Value; }
-	
+
 	[Game] [Cleanup(RemoveComponent)] public sealed class ClickedComponent : IComponent { }
+
+	[Game] [Unique] public sealed class PickedChipComponent : IComponent { }
 }

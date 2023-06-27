@@ -12,6 +12,8 @@ namespace Code
 
 			Add(new SpawnFieldSystem(contexts));
 			Add(new SpawnPlayerSystem(contexts));
+			
+			Add(new PickChipSystem(contexts));
 
 			Add(new GameEventSystems(contexts));
 		}

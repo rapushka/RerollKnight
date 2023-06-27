@@ -13,10 +13,11 @@ public static class GameComponentsLookup {
     public const int Coordinates = 2;
     public const int Draggable = 3;
     public const int GameState = 4;
-    public const int Player = 5;
-    public const int CoordinatesListener = 6;
+    public const int PickedChip = 5;
+    public const int Player = 6;
+    public const int CoordinatesListener = 7;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "Chip",
@@ -24,6 +25,7 @@ public static class GameComponentsLookup {
         "Coordinates",
         "Draggable",
         "GameState",
+        "PickedChip",
         "Player",
         "CoordinatesListener"
     };
@@ -34,6 +36,7 @@ public static class GameComponentsLookup {
         typeof(Code.CoordinatesComponent),
         typeof(Code.DraggableComponent),
         typeof(Code.GameStateComponent),
+        typeof(Code.PickedChipComponent),
         typeof(Code.PlayerComponent),
         typeof(CoordinatesListenerComponent)
     };
