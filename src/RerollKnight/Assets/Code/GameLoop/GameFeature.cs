@@ -21,6 +21,7 @@ namespace Code
 			
 			// Visuals
 			Add(new HoverPickedChipSystem(contexts));
+			Add(new UnhoverUnpickedChipSystem(contexts));
 			Add(new MoveToDestinationSystem(contexts));
 
 			// Entitas Generated
