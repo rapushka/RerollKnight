@@ -11,23 +11,25 @@ public static class GameComponentsLookup {
     public const int Chip = 0;
     public const int Clicked = 1;
     public const int Coordinates = 2;
-    public const int DestinationPosition = 3;
-    public const int Draggable = 4;
-    public const int GameState = 5;
-    public const int InitialPosition = 6;
-    public const int MovingSpeed = 7;
-    public const int PickedChip = 8;
-    public const int Player = 9;
-    public const int Position = 10;
-    public const int CoordinatesListener = 11;
-    public const int PositionListener = 12;
+    public const int DebugName = 3;
+    public const int DestinationPosition = 4;
+    public const int Draggable = 5;
+    public const int GameState = 6;
+    public const int InitialPosition = 7;
+    public const int MovingSpeed = 8;
+    public const int PickedChip = 9;
+    public const int Player = 10;
+    public const int Position = 11;
+    public const int CoordinatesListener = 12;
+    public const int PositionListener = 13;
 
-    public const int TotalComponents = 13;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
         "Chip",
         "Clicked",
         "Coordinates",
+        "DebugName",
         "DestinationPosition",
         "Draggable",
         "GameState",
@@ -44,6 +46,7 @@ public static class GameComponentsLookup {
         typeof(Code.ChipComponent),
         typeof(Code.ClickedComponent),
         typeof(Code.CoordinatesComponent),
+        typeof(Code.DebugNameComponent),
         typeof(Code.DestinationPositionComponent),
         typeof(Code.DraggableComponent),
         typeof(Code.GameStateComponent),

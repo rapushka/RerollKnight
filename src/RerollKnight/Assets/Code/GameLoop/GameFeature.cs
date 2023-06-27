@@ -19,6 +19,7 @@ namespace Code
 			Add(new ChipsPickingFeature(contexts));
 			
 			// Visuals
+			Add(new HoverPickedChipSystem(contexts));
 			Add(new MoveToDestinationSystem(contexts));
 
 			// Entitas Generated
