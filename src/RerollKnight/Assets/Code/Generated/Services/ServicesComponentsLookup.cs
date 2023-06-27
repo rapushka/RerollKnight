@@ -19,7 +19,7 @@ public static class ServicesComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Components.AssetsComponent),
-        typeof(Code.Components.ResourcesComponent)
+        typeof(Code.AssetsComponent),
+        typeof(Code.ResourcesComponent)
     };
 }

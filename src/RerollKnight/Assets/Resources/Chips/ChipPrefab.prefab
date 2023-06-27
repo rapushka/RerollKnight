@@ -108,6 +108,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6769141772819899787}
   - component: {fileID: 4704866147568125659}
+  - component: {fileID: 4073123595870786127}
+  - component: {fileID: 3726238654914383572}
   m_Layer: 0
   m_Name: ChipPrefab
   m_TagString: Untagged
@@ -143,4 +145,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a8e51d341abd2028fff1ef232ff8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentBehaviours: []
+  _componentBehaviours:
+  - {fileID: 4073123595870786127}
+  - {fileID: 3726238654914383572}
+--- !u!114 &4073123595870786127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075682246088965771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae01ab1d46a395fc88cd1a5935cc4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3726238654914383572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075682246088965771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc3b880842524064ababa4d549d3b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
