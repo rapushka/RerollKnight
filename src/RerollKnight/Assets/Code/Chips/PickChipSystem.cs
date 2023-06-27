@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 using static GameMatcher;
 
 namespace Code
@@ -37,6 +38,7 @@ namespace Code
 
 				ToGameState(GameState.PickingTarget);
 				e.isPickedChip = true;
+				Debug.Log("chip is picked");
 			}
 		}
 
