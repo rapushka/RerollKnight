@@ -10,7 +10,11 @@ namespace Code
 
 		public SpawnDebugChipSystem(Contexts contexts) => _contexts = contexts;
 
-		public void Initialize() => SpawnChip(at: new Vector3(2.9f, 3f, 2.9f));
+		public void Initialize()
+		{
+			SpawnChip(at: new Vector3(1.9f, 3f, 3.9f));
+			SpawnChip(at: new Vector3(2.9f, 3f, 2.9f));
+		}
 
 		private static void SpawnChip(Vector3 at) => ServicesMediator.Assets.SpawnBehaviour(ChipPrefab, at);
 
