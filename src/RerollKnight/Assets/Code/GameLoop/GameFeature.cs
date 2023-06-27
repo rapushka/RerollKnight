@@ -8,9 +8,11 @@ namespace Code
 			Add(new RegisterAllServicesSystem(contexts));
 			Add(new RegisterEntityBehavioursSystem(contexts, entityBehaviours));
 
+			Add(new StartGameSystem(contexts));
+
 			Add(new SpawnFieldSystem(contexts));
 			Add(new SpawnPlayerSystem(contexts));
-			
+
 			Add(new GameEventSystems(contexts));
 		}
 	}
