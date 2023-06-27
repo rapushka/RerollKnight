@@ -24,8 +24,5 @@ namespace Code
 				}
 			}
 		}
-
-		private static GameEntityBehaviour SpawnCellAt(int x, int y)
-			=> ServicesMediator.Assets.SpawnBehaviour(CellPrefab, new Vector2(x, y).ToTopDown());
 	}
 }
