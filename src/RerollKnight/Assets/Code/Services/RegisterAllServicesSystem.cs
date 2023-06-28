@@ -1,4 +1,5 @@
 using Entitas;
+using UnityEngine;
 
 namespace Code
 {
@@ -12,6 +13,7 @@ namespace Code
 		{
 			_contexts.services.ReplaceResources(new ResourcesService());
 			_contexts.services.ReplaceAssets(new AssetsService());
+			_contexts.services.ReplaceLayout(Resources.Load<LayoutService>("Layout"));
 		}
 	}
 }

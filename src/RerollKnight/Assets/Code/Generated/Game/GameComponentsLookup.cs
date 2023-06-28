@@ -8,21 +8,66 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Coordinates = 0;
-    public const int Player = 1;
-    public const int CoordinatesListener = 2;
+    public const int Cell = 0;
+    public const int Chip = 1;
+    public const int Clicked = 2;
+    public const int Coordinates = 3;
+    public const int CoordinatesUnderField = 4;
+    public const int DebugName = 5;
+    public const int DestinationPosition = 6;
+    public const int Draggable = 7;
+    public const int GameState = 8;
+    public const int InitialPosition = 9;
+    public const int MovingSpeed = 10;
+    public const int PickedChip = 11;
+    public const int PickedTarget = 12;
+    public const int Player = 13;
+    public const int Position = 14;
+    public const int CoordinatesListener = 15;
+    public const int CoordinatesUnderFieldListener = 16;
+    public const int PositionListener = 17;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
+        "Cell",
+        "Chip",
+        "Clicked",
         "Coordinates",
+        "CoordinatesUnderField",
+        "DebugName",
+        "DestinationPosition",
+        "Draggable",
+        "GameState",
+        "InitialPosition",
+        "MovingSpeed",
+        "PickedChip",
+        "PickedTarget",
         "Player",
-        "CoordinatesListener"
+        "Position",
+        "CoordinatesListener",
+        "CoordinatesUnderFieldListener",
+        "PositionListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.CellComponent),
+        typeof(Code.ChipComponent),
+        typeof(Code.ClickedComponent),
         typeof(Code.CoordinatesComponent),
+        typeof(Code.CoordinatesUnderFieldComponent),
+        typeof(Code.DebugNameComponent),
+        typeof(Code.DestinationPositionComponent),
+        typeof(Code.DraggableComponent),
+        typeof(Code.GameStateComponent),
+        typeof(Code.InitialPositionComponent),
+        typeof(Code.MovingSpeedComponent),
+        typeof(Code.PickedChipComponent),
+        typeof(Code.PickedTargetComponent),
         typeof(Code.PlayerComponent),
-        typeof(CoordinatesListenerComponent)
+        typeof(Code.PositionComponent),
+        typeof(CoordinatesListenerComponent),
+        typeof(CoordinatesUnderFieldListenerComponent),
+        typeof(PositionListenerComponent)
     };
 }

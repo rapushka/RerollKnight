@@ -8,6 +8,8 @@ namespace Code
 
 		public static IAssetsService Assets => Context.assets.Value;
 
+		public static ILayoutService Layout => Context.layout.Value;
+
 		public static GameEntityBehaviour SpawnPlayer() => Assets.SpawnBehaviour(Resources.PlayerPrefab);
 	}
 }

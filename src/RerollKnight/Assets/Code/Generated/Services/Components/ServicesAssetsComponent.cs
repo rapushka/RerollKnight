@@ -9,12 +9,12 @@
 public partial class ServicesContext {
 
     public ServicesEntity assetsEntity { get { return GetGroup(ServicesMatcher.Assets).GetSingleEntity(); } }
-    public Code.Components.AssetsComponent assets { get { return assetsEntity.assets; } }
+    public Code.AssetsComponent assets { get { return assetsEntity.assets; } }
     public bool hasAssets { get { return assetsEntity != null; } }
 
     public ServicesEntity SetAssets(Code.IAssetsService newValue) {
         if (hasAssets) {
-            throw new Entitas.EntitasException("Could not set Assets!\n" + this + " already has an entity with Code.Components.AssetsComponent!",
+            throw new Entitas.EntitasException("Could not set Assets!\n" + this + " already has an entity with Code.AssetsComponent!",
                 "You should check if the context already has a assetsEntity before setting it or use context.ReplaceAssets().");
         }
         var entity = CreateEntity();
@@ -46,19 +46,19 @@ public partial class ServicesContext {
 //------------------------------------------------------------------------------
 public partial class ServicesEntity {
 
-    public Code.Components.AssetsComponent assets { get { return (Code.Components.AssetsComponent)GetComponent(ServicesComponentsLookup.Assets); } }
+    public Code.AssetsComponent assets { get { return (Code.AssetsComponent)GetComponent(ServicesComponentsLookup.Assets); } }
     public bool hasAssets { get { return HasComponent(ServicesComponentsLookup.Assets); } }
 
     public void AddAssets(Code.IAssetsService newValue) {
         var index = ServicesComponentsLookup.Assets;
-        var component = (Code.Components.AssetsComponent)CreateComponent(index, typeof(Code.Components.AssetsComponent));
+        var component = (Code.AssetsComponent)CreateComponent(index, typeof(Code.AssetsComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceAssets(Code.IAssetsService newValue) {
         var index = ServicesComponentsLookup.Assets;
-        var component = (Code.Components.AssetsComponent)CreateComponent(index, typeof(Code.Components.AssetsComponent));
+        var component = (Code.AssetsComponent)CreateComponent(index, typeof(Code.AssetsComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
