@@ -24,6 +24,7 @@ namespace Code
 			foreach (var e in entites)
 			{
 				e.Pick();
+				_contexts.ToGameState(WaitingForAbilityUsage);
 			}
 		}
 	}

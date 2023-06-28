@@ -25,6 +25,9 @@ namespace Code
 			Add(new UnpickTargetsOnGameStateSystem(contexts));
 			Add(new UnpickAllTargetsOnRequestSystem(contexts));
 
+			// Abilities
+			Add(new DebugTeleportSystem(contexts));
+
 			// Visuals
 			Add(new HoverPickedChipSystem(contexts));
 			Add(new UnhoverUnpickedChipSystem(contexts));

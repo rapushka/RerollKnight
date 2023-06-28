@@ -14,7 +14,7 @@ namespace Code
 			=> context.CreateCollector(GameMatcher.GameState);
 
 		protected override bool Filter(GameEntity entity)
-			=> _contexts.GameStateIsNot(PickingTarget);
+			=> _contexts.GameStateIs(PickingTarget) == false;
 
 		protected override void Execute(List<GameEntity> entites) => SendRequestTo.UnpickAllTargets();
 	}

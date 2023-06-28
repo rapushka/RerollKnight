@@ -5,6 +5,7 @@ namespace Code
 		NotInGame,
 		PickingChip,
 		PickingTarget,
+		WaitingForAbilityUsage,
 		WaitingForEnemiesMoves,
 	}
 }
