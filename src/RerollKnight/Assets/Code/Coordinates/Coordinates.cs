@@ -34,5 +34,7 @@ namespace Code
 
 		// ReSharper disable NonReadonlyMemberInGetHashCode – needed fo view in the inspector
 		public override int GetHashCode() => HashCode.Combine(Column, Row);
+
+		public override string ToString() => $"[{Column}; {Row}]";
 	}
 }
