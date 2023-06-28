@@ -11,6 +11,7 @@ namespace Code
 
 			// Initialization
 			Add(new StartGameSystem(contexts));
+			Add(new DebugCurrentGameStateSystem(contexts));
 
 			Add(new SpawnFieldSystem(contexts));
 			Add(new SpawnPlayerSystem(contexts));
