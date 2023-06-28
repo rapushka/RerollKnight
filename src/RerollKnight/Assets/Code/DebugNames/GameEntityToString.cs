@@ -4,11 +4,13 @@ public partial class GameEntity
 
 	public override string ToString() => string.Join(Space, Strings);
 
-	private string[] Strings => new[] { creationIndex.ToString(), DebugName, Coordinates, PickedChip, };
+	private string[] Strings => new[] { creationIndex.ToString(), DebugName, Coordinates, PickedChip, PickedTarget, };
 
 	private string DebugName => hasDebugName ? debugName.Value : base.ToString();
 
 	private string Coordinates => hasCoordinates ? coordinates.Value.ToString() : string.Empty;
 
 	private string PickedChip => isPickedChip ? "<- picked" : string.Empty;
+
+	private string PickedTarget => isPickedTarget ? "<- picked" : string.Empty;
 }

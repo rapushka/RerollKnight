@@ -8,26 +8,29 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Chip = 0;
-    public const int Clicked = 1;
-    public const int Coordinates = 2;
-    public const int CoordinatesUnderField = 3;
-    public const int DebugName = 4;
-    public const int DestinationPosition = 5;
-    public const int Draggable = 6;
-    public const int GameState = 7;
-    public const int InitialPosition = 8;
-    public const int MovingSpeed = 9;
-    public const int PickedChip = 10;
-    public const int Player = 11;
-    public const int Position = 12;
-    public const int CoordinatesListener = 13;
-    public const int CoordinatesUnderFieldListener = 14;
-    public const int PositionListener = 15;
+    public const int Cell = 0;
+    public const int Chip = 1;
+    public const int Clicked = 2;
+    public const int Coordinates = 3;
+    public const int CoordinatesUnderField = 4;
+    public const int DebugName = 5;
+    public const int DestinationPosition = 6;
+    public const int Draggable = 7;
+    public const int GameState = 8;
+    public const int InitialPosition = 9;
+    public const int MovingSpeed = 10;
+    public const int PickedChip = 11;
+    public const int PickedTarget = 12;
+    public const int Player = 13;
+    public const int Position = 14;
+    public const int CoordinatesListener = 15;
+    public const int CoordinatesUnderFieldListener = 16;
+    public const int PositionListener = 17;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
+        "Cell",
         "Chip",
         "Clicked",
         "Coordinates",
@@ -39,6 +42,7 @@ public static class GameComponentsLookup {
         "InitialPosition",
         "MovingSpeed",
         "PickedChip",
+        "PickedTarget",
         "Player",
         "Position",
         "CoordinatesListener",
@@ -47,6 +51,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.CellComponent),
         typeof(Code.ChipComponent),
         typeof(Code.ClickedComponent),
         typeof(Code.CoordinatesComponent),
@@ -58,6 +63,7 @@ public static class GameComponentsLookup {
         typeof(Code.InitialPositionComponent),
         typeof(Code.MovingSpeedComponent),
         typeof(Code.PickedChipComponent),
+        typeof(Code.PickedTargetComponent),
         typeof(Code.PlayerComponent),
         typeof(Code.PositionComponent),
         typeof(CoordinatesListenerComponent),

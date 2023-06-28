@@ -16,10 +16,12 @@ namespace Code
 			Add(new SpawnFieldSystem(contexts));
 			Add(new SpawnPlayerSystem(contexts));
 
-			// Game Logic
 			Add(new StoreChipPositionSystem(contexts));
+
+			// Game Logic
 			Add(new ChipsPickingFeature(contexts));
-			
+			Add(new PickCellAsTargetSystem(contexts));
+
 			// Visuals
 			Add(new HoverPickedChipSystem(contexts));
 			Add(new UnhoverUnpickedChipSystem(contexts));
