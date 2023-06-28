@@ -25,8 +25,10 @@ namespace Code
 			// Abilities
 			Add(new DebugTeleportSystem(contexts));
 
+			// Unpick
 			Add(new RequestUnpickingTargetsOnPickingTargetSystem(contexts));
 			Add(new UnpickAllTargetsOnRequestSystem(contexts));
+			Add(new UnpickChipOnRequestSystem(contexts));
 
 			// Visuals
 			Add(new HoverPickedChipSystem(contexts));
