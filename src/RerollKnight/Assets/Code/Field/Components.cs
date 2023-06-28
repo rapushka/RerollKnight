@@ -6,4 +6,6 @@ namespace Code
 	[Game] [Behaviour] public sealed class CellComponent : IComponent { }
 
 	[Game] public sealed class PickedTargetComponent : IComponent { }
+
+	[Request] public sealed class UnpickAllTargetsComponent : IComponent { }
 }

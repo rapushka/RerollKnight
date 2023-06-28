@@ -22,6 +22,8 @@ namespace Code
 			Add(new ChipsPickingFeature(contexts));
 			Add(new PickCellAsTargetSystem(contexts));
 
+			Add(new UnpickAllTargetsOnRequestSystem(contexts));
+
 			// Visuals
 			Add(new HoverPickedChipSystem(contexts));
 			Add(new UnhoverUnpickedChipSystem(contexts));

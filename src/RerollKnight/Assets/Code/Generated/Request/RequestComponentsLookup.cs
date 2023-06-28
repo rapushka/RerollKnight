@@ -14,8 +14,9 @@ public static class RequestComponentsLookup {
     public const int Drag = 3;
     public const int Drop = 4;
     public const int SpawnPlayer = 5;
+    public const int UnpickAllTargets = 6;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
         "Click",
@@ -23,7 +24,8 @@ public static class RequestComponentsLookup {
         "CoordinatesRequest",
         "Drag",
         "Drop",
-        "SpawnPlayer"
+        "SpawnPlayer",
+        "UnpickAllTargets"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -32,6 +34,7 @@ public static class RequestComponentsLookup {
         typeof(Code.CoordinatesRequestComponent),
         typeof(Code.DragComponent),
         typeof(Code.DropComponent),
-        typeof(Code.SpawnPlayerComponent)
+        typeof(Code.SpawnPlayerComponent),
+        typeof(Code.UnpickAllTargetsComponent)
     };
 }

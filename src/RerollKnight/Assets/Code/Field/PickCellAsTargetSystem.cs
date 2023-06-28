@@ -23,7 +23,7 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
-				e.isPickedTarget = true;
+				e.Pick();
 			}
 		}
 	}
