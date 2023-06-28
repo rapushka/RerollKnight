@@ -12,5 +12,7 @@ public sealed class RequestCleanupSystems : Feature {
         Add(new DestroyClickRequestSystem(contexts));
         Add(new DestroyDragRequestSystem(contexts));
         Add(new DestroyDropRequestSystem(contexts));
+        Add(new DestroySpawnPlayerRequestSystem(contexts));
+        Add(new DestroyUnpickAllTargetsRequestSystem(contexts));
     }
 }

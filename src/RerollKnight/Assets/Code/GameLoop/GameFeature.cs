@@ -36,6 +36,7 @@ namespace Code
 			// Entitas Generated
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
+			Add(new RequestCleanupSystems(contexts));
 		}
 	}
 }
