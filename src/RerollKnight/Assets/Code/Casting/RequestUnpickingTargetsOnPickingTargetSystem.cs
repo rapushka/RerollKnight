@@ -4,11 +4,13 @@ using static Code.GameState;
 
 namespace Code
 {
-	public sealed class UnpickTargetsOnGameStateSystem : ReactiveSystem<GameEntity>
+	public sealed class RequestUnpickingTargetsOnPickingTargetSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
 
-		public UnpickTargetsOnGameStateSystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
+		public RequestUnpickingTargetsOnPickingTargetSystem(Contexts contexts)
+			: base(contexts.game)
+			=> _contexts = contexts;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.GameState);

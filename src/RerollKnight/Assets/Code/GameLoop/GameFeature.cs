@@ -22,11 +22,11 @@ namespace Code
 			Add(new ChipsPickingFeature(contexts));
 			Add(new PickCellAsTargetSystem(contexts));
 
-			Add(new UnpickTargetsOnGameStateSystem(contexts));
-			Add(new UnpickAllTargetsOnRequestSystem(contexts));
-
 			// Abilities
 			Add(new DebugTeleportSystem(contexts));
+
+			Add(new RequestUnpickingTargetsOnPickingTargetSystem(contexts));
+			Add(new UnpickAllTargetsOnRequestSystem(contexts));
 
 			// Visuals
 			Add(new HoverPickedChipSystem(contexts));

@@ -19,18 +19,22 @@ namespace Code
 
 		public void Execute()
 		{
-			if (_contexts.GameStateIs(WaitingForAbilityUsage) == false)
+			if (_contexts.GameStateIs(WaitingForAbilityUsage))
 			{
-				return;
+				TeleportPlayer();
+				ResetGameState();
 			}
+		}
 
+		private void TeleportPlayer()
+		{
 			foreach (var player in _players)
 			foreach (var target in _targets)
 			{
 				player.ReplaceCoordinates(target.coordinatesUnderField.Value);
 			}
-
-			_contexts.ToGameState(PickingChip);
 		}
+
+		private void ResetGameState() => _contexts.ToGameState(PickingChip);
 	}
 }
