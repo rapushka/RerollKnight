@@ -65,6 +65,7 @@ public partial class Contexts : Entitas.IContexts {
 public partial class Contexts {
 
     public const string Coordinates = "Coordinates";
+    public const string CoordinatesUnderField = "CoordinatesUnderField";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
@@ -72,6 +73,11 @@ public partial class Contexts {
             Coordinates,
             game.GetGroup(GameMatcher.Coordinates),
             (e, c) => ((Code.CoordinatesComponent)c).Value));
+
+        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, Code.Coordinates>(
+            CoordinatesUnderField,
+            game.GetGroup(GameMatcher.CoordinatesUnderField),
+            (e, c) => ((Code.CoordinatesUnderFieldComponent)c).Value));
     }
 }
 
@@ -79,6 +85,10 @@ public static class ContextsExtensions {
 
     public static GameEntity GetEntityWithCoordinates(this GameContext context, Code.Coordinates Value) {
         return ((Entitas.PrimaryEntityIndex<GameEntity, Code.Coordinates>)context.GetEntityIndex(Contexts.Coordinates)).GetEntity(Value);
+    }
+
+    public static GameEntity GetEntityWithCoordinatesUnderField(this GameContext context, Code.Coordinates Value) {
+        return ((Entitas.PrimaryEntityIndex<GameEntity, Code.Coordinates>)context.GetEntityIndex(Contexts.CoordinatesUnderField)).GetEntity(Value);
     }
 }
 //------------------------------------------------------------------------------

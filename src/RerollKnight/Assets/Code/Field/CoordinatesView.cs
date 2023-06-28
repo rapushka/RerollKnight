@@ -2,11 +2,12 @@ using UnityEngine;
 
 namespace Code
 {
-	public class FieldCoordinatesView : BaseView, ICoordinatesListener
+	public class CoordinatesView : BaseView, ICoordinatesListener
 	{
 		[SerializeField] private Transform _transform;
 
-		public void OnCoordinates(GameEntity entity, Coordinates value) => _transform.position = value.ToTopDown();
+		public void OnCoordinates(GameEntity entity, Coordinates value)
+			=> _transform.position = value.ToTopDown() + ServicesMediator.Layout.OverFieldOffset;
 
 		protected override void AddListener(GameEntity entity) => entity.AddCoordinatesListener(this);
 

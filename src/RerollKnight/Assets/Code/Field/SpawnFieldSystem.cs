@@ -19,7 +19,7 @@ namespace Code
 				for (var y = 0; y < FieldSizes; y++)
 				{
 					var cell = ServicesMediator.Assets.SpawnBehaviour(CellPrefab);
-					cell.Entity.AddCoordinates(new Coordinates(x, y));
+					cell.Entity.AddCoordinatesUnderField(new Coordinates(x, y));
 				}
 			}
 		}
