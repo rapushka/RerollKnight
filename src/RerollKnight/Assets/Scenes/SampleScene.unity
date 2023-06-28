@@ -231,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335557598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.625, y: 3, z: 3.127}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -506,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6769141772819899787, guid: 7538247f013d679ceb1206b4206ca892, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.625
       objectReference: {fileID: 0}
     - target: {fileID: 6769141772819899787, guid: 7538247f013d679ceb1206b4206ca892, type: 3}
       propertyPath: m_LocalPosition.y
@@ -514,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6769141772819899787, guid: 7538247f013d679ceb1206b4206ca892, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.127
       objectReference: {fileID: 0}
     - target: {fileID: 6769141772819899787, guid: 7538247f013d679ceb1206b4206ca892, type: 3}
       propertyPath: m_LocalRotation.w
@@ -579,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6769141772819899787, guid: 7538247f013d679ceb1206b4206ca892, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.22799993
+      value: 2.853
       objectReference: {fileID: 0}
     - target: {fileID: 6769141772819899787, guid: 7538247f013d679ceb1206b4206ca892, type: 3}
       propertyPath: m_LocalPosition.y
@@ -587,7 +587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6769141772819899787, guid: 7538247f013d679ceb1206b4206ca892, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.24900007
+      value: 2.878
       objectReference: {fileID: 0}
     - target: {fileID: 6769141772819899787, guid: 7538247f013d679ceb1206b4206ca892, type: 3}
       propertyPath: m_LocalRotation.w
@@ -617,8 +617,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8660281455861961175, guid: 7538247f013d679ceb1206b4206ca892, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7538247f013d679ceb1206b4206ca892, type: 3}
 --- !u!4 &1445593678 stripped
 Transform:
