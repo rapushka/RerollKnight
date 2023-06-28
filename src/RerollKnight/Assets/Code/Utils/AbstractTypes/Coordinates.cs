@@ -25,5 +25,14 @@ namespace Code
 
 		public static explicit operator Vector2(Coordinates coordinates)
 			=> new(coordinates.Column, coordinates.Row);
+
+		public override bool Equals(object obj) => obj is Coordinates coordinates
+		                                           && Equals(coordinates);
+
+		protected bool Equals(Coordinates other) => Column == other.Column
+		                                            && Row == other.Row;
+
+		// ReSharper disable NonReadonlyMemberInGetHashCode – needed fo view in the inspector
+		public override int GetHashCode() => HashCode.Combine(Column, Row);
 	}
 }

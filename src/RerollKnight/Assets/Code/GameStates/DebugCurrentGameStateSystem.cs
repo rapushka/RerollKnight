@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Entitas;
-using static GameMatcher;
 
 namespace Code
 {
