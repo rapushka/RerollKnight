@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Entitas;
-using UnityEngine;
 using static GameMatcher;
 
 namespace Code
@@ -23,7 +22,7 @@ namespace Code
 			foreach (var e in entites)
 			{
 				_contexts.ToGameState(GameState.PickingTarget);
-				e.isPickedChip = true;
+				e.Pick();
 			}
 		}
 	}
