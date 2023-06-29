@@ -21,15 +21,17 @@ public partial class Contexts : Entitas.IContexts {
 
     static Contexts _sharedInstance;
 
+    public ChipsContext chips { get; set; }
     public GameContext game { get; set; }
     public InputContext input { get; set; }
     public PlayerContext player { get; set; }
     public RequestContext request { get; set; }
     public ServicesContext services { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game, input, player, request, services }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { chips, game, input, player, request, services }; } }
 
     public Contexts() {
+        chips = new ChipsContext();
         game = new GameContext();
         input = new InputContext();
         player = new PlayerContext();
@@ -106,6 +108,7 @@ public partial class Contexts {
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeContextObservers() {
         try {
+            CreateContextObserver(chips);
             CreateContextObserver(game);
             CreateContextObserver(input);
             CreateContextObserver(player);
