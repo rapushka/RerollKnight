@@ -23,7 +23,7 @@ namespace Code
 			Add(new PickCellAsTargetSystem(contexts));
 
 			// Abilities
-			Add(new DebugTeleportSystem(contexts));
+			Add(new AbilitiesFeature(contexts));
 
 			// Unpick
 			Add(new RequestUnpickingTargetsOnPickingTargetSystem(contexts));

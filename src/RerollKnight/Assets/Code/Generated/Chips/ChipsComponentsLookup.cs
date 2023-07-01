@@ -9,29 +9,32 @@
 public static class ChipsComponentsLookup {
 
     public const int AbilityOfChip = 0;
-    public const int CountOfTargets = 1;
+    public const int Casted = 1;
     public const int MaxCountOfTargets = 2;
     public const int MaxRangeToTarget = 3;
     public const int TargetMustBeEmptyCell = 4;
-    public const int Teleport = 5;
+    public const int Targets = 5;
+    public const int Teleport = 6;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
         "AbilityOfChip",
-        "CountOfTargets",
+        "Casted",
         "MaxCountOfTargets",
         "MaxRangeToTarget",
         "TargetMustBeEmptyCell",
+        "Targets",
         "Teleport"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.AbilityOfChipComponent),
-        typeof(Code.CountOfTargetsComponent),
+        typeof(Code.CastedComponent),
         typeof(Code.MaxCountOfTargetsComponent),
         typeof(Code.MaxRangeToTargetComponent),
         typeof(Code.TargetMustBeEmptyCellComponent),
+        typeof(Code.TargetsComponent),
         typeof(Code.TeleportComponent)
     };
 }

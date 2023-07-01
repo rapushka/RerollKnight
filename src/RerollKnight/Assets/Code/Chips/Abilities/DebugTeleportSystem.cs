@@ -6,8 +6,8 @@ namespace Code
 {
 	public sealed class DebugTeleportSystem : IExecuteSystem
 	{
-		private readonly IGroup<GameEntity> _targets;
 		private readonly Contexts _contexts;
+		private readonly IGroup<GameEntity> _targets;
 		private readonly IGroup<GameEntity> _players;
 
 		public DebugTeleportSystem(Contexts contexts)
