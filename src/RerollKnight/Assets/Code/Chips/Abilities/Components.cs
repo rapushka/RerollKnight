@@ -14,4 +14,6 @@ namespace Code
 	[Chips] public sealed class AbilityOfChipComponent : IComponent { public GameEntity Value; }
 
 	[Chips] public sealed class CastedComponent : IComponent { }
+
+	[Chips] public sealed class PreparedAbilityComponent : IComponent { }
 }

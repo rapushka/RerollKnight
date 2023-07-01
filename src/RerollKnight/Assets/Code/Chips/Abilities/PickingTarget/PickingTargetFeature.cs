@@ -5,6 +5,8 @@ namespace Code
 		public PickingTargetFeature(Contexts contexts)
 			: base(nameof(PickingTargetFeature))
 		{
+			Add(new PrepareAbilitiesOfPickedChipSystem(contexts));
+
 			Add(new PickCellAsTargetSystem(contexts));
 		}
 	}
