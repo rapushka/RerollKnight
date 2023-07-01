@@ -1,22 +1,44 @@
-using System.Collections.Generic;
+using System.Linq;
 using Entitas;
+using static ChipsMatcher;
+using static GameMatcher;
 
 namespace Code
 {
-	public sealed class EnsureEmptyCellTargetConstraintSystem : ReactiveSystem<GameEntity>
+	public sealed class EnsureEmptyCellTargetConstraintSystem : IExecuteSystem
 	{
-		private Contexts _contexts;
-		public EnsureEmptyCellTargetConstraintSystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
+		private readonly Contexts _contexts;
+		private readonly IGroup<GameEntity> _targets;
+		private readonly IGroup<ChipsEntity> _abilities;
 
-		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.PickedTarget);
-
-		protected override bool Filter(GameEntity entity) => entity.isPickedTarget;
-
-		protected override void Execute(List<GameEntity> entites)
+		public EnsureEmptyCellTargetConstraintSystem(Contexts contexts)
 		{
+			_contexts = contexts;
+			_targets = contexts.game.GetGroup(AllOf(PickedTarget, Cell));
+			_abilities = contexts.chips.GetGroup(AllOf(TargetMustBeEmptyCell, PreparedAbility));
+		}
 
-			foreach (var e in entites) { }
+		private bool HasConstraints => _abilities.GetEntities().Any();
+
+		public void Execute()
+		{
+			if (HasConstraints)
+			{
+				Constraint();
+			}
+		}
+
+		private void Constraint()
+		{
+			foreach (var target in _targets.GetEntities())
+			{
+				var pickedCoordinates = target.coordinatesUnderField.Value;
+
+				if (_contexts.game.HasEntityWithCoordinates(pickedCoordinates))
+				{
+					SendRequest.UnpickAllTargets();
+				}
+			}
 		}
 	}
 }

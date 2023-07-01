@@ -5,7 +5,7 @@ namespace Code
 		public AbilitiesFeature(Contexts contexts)
 			: base(nameof(AbilitiesFeature))
 		{
-			Add(new DebugTeleportSystem(contexts));
+			// Add(new DebugTeleportSystem(contexts));
 		}
 	}
 }

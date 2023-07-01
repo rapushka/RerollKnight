@@ -18,6 +18,6 @@ namespace Code
 		protected override bool Filter(GameEntity entity)
 			=> _contexts.GameStateIs(PickingTarget) == false;
 
-		protected override void Execute(List<GameEntity> entites) => SendRequestTo.UnpickAllTargets();
+		protected override void Execute(List<GameEntity> entites) => SendRequest.UnpickAllTargets();
 	}
 }

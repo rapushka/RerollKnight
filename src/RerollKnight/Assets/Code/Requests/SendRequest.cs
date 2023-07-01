@@ -1,6 +1,6 @@
 namespace Code
 {
-	public static class SendRequestTo
+	public static class SendRequest
 	{
 		private static RequestContext Context => Contexts.sharedInstance.request;
 
