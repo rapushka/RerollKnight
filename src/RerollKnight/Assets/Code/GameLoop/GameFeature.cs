@@ -20,7 +20,7 @@ namespace Code
 
 			// Game Logic
 			Add(new ChipsPickingFeature(contexts));
-			Add(new PickCellAsTargetSystem(contexts));
+			Add(new PickingTargetFeature(contexts));
 
 			// Abilities
 			Add(new AbilitiesFeature(contexts));

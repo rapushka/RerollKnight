@@ -7,8 +7,6 @@ namespace Code
 
 	[Chips] [Behaviour] public sealed class MaxCountOfTargetsComponent : IComponent { public int Value; }
 
-	[Chips] public sealed class TargetsComponent : IComponent { public GameEntity[] Value; }
-
 	[Chips] [Behaviour] public sealed class MaxRangeToTargetComponent : IComponent { public int Value; }
 
 	[Chips] [Behaviour] public sealed class TargetMustBeEmptyCellComponent : IComponent { }
