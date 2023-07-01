@@ -14,31 +14,23 @@ namespace Code
 		public EnsureEmptyCellTargetConstraintSystem(Contexts contexts)
 		{
 			_contexts = contexts;
-			_targets = contexts.game.GetGroup(AllOf(PickedTarget, Cell));
+			_targets = contexts.game.GetGroup(PickedTarget);
 			_abilities = contexts.chips.GetGroup(AllOf(TargetMustBeEmptyCell, PreparedAbility));
 		}
 
 		private bool HasConstraints => _abilities.GetEntities().Any();
 
+		private bool HasEntityOnPickedCoordinates => _targets.GetEntities().Any(EntityOnCoordinates);
+
 		public void Execute()
 		{
-			if (HasConstraints)
+			if (HasConstraints && HasEntityOnPickedCoordinates)
 			{
-				Constraint();
+				SendRequest.UnpickAllTargets();
 			}
 		}
 
-		private void Constraint()
-		{
-			foreach (var target in _targets.GetEntities())
-			{
-				var pickedCoordinates = target.coordinatesUnderField.Value;
-
-				if (_contexts.game.HasEntityWithCoordinates(pickedCoordinates))
-				{
-					SendRequest.UnpickAllTargets();
-				}
-			}
-		}
+		private bool EntityOnCoordinates(GameEntity target)
+			=> _contexts.game.HasEntityWithCoordinates(target.coordinatesUnderField.Value);
 	}
 }

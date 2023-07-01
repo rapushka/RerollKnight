@@ -10,4 +10,6 @@ namespace Code
 	[Game] [Cleanup(RemoveComponent)] public sealed class ClickedComponent : IComponent { }
 
 	[Game] [Unique] public sealed class PickedChipComponent : IComponent { }
+
+	[Request] [Cleanup(DestroyEntity)] public sealed class CastAbilityComponent : IComponent { }
 }

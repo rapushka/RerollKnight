@@ -19,11 +19,7 @@ namespace Code
 			Add(new StoreChipPositionSystem(contexts));
 
 			// Game Logic
-			Add(new ChipsPickingFeature(contexts));
-			Add(new PickingTargetFeature(contexts));
-
-			// Abilities
-			Add(new AbilitiesFeature(contexts));
+			Add(new ChipsFeature(contexts));
 
 			// Unpick
 			Add(new RequestUnpickingTargetsOnPickingTargetSystem(contexts));

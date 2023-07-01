@@ -1,9 +1,9 @@
 namespace Code
 {
-	public sealed class PickingTargetFeature : Feature
+	public sealed class TargetPickingFeature : Feature
 	{
-		public PickingTargetFeature(Contexts contexts)
-			: base(nameof(PickingTargetFeature))
+		public TargetPickingFeature(Contexts contexts)
+			: base(nameof(TargetPickingFeature))
 		{
 			Add(new PrepareAbilitiesOfPickedChipSystem(contexts));
 

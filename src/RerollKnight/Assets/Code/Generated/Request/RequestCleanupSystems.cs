@@ -9,6 +9,7 @@
 public sealed class RequestCleanupSystems : Feature {
 
     public RequestCleanupSystems(Contexts contexts) {
+        Add(new DestroyCastAbilityRequestSystem(contexts));
         Add(new DestroyUnpickAllTargetsRequestSystem(contexts));
         Add(new DestroySpawnPlayerRequestSystem(contexts));
     }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entitas;
+using static ChipsMatcher;
 
 namespace Code
 {
@@ -11,20 +12,21 @@ namespace Code
 		public PrepareAbilitiesOfPickedChipSystem(Contexts contexts) : base(contexts.game)
 		{
 			_contexts = contexts;
-			_abilities = contexts.chips.GetGroup(ChipsMatcher.AbilityOfChip);
+			_abilities = contexts.chips.GetGroup(AbilityOfChip);
 		}
+
+		private GameEntity PickedChip => _contexts.game.pickedChipEntity;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(GameMatcher.PickedChip);
 
-		protected override bool Filter(GameEntity entity) => entity.isPickedChip;
+		protected override bool Filter(GameEntity entity) => true;
 
 		protected override void Execute(List<GameEntity> entites)
 		{
-			var pickedChip = _contexts.game.pickedChipEntity;
 			foreach (var ability in _abilities)
 			{
-				ability.isPreparedAbility = ability.abilityOfChip.Value == pickedChip;
+				ability.isPreparedAbility = ability.abilityOfChip.Value == PickedChip;
 			}
 		}
 	}
