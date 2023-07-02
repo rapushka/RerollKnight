@@ -6,8 +6,8 @@ namespace Code
 {
 	public sealed class PrepareAbilitiesOfPickedChipSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly IGroup<ChipsEntity> _abilities;
 		private readonly Contexts _contexts;
+		private readonly IGroup<ChipsEntity> _abilities;
 
 		public PrepareAbilitiesOfPickedChipSystem(Contexts contexts) : base(contexts.game)
 		{
@@ -28,9 +28,10 @@ namespace Code
 		{
 			foreach (var ability in _abilities)
 			{
-				ability.isPreparedAbility = HasPickedChip
-				                            && ability.abilityOfChip.Value == PickedChip;
+				ability.isPreparedAbility = HasPickedChip && IsOwnedByPickedChip(ability);
 			}
 		}
+
+		private bool IsOwnedByPickedChip(ChipsEntity ability) => ability.abilityOfChip.Value == PickedChip;
 	}
 }
