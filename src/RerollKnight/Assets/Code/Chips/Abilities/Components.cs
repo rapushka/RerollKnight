@@ -1,5 +1,7 @@
 using Code.CodeGeneration.Attributes;
 using Entitas;
+using Entitas.CodeGeneration.Attributes;
+using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
 namespace Code
 {
@@ -13,7 +15,7 @@ namespace Code
 
 	[Chips] public sealed class AbilityOfChipComponent : IComponent { public GameEntity Value; }
 
-	[Chips] public sealed class CastedComponent : IComponent { }
+	[Chips] [Cleanup(RemoveComponent)] public sealed class CastedComponent : IComponent { }
 
 	[Chips] public sealed class PreparedAbilityComponent : IComponent { }
 }
