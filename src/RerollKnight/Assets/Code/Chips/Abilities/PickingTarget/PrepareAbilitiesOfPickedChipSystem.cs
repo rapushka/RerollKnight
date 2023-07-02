@@ -15,10 +15,12 @@ namespace Code
 			_abilities = contexts.chips.GetGroup(AbilityOfChip);
 		}
 
+		private bool HasPickedChip => _contexts.game.isPickedChip;
+
 		private GameEntity PickedChip => _contexts.game.pickedChipEntity;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.PickedChip);
+			=> context.CreateCollector(GameMatcher.PickedChip.AddedOrRemoved());
 
 		protected override bool Filter(GameEntity entity) => true;
 
@@ -26,7 +28,8 @@ namespace Code
 		{
 			foreach (var ability in _abilities)
 			{
-				ability.isPreparedAbility = ability.abilityOfChip.Value == PickedChip;
+				ability.isPreparedAbility = HasPickedChip
+				                            && ability.abilityOfChip.Value == PickedChip;
 			}
 		}
 	}

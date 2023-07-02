@@ -35,6 +35,7 @@ namespace Code
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
 			Add(new RequestCleanupSystems(contexts));
+			Add(new ChipsCleanupSystems(contexts));
 		}
 	}
 }
