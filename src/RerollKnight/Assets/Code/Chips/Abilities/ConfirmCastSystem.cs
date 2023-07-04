@@ -16,10 +16,7 @@ namespace Code
 
 		public void Execute()
 		{
-			if (_contexts.GameStateIs(GameState.WaitingForAbilityUsage) == false)
-			{
-				return;
-			}
+			if (_contexts.GameStateIs(GameState.WaitingForAbilityUsage) == false) return;
 
 			foreach (var ability in _abilities)
 			{

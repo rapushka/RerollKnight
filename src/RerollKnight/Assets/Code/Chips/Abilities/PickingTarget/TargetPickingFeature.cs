@@ -9,6 +9,9 @@ namespace Code
 
 			Add(new PickCellAsTargetSystem(contexts));
 			Add(new EnsureEmptyCellTargetConstraintSystem(contexts));
+
+			Add(new ValidateMaxCountOfTargetsOverflowSystem(contexts));
+			Add(new CastOnMaxCountOfTargetsSystem(contexts));
 		}
 	}
 }
