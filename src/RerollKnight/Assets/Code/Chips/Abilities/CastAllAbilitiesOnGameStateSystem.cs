@@ -1,14 +1,15 @@
 using Entitas;
 using static ChipsMatcher;
+using static Code.GameState;
 
 namespace Code
 {
-	public sealed class ConfirmCastSystem : IExecuteSystem
+	public sealed class CastAllAbilitiesOnGameStateSystem : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly IGroup<ChipsEntity> _abilities;
 
-		public ConfirmCastSystem(Contexts contexts)
+		public CastAllAbilitiesOnGameStateSystem(Contexts contexts)
 		{
 			_contexts = contexts;
 			_abilities = contexts.chips.GetGroup(PreparedAbility);
@@ -16,7 +17,7 @@ namespace Code
 
 		public void Execute()
 		{
-			if (_contexts.GameStateIs(GameState.WaitingForAbilityUsage) == false) return;
+			if (_contexts.GameStateIs(WaitingForAbilityUsage) == false) return;
 
 			foreach (var ability in _abilities)
 			{

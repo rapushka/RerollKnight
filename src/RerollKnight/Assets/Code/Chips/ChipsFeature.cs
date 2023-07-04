@@ -8,7 +8,7 @@ namespace Code
 			Add(new ChipsPickingFeature(contexts));
 			Add(new TargetPickingFeature(contexts));
 
-			Add(new ConfirmCastSystem(contexts));
+			Add(new CastAllAbilitiesOnGameStateSystem(contexts));
 
 			Add(new AbilitiesFeature(contexts));
 		}

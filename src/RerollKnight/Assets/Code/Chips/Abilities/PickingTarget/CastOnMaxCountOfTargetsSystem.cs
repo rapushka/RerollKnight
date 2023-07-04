@@ -12,7 +12,7 @@ namespace Code
 		public CastOnMaxCountOfTargetsSystem(Contexts contexts)
 		{
 			_targets = contexts.game.GetGroup(PickedTarget);
-			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets));
+			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Casted));
 		}
 
 		private int TargetsCount => _targets.count;
