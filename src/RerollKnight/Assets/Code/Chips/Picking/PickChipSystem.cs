@@ -17,9 +17,9 @@ namespace Code
 
 		protected override bool Filter(GameEntity entity) => entity.isClicked;
 
-		protected override void Execute(List<GameEntity> entites)
+		protected override void Execute(List<GameEntity> entities)
 		{
-			foreach (var e in entites)
+			foreach (var e in entities)
 			{
 				_contexts.ToGameState(GameState.PickingTarget);
 				e.Pick();
