@@ -9,18 +9,18 @@
 using System.Collections.Generic;
 using Entitas;
 
-public sealed class RemoveCastedChipsSystem : ICleanupSystem {
+public sealed class RemoveCastChipsSystem : ICleanupSystem {
 
     readonly IGroup<ChipsEntity> _group;
     readonly List<ChipsEntity> _buffer = new List<ChipsEntity>();
 
-    public RemoveCastedChipsSystem(Contexts contexts) {
-        _group = contexts.chips.GetGroup(ChipsMatcher.Casted);
+    public RemoveCastChipsSystem(Contexts contexts) {
+        _group = contexts.chips.GetGroup(ChipsMatcher.Cast);
     }
 
     public void Cleanup() {
         foreach (var e in _group.GetEntities(_buffer)) {
-            e.isCasted = false;
+            e.isCast = false;
         }
     }
 }

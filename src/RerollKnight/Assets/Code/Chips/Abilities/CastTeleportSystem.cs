@@ -1,28 +1,24 @@
-using System.Collections.Generic;
 using Entitas;
 using static ChipsMatcher;
 
 namespace Code
 {
-	public sealed class CastTeleportSystem : ReactiveSystem<ChipsEntity>
+	public sealed class CastTeleportSystem : IExecuteSystem
 	{
 		private readonly IGroup<GameEntity> _players;
 		private readonly IGroup<GameEntity> _targets;
+		private readonly IGroup<ChipsEntity> _abilities;
 
 		public CastTeleportSystem(Contexts contexts)
-			: base(contexts.chips)
 		{
 			_players = contexts.game.GetGroup(GameMatcher.Player);
 			_targets = contexts.game.GetGroup(GameMatcher.PickedTarget);
+			_abilities = contexts.chips.GetGroup(AllOf(Teleport, Cast));
 		}
 
-		protected override ICollector<ChipsEntity> GetTrigger(IContext<ChipsEntity> context)
-			=> context.CreateCollector(AllOf(Casted, Teleport));
-
-		protected override bool Filter(ChipsEntity entity) => entity.isCasted;
-
-		protected override void Execute(List<ChipsEntity> entites)
+		public void Execute()
 		{
+			foreach (var e in _abilities)
 			foreach (var player in _players)
 			foreach (var target in _targets)
 			{

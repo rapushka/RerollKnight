@@ -28,10 +28,8 @@ namespace Code
 		{
 			foreach (var ability in _abilities)
 			{
-				ability.isPreparedAbility = HasPickedChip && IsOwnedByPickedChip(ability);
+				ability.isPreparedAbility = HasPickedChip && ability.IsOwnedBy(PickedChip);
 			}
 		}
-
-		private bool IsOwnedByPickedChip(ChipsEntity ability) => ability.abilityOfChip.Value == PickedChip;
 	}
 }

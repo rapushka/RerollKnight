@@ -13,7 +13,7 @@ namespace Code
 		public ValidateMaxCountOfTargetsOverflowSystem(Contexts contexts)
 		{
 			_targets = contexts.game.GetGroup(PickedTarget);
-			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Casted));
+			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Cast));
 		}
 
 		private int TargetsCount => _targets.count;
@@ -21,9 +21,7 @@ namespace Code
 		public void Execute()
 		{
 			if (_abilities.Any((a) => TargetsCount > a.maxCountOfTargets.Value))
-			{
 				throw new InvalidOperationException("Too many targets for the ability");
-			}
 		}
 	}
 }

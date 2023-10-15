@@ -12,16 +12,18 @@ namespace Code
 		public CastOnMaxCountOfTargetsSystem(Contexts contexts)
 		{
 			_targets = contexts.game.GetGroup(PickedTarget);
-			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Casted));
+			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Cast));
 		}
-
-		private int TargetsCount => _targets.count;
 
 		public void Execute()
 		{
-			if (_abilities.All((a) => TargetsCount == a.maxCountOfTargets.Value))
+			if (_abilities.All((a) => a.maxCountOfTargets.Value == _targets.count))
 			{
-				_abilities.ForEach((a) => a.isCasted = true);
+				foreach (var e in _abilities.GetEntities())
+				{
+					e.isCast = true;
+					e.isPreparedAbility = false;
+				}
 			}
 		}
 	}

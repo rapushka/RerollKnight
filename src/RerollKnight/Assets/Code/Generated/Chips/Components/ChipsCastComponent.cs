@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class ChipsEntity {
 
-    static readonly Code.CastedComponent castedComponent = new Code.CastedComponent();
+    static readonly Code.CastComponent castComponent = new Code.CastComponent();
 
-    public bool isCasted {
-        get { return HasComponent(ChipsComponentsLookup.Casted); }
+    public bool isCast {
+        get { return HasComponent(ChipsComponentsLookup.Cast); }
         set {
-            if (value != isCasted) {
-                var index = ChipsComponentsLookup.Casted;
+            if (value != isCast) {
+                var index = ChipsComponentsLookup.Cast;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : castedComponent;
+                            : castComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class ChipsEntity {
 //------------------------------------------------------------------------------
 public sealed partial class ChipsMatcher {
 
-    static Entitas.IMatcher<ChipsEntity> _matcherCasted;
+    static Entitas.IMatcher<ChipsEntity> _matcherCast;
 
-    public static Entitas.IMatcher<ChipsEntity> Casted {
+    public static Entitas.IMatcher<ChipsEntity> Cast {
         get {
-            if (_matcherCasted == null) {
-                var matcher = (Entitas.Matcher<ChipsEntity>)Entitas.Matcher<ChipsEntity>.AllOf(ChipsComponentsLookup.Casted);
+            if (_matcherCast == null) {
+                var matcher = (Entitas.Matcher<ChipsEntity>)Entitas.Matcher<ChipsEntity>.AllOf(ChipsComponentsLookup.Cast);
                 matcher.componentNames = ChipsComponentsLookup.componentNames;
-                _matcherCasted = matcher;
+                _matcherCast = matcher;
             }
 
-            return _matcherCasted;
+            return _matcherCast;
         }
     }
 }

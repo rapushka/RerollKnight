@@ -7,5 +7,6 @@ namespace Code
 		PickingTarget,
 		WaitingForAbilityUsage,
 		WaitingForEnemiesMoves,
+		TurnEnded,
 	}
 }

@@ -8,9 +8,11 @@ namespace Code
 			Add(new ChipsPickingFeature(contexts));
 			Add(new TargetPickingFeature(contexts));
 
-			Add(new CastAllAbilitiesOnGameStateSystem(contexts));
+			Add(new MarkAbilitiesCastedBySystem(contexts));
 
 			Add(new AbilitiesFeature(contexts));
+
+			Add(new EndTurnSystem(contexts));
 		}
 	}
 }

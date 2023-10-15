@@ -9,6 +9,6 @@
 public sealed class ChipsCleanupSystems : Feature {
 
     public ChipsCleanupSystems(Contexts contexts) {
-        Add(new RemoveCastedChipsSystem(contexts));
+        Add(new RemoveCastChipsSystem(contexts));
     }
 }

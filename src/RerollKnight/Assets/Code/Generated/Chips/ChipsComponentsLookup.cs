@@ -9,7 +9,7 @@
 public static class ChipsComponentsLookup {
 
     public const int AbilityOfChip = 0;
-    public const int Casted = 1;
+    public const int Cast = 1;
     public const int MaxCountOfTargets = 2;
     public const int MaxRangeToTarget = 3;
     public const int PreparedAbility = 4;
@@ -20,7 +20,7 @@ public static class ChipsComponentsLookup {
 
     public static readonly string[] componentNames = {
         "AbilityOfChip",
-        "Casted",
+        "Cast",
         "MaxCountOfTargets",
         "MaxRangeToTarget",
         "PreparedAbility",
@@ -30,7 +30,7 @@ public static class ChipsComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.AbilityOfChipComponent),
-        typeof(Code.CastedComponent),
+        typeof(Code.CastComponent),
         typeof(Code.MaxCountOfTargetsComponent),
         typeof(Code.MaxRangeToTargetComponent),
         typeof(Code.PreparedAbilityComponent),
