@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Code.CodeGeneration.Attributes;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
@@ -12,4 +13,6 @@ namespace Code
 	[Game] [Unique] public sealed class PickedChipComponent : IComponent { }
 
 	[Request] [Cleanup(DestroyEntity)] public sealed class CastAbilityComponent : IComponent { }
+
+	[Chips] public sealed class TargetConstraintsComponent : IComponent { public HashSet<IComponent> Value; }
 }

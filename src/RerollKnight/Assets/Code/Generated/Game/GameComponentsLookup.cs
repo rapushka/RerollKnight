@@ -15,18 +15,19 @@ public static class GameComponentsLookup {
     public const int CoordinatesUnderField = 4;
     public const int DebugName = 5;
     public const int DestinationPosition = 6;
-    public const int GameState = 7;
-    public const int InitialPosition = 8;
-    public const int MovingSpeed = 9;
-    public const int PickedChip = 10;
-    public const int PickedTarget = 11;
-    public const int Player = 12;
-    public const int Position = 13;
-    public const int CoordinatesListener = 14;
-    public const int CoordinatesUnderFieldListener = 15;
-    public const int PositionListener = 16;
+    public const int Empty = 7;
+    public const int GameState = 8;
+    public const int InitialPosition = 9;
+    public const int MovingSpeed = 10;
+    public const int PickedChip = 11;
+    public const int PickedTarget = 12;
+    public const int Player = 13;
+    public const int Position = 14;
+    public const int CoordinatesListener = 15;
+    public const int CoordinatesUnderFieldListener = 16;
+    public const int PositionListener = 17;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
         "Cell",
@@ -36,6 +37,7 @@ public static class GameComponentsLookup {
         "CoordinatesUnderField",
         "DebugName",
         "DestinationPosition",
+        "Empty",
         "GameState",
         "InitialPosition",
         "MovingSpeed",
@@ -56,6 +58,7 @@ public static class GameComponentsLookup {
         typeof(Code.CoordinatesUnderFieldComponent),
         typeof(Code.DebugNameComponent),
         typeof(Code.DestinationPositionComponent),
+        typeof(Code.EmptyComponent),
         typeof(Code.GameStateComponent),
         typeof(Code.InitialPositionComponent),
         typeof(Code.MovingSpeedComponent),

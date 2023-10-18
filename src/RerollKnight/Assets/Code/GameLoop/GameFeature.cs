@@ -19,10 +19,11 @@ namespace Code
 			Add(new StoreChipPositionSystem(contexts));
 
 			// Game Logic
+			Add(new MarkEmptyCellsSystem(contexts));
 			Add(new ChipsFeature(contexts));
 
 			// Unpick
-			Add(new RequestUnpickingTargetsOnPickingTargetSystem(contexts));
+			Add(new RequestUnpickAllTargetsOnGameStateSystem(contexts));
 			Add(new UnpickAllTargetsOnRequestSystem(contexts));
 			Add(new UnpickChipOnRequestSystem(contexts));
 

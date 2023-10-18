@@ -4,11 +4,11 @@ using static Code.GameState;
 
 namespace Code
 {
-	public sealed class RequestUnpickingTargetsOnPickingTargetSystem : ReactiveSystem<GameEntity>
+	public sealed class RequestUnpickAllTargetsOnGameStateSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly Contexts _contexts;
 
-		public RequestUnpickingTargetsOnPickingTargetSystem(Contexts contexts)
+		public RequestUnpickAllTargetsOnGameStateSystem(Contexts contexts)
 			: base(contexts.game)
 			=> _contexts = contexts;
 
