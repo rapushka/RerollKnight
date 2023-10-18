@@ -1,4 +1,5 @@
 using Entitas;
+using UnityEngine;
 using static ChipsMatcher;
 
 namespace Code
@@ -22,6 +23,7 @@ namespace Code
 			foreach (var player in _players)
 			foreach (var target in _targets)
 			{
+				Debug.Log("cast teleport");
 				player.ReplaceCoordinates(target.coordinatesUnderField.Value);
 			}
 		}

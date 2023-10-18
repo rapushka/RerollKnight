@@ -8,7 +8,7 @@ namespace Code
 			Add(new PrepareAbilitiesOfPickedChipSystem(contexts));
 
 			Add(new PickCellAsTargetSystem(contexts));
-			Add(new EnsureEmptyCellTargetConstraintSystem(contexts));
+			Add(new EnsureTargetConstraintComponentsSystem(contexts));
 
 			Add(new ValidateMaxCountOfTargetsOverflowSystem(contexts));
 			Add(new CastOnMaxCountOfTargetsSystem(contexts));
