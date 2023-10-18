@@ -11,7 +11,7 @@ using UnityEngine;
 
 public class TargetConstraintsComponentBehaviour : ChipsComponentBehaviourBase
 {
-	[SerializeField] private System.Collections.Generic.List<int> _value;
+	[SerializeField] private System.Collections.Generic.List<Code.GameComponentID> _value;
 
 	public override void AddToEntity(ref ChipsEntity entity) => entity.AddTargetConstraints(_value);
 

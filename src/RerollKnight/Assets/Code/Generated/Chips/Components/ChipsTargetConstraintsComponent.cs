@@ -11,14 +11,14 @@ public partial class ChipsEntity {
     public Code.TargetConstraintsComponent targetConstraints { get { return (Code.TargetConstraintsComponent)GetComponent(ChipsComponentsLookup.TargetConstraints); } }
     public bool hasTargetConstraints { get { return HasComponent(ChipsComponentsLookup.TargetConstraints); } }
 
-    public void AddTargetConstraints(System.Collections.Generic.List<int> newValue) {
+    public void AddTargetConstraints(System.Collections.Generic.List<Code.GameComponentID> newValue) {
         var index = ChipsComponentsLookup.TargetConstraints;
         var component = (Code.TargetConstraintsComponent)CreateComponent(index, typeof(Code.TargetConstraintsComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceTargetConstraints(System.Collections.Generic.List<int> newValue) {
+    public void ReplaceTargetConstraints(System.Collections.Generic.List<Code.GameComponentID> newValue) {
         var index = ChipsComponentsLookup.TargetConstraints;
         var component = (Code.TargetConstraintsComponent)CreateComponent(index, typeof(Code.TargetConstraintsComponent));
         component.Value = newValue;
