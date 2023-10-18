@@ -14,5 +14,5 @@ namespace Code
 
 	[Request] [Cleanup(DestroyEntity)] public sealed class CastAbilityComponent : IComponent { }
 
-	[Chips] public sealed class TargetConstraintsComponent : IComponent { public HashSet<IComponent> Value; }
+	[Chips] [Behaviour] public sealed class TargetConstraintsComponent : IComponent { public List<int> Value; }
 }
