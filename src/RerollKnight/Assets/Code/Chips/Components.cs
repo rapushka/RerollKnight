@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Code.CodeGeneration.Attributes;
 using Entitas;
@@ -16,12 +15,4 @@ namespace Code
 	[Request] [Cleanup(DestroyEntity)] public sealed class CastAbilityComponent : IComponent { }
 
 	[Chips] [Behaviour] public sealed class TargetConstraintsComponent : IComponent { public List<GameComponentID> Value; }
-
-	[Serializable]
-	public class GameComponentID
-	{
-		public int Value;
-
-		public string Name => GameComponentsLookup.componentNames[Value];
-	}
 }
