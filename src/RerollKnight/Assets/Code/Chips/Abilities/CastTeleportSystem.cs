@@ -1,6 +1,6 @@
 using Entitas;
-using UnityEngine;
 using static ChipsMatcher;
+using static GameMatcher;
 
 namespace Code
 {
@@ -12,19 +12,20 @@ namespace Code
 
 		public CastTeleportSystem(Contexts contexts)
 		{
-			_players = contexts.game.GetGroup(GameMatcher.Player);
-			_targets = contexts.game.GetGroup(GameMatcher.PickedTarget);
+			_players = contexts.game.GetGroup(Player);
+			_targets = contexts.game.GetGroup(PickedTarget);
 			_abilities = contexts.chips.GetGroup(AllOf(Teleport, Cast));
 		}
 
 		public void Execute()
 		{
-			foreach (var e in _abilities)
+			if (!_abilities.Any())
+				return;
+			
 			foreach (var player in _players)
 			foreach (var target in _targets)
 			{
-				Debug.Log("cast teleport");
-				player.ReplaceCoordinates(target.coordinatesUnderField.Value);
+				player.ReplaceCoordinates(target.GetCoordinates());
 			}
 		}
 	}

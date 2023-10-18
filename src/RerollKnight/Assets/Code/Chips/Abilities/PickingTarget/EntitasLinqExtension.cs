@@ -14,6 +14,10 @@ namespace Code
 			}
 		}
 
+		public static bool Any<T>(this IGroup<T> @this)
+			where T : class, IEntity
+			=> @this.Any((_) => true);
+
 		public static bool Any<T>(this IGroup<T> @this, Func<T, bool> predicate)
 			where T : class, IEntity
 		{
