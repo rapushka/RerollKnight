@@ -9,11 +9,11 @@
 
 using UnityEngine;
 
-public class MaxRangeToTargetComponentBehaviour : ChipsComponentBehaviourBase
+public class RangeComponentBehaviour : ChipsComponentBehaviourBase
 {
 	[SerializeField] private int _value;
 
-	public override void AddToEntity(ref ChipsEntity entity) => entity.AddMaxRangeToTarget(_value);
+	public override void AddToEntity(ref ChipsEntity entity) => entity.AddRange(_value);
 
-	public override void RemoveFromEntity(ref ChipsEntity entity) => entity.RemoveMaxRangeToTarget();
+	public override void RemoveFromEntity(ref ChipsEntity entity) => entity.RemoveRange();
 }

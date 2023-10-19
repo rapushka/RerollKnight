@@ -11,8 +11,8 @@ public static class ChipsComponentsLookup {
     public const int AbilityOfChip = 0;
     public const int Cast = 1;
     public const int MaxCountOfTargets = 2;
-    public const int MaxRangeToTarget = 3;
-    public const int PreparedAbility = 4;
+    public const int PreparedAbility = 3;
+    public const int Range = 4;
     public const int TargetConstraints = 5;
     public const int TargetMustBeEmptyCell = 6;
     public const int Teleport = 7;
@@ -23,8 +23,8 @@ public static class ChipsComponentsLookup {
         "AbilityOfChip",
         "Cast",
         "MaxCountOfTargets",
-        "MaxRangeToTarget",
         "PreparedAbility",
+        "Range",
         "TargetConstraints",
         "TargetMustBeEmptyCell",
         "Teleport"
@@ -34,8 +34,8 @@ public static class ChipsComponentsLookup {
         typeof(Code.AbilityOfChipComponent),
         typeof(Code.CastComponent),
         typeof(Code.MaxCountOfTargetsComponent),
-        typeof(Code.MaxRangeToTargetComponent),
         typeof(Code.PreparedAbilityComponent),
+        typeof(Code.RangeComponent),
         typeof(Code.TargetConstraintsComponent),
         typeof(Code.TargetMustBeEmptyCellComponent),
         typeof(Code.TeleportComponent)
