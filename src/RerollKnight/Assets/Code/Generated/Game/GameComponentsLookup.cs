@@ -15,7 +15,7 @@ public static class GameComponentsLookup {
     public const int CoordinatesUnderField = 4;
     public const int DebugName = 5;
     public const int DestinationPosition = 6;
-    public const int Draggable = 7;
+    public const int Empty = 7;
     public const int GameState = 8;
     public const int InitialPosition = 9;
     public const int MovingSpeed = 10;
@@ -37,7 +37,7 @@ public static class GameComponentsLookup {
         "CoordinatesUnderField",
         "DebugName",
         "DestinationPosition",
-        "Draggable",
+        "Empty",
         "GameState",
         "InitialPosition",
         "MovingSpeed",
@@ -58,7 +58,7 @@ public static class GameComponentsLookup {
         typeof(Code.CoordinatesUnderFieldComponent),
         typeof(Code.DebugNameComponent),
         typeof(Code.DestinationPositionComponent),
-        typeof(Code.DraggableComponent),
+        typeof(Code.EmptyComponent),
         typeof(Code.GameStateComponent),
         typeof(Code.InitialPositionComponent),
         typeof(Code.MovingSpeedComponent),

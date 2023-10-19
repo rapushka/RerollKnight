@@ -19,14 +19,11 @@ namespace Code
 			Add(new StoreChipPositionSystem(contexts));
 
 			// Game Logic
-			Add(new ChipsPickingFeature(contexts));
-			Add(new PickCellAsTargetSystem(contexts));
-
-			// Abilities
-			Add(new DebugTeleportSystem(contexts));
+			Add(new MarkEmptyCellsSystem(contexts));
+			Add(new ChipsFeature(contexts));
 
 			// Unpick
-			Add(new RequestUnpickingTargetsOnPickingTargetSystem(contexts));
+			Add(new RequestUnpickAllTargetsOnGameStateSystem(contexts));
 			Add(new UnpickAllTargetsOnRequestSystem(contexts));
 			Add(new UnpickChipOnRequestSystem(contexts));
 
@@ -39,6 +36,7 @@ namespace Code
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
 			Add(new RequestCleanupSystems(contexts));
+			Add(new ChipsCleanupSystems(contexts));
 		}
 	}
 }
