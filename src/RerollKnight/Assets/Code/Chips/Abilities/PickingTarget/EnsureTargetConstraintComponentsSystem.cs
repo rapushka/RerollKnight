@@ -21,10 +21,7 @@ namespace Code
 		public void Execute()
 		{
 			if (!HasConstraints)
-			{
-				SendRequest.UnpickAllTargets();
 				return;
-			}
 
 			foreach (var ability in _abilities)
 			foreach (var target in _targets.GetEntities())
