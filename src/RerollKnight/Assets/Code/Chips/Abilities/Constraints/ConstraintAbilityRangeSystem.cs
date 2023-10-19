@@ -5,15 +5,17 @@ using static GameMatcher;
 
 namespace Code
 {
-	public sealed class EnsureTargetConstraintComponentsSystem : IExecuteSystem
+	public sealed class ConstraintAbilityRangeSystem : IExecuteSystem
 	{
 		private readonly IGroup<GameEntity> _targets;
 		private readonly IGroup<ChipsEntity> _abilities;
+		private readonly IGroup<GameEntity> _players;
 
-		public EnsureTargetConstraintComponentsSystem(Contexts contexts)
+		public ConstraintAbilityRangeSystem(Contexts contexts)
 		{
 			_targets = contexts.game.GetGroup(PickedTarget);
-			_abilities = contexts.chips.GetGroup(AllOf(TargetConstraints, PreparedAbility));
+			_players = contexts.game.GetGroup(Player);
+			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, Range));
 		}
 
 		private bool HasConstraints => _abilities.GetEntities().Any();
@@ -24,9 +26,13 @@ namespace Code
 				return;
 
 			foreach (var ability in _abilities)
+			foreach (var player in _players)
 			foreach (var target in _targets.GetEntities())
 			{
-				if (ability.targetConstraints.Value.Any((c) => !target.HasComponent(c.Value)))
+				var playerPosition = player.GetCoordinates();
+				var targetPosition = target.GetCoordinates();
+
+				if (playerPosition.DistanceTo(targetPosition) > ability.range.Value)
 				{
 					target.Unpick();
 					break;

@@ -9,7 +9,7 @@ namespace Code
 
 	[Chips] [Behaviour] public sealed class MaxCountOfTargetsComponent : IComponent { public int Value; }
 
-	[Chips] [Behaviour] public sealed class MaxRangeToTargetComponent : IComponent { public int Value; }
+	[Chips] [Behaviour] public sealed class RangeComponent : IComponent { public int Value; }
 
 	[Chips] [Behaviour] public sealed class TargetMustBeEmptyCellComponent : IComponent { }
 
