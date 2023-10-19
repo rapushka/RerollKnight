@@ -23,6 +23,8 @@ namespace Code
 
 		public Vector3 ToTopDown() => ((Vector2)this).ToTopDown();
 
+		public int DistanceTo(Coordinates other) => Column.Delta(other.Column) + Row.Delta(other.Row);
+
 		public static explicit operator Vector2(Coordinates coordinates)
 			=> new(coordinates.Column, coordinates.Row);
 
