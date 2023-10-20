@@ -23,7 +23,7 @@ namespace Code
 			Add(new ChipsFeature(contexts));
 
 			// Unpick
-			Add(new RequestUnpickAllTargetsOnGameStateSystem(contexts));
+			// Add(new RequestUnpickAllTargetsOnGameStateSystem(contexts));
 			Add(new UnpickAllTargetsOnRequestSystem(contexts));
 			Add(new UnpickChipOnRequestSystem(contexts));
 

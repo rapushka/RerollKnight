@@ -13,8 +13,11 @@ namespace Code
 
 		public void Execute()
 		{
-			if (_contexts.GameStateIs(GameState.WaitingForAbilityUsage))
-				_contexts.ToGameState(GameState.TurnEnded);
+			if (!_contexts.GameStateIs(GameState.WaitingForAbilityUsage))
+				return;
+
+			_contexts.ToGameState(GameState.TurnEnded);
+			SendRequest.UnpickAll();
 		}
 	}
 }
