@@ -13,6 +13,7 @@ namespace Code
 			Add(new AbilitiesFeature(contexts));
 
 			Add(new EndTurnSystem(contexts));
+			Add(new UnpickAllOnTurnEndedSystem(contexts));
 		}
 	}
 }
