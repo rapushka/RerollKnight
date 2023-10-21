@@ -21,6 +21,7 @@ namespace Code
 				_contexts.ToGameState(GameState.PickingChip);
 				e.Unpick();
 				e.isClicked = false;
+				SendRequest.UnpickAll();
 			}
 		}
 	}

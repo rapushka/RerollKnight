@@ -1,5 +1,4 @@
 using Entitas;
-using static Code.GameState;
 
 namespace Code
 {
@@ -7,8 +6,19 @@ namespace Code
 	{
 		private readonly Contexts _contexts;
 
-		public EndTurnSystem(Contexts contexts) => _contexts = contexts;
+		public EndTurnSystem(Contexts contexts)
+		{
+			_contexts = contexts;
+		}
 
-		public void Execute() => _contexts.TransferGameState(from: WaitingForAbilityUsage, to: TurnEnded);
+		public void Execute()
+		{
+			if (!_contexts.GameStateIs(GameState.WaitingForAbilityUsage))
+				return;
+
+			_contexts.ToGameState(GameState.TurnEnded);
+			_contexts.game.pickedChipEntity?.Unpick();
+			SendRequest.UnpickAll();
+		}
 	}
 }

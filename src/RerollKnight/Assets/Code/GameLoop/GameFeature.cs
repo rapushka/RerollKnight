@@ -22,11 +22,6 @@ namespace Code
 			Add(new MarkEmptyCellsSystem(contexts));
 			Add(new ChipsFeature(contexts));
 
-			// Unpick
-			Add(new RequestUnpickAllTargetsOnGameStateSystem(contexts));
-			Add(new UnpickAllTargetsOnRequestSystem(contexts));
-			Add(new UnpickChipOnRequestSystem(contexts));
-
 			// Visuals
 			Add(new HoverPickedChipSystem(contexts));
 			Add(new UnhoverUnpickedChipSystem(contexts));
