@@ -17,6 +17,7 @@ namespace Code
 				return;
 
 			_contexts.ToGameState(GameState.TurnEnded);
+			_contexts.game.pickedChipEntity?.Unpick();
 			SendRequest.UnpickAll();
 		}
 	}
