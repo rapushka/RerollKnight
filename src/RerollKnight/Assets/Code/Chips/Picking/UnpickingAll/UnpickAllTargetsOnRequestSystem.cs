@@ -19,7 +19,7 @@ namespace Code
 
 		protected override void OnRequest()
 		{
-			_contexts.game.pickedChipEntity.Unpick();
+			_contexts.game.pickedChipEntity?.Unpick();
 
 			foreach (var e in _targets.GetEntities())
 				e.Unpick();
