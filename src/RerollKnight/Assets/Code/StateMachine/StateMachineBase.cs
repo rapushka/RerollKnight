@@ -13,7 +13,7 @@ namespace Code
 
 		protected StateMachineBase()
 		{
-			// ReSharper disable once VirtualMemberCallInConstructor - it's the idea
+			// ReSharper disable once VirtualMemberCallInConstructor - it's the idea!
 			_dictionary = States;
 			CurrentState = _dictionary.First().Value;
 		}
@@ -30,6 +30,7 @@ namespace Code
 			}
 		}
 
+		/// <summary> The first state will be entered after initialization </summary>
 		protected abstract TypeDictionary<TStateBase> States { get; }
 
 		public void ToState<TState>()

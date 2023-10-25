@@ -1,12 +1,10 @@
 namespace Code
 {
-	public class GameStateMachine : StateMachineBase<IGameState>
+	public class GameStateMachine : StateMachineBase<GameStateBase>
 	{
-		protected override TypeDictionary<IGameState> States
+		protected override TypeDictionary<GameStateBase> States
 			=> new()
 			{
-				new GameState1(this),
-				new GameState2(),
 			};
 	}
 }
