@@ -4,11 +4,12 @@ using JetBrains.Annotations;
 
 namespace Code
 {
-	public abstract class StateMachineBase
+	public abstract class StateMachineBase<TStateBase>
+		where TStateBase : IState
 	{
-		private readonly TypeDictionary<IState> _dictionary;
+		private readonly TypeDictionary<TStateBase> _dictionary;
 
-		[CanBeNull] private IState _currentState;
+		[CanBeNull] private TStateBase _currentState;
 
 		protected StateMachineBase()
 		{
@@ -17,7 +18,7 @@ namespace Code
 			CurrentState = _dictionary.First().Value;
 		}
 
-		public IState CurrentState
+		public TStateBase CurrentState
 		{
 			get => _currentState ?? throw new NullReferenceException();
 			set
@@ -29,10 +30,10 @@ namespace Code
 			}
 		}
 
-		protected abstract TypeDictionary<IState> States { get; }
+		protected abstract TypeDictionary<TStateBase> States { get; }
 
 		public void ToState<TState>()
-			where TState : IState
+			where TState : TStateBase
 			=> CurrentState = _dictionary.Get<TState>();
 	}
 }
