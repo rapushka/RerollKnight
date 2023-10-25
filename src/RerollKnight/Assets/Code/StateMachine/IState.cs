@@ -2,7 +2,7 @@ namespace Code
 {
 	public interface IState
 	{
-		void Enter(StateMachineBase stateMachine);
+		void Enter();
 	}
 
 	public interface IExitableState : IState

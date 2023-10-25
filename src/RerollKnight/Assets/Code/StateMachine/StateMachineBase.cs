@@ -5,45 +5,34 @@ using JetBrains.Annotations;
 namespace Code
 {
 	public abstract class StateMachineBase
-		// where TStateBase : IState
 	{
 		private readonly TypeDictionary<IState> _dictionary;
 
 		[CanBeNull] private IState _currentState;
+
+		protected StateMachineBase()
+		{
+			// ReSharper disable once VirtualMemberCallInConstructor - it's the idea
+			_dictionary = States;
+			CurrentState = _dictionary.First().Value;
+		}
 
 		public IState CurrentState
 		{
 			get => _currentState ?? throw new NullReferenceException();
 			set
 			{
+				(_currentState as IExitableState)?.Exit();
+
 				_currentState = value;
-				_currentState?.Enter(this);
+				_currentState?.Enter();
 			}
 		}
 
-		protected StateMachineBase(TypeDictionary<IState> dictionary)
-		{
-			_dictionary = dictionary;
-			SetState(_dictionary.First().Key);
-		}
+		protected abstract TypeDictionary<IState> States { get; }
 
-		public void ToState<TState>() where TState : IState
-		{
-			ExitCurrentState();
-			SetState(typeof(TState));
-		}
-
-		private void SetState(Type type)
-		{
-			CurrentState = _dictionary[type];
-		}
-
-		private void ExitCurrentState()
-		{
-			if (_currentState is IExitableState exitableState)
-				exitableState.Exit();
-
-			CurrentState = default;
-		}
+		public void ToState<TState>()
+			where TState : IState
+			=> CurrentState = _dictionary.Get<TState>();
 	}
 }
