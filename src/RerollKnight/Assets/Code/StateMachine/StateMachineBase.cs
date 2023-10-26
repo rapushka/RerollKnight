@@ -21,7 +21,7 @@ namespace Code
 		public TStateBase CurrentState
 		{
 			get => _currentState ?? throw new NullReferenceException();
-			set
+			private set
 			{
 				(_currentState as IExitableState)?.Exit();
 

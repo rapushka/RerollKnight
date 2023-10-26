@@ -11,8 +11,6 @@ namespace Code
 
 			// Initialization
 			Add(new StartGameSystem(contexts));
-			Add(new DebugCurrentGameStateSystem(contexts));
-
 			Add(new SpawnFieldSystem(contexts));
 			Add(new SpawnPlayerSystem(contexts));
 
@@ -27,6 +25,11 @@ namespace Code
 			Add(new UnhoverUnpickedChipSystem(contexts));
 			Add(new MoveToDestinationSystem(contexts));
 
+#if UNITY_EDITOR
+			// Debug
+			Add(new DebugCurrentGameStateSystem(contexts));
+#endif
+			
 			// Entitas Generated
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));

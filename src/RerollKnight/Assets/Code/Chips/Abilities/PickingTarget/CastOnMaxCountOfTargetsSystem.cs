@@ -6,15 +6,13 @@ namespace Code
 {
 	public sealed class CastOnMaxCountOfTargetsSystem : IExecuteSystem
 	{
-		private readonly Contexts _contexts;
 		private readonly IGroup<GameEntity> _targets;
 		private readonly IGroup<ChipsEntity> _abilities;
 
 		public CastOnMaxCountOfTargetsSystem(Contexts contexts)
 		{
-			_contexts = contexts;
-			_targets = _contexts.game.GetGroup(PickedTarget);
-			_abilities = _contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Cast));
+			_targets = contexts.game.GetGroup(PickedTarget);
+			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Cast));
 		}
 
 		public void Execute()
@@ -28,7 +26,7 @@ namespace Code
 				e.isCast = true;
 				e.isPreparedAbility = false;
 
-				_contexts.ToGameState(GameState.WaitingForAbilityUsage);
+				ServicesMediator.GameStateMachine.ToState<WaitingGameState>();
 			}
 		}
 	}

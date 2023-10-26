@@ -8,6 +8,9 @@ namespace Code
 	public class GameStateMachineProvider
 		: IGameStateMachineProvider
 	{
-		public GameStateMachine StateMachine { get; } = new();
+		public GameStateMachineProvider(Contexts contexts)
+			=> StateMachine = new GameStateMachine(contexts);
+
+		public GameStateMachine StateMachine { get; }
 	}
 }
