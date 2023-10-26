@@ -3,10 +3,10 @@ namespace Code
 	public enum GameState
 	{
 		NotInGame,
-		PickingChip,
-		PickingTarget,
-		WaitingForAbilityUsage,
+		PickingChip, // Observing
+		PickingTarget, // ChipPicked
+		WaitingForAbilityUsage, // Waiting
 		WaitingForEnemiesMoves,
-		TurnEnded,
+		TurnEnded, // TurnEnded
 	}
 }
