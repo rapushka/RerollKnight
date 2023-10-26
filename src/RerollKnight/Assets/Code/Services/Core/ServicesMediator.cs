@@ -10,6 +10,8 @@ namespace Code
 
 		public static ILayoutService Layout => Context.layout.Value;
 
+		public static GameStateMachine GameStateMachine => Context.gameStateMachine.Value.StateMachine;
+
 		public static GameEntityBehaviour SpawnPlayer() => Assets.SpawnBehaviour(Resources.PlayerPrefab);
 	}
 }

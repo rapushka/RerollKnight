@@ -9,19 +9,22 @@
 public static class ServicesComponentsLookup {
 
     public const int Assets = 0;
-    public const int Layout = 1;
-    public const int Resources = 2;
+    public const int GameStateMachine = 1;
+    public const int Layout = 2;
+    public const int Resources = 3;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
         "Assets",
+        "GameStateMachine",
         "Layout",
         "Resources"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.AssetsComponent),
+        typeof(Code.GameStateMachineComponent),
         typeof(Code.LayoutComponent),
         typeof(Code.ResourcesComponent)
     };
