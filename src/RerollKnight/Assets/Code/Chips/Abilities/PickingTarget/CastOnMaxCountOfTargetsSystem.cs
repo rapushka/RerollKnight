@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Entitas;
 using static ChipsMatcher;
 using static GameMatcher;
@@ -15,13 +18,15 @@ namespace Code
 			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Cast));
 		}
 
+		private IEnumerable<ChipsEntity> FilledAbilities
+			=> _abilities.GetEntities().Where((e) => e.maxCountOfTargets.Value == _targets.count);
+
 		public void Execute()
 		{
-			if (_abilities.Any()
-			    && !_abilities.All((a) => a.maxCountOfTargets.Value == _targets.count))
+			if (_abilities.Any())
 				return;
 
-			foreach (var e in _abilities.GetEntities())
+			foreach (var e in FilledAbilities)
 			{
 				e.isCast = true;
 				e.isPreparedAbility = false;

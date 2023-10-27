@@ -2,16 +2,10 @@ namespace Code
 {
 	public class WaitingGameState : GameStateBase
 	{
-		private readonly Contexts _contexts;
-
-		public WaitingGameState(GameStateMachine stateMachine, Contexts contexts) : base(stateMachine)
-			=> _contexts = contexts;
+		public WaitingGameState(GameStateMachine stateMachine) : base(stateMachine) { }
 
 		public override void Enter()
 		{
-			_contexts.game.pickedChipEntity?.Unpick();
-			SendRequest.UnpickTargets();
-
 			StateMachine.ToState<TurnEndedGameState>();
 		}
 	}

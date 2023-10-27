@@ -23,7 +23,7 @@ namespace Code
 			{
 				var previousPickedChip = _contexts.game.pickedChipEntity;
 				previousPickedChip.Unpick();
-				SendRequest.UnpickTargets();
+				ServicesMediator.EntitiesManipulator.UnpickChip(immediately: true);
 				e.Pick();
 				e.isClicked = false;
 			}
