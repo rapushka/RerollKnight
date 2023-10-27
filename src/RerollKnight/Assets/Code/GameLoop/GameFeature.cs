@@ -1,7 +1,10 @@
+using Zenject;
+
 namespace Code
 {
 	public sealed class GameFeature : Feature
 	{
+		[Inject]
 		public GameFeature(Contexts contexts, EntityBehaviourBase[] entityBehaviours)
 			: base(nameof(GameFeature))
 		{
