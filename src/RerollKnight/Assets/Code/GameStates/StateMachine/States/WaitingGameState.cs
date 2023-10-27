@@ -4,9 +4,6 @@ namespace Code
 	{
 		public WaitingGameState(GameStateMachine stateMachine) : base(stateMachine) { }
 
-		public override void Enter()
-		{
-			StateMachine.ToState<TurnEndedGameState>();
-		}
+		public override void Enter() => StateMachine.ToState<TurnEndedGameState>();
 	}
 }

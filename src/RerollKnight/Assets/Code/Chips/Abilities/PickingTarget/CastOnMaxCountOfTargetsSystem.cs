@@ -22,9 +22,6 @@ namespace Code
 
 		public void Execute()
 		{
-			if (_abilities.Any())
-				return;
-
 			foreach (var e in FilledAbilities)
 			{
 				e.isCast = true;

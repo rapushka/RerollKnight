@@ -6,6 +6,6 @@ namespace Code
 
 		public override void Enter() => StateMachine.ToState<ObservingGameState>();
 
-		public void Exit() => ServicesMediator.EntitiesManipulator.UnpickAll(immediately: true);
+		public void Exit() => ServicesMediator.EntitiesManipulator.UnpickAll();
 	}
 }

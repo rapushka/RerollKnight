@@ -1,5 +1,5 @@
-using System;
 using Entitas;
+using UnityEngine;
 
 namespace Code
 {
@@ -29,10 +29,10 @@ namespace Code
 
 		public void UnpickChip(bool immediately = false)
 		{
-			if (immediately)
-				_contexts.game.pickedChipEntity?.Unpick();
-			else
-				throw new NotImplementedException();
+			_contexts.game.pickedChipEntity?.Unpick();
+
+			if (!immediately)
+				Debug.LogWarning("Chip was unpicked immediately, cuz there's no request for it");
 		}
 
 		public void UnpickTargets(bool immediately = false)
