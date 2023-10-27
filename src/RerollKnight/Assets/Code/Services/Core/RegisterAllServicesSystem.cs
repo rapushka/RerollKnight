@@ -14,7 +14,7 @@ namespace Code
 			_contexts.services.ReplaceResources(new ResourcesService());
 			_contexts.services.ReplaceAssets(new AssetsService());
 			_contexts.services.ReplaceLayout(Resources.Load<LayoutService>("Layout"));
-			_contexts.services.ReplaceGameStateMachine(new GameStateMachineProvider(_contexts));
+			_contexts.services.ReplaceGameStateMachine(new GameStateMachineProvider());
 			_contexts.services.ReplaceEntitiesManipulator(new EntitiesManipulatorService(_contexts));
 		}
 	}
