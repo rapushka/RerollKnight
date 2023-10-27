@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Entitas;
 
 namespace Code
@@ -44,6 +45,16 @@ namespace Code
 			}
 
 			return true;
+		}
+
+		public static IEnumerable<T> Where<T>(this IGroup<T> @this, Func<T, bool> predicate)
+			where T : class, IEntity
+		{
+			foreach (var entity in @this)
+			{
+				if (predicate.Invoke(entity))
+					yield return entity;
+			}
 		}
 	}
 }

@@ -11,7 +11,7 @@ namespace Code
 
 			Add(new TargetPickingFeature(contexts));
 
-			Add(new MarkAbilitiesCastedBySystem(contexts));
+			// Add(new MarkAbilitiesCastedBySystem(contexts));
 
 			Add(new AbilitiesFeature(contexts));
 		}

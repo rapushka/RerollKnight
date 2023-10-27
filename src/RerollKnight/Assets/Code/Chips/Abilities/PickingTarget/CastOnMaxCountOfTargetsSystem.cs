@@ -14,7 +14,7 @@ namespace Code
 		public CastOnMaxCountOfTargetsSystem(Contexts contexts)
 		{
 			_targets = contexts.game.GetGroup(PickedTarget);
-			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Cast));
+			_abilities = contexts.chips.GetGroup(AllOf(State, MaxCountOfTargets));
 		}
 
 		private IEnumerable<ChipsEntity> FilledAbilities
@@ -22,11 +22,9 @@ namespace Code
 
 		public void Execute()
 		{
-			foreach (var e in FilledAbilities)
+			foreach (var e in FilledAbilities.Where((e) => e.state.Value is AbilityState.Prepared))
 			{
-				e.isCast = true;
-				e.isPreparedAbility = false;
-
+				e.ReplaceState(AbilityState.Casting);
 				ServicesMediator.GameStateMachine.ToState<WaitingGameState>();
 			}
 		}

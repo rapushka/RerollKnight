@@ -14,17 +14,21 @@ namespace Code
 			Add(new SpawnFieldSystem(contexts));
 			Add(new SpawnPlayerSystem(contexts));
 
+			Add(new AddAbilityStateSystem(contexts));
 			Add(new StoreChipPositionSystem(contexts));
 
 			// Game Logic
 			Add(new MarkEmptyCellsSystem(contexts));
 			Add(new ChipsFeature(contexts));
-			Add(new EndTurnSystem(contexts));
 
 			// Visuals
 			Add(new HoverPickedChipSystem(contexts));
 			Add(new UnhoverUnpickedChipSystem(contexts));
 			Add(new MoveToDestinationSystem(contexts));
+
+			// Cleanups
+			Add(new EndTurnSystem(contexts));
+			Add(new ResetAbilityStateSystem(contexts));
 
 #if UNITY_EDITOR
 			// Debug
@@ -35,7 +39,6 @@ namespace Code
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
 			Add(new RequestCleanupSystems(contexts));
-			Add(new ChipsCleanupSystems(contexts));
 		}
 	}
 }

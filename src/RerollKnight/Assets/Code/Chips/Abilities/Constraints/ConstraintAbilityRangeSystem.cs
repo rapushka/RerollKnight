@@ -15,7 +15,7 @@ namespace Code
 		{
 			_targets = contexts.game.GetGroup(PickedTarget);
 			_players = contexts.game.GetGroup(Player);
-			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, Range));
+			_abilities = contexts.chips.GetGroup(AllOf(State, Range));
 		}
 
 		private bool HasConstraints => _abilities.GetEntities().Any();
@@ -25,7 +25,7 @@ namespace Code
 			if (!HasConstraints)
 				return;
 
-			foreach (var ability in _abilities)
+			foreach (var ability in _abilities.WhereStateIs(AbilityState.Prepared))
 			foreach (var player in _players)
 			foreach (var target in _targets.GetEntities())
 			{
