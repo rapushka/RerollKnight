@@ -2,46 +2,46 @@ using Zenject;
 
 namespace Code
 {
-	public sealed class GameFeature : Feature
+	public sealed class GameFeature : InjectableFeature
 	{
 		[Inject]
-		public GameFeature(Contexts contexts, EntityBehaviourBase[] entityBehaviours)
-			: base(nameof(GameFeature))
+		public GameFeature(SystemsFactory factory)
+			: base(nameof(GameFeature), factory)
 		{
 			// Registrations
-			Add(new RegisterAllServicesSystem(contexts));
-			Add(new RegisterEntityBehavioursSystem(contexts, entityBehaviours));
+			Add<RegisterAllServicesSystem>();
+			Add<RegisterEntityBehavioursSystem>();
 
 			// Initialization
-			Add(new StartGameSystem(contexts));
-			Add(new SpawnFieldSystem(contexts));
-			Add(new SpawnPlayerSystem(contexts));
+			Add<StartGameSystem>();
+			Add<SpawnFieldSystem>();
+			Add<SpawnPlayerSystem>();
 
-			Add(new AddAbilityStateSystem(contexts));
-			Add(new StoreChipPositionSystem(contexts));
+			Add<AddAbilityStateSystem>();
+			Add<StoreChipPositionSystem>();
 
 			// Game Logic
-			Add(new MarkEmptyCellsSystem(contexts));
-			Add(new ChipsFeature(contexts));
+			Add<MarkEmptyCellsSystem>();
+			Add<ChipsFeature>();
 
 			// Visuals
-			Add(new HoverPickedChipSystem(contexts));
-			Add(new UnhoverUnpickedChipSystem(contexts));
-			Add(new MoveToDestinationSystem(contexts));
+			Add<HoverPickedChipSystem>();
+			Add<UnhoverUnpickedChipSystem>();
+			Add<MoveToDestinationSystem>();
 
 			// Cleanups
-			Add(new EndTurnSystem(contexts));
-			Add(new ResetAbilityStateSystem(contexts));
+			Add<EndTurnSystem>();
+			Add<ResetAbilityStateSystem>();
 
 #if UNITY_EDITOR
 			// Debug
-			Add(new DebugCurrentGameStateSystem(contexts));
+			Add<DebugCurrentGameStateSystem>();
 #endif
 
 			// Entitas Generated
-			Add(new GameEventSystems(contexts));
-			Add(new GameCleanupSystems(contexts));
-			Add(new RequestCleanupSystems(contexts));
+			Add<GameEventSystems>();
+			Add<GameCleanupSystems>();
+			Add<RequestCleanupSystems>();
 		}
 	}
 }

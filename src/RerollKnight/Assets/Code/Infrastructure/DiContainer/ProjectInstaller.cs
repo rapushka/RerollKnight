@@ -7,6 +7,7 @@ namespace Code
 		public override void InstallBindings()
 		{
 			Container.BindInstance(Contexts.sharedInstance).AsSingle();
+			Container.Bind<SystemsFactory>().AsSingle();
 		}
 	}
 }

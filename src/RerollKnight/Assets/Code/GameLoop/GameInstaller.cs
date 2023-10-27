@@ -10,9 +10,11 @@ namespace Code
 		public override void InstallBindings()
 		{
 			Container.BindInstance(_entityBehaviours).AsSingle();
-			Container.Bind<GameContextAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
-
 			Container.Bind<GameFeature>().AsSingle();
+
+			Container.Bind<GameContextAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+			
+			Container.Rebind<SystemsFactory>().AsSingle();
 		}
 	}
 }
