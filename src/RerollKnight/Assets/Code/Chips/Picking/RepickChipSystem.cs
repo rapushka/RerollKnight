@@ -23,7 +23,7 @@ namespace Code
 			{
 				var previousPickedChip = _contexts.game.pickedChipEntity;
 				previousPickedChip.Unpick();
-				SendRequest.UnpickAll();
+				SendRequest.UnpickTargets();
 				e.Pick();
 				e.isClicked = false;
 			}

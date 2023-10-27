@@ -1,6 +1,4 @@
 using Entitas;
-using static GameMatcher;
-using static RequestMatcher;
 
 namespace Code
 {
@@ -9,9 +7,9 @@ namespace Code
 		private readonly IGroup<GameEntity> _targets;
 
 		public UnpickAllOnRequestSystem(Contexts contexts) : base(contexts)
-			=> _targets = contexts.game.GetGroup(PickedTarget);
+			=> _targets = contexts.game.GetGroup(GameMatcher.PickedTarget);
 
-		protected override IMatcher<RequestEntity> Request => UnpickAllTargets;
+		protected override IMatcher<RequestEntity> Request => RequestMatcher.UnpickAllTargets;
 
 		protected override void OnRequest()
 		{

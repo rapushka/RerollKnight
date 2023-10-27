@@ -10,9 +10,9 @@ namespace Code
 			=> new()
 			{
 				new ObservingGameState(this),
-				new WaitingGameState(this, _contexts),
+				new WaitingGameState(this, Contexts.sharedInstance),
 				new ChipPickedGameState(this),
-				new TurnEndedGameState(this, _contexts),
+				new TurnEndedGameState(this, Contexts.sharedInstance),
 			};
 	}
 }

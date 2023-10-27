@@ -13,7 +13,10 @@ namespace Code
 			_targets = _contexts.game.GetGroup(GameMatcher.PickedTarget);
 		}
 
-		public override void Enter() { }
+		public override void Enter()
+		{
+			StateMachine.ToState<ObservingGameState>();
+		}
 
 		public void Execute()
 		{

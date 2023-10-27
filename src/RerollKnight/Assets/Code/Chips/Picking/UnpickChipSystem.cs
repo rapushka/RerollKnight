@@ -20,7 +20,7 @@ namespace Code
 				ServicesMediator.GameStateMachine.ToState<ObservingGameState>();
 				e.Unpick();
 				e.isClicked = false;
-				SendRequest.UnpickAll();
+				SendRequest.UnpickTargets();
 			}
 		}
 	}

@@ -10,7 +10,7 @@ namespace Code
 		public override void Enter()
 		{
 			_contexts.game.pickedChipEntity?.Unpick();
-			SendRequest.UnpickAll();
+			SendRequest.UnpickTargets();
 
 			StateMachine.ToState<TurnEndedGameState>();
 		}

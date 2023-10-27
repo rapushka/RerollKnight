@@ -17,9 +17,7 @@ namespace Code
 		protected override void Execute(List<RequestEntity> entites)
 		{
 			if (_contexts.game.isPickedChip)
-			{
 				_contexts.game.pickedChipEntity.Unpick();
-			}
 		}
 	}
 }

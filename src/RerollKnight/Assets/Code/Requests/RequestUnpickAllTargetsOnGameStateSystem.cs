@@ -10,12 +10,12 @@ namespace Code
 			: base(contexts.game) { }
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> throw new NotImplementedException();
+			=> throw new NotImplementedException($"moved to {nameof(TurnEndedGameState)}");
 		// => context.CreateCollector(GameMatcher.GameState);
 
 		protected override bool Filter(GameEntity entity)
 			=> ServicesMediator.GameStateMachine.CurrentState is TurnEndedGameState;
 
-		protected override void Execute(List<GameEntity> entites) => SendRequest.UnpickAll();
+		protected override void Execute(List<GameEntity> entites) => SendRequest.UnpickTargets();
 	}
 }
