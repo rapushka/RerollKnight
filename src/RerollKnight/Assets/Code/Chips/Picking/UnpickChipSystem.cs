@@ -18,7 +18,6 @@ namespace Code
 			foreach (var e in entites)
 			{
 				ServicesMediator.GameStateMachine.ToState<ObservingGameState>();
-				ServicesMediator.EntitiesManipulator.UnpickChip(immediately: true);
 				e.isClicked = false;
 			}
 		}

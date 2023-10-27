@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using JetBrains.Annotations;
 
 namespace Code
@@ -7,34 +6,23 @@ namespace Code
 	public abstract class StateMachineBase<TStateBase>
 		where TStateBase : IState
 	{
-		private readonly TypeDictionary<TStateBase> _dictionary;
+		private readonly TypeDictionary<TStateBase> _dictionary = new();
 
 		[CanBeNull] private TStateBase _currentState;
 
-		protected StateMachineBase()
-		{
-			// ReSharper disable once VirtualMemberCallInConstructor - it's the idea!
-			_dictionary = States;
-			CurrentState = _dictionary.First().Value;
-		}
-
-		public TStateBase CurrentState
-		{
-			get => _currentState ?? throw new NullReferenceException();
-			private set
-			{
-				(_currentState as IExitableState)?.Exit();
-
-				_currentState = value;
-				_currentState?.Enter();
-			}
-		}
-
-		/// <summary> The first state will be entered after initialization </summary>
-		protected abstract TypeDictionary<TStateBase> States { get; }
+		public TStateBase CurrentState => _currentState ?? throw new NullReferenceException();
 
 		public void ToState<TState>()
 			where TState : TStateBase
-			=> CurrentState = _dictionary.Get<TState>();
+		{
+			(_currentState as IExitableState)?.Exit();
+
+			_currentState = _dictionary.Get<TState>();
+			_currentState!.Enter();
+		}
+
+		protected void AddState<TState>(TState state)
+			where TState : TStateBase
+			=> _dictionary.Add(state);
 	}
 }

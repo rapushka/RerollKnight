@@ -4,6 +4,9 @@ namespace Code
 	{
 		public ObservingGameState(GameStateMachine stateMachine) : base(stateMachine) { }
 
-		public override void Enter() { }
+		public override void Enter()
+		{
+			ServicesMediator.EntitiesManipulator.UnpickAll(immediately: true);
+		}
 	}
 }
