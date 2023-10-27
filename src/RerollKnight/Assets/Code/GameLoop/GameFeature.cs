@@ -19,6 +19,7 @@ namespace Code
 			// Game Logic
 			Add(new MarkEmptyCellsSystem(contexts));
 			Add(new ChipsFeature(contexts));
+			Add(new EndTurnSystem(contexts));
 
 			// Visuals
 			Add(new HoverPickedChipSystem(contexts));
@@ -29,7 +30,7 @@ namespace Code
 			// Debug
 			Add(new DebugCurrentGameStateSystem(contexts));
 #endif
-			
+
 			// Entitas Generated
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
