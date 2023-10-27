@@ -1,19 +1,19 @@
 namespace Code
 {
-	public sealed class TargetPickingFeature : Feature
+	public sealed class TargetPickingFeature : InjectableFeature
 	{
-		public TargetPickingFeature(Contexts contexts)
-			: base(nameof(TargetPickingFeature))
+		public TargetPickingFeature(SystemsFactory factory)
+			: base(nameof(TargetPickingFeature), factory)
 		{
-			Add(new PrepareAbilitiesOfPickedChipSystem(contexts));
+			Add<PrepareAbilitiesOfPickedChipSystem>();
 
-			Add(new PickCellAsTargetSystem(contexts));
+			Add<PickCellAsTargetSystem>();
 
-			Add(new ConstraintAbilityRangeSystem(contexts));
-			Add(new EnsureTargetConstraintComponentsSystem(contexts));
-			Add(new ValidateMaxCountOfTargetsOverflowSystem(contexts));
+			Add<ConstraintAbilityRangeSystem>();
+			Add<EnsureTargetConstraintComponentsSystem>();
+			Add<ValidateMaxCountOfTargetsOverflowSystem>();
 
-			Add(new CastOnMaxCountOfTargetsSystem(contexts));
+			Add<CastOnMaxCountOfTargetsSystem>();
 		}
 	}
 }

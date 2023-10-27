@@ -1,19 +1,19 @@
 namespace Code
 {
-	public sealed class ChipsFeature : Feature
+	public sealed class ChipsFeature : InjectableFeature
 	{
-		public ChipsFeature(Contexts contexts)
-			: base(nameof(ChipsFeature))
+		public ChipsFeature(SystemsFactory factory)
+			: base(nameof(ChipsFeature), factory)
 		{
-			Add(new ChipsPickingFeature(contexts));
+			Add<ChipsPickingFeature>();
 
-			Add(new UnpickAllOnRequestSystem(contexts));
+			Add<UnpickAllOnRequestSystem>();
 
-			Add(new TargetPickingFeature(contexts));
+			Add<TargetPickingFeature>();
 
-			// Add(new MarkAbilitiesCastedBySystem(contexts));
+			// Add<MarkAbilitiesCastedBySystem>();
 
-			Add(new AbilitiesFeature(contexts));
+			Add<AbilitiesFeature>();
 		}
 	}
 }
