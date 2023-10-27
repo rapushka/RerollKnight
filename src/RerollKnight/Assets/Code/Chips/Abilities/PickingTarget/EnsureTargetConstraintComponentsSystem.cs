@@ -13,7 +13,7 @@ namespace Code
 		public EnsureTargetConstraintComponentsSystem(Contexts contexts)
 		{
 			_targets = contexts.game.GetGroup(PickedTarget);
-			_abilities = contexts.chips.GetGroup(AllOf(TargetConstraints, PreparedAbility));
+			_abilities = contexts.chips.GetGroup(AllOf(TargetConstraints, State));
 		}
 
 		private bool HasConstraints => _abilities.GetEntities().Any();
@@ -23,7 +23,7 @@ namespace Code
 			if (!HasConstraints)
 				return;
 
-			foreach (var ability in _abilities)
+			foreach (var ability in _abilities.WhereStateIs(AbilityState.Prepared))
 			foreach (var target in _targets.GetEntities())
 			{
 				if (ability.targetConstraints.Value.Any((c) => !target.HasComponent(c.Value)))

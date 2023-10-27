@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Entitas;
 using static ChipsMatcher;
 using static GameMatcher;
@@ -6,29 +8,24 @@ namespace Code
 {
 	public sealed class CastOnMaxCountOfTargetsSystem : IExecuteSystem
 	{
-		private readonly Contexts _contexts;
 		private readonly IGroup<GameEntity> _targets;
 		private readonly IGroup<ChipsEntity> _abilities;
 
 		public CastOnMaxCountOfTargetsSystem(Contexts contexts)
 		{
-			_contexts = contexts;
-			_targets = _contexts.game.GetGroup(PickedTarget);
-			_abilities = _contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Cast));
+			_targets = contexts.game.GetGroup(PickedTarget);
+			_abilities = contexts.chips.GetGroup(AllOf(State, MaxCountOfTargets));
 		}
+
+		private IEnumerable<ChipsEntity> FilledAbilities
+			=> _abilities.GetEntities().Where((e) => e.maxCountOfTargets.Value == _targets.count);
 
 		public void Execute()
 		{
-			if (_abilities.Any()
-			    && !_abilities.All((a) => a.maxCountOfTargets.Value == _targets.count))
-				return;
-
-			foreach (var e in _abilities.GetEntities())
+			foreach (var e in FilledAbilities.Where((e) => e.state.Value is AbilityState.Prepared))
 			{
-				e.isCast = true;
-				e.isPreparedAbility = false;
-
-				_contexts.ToGameState(GameState.WaitingForAbilityUsage);
+				e.ReplaceState(AbilityState.Casting);
+				ServicesMediator.GameStateMachine.ToState<WaitingGameState>();
 			}
 		}
 	}

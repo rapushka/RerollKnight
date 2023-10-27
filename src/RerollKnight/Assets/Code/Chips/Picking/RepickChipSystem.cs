@@ -21,9 +21,7 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
-				var previousPickedChip = _contexts.game.pickedChipEntity;
-				previousPickedChip.Unpick();
-				SendRequest.UnpickAll();
+				ServicesMediator.EntitiesManipulator.UnpickAll(immediately: true);
 				e.Pick();
 				e.isClicked = false;
 			}

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Entitas;
 using static ChipsMatcher;
 using static GameMatcher;
@@ -13,14 +14,14 @@ namespace Code
 		public ValidateMaxCountOfTargetsOverflowSystem(Contexts contexts)
 		{
 			_targets = contexts.game.GetGroup(PickedTarget);
-			_abilities = contexts.chips.GetGroup(AllOf(PreparedAbility, MaxCountOfTargets).NoneOf(Cast));
+			_abilities = contexts.chips.GetGroup(AllOf(State, MaxCountOfTargets));
 		}
 
 		private int TargetsCount => _targets.count;
 
 		public void Execute()
 		{
-			if (_abilities.Any((a) => TargetsCount > a.maxCountOfTargets.Value))
+			if (_abilities.WhereStateIs(AbilityState.Prepared).Any((a) => TargetsCount > a.maxCountOfTargets.Value))
 				throw new InvalidOperationException("Too many targets for the ability");
 		}
 	}

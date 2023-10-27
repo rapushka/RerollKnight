@@ -1,23 +1,29 @@
-using System.Collections.Generic;
+using System;
 using Entitas;
 
 namespace Code
 {
-	public sealed class DebugCurrentGameStateSystem : ReactiveSystem<GameEntity>
+	public sealed class DebugCurrentGameStateSystem : IInitializeSystem, IExecuteSystem
 	{
-		public DebugCurrentGameStateSystem(Contexts contexts) : base(contexts.game) { }
+		private readonly Contexts _contexts;
 
-		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.GameState);
+		private GameEntity _stateEntity;
 
-		protected override bool Filter(GameEntity entity) => true;
-
-		protected override void Execute(List<GameEntity> entites)
+		public DebugCurrentGameStateSystem(Contexts contexts)
 		{
-			foreach (var e in entites)
-			{
-				e.ReplaceDebugName("Game State: " + e.gameState.Value); 
-			}
+			_contexts = contexts;
+		}
+
+		private static GameStateBase CurrentGameState => ServicesMediator.GameStateMachine.CurrentState;
+
+		public void Initialize()
+		{
+			_stateEntity = _contexts.game.CreateEntity();
+		}
+
+		public void Execute()
+		{
+			_stateEntity.ReplaceDebugName($"Game State: {CurrentGameState.GetType().Name}");
 		}
 	}
 }

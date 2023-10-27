@@ -11,11 +11,10 @@ namespace Code
 
 			// Initialization
 			Add(new StartGameSystem(contexts));
-			Add(new DebugCurrentGameStateSystem(contexts));
-
 			Add(new SpawnFieldSystem(contexts));
 			Add(new SpawnPlayerSystem(contexts));
 
+			Add(new AddAbilityStateSystem(contexts));
 			Add(new StoreChipPositionSystem(contexts));
 
 			// Game Logic
@@ -27,11 +26,19 @@ namespace Code
 			Add(new UnhoverUnpickedChipSystem(contexts));
 			Add(new MoveToDestinationSystem(contexts));
 
+			// Cleanups
+			Add(new EndTurnSystem(contexts));
+			Add(new ResetAbilityStateSystem(contexts));
+
+#if UNITY_EDITOR
+			// Debug
+			Add(new DebugCurrentGameStateSystem(contexts));
+#endif
+
 			// Entitas Generated
 			Add(new GameEventSystems(contexts));
 			Add(new GameCleanupSystems(contexts));
 			Add(new RequestCleanupSystems(contexts));
-			Add(new ChipsCleanupSystems(contexts));
 		}
 	}
 }

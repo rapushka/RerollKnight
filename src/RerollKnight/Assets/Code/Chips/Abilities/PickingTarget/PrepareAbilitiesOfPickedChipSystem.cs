@@ -28,7 +28,8 @@ namespace Code
 		{
 			foreach (var ability in _abilities)
 			{
-				ability.isPreparedAbility = HasPickedChip && ability.IsOwnedBy(PickedChip);
+				var ourChipIsPicked = HasPickedChip && ability.IsOwnedBy(PickedChip);
+				ability.ReplaceState(ourChipIsPicked ? AbilityState.Prepared : AbilityState.Inactive);
 			}
 		}
 	}

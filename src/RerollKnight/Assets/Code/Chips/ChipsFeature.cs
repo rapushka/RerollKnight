@@ -6,16 +6,14 @@ namespace Code
 			: base(nameof(ChipsFeature))
 		{
 			Add(new ChipsPickingFeature(contexts));
-			
+
 			Add(new UnpickAllOnRequestSystem(contexts));
 
 			Add(new TargetPickingFeature(contexts));
 
-			Add(new MarkAbilitiesCastedBySystem(contexts));
+			// Add(new MarkAbilitiesCastedBySystem(contexts));
 
 			Add(new AbilitiesFeature(contexts));
-
-			Add(new EndTurnSystem(contexts));
 		}
 	}
 }
