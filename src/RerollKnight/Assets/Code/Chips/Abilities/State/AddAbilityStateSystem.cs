@@ -12,7 +12,7 @@ namespace Code
 
 		public void Initialize()
 		{
-			foreach (var e in _entities)
+			foreach (var e in _entities.GetEntities())
 				e.ReplaceState(AbilityState.Inactive);
 		}
 	}
