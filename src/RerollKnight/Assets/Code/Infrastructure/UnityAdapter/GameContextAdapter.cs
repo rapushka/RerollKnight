@@ -4,7 +4,9 @@ namespace Code
 {
 	public class GameContextAdapter : EntitasAdapterBase
 	{
-		[Inject] private readonly GameFeature _feature;
+		private GameFeature _feature;
+
+		[Inject] public void Construct(GameFeature feature) => _feature = feature;
 
 		protected override Feature Feature => _feature;
 	}
