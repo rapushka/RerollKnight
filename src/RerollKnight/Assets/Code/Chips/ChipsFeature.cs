@@ -10,6 +10,7 @@ namespace Code
 			Add<UnpickAllOnRequestSystem>();
 
 			Add<ShowAvailabilityFeature>();
+			Add<OutlineAvailableTargetsSystem>();
 			Add<TargetPickingFeature>();
 
 			// Add<MarkAbilitiesCastedBySystem>();
