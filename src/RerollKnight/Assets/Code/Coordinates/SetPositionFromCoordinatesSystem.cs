@@ -20,9 +20,10 @@ namespace Code
 		{
 			foreach (var e in _entities)
 			{
-				var position = e.hasCoordinates
-					? e.coordinates.Value.ToTopDown() + _layout.OverFieldOffset
-					: e.coordinatesUnderField.Value.ToTopDown();
+				var position = e.GetCoordinates().ToTopDown();
+
+				if (e.hasCoordinates)
+					position += _layout.OverFieldOffset;
 
 				e.ReplacePosition(position);
 			}
