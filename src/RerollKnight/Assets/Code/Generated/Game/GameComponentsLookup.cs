@@ -18,13 +18,15 @@ public static class GameComponentsLookup {
     public const int Empty = 7;
     public const int InitialPosition = 8;
     public const int MovingSpeed = 9;
-    public const int PickedChip = 10;
-    public const int PickedTarget = 11;
-    public const int Player = 12;
-    public const int Position = 13;
-    public const int PositionListener = 14;
+    public const int Outline = 10;
+    public const int PickedChip = 11;
+    public const int PickedTarget = 12;
+    public const int Player = 13;
+    public const int Position = 14;
+    public const int OutlineListener = 15;
+    public const int PositionListener = 16;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "Cell",
@@ -37,10 +39,12 @@ public static class GameComponentsLookup {
         "Empty",
         "InitialPosition",
         "MovingSpeed",
+        "Outline",
         "PickedChip",
         "PickedTarget",
         "Player",
         "Position",
+        "OutlineListener",
         "PositionListener"
     };
 
@@ -55,10 +59,12 @@ public static class GameComponentsLookup {
         typeof(Code.EmptyComponent),
         typeof(Code.InitialPositionComponent),
         typeof(Code.MovingSpeedComponent),
+        typeof(Code.OutlineComponent),
         typeof(Code.PickedChipComponent),
         typeof(Code.PickedTargetComponent),
         typeof(Code.PlayerComponent),
         typeof(Code.PositionComponent),
+        typeof(OutlineListenerComponent),
         typeof(PositionListenerComponent)
     };
 }
