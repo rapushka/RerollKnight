@@ -22,11 +22,9 @@ public static class GameComponentsLookup {
     public const int PickedTarget = 11;
     public const int Player = 12;
     public const int Position = 13;
-    public const int CoordinatesListener = 14;
-    public const int CoordinatesUnderFieldListener = 15;
-    public const int PositionListener = 16;
+    public const int PositionListener = 14;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
         "Cell",
@@ -43,8 +41,6 @@ public static class GameComponentsLookup {
         "PickedTarget",
         "Player",
         "Position",
-        "CoordinatesListener",
-        "CoordinatesUnderFieldListener",
         "PositionListener"
     };
 
@@ -63,8 +59,6 @@ public static class GameComponentsLookup {
         typeof(Code.PickedTargetComponent),
         typeof(Code.PlayerComponent),
         typeof(Code.PositionComponent),
-        typeof(CoordinatesListenerComponent),
-        typeof(CoordinatesUnderFieldListenerComponent),
         typeof(PositionListenerComponent)
     };
 }

@@ -9,8 +9,6 @@
 public sealed class GameEventSystems : Feature {
 
     public GameEventSystems(Contexts contexts) {
-        Add(new CoordinatesEventSystem(contexts)); // priority: 0
-        Add(new CoordinatesUnderFieldEventSystem(contexts)); // priority: 0
         Add(new PositionEventSystem(contexts)); // priority: 0
     }
 }

@@ -27,6 +27,7 @@ namespace Code
 			Add<HoverPickedChipSystem>();
 			Add<UnhoverUnpickedChipSystem>();
 			Add<MoveToDestinationSystem>();
+			Add<SetPositionFromCoordinatesSystem>();
 
 			// Cleanups
 			Add<EndTurnSystem>();
