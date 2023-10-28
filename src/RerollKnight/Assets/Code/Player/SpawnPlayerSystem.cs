@@ -6,7 +6,11 @@ namespace Code
 {
 	public sealed class SpawnPlayerSystem : ReactiveSystem<RequestEntity>
 	{
-		public SpawnPlayerSystem(Contexts contexts) : base(contexts.request) { }
+		private readonly ServicesMediator _servicesMediator;
+
+		public SpawnPlayerSystem(Contexts contexts, ServicesMediator servicesMediator)
+			: base(contexts.request)
+			=> _servicesMediator = servicesMediator;
 
 		protected override ICollector<RequestEntity> GetTrigger(IContext<RequestEntity> context)
 			=> context.CreateCollector(AllOf(SpawnPlayer, CoordinatesRequest));
@@ -17,7 +21,7 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
-				var playerBehaviour = ServicesMediator.SpawnPlayer();
+				var playerBehaviour = _servicesMediator.SpawnPlayer();
 				playerBehaviour.Entity.ReplaceCoordinates(e.coordinatesRequest.Value);
 			}
 		}

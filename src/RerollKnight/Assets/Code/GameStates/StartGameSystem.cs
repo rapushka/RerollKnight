@@ -4,9 +4,11 @@ namespace Code
 {
 	public sealed class StartGameSystem : IInitializeSystem
 	{
-		// ReSharper disable once UnusedParameter.Local - consistency
-		public StartGameSystem(Contexts contexts) { }
+		private readonly GameStateMachine _gameStateMachine;
 
-		public void Initialize() => ServicesMediator.GameStateMachine.ToState<ObservingGameState>();
+		public StartGameSystem(GameStateMachine gameStateMachine)
+			=> _gameStateMachine = gameStateMachine;
+
+		public void Initialize() => _gameStateMachine.ToState<ObservingGameState>();
 	}
 }

@@ -1,11 +1,11 @@
 namespace Code
 {
-	public sealed class AbilitiesFeature : Feature
+	public sealed class AbilitiesFeature : InjectableFeature
 	{
-		public AbilitiesFeature(Contexts contexts)
-			: base(nameof(AbilitiesFeature))
+		public AbilitiesFeature(SystemsFactory factory)
+			: base(nameof(AbilitiesFeature), factory)
 		{
-			Add(new CastTeleportSystem(contexts));
+			Add<CastTeleportSystem>();
 		}
 	}
 }

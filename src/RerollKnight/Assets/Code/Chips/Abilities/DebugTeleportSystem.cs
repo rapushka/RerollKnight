@@ -1,4 +1,3 @@
-using System;
 using Entitas;
 using static GameMatcher;
 
@@ -8,16 +7,19 @@ namespace Code
 	{
 		private readonly IGroup<GameEntity> _targets;
 		private readonly IGroup<GameEntity> _players;
+		private readonly GameStateMachine _gameStateMachine;
 
-		public DebugTeleportSystem(Contexts contexts)
+		public DebugTeleportSystem(Contexts contexts, GameStateMachine gameStateMachine)
 		{
+			_gameStateMachine = gameStateMachine;
+
 			_targets = contexts.game.GetGroup(PickedTarget);
 			_players = contexts.game.GetGroup(Player);
 		}
 
 		public void Execute()
 		{
-			if (ServicesMediator.GameStateMachine.CurrentState is WaitingGameState)
+			if (_gameStateMachine.CurrentState is WaitingGameState)
 			{
 				TeleportPlayer();
 				ResetGameState();
@@ -33,6 +35,6 @@ namespace Code
 			}
 		}
 
-		private void ResetGameState() => ServicesMediator.GameStateMachine.ToState<ObservingGameState>();
+		private void ResetGameState() => _gameStateMachine.ToState<ObservingGameState>();
 	}
 }

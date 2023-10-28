@@ -6,7 +6,13 @@ namespace Code
 {
 	public sealed class HoverPickedChipSystem : ReactiveSystem<GameEntity>
 	{
-		public HoverPickedChipSystem(Contexts contexts) : base(contexts.game) { }
+		private readonly ILayoutService _layoutService;
+
+		public HoverPickedChipSystem(Contexts contexts, ILayoutService layoutService)
+			: base(contexts.game)
+		{
+			_layoutService = layoutService;
+		}
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(PickedChip, Position));
@@ -17,7 +23,7 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
-				e.ReplaceDestinationPosition(e.initialPosition.Value + ServicesMediator.Layout.PickingChipOffset);
+				e.ReplaceDestinationPosition(e.initialPosition.Value + _layoutService.PickingChipOffset);
 			}
 		}
 	}

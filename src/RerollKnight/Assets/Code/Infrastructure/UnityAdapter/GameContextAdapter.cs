@@ -1,11 +1,13 @@
-using UnityEngine;
+using Zenject;
 
 namespace Code
 {
 	public class GameContextAdapter : EntitasAdapterBase
 	{
-		[SerializeField] private EntityBehaviourBase[] _entityBehaviours;
+		private GameFeature _feature;
 
-		protected override Feature Feature => new GameFeature(Contexts, _entityBehaviours);
+		[Inject] public void Construct(GameFeature feature) => _feature = feature;
+
+		protected override Feature Feature => _feature;
 	}
 }

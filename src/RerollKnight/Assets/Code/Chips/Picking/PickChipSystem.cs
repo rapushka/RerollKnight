@@ -6,7 +6,11 @@ namespace Code
 {
 	public sealed class PickChipSystem : ReactiveSystem<GameEntity>
 	{
-		public PickChipSystem(Contexts contexts) : base(contexts.game) { }
+		private GameStateMachine _gameStateMachine;
+
+		public PickChipSystem(Contexts contexts, GameStateMachine gameStateMachine)
+			: base(contexts.game)
+			=> _gameStateMachine = gameStateMachine;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Clicked, Chip));
@@ -17,7 +21,7 @@ namespace Code
 		{
 			foreach (var e in entities)
 			{
-				ServicesMediator.GameStateMachine.ToState<ChipPickedGameState>();
+				_gameStateMachine.ToState<ChipPickedGameState>();
 				e.Pick();
 			}
 		}

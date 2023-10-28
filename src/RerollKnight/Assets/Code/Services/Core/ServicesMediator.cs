@@ -1,19 +1,16 @@
 namespace Code
 {
-	public static class ServicesMediator
+	public class ServicesMediator
 	{
-		private static ServicesContext Context => Contexts.sharedInstance.services;
+		private readonly IAssetsService _assets;
+		private readonly IResourcesService _resources;
 
-		public static IResourcesService Resources => Context.resources.Value;
+		public ServicesMediator(IAssetsService assets, IResourcesService resources)
+		{
+			_assets = assets;
+			_resources = resources;
+		}
 
-		public static IAssetsService Assets => Context.assets.Value;
-
-		public static ILayoutService Layout => Context.layout.Value;
-
-		public static IEntitiesManipulatorService EntitiesManipulator => Context.entitiesManipulator.Value;
-
-		public static GameStateMachine GameStateMachine => Context.gameStateMachine.Value.StateMachine;
-
-		public static GameEntityBehaviour SpawnPlayer() => Assets.SpawnBehaviour(Resources.PlayerPrefab);
+		public GameEntityBehaviour SpawnPlayer() => _assets.SpawnBehaviour(_resources.PlayerPrefab);
 	}
 }
