@@ -9,7 +9,6 @@ namespace Code
 			: base(nameof(GameFeature), factory)
 		{
 			// Registrations
-			Add<RegisterAllServicesSystem>();
 			Add<RegisterEntityBehavioursSystem>();
 
 			// Initialization

@@ -1,26 +1,31 @@
 using Entitas;
+using Zenject;
 
 namespace Code
 {
 	public sealed class SpawnFieldSystem : IInitializeSystem
 	{
-		// ReSharper disable once NotAccessedField.Local – keep the contexts for persist systems adding
-		private Contexts _contexts;
-		private const int FieldSizes = 3;
+		private readonly IResourcesService _resources;
+		private readonly IAssetsService _assets;
+		private readonly ILayoutService _layout;
 
-		public SpawnFieldSystem(Contexts contexts) => _contexts = contexts;
+		[Inject]
+		public SpawnFieldSystem(IResourcesService resources, IAssetsService assets, ILayoutService layout)
+		{
+			_assets = assets;
+			_resources = resources;
+			_layout = layout;
+		}
 
-		private static GameEntityBehaviour CellPrefab => ServicesMediator.Resources.CellPrefab;
+		private GameEntityBehaviour CellPrefab => _resources.CellPrefab;
 
 		public void Initialize()
 		{
-			for (var x = 0; x < FieldSizes; x++)
+			for (var x = 0; x < _layout.FieldSizes.Column; x++)
+			for (var y = 0; y < _layout.FieldSizes.Row; y++)
 			{
-				for (var y = 0; y < FieldSizes; y++)
-				{
-					var cell = ServicesMediator.Assets.SpawnBehaviour(CellPrefab);
-					cell.Entity.AddCoordinatesUnderField(new Coordinates(x, y));
-				}
+				var cell = _assets.SpawnBehaviour(CellPrefab);
+				cell.Entity.AddCoordinatesUnderField(new Coordinates(x, y));
 			}
 		}
 	}

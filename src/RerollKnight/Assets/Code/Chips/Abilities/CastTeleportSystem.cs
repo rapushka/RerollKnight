@@ -1,4 +1,5 @@
 using Entitas;
+using Zenject;
 using static ChipsMatcher;
 using static GameMatcher;
 
@@ -6,12 +7,16 @@ namespace Code
 {
 	public sealed class CastTeleportSystem : IExecuteSystem
 	{
+		private readonly GameStateMachine _gameStateMachine;
 		private readonly IGroup<GameEntity> _players;
 		private readonly IGroup<GameEntity> _targets;
 		private readonly IGroup<ChipsEntity> _abilities;
 
-		public CastTeleportSystem(Contexts contexts)
+		[Inject]
+		public CastTeleportSystem(Contexts contexts, GameStateMachine gameStateMachine)
 		{
+			_gameStateMachine = gameStateMachine;
+
 			_players = contexts.game.GetGroup(Player);
 			_targets = contexts.game.GetGroup(PickedTarget);
 			_abilities = contexts.chips.GetGroup(AllOf(Teleport, State));
@@ -19,7 +24,7 @@ namespace Code
 
 		public void Execute()
 		{
-			if (ServicesMediator.GameStateMachine.CurrentState is not WaitingGameState)
+			if (_gameStateMachine.CurrentState is not WaitingGameState)
 				return;
 
 			foreach (var ability in _abilities.WhereStateIs(AbilityState.Casting))

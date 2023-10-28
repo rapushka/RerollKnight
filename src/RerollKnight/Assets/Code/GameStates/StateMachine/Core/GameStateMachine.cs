@@ -1,10 +1,13 @@
+using Zenject;
+
 namespace Code
 {
 	public class GameStateMachine : StateMachineBase<GameStateBase>
 	{
-		public GameStateMachine()
+		[Inject]
+		public GameStateMachine(IEntitiesManipulatorService entitiesManipulator)
 		{
-			AddState(new ObservingGameState(this));
+			AddState(new ObservingGameState(this, entitiesManipulator));
 			AddState(new WaitingGameState(this));
 			AddState(new ChipPickedGameState(this));
 			AddState(new TurnEndedGameState(this));

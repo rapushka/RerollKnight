@@ -7,8 +7,15 @@ namespace Code
 	{
 		// ReSharper disable once NotAccessedField.Local - for consistent Adding
 		private readonly Contexts _contexts;
+		private readonly IAssetsService _assets;
+		private readonly IResourcesService _resources;
 
-		public SpawnDebugChipSystem(Contexts contexts) => _contexts = contexts;
+		public SpawnDebugChipSystem(Contexts contexts, IAssetsService assets, IResourcesService resources)
+		{
+			_contexts = contexts;
+			_assets = assets;
+			_resources = resources;
+		}
 
 		public void Initialize()
 		{
@@ -16,8 +23,8 @@ namespace Code
 			SpawnChip(at: new Vector3(2.9f, 3f, 2.9f));
 		}
 
-		private static void SpawnChip(Vector3 at) => ServicesMediator.Assets.SpawnBehaviour(ChipPrefab, at);
+		private void SpawnChip(Vector3 at) => _assets.SpawnBehaviour(ChipPrefab, at);
 
-		private static GameEntityBehaviour ChipPrefab => ServicesMediator.Resources.ChipPrefab;
+		private GameEntityBehaviour ChipPrefab => _resources.ChipPrefab;
 	}
 }

@@ -26,9 +26,8 @@ public partial class Contexts : Entitas.IContexts {
     public InputContext input { get; set; }
     public PlayerContext player { get; set; }
     public RequestContext request { get; set; }
-    public ServicesContext services { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { chips, game, input, player, request, services }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { chips, game, input, player, request }; } }
 
     public Contexts() {
         chips = new ChipsContext();
@@ -36,7 +35,6 @@ public partial class Contexts : Entitas.IContexts {
         input = new InputContext();
         player = new PlayerContext();
         request = new RequestContext();
-        services = new ServicesContext();
 
         var postConstructors = System.Linq.Enumerable.Where(
             GetType().GetMethods(),
@@ -113,7 +111,6 @@ public partial class Contexts {
             CreateContextObserver(input);
             CreateContextObserver(player);
             CreateContextObserver(request);
-            CreateContextObserver(services);
         } catch(System.Exception) {
         }
     }

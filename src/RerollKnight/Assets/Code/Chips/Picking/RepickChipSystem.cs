@@ -6,9 +6,15 @@ namespace Code
 {
 	public sealed class RepickChipSystem : ReactiveSystem<GameEntity>
 	{
+		private IEntitiesManipulatorService _entitiesManipulator;
 		private readonly Contexts _contexts;
 
-		public RepickChipSystem(Contexts contexts) : base(contexts.game) => _contexts = contexts;
+		public RepickChipSystem(Contexts contexts, IEntitiesManipulatorService entitiesManipulator)
+			: base(contexts.game)
+		{
+			_entitiesManipulator = entitiesManipulator;
+			_contexts = contexts;
+		}
 
 		private bool HasPickedChip => _contexts.game.isPickedChip;
 
@@ -21,7 +27,7 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
-				ServicesMediator.EntitiesManipulator.UnpickAll(immediately: true);
+				_entitiesManipulator.UnpickAll(immediately: true);
 				e.Pick();
 				e.isClicked = false;
 			}

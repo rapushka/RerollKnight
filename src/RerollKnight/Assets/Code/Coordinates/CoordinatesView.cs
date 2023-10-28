@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 namespace Code
 {
@@ -6,8 +7,12 @@ namespace Code
 	{
 		[SerializeField] private Transform _transform;
 
+		private ILayoutService _layout;
+
+		[Inject] public void Construct(ILayoutService layout) => _layout = layout;
+
 		public void OnCoordinates(GameEntity entity, Coordinates value)
-			=> _transform.position = value.ToTopDown() + ServicesMediator.Layout.OverFieldOffset;
+			=> _transform.position = value.ToTopDown() + _layout.OverFieldOffset;
 
 		protected override void AddListener(GameEntity entity) => entity.AddCoordinatesListener(this);
 

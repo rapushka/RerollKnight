@@ -6,10 +6,13 @@ namespace Code
 {
 	public sealed class PickCellAsTargetSystem : ReactiveSystem<GameEntity>
 	{
-		public PickCellAsTargetSystem(Contexts contexts)
-			: base(contexts.game) { }
+		private GameStateMachine _gameStateMachine;
 
-		private static GameStateBase CurrentGameState => ServicesMediator.GameStateMachine.CurrentState;
+		public PickCellAsTargetSystem(Contexts contexts, GameStateMachine gameStateMachine)
+			: base(contexts.game)
+			=> _gameStateMachine = gameStateMachine;
+
+		private GameStateBase CurrentGameState => _gameStateMachine.CurrentState;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Clicked, Cell));

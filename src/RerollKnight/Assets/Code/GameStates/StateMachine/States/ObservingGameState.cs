@@ -2,11 +2,15 @@ namespace Code
 {
 	public class ObservingGameState : GameStateBase
 	{
-		public ObservingGameState(GameStateMachine stateMachine) : base(stateMachine) { }
+		private readonly IEntitiesManipulatorService _entitiesManipulator;
+
+		public ObservingGameState(GameStateMachine stateMachine, IEntitiesManipulatorService entitiesManipulator)
+			: base(stateMachine)
+			=> _entitiesManipulator = entitiesManipulator;
 
 		public override void Enter()
 		{
-			ServicesMediator.EntitiesManipulator.UnpickAll(immediately: true);
+			_entitiesManipulator.UnpickAll(immediately: true);
 		}
 	}
 }

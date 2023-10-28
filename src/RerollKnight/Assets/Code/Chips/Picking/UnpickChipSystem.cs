@@ -6,7 +6,11 @@ namespace Code
 {
 	public sealed class UnpickChipSystem : ReactiveSystem<GameEntity>
 	{
-		public UnpickChipSystem(Contexts contexts) : base(contexts.game) { }
+		private readonly GameStateMachine _gameStateMachine;
+
+		public UnpickChipSystem(Contexts contexts, GameStateMachine gameStateMachine)
+			: base(contexts.game)
+			=> _gameStateMachine = gameStateMachine;
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
 			=> context.CreateCollector(AllOf(Clicked, PickedChip));
@@ -17,7 +21,7 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
-				ServicesMediator.GameStateMachine.ToState<ObservingGameState>();
+				_gameStateMachine.ToState<ObservingGameState>();
 				e.isClicked = false;
 			}
 		}
