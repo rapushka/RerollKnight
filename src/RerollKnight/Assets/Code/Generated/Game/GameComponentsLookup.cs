@@ -8,27 +8,30 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Cell = 0;
-    public const int Chip = 1;
-    public const int Clicked = 2;
-    public const int Coordinates = 3;
-    public const int CoordinatesUnderField = 4;
-    public const int DebugName = 5;
-    public const int DestinationPosition = 6;
-    public const int Empty = 7;
-    public const int InitialPosition = 8;
-    public const int MovingSpeed = 9;
-    public const int Outline = 10;
-    public const int PickedChip = 11;
-    public const int PickedTarget = 12;
-    public const int Player = 13;
-    public const int Position = 14;
-    public const int OutlineListener = 15;
-    public const int PositionListener = 16;
+    public const int AvailableToPick = 0;
+    public const int Cell = 1;
+    public const int Chip = 2;
+    public const int Clicked = 3;
+    public const int Coordinates = 4;
+    public const int CoordinatesUnderField = 5;
+    public const int DebugName = 6;
+    public const int DestinationPosition = 7;
+    public const int Empty = 8;
+    public const int InitialPosition = 9;
+    public const int MovingSpeed = 10;
+    public const int Outline = 11;
+    public const int PickedChip = 12;
+    public const int PickedTarget = 13;
+    public const int Player = 14;
+    public const int Position = 15;
+    public const int Target = 16;
+    public const int OutlineListener = 17;
+    public const int PositionListener = 18;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
+        "AvailableToPick",
         "Cell",
         "Chip",
         "Clicked",
@@ -44,11 +47,13 @@ public static class GameComponentsLookup {
         "PickedTarget",
         "Player",
         "Position",
+        "Target",
         "OutlineListener",
         "PositionListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.AvailableToPickComponent),
         typeof(Code.CellComponent),
         typeof(Code.ChipComponent),
         typeof(Code.ClickedComponent),
@@ -64,6 +69,7 @@ public static class GameComponentsLookup {
         typeof(Code.PickedTargetComponent),
         typeof(Code.PlayerComponent),
         typeof(Code.PositionComponent),
+        typeof(Code.TargetComponent),
         typeof(OutlineListenerComponent),
         typeof(PositionListenerComponent)
     };

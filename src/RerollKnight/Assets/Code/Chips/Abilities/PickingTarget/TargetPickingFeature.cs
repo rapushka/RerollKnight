@@ -9,8 +9,8 @@ namespace Code
 
 			Add<PickCellAsTargetSystem>();
 
-			Add<ConstraintAbilityRangeSystem>();
-			Add<EnsureTargetConstraintComponentsSystem>();
+			// Add<ConstraintAbilityRangeSystem>();
+			// Add<EnsureTargetConstraintComponentsSystem>();
 			Add<ValidateMaxCountOfTargetsOverflowSystem>();
 
 			Add<CastOnMaxCountOfTargetsSystem>();

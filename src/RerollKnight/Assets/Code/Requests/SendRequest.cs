@@ -4,8 +4,12 @@ namespace Code
 	{
 		private static RequestContext Context => Contexts.sharedInstance.request;
 
-		public static void UnpickTargets() => Context.CreateEntity().isUnpickAllTargets = true;
+		public static void UnpickTargets() => NewEntity.isUnpickAllTargets = true;
 
-		public static void CastAbility() => Context.CreateEntity().isCastAbility = true;
+		public static void CastAbility() => NewEntity.isCastAbility = true;
+
+		public static void MarkAllTargetsAvailable() => NewEntity.isMarkAllTargetsAvailable = true;
+
+		private static RequestEntity NewEntity => Context.CreateEntity();
 	}
 }
