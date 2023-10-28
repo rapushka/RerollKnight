@@ -16,7 +16,7 @@ namespace Code
 		protected override void Execute(List<GameEntity> entites)
 		{
 			foreach (var e in entites)
-				e.AddOutline(new OutlineParams(Type.Available, e.isAvailableToPick));
+				e.ReplaceOutline(new OutlineParams(Type.Available, e.isAvailableToPick));
 		}
 	}
 }
