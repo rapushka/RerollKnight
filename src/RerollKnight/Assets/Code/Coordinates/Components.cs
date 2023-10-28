@@ -1,7 +1,6 @@
 using Code.CodeGeneration.Attributes;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
-using static Entitas.CodeGeneration.Attributes.EventTarget;
 
 namespace Code
 {
