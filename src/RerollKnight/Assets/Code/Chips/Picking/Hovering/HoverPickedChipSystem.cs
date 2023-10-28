@@ -6,9 +6,9 @@ namespace Code
 {
 	public sealed class HoverPickedChipSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly LayoutService _layoutService;
+		private readonly ILayoutService _layoutService;
 
-		public HoverPickedChipSystem(Contexts contexts, LayoutService layoutService)
+		public HoverPickedChipSystem(Contexts contexts, ILayoutService layoutService)
 			: base(contexts.game)
 		{
 			_layoutService = layoutService;
