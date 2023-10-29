@@ -18,7 +18,7 @@ namespace Code
 			where TRequest : Request, new()
 		{
 			var request = new TRequest();
-			Debug.Assert(!request.GetType().IsGenericType, "Don't throw Generic requests as usual!");
+			Debug.Assert(request is ValueRequest, "Don't throw Value requests as usual!");
 
 			_requests.Add(request);
 		}
