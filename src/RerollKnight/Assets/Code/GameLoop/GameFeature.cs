@@ -20,7 +20,7 @@ namespace Code
 			Add<StoreChipPositionSystem>();
 
 			// Game Logic
-			Add<InvokeAllStoredRequestsSystem>();
+			Add<EmitAllRequestsSystem>();
 
 			Add<MarkEmptyCellsSystem>();
 			Add<ChipsFeature>();

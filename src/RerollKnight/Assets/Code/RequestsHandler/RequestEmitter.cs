@@ -4,15 +4,15 @@ using UnityEngine;
 namespace Code
 {
 	/// <summary> Stores requests to send them all at the beginning of the frame </summary>
-	public class RequestHandler
+	public class RequestEmitter
 	{
 		private readonly List<Request> _requests = new();
 
-		private static RequestHandler _instance;
+		private static RequestEmitter _instance;
 
-		private RequestHandler() { }
+		private RequestEmitter() { }
 
-		public static RequestHandler Instance => _instance ??= new RequestHandler();
+		public static RequestEmitter Instance => _instance ??= new RequestEmitter();
 
 		public void Send<TRequest>()
 			where TRequest : Request, new()
@@ -27,7 +27,7 @@ namespace Code
 			where TRequest : Request<TValue>, new()
 			=> _requests.Add(new TRequest { Value = value });
 
-		public void InvokeAll()
+		public void EmitAll()
 		{
 			foreach (var request in _requests)
 				request.Action.Invoke();
