@@ -4,6 +4,6 @@ namespace Code
 	{
 		public ChipPickedGameState(GameStateMachine stateMachine) : base(stateMachine) { }
 
-		public override void Enter() => RequestHandler.Instance.Send<MarkAllTargetsUnavailableRequest>();
+		public override void Enter() => RequestHandler.Instance.Send<MarkAllTargetsAvailableRequest>();
 	}
 }
