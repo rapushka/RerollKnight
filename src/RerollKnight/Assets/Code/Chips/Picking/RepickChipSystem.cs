@@ -6,7 +6,7 @@ namespace Code
 {
 	public sealed class RepickChipSystem : ReactiveSystem<GameEntity>
 	{
-		private IEntitiesManipulatorService _entitiesManipulator;
+		private readonly IEntitiesManipulatorService _entitiesManipulator;
 		private readonly Contexts _contexts;
 
 		public RepickChipSystem(Contexts contexts, IEntitiesManipulatorService entitiesManipulator)
@@ -28,6 +28,7 @@ namespace Code
 			foreach (var e in entites)
 			{
 				_entitiesManipulator.UnpickAll(immediately: true);
+				RequestEmitter.Instance.Send<MarkAllTargetsAvailableRequest>();
 				e.Pick();
 				e.isClicked = false;
 			}
