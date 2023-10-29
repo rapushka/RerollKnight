@@ -11,6 +11,7 @@ namespace Code
 		public override void Enter()
 		{
 			_entitiesManipulator.UnpickAll(immediately: true);
+			SendRequest.MarkAllTargetsUnavailable();
 		}
 	}
 }

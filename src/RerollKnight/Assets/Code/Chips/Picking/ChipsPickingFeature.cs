@@ -8,6 +8,8 @@ namespace Code
 			Add<UnpickChipSystem>();
 			Add<RepickChipSystem>();
 			Add<PickChipSystem>();
+
+			Add<UnpickAllOnRequestSystem>();
 		}
 	}
 }

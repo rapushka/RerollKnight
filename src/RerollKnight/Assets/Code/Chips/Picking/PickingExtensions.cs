@@ -9,13 +9,9 @@ namespace Code
 		private static void SetPicking(this GameEntity @this, bool value)
 		{
 			if (@this.isChip)
-			{
 				@this.isPickedChip = value;
-			}
 			else
-			{
 				@this.isPickedTarget = value;
-			}
 		}
 	}
 }

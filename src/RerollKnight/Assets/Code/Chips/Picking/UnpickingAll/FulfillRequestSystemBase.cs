@@ -16,10 +16,10 @@ namespace Code
 
 		public void Execute()
 		{
-			if (_requests.Any())
-				OnRequest();
+			foreach (var request in _requests)
+				OnRequest(request);
 		}
 
-		protected abstract void OnRequest();
+		protected abstract void OnRequest(RequestEntity request);
 	}
 }
