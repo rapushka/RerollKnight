@@ -22,12 +22,14 @@ namespace Code
 			// Game Logic
 			Add<MarkEmptyCellsSystem>();
 			Add<ChipsFeature>();
+			Add<AvailabilityFeature>();
 
 			// Visuals
 			Add<HoverPickedChipSystem>();
 			Add<UnhoverUnpickedChipSystem>();
 			Add<MoveToDestinationSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
+			Add<OutlineAvailableTargetsSystem>();
 
 			// Cleanups
 			Add<EndTurnSystem>();
