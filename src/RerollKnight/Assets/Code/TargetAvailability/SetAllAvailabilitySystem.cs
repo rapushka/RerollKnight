@@ -17,8 +17,6 @@ namespace Code
 
 		protected override void OnRequest(RequestEntity request)
 		{
-			Debug.Log($"request.setAllTargetsAvailability.Value = {request.setAllTargetsAvailability.Value}");
-
 			foreach (var e in _targets)
 				e.isAvailableToPick = request.setAllTargetsAvailability.Value;
 		}
