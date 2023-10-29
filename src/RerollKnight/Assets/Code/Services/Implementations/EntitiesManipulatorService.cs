@@ -39,7 +39,7 @@ namespace Code
 		{
 			if (!immediately)
 			{
-				SendRequest.UnpickTargets();
+				RequestEmitter.Instance.Send<UnpickTargetsRequest>();
 				return;
 			}
 
