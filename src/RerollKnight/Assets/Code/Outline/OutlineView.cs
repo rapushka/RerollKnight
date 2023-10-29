@@ -3,20 +3,26 @@ using UnityEngine;
 
 namespace Code
 {
-	public class OutlineView : BaseView, IOutlineListener
+	public class OutlineView : BaseView, IEnableOutlineListener, ITargetStateListener
 	{
 		[SerializeField] private Outline _outline;
 
-		public void OnOutline(GameEntity entity, OutlineParams value)
+		public void OnEnableOutline(GameEntity entity) => UpdateValue(entity);
+
+		public void OnTargetState(GameEntity entity, TargetState value) => UpdateValue(entity);
+
+		protected override void AddListener(GameEntity entity)
 		{
-			_outline.color = (int)value.OutlineType;
-			_outline.enabled = value.Enabled;
+			entity.AddEnableOutlineListener(this);
+			entity.AddTargetStateListener(this);
 		}
 
-		protected override void AddListener(GameEntity entity) => entity.AddOutlineListener(this);
+		protected override bool HasComponent(GameEntity entity) => entity.EnableOutline && entity.hasTargetState;
 
-		protected override bool HasComponent(GameEntity entity) => entity.hasOutline;
-
-		protected override void UpdateValue(GameEntity entity) => OnOutline(entity, entity.outline.Value);
+		protected override void UpdateValue(GameEntity entity)
+		{
+			_outline.enabled = entity.EnableOutline;
+			_outline.color = (int)entity.targetState.Value;
+		}
 	}
 }

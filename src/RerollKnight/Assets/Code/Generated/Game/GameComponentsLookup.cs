@@ -17,18 +17,20 @@ public static class GameComponentsLookup {
     public const int DebugName = 6;
     public const int DestinationPosition = 7;
     public const int Empty = 8;
-    public const int InitialPosition = 9;
-    public const int MovingSpeed = 10;
-    public const int Outline = 11;
+    public const int EnableOutline = 9;
+    public const int InitialPosition = 10;
+    public const int MovingSpeed = 11;
     public const int PickedChip = 12;
     public const int PickedTarget = 13;
     public const int Player = 14;
     public const int Position = 15;
     public const int Target = 16;
-    public const int OutlineListener = 17;
-    public const int PositionListener = 18;
+    public const int TargetState = 17;
+    public const int EnableOutlineListener = 18;
+    public const int PositionListener = 19;
+    public const int TargetStateListener = 20;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 21;
 
     public static readonly string[] componentNames = {
         "AvailableToPick",
@@ -40,16 +42,18 @@ public static class GameComponentsLookup {
         "DebugName",
         "DestinationPosition",
         "Empty",
+        "EnableOutline",
         "InitialPosition",
         "MovingSpeed",
-        "Outline",
         "PickedChip",
         "PickedTarget",
         "Player",
         "Position",
         "Target",
-        "OutlineListener",
-        "PositionListener"
+        "TargetState",
+        "EnableOutlineListener",
+        "PositionListener",
+        "TargetStateListener"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -62,15 +66,17 @@ public static class GameComponentsLookup {
         typeof(Code.DebugNameComponent),
         typeof(Code.DestinationPositionComponent),
         typeof(Code.EmptyComponent),
+        typeof(Code.EnableOutlineComponent),
         typeof(Code.InitialPositionComponent),
         typeof(Code.MovingSpeedComponent),
-        typeof(Code.OutlineComponent),
         typeof(Code.PickedChipComponent),
         typeof(Code.PickedTargetComponent),
         typeof(Code.PlayerComponent),
         typeof(Code.PositionComponent),
         typeof(Code.TargetComponent),
-        typeof(OutlineListenerComponent),
-        typeof(PositionListenerComponent)
+        typeof(Code.TargetStateComponent),
+        typeof(EnableOutlineListenerComponent),
+        typeof(PositionListenerComponent),
+        typeof(TargetStateListenerComponent)
     };
 }

@@ -1,6 +1,5 @@
 using Entitas;
 using Zenject;
-using static Code.OutlineParams;
 
 namespace Code
 {
@@ -15,7 +14,10 @@ namespace Code
 		public void Execute()
 		{
 			foreach (var e in _targets)
-				e.ReplaceOutline(new OutlineParams(Type.Available, e.isAvailableToPick));
+			{
+				e.EnableOutline = e.isAvailableToPick;
+				e.ReplaceTargetState(TargetState.Available);
+			}
 		}
 	}
 }

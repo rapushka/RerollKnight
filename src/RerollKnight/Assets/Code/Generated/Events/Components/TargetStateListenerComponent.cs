@@ -7,6 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 [Entitas.CodeGeneration.Attributes.DontGenerate(false)]
-public sealed class OutlineListenerComponent : Entitas.IComponent {
-    public System.Collections.Generic.List<IOutlineListener> value;
+public sealed class TargetStateListenerComponent : Entitas.IComponent {
+    public System.Collections.Generic.List<ITargetStateListener> value;
 }

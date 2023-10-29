@@ -6,6 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public interface IOutlineListener {
-    void OnOutline(GameEntity entity, Code.OutlineParams value);
+public interface IEnableOutlineListener {
+    void OnEnableOutline(GameEntity entity);
 }

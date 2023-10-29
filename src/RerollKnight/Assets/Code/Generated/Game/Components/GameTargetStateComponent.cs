@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.OutlineComponent outline { get { return (Code.OutlineComponent)GetComponent(GameComponentsLookup.Outline); } }
-    public bool hasOutline { get { return HasComponent(GameComponentsLookup.Outline); } }
+    public Code.TargetStateComponent targetState { get { return (Code.TargetStateComponent)GetComponent(GameComponentsLookup.TargetState); } }
+    public bool hasTargetState { get { return HasComponent(GameComponentsLookup.TargetState); } }
 
-    public void AddOutline(Code.OutlineParams newValue) {
-        var index = GameComponentsLookup.Outline;
-        var component = (Code.OutlineComponent)CreateComponent(index, typeof(Code.OutlineComponent));
+    public void AddTargetState(Code.TargetState newValue) {
+        var index = GameComponentsLookup.TargetState;
+        var component = (Code.TargetStateComponent)CreateComponent(index, typeof(Code.TargetStateComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceOutline(Code.OutlineParams newValue) {
-        var index = GameComponentsLookup.Outline;
-        var component = (Code.OutlineComponent)CreateComponent(index, typeof(Code.OutlineComponent));
+    public void ReplaceTargetState(Code.TargetState newValue) {
+        var index = GameComponentsLookup.TargetState;
+        var component = (Code.TargetStateComponent)CreateComponent(index, typeof(Code.TargetStateComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveOutline() {
-        RemoveComponent(GameComponentsLookup.Outline);
+    public void RemoveTargetState() {
+        RemoveComponent(GameComponentsLookup.TargetState);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherOutline;
+    static Entitas.IMatcher<GameEntity> _matcherTargetState;
 
-    public static Entitas.IMatcher<GameEntity> Outline {
+    public static Entitas.IMatcher<GameEntity> TargetState {
         get {
-            if (_matcherOutline == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Outline);
+            if (_matcherTargetState == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.TargetState);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherOutline = matcher;
+                _matcherTargetState = matcher;
             }
 
-            return _matcherOutline;
+            return _matcherTargetState;
         }
     }
 }

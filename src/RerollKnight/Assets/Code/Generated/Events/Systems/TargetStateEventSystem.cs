@@ -6,31 +6,31 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class OutlineEventSystem : Entitas.ReactiveSystem<GameEntity> {
+public sealed class TargetStateEventSystem : Entitas.ReactiveSystem<GameEntity> {
 
-    readonly System.Collections.Generic.List<IOutlineListener> _listenerBuffer;
+    readonly System.Collections.Generic.List<ITargetStateListener> _listenerBuffer;
 
-    public OutlineEventSystem(Contexts contexts) : base(contexts.game) {
-        _listenerBuffer = new System.Collections.Generic.List<IOutlineListener>();
+    public TargetStateEventSystem(Contexts contexts) : base(contexts.game) {
+        _listenerBuffer = new System.Collections.Generic.List<ITargetStateListener>();
     }
 
     protected override Entitas.ICollector<GameEntity> GetTrigger(Entitas.IContext<GameEntity> context) {
         return Entitas.CollectorContextExtension.CreateCollector(
-            context, Entitas.TriggerOnEventMatcherExtension.Added(GameMatcher.Outline)
+            context, Entitas.TriggerOnEventMatcherExtension.Added(GameMatcher.TargetState)
         );
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.hasOutline && entity.hasOutlineListener;
+        return entity.hasTargetState && entity.hasTargetStateListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
-            var component = e.outline;
+            var component = e.targetState;
             _listenerBuffer.Clear();
-            _listenerBuffer.AddRange(e.outlineListener.value);
+            _listenerBuffer.AddRange(e.targetStateListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnOutline(e, component.Value);
+                listener.OnTargetState(e, component.Value);
             }
         }
     }
