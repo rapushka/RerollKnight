@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class RequestEntity {
 
-    public Code.SetAllTargetsAvailability setAllTargetsAvailability { get { return (Code.SetAllTargetsAvailability)GetComponent(RequestComponentsLookup.SetAllTargetsAvailability); } }
+    public Code.SetAllTargetsAvailabilityComponent setAllTargetsAvailability { get { return (Code.SetAllTargetsAvailabilityComponent)GetComponent(RequestComponentsLookup.SetAllTargetsAvailability); } }
     public bool hasSetAllTargetsAvailability { get { return HasComponent(RequestComponentsLookup.SetAllTargetsAvailability); } }
 
     public void AddSetAllTargetsAvailability(bool newValue) {
         var index = RequestComponentsLookup.SetAllTargetsAvailability;
-        var component = (Code.SetAllTargetsAvailability)CreateComponent(index, typeof(Code.SetAllTargetsAvailability));
+        var component = (Code.SetAllTargetsAvailabilityComponent)CreateComponent(index, typeof(Code.SetAllTargetsAvailabilityComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceSetAllTargetsAvailability(bool newValue) {
         var index = RequestComponentsLookup.SetAllTargetsAvailability;
-        var component = (Code.SetAllTargetsAvailability)CreateComponent(index, typeof(Code.SetAllTargetsAvailability));
+        var component = (Code.SetAllTargetsAvailabilityComponent)CreateComponent(index, typeof(Code.SetAllTargetsAvailabilityComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

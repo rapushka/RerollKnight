@@ -11,7 +11,7 @@ namespace Code
 
 		protected override IMatcher<RequestEntity> Request => RequestMatcher.UnpickAllTargets;
 
-		protected override void OnRequest()
+		protected override void OnRequest(RequestEntity request)
 		{
 			foreach (var e in _targets.GetEntities())
 				e.Unpick();

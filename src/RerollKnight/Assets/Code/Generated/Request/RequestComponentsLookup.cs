@@ -27,7 +27,7 @@ public static class RequestComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(Code.CastAbilityComponent),
         typeof(Code.CoordinatesRequestComponent),
-        typeof(Code.SetAllTargetsAvailability),
+        typeof(Code.SetAllTargetsAvailabilityComponent),
         typeof(Code.SpawnPlayerComponent),
         typeof(Code.UnpickAllTargetsComponent)
     };

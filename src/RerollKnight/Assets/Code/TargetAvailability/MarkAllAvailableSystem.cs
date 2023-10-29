@@ -12,12 +12,12 @@ namespace Code
 		public MarkAllAvailableSystem(Contexts contexts) : base(contexts)
 			=> _targets = contexts.game.GetGroup(GameMatcher.Target);
 
-		protected override IMatcher<RequestEntity> Request => MarkAllTargetsAvailable;
+		protected override IMatcher<RequestEntity> Request => SetAllTargetsAvailability;
 
-		protected override void OnRequest()
+		protected override void OnRequest(RequestEntity request)
 		{
 			foreach (var e in _targets)
-				e.isAvailableToPick = true;
+				e.isAvailableToPick = request.setAllTargetsAvailability.Value;
 		}
 	}
 }

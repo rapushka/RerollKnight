@@ -8,7 +8,8 @@ namespace Code
 
 		public static void CastAbility() => NewEntity.isCastAbility = true;
 
-		public static void MarkAllTargetsAvailable() => NewEntity.isMarkAllTargetsAvailable = true;
+		public static void MarkAllTargetsAvailable() => NewEntity.ReplaceSetAllTargetsAvailability(true);
+		public static void MarkAllTargetsUnavailable() => NewEntity.ReplaceSetAllTargetsAvailability(false);
 
 		private static RequestEntity NewEntity => Context.CreateEntity();
 	}

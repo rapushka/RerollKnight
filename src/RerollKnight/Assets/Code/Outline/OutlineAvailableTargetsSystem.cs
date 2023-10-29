@@ -1,21 +1,20 @@
-using System.Collections.Generic;
 using Entitas;
+using Zenject;
 using static Code.OutlineParams;
 
 namespace Code
 {
-	public sealed class OutlineAvailableTargetsSystem : ReactiveSystem<GameEntity>
+	public sealed class OutlineAvailableTargetsSystem : IExecuteSystem
 	{
-		public OutlineAvailableTargetsSystem(Contexts contexts) : base(contexts.game) { }
+		private readonly IGroup<GameEntity> _targets;
 
-		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(GameMatcher.AvailableToPick);
+		[Inject]
+		public OutlineAvailableTargetsSystem(Contexts contexts)
+			=> _targets = contexts.game.GetGroup(GameMatcher.Target);
 
-		protected override bool Filter(GameEntity entity) => true;
-
-		protected override void Execute(List<GameEntity> entites)
+		public void Execute()
 		{
-			foreach (var e in entites)
+			foreach (var e in _targets)
 				e.ReplaceOutline(new OutlineParams(Type.Available, e.isAvailableToPick));
 		}
 	}
