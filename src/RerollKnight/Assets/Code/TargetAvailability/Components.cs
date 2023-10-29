@@ -1,6 +1,8 @@
 using Entitas;
+using Entitas.CodeGeneration.Attributes;
+using static Entitas.CodeGeneration.Attributes.CleanupMode;
 
 namespace Code
 {
-	[Request] public sealed class MarkAllTargetsAvailableComponent : IComponent { }
+	[Request] [Cleanup(DestroyEntity)] public sealed class MarkAllTargetsAvailableComponent : IComponent { }
 }
