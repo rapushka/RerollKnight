@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Code
 {
 	public static class SendRequest
@@ -8,8 +10,10 @@ namespace Code
 
 		public static void CastAbility() => NewEntity.isCastAbility = true;
 
-		public static void MarkAllTargetsAvailable() => NewEntity.ReplaceSetAllTargetsAvailability(true);
-		public static void MarkAllTargetsUnavailable() => NewEntity.ReplaceSetAllTargetsAvailability(false);
+		public static void MarkAllTargetsAvailable()   => SetAvailability(true);
+		public static void MarkAllTargetsUnavailable() => SetAvailability(false);
+
+		private static void SetAvailability(bool value) => NewEntity.ReplaceSetAllTargetsAvailability(value);
 
 		private static RequestEntity NewEntity => Context.CreateEntity();
 	}
