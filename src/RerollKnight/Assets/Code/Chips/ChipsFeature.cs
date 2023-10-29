@@ -6,10 +6,6 @@ namespace Code
 			: base(nameof(ChipsFeature), factory)
 		{
 			Add<ChipsPickingFeature>();
-
-			Add<UnpickAllOnRequestSystem>();
-
-			// Add<AvailabilityFeature>();
 			Add<TargetPickingFeature>();
 
 			Add<AbilitiesFeature>();
