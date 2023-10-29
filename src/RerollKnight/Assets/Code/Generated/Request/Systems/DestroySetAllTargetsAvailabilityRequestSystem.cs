@@ -9,13 +9,13 @@
 using System.Collections.Generic;
 using Entitas;
 
-public sealed class DestroyMarkAllTargetsAvailableRequestSystem : ICleanupSystem {
+public sealed class DestroySetAllTargetsAvailabilityRequestSystem : ICleanupSystem {
 
     readonly IGroup<RequestEntity> _group;
     readonly List<RequestEntity> _buffer = new List<RequestEntity>();
 
-    public DestroyMarkAllTargetsAvailableRequestSystem(Contexts contexts) {
-        _group = contexts.request.GetGroup(RequestMatcher.MarkAllTargetsAvailable);
+    public DestroySetAllTargetsAvailabilityRequestSystem(Contexts contexts) {
+        _group = contexts.request.GetGroup(RequestMatcher.SetAllTargetsAvailability);
     }
 
     public void Cleanup() {

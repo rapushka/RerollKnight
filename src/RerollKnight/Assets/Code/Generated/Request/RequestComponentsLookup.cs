@@ -10,7 +10,7 @@ public static class RequestComponentsLookup {
 
     public const int CastAbility = 0;
     public const int CoordinatesRequest = 1;
-    public const int MarkAllTargetsAvailable = 2;
+    public const int SetAllTargetsAvailability = 2;
     public const int SpawnPlayer = 3;
     public const int UnpickAllTargets = 4;
 
@@ -19,7 +19,7 @@ public static class RequestComponentsLookup {
     public static readonly string[] componentNames = {
         "CastAbility",
         "CoordinatesRequest",
-        "MarkAllTargetsAvailable",
+        "SetAllTargetsAvailability",
         "SpawnPlayer",
         "UnpickAllTargets"
     };
@@ -27,7 +27,7 @@ public static class RequestComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(Code.CastAbilityComponent),
         typeof(Code.CoordinatesRequestComponent),
-        typeof(Code.MarkAllTargetsAvailableComponent),
+        typeof(Code.SetAllTargetsAvailability),
         typeof(Code.SpawnPlayerComponent),
         typeof(Code.UnpickAllTargetsComponent)
     };
