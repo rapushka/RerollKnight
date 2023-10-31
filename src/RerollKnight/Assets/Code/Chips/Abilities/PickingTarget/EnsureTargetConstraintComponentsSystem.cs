@@ -26,7 +26,7 @@ namespace Code
 			foreach (var ability in _abilities.WhereStateIs(AbilityState.Prepared))
 			foreach (var target in _targets.GetEntities())
 			{
-				if (ability.targetConstraints.Value.Any((c) => !target.HasComponent(c.Value)))
+				if (ability.targetConstraints.Value.Any((c) => !target.HasComponent(c.Index)))
 				{
 					target.Unpick();
 					break;

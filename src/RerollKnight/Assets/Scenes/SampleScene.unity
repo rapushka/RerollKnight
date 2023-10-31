@@ -532,8 +532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value:
-  - Value: 1
-  - Value: 8
+  - _name: Cell
+  - _name: Empty
 --- !u!1 &1215878679
 GameObject:
   m_ObjectHideFlags: 0
