@@ -1,12 +1,23 @@
 using System;
+using UnityEngine;
 
 namespace Code
 {
 	[Serializable]
 	public class GameComponentID
 	{
-		public int Value;
+		[SerializeField] private string _name;
 
-		public string Name => GameComponentsLookup.componentNames[Value];
+		private int? _cashedIndex;
+
+		public int Index => _cashedIndex ??= GetIndex();
+
+		private int GetIndex()
+		{
+			var indexOf = GameComponentsLookup.componentNames.IndexOf(_name);
+			Debug.Assert(indexOf != -1, $"the component {_name} is lost");
+
+			return indexOf;
+		}
 	}
 }

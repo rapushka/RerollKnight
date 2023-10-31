@@ -9,12 +9,15 @@ namespace Code.Editor
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
 			EditorGUI.BeginProperty(position, label, property);
+			var names = GameComponentsLookup.componentNames;
 
-			var valueProperty = property.FindPropertyRelative(nameof(GameComponentID.Value));
-			var selectedIndex = valueProperty.intValue;
+			var nameProperty = property.FindPropertyRelative("_name");
+			var selectedName = nameProperty.stringValue;
 
-			selectedIndex = EditorGUI.Popup(position, selectedIndex, GameComponentsLookup.componentNames);
-			valueProperty.intValue = selectedIndex;
+			var selectedIndex = names.IndexOf(selectedName, clamped: true);
+			selectedIndex = EditorGUI.Popup(position, label.text, selectedIndex, names);
+
+			nameProperty.stringValue = names[selectedIndex];
 
 			EditorGUI.EndProperty();
 		}
