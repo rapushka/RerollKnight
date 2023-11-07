@@ -1,3 +1,4 @@
+using Entitas.Generic;
 using UnityEngine;
 
 namespace Code
@@ -7,8 +8,8 @@ namespace Code
 		T Instantiate<T>(T original) where T : Object;
 		T Instantiate<T>(T original, Vector3 position) where T : Object;
 
-		T SpawnBehaviour<T>(T original) where T : EntityBehaviourBase;
-		T SpawnBehaviour<T>(T original, Vector3 position) where T : EntityBehaviourBase;
+		T SpawnBehaviour<T>(T original) where T : EntityBehaviour;
+		T SpawnBehaviour<T>(T original, Vector3 position) where T : EntityBehaviour;
 	}
 
 	public class AssetsService : IAssetsService
@@ -19,18 +20,18 @@ namespace Code
 			=> Object.Instantiate(original, position, Quaternion.identity);
 
 		public T SpawnBehaviour<T>(T original)
-			where T : EntityBehaviourBase
+			where T : EntityBehaviour
 		{
 			var behaviour = Instantiate(original);
-			behaviour.Register();
+			behaviour.Register(Contexts.Instance);
 			return behaviour;
 		}
 
 		public T SpawnBehaviour<T>(T original, Vector3 position)
-			where T : EntityBehaviourBase
+			where T : EntityBehaviour
 		{
 			var behaviour = Instantiate(original, position);
-			behaviour.Register();
+			behaviour.Register(Contexts.Instance);
 			return behaviour;
 		}
 	}

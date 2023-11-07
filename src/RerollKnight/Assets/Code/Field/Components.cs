@@ -1,15 +1,12 @@
-using Code.CodeGeneration.Attributes;
-using Entitas;
-using Entitas.CodeGeneration.Attributes;
-using static Entitas.CodeGeneration.Attributes.CleanupMode;
+using Entitas.Generic;
 
 namespace Code
 {
-	[Game] [Behaviour] public sealed class CellComponent : IComponent { }
+	[GameScope] public sealed class Cell : FlagComponent { }
 
-	[Game] public sealed class EmptyComponent : IComponent { }
+	[GameScope] public sealed class Empty : FlagComponent { }
 
-	[Game] public sealed class PickedTargetComponent : IComponent { }
+	[GameScope] public sealed class PickedTarget : FlagComponent { }
 
-	[Request] [Cleanup(DestroyEntity)] public sealed class UnpickAllTargetsComponent : IComponent { }
+	[RequestScope] public sealed class UnpickAllTargets : FlagComponent, ICleanup<DestroyEntity> { }
 }

@@ -1,23 +1,24 @@
 using System.Collections.Generic;
 using Entitas;
-using static GameMatcher;
+using Entitas.Generic;
+using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class PickChipSystem : ReactiveSystem<GameEntity>
+	public sealed class PickChipSystem : ReactiveSystem<Entity<GameScope>>
 	{
-		private GameStateMachine _gameStateMachine;
+		private readonly GameStateMachine _gameStateMachine;
 
 		public PickChipSystem(Contexts contexts, GameStateMachine gameStateMachine)
-			: base(contexts.game)
+			: base(contexts.Get<GameScope>())
 			=> _gameStateMachine = gameStateMachine;
 
-		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Clicked, Chip));
+		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
+			=> context.CreateCollector(AllOf(Get<Clicked>(), Get<Chip>()));
 
-		protected override bool Filter(GameEntity entity) => entity.isClicked;
+		protected override bool Filter(Entity<GameScope> entity) => entity.Is<Clicked>();
 
-		protected override void Execute(List<GameEntity> entities)
+		protected override void Execute(List<Entity<GameScope>> entities)
 		{
 			foreach (var e in entities)
 			{

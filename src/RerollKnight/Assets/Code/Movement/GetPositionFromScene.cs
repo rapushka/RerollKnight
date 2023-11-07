@@ -1,13 +1,13 @@
+using Entitas.Generic;
 using UnityEngine;
 
 namespace Code
 {
-	public class GetPositionFromScene : GameComponentBehaviourBase
+	public class GetPositionFromScene : ComponentBehaviourBase<GameScope>
 	{
 		[SerializeField] private Transform _transform;
 
-		public override void AddToEntity(ref GameEntity entity) => entity.AddPosition(_transform.position);
-
-		public override void RemoveFromEntity(ref GameEntity entity) => entity.RemovePosition();
+		public override void Add(ref Entity<GameScope> entity)
+			=> entity.Add<Position, Vector3>(_transform.position);
 	}
 }

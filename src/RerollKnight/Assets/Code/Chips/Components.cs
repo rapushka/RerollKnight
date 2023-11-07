@@ -1,18 +1,15 @@
 using System.Collections.Generic;
-using Code.CodeGeneration.Attributes;
-using Entitas;
-using Entitas.CodeGeneration.Attributes;
-using static Entitas.CodeGeneration.Attributes.CleanupMode;
+using Entitas.Generic;
 
 namespace Code
 {
-	[Game] [Behaviour] public sealed class ChipComponent : IComponent { }
+	[GameScope] public sealed class Chip : FlagComponent { }
 
-	[Game] [Cleanup(RemoveComponent)] public sealed class ClickedComponent : IComponent { }
+	[GameScope] public sealed class Clicked : FlagComponent, ICleanup<RemoveComponent> { }
 
-	[Game] [Unique] public sealed class PickedChipComponent : IComponent { }
+	[GameScope] public sealed class PickedChip : FlagComponent, IUnique { }
 
-	[Request] [Cleanup(DestroyEntity)] public sealed class CastAbilityComponent : IComponent { }
+	[RequestScope] public sealed class CastAbility : FlagComponent, ICleanup<DestroyEntity> { }
 
-	[Chips] [Behaviour] public sealed class TargetConstraintsComponent : IComponent { public List<GameComponentID> Value; }
+	[ChipsScope] public sealed class TargetConstraints : ValueComponent<List<GameComponentID>> { }
 }

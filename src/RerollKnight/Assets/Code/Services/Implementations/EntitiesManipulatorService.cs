@@ -1,4 +1,5 @@
 using Entitas;
+using Entitas.Generic;
 using UnityEngine;
 
 namespace Code
@@ -18,18 +19,18 @@ namespace Code
 
 	public class EntitiesManipulatorService : IEntitiesManipulatorService
 	{
-		private readonly IGroup<GameEntity> _targets;
+		private readonly IGroup<Entity<GameScope>> _targets;
 		private readonly Contexts _contexts;
 
 		public EntitiesManipulatorService(Contexts contexts)
 		{
 			_contexts = contexts;
-			_targets = _contexts.game.GetGroup(GameMatcher.PickedTarget);
+			_targets = _contexts.GetGroup(ScopeMatcher<GameScope>.Get<PickedTarget>());
 		}
 
 		public void UnpickChip(bool immediately = false)
 		{
-			_contexts.game.pickedChipEntity?.Unpick();
+			_contexts.Get<GameScope>().Unique.GetEntity<PickedChip>().Unpick();
 
 			if (!immediately)
 				Debug.LogWarning("Chip was unpicked immediately, cuz there's no request for it");

@@ -1,7 +1,6 @@
-using Code.CodeGeneration.Attributes;
-using Entitas;
+using Entitas.Generic;
 
 namespace Code
 {
-	[Game] [Behaviour] public sealed class DebugNameComponent : IComponent { public string Value; }
+	[GameScope] public sealed class DebugName : ValueComponent<string> { }
 }

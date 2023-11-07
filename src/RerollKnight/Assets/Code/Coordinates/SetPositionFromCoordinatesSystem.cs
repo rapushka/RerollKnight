@@ -1,19 +1,21 @@
 using Entitas;
+using Entitas.Generic;
+using UnityEngine;
 using Zenject;
-using static GameMatcher;
+using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
 	public sealed class SetPositionFromCoordinatesSystem : IExecuteSystem
 	{
 		private readonly ILayoutService _layout;
-		private readonly IGroup<GameEntity> _entities;
+		private readonly IGroup<Entity<GameScope>> _entities;
 
 		[Inject]
 		public SetPositionFromCoordinatesSystem(Contexts contexts, ILayoutService layout)
 		{
 			_layout = layout;
-			_entities = contexts.game.GetGroup(AnyOf(GameMatcher.Coordinates, CoordinatesUnderField));
+			_entities = contexts.GetGroup(AnyOf(Get<CoordinatesComponent>(), Get<CoordinatesUnderField>()));
 		}
 
 		public void Execute()
@@ -22,10 +24,10 @@ namespace Code
 			{
 				var position = e.GetCoordinates().ToTopDown();
 
-				if (e.hasCoordinates)
+				if (e.Has<CoordinatesComponent>())
 					position += _layout.OverFieldOffset;
 
-				e.ReplacePosition(position);
+				e.Replace<Position, Vector3>(position);
 			}
 		}
 	}

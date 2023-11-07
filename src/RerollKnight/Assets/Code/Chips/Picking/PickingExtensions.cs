@@ -1,17 +1,19 @@
+using Entitas.Generic;
+
 namespace Code
 {
 	public static class PickingExtensions
 	{
-		public static void Pick(this GameEntity @this) => @this.SetPicking(true);
+		public static void Pick(this Entity<GameScope> @this) => @this.SetPicking(true);
 
-		public static void Unpick(this GameEntity @this) => @this.SetPicking(false);
+		public static void Unpick(this Entity<GameScope> @this) => @this.SetPicking(false);
 
-		private static void SetPicking(this GameEntity @this, bool value)
+		private static void SetPicking(this Entity<GameScope> @this, bool value)
 		{
-			if (@this.isChip)
-				@this.isPickedChip = value;
+			if (@this.Is<Chip>())
+				@this.Is<PickedChip>(value);
 			else
-				@this.isPickedTarget = value;
+				@this.Is<PickedTarget>(value);
 		}
 	}
 }

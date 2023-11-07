@@ -1,4 +1,5 @@
 using Entitas;
+using Entitas.Generic;
 using Zenject;
 
 namespace Code
@@ -17,15 +18,15 @@ namespace Code
 			_layout = layout;
 		}
 
-		private GameEntityBehaviour CellPrefab => _resources.CellPrefab;
+		private EntityBehaviour<GameScope> CellPrefab => _resources.CellPrefab;
 
 		public void Initialize()
 		{
 			for (var x = 0; x < _layout.FieldSizes.Column; x++)
 			for (var y = 0; y < _layout.FieldSizes.Row; y++)
 			{
-				var cell = _assets.SpawnBehaviour(CellPrefab);
-				cell.Entity.AddCoordinatesUnderField(new Coordinates(x, y));
+				var cellBehaviour = _assets.SpawnBehaviour(CellPrefab);
+				cellBehaviour.Entity.Add<CoordinatesUnderField, Coordinates>(new Coordinates(x, y));
 			}
 		}
 	}

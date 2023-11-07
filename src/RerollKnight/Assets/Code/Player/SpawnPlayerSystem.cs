@@ -1,28 +1,31 @@
 using System.Collections.Generic;
 using Entitas;
-using static RequestMatcher;
+using Entitas.Generic;
+using Zenject;
+using static Entitas.Generic.ScopeMatcher<Code.RequestScope>;
 
 namespace Code
 {
-	public sealed class SpawnPlayerSystem : ReactiveSystem<RequestEntity>
+	public sealed class SpawnPlayerSystem : ReactiveSystem<Entity<RequestScope>>
 	{
 		private readonly ServicesMediator _servicesMediator;
 
+		[Inject]
 		public SpawnPlayerSystem(Contexts contexts, ServicesMediator servicesMediator)
-			: base(contexts.request)
+			: base(contexts.Get<RequestScope>())
 			=> _servicesMediator = servicesMediator;
 
-		protected override ICollector<RequestEntity> GetTrigger(IContext<RequestEntity> context)
-			=> context.CreateCollector(AllOf(SpawnPlayer, CoordinatesRequest));
+		protected override ICollector<Entity<RequestScope>> GetTrigger(IContext<Entity<RequestScope>> context)
+			=> context.CreateCollector(AllOf(Get<SpawnPlayer>(), Get<CoordinatesRequest>()));
 
-		protected override bool Filter(RequestEntity entity) => true;
+		protected override bool Filter(Entity<RequestScope> entity) => true;
 
-		protected override void Execute(List<RequestEntity> entites)
+		protected override void Execute(List<Entity<RequestScope>> entites)
 		{
 			foreach (var e in entites)
 			{
-				var playerBehaviour = _servicesMediator.SpawnPlayer();
-				playerBehaviour.Entity.ReplaceCoordinates(e.coordinatesRequest.Value);
+				var player = _servicesMediator.SpawnPlayer().Entity;
+				player.Replace<CoordinatesComponent, Coordinates>(e.Get<CoordinatesRequest>().Value);
 			}
 		}
 	}

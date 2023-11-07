@@ -1,25 +1,26 @@
 using Entitas;
+using Entitas.Generic;
 using Zenject;
-using static ChipsMatcher;
-using static GameMatcher;
+using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
+using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
 	public sealed class CastTeleportSystem : IExecuteSystem
 	{
 		private readonly GameStateMachine _gameStateMachine;
-		private readonly IGroup<GameEntity> _players;
-		private readonly IGroup<GameEntity> _targets;
-		private readonly IGroup<ChipsEntity> _abilities;
+		private readonly IGroup<Entity<GameScope>> _players;
+		private readonly IGroup<Entity<GameScope>> _targets;
+		private readonly IGroup<Entity<ChipsScope>> _abilities;
 
 		[Inject]
 		public CastTeleportSystem(Contexts contexts, GameStateMachine gameStateMachine)
 		{
 			_gameStateMachine = gameStateMachine;
 
-			_players = contexts.game.GetGroup(Player);
-			_targets = contexts.game.GetGroup(PickedTarget);
-			_abilities = contexts.chips.GetGroup(AllOf(Teleport, State));
+			_players = contexts.GetGroup(GameMatcher.Get<Player>());
+			_targets = contexts.GetGroup(GameMatcher.Get<PickedTarget>());
+			_abilities = contexts.GetGroup(AllOf(Get<Teleport>(), Get<State>()));
 		}
 
 		public void Execute()
@@ -31,8 +32,8 @@ namespace Code
 			foreach (var player in _players)
 			foreach (var target in _targets)
 			{
-				player.ReplaceCoordinates(target.GetCoordinates());
-				ability.ReplaceState(AbilityState.Casted);
+				player.Replace<CoordinatesComponent, Coordinates>(target.GetCoordinates());
+				ability.Replace<State, AbilityState>(AbilityState.Casted);
 			}
 		}
 	}

@@ -1,6 +1,6 @@
-using Entitas;
+using Entitas.Generic;
 
 namespace Code
 {
-	[Chips] public sealed class StateComponent : IComponent { public AbilityState Value; }
+	[ChipsScope] public sealed class State : ValueComponent<AbilityState> { }
 }

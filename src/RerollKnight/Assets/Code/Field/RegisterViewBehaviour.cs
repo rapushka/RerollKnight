@@ -1,19 +1,14 @@
-using System;
+using Entitas.Generic;
 using UnityEngine;
 
 namespace Code
 {
-	public class RegisterViewBehaviour : GameComponentBehaviourBase
+	public class RegisterViewBehaviour : ComponentBehaviourBase<GameScope>
 	{
-		[SerializeField] private BaseView _view;
+		[SerializeField] private GameObject _view;
 
-		public override void AddToEntity(ref GameEntity entity) => _view.Register(entity);
-
-		public override void RemoveFromEntity(ref GameEntity entity)
-			=> throw new NotImplementedException
-			(
-				"if you real need to remove view from listener"
-				+ " – implement it in base view"
-			);
+		public override void Add(ref Entity<GameScope> entity)
+			// TODO: serialize field BaseListener<GameScope>
+			=> entity.Register(_view.GetComponent<IRegistrableListener<GameScope>>());
 	}
 }

@@ -1,15 +1,13 @@
-using Code.CodeGeneration.Attributes;
-using Entitas;
-using Entitas.CodeGeneration.Attributes;
-using static Entitas.CodeGeneration.Attributes.EventTarget;
+using Entitas.Generic;
+using UnityEngine;
 
 namespace Code
 {
-	[Game] [Behaviour] public sealed class InitialPositionComponent : IComponent { public UnityEngine.Vector3 Value; }
+	[GameScope] public sealed class InitialPosition : ValueComponent<Vector3> { }
 
-	[Game] public sealed class DestinationPositionComponent : IComponent { public UnityEngine.Vector3 Value; }
+	[GameScope] public sealed class DestinationPosition : ValueComponent<Vector3> { }
 
-	[Game] [Behaviour] public sealed class MovingSpeedComponent : IComponent { public float Value; }
+	[GameScope] public sealed class MovingSpeed : ValueComponent<float> { }
 
-	[Game] [Event(Self)] public sealed class PositionComponent : IComponent { public UnityEngine.Vector3 Value; }
+	[GameScope] public sealed class Position : ValueComponent<Vector3>, IEvent { }
 }

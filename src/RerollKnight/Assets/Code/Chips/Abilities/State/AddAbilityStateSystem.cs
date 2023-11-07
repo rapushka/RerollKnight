@@ -1,19 +1,20 @@
 using Entitas;
-using static ChipsMatcher;
+using Entitas.Generic;
+using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
 {
 	public sealed class AddAbilityStateSystem : IInitializeSystem
 	{
-		private readonly IGroup<ChipsEntity> _entities;
+		private readonly IGroup<Entity<ChipsScope>> _entities;
 
 		public AddAbilityStateSystem(Contexts contexts)
-			=> _entities = contexts.chips.GetGroup(AllOf(AbilityOfChip).NoneOf(State));
+			=> _entities = contexts.Get<ChipsScope>().GetGroup(AllOf(Get<AbilityOfChip>()).NoneOf(Get<State>()));
 
 		public void Initialize()
 		{
 			foreach (var e in _entities.GetEntities())
-				e.ReplaceState(AbilityState.Inactive);
+				e.Replace<State, AbilityState>(AbilityState.Inactive);
 		}
 	}
 }

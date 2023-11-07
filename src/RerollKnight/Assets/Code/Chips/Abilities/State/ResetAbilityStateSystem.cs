@@ -1,18 +1,20 @@
 using Entitas;
-using static ChipsMatcher;
+using Entitas.Generic;
+using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
 {
 	public sealed class ResetAbilityStateSystem : ICleanupSystem
 	{
-		private readonly IGroup<ChipsEntity> _entities;
+		private readonly IGroup<Entity<ChipsScope>> _entities;
 
-		public ResetAbilityStateSystem(Contexts contexts) => _entities = contexts.chips.GetGroup(State);
+		public ResetAbilityStateSystem(Contexts contexts)
+			=> _entities = contexts.Get<ChipsScope>().GetGroup(Get<State>());
 
 		public void Cleanup()
 		{
 			foreach (var e in _entities.WhereStateIs(AbilityState.Casted))
-				e.ReplaceState(AbilityState.Inactive);
+				e.Replace<State, AbilityState>(AbilityState.Inactive);
 		}
 	}
 }

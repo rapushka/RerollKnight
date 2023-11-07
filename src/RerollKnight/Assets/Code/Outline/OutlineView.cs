@@ -1,28 +1,33 @@
 using cakeslice;
+using Entitas.Generic;
 using UnityEngine;
 
 namespace Code
 {
-	public class OutlineView : BaseView, IEnableOutlineListener, ITargetStateListener
+	public class OutlineView
+		: MonoBehaviour,
+		  IRegistrableListener<GameScope, EnableOutline>,
+		  IRegistrableListener<GameScope, TargetStateComponent>
 	{
 		[SerializeField] private Outline _outline;
 
-		public void OnEnableOutline(GameEntity entity) => UpdateValue(entity);
-
-		public void OnTargetState(GameEntity entity, TargetState value) => UpdateValue(entity);
-
-		protected override void AddListener(GameEntity entity)
+		public void Register(Entity<GameScope> entity)
 		{
-			entity.AddEnableOutlineListener(this);
-			entity.AddTargetStateListener(this);
+			entity.AddListener<EnableOutline>(this);
+			entity.AddListener<TargetStateComponent>(this);
+
+			if (entity.Has<EnableOutline>() && entity.Has<TargetStateComponent>())
+				UpdateValue(entity);
 		}
 
-		protected override bool HasComponent(GameEntity entity) => entity.EnableOutline && entity.hasTargetState;
+		public void OnValueChanged(Entity<GameScope> entity, EnableOutline component) => UpdateValue(entity);
 
-		protected override void UpdateValue(GameEntity entity)
+		public void OnValueChanged(Entity<GameScope> entity, TargetStateComponent component) => UpdateValue(entity);
+
+		private void UpdateValue(Entity<GameScope> entity)
 		{
-			_outline.enabled = entity.EnableOutline;
-			_outline.color = (int)entity.targetState.Value;
+			_outline.enabled = entity.Is<EnableOutline>();
+			_outline.color = (int)entity.Get<TargetStateComponent>().Value;
 		}
 	}
 }

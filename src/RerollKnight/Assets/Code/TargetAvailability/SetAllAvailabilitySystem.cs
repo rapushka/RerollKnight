@@ -1,23 +1,24 @@
 using Entitas;
+using Entitas.Generic;
 using Zenject;
-using static RequestMatcher;
 
 namespace Code
 {
 	public sealed class SetAllAvailabilitySystem : FulfillRequestSystemBase
 	{
-		private readonly IGroup<GameEntity> _targets;
+		private readonly IGroup<Entity<GameScope>> _targets;
 
 		[Inject]
 		public SetAllAvailabilitySystem(Contexts contexts) : base(contexts)
-			=> _targets = contexts.game.GetGroup(GameMatcher.Target);
+			=> _targets = contexts.GetGroup(ScopeMatcher<GameScope>.Get<Target>());
 
-		protected override IMatcher<RequestEntity> Request => SetAllTargetsAvailability;
+		protected override IMatcher<Entity<RequestScope>> Request
+			=> ScopeMatcher<RequestScope>.Get<SetAllTargetsAvailability>();
 
-		protected override void OnRequest(RequestEntity request)
+		protected override void OnRequest(Entity<RequestScope> request)
 		{
 			foreach (var e in _targets)
-				e.isAvailableToPick = request.setAllTargetsAvailability.Value;
+				e.Is<AvailableToPick>(request.Get<SetAllTargetsAvailability>().Value);
 		}
 	}
 }
