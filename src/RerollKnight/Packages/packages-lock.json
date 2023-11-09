@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "8b03e9ee6df8fa392f2ffb74efea3e6884869a2b"
+      "hash": "6ea2d7acfa02246d10861ef239b5333b76309ba0"
     },
     "com.unity.collab-proxy": {
       "version": "2.0.4",

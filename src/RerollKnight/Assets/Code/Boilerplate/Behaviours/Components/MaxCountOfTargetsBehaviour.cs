@@ -2,5 +2,5 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public class MaxCountOfTargetsBehaviour : ComponentBehaviour<GameScope, MaxCountOfTargets, int> { }
+	public class MaxCountOfTargetsBehaviour : ComponentBehaviour<ChipsScope, MaxCountOfTargets, int> { }
 }

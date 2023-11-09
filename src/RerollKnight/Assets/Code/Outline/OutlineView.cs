@@ -5,13 +5,13 @@ using UnityEngine;
 namespace Code
 {
 	public class OutlineView
-		: MonoBehaviour,
+		: BaseListener<GameScope>,
 		  IRegistrableListener<GameScope, EnableOutline>,
 		  IRegistrableListener<GameScope, TargetStateComponent>
 	{
 		[SerializeField] private Outline _outline;
 
-		public void Register(Entity<GameScope> entity)
+		public override void Register(Entity<GameScope> entity)
 		{
 			entity.AddListener<EnableOutline>(this);
 			entity.AddListener<TargetStateComponent>(this);
