@@ -149,7 +149,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collectInChildren: 0
   _interruptChildrenEntities: 1
-  _componentBehaviours: []
+  _componentBehaviours:
+  - {fileID: 9132402743522516104}
+  - {fileID: 4665015901091879456}
+  - {fileID: 4650321073290162910}
 --- !u!114 &9132402743522516104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70fde444fff45749dea969b552e1fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _value: Player
+  _value: "Player\u044B\u044B"
 --- !u!1 &3740020372670631551
 GameObject:
   m_ObjectHideFlags: 0

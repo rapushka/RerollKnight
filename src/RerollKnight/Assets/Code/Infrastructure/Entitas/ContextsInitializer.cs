@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Code
 {
-	public class ContextsInitializer : IInitializable
+	public class ContextsInitializer
 	{
 		private readonly Contexts _contexts;
 
@@ -11,9 +11,14 @@ namespace Code
 		public ContextsInitializer(Contexts contexts)
 		{
 			_contexts = contexts;
+
+			InitializeScopes();
+
+			CoordinatesComponent.Index.Initialize();
+			CoordinatesUnderField.Index.Initialize();
 		}
 
-		void IInitializable.Initialize()
+		private void InitializeScopes()
 		{
 			_contexts.InitializeScope<GameScope>();
 			_contexts.InitializeScope<InputScope>();

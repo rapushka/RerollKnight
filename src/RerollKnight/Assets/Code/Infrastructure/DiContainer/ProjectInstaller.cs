@@ -11,7 +11,7 @@ namespace Code
 		public override void InstallBindings()
 		{
 			Container.BindInstance(Contexts.Instance).AsSingle();
-			Container.BindInterfacesTo<ContextsInitializer>().AsSingle();
+			Container.Bind<ContextsInitializer>().AsSingle().NonLazy();
 			Container.Bind<SystemsFactory>().AsSingle();
 
 			InstallServices();

@@ -30,7 +30,7 @@ namespace Code
 
 		public void UnpickChip(bool immediately = false)
 		{
-			_contexts.Get<GameScope>().Unique.GetEntity<PickedChip>().Unpick();
+			_contexts.Get<GameScope>().Unique.GetEntityOrDefault<PickedChip>()?.Unpick();
 
 			if (!immediately)
 				Debug.LogWarning("Chip was unpicked immediately, cuz there's no request for it");

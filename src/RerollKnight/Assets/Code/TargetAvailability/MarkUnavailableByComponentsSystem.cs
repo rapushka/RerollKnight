@@ -2,14 +2,14 @@ using System.Linq;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
-using static Entitas.Generic.ScopeMatcher<Code.RequestScope>;
+using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
 {
 	public sealed class MarkUnavailableByComponentsSystem : IExecuteSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _targets;
-		private readonly IGroup<Entity<RequestScope>> _abilities;
+		private readonly IGroup<Entity<ChipsScope>> _abilities;
 
 		[Inject]
 		public MarkUnavailableByComponentsSystem(Contexts contexts)
