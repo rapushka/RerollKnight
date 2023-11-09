@@ -13,9 +13,7 @@ namespace Code
 			_contexts = contexts;
 
 			InitializeScopes();
-
-			CoordinatesComponent.Index.Initialize();
-			CoordinatesUnderField.Index.Initialize();
+			InitializeIndexes();
 		}
 
 		private void InitializeScopes()
@@ -25,6 +23,12 @@ namespace Code
 			_contexts.InitializeScope<PlayerScope>();
 			_contexts.InitializeScope<RequestScope>();
 			_contexts.InitializeScope<ChipsScope>();
+		}
+
+		private void InitializeIndexes()
+		{
+			CoordinatesComponent.Index.Initialize();
+			CoordinatesUnderField.Index.Initialize();
 		}
 	}
 }
