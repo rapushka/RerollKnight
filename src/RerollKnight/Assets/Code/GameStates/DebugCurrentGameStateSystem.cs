@@ -1,4 +1,6 @@
+using Code.Component;
 using Entitas;
+using Entitas.Generic;
 
 namespace Code
 {
@@ -7,7 +9,7 @@ namespace Code
 		private readonly Contexts _contexts;
 		private readonly GameStateMachine _gameStateMachine;
 
-		private GameEntity _stateEntity;
+		private Entity<GameScope> _stateEntity;
 
 		public DebugCurrentGameStateSystem(Contexts contexts, GameStateMachine gameStateMachine)
 		{
@@ -19,12 +21,12 @@ namespace Code
 
 		public void Initialize()
 		{
-			_stateEntity = _contexts.game.CreateEntity();
+			_stateEntity = _contexts.Get<GameScope>().CreateEntity();
 		}
 
 		public void Execute()
 		{
-			_stateEntity.ReplaceDebugName($"Game State: {CurrentGameState.GetType().Name}");
+			_stateEntity.Replace<DebugName, string>($"Game State: {CurrentGameState.GetType().Name}");
 		}
 	}
 }

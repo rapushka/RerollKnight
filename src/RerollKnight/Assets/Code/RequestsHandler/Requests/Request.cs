@@ -1,4 +1,5 @@
 using System;
+using Entitas.Generic;
 
 namespace Code
 {
@@ -6,7 +7,7 @@ namespace Code
 	{
 		public abstract Action Action { get; }
 
-		protected static RequestEntity NewEntity => Contexts.sharedInstance.request.CreateEntity();
+		protected static Entity<RequestScope> NewEntity => Contexts.Instance.Get<RequestScope>().CreateEntity();
 	}
 
 	/// <summary>

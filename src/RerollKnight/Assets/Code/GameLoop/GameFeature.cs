@@ -1,3 +1,4 @@
+using Entitas.Generic;
 using Zenject;
 
 namespace Code
@@ -9,7 +10,7 @@ namespace Code
 			: base(nameof(GameFeature), factory)
 		{
 			// Registrations
-			Add<RegisterEntityBehavioursSystem>();
+			Add<RegisterBehavioursSystem>();
 
 			// Initialization
 			Add<StartGameSystem>();
@@ -37,15 +38,12 @@ namespace Code
 			Add<EndTurnSystem>();
 			Add<ResetAbilityStateSystem>();
 
-#if UNITY_EDITOR
+#if DEBUG
 			// Debug
 			Add<DebugCurrentGameStateSystem>();
 #endif
 
-			// Entitas Generated
-			Add<GameEventSystems>();
-			Add<GameCleanupSystems>();
-			Add<RequestCleanupSystems>();
+			Add<BoilerplateFeature>();
 		}
 	}
 }

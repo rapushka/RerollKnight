@@ -1,22 +1,24 @@
+using Code.Component;
 using Entitas;
+using Entitas.Generic;
 using Zenject;
 
 namespace Code
 {
 	public sealed class OutlineAvailableTargetsSystem : IExecuteSystem
 	{
-		private readonly IGroup<GameEntity> _targets;
+		private readonly IGroup<Entity<GameScope>> _targets;
 
 		[Inject]
 		public OutlineAvailableTargetsSystem(Contexts contexts)
-			=> _targets = contexts.game.GetGroup(GameMatcher.Target);
+			=> _targets = contexts.GetGroup(ScopeMatcher<GameScope>.Get<Target>());
 
 		public void Execute()
 		{
 			foreach (var e in _targets)
 			{
-				e.EnableOutline = e.isAvailableToPick;
-				e.ReplaceTargetState(TargetState.Available);
+				e.Is<EnableOutline>(e.Is<AvailableToPick>());
+				e.Replace<Component.TargetState, TargetState>(TargetState.Available);
 			}
 		}
 	}

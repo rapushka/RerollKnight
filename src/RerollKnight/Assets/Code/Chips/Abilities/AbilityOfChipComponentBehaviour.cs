@@ -1,13 +1,14 @@
+using Code.Component;
+using Entitas.Generic;
 using UnityEngine;
 
 namespace Code
 {
-	public class AbilityOfChipComponentBehaviour : ChipsComponentBehaviourBase
+	public class AbilityOfChipComponentBehaviour : ComponentBehaviourBase<ChipsScope>
 	{
-		[SerializeField] private GameEntityBehaviour _behaviour;
+		[SerializeField] private EntityBehaviour<GameScope> _behaviour;
 
-		public override void AddToEntity(ref ChipsEntity entity) => entity.AddAbilityOfChip(_behaviour.Entity);
-
-		public override void RemoveFromEntity(ref ChipsEntity entity) => entity.RemoveAbilityOfChip();
+		public override void Add(ref Entity<ChipsScope> entity)
+			=> entity.Add<AbilityOfChip, Entity<GameScope>>(_behaviour.Entity);
 	}
 }

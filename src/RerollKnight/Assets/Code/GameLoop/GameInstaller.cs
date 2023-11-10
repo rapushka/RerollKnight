@@ -1,3 +1,4 @@
+using Entitas.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -5,15 +6,15 @@ namespace Code
 {
 	public class GameInstaller : MonoInstaller<GameInstaller>
 	{
-		[SerializeField] private EntityBehaviourBase[] _entityBehaviours;
+		[SerializeField] private BehavioursCollector _behavioursCollector;
 
 		public override void InstallBindings()
 		{
-			Container.BindInstance(_entityBehaviours).AsSingle();
+			Container.BindInstance(_behavioursCollector.Behaviours).AsSingle();
 			Container.Bind<GameFeature>().AsSingle();
 
-			Container.Bind<GameContextAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
-			
+			Container.Bind<GameFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+
 			Container.Rebind<SystemsFactory>().AsSingle();
 		}
 	}

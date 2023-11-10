@@ -1,8 +1,6 @@
-using Entitas;
-using Entitas.CodeGeneration.Attributes;
-using static Entitas.CodeGeneration.Attributes.CleanupMode;
+using Entitas.Generic;
 
-namespace Code
+namespace Code.Component
 {
-	[Request] [Cleanup(DestroyEntity)] public sealed class SetAllTargetsAvailabilityComponent : IComponent { public bool Value; }
+	[RequestScope] public sealed class SetAllTargetsAvailability : ValueComponent<bool>, ICleanup<DestroyEntity> { }
 }

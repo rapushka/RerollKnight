@@ -1,15 +1,13 @@
-using Code.CodeGeneration.Attributes;
-using Entitas;
+using Entitas.Generic;
 
-namespace Code
+namespace Code.Component
 {
-	[Chips] [Behaviour] public sealed class TeleportComponent : IComponent { }
+	[ChipsScope] public sealed class Teleport : FlagComponent { }
 
-	[Chips] [Behaviour] public sealed class MaxCountOfTargetsComponent : IComponent { public int Value; }
+	[ChipsScope] public sealed class MaxCountOfTargets : ValueComponent<int> { }
 
-	[Chips] [Behaviour] public sealed class RangeComponent : IComponent { public int Value; }
+	[ChipsScope] public sealed class Range : ValueComponent<int> { }
 
-	[Chips] [Behaviour] public sealed class TargetMustBeEmptyCellComponent : IComponent { }
-
-	[Chips] public sealed class AbilityOfChipComponent : IComponent { public GameEntity Value; }
+	// [ChipsScope] [Behaviour] public sealed class TargetMustBeEmptyCell : FlagComponent { }
+	[ChipsScope] public sealed class AbilityOfChip : ValueComponent<Entity<GameScope>> { }
 }

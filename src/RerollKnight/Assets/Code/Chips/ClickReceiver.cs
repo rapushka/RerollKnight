@@ -1,3 +1,4 @@
+using Code.Component;
 using UnityEngine;
 
 namespace Code
@@ -6,6 +7,6 @@ namespace Code
 	{
 		[SerializeField] private GameEntityBehaviour _entityBehaviour;
 
-		private void OnMouseDown() => _entityBehaviour.Entity.isClicked = true;
+		private void OnMouseDown() => _entityBehaviour.Entity.Is<Clicked>(true);
 	}
 }

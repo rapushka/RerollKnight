@@ -1,24 +1,25 @@
 using System.Collections.Generic;
+using Code.Component;
 using Entitas;
-using static GameMatcher;
+using Entitas.Generic;
+using UnityEngine;
+using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class StoreChipPositionSystem : ReactiveSystem<GameEntity>
+	public sealed class StoreChipPositionSystem : ReactiveSystem<Entity<GameScope>>
 	{
-		public StoreChipPositionSystem(Contexts contexts) : base(contexts.game) { }
+		public StoreChipPositionSystem(Contexts contexts) : base(contexts.Get<GameScope>()) { }
 
-		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(Chip, Position).NoneOf(InitialPosition));
+		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
+			=> context.CreateCollector(AllOf(Get<Chip>(), Get<Position>()).NoneOf(Get<InitialPosition>()));
 
-		protected override bool Filter(GameEntity entity) => true;
+		protected override bool Filter(Entity<GameScope> entity) => true;
 
-		protected override void Execute(List<GameEntity> entites)
+		protected override void Execute(List<Entity<GameScope>> entites)
 		{
 			foreach (var e in entites)
-			{
-				e.ReplaceInitialPosition(e.position.Value);
-			}
+				e.Replace<InitialPosition, Vector3>(e.Get<Position>().Value);
 		}
 	}
 }

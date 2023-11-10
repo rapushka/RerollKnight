@@ -1,12 +1,11 @@
-using Code.CodeGeneration.Attributes;
-using Entitas;
-using Entitas.CodeGeneration.Attributes;
+using Entitas.Generic;
 
-namespace Code
+namespace Code.Component
 {
-	[Game] [Behaviour] public sealed class CoordinatesComponent : IComponent { [PrimaryEntityIndex] public Coordinates Value; }
+	[GameScope] public sealed class Coordinates : PrimaryIndexComponent<GameScope, Coordinates, Code.Coordinates> { }
 
-	[Game] [Behaviour] public sealed class CoordinatesUnderFieldComponent : IComponent { [PrimaryEntityIndex] public Coordinates Value; }
+	[GameScope] public sealed class CoordinatesUnderField
+		: PrimaryIndexComponent<GameScope, CoordinatesUnderField, Code.Coordinates> { }
 
-	[Request] [Behaviour] public sealed class CoordinatesRequestComponent : IComponent { public Coordinates Value; }
+	[RequestScope] public sealed class CoordinatesRequest : ValueComponent<Code.Coordinates> { }
 }

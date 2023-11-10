@@ -1,10 +1,11 @@
 using System;
+using Code.Component;
 
 namespace Code
 {
 	public abstract class SetTargetsAvailabilityRequest : Request
 	{
-		protected void SetAvailability(bool value) => NewEntity.ReplaceSetAllTargetsAvailability(value);
+		protected void SetAvailability(bool value) => NewEntity.Replace<SetAllTargetsAvailability, bool>(value);
 	}
 
 	public class MarkAllTargetsAvailableRequest : SetTargetsAvailabilityRequest

@@ -1,11 +1,8 @@
-using Code.CodeGeneration.Attributes;
-using Entitas;
-using Entitas.CodeGeneration.Attributes;
-using static Entitas.CodeGeneration.Attributes.CleanupMode;
+using Entitas.Generic;
 
-namespace Code
+namespace Code.Component
 {
-	[Game] [Behaviour] public sealed class PlayerComponent : IComponent { }
+	[GameScope] public sealed class Player : FlagComponent { }
 
-	[Request] [Behaviour] [Cleanup(DestroyEntity)] public sealed class SpawnPlayerComponent : IComponent { }
+	[RequestScope] public sealed class SpawnPlayer : FlagComponent, ICleanup<DestroyEntity> { }
 }

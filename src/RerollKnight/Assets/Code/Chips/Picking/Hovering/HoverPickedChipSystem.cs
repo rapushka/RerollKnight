@@ -1,29 +1,33 @@
 using System.Collections.Generic;
+using Code.Component;
 using Entitas;
-using static GameMatcher;
+using Entitas.Generic;
+using UnityEngine;
+using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class HoverPickedChipSystem : ReactiveSystem<GameEntity>
+	public sealed class HoverPickedChipSystem : ReactiveSystem<Entity<GameScope>>
 	{
 		private readonly ILayoutService _layoutService;
 
 		public HoverPickedChipSystem(Contexts contexts, ILayoutService layoutService)
-			: base(contexts.game)
+			: base(contexts.Get<GameScope>())
 		{
 			_layoutService = layoutService;
 		}
 
-		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-			=> context.CreateCollector(AllOf(PickedChip, Position));
+		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
+			=> context.CreateCollector(AllOf(Get<PickedChip>(), Get<Position>()));
 
-		protected override bool Filter(GameEntity entity) => entity.isPickedChip;
+		protected override bool Filter(Entity<GameScope> entity) => entity.Is<PickedChip>();
 
-		protected override void Execute(List<GameEntity> entites)
+		protected override void Execute(List<Entity<GameScope>> entites)
 		{
 			foreach (var e in entites)
 			{
-				e.ReplaceDestinationPosition(e.initialPosition.Value + _layoutService.PickingChipOffset);
+				var initialPosition = e.Get<InitialPosition>().Value;
+				e.Replace<DestinationPosition, Vector3>(initialPosition + _layoutService.PickingChipOffset);
 			}
 		}
 	}

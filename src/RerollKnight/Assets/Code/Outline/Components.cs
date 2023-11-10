@@ -1,18 +1,14 @@
-using Code.CodeGeneration.Attributes;
-using Entitas;
-using Entitas.CodeGeneration.Attributes;
-using static Entitas.CodeGeneration.Attributes.EventTarget;
+using Entitas.Generic;
 
-namespace Code
+namespace Code.Component
 {
-	[Game] [Event(Self)] [FlagPrefix("")] public sealed class EnableOutlineComponent : IComponent { }
+	[GameScope] public sealed class EnableOutline : FlagComponent, IEvent { }
 
-	[Game] [Event(Self)] public sealed class TargetStateComponent : IComponent { public TargetState Value; }
-	
-	// can be a target for a chip usage. sometimes 
-	[Game] [Behaviour] public sealed class TargetComponent : IComponent { }
+	[GameScope] public sealed class TargetState : ValueComponent<Code.TargetState>, IEvent { }
 
-	// can be picked as a target. right now
-	[Game] public sealed class AvailableToPickComponent : IComponent { }
+	/// <summary>can be a target for a chip usage. sometimes </summary>
+	[GameScope] public sealed class Target : FlagComponent { }
 
+	/// <summary> can be picked as a target.right now </summary>
+	[GameScope] public sealed class AvailableToPick : FlagComponent { }
 }

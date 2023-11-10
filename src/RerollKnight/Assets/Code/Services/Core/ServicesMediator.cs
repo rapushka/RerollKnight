@@ -1,3 +1,5 @@
+using Entitas.Generic;
+
 namespace Code
 {
 	public class ServicesMediator
@@ -11,6 +13,6 @@ namespace Code
 			_resources = resources;
 		}
 
-		public GameEntityBehaviour SpawnPlayer() => _assets.SpawnBehaviour(_resources.PlayerPrefab);
+		public EntityBehaviour<GameScope> SpawnPlayer() => _assets.SpawnBehaviour(_resources.PlayerPrefab);
 	}
 }
