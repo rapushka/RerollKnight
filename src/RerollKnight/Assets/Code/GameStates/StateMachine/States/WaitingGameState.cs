@@ -16,7 +16,7 @@ namespace Code
 		public sealed class StateFeature : InjectableFeature
 		{
 			public StateFeature(SystemsFactory factory)
-				: base(nameof(StateFeature), factory)
+				: base($"{nameof(WaitingGameState)}.{nameof(StateFeature)}", factory)
 			{
 				// 
 			}
