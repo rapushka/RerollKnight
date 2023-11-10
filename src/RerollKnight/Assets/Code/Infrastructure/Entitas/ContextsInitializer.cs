@@ -14,6 +14,7 @@ namespace Code
 
 			InitializeScopes();
 			InitializeIndexes();
+			InitializeFormatters();
 		}
 
 		private void InitializeScopes()
@@ -29,6 +30,11 @@ namespace Code
 		{
 			CoordinatesComponent.Index.Initialize();
 			CoordinatesUnderField.Index.Initialize();
+		}
+
+		private void InitializeFormatters()
+		{
+			Entity<GameScope>.Formatter = new GameEntityFormatter();
 		}
 	}
 }

@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "6ea2d7acfa02246d10861ef239b5333b76309ba0"
+      "hash": "51f51737fb33f76025dc54ee0ea8e31dc3bf84fe"
     },
     "com.unity.ai.navigation": {
       "version": "1.1.4",
@@ -52,7 +52,7 @@
       }
     },
     "com.unity.ide.rider": {
-      "version": "3.0.24",
+      "version": "3.0.26",
       "depth": 0,
       "source": "registry",
       "dependencies": {
