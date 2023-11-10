@@ -35,6 +35,7 @@ namespace Code
 		private void InitializeFormatters()
 		{
 			Entity<GameScope>.Formatter = new GameEntityFormatter();
+			Entity<ChipsScope>.Formatter = new ChipsEntityFormatter();
 		}
 	}
 }
