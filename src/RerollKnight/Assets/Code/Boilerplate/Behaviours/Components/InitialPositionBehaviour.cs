@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
 

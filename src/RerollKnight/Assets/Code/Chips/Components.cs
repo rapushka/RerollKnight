@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Entitas.Generic;
 
-namespace Code
+namespace Code.Component
 {
 	[GameScope] public sealed class Chip : FlagComponent { }
 

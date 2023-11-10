@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas;
 using Entitas.Generic;
 

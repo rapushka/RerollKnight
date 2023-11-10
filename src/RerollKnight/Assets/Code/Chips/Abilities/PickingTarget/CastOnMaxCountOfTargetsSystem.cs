@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;

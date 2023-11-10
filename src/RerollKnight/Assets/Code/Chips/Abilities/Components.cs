@@ -1,6 +1,6 @@
 using Entitas.Generic;
 
-namespace Code
+namespace Code.Component
 {
 	[ChipsScope] public sealed class Teleport : FlagComponent { }
 
@@ -9,6 +9,5 @@ namespace Code
 	[ChipsScope] public sealed class Range : ValueComponent<int> { }
 
 	// [ChipsScope] [Behaviour] public sealed class TargetMustBeEmptyCell : FlagComponent { }
-
 	[ChipsScope] public sealed class AbilityOfChip : ValueComponent<Entity<GameScope>> { }
 }

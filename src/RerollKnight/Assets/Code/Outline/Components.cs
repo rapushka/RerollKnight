@@ -1,14 +1,14 @@
 using Entitas.Generic;
 
-namespace Code
+namespace Code.Component
 {
 	[GameScope] public sealed class EnableOutline : FlagComponent, IEvent { }
 
-	[GameScope] public sealed class TargetStateComponent : ValueComponent<TargetState>, IEvent { }
+	[GameScope] public sealed class TargetState : ValueComponent<Code.TargetState>, IEvent { }
 
-	// can be a target for a chip usage. sometimes 
+	/// <summary>can be a target for a chip usage. sometimes </summary>
 	[GameScope] public sealed class Target : FlagComponent { }
 
-	// can be picked as a target. right now
+	/// <summary> can be picked as a target.right now </summary>
 	[GameScope] public sealed class AvailableToPick : FlagComponent { }
 }

@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas.Generic;
 
 namespace Code
@@ -10,7 +11,7 @@ namespace Code
 		{
 			Add(new EventSystem<GameScope, EnableOutline>(contexts));
 			Add(new EventSystem<GameScope, Position>(contexts));
-			Add(new EventSystem<GameScope, TargetStateComponent>(contexts));
+			Add(new EventSystem<GameScope, Component.TargetState>(contexts));
 
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 

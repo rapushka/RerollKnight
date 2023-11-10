@@ -1,7 +1,7 @@
 using Entitas.Generic;
 using UnityEngine;
 
-namespace Code
+namespace Code.Component
 {
 	[GameScope] public sealed class InitialPosition : ValueComponent<Vector3> { }
 

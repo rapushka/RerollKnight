@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas.Generic;
 using Zenject;
 
@@ -28,7 +29,7 @@ namespace Code
 
 		private void InitializeIndexes()
 		{
-			CoordinatesComponent.Index.Initialize();
+			Component.Coordinates.Index.Initialize();
 			CoordinatesUnderField.Index.Initialize();
 		}
 

@@ -1,6 +1,6 @@
 using Entitas.Generic;
 
-namespace Code
+namespace Code.Component
 {
 	[GameScope] public sealed class Cell : FlagComponent { }
 

@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
@@ -32,7 +33,7 @@ namespace Code
 			foreach (var player in _players)
 			foreach (var target in _targets)
 			{
-				player.Replace<CoordinatesComponent, Coordinates>(target.GetCoordinates());
+				player.Replace<Component.Coordinates, Coordinates>(target.GetCoordinates());
 				ability.Replace<State, AbilityState>(AbilityState.Casted);
 			}
 		}

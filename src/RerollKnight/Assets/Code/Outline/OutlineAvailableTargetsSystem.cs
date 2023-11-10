@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
@@ -17,7 +18,7 @@ namespace Code
 			foreach (var e in _targets)
 			{
 				e.Is<EnableOutline>(e.Is<AvailableToPick>());
-				e.Replace<TargetStateComponent, TargetState>(TargetState.Available);
+				e.Replace<Component.TargetState, TargetState>(TargetState.Available);
 			}
 		}
 	}

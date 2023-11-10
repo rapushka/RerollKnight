@@ -1,4 +1,5 @@
 using System;
+using Code.Component;
 using Entitas.Generic;
 
 namespace Code
@@ -6,7 +7,7 @@ namespace Code
 	public static class CoordinatesExtensions
 	{
 		public static Coordinates GetCoordinates(this Entity<GameScope> @this)
-			=> @this.GetSingle<CoordinatesComponent, CoordinatesUnderField, Coordinates>();
+			=> @this.GetSingle<Component.Coordinates, CoordinatesUnderField, Coordinates>();
 
 		public static TValue GetSingle<T1, T2, TValue>(this Entity<GameScope> @this)
 			where T1 : ValueComponent<TValue>, new()

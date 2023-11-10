@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
@@ -25,7 +26,7 @@ namespace Code
 			foreach (var e in entites)
 			{
 				var player = _servicesMediator.SpawnPlayer().Entity;
-				player.Replace<CoordinatesComponent, Coordinates>(e.Get<CoordinatesRequest>().Value);
+				player.Replace<Component.Coordinates, Coordinates>(e.Get<CoordinatesRequest>().Value);
 			}
 		}
 	}

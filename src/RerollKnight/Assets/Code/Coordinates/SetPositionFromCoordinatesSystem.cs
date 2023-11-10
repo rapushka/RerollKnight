@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace Code
 		public SetPositionFromCoordinatesSystem(Contexts contexts, ILayoutService layout)
 		{
 			_layout = layout;
-			_entities = contexts.GetGroup(AnyOf(Get<CoordinatesComponent>(), Get<CoordinatesUnderField>()));
+			_entities = contexts.GetGroup(AnyOf(Get<Component.Coordinates>(), Get<CoordinatesUnderField>()));
 		}
 
 		public void Execute()
@@ -24,7 +25,7 @@ namespace Code
 			{
 				var position = e.GetCoordinates().ToTopDown();
 
-				if (e.Has<CoordinatesComponent>())
+				if (e.Has<Component.Coordinates>())
 					position += _layout.OverFieldOffset;
 
 				e.Replace<Position, Vector3>(position);

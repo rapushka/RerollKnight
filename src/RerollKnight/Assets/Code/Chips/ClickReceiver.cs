@@ -1,3 +1,4 @@
+using Code.Component;
 using UnityEngine;
 
 namespace Code
