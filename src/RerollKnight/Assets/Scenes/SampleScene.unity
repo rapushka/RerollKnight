@@ -437,10 +437,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _behaviours:
-  - {fileID: 1131666622}
   - {fileID: 1215878683}
   - {fileID: 1326830610}
   - {fileID: 1445593679}
+  - {fileID: 1131666622}
 --- !u!4 &1053540397
 Transform:
   m_ObjectHideFlags: 0

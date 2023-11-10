@@ -16,7 +16,7 @@ namespace Code
 
 			yield return TargetConstraints(entity);
 
-			yield return entity.ToString<AbilityOfChip, Entity<GameScope>>("\t| of chip: ");
+			yield return entity.GetOrDefault<AbilityOfChip>()?.Value?.ToString() ?? "no chip!";
 		}
 
 		private string TargetConstraints(Entity<ChipsScope> entity)
