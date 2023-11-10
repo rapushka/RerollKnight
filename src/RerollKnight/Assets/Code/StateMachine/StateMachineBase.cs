@@ -21,6 +21,11 @@ namespace Code
 			_currentState!.Enter();
 		}
 
+		public void OnUpdate()
+		{
+			(_currentState as IUpdatableState)?.OnUpdate();
+		}
+
 		protected void AddState<TState>(TState state)
 			where TState : TStateBase
 			=> _dictionary.Add(state);

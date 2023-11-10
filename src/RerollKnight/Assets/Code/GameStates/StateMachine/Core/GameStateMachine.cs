@@ -1,18 +1,21 @@
+using Entitas.Generic;
 using Zenject;
 
 namespace Code
 {
-	public class GameStateMachine : StateMachineBase<GameStateBase>
+	public class GameStateMachine : StateMachineBase<GameStateBase>, ITickable
 	{
 		[Inject]
-		public GameStateMachine(IEntitiesManipulatorService entitiesManipulator)
+		public GameStateMachine(DiContainer diContainer, Contexts contexts)
 		{
-			AddState(new ObservingGameState(this, entitiesManipulator));
-			AddState(new WaitingGameState(this));
-			AddState(new ChipPickedGameState(this));
-			AddState(new TurnEndedGameState(this));
+			AddState(diContainer.Instantiate<ObservingGameState>());
+			AddState(diContainer.Instantiate<WaitingGameState>());
+			AddState(diContainer.Instantiate<ChipPickedGameState>());
+			AddState(diContainer.Instantiate<TurnEndedGameState>());
 
 			// ToState<ObservingGameState>();
 		}
+
+		void ITickable.Tick() => OnUpdate();
 	}
 }

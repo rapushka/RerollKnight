@@ -1,17 +1,22 @@
 namespace Code
 {
-	public class ObservingGameState : GameStateBase
+	public class ObservingGameState : GameStateBase<ObservingGameState.StateFeature>
 	{
-		private readonly IEntitiesManipulatorService _entitiesManipulator;
+		public ObservingGameState(StateFeature systems) : base(systems) { }
 
-		public ObservingGameState(GameStateMachine stateMachine, IEntitiesManipulatorService entitiesManipulator)
-			: base(stateMachine)
-			=> _entitiesManipulator = entitiesManipulator;
+		// public override void Enter()
+		// {
+		// 	_entitiesManipulator.UnpickAll(immediately: true);
+		// 	RequestEmitter.Instance.Send<MarkAllTargetsUnavailableRequest>();
+		// }
 
-		public override void Enter()
+		public sealed class StateFeature : InjectableFeature
 		{
-			_entitiesManipulator.UnpickAll(immediately: true);
-			RequestEmitter.Instance.Send<MarkAllTargetsUnavailableRequest>();
+			public StateFeature(SystemsFactory factory)
+				: base(nameof(StateFeature), factory)
+			{
+				// 
+			}
 		}
 	}
 }
