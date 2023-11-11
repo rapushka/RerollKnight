@@ -18,7 +18,7 @@ namespace Code
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(WaitingGameState)}.{nameof(StateFeature)}", factory)
 			{
-				// 
+				Add<MarkAllAbilitiesCastingSystem>();
 			}
 		}
 	}

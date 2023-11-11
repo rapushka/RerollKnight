@@ -13,7 +13,7 @@ namespace Code
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(TurnEndedGameState)}.{nameof(StateFeature)}", factory)
 			{
-				// 
+				Add<ToGameStateSystem<ObservingGameState>>();
 			}
 		}
 	}
