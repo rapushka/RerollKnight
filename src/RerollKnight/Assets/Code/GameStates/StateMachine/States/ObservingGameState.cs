@@ -15,7 +15,8 @@ namespace Code
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(ObservingGameState)}.{nameof(StateFeature)}", factory)
 			{
-				// 
+				Add<UnpickAllSystem>();
+				Add<MarkAllTargetsUnavailableSystem>();
 			}
 		}
 	}
