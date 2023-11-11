@@ -11,7 +11,7 @@ namespace Code
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(ChipPickedGameState)}.{nameof(StateFeature)}", factory)
 			{
-				// 
+				Add<MarkAllTargetsAvailableSystem>();
 			}
 		}
 	}
