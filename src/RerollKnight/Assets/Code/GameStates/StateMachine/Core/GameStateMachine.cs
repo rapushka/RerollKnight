@@ -9,8 +9,8 @@ namespace Code
 		public GameStateMachine(DiContainer diContainer, Contexts contexts)
 		{
 			AddState(diContainer.Instantiate<ObservingGameState>());
-			AddState(diContainer.Instantiate<WaitingGameState>());
 			AddState(diContainer.Instantiate<ChipPickedGameState>());
+			AddState(diContainer.Instantiate<WaitingGameState>());
 			AddState(diContainer.Instantiate<TurnEndedGameState>());
 
 			// ToState<ObservingGameState>();
