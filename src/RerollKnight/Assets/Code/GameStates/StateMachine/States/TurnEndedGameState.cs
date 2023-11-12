@@ -4,10 +4,6 @@ namespace Code
 	{
 		public TurnEndedGameState(StateFeature systems) : base(systems) { }
 
-		// public override void Enter() => StateMachine.ToState<ObservingGameState>();
-
-		// public void Exit() { }
-
 		public sealed class StateFeature : InjectableFeature
 		{
 			public StateFeature(SystemsFactory factory)

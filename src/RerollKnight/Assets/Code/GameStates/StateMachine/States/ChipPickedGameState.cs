@@ -4,8 +4,6 @@ namespace Code
 	{
 		public ChipPickedGameState(StateFeature systems) : base(systems) { }
 
-		// public override void Enter() => RequestEmitter.Instance.Send<MarkAllTargetsAvailableRequest>();
-
 		public sealed class StateFeature : InjectableFeature
 		{
 			public StateFeature(SystemsFactory factory)
