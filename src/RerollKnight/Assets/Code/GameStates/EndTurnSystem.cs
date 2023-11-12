@@ -1,4 +1,3 @@
-using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
@@ -13,13 +12,13 @@ namespace Code
 		public EndTurnSystem(Contexts contexts, GameStateMachine gameStateMachine)
 		{
 			_gameStateMachine = gameStateMachine;
-			_abilities = contexts.GetGroup(Get<State>());
+			_abilities = contexts.GetGroup(Get<Component.AbilityState>());
 		}
 
 		public void Cleanup()
 		{
 			if (_gameStateMachine.CurrentState is WaitingGameState
-			    && _abilities.All((e) => e.Get<State>().Value is not AbilityState.Casting))
+			    && _abilities.All((e) => e.Get<Component.AbilityState>().Value is not AbilityState.Casting))
 				_gameStateMachine.ToState<TurnEndedGameState>();
 		}
 	}

@@ -4,13 +4,13 @@ namespace Code
 {
 	public interface IStateChangeBus
 	{
-		void ChangeState<TState>();
+		void ToState<TState>();
 	}
 
 	public class StateChangeBus : IStateChangeBus
 	{
 		public event Action<Type> StateChangeRequired;
 
-		public void ChangeState<TState>() => StateChangeRequired?.Invoke(typeof(TState));
+		public void ToState<TState>() => StateChangeRequired?.Invoke(typeof(TState));
 	}
 }

@@ -10,6 +10,12 @@ namespace Code
 				: base($"{nameof(ChipPickedGameState)}.{nameof(StateFeature)}", factory)
 			{
 				Add<MarkAllTargetsAvailableSystem>();
+				Add<AvailabilityFeature>();
+
+				Add<UnpickChipSystem>();
+				Add<RepickChipSystem>();
+
+				Add<TargetPickingFeature>();
 			}
 		}
 	}

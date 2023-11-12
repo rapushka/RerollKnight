@@ -8,8 +8,7 @@ namespace Code
 		public AvailabilityFeature(SystemsFactory factory)
 			: base(nameof(AvailabilityFeature), factory)
 		{
-			Add<SetAllAvailabilitySystem>();
-
+			// Add<SetAllAvailabilitySystem>();
 			Add<MarkUnavailableByRangeSystem>();
 			Add<MarkUnavailableByComponentsSystem>();
 		}

@@ -9,6 +9,6 @@ namespace Code
 
 		public ToGameStateSystem(IStateChangeBus stateChangeBus) => _stateChangeBus = stateChangeBus;
 
-		public void Initialize() => _stateChangeBus.ChangeState<TState>();
+		public void Initialize() => _stateChangeBus.ToState<TState>();
 	}
 }

@@ -7,14 +7,14 @@ namespace Code
 {
 	public sealed class MarkAllAbilitiesCastingSystem : IInitializeSystem
 	{
-		private readonly IGroup<Entity<ChipsScope>> _abilities = Contexts.Instance.GetGroup(Get<Component.State>());
+		private readonly IGroup<Entity<ChipsScope>> _abilities = Contexts.Instance.GetGroup(Get<Component.AbilityState>());
 
 		private IEnumerable<Entity<ChipsScope>> PreparedAbilities => _abilities.WhereStateIs(AbilityState.Prepared);
 
 		public void Initialize()
 		{
 			foreach (var ability in PreparedAbilities)
-				ability.Replace<Component.State, AbilityState>(AbilityState.Casting);
+				ability.Replace<Component.AbilityState, AbilityState>(AbilityState.Casting);
 		}
 	}
 }

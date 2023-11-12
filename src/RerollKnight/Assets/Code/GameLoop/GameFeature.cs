@@ -19,13 +19,14 @@ namespace Code
 
 			Add<AddAbilityStateSystem>();
 			Add<StoreChipPositionSystem>();
+			Add<IdentifyChipsSystem>();
 
 			// Game Logic
 			Add<EmitAllRequestsSystem>();
 
-			Add<MarkEmptyCellsSystem>();
-			Add<ChipsFeature>();
-			Add<AvailabilityFeature>();
+			Add<MarkEmptyCellsSystem>(); // TODO: to chip picked state
+			Add<ChipsFeature>(); // TODO: is empty
+			// Add<AvailabilityFeature>();
 
 			// Visuals
 			Add<HoverPickedChipSystem>();

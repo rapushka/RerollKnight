@@ -7,7 +7,7 @@ using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
 {
-	public sealed class MarkUnavailableByComponentsSystem : IExecuteSystem
+	public sealed class MarkUnavailableByComponentsSystem : IInitializeSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _targets;
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
@@ -16,10 +16,10 @@ namespace Code
 		public MarkUnavailableByComponentsSystem(Contexts contexts)
 		{
 			_targets = contexts.GetGroup(ScopeMatcher<GameScope>.Get<AvailableToPick>());
-			_abilities = contexts.GetGroup(AllOf(Get<TargetConstraints>(), Get<State>()));
+			_abilities = contexts.GetGroup(AllOf(Get<TargetConstraints>(), Get<Component.AbilityState>()));
 		}
 
-		public void Execute()
+		public void Initialize()
 		{
 			foreach (var ability in _abilities.WhereStateIs(AbilityState.Prepared))
 			foreach (var target in _targets.GetEntities())

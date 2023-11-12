@@ -11,6 +11,13 @@ namespace Code
 			{
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
+
+				// Add<UnpickChipSystem>();
+				// Add<RepickChipSystem>();
+				Add<PickChipSystem>();
+
+				Add<UnpickAllOnRequestSystem>();
+				Add<UnpickAllAbilitiesSystem>();
 			}
 		}
 	}
