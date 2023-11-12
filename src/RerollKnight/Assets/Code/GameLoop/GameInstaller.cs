@@ -28,6 +28,10 @@ namespace Code
 			Container.Bind<ChipPickedGameState.StateFeature>().AsSingle();
 			Container.Bind<TurnEndedGameState.StateFeature>().AsSingle();
 			Container.Bind<WaitingGameState.StateFeature>().AsSingle();
+
+#if DEBUG
+			Container.BindInterfacesTo<GameStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+#endif
 		}
 	}
 }

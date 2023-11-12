@@ -12,5 +12,11 @@ namespace Code
 			EditorUtility.RequestScriptReload();
 			AssetDatabase.Refresh();
 		}
+
+		[MenuItem("Tools/Unlock Reload Assemblies")]
+		public static void UnlockAssemblies()
+		{
+			EditorApplication.UnlockReloadAssemblies();
+		}
 	}
 }
