@@ -15,7 +15,6 @@ namespace Code
 			Container.Bind<SystemsFactory>().AsSingle();
 
 			InstallServices();
-			InstallGameStateMachine();
 		}
 
 		private void InstallServices()
@@ -26,16 +25,6 @@ namespace Code
 			Container.Bind<IEntitiesManipulatorService>().To<EntitiesManipulatorService>().AsSingle();
 
 			Container.Bind<ServicesMediator>().AsSingle();
-		}
-
-		private void InstallGameStateMachine()
-		{
-			Container.Bind<GameStateMachine>().AsSingle();
-
-			Container.Bind<ObservingGameState.StateFeature>().AsSingle();
-			Container.Bind<ChipPickedGameState.StateFeature>().AsSingle();
-			Container.Bind<TurnEndedGameState.StateFeature>().AsSingle();
-			Container.Bind<WaitingGameState.StateFeature>().AsSingle();
 		}
 	}
 }
