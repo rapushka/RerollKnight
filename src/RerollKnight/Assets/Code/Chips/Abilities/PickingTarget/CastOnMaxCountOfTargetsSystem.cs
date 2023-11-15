@@ -3,6 +3,7 @@ using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine;
 using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;
 using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
@@ -29,7 +30,9 @@ namespace Code
 		{
 			foreach (var e in FilledAbilities.WhereStateIs(AbilityState.Prepared))
 			{
-				e.Replace<Component.AbilityState, AbilityState>(AbilityState.Casting); // TODO: casting here and in MarkAllAbilitiesCastingSystem
+				// TODO: why casting's here and in MarkAllAbilitiesCastingSystem?
+				e.Replace<Component.AbilityState, AbilityState>(AbilityState.Casting);
+				Debug.Log($"{nameof(CastOnMaxCountOfTargetsSystem)}.ToState<WaitingGameState>()");
 				_stateChangeBus.ToState<WaitingGameState>();
 			}
 		}

@@ -24,8 +24,8 @@ namespace Code
 			// Game Logic
 			Add<EmitAllRequestsSystem>();
 
-			Add<MarkEmptyCellsSystem>(); // TODO: to chip picked state
-			Add<ChipsFeature>();         // TODO: is empty
+			Add<MarkEmptyCellsSystem>(); // TODO: mb move to chip picked state
+			// Add<ChipsFeature>();
 			// Add<AvailabilityFeature>();
 			Add<UpdateGameStateMachineSystem>();
 
@@ -37,9 +37,8 @@ namespace Code
 			Add<OutlineAvailableTargetsSystem>();
 
 			// Cleanups
-			Add<EndTurnSystem>();
-			Add<ResetAbilityStateSystem>();
-
+			// Add<EndTurnSystem>();
+			// Add<ResetAbilityStateSystem>();
 #if DEBUG
 			// Debug
 			Add<DebugCurrentGameStateSystem>();

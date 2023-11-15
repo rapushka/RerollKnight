@@ -12,6 +12,9 @@ namespace Code
 				Add<MarkAllAbilitiesCastingSystem>();
 
 				Add<AbilitiesFeature>();
+
+				Add<ResetAbilityStateSystem>();
+				Add<EndTurnSystem>();
 			}
 		}
 	}
