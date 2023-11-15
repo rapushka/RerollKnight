@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Code
 {
-	public class GameStateMachine : StateMachineBase<GameStateBase>, ITickable, IDisposable
+	public class GameStateMachine : StateMachineBase<GameStateBase>, IDisposable
 	{
 		private readonly StateChangeBus _stateChangeBus;
 
@@ -21,8 +21,6 @@ namespace Code
 			_stateChangeBus = stateChangeBus;
 			_stateChangeBus.StateChangeRequired += ToState;
 		}
-
-		void ITickable.Tick() => OnUpdate();
 
 		public void Dispose() => _stateChangeBus.StateChangeRequired -= ToState;
 	}

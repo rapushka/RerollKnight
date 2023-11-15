@@ -15,7 +15,7 @@ namespace Code
 
 		public void Initialize()
 		{
-			// TODO: mb ???
+			// TODO: if direct marking won't work - try requests
 			// RequestEmitter.Instance.Send<MarkAllTargetsAvailableRequest>();
 
 			foreach (var e in _targets)

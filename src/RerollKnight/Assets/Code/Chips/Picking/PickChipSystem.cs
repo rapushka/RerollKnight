@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
@@ -24,6 +25,8 @@ namespace Code
 			foreach (var e in entities)
 			{
 				e.Pick();
+				e.Is<Clicked>(false);
+				Debug.Log($"ToState<ChipPickedGameState>");
 				_stateChangeBus.ToState<ChipPickedGameState>();
 			}
 		}

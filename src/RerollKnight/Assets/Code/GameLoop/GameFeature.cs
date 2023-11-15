@@ -25,8 +25,9 @@ namespace Code
 			Add<EmitAllRequestsSystem>();
 
 			Add<MarkEmptyCellsSystem>(); // TODO: to chip picked state
-			Add<ChipsFeature>(); // TODO: is empty
+			Add<ChipsFeature>();         // TODO: is empty
 			// Add<AvailabilityFeature>();
+			Add<UpdateGameStateMachineSystem>();
 
 			// Visuals
 			Add<HoverPickedChipSystem>();
