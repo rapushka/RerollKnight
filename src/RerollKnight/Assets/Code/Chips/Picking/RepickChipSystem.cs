@@ -37,6 +37,7 @@ namespace Code
 				RequestEmitter.Instance.Send<MarkAllTargetsAvailableRequest>();
 				e.Pick();
 				e.Is<Clicked>(false);
+				_stateChangeBus.ToState<ChipPickedGameState>();
 			}
 		}
 	}
