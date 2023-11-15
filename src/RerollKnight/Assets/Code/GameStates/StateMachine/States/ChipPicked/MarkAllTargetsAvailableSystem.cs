@@ -15,9 +15,6 @@ namespace Code
 
 		public void Initialize()
 		{
-			// TODO: if direct marking won't work - try requests
-			// RequestEmitter.Instance.Send<MarkAllTargetsAvailableRequest>();
-
 			foreach (var e in _targets)
 				e.Is<AvailableToPick>(true);
 		}

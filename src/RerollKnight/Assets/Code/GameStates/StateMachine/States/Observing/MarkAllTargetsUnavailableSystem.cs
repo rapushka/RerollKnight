@@ -15,9 +15,6 @@ namespace Code
 
 		public void Initialize()
 		{
-			// TODO: mb
-			// RequestEmitter.Instance.Send<MarkAllTargetsUnavailableRequest>();
-
 			foreach (var e in _targets)
 				e.Is<AvailableToPick>(false);
 		}
