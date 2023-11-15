@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine;
 using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
@@ -25,7 +26,7 @@ namespace Code
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
 			=> context.CreateCollector(AllOf(Get<Clicked>(), Get<Chip>()).NoneOf(Get<PickedChip>()));
 
-		protected override bool Filter(Entity<GameScope> entity) => HasPickedChip;
+		protected override bool Filter(Entity<GameScope> entity) => entity.Is<Clicked>();
 
 		protected override void Execute(List<Entity<GameScope>> entites)
 		{

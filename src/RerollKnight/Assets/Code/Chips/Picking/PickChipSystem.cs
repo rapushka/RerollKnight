@@ -26,7 +26,6 @@ namespace Code
 			{
 				e.Pick();
 				e.Is<Clicked>(false);
-				Debug.Log($"ToState<ChipPickedGameState>");
 				_stateChangeBus.ToState<ChipPickedGameState>();
 			}
 		}

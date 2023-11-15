@@ -25,7 +25,6 @@ namespace Code
 			foreach (var e in entites)
 			{
 				e.Is<Clicked>(false);
-				Debug.Log($"{nameof(UnpickChipSystem)}.ToState<ObservingGameState>()");
 				_stateChangeBus.ToState<ObservingGameState>();
 			}
 		}

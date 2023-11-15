@@ -32,7 +32,6 @@ namespace Code
 			{
 				// TODO: why casting's here and in MarkAllAbilitiesCastingSystem?
 				e.Replace<Component.AbilityState, AbilityState>(AbilityState.Casting);
-				Debug.Log($"{nameof(CastOnMaxCountOfTargetsSystem)}.ToState<WaitingGameState>()");
 				_stateChangeBus.ToState<WaitingGameState>();
 			}
 		}

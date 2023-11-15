@@ -20,7 +20,6 @@ namespace Code
 		{
 			if (_abilities.All((e) => e.Get<Component.AbilityState>().Value is not AbilityState.Casting))
 			{
-				Debug.Log($"{nameof(EndTurnSystem)}.ToState<TurnEndedGameState>()");
 				_stateChangeBus.ToState<TurnEndedGameState>();
 			}
 		}
