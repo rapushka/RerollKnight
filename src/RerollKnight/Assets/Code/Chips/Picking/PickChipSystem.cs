@@ -23,8 +23,8 @@ namespace Code
 		{
 			foreach (var e in entities)
 			{
-				_stateChangeBus.ToState<ChipPickedGameState>();
 				e.Pick();
+				_stateChangeBus.ToState<ChipPickedGameState>();
 			}
 		}
 	}

@@ -15,12 +15,29 @@ namespace Code
 			_targets = _contexts.GetGroup(ScopeMatcher<GameScope>.Get<PickedTarget>());
 		}
 
+		private Entity<GameScope> PickedChip => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<PickedChip>();
+
 		public void Initialize()
 		{
-			_contexts.Get<GameScope>().Unique.GetEntityOrDefault<PickedChip>()?.Unpick();
+			if (PickedChip is not null)
+			{
+				UnpickAbilities();
+				PickedChip.Unpick();
+			}
 
-			foreach (var e in _targets.GetEntities())
-				e.Unpick();
+			UnpickTargets();
+		}
+
+		private void UnpickAbilities()
+		{
+			foreach (var ability in PickedChip.GetAbilities())
+				ability.Replace<Component.AbilityState, AbilityState>(AbilityState.Inactive);
+		}
+
+		private void UnpickTargets()
+		{
+			foreach (var target in _targets.GetEntities())
+				target.Unpick();
 		}
 	}
 }

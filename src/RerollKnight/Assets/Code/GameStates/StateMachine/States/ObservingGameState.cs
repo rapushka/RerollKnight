@@ -10,6 +10,7 @@ namespace Code
 				: base($"{nameof(ObservingGameState)}.{nameof(StateFeature)}", factory)
 			{
 				Add<UnpickAllSystem>();
+				// Add<UnpickAllAbilitiesSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 
 				// Add<UnpickChipSystem>();
@@ -17,7 +18,6 @@ namespace Code
 				Add<PickChipSystem>();
 
 				Add<UnpickAllOnRequestSystem>();
-				Add<UnpickAllAbilitiesSystem>();
 			}
 		}
 	}
