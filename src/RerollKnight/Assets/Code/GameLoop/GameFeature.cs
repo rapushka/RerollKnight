@@ -24,7 +24,7 @@ namespace Code
 			// Game Logic
 			Add<EmitAllRequestsSystem>();
 
-			Add<MarkEmptyCellsSystem>(); // TODO: mb move to chip picked state
+			Add<MarkEmptyCellsSystem>();
 			// Add<ChipsFeature>();
 			// Add<AvailabilityFeature>();
 			Add<UpdateGameStateMachineSystem>();
