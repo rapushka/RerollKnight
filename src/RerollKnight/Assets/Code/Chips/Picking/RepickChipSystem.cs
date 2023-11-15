@@ -34,7 +34,7 @@ namespace Code
 			{
 				_stateChangeBus.ToState<ObservingGameState>();
 				// _entitiesManipulator.UnpickAll(immediately: true);
-				RequestEmitter.Instance.Send<MarkAllTargetsAvailableRequest>();
+				// RequestEmitter.Instance.Send<MarkAllTargetsAvailableRequest>();
 				e.Pick();
 				e.Is<Clicked>(false);
 				_stateChangeBus.ToState<ChipPickedGameState>();
