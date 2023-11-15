@@ -27,12 +27,8 @@ namespace Code
 
 		public void Execute()
 		{
-			foreach (var e in FilledAbilities.WhereStateIs(AbilityState.Prepared))
-			{
-				// TODO: why casting's here and in MarkAllAbilitiesCastingSystem?
-				e.Replace<Component.AbilityState, AbilityState>(AbilityState.Casting);
+			if (FilledAbilities.WhereStateIs(AbilityState.Prepared).Any())
 				_stateChangeBus.ToState<WaitingGameState>();
-			}
 		}
 	}
 }

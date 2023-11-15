@@ -7,7 +7,12 @@ namespace Code
 {
 	public sealed class MarkAllAbilitiesCastingSystem : IInitializeSystem
 	{
-		private readonly IGroup<Entity<ChipsScope>> _abilities = Contexts.Instance.GetGroup(Get<Component.AbilityState>());
+		private readonly IGroup<Entity<ChipsScope>> _abilities;
+
+		public MarkAllAbilitiesCastingSystem()
+		{
+			_abilities = Contexts.Instance.GetGroup(Get<Component.AbilityState>());
+		}
 
 		private IEnumerable<Entity<ChipsScope>> PreparedAbilities => _abilities.WhereStateIs(AbilityState.Prepared);
 
