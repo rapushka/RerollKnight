@@ -22,8 +22,7 @@ namespace Code
 				var speed = e.Get<MovingSpeed>().Value;
 
 				var direction = (destination - position).normalized;
-				// TODO: Math service
-				var distance = Vector3.Distance(position, destination);
+				var distance = position.DistanceTo(destination);
 				// TODO: Time service
 				var moveDistance = speed * Time.deltaTime;
 
