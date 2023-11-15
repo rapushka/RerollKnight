@@ -5,7 +5,7 @@ namespace Code
 		public TargetPickingFeature(SystemsFactory factory)
 			: base(nameof(TargetPickingFeature), factory)
 		{
-			Add<PrepareAbilitiesOfPickedChipSystem>();
+			// Add<PrepareAbilitiesOfPickedChipSystem>();
 
 			Add<PickCellAsTargetSystem>();
 

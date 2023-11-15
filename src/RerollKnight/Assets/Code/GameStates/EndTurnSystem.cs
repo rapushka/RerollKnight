@@ -1,6 +1,5 @@
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
