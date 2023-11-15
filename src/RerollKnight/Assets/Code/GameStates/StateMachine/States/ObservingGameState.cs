@@ -9,14 +9,12 @@ namespace Code
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(ObservingGameState)}.{nameof(StateFeature)}", factory)
 			{
+				// Initialize
 				Add<UnpickAllSystem>();
-				// Add<UnpickAllAbilitiesSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 
-				// Add<UnpickChipSystem>();
-				// Add<RepickChipSystem>();
+				// Update
 				Add<PickChipSystem>();
-
 				Add<UnpickAllOnRequestSystem>();
 			}
 		}

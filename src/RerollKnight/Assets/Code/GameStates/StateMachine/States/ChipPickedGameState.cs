@@ -9,9 +9,11 @@ namespace Code
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(ChipPickedGameState)}.{nameof(StateFeature)}", factory)
 			{
+				// Initialize
 				Add<PrepareAbilitiesOfPickedChipSystem>();
 				Add<AvailabilityFeature>();
 
+				// Update
 				Add<UnpickChipSystem>();
 				Add<RepickChipSystem>();
 

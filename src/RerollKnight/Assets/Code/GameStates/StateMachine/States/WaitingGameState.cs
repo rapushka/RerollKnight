@@ -9,12 +9,15 @@ namespace Code
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(WaitingGameState)}.{nameof(StateFeature)}", factory)
 			{
+				// Initialize
 				Add<MarkAllAbilitiesCastingSystem>();
-
 				Add<AbilitiesFeature>();
 
-				Add<ResetAbilityStateSystem>();
+				// Update
 				Add<EndTurnSystem>();
+
+				// Tear down
+				Add<ResetAbilityStateSystem>();
 			}
 		}
 	}
