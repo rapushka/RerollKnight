@@ -10,7 +10,7 @@ namespace Code
 				: base($"{nameof(TurnEndedGameState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
-				Add<ToGameStateSystem<ObservingGameState>>();
+				Add<PassTurnToNextPlayerSystem>();
 			}
 		}
 	}
