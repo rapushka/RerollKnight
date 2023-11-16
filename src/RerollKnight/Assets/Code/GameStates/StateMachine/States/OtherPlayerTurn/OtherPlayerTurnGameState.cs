@@ -1,3 +1,6 @@
+using Entitas;
+using UnityEngine;
+
 namespace Code
 {
 	public class OtherPlayerTurnGameState : GameStateBase<OtherPlayerTurnGameState.StateFeature>
@@ -10,6 +13,7 @@ namespace Code
 				: base($"{nameof(OtherPlayerTurnGameState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
+				Add<ToGameStateSystem<ObservingGameState>>();
 			}
 		}
 	}
