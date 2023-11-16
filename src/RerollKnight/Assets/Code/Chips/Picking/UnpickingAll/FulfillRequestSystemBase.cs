@@ -1,19 +1,18 @@
 using Entitas;
 using Entitas.Generic;
+using RequestMatcher = Entitas.Generic.ScopeMatcher<Code.RequestScope>;
 
 namespace Code
 {
-	public abstract class FulfillRequestSystemBase : IExecuteSystem
+	public abstract class FulfillRequestSystemBase<TComponent> : IExecuteSystem
+		where TComponent : IComponent, new()
 	{
 		private readonly IGroup<Entity<RequestScope>> _requests;
 
 		protected FulfillRequestSystemBase(Contexts contexts)
 		{
-			// ReSharper disable once VirtualMemberCallInConstructor - Request must be a simple matcher
-			_requests = contexts.Get<RequestScope>().GetGroup(Request);
+			_requests = contexts.GetGroup(RequestMatcher.Get<TComponent>());
 		}
-
-		protected abstract IMatcher<Entity<RequestScope>> Request { get; }
 
 		public void Execute()
 		{
