@@ -17,13 +17,13 @@ namespace Code
 			return _queue.Dequeue();
 		}
 
-		public void OnPlayerAdd(GameEntity entity)
+		public void OnActorAdded(GameEntity entity)
 		{
 			_allActors.Add(entity);
 			_queue.Enqueue(entity);
 		}
 
-		public void OnPlayerRemove(GameEntity entity)
+		public void OnActorRemoved(GameEntity entity)
 		{
 			_allActors.Remove(entity);
 			RemoveFromQueue(entity);
@@ -34,9 +34,9 @@ namespace Code
 			_queue.EnqueueRange(_allActors);
 		}
 
-		private void RemoveFromQueue(GameEntity entity)
+		private void RemoveFromQueue(GameEntity actor)
 		{
-			if (_queue.Contains(entity))
+			if (_queue.Contains(actor))
 			{
 				var temp = _queue.Where((e) => _allActors.Contains(e));
 				_queue.Clear();

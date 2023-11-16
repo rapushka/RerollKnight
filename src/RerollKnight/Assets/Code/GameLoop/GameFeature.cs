@@ -17,7 +17,7 @@ namespace Code
 			Add<SpawnFieldSystem>();
 			Add<SpawnPlayerSystem>();
 			Add<SpawnEnemySystem>();
-			Add<MarkActorsSystem>();
+			Add<OnActorAddedSystem>();
 
 			Add<AddAbilityStateSystem>();
 			Add<StoreChipPositionSystem>();
