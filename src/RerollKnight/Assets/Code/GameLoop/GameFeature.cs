@@ -13,15 +13,16 @@ namespace Code
 			Add<RegisterBehavioursSystem>();
 
 			// Initialization
-			Add<StartGameSystem>();
 			Add<SpawnFieldSystem>();
 			Add<SpawnPlayerSystem>();
 			Add<SpawnEnemySystem>();
-			Add<OnActorAddedSystem>();
+			Add<InitializeActorsSystem>();
 
 			Add<AddAbilityStateSystem>();
 			Add<StoreChipPositionSystem>();
 			Add<IdentifyChipsSystem>();
+
+			Add<StartGameSystem>();
 
 			// Game Logic
 			Add<EmitAllRequestsSystem>();

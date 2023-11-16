@@ -28,7 +28,7 @@ namespace Code
 			{
 				var player = _servicesMediator.SpawnPlayer().Entity;
 				player.Replace<Component.Coordinates, Coordinates>(e.Get<CoordinatesRequest>().Value);
-				player.Is<CurrentActor>(true); // TODO: separate system
+				// player.Is<CurrentActor>(true); // TODO: separate system
 			}
 		}
 	}

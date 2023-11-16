@@ -17,6 +17,8 @@ namespace Code
 
 			Container.Rebind<SystemsFactory>().AsSingle();
 			InstallGameStateMachine();
+
+			Container.Bind<TurnsQueue>().AsSingle();
 		}
 
 		private void InstallGameStateMachine()
@@ -28,6 +30,7 @@ namespace Code
 			Container.Bind<ChipPickedGameState.StateFeature>().AsSingle();
 			Container.Bind<TurnEndedGameState.StateFeature>().AsSingle();
 			Container.Bind<WaitingGameState.StateFeature>().AsSingle();
+			Container.Bind<OtherPlayerTurnGameState.StateFeature>().AsSingle();
 
 #if DEBUG
 			Container.BindInterfacesTo<GameStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();

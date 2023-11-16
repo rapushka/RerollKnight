@@ -15,6 +15,7 @@ namespace Code
 			AddState(diContainer.Instantiate<ChipPickedGameState>());
 			AddState(diContainer.Instantiate<WaitingGameState>());
 			AddState(diContainer.Instantiate<TurnEndedGameState>());
+			AddState(diContainer.Instantiate<OtherPlayerTurnGameState>());
 
 			// ToState<ObservingGameState>();
 

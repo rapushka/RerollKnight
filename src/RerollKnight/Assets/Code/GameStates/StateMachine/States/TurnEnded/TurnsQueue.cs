@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using GameEntity = Entitas.Generic.Entity<Code.GameScope>;
 
 namespace Code
@@ -31,6 +32,7 @@ namespace Code
 
 		private void RefillQueue()
 		{
+			Debug.Log($"_allActors.Count = {_allActors.Count}");
 			_queue.EnqueueRange(_allActors);
 		}
 

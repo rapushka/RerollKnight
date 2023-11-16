@@ -1,6 +1,3 @@
-using Entitas;
-using UnityEngine;
-
 namespace Code
 {
 	public class OtherPlayerTurnGameState : GameStateBase<OtherPlayerTurnGameState.StateFeature>
