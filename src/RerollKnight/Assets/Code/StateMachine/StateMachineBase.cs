@@ -15,10 +15,20 @@ namespace Code
 		public void ToState<TState>()
 			where TState : TStateBase
 		{
+			ToState(typeof(TState));
+		}
+
+		protected void ToState(Type type)
+		{
 			(_currentState as IExitableState)?.Exit();
 
-			_currentState = _dictionary.Get<TState>();
+			_currentState = _dictionary[type];
 			_currentState!.Enter();
+		}
+
+		public void OnUpdate()
+		{
+			(_currentState as IUpdatableState)?.OnUpdate();
 		}
 
 		protected void AddState<TState>(TState state)

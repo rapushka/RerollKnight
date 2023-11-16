@@ -34,7 +34,7 @@ namespace Code
 			_contexts.Get<GameScope>().Unique.GetEntityOrDefault<PickedChip>()?.Unpick();
 
 			if (!immediately)
-				Debug.LogWarning("Chip was unpicked immediately, cuz there's no request for it");
+				Debug.LogWarning("Chip was unpicked immediately, because there's no request for it");
 		}
 
 		public void UnpickTargets(bool immediately = false)

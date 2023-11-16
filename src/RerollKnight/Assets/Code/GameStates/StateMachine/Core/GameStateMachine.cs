@@ -1,18 +1,27 @@
+using System;
+using Entitas.Generic;
 using Zenject;
 
 namespace Code
 {
-	public class GameStateMachine : StateMachineBase<GameStateBase>
+	public class GameStateMachine : StateMachineBase<GameStateBase>, IDisposable
 	{
+		private readonly StateChangeBus _stateChangeBus;
+
 		[Inject]
-		public GameStateMachine(IEntitiesManipulatorService entitiesManipulator)
+		public GameStateMachine(DiContainer diContainer, Contexts contexts, StateChangeBus stateChangeBus)
 		{
-			AddState(new ObservingGameState(this, entitiesManipulator));
-			AddState(new WaitingGameState(this));
-			AddState(new ChipPickedGameState(this));
-			AddState(new TurnEndedGameState(this));
+			AddState(diContainer.Instantiate<ObservingGameState>());
+			AddState(diContainer.Instantiate<ChipPickedGameState>());
+			AddState(diContainer.Instantiate<WaitingGameState>());
+			AddState(diContainer.Instantiate<TurnEndedGameState>());
 
 			// ToState<ObservingGameState>();
+
+			_stateChangeBus = stateChangeBus;
+			_stateChangeBus.StateChangeRequired += ToState;
 		}
+
+		public void Dispose() => _stateChangeBus.StateChangeRequired -= ToState;
 	}
 }

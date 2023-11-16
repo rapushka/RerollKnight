@@ -10,12 +10,12 @@ namespace Code
 		private readonly IGroup<Entity<ChipsScope>> _entities;
 
 		public AddAbilityStateSystem(Contexts contexts)
-			=> _entities = contexts.Get<ChipsScope>().GetGroup(AllOf(Get<AbilityOfChip>()).NoneOf(Get<State>()));
+			=> _entities = contexts.Get<ChipsScope>().GetGroup(AllOf(Get<AbilityOfChip>()).NoneOf(Get<Component.AbilityState>()));
 
 		public void Initialize()
 		{
 			foreach (var e in _entities.GetEntities())
-				e.Replace<State, AbilityState>(AbilityState.Inactive);
+				e.Replace<Component.AbilityState, AbilityState>(AbilityState.Inactive);
 		}
 	}
 }

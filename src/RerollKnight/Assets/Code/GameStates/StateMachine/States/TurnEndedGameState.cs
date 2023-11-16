@@ -1,11 +1,17 @@
 namespace Code
 {
-	public class TurnEndedGameState : GameStateBase, IExitableState
+	public class TurnEndedGameState : GameStateBase<TurnEndedGameState.StateFeature>
 	{
-		public TurnEndedGameState(GameStateMachine stateMachine) : base(stateMachine) { }
+		public TurnEndedGameState(StateFeature systems) : base(systems) { }
 
-		public override void Enter() => StateMachine.ToState<ObservingGameState>();
-
-		public void Exit() { }
+		public sealed class StateFeature : InjectableFeature
+		{
+			public StateFeature(SystemsFactory factory)
+				: base($"{nameof(TurnEndedGameState)}.{nameof(StateFeature)}", factory)
+			{
+				// Initialize
+				Add<ToGameStateSystem<ObservingGameState>>();
+			}
+		}
 	}
 }

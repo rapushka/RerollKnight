@@ -16,7 +16,7 @@ namespace Code
 		public ValidateMaxCountOfTargetsOverflowSystem(Contexts contexts)
 		{
 			_targets = contexts.GetGroup(GameMatcher.Get<PickedTarget>());
-			_abilities = contexts.GetGroup(AllOf(Get<State>(), Get<MaxCountOfTargets>()));
+			_abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<MaxCountOfTargets>()));
 		}
 
 		private int TargetsCount => _targets.count;

@@ -13,11 +13,14 @@ namespace Code
 			yield return entity.ToString<Teleport>();
 			yield return entity.ToString<MaxCountOfTargets, int>("max targets: ");
 			yield return entity.ToString<Range, int>("range: ");
-			yield return entity.ToString<State, AbilityState>("state: ");
+			yield return entity.ToString<Component.AbilityState, AbilityState>("state: ");
 
 			yield return TargetConstraints(entity);
 
-			yield return entity.GetOrDefault<AbilityOfChip>()?.Value?.ToString() ?? "no chip!";
+			var abilityOfChip = entity.GetOrDefault<AbilityOfChip>();
+			if (abilityOfChip is not null)
+				yield return ChipId.Index.GetEntity(abilityOfChip.Value).ToString() ?? "no chip!";
+				// yield return abilityOfChip.Value.ToString();
 		}
 
 		private string TargetConstraints(Entity<ChipsScope> entity)

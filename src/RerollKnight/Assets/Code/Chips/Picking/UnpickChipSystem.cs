@@ -8,11 +8,11 @@ namespace Code
 {
 	public sealed class UnpickChipSystem : ReactiveSystem<Entity<GameScope>>
 	{
-		private readonly GameStateMachine _gameStateMachine;
+		private readonly IStateChangeBus _stateChangeBus;
 
-		public UnpickChipSystem(Contexts contexts, GameStateMachine gameStateMachine)
+		public UnpickChipSystem(Contexts contexts, IStateChangeBus stateChangeBus)
 			: base(contexts.Get<GameScope>())
-			=> _gameStateMachine = gameStateMachine;
+			=> _stateChangeBus = stateChangeBus;
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
 			=> context.CreateCollector(AllOf(Get<Clicked>(), Get<PickedChip>()));
@@ -23,8 +23,8 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
-				_gameStateMachine.ToState<ObservingGameState>();
 				e.Is<Clicked>(false);
+				_stateChangeBus.ToState<ObservingGameState>();
 			}
 		}
 	}

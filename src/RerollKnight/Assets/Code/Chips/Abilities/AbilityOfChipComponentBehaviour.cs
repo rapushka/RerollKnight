@@ -9,6 +9,6 @@ namespace Code
 		[SerializeField] private EntityBehaviour<GameScope> _behaviour;
 
 		public override void Add(ref Entity<ChipsScope> entity)
-			=> entity.Add<AbilityOfChip, Entity<GameScope>>(_behaviour.Entity);
+			=> entity.Add<AbilityOfChip, int>(_behaviour.Entity.creationIndex);
 	}
 }

@@ -12,14 +12,14 @@ namespace Code
 	{
 		private readonly IGroup<Entity<GameScope>> _targets;
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
-		private readonly GameStateMachine _gameStateMachine;
+		private readonly IStateChangeBus _stateChangeBus;
 
-		public CastOnMaxCountOfTargetsSystem(Contexts contexts, GameStateMachine gameStateMachine)
+		public CastOnMaxCountOfTargetsSystem(Contexts contexts, IStateChangeBus stateChangeBus)
 		{
-			_gameStateMachine = gameStateMachine;
+			_stateChangeBus = stateChangeBus;
 
 			_targets = contexts.GetGroup(GameMatcher.Get<PickedTarget>());
-			_abilities = contexts.GetGroup(AllOf(Get<State>(), Get<MaxCountOfTargets>()));
+			_abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<MaxCountOfTargets>()));
 		}
 
 		private IEnumerable<Entity<ChipsScope>> FilledAbilities
@@ -27,11 +27,8 @@ namespace Code
 
 		public void Execute()
 		{
-			foreach (var e in FilledAbilities.Where((e) => e.Get<State>().Value is AbilityState.Prepared))
-			{
-				e.Replace<State, AbilityState>(AbilityState.Casting);
-				_gameStateMachine.ToState<WaitingGameState>();
-			}
+			if (FilledAbilities.WhereStateIs(AbilityState.Prepared).Any())
+				_stateChangeBus.ToState<WaitingGameState>();
 		}
 	}
 }

@@ -8,20 +8,13 @@ namespace Code
 {
 	public sealed class PickCellAsTargetSystem : ReactiveSystem<Entity<GameScope>>
 	{
-		private readonly GameStateMachine _gameStateMachine;
-
-		public PickCellAsTargetSystem(Contexts contexts, GameStateMachine gameStateMachine)
-			: base(contexts.Get<GameScope>())
-			=> _gameStateMachine = gameStateMachine;
-
-		private GameStateBase CurrentGameState => _gameStateMachine.CurrentState;
+		public PickCellAsTargetSystem(Contexts contexts) : base(contexts.Get<GameScope>()) { }
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
 			=> context.CreateCollector(AllOf(Get<Clicked>(), Get<Cell>(), Get<AvailableToPick>()));
 
-		protected override bool Filter(Entity<GameScope> entity) => CurrentGameState is ChipPickedGameState
-		                                                            && entity.Is<Clicked>()
-		                                                            && entity.Is<AvailableToPick>();
+		protected override bool Filter(Entity<GameScope> entity)
+			=> entity.Is<Clicked>() && entity.Is<AvailableToPick>();
 
 		protected override void Execute(List<Entity<GameScope>> entites)
 		{

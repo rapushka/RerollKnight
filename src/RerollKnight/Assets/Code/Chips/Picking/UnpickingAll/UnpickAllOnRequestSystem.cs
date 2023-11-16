@@ -1,6 +1,7 @@
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine;
 using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;
 using RequestMatcher = Entitas.Generic.ScopeMatcher<Code.RequestScope>;
 
@@ -17,6 +18,7 @@ namespace Code
 
 		protected override void OnRequest(Entity<RequestScope> request)
 		{
+			Debug.Log($"request: {nameof(UnpickAllTargets)}");
 			foreach (var e in _targets.GetEntities())
 				e.Unpick();
 		}

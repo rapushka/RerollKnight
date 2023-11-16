@@ -5,10 +5,10 @@ namespace Code
 		public ChipsFeature(SystemsFactory factory)
 			: base(nameof(ChipsFeature), factory)
 		{
-			Add<ChipsPickingFeature>();
-			Add<TargetPickingFeature>();
+			// Add<ChipsPickingFeature>();
+			// Add<TargetPickingFeature>();
 
-			Add<AbilitiesFeature>();
+			// Add<AbilitiesFeature>();
 		}
 	}
 }

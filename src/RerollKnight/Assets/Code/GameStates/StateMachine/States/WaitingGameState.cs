@@ -1,23 +1,24 @@
-using System.Collections.Generic;
-using Code.Component;
-using Entitas;
-using Entitas.Generic;
-
 namespace Code
 {
-	public class WaitingGameState : GameStateBase
+	public class WaitingGameState : GameStateBase<WaitingGameState.StateFeature>
 	{
-		private readonly IGroup<Entity<ChipsScope>> _abilities;
+		public WaitingGameState(StateFeature systems) : base(systems) { }
 
-		public WaitingGameState(GameStateMachine stateMachine) : base(stateMachine)
-			=> _abilities = Contexts.Instance.GetGroup(ScopeMatcher<ChipsScope>.Get<State>());
-
-		private IEnumerable<Entity<ChipsScope>> PreparedAbilities => _abilities.WhereStateIs(AbilityState.Prepared);
-
-		public override void Enter()
+		public sealed class StateFeature : InjectableFeature
 		{
-			foreach (var ability in PreparedAbilities)
-				ability.Replace<State, AbilityState>(AbilityState.Casting);
+			public StateFeature(SystemsFactory factory)
+				: base($"{nameof(WaitingGameState)}.{nameof(StateFeature)}", factory)
+			{
+				// Initialize
+				Add<MarkAllAbilitiesCastingSystem>();
+				Add<AbilitiesFeature>();
+
+				// Update
+				Add<EndTurnSystem>();
+
+				// Tear down
+				Add<ResetAbilityStateSystem>();
+			}
 		}
 	}
 }

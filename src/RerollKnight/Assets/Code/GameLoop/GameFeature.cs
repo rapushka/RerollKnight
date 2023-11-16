@@ -19,13 +19,15 @@ namespace Code
 
 			Add<AddAbilityStateSystem>();
 			Add<StoreChipPositionSystem>();
+			Add<IdentifyChipsSystem>();
 
 			// Game Logic
 			Add<EmitAllRequestsSystem>();
 
 			Add<MarkEmptyCellsSystem>();
-			Add<ChipsFeature>();
-			Add<AvailabilityFeature>();
+			// Add<ChipsFeature>();
+			// Add<AvailabilityFeature>();
+			Add<UpdateGameStateMachineSystem>();
 
 			// Visuals
 			Add<HoverPickedChipSystem>();
@@ -35,9 +37,8 @@ namespace Code
 			Add<OutlineAvailableTargetsSystem>();
 
 			// Cleanups
-			Add<EndTurnSystem>();
-			Add<ResetAbilityStateSystem>();
-
+			// Add<EndTurnSystem>();
+			// Add<ResetAbilityStateSystem>();
 #if DEBUG
 			// Debug
 			Add<DebugCurrentGameStateSystem>();

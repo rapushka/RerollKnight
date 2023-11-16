@@ -1,21 +1,20 @@
-using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
 {
-	public sealed class ResetAbilityStateSystem : ICleanupSystem
+	public sealed class ResetAbilityStateSystem : ITearDownSystem
 	{
 		private readonly IGroup<Entity<ChipsScope>> _entities;
 
 		public ResetAbilityStateSystem(Contexts contexts)
-			=> _entities = contexts.Get<ChipsScope>().GetGroup(Get<State>());
+			=> _entities = contexts.Get<ChipsScope>().GetGroup(Get<Component.AbilityState>());
 
-		public void Cleanup()
+		public void TearDown()
 		{
 			foreach (var e in _entities.WhereStateIs(AbilityState.Casted))
-				e.Replace<State, AbilityState>(AbilityState.Inactive);
+				e.Replace<Component.AbilityState, AbilityState>(AbilityState.Inactive);
 		}
 	}
 }

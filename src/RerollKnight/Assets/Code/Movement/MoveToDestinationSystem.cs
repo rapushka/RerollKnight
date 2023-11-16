@@ -2,6 +2,7 @@ using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using UnityEngine;
+using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
@@ -9,9 +10,14 @@ namespace Code
 	public sealed class MoveToDestinationSystem : IExecuteSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _entities;
+		private readonly ITimeService _timeService;
 
-		public MoveToDestinationSystem(Contexts contexts)
-			=> _entities = contexts.GetGroup(AllOf(Get<Position>(), Get<DestinationPosition>(), Get<MovingSpeed>()));
+		[Inject]
+		public MoveToDestinationSystem(Contexts contexts, ITimeService timeService)
+		{
+			_entities = contexts.GetGroup(AllOf(Get<Position>(), Get<DestinationPosition>(), Get<MovingSpeed>()));
+			_timeService = timeService;
+		}
 
 		public void Execute()
 		{
@@ -22,10 +28,8 @@ namespace Code
 				var speed = e.Get<MovingSpeed>().Value;
 
 				var direction = (destination - position).normalized;
-				// TODO: Math service
-				var distance = Vector3.Distance(position, destination);
-				// TODO: Time service
-				var moveDistance = speed * Time.deltaTime;
+				var distance = position.DistanceTo(destination);
+				var moveDistance = speed * _timeService.DeltaTime;
 
 				if (distance <= moveDistance)
 				{
