@@ -8,6 +8,7 @@ namespace Code
 		EntityBehaviour<GameScope> PlayerPrefab { get; }
 		EntityBehaviour<GameScope> CellPrefab   { get; }
 		EntityBehaviour<GameScope> ChipPrefab   { get; }
+		EntityBehaviour<GameScope> EnemyPrefab  { get; }
 	}
 
 	public class ResourcesService : IResourcesService
@@ -15,5 +16,6 @@ namespace Code
 		public EntityBehaviour<GameScope> PlayerPrefab => Resources.Load<EntityBehaviour<GameScope>>("Player/Prefab");
 		public EntityBehaviour<GameScope> CellPrefab => Resources.Load<EntityBehaviour<GameScope>>("Field/CellPrefab");
 		public EntityBehaviour<GameScope> ChipPrefab => Resources.Load<EntityBehaviour<GameScope>>("Chips/ChipPrefab");
+		public EntityBehaviour<GameScope> EnemyPrefab => Resources.Load<EntityBehaviour<GameScope>>("Enemy/Enemy");
 	}
 }
