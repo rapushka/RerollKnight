@@ -1,6 +1,7 @@
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace Code
@@ -23,10 +24,12 @@ namespace Code
 
 		public void Initialize()
 		{
+			var root = new GameObject("Field Root");
+
 			for (var x = 0; x < _layout.FieldSizes.Column; x++)
 			for (var y = 0; y < _layout.FieldSizes.Row; y++)
 			{
-				var cellBehaviour = _assets.SpawnBehaviour(CellPrefab);
+				var cellBehaviour = _assets.SpawnBehaviour(CellPrefab, root.transform);
 				cellBehaviour.Entity.Add<CoordinatesUnderField, Coordinates>(new Coordinates(x, y));
 			}
 		}
