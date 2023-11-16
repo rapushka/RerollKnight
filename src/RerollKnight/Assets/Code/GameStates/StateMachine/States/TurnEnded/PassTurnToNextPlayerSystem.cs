@@ -17,13 +17,13 @@ namespace Code
 			_stateChangeBus = stateChangeBus;
 		}
 
-		private Entity<GameScope> CurrentPlayer => _contexts.Get<GameScope>().Unique.GetEntity<CurrentPlayer>();
+		private Entity<GameScope> CurrentPlayer => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
 
 		public void Initialize()
 		{
-			CurrentPlayer.Is<CurrentPlayer>(false);
+			CurrentPlayer.Is<CurrentActor>(false);
 			var entity = _turnsQueue.Next();
-			entity.Is<CurrentPlayer>(true);
+			entity.Is<CurrentActor>(true);
 
 			if (entity.Is<Player>())
 				_stateChangeBus.ToState<ObservingGameState>();

@@ -20,6 +20,7 @@ namespace Code
 
 			var enemy = _servicesMediator.SpawnEnemy().Entity;
 			enemy.Replace<Component.Coordinates, Coordinates>(request.Get<CoordinatesRequest>().Value);
+			enemy.Is<Enemy>(true);
 		}
 	}
 }

@@ -21,7 +21,7 @@ namespace Code
 			_abilities = contexts.GetGroup(AllOf(Get<Teleport>(), Get<Component.AbilityState>()));
 		}
 
-		private Entity<GameScope> CurrentPlayer => _contexts.Get<GameScope>().Unique.GetEntity<CurrentPlayer>();
+		private Entity<GameScope> CurrentPlayer => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
 
 		public void Initialize()
 		{

@@ -7,6 +7,7 @@ using static Entitas.Generic.ScopeMatcher<Code.RequestScope>;
 
 namespace Code
 {
+	// TODO: rework as FulfillRequestSystem
 	public sealed class SpawnPlayerSystem : ReactiveSystem<Entity<RequestScope>>
 	{
 		private readonly ServicesMediator _servicesMediator;
@@ -27,7 +28,7 @@ namespace Code
 			{
 				var player = _servicesMediator.SpawnPlayer().Entity;
 				player.Replace<Component.Coordinates, Coordinates>(e.Get<CoordinatesRequest>().Value);
-				player.Is<CurrentPlayer>(true); // TODO: separate system
+				player.Is<CurrentActor>(true); // TODO: separate system
 			}
 		}
 	}
