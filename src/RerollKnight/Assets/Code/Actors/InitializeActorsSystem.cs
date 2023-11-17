@@ -6,7 +6,7 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class InitializeActorsSystem : ReactiveSystem<Entity<GameScope>> // TODO: initialize system
+	public sealed class InitializeActorsSystem : ReactiveSystem<Entity<GameScope>>
 	{
 		private readonly TurnsQueue _turnsQueue;
 		private readonly IGroup<Entity<GameScope>> _entities;

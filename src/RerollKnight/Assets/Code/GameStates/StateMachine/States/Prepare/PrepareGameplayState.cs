@@ -18,13 +18,14 @@ namespace Code
 				Add<SpawnFieldSystem>();
 				Add<SpawnPlayerSystem>();
 				Add<SpawnEnemySystem>();
-				Add<InitializeActorsSystem>();
 
 				Add<AddAbilityStateSystem>();
 				Add<StoreChipPositionSystem>();
 				Add<IdentifyChipsSystem>();
 
-				// TODO: is it the better state?
+				Add<ReadyOnPlayerSpawnedSystem>();
+
+				// TODO: is it the best state?
 				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
 			}
 		}

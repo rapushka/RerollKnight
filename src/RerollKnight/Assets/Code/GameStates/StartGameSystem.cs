@@ -9,7 +9,6 @@ namespace Code
 		public StartGameSystem(GameplayStateMachine gameplayStateMachine)
 			=> _gameplayStateMachine = gameplayStateMachine;
 
-		// TODO TurnEndedGameplayState
 		public void Initialize() => _gameplayStateMachine.ToState<PrepareGameplayState>();
 	}
 }
