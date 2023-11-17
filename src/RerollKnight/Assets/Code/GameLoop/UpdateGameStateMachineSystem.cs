@@ -2,11 +2,11 @@ using Entitas;
 
 namespace Code
 {
-	public sealed class UpdateGameStateMachineSystem : IExecuteSystem
+	public sealed class UpdateGameplayStateMachineSystem : IExecuteSystem
 	{
-		private readonly GameStateMachine _stateMachine;
+		private readonly GameplayStateMachine _stateMachine;
 
-		public UpdateGameStateMachineSystem(GameStateMachine stateMachine)
+		public UpdateGameplayStateMachineSystem(GameplayStateMachine stateMachine)
 		{
 			_stateMachine = stateMachine;
 		}

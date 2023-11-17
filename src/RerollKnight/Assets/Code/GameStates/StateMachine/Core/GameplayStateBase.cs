@@ -2,18 +2,18 @@ using Entitas;
 
 namespace Code
 {
-	public abstract class GameStateBase : StateBase<GameStateMachine>, IExitableState, IUpdatableState
+	public abstract class GameplayStateBase : StateBase<GameplayStateMachine>, IExitableState, IUpdatableState
 	{
 		public abstract void Exit();
 		public abstract void OnUpdate();
 	}
 
-	public abstract class GameStateBase<TFeature> : GameStateBase
+	public abstract class GameplayStateBase<TFeature> : GameplayStateBase
 		where TFeature : Systems
 	{
 		private readonly TFeature _systems;
 
-		protected GameStateBase(TFeature systems)
+		protected GameplayStateBase(TFeature systems)
 		{
 			_systems = systems;
 		}

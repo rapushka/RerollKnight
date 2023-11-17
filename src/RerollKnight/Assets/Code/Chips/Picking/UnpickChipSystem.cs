@@ -24,7 +24,7 @@ namespace Code
 			foreach (var e in entites)
 			{
 				e.Is<Clicked>(false);
-				_stateChangeBus.ToState<ObservingGameState>();
+				_stateChangeBus.ToState<ObservingGameplayState>();
 			}
 		}
 	}

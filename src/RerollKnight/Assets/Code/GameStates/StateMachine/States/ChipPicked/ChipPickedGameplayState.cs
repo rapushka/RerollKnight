@@ -1,13 +1,13 @@
 namespace Code
 {
-	public class ChipPickedGameState : GameStateBase<ChipPickedGameState.StateFeature>
+	public class ChipPickedGameplayState : GameplayStateBase<ChipPickedGameplayState.StateFeature>
 	{
-		public ChipPickedGameState(StateFeature systems) : base(systems) { }
+		public ChipPickedGameplayState(StateFeature systems) : base(systems) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{
 			public StateFeature(SystemsFactory factory)
-				: base($"{nameof(ChipPickedGameState)}.{nameof(StateFeature)}", factory)
+				: base($"{nameof(ChipPickedGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
 				Add<PrepareAbilitiesOfPickedChipSystem>();

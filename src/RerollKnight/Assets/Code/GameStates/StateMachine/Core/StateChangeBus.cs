@@ -4,7 +4,7 @@ namespace Code
 {
 	public interface IStateChangeBus
 	{
-		void ToState<TState>() where TState : GameStateBase;
+		void ToState<TState>() where TState : GameplayStateBase;
 	}
 
 	public class StateChangeBus : IStateChangeBus
@@ -12,7 +12,7 @@ namespace Code
 		public event Action<Type> StateChangeRequired;
 
 		public void ToState<TState>()
-			where TState : GameStateBase
+			where TState : GameplayStateBase
 			=> StateChangeRequired?.Invoke(typeof(TState));
 	}
 }

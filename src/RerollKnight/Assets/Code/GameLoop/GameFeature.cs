@@ -30,7 +30,7 @@ namespace Code
 			Add<MarkEmptyCellsSystem>();
 			// Add<ChipsFeature>();
 			// Add<AvailabilityFeature>();
-			Add<UpdateGameStateMachineSystem>();
+			Add<UpdateGameplayStateMachineSystem>();
 
 			// Visuals
 			Add<HoverPickedChipSystem>();
@@ -44,7 +44,7 @@ namespace Code
 			// Add<ResetAbilityStateSystem>();
 #if DEBUG
 			// Debug
-			Add<DebugCurrentGameStateSystem>();
+			Add<DebugCurrentGameplayStateSystem>();
 #endif
 
 			Add<BoilerplateFeature>();

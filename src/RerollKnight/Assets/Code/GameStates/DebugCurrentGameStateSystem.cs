@@ -4,20 +4,20 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class DebugCurrentGameStateSystem : IInitializeSystem, IExecuteSystem
+	public sealed class DebugCurrentGameplayStateSystem : IInitializeSystem, IExecuteSystem
 	{
 		private readonly Contexts _contexts;
-		private readonly GameStateMachine _gameStateMachine;
+		private readonly GameplayStateMachine _gameplayStateMachine;
 
 		private Entity<GameScope> _stateEntity;
 
-		public DebugCurrentGameStateSystem(Contexts contexts, GameStateMachine gameStateMachine)
+		public DebugCurrentGameplayStateSystem(Contexts contexts, GameplayStateMachine gameplayStateMachine)
 		{
 			_contexts = contexts;
-			_gameStateMachine = gameStateMachine;
+			_gameplayStateMachine = gameplayStateMachine;
 		}
 
-		private GameStateBase CurrentGameState => _gameStateMachine.CurrentState;
+		private GameplayStateBase CurrentGameplayState => _gameplayStateMachine.CurrentState;
 
 		public void Initialize()
 		{
@@ -26,7 +26,7 @@ namespace Code
 
 		public void Execute()
 		{
-			_stateEntity.Replace<DebugName, string>($"Game State: {CurrentGameState.GetType().Name}");
+			_stateEntity.Replace<DebugName, string>($"Game State: {CurrentGameplayState.GetType().Name}");
 		}
 	}
 }

@@ -1,13 +1,13 @@
 namespace Code
 {
-	public class ObservingGameState : GameStateBase<ObservingGameState.StateFeature>
+	public class ObservingGameplayState : GameplayStateBase<ObservingGameplayState.StateFeature>
 	{
-		public ObservingGameState(StateFeature systems) : base(systems) { }
+		public ObservingGameplayState(StateFeature systems) : base(systems) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{
 			public StateFeature(SystemsFactory factory)
-				: base($"{nameof(ObservingGameState)}.{nameof(StateFeature)}", factory)
+				: base($"{nameof(ObservingGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
 				Add<UnpickAllSystem>();

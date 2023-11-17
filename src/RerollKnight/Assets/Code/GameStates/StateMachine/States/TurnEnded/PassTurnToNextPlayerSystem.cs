@@ -26,9 +26,9 @@ namespace Code
 			entity.Is<CurrentActor>(true);
 
 			if (entity.Is<Player>())
-				_stateChangeBus.ToState<ObservingGameState>();
+				_stateChangeBus.ToState<ObservingGameplayState>();
 			else
-				_stateChangeBus.ToState<OtherPlayerTurnGameState>();
+				_stateChangeBus.ToState<OtherPlayerTurnGameplayState>();
 		}
 	}
 }

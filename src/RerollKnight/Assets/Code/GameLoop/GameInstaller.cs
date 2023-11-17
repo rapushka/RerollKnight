@@ -16,24 +16,24 @@ namespace Code
 			Container.Bind<GameFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 
 			Container.Rebind<SystemsFactory>().AsSingle();
-			InstallGameStateMachine();
+			InstallGameplayStateMachine();
 
 			Container.Bind<TurnsQueue>().AsSingle();
 		}
 
-		private void InstallGameStateMachine()
+		private void InstallGameplayStateMachine()
 		{
-			Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle();
+			Container.BindInterfacesAndSelfTo<GameplayStateMachine>().AsSingle();
 			Container.BindInterfacesAndSelfTo<StateChangeBus>().AsSingle();
 
-			Container.Bind<ObservingGameState.StateFeature>().AsSingle();
-			Container.Bind<ChipPickedGameState.StateFeature>().AsSingle();
-			Container.Bind<TurnEndedGameState.StateFeature>().AsSingle();
-			Container.Bind<WaitingGameState.StateFeature>().AsSingle();
-			Container.Bind<OtherPlayerTurnGameState.StateFeature>().AsSingle();
+			Container.Bind<ObservingGameplayState.StateFeature>().AsSingle();
+			Container.Bind<ChipPickedGameplayState.StateFeature>().AsSingle();
+			Container.Bind<TurnEndedGameplayState.StateFeature>().AsSingle();
+			Container.Bind<WaitingGameplayState.StateFeature>().AsSingle();
+			Container.Bind<OtherPlayerTurnGameplayState.StateFeature>().AsSingle();
 
 #if DEBUG
-			Container.BindInterfacesTo<GameStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+			Container.BindInterfacesTo<GameplayStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 #endif
 		}
 	}

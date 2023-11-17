@@ -1,13 +1,13 @@
 namespace Code
 {
-	public class WaitingGameState : GameStateBase<WaitingGameState.StateFeature>
+	public class WaitingGameplayState : GameplayStateBase<WaitingGameplayState.StateFeature>
 	{
-		public WaitingGameState(StateFeature systems) : base(systems) { }
+		public WaitingGameplayState(StateFeature systems) : base(systems) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{
 			public StateFeature(SystemsFactory factory)
-				: base($"{nameof(WaitingGameState)}.{nameof(StateFeature)}", factory)
+				: base($"{nameof(WaitingGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
 				Add<MarkAllAbilitiesCastingSystem>();
