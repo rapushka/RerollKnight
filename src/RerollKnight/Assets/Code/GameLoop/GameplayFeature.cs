@@ -1,4 +1,3 @@
-using Entitas.Generic;
 using Zenject;
 
 namespace Code
