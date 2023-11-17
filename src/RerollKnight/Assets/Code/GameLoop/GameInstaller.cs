@@ -11,9 +11,9 @@ namespace Code
 		public override void InstallBindings()
 		{
 			Container.BindInstance(_behavioursCollector.Behaviours).AsSingle();
-			Container.Bind<GameFeature>().AsSingle();
 
-			Container.Bind<GameFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+			Container.Bind<GameplayFeature>().AsSingle();
+			Container.Bind<GameplayFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 
 			Container.Rebind<SystemsFactory>().AsSingle();
 			InstallGameplayStateMachine();

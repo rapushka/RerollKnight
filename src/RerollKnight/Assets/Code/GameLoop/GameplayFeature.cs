@@ -3,11 +3,11 @@ using Zenject;
 
 namespace Code
 {
-	public sealed class GameFeature : InjectableFeature
+	public sealed class GameplayFeature : InjectableFeature
 	{
 		[Inject]
-		public GameFeature(SystemsFactory factory)
-			: base(nameof(GameFeature), factory)
+		public GameplayFeature(SystemsFactory factory)
+			: base(nameof(GameplayFeature), factory)
 		{
 			// Registrations
 			Add<RegisterBehavioursSystem>();
