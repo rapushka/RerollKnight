@@ -4,17 +4,17 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class ReadyOnPlayerSpawnedSystem : IInitializeSystem, IExecuteSystem
+	public sealed class ReadyOnAnyActorSystem : IInitializeSystem, IExecuteSystem
 	{
-		private readonly IGroup<Entity<GameScope>> _entities;
+		private readonly IGroup<Entity<GameScope>> _actors;
 		private readonly Contexts _contexts;
 
 		private Entity<InfrastructureScope> _readiness;
 
-		public ReadyOnPlayerSpawnedSystem(Contexts contexts)
+		public ReadyOnAnyActorSystem(Contexts contexts)
 		{
 			_contexts = contexts;
-			_entities = contexts.GetGroup(ScopeMatcher<GameScope>.Get<Player>());
+			_actors = contexts.GetGroup(ScopeMatcher<GameScope>.Get<Actor>());
 		}
 
 		private bool Ready { set => _readiness.Replace<Ready, bool>(value); }
@@ -27,7 +27,7 @@ namespace Code
 
 		public void Execute()
 		{
-			Ready = _entities.Any();
+			Ready = _actors.Any();
 		}
 	}
 }

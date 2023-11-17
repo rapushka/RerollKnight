@@ -25,6 +25,7 @@ namespace Code
 			_contexts.InitializeScope<PlayerScope>();
 			_contexts.InitializeScope<RequestScope>();
 			_contexts.InitializeScope<ChipsScope>();
+			_contexts.InitializeScope<InfrastructureScope>();
 		}
 
 		private void InitializeIndexes()
