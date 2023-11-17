@@ -9,6 +9,7 @@ namespace Code
 		public StartGameSystem(GameplayStateMachine gameplayStateMachine)
 			=> _gameplayStateMachine = gameplayStateMachine;
 
-		public void Initialize() => _gameplayStateMachine.ToState<TurnEndedGameplayState>();
+		// TODO TurnEndedGameplayState
+		public void Initialize() => _gameplayStateMachine.ToState<ObservingGameplayState>();
 	}
 }
