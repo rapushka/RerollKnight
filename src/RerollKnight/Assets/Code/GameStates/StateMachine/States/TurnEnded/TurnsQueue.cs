@@ -36,12 +36,12 @@ namespace Code
 
 		private void RemoveFromQueue(GameEntity actor)
 		{
-			if (_queue.Contains(actor))
-			{
-				var temp = _queue.Where((e) => _allActors.Contains(e));
-				_queue.Clear();
-				_queue.EnqueueRange(temp);
-			}
+			if (!_queue.Contains(actor))
+				return;
+
+			var temp = _queue.Where((e) => _allActors.Contains(e));
+			_queue.Clear();
+			_queue.EnqueueRange(temp);
 		}
 	}
 }
