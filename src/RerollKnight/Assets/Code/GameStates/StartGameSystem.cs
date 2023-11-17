@@ -10,6 +10,6 @@ namespace Code
 			=> _gameplayStateMachine = gameplayStateMachine;
 
 		// TODO TurnEndedGameplayState
-		public void Initialize() => _gameplayStateMachine.ToState<ObservingGameplayState>();
+		public void Initialize() => _gameplayStateMachine.ToState<PrepareGameplayState>();
 	}
 }

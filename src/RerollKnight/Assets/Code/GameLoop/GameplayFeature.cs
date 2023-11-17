@@ -9,19 +9,6 @@ namespace Code
 		public GameplayFeature(SystemsFactory factory)
 			: base(nameof(GameplayFeature), factory)
 		{
-			// Registrations
-			Add<RegisterBehavioursSystem>();
-
-			// Initialization
-			Add<SpawnFieldSystem>();
-			Add<SpawnPlayerSystem>();
-			Add<SpawnEnemySystem>();
-			Add<InitializeActorsSystem>();
-
-			Add<AddAbilityStateSystem>();
-			Add<StoreChipPositionSystem>();
-			Add<IdentifyChipsSystem>();
-
 			Add<StartGameSystem>();
 
 			// Game Logic
