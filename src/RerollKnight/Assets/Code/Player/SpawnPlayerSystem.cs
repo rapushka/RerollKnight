@@ -1,34 +1,22 @@
-using System.Collections.Generic;
 using Code.Component;
-using Entitas;
 using Entitas.Generic;
 using Zenject;
-using static Entitas.Generic.ScopeMatcher<Code.RequestScope>;
 
 namespace Code
 {
-	// TODO: rework as FulfillRequestSystem
-	public sealed class SpawnPlayerSystem : ReactiveSystem<Entity<RequestScope>>
+	public sealed class SpawnPlayerSystem : FulfillRequestSystemBase<SpawnPlayer>
 	{
 		private readonly ServicesMediator _servicesMediator;
 
 		[Inject]
 		public SpawnPlayerSystem(Contexts contexts, ServicesMediator servicesMediator)
-			: base(contexts.Get<RequestScope>())
+			: base(contexts)
 			=> _servicesMediator = servicesMediator;
 
-		protected override ICollector<Entity<RequestScope>> GetTrigger(IContext<Entity<RequestScope>> context)
-			=> context.CreateCollector(AllOf(Get<SpawnPlayer>(), Get<CoordinatesRequest>()));
-
-		protected override bool Filter(Entity<RequestScope> entity) => true;
-
-		protected override void Execute(List<Entity<RequestScope>> entites)
+		protected override void OnRequest(Entity<RequestScope> request)
 		{
-			foreach (var e in entites)
-			{
-				var player = _servicesMediator.SpawnPlayer().Entity;
-				player.Replace<Component.Coordinates, Coordinates>(e.Get<CoordinatesRequest>().Value);
-			}
+			var player = _servicesMediator.SpawnPlayer().Entity;
+			player.Replace<Component.Coordinates, Coordinates>(request.Get<CoordinatesRequest>().Value);
 		}
 	}
 }
