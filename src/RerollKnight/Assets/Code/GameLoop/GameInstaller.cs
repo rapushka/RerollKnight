@@ -26,7 +26,7 @@ namespace Code
 			Container.BindInterfacesAndSelfTo<GameplayStateMachine>().AsSingle();
 			Container.BindInterfacesAndSelfTo<StateChangeBus>().AsSingle();
 
-			Container.Bind<PrepareGameplayState.StateFeature>().AsSingle();
+			Container.Bind<InitializeGameplayState.StateFeature>().AsSingle();
 			Container.Bind<ObservingGameplayState.StateFeature>().AsSingle();
 			Container.Bind<ChipPickedGameplayState.StateFeature>().AsSingle();
 			Container.Bind<TurnEndedGameplayState.StateFeature>().AsSingle();

@@ -3,9 +3,9 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public class PrepareGameplayState : GameplayStateBase<PrepareGameplayState.StateFeature>
+	public class InitializeGameplayState : GameplayStateBase<InitializeGameplayState.StateFeature>
 	{
-		public PrepareGameplayState(StateFeature systems) : base(systems) { }
+		public InitializeGameplayState(StateFeature systems) : base(systems) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{
