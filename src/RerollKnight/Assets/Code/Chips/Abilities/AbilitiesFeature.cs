@@ -6,6 +6,7 @@ namespace Code
 			: base(nameof(AbilitiesFeature), factory)
 		{
 			Add<CastTeleportSystem>();
+			Add<CastSwitchPositionsSystem>();
 		}
 	}
 }

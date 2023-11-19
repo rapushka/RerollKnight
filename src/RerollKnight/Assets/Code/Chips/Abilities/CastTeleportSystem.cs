@@ -1,36 +1,15 @@
-using Code.Component;
-using Entitas;
 using Entitas.Generic;
-using Zenject;
-using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class CastTeleportSystem : IInitializeSystem
+	public sealed class CastTeleportSystem : CastAbilitySystemBase
 	{
-		private readonly Contexts _contexts;
-		private readonly IGroup<Entity<GameScope>> _targets;
-		private readonly IGroup<Entity<ChipsScope>> _abilities;
+		public CastTeleportSystem(Contexts contexts) : base(contexts) { }
 
-		[Inject]
-		public CastTeleportSystem(Contexts contexts)
+		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> target)
 		{
-			_contexts = contexts;
-			_targets = contexts.GetGroup(GameMatcher.Get<PickedTarget>());
-			_abilities = contexts.GetGroup(AllOf(Get<Teleport>(), Get<Component.AbilityState>()));
-		}
-
-		private Entity<GameScope> CurrentPlayer => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
-
-		public void Initialize()
-		{
-			foreach (var ability in _abilities.WhereStateIs(AbilityState.Casting))
-			foreach (var target in _targets)
-			{
-				CurrentPlayer.Replace<Component.Coordinates, Coordinates>(target.GetCoordinates());
-				ability.Replace<Component.AbilityState, AbilityState>(AbilityState.Casted);
-			}
+			CurrentActor.Replace<Component.Coordinates, Coordinates>(target.GetCoordinates());
 		}
 	}
 }
