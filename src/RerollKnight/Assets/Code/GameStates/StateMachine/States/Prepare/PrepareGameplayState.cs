@@ -23,7 +23,7 @@ namespace Code
 				Add<StoreChipPositionSystem>();
 				Add<IdentifyChipsSystem>();
 
-				Add<ReadyOnAnyActorSystem>();
+				Add<ReadyOnConditionAnyActorSystem>();
 
 				// TODO: is it the best state?
 				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
