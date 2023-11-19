@@ -14,12 +14,13 @@ namespace Code
 
 			// Game Logic
 			Add<EmitAllRequestsSystem>();
+
+			Add<UpdateGameplayStateMachineSystem>();
 			Add<SpawnActorOnRequestSystem>();
 
 			Add<MarkEmptyCellsSystem>();
 			// Add<ChipsFeature>();
 			// Add<AvailabilityFeature>();
-			Add<UpdateGameplayStateMachineSystem>();
 
 			// Visuals
 			Add<HoverPickedChipSystem>();

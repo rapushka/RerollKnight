@@ -5,7 +5,8 @@ namespace Code
 	public abstract class GameplayStateBase : StateBase<GameplayStateMachine>, IExitableState, IUpdatableState
 	{
 		public abstract void Exit();
-		public abstract void OnUpdate();
+		public abstract void Execute();
+		public abstract void Cleanup();
 	}
 
 	public abstract class GameplayStateBase<TFeature> : GameplayStateBase
@@ -18,20 +19,12 @@ namespace Code
 			_systems = systems;
 		}
 
-		public override void Enter()
-		{
-			_systems.Initialize();
-		}
+		public override void Enter() => _systems.Initialize();
 
-		public override void OnUpdate()
-		{
-			_systems.Execute();
-			_systems.Cleanup();
-		}
+		public override void Execute() => _systems.Execute();
 
-		public override void Exit()
-		{
-			_systems.TearDown();
-		}
+		public override void Cleanup() => _systems.Cleanup();
+
+		public override void Exit() => _systems.TearDown();
 	}
 }

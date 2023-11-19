@@ -2,7 +2,7 @@ using Entitas;
 
 namespace Code
 {
-	public sealed class UpdateGameplayStateMachineSystem : IExecuteSystem
+	public sealed class UpdateGameplayStateMachineSystem : IExecuteSystem, ICleanupSystem
 	{
 		private readonly GameplayStateMachine _stateMachine;
 
@@ -11,9 +11,8 @@ namespace Code
 			_stateMachine = stateMachine;
 		}
 
-		public void Execute()
-		{
-			_stateMachine.OnUpdate();
-		}
+		public void Execute() => _stateMachine.Execute();
+
+		public void Cleanup() => _stateMachine.Cleanup();
 	}
 }

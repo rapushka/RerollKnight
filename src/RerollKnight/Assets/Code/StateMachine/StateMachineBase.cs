@@ -26,10 +26,9 @@ namespace Code
 			_currentState!.Enter();
 		}
 
-		public void OnUpdate()
-		{
-			(_currentState as IUpdatableState)?.OnUpdate();
-		}
+		public void Execute() => (_currentState as IUpdatableState)?.Execute();
+
+		public void Cleanup() => (_currentState as IUpdatableState)?.Cleanup();
 
 		protected void AddState<TState>(TState state)
 			where TState : TStateBase
