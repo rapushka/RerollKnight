@@ -1,19 +1,19 @@
-using Code.Component;
 using Entitas;
 using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class ReadyOnAnyActorSystem : ReadyOnConditionSystemBase, IExecuteSystem
+	public sealed class ReadyOnAny<T> : ReadyOnConditionSystemBase, IExecuteSystem
+		where T : IComponent, new()
 	{
-		private readonly IGroup<Entity<GameScope>> _actors;
+		private readonly IGroup<Entity<GameScope>> _entities;
 
-		public ReadyOnAnyActorSystem(Contexts contexts) : base(contexts)
-			=> _actors = contexts.GetGroup(ScopeMatcher<GameScope>.Get<Actor>());
+		public ReadyOnAny(Contexts contexts) : base(contexts)
+			=> _entities = contexts.GetGroup(ScopeMatcher<GameScope>.Get<T>());
 
 		public void Execute()
 		{
-			Ready = _actors.Any();
+			Ready = _entities.Any();
 		}
 	}
 }

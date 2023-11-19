@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas.Generic;
 
 namespace Code
@@ -24,7 +25,7 @@ namespace Code
 				Add<IdentifyChipsSystem>();
 
 				// Ready
-				Add<ReadyOnAnyActorSystem>();
+				Add<ReadyOnAny<Actor>>();
 
 				// TODO: is it the best state?
 				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
