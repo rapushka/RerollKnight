@@ -4,13 +4,13 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class PassTurnToNextPlayerSystem : IInitializeSystem
+	public sealed class PassTurnToNextActorSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly TurnsQueue _turnsQueue;
 		private readonly StateChangeBus _stateChangeBus;
 
-		public PassTurnToNextPlayerSystem(Contexts contexts, TurnsQueue turnsQueue, StateChangeBus stateChangeBus)
+		public PassTurnToNextActorSystem(Contexts contexts, TurnsQueue turnsQueue, StateChangeBus stateChangeBus)
 		{
 			_contexts = contexts;
 			_turnsQueue = turnsQueue;
@@ -22,10 +22,10 @@ namespace Code
 		public void Initialize()
 		{
 			CurrentPlayer?.Is<CurrentActor>(false);
-			var entity = _turnsQueue.Next();
-			entity.Is<CurrentActor>(true);
+			var actor = _turnsQueue.Next();
+			actor.Is<CurrentActor>(true);
 
-			if (entity.Is<Player>())
+			if (actor.Is<Player>())
 				_stateChangeBus.ToState<ObservingGameplayState>();
 			else
 				_stateChangeBus.ToState<OtherPlayerTurnGameplayState>();

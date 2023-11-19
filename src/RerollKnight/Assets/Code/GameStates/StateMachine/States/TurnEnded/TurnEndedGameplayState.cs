@@ -10,7 +10,7 @@ namespace Code
 				: base($"{nameof(TurnEndedGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
-				Add<PassTurnToNextPlayerSystem>();
+				Add<PassTurnToNextActorSystem>();
 			}
 		}
 	}
