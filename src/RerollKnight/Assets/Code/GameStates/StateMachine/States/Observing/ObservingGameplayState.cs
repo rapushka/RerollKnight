@@ -15,7 +15,6 @@ namespace Code
 
 				// Update
 				Add<PickChipSystem>();
-				Add<UnpickAllOnRequestSystem>();
 			}
 		}
 	}

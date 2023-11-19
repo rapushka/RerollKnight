@@ -22,7 +22,6 @@ namespace Code
 			Container.Bind<IResourcesService>().To<ResourcesService>().AsSingle();
 			Container.Bind<IAssetsService>().To<AssetsService>().AsSingle();
 			Container.Bind<ILayoutService>().To<LayoutService>().FromScriptableObject(_layoutService).AsSingle();
-			Container.Bind<IEntitiesManipulatorService>().To<EntitiesManipulatorService>().AsSingle();
 			Container.Bind<ITimeService>().To<TimeService>().AsSingle();
 
 			Container.Bind<ServicesMediator>().AsSingle();

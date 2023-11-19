@@ -16,7 +16,6 @@ namespace Code
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 
 			Add(new DestroyEntitySystem<CastAbility, RequestScope>(contexts));
-			Add(new DestroyEntitySystem<UnpickAllTargets, RequestScope>(contexts));
 			Add(new DestroyEntitySystem<SpawnPlayer, RequestScope>(contexts));
 			Add(new DestroyEntitySystem<SpawnEnemy, RequestScope>(contexts));
 			Add(new DestroyEntitySystem<SetAllTargetsAvailability, RequestScope>(contexts));
