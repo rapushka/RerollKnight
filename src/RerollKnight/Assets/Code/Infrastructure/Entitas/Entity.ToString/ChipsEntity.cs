@@ -11,7 +11,7 @@ namespace Code
 		protected override IEnumerable<string> CreateList(Entity<ChipsScope> entity)
 		{
 			yield return entity.ToString<Teleport>();
-			yield return entity.ToString<MaxCountOfTargets, int>("max targets: ");
+			// yield return entity.ToString<MaxCountOfTargets, int>("max targets: ");
 			yield return entity.ToString<Range, int>("range: ");
 			yield return entity.ToString<Component.AbilityState, AbilityState>("state: ");
 
