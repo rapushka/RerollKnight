@@ -6,13 +6,11 @@ namespace Code
 {
 	public sealed class SpawnActorOnRequestSystem : FulfillRequestSystemBase<SpawnActor>
 	{
-		private readonly ServicesMediator _servicesMediator;
 		private readonly IAssetsService _assets;
 
-		public SpawnActorOnRequestSystem(Contexts contexts, ServicesMediator servicesMediator, IAssetsService assets)
+		public SpawnActorOnRequestSystem(Contexts contexts, IAssetsService assets)
 			: base(contexts)
 		{
-			_servicesMediator = servicesMediator;
 			_assets = assets;
 		}
 
@@ -20,9 +18,12 @@ namespace Code
 		{
 			Debug.Assert(request.Has<CoordinatesRequest>());
 
-			var actor = _servicesMediator.SpawnEnemy().Entity;
-			actor.Replace<Component.Coordinates, Coordinates>(request.Get<CoordinatesRequest>().Value);
-			actor.Is<Actor>(true);
+			SpawnPrefab(request)
+				.Replace<Component.Coordinates, Coordinates>(request.Get<CoordinatesRequest>().Value)
+				.Is<Actor>(true);
 		}
+
+		private Entity<GameScope> SpawnPrefab(Entity<RequestScope> request)
+			=> _assets.SpawnBehaviour(request.Get<Prefab>().Value).Entity;
 	}
 }
