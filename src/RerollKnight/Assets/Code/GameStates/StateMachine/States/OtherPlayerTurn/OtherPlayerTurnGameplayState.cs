@@ -1,6 +1,3 @@
-using Entitas;
-using UnityEngine;
-
 namespace Code
 {
 	public class OtherPlayerTurnGameplayState : GameplayStateBase<OtherPlayerTurnGameplayState.StateFeature>
@@ -13,17 +10,9 @@ namespace Code
 				: base($"{nameof(OtherPlayerTurnGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
-				Add<SayHiSystem>();
 				Add<ToGameplayStateSystem<ObservingGameplayState>>();
+				// TODO: cast random chip
 			}
-		}
-	}
-
-	public class SayHiSystem : IInitializeSystem
-	{
-		public void Initialize()
-		{
-			Debug.Log("it's enemy's turn!");
 		}
 	}
 }

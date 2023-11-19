@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
@@ -25,8 +24,6 @@ namespace Code
 
 		protected override void Execute(List<Entity<GameScope>> entities)
 		{
-			Debug.Log(nameof(MarkActorsSystem) + " execute");
-
 			foreach (var e in entities)
 			{
 				e.Is<Actor>(true);
