@@ -1,4 +1,6 @@
 using Code.Component;
+using Entitas;
+using Entitas.Generic;
 
 namespace Code
 {
@@ -17,11 +19,29 @@ namespace Code
 
 				// Ready
 				Add<ReadyOnAny<Actor>>();
-				// todo: put player the first in queue
+				Add<PutPlayerFirstSystem>();
 
 				// TODO: is it the best state?
 				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
 			}
+		}
+	}
+
+	public sealed class PutPlayerFirstSystem : IInitializeSystem
+	{
+		private readonly TurnsQueue _turnsQueue;
+		private readonly IGroup<Entity<GameScope>> _players;
+
+		public PutPlayerFirstSystem(Contexts contexts, TurnsQueue turnsQueue)
+		{
+			_turnsQueue = turnsQueue;
+			_players = contexts.GetGroup(ScopeMatcher<GameScope>.Get<Player>());
+		}
+
+		public void Initialize()
+		{
+			foreach (var player in _players)
+				_turnsQueue.PutFirst(player);
 		}
 	}
 }

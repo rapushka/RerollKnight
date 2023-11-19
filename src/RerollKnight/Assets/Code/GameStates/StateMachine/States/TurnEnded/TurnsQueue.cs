@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
+using UnityEngine;
 using GameEntity = Entitas.Generic.Entity<Code.GameScope>;
 
 namespace Code
@@ -7,43 +7,40 @@ namespace Code
 	public class TurnsQueue
 	{
 		private readonly List<GameEntity> _allActors = new();
-		private readonly Queue<GameEntity> _queue = new();
+		private readonly List<GameEntity> _queue = new();
 
 		public GameEntity Next()
 		{
-			if (!_queue.Any())
+			if (!_queue.TryDequeue(out var actor))
+			{
 				RefillQueue();
+				actor = _queue.Dequeue();
+			}
 
-			return _queue.Dequeue();
+			return actor;
 		}
 
 		public void OnActorAdded(GameEntity entity)
 		{
 			_allActors.Add(entity);
-			_queue.Enqueue(entity);
+			_queue.Add(entity);
 		}
 
 		public void OnActorRemoved(GameEntity entity)
 		{
 			_allActors.Remove(entity);
-			RemoveFromQueue(entity);
+			_queue.Remove(entity);
 		}
 
-		public bool Any() => _allActors.Any();
-
-		private void RefillQueue()
+		public void PutFirst(GameEntity actor)
 		{
-			_queue.EnqueueRange(_allActors);
+			var index = _allActors.IndexOf(actor);
+			Debug.Assert(index != -1, $"The queue doesn't contain the {actor}");
+
+			_allActors.RemoveAt(index);
+			_allActors.Insert(index, actor);
 		}
 
-		private void RemoveFromQueue(GameEntity actor)
-		{
-			if (!_queue.Contains(actor))
-				return;
-
-			var temp = _queue.Where((e) => _allActors.Contains(e));
-			_queue.Clear();
-			_queue.EnqueueRange(temp);
-		}
+		private void RefillQueue() => _queue.AddRange(_allActors);
 	}
 }
