@@ -9,6 +9,6 @@ namespace Code
 		public StartGameSystem(GameplayStateMachine gameplayStateMachine)
 			=> _gameplayStateMachine = gameplayStateMachine;
 
-		public void Initialize() => _gameplayStateMachine.ToState<InitializeGameplayState>();
+		public void Initialize() => _gameplayStateMachine.ToState<LoadAssetsGameplayState>();
 	}
 }

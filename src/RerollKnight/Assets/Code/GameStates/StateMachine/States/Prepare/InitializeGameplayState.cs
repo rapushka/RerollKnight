@@ -1,5 +1,4 @@
 using Code.Component;
-using Entitas.Generic;
 
 namespace Code
 {
@@ -10,20 +9,15 @@ namespace Code
 		public sealed class StateFeature : InjectableFeature
 		{
 			public StateFeature(SystemsFactory factory)
-				: base($"{nameof(WaitingGameplayState)}.{nameof(StateFeature)}", factory)
+				: base($"{nameof(InitializeGameplayState)}.{nameof(StateFeature)}", factory)
 			{
-				// Registrations
-				Add<RegisterBehavioursSystem>();
-
-				// Initialization
-				Add<SpawnFieldSystem>();
-
 				Add<AddAbilityStateSystem>();
 				Add<StoreChipPositionSystem>();
 				Add<IdentifyChipsSystem>();
 
 				// Ready
 				Add<ReadyOnAny<Actor>>();
+				// todo: put player the first in queue
 
 				// TODO: is it the best state?
 				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
