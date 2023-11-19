@@ -3,5 +3,5 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public class PrefabBehaviour : ComponentBehaviour<GameScope, Prefab, EntityBehaviour<GameScope>> { }
+	public class PrefabBehaviour : ComponentBehaviour<RequestScope, Prefab, EntityBehaviour<GameScope>> { }
 }

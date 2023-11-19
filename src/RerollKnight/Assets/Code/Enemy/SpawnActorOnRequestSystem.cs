@@ -17,6 +17,7 @@ namespace Code
 		protected override void OnRequest(Entity<RequestScope> request)
 		{
 			Debug.Assert(request.Has<CoordinatesRequest>());
+			Debug.Assert(request.Has<Prefab>());
 
 			SpawnPrefab(request)
 				.Replace<Component.Coordinates, Coordinates>(request.Get<CoordinatesRequest>().Value)

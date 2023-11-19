@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 256804611}
   - component: {fileID: 256804610}
   - component: {fileID: 256804609}
+  - component: {fileID: 256804612}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
@@ -327,6 +328,20 @@ MonoBehaviour:
   _componentBehaviours:
   - {fileID: 256804610}
   - {fileID: 256804609}
+  - {fileID: 256804612}
+--- !u!114 &256804612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256804607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db861c2a6979422d9429f037cb2550cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: {fileID: 6928167499881657211, guid: dd54fd2fc773eb53cb4b6d1cfac3886f, type: 3}
 --- !u!1 &335557598
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +685,7 @@ GameObject:
   - component: {fileID: 1215878683}
   - component: {fileID: 1215878684}
   - component: {fileID: 1215878685}
+  - component: {fileID: 1215878686}
   m_Layer: 0
   m_Name: Player Spawner
   m_TagString: Untagged
@@ -709,6 +725,7 @@ MonoBehaviour:
   _componentBehaviours:
   - {fileID: 1215878684}
   - {fileID: 1215878685}
+  - {fileID: 1215878686}
 --- !u!114 &1215878684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,6 +753,19 @@ MonoBehaviour:
   _value:
     <Column>k__BackingField: 1
     <Row>k__BackingField: 1
+--- !u!114 &1215878686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215878679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db861c2a6979422d9429f037cb2550cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: {fileID: 4370890605880970255, guid: c9f03d713fe4b0aaa91b83687af962c6, type: 3}
 --- !u!1001 &1326830608
 PrefabInstance:
   m_ObjectHideFlags: 0

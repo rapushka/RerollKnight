@@ -2,5 +2,5 @@ using Entitas.Generic;
 
 namespace Code.Component
 {
-	[GameScope] public sealed class Prefab : ValueComponent<EntityBehaviour<GameScope>> { }
+	[RequestScope] public sealed class Prefab : ValueComponent<EntityBehaviour<GameScope>> { }
 }
