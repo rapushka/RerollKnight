@@ -17,7 +17,6 @@ namespace Code
 
 				// Initialization
 				Add<SpawnFieldSystem>();
-				Add<SpawnActorOnRequestSystem>();
 
 				Add<AddAbilityStateSystem>();
 				Add<StoreChipPositionSystem>();
@@ -25,6 +24,7 @@ namespace Code
 
 				// Ready
 				Add<ReadyOnAny<Actor>>();
+				Add<ReadyOnTurnsQueueAny>();
 
 				// TODO: is it the best state?
 				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();

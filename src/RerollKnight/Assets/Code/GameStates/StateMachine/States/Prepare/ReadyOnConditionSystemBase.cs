@@ -18,13 +18,13 @@ namespace Code
 			set => _readinessEntity.Replace<Ready, bool>(value);
 		}
 
-		public void Initialize()
+		public virtual void Initialize()
 		{
 			_readinessEntity = _contexts.Get<InfrastructureScope>().CreateEntity();
 			Ready = false;
 		}
 
-		public void TearDown()
+		public virtual void TearDown()
 		{
 			_readinessEntity.Destroy();
 		}

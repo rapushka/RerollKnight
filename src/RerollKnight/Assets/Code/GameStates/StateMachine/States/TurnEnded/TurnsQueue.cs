@@ -29,6 +29,8 @@ namespace Code
 			RemoveFromQueue(entity);
 		}
 
+		public bool Any() => _allActors.Any();
+
 		private void RefillQueue()
 		{
 			_queue.EnqueueRange(_allActors);

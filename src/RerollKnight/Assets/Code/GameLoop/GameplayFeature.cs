@@ -8,12 +8,13 @@ namespace Code
 		public GameplayFeature(SystemsFactory factory)
 			: base(nameof(GameplayFeature), factory)
 		{
-			Add<MarkActorsSystem>();
+			Add<CollectActorsSystem>();
 
 			Add<StartGameSystem>();
 
 			// Game Logic
 			Add<EmitAllRequestsSystem>();
+			Add<SpawnActorOnRequestSystem>();
 
 			Add<MarkEmptyCellsSystem>();
 			// Add<ChipsFeature>();
