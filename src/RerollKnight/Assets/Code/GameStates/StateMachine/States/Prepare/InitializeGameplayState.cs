@@ -24,7 +24,6 @@ namespace Code
 
 				// Ready
 				Add<ReadyOnAny<Actor>>();
-				// Add<ReadyOnTurnsQueueAny>();
 
 				// TODO: is it the best state?
 				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
