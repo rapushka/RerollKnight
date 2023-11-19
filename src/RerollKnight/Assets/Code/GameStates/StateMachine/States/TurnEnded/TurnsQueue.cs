@@ -38,9 +38,15 @@ namespace Code
 			Debug.Assert(index != -1, $"The queue doesn't contain the {actor}");
 
 			_allActors.RemoveAt(index);
-			_allActors.Insert(index, actor);
+			_allActors.Enqueue(actor);
+
+			RefillQueue();
 		}
 
-		private void RefillQueue() => _queue.AddRange(_allActors);
+		private void RefillQueue()
+		{
+			_queue.Clear();
+			_queue.AddRange(_allActors);
+		}
 	}
 }

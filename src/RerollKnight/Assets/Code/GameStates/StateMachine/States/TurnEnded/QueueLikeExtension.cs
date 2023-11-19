@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Entitas.Generic;
 
 namespace Code
 {
@@ -24,6 +25,11 @@ namespace Code
 			@this.RemoveAt(0);
 
 			return first;
+		}
+
+		public static void Enqueue<T>(this List<T> @this, T item)
+		{
+			@this.Insert(0, item);
 		}
 	}
 }
