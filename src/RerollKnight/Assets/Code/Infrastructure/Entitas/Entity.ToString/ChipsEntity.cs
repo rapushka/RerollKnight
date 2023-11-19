@@ -19,8 +19,8 @@ namespace Code
 
 			var abilityOfChip = entity.GetOrDefault<AbilityOfChip>();
 			if (abilityOfChip is not null)
-				yield return ChipId.Index.GetEntity(abilityOfChip.Value).ToString() ?? "no chip!";
-				// yield return abilityOfChip.Value.ToString();
+				yield return ChipId.Index.GetEntity(abilityOfChip.Value)?.ToString() ?? "no chip!";
+			// yield return abilityOfChip.Value.ToString();
 		}
 
 		private string TargetConstraints(Entity<ChipsScope> entity)
