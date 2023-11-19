@@ -12,6 +12,7 @@ namespace Code
 		public GameplayStateMachine(DiContainer diContainer, Contexts contexts, StateChangeBus stateChangeBus)
 		{
 			AddState(diContainer.Instantiate<LoadAssetsGameplayState>());
+			AddState(diContainer.Instantiate<InitializeGameplayState>());
 			AddState(diContainer.Instantiate<ObservingGameplayState>());
 			AddState(diContainer.Instantiate<ChipPickedGameplayState>());
 			AddState(diContainer.Instantiate<WaitingGameplayState>());

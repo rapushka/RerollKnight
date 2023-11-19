@@ -26,11 +26,15 @@ namespace Code
 			Container.BindInterfacesAndSelfTo<GameplayStateMachine>().AsSingle();
 			Container.BindInterfacesAndSelfTo<StateChangeBus>().AsSingle();
 
+			// Game preparations states
 			Container.Bind<LoadAssetsGameplayState.StateFeature>().AsSingle();
+			Container.Bind<InitializeGameplayState.StateFeature>().AsSingle();
+
+			// Game loop states
 			Container.Bind<ObservingGameplayState.StateFeature>().AsSingle();
 			Container.Bind<ChipPickedGameplayState.StateFeature>().AsSingle();
-			Container.Bind<TurnEndedGameplayState.StateFeature>().AsSingle();
 			Container.Bind<WaitingGameplayState.StateFeature>().AsSingle();
+			Container.Bind<TurnEndedGameplayState.StateFeature>().AsSingle();
 			Container.Bind<OtherPlayerTurnGameplayState.StateFeature>().AsSingle();
 
 #if DEBUG
