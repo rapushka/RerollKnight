@@ -6,4 +6,6 @@ namespace Code.Component
 
 	// Both Players and Enemies
 	[GameScope] public sealed class Actor : FlagComponent { }
+
+	[RequestScope] public sealed class SpawnActor : FlagComponent, ICleanup<DestroyEntity> { }
 }
