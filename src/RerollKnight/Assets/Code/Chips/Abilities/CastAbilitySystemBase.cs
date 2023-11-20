@@ -6,7 +6,8 @@ using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
 {
-	public abstract class CastAbilitySystemBase : IInitializeSystem
+	public abstract class CastAbilitySystemBase<TAbility> : IInitializeSystem
+		where TAbility : IComponent, new()
 	{
 		private readonly Contexts _contexts;
 		private readonly IGroup<Entity<GameScope>> _targets;
@@ -17,7 +18,7 @@ namespace Code
 		{
 			_contexts = contexts;
 			_targets = contexts.GetGroup(ScopeMatcher<GameScope>.Get<PickedTarget>());
-			_abilities = contexts.GetGroup(AllOf(Get<SwitchPositions>(), Get<Component.AbilityState>()));
+			_abilities = contexts.GetGroup(AllOf(Get<TAbility>(), Get<Component.AbilityState>()));
 		}
 
 		protected Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
