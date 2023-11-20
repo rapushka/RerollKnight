@@ -7,7 +7,7 @@ namespace Code
 		{
 			// Add<PrepareAbilitiesOfPickedChipSystem>();
 
-			Add<PickCellAsTargetSystem>();
+			Add<PickTargetSystem>();
 
 			// Add<ConstraintAbilityRangeSystem>();
 			// Add<EnsureTargetConstraintComponentsSystem>();

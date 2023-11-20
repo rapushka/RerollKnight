@@ -6,12 +6,12 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class PickCellAsTargetSystem : ReactiveSystem<Entity<GameScope>>
+	public sealed class PickTargetSystem : ReactiveSystem<Entity<GameScope>>
 	{
-		public PickCellAsTargetSystem(Contexts contexts) : base(contexts.Get<GameScope>()) { }
+		public PickTargetSystem(Contexts contexts) : base(contexts.Get<GameScope>()) { }
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
-			=> context.CreateCollector(AllOf(Get<Clicked>(), Get<Cell>(), Get<AvailableToPick>()));
+			=> context.CreateCollector(AllOf(Get<Clicked>(), Get<Target>(), Get<AvailableToPick>()));
 
 		protected override bool Filter(Entity<GameScope> entity)
 			=> entity.Is<Clicked>() && entity.Is<AvailableToPick>();
