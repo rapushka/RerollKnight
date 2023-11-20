@@ -672,8 +672,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value:
-  - _name: Cell
-  - _name: Empty
+  - <Component>k__BackingField:
+      _name: Cell
+    <MustHave>k__BackingField: 1
+  - <Component>k__BackingField:
+      _name: Empty
+    <MustHave>k__BackingField: 1
 --- !u!1 &1215878679
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +992,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value:
-  - _name: Cell
+  - <Component>k__BackingField:
+      _name: CurrentActor
+    <MustHave>k__BackingField: 0
+  - <Component>k__BackingField:
+      _name: Actor
+    <MustHave>k__BackingField: 1
 --- !u!114 &1471731829
 MonoBehaviour:
   m_ObjectHideFlags: 0
