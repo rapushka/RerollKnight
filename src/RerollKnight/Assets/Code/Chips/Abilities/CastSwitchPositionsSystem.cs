@@ -8,21 +8,11 @@ namespace Code
 	{
 		public CastSwitchPositionsSystem(Contexts contexts) : base(contexts) { }
 
-		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> targetCell)
+		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> target)
 		{
-			var cellCoordinates = targetCell.GetCoordinates();
-			var target = Component.Coordinates.Index.GetEntity(cellCoordinates);
-
 			Debug.Assert(target.Has<Component.Coordinates>());
 
-			var targetCoordinates = target.Get<Component.Coordinates>().Value;
-			var casterCoordinates = CurrentActor.Get<Component.Coordinates>().Value;
-
-			CurrentActor.Remove<Component.Coordinates>();
-			target.Remove<Component.Coordinates>();
-
-			CurrentActor.Replace<Component.Coordinates, Coordinates>(targetCoordinates);
-			target.Replace<Component.Coordinates, Coordinates>(casterCoordinates);
+			CurrentActor.Swap<Component.Coordinates, Coordinates>(with: target);
 		}
 	}
 }
