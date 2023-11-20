@@ -1,6 +1,5 @@
 using Code.Component;
 using Entitas.Generic;
-using UnityEngine;
 
 namespace Code
 {
@@ -10,8 +9,6 @@ namespace Code
 
 		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> target)
 		{
-			Debug.Assert(target.Has<Component.Coordinates>());
-
 			CurrentActor.Swap<Component.Coordinates, Coordinates>(with: target);
 		}
 	}
