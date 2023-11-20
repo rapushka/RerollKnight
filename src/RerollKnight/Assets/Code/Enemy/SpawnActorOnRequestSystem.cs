@@ -21,7 +21,9 @@ namespace Code
 
 			SpawnPrefab(request)
 				.Replace<Component.Coordinates, Coordinates>(request.Get<CoordinatesRequest>().Value)
-				.Is<Actor>(true);
+				.Is<Actor>(true)
+				.Is<Target>(true)
+				;
 		}
 
 		private Entity<GameScope> SpawnPrefab(Entity<RequestScope> request)
