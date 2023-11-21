@@ -13,6 +13,9 @@ namespace Code
 
 		public void ToState<TState>()
 			where TState : GameplayStateBase
-			=> StateChangeRequired?.Invoke(typeof(TState));
+			=> ToState(typeof(TState));
+
+		public void ToState(Type state)
+			=> StateChangeRequired?.Invoke(state);
 	}
 }

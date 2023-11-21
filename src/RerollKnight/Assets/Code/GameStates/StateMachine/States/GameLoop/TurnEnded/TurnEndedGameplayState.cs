@@ -10,6 +10,9 @@ namespace Code
 				: base($"{nameof(TurnEndedGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
+				Add<UnpickAllSystem>();
+				Add<MarkAllTargetsUnavailableSystem>();
+
 				Add<PassTurnToNextActorSystem>();
 			}
 		}

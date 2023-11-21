@@ -37,6 +37,9 @@ namespace Code
 			Container.Bind<TurnEndedGameplayState.StateFeature>().AsSingle();
 			Container.Bind<OtherPlayerTurnGameplayState.StateFeature>().AsSingle();
 
+			Container.Bind<WaitAndThenToState<OtherPlayerTurnGameplayState>.StateFeature>().AsSingle();
+			// Container.Bind<WaitAndThenToState<CastingAbilitiesGameplayState>.StateFeature>().AsSingle();
+
 #if DEBUG
 			Container.BindInterfacesTo<GameplayStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 #endif

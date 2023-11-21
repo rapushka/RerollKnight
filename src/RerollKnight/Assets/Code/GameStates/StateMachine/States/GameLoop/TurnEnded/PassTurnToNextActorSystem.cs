@@ -28,7 +28,7 @@ namespace Code
 			if (actor.Is<Player>())
 				_stateChangeBus.ToState<ObservingGameplayState>();
 			else
-				_stateChangeBus.ToState<OtherPlayerTurnGameplayState>();
+				_stateChangeBus.ToState<WaitAndThenToState<OtherPlayerTurnGameplayState>>();
 		}
 	}
 }
