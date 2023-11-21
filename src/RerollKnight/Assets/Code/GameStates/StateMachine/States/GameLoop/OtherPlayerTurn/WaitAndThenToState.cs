@@ -11,7 +11,7 @@ namespace Code
 				: base($"{nameof(WaitAndThenToState<TNextState>)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
-				Add<WaitingSystem, float>(1f); // TODO: pass duration from external
+				Add<WaitingSystem, float>(1f); // TODO: pass duration from externally
 
 				Add<ToStateWhenAllReady<TNextState>>();
 			}
