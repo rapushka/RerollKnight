@@ -15,7 +15,7 @@ namespace Code
 			AddState(diContainer.Instantiate<InitializeGameplayState>());
 			AddState(diContainer.Instantiate<ObservingGameplayState>());
 			AddState(diContainer.Instantiate<ChipPickedGameplayState>());
-			AddState(diContainer.Instantiate<WaitingGameplayState>());
+			AddState(diContainer.Instantiate<CastingAbilitiesGameplayState>());
 			AddState(diContainer.Instantiate<TurnEndedGameplayState>());
 			AddState(diContainer.Instantiate<OtherPlayerTurnGameplayState>());
 

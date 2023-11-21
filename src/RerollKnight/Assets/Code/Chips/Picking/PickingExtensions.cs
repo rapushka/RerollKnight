@@ -1,3 +1,4 @@
+using System;
 using Code.Component;
 using Entitas.Generic;
 
@@ -13,8 +14,10 @@ namespace Code
 		{
 			if (@this.Is<Chip>())
 				@this.Is<PickedChip>(value);
-			else
+			else if (@this.Is<Target>())
 				@this.Is<PickedTarget>(value);
+			else
+				throw new InvalidOperationException("Attempt to pick unpickable!");
 		}
 	}
 }

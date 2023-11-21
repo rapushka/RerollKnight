@@ -24,6 +24,7 @@ namespace Code
 			Container.Bind<ILayoutService>().To<LayoutService>().FromScriptableObject(_layoutService).AsSingle();
 			Container.Bind<ITimeService>().To<TimeService>().AsSingle();
 
+			Container.Bind<RandomService>().FromInstance(RandomService.Instance).AsSingle();
 			Container.Bind<ServicesMediator>().AsSingle();
 		}
 	}

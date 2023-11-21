@@ -1,3 +1,5 @@
+using Code.Component;
+
 namespace Code
 {
 	public class OtherPlayerTurnGameplayState : GameplayStateBase<OtherPlayerTurnGameplayState.StateFeature>
@@ -10,8 +12,24 @@ namespace Code
 				: base($"{nameof(OtherPlayerTurnGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
-				Add<ToGameplayStateSystem<ObservingGameplayState>>();
-				// TODO: cast random chip
+				// # Clean
+				Add<UnpickAllSystem>();
+				Add<MarkAllTargetsUnavailableSystem>();
+
+				// # Cell
+				Add<PickRandom<Chip>>();
+				// _stateChangeBus.ToState<ChipPickedGameplayState>();
+
+				// # Abilities
+				Add<PrepareAbilitiesOfPickedChipSystem>();
+				Add<AvailabilityFeature>();
+
+				// TODO: won't work for multi-target abilities
+				// BUT, "multi-target abilities" is bs imo. so..s
+				Add<PickRandom<AvailableToPick>>();
+				Add<CastAbilitiesSystem>();
+
+				// Add<EndTurnSystem>();
 			}
 		}
 	}

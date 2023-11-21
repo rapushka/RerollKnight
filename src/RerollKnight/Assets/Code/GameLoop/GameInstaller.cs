@@ -33,7 +33,7 @@ namespace Code
 			// Game loop states
 			Container.Bind<ObservingGameplayState.StateFeature>().AsSingle();
 			Container.Bind<ChipPickedGameplayState.StateFeature>().AsSingle();
-			Container.Bind<WaitingGameplayState.StateFeature>().AsSingle();
+			Container.Bind<CastingAbilitiesGameplayState.StateFeature>().AsSingle();
 			Container.Bind<TurnEndedGameplayState.StateFeature>().AsSingle();
 			Container.Bind<OtherPlayerTurnGameplayState.StateFeature>().AsSingle();
 

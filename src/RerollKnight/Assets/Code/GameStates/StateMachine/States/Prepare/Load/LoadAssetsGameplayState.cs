@@ -10,7 +10,7 @@ namespace Code
 		public sealed class StateFeature : InjectableFeature
 		{
 			public StateFeature(SystemsFactory factory)
-				: base($"{nameof(WaitingGameplayState)}.{nameof(StateFeature)}", factory)
+				: base($"{nameof(CastingAbilitiesGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Registrations
 				Add<RegisterBehavioursSystem>();
