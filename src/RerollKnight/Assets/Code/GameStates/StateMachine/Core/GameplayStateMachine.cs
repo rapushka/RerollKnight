@@ -14,7 +14,7 @@ namespace Code
 		{
 			_diContainer = diContainer;
 
-			AddState<LoadAssetsGameplayState>();
+			AddState<LoadLevelGameplayState>();
 			AddState<InitializeGameplayState>();
 			AddState<ObservingGameplayState>();
 			AddState<ChipPickedGameplayState>();

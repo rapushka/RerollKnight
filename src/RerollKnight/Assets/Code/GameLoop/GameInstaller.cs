@@ -27,7 +27,7 @@ namespace Code
 			Container.BindInterfacesAndSelfTo<StateChangeBus>().AsSingle();
 
 			// Game preparations states
-			Container.Bind<LoadAssetsGameplayState.StateFeature>().AsSingle();
+			Container.Bind<LoadLevelGameplayState.StateFeature>().AsSingle();
 			Container.Bind<InitializeGameplayState.StateFeature>().AsSingle();
 
 			// Game loop states
