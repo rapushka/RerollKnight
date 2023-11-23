@@ -18,8 +18,11 @@ namespace Code
 
 		public void Cleanup()
 		{
-			if (_entities.All((e) => e.Get<Ready>().Value))
+			// 'any' is useless here, just for clarity
+			if (!_entities.Any() || _entities.All(IsReady))
 				_stateChangeBus.ToState<TState>();
 		}
+
+		private bool IsReady(Entity<InfrastructureScope> entity) => entity.Get<Ready>().Value;
 	}
 }

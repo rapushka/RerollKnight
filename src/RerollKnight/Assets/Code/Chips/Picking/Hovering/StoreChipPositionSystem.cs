@@ -7,6 +7,7 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
+	// todo: useless
 	public sealed class StoreChipPositionSystem : ReactiveSystem<Entity<GameScope>>
 	{
 		public StoreChipPositionSystem(Contexts contexts) : base(contexts.Get<GameScope>()) { }

@@ -4,6 +4,7 @@ using Entitas.Generic;
 
 namespace Code
 {
+	// todo: as i understand - it's useless now
 	public sealed class IdentifyChipsSystem : IInitializeSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _chips;

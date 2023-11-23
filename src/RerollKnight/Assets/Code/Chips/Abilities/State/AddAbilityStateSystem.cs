@@ -5,6 +5,7 @@ using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
 {
+	// todo: mb useless
 	public sealed class AddAbilityStateSystem : IInitializeSystem
 	{
 		private readonly IGroup<Entity<ChipsScope>> _entities;

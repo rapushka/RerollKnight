@@ -7,6 +7,7 @@ namespace Code
 	public class ProjectInstaller : MonoInstaller<ProjectInstaller>
 	{
 		[SerializeField] private LayoutService _layoutService;
+		[SerializeField] private ChipsConfig _chipsConfig;
 
 		public override void InstallBindings()
 		{
@@ -23,6 +24,7 @@ namespace Code
 			Container.Bind<IAssetsService>().To<AssetsService>().AsSingle();
 			Container.Bind<ILayoutService>().To<LayoutService>().FromScriptableObject(_layoutService).AsSingle();
 			Container.Bind<ITimeService>().To<TimeService>().AsSingle();
+			Container.Bind<ChipsConfig>().FromScriptableObject(_chipsConfig).AsSingle();
 
 			Container.Bind<RandomService>().FromInstance(RandomService.Instance).AsSingle();
 			Container.Bind<ServicesMediator>().AsSingle();
