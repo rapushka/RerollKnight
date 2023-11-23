@@ -12,9 +12,11 @@ namespace Code
 		private readonly Contexts _contexts;
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
-		private ChipsConfig _chipsConfig;
+		private readonly ChipsConfig _chipsConfig;
 
 		private GameObject _root;
+
+		private int _counter;
 
 		[Inject]
 		public SpawnChipsSystem
@@ -46,11 +48,17 @@ namespace Code
 		private void CreateChip(ChipConfig chipConfig)
 		{
 			var chip = SpawnChip();
+			chip.Replace<Position, Vector3>(Offset(chip));
 			chip.Add<InitialPosition, Vector3>(chip.Get<Position>().Value);
 
 			foreach (var abilityConfig in chipConfig.Abilities)
 				SetupAbility(chip, abilityConfig);
+
+			_counter++;
 		}
+
+		private Vector3 Offset(Entity<GameScope> chip)
+			=> chip.Get<Position>().Value + new Vector3(_counter * 0.3f, 0, 0);
 
 		private Entity<GameScope> SpawnChip()
 			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _root.transform).Entity
