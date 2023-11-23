@@ -33,7 +33,11 @@ namespace Code
 
 		public void Initialize()
 		{
-			_root = new GameObject("Cells Root");
+			_root = new GameObject
+			{
+				name = "Cells Root",
+				transform = { position = new Vector3(4.8f, 4.1f, 3.6f), },
+			};
 
 			foreach (var chipConfig in _chipsConfig.Chips)
 				CreateChip(chipConfig);
@@ -42,6 +46,7 @@ namespace Code
 		private void CreateChip(ChipConfig chipConfig)
 		{
 			var chip = SpawnChip();
+			chip.Add<InitialPosition, Vector3>(chip.Get<Position>().Value);
 
 			foreach (var abilityConfig in chipConfig.Abilities)
 				SetupAbility(chip, abilityConfig);
