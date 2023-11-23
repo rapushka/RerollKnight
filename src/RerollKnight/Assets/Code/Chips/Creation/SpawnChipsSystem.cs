@@ -53,12 +53,14 @@ namespace Code
 
 		private void SetupAbility(Entity<GameScope> chip, AbilityConfig config)
 		{
-			CreateAbility(chip)
-				.Is<Teleport>(config.Kind.Is<ChipsScope, Teleport>())
-				.Is<SwitchPositions>(config.Kind.Is<ChipsScope, SwitchPositions>())
-				.Add<Range, int>(config.Range)
-				.Add<MaxCountOfTargets, int>(config.TargetsCount)
-				.Add<TargetConstraints, List<ComponentConstraint>>(config.TargetConstraints);
+			var entity = CreateAbility(chip)
+			             .Is<Teleport>(config.Kind.Is<ChipsScope, Teleport>())
+			             .Is<SwitchPositions>(config.Kind.Is<ChipsScope, SwitchPositions>())
+			             .Add<MaxCountOfTargets, int>(config.TargetsCount)
+			             .Add<TargetConstraints, List<ComponentConstraint>>(config.TargetConstraints);
+
+			if (config.Range > -1)
+				entity.Add<Range, int>(config.Range);
 		}
 
 		private Entity<ChipsScope> CreateAbility(Entity<GameScope> chip)

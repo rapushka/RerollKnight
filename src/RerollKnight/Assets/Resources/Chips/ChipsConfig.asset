@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8757be90494b4a8a83b4f3d81cfaf4, type: 3}
+  m_Name: ChipsConfig
+  m_EditorClassIdentifier: 
+  <Chips>k__BackingField:
+  - <Abilities>k__BackingField:
+    - <Kind>k__BackingField:
+        _name: Teleport
+      <Range>k__BackingField: 1
+      <TargetsCount>k__BackingField: 1
+      <TargetConstraints>k__BackingField:
+      - <Component>k__BackingField:
+          _name: Cell
+        <MustHave>k__BackingField: 1
+      - <Component>k__BackingField:
+          _name: Empty
+        <MustHave>k__BackingField: 1
+  - <Abilities>k__BackingField:
+    - <Kind>k__BackingField:
+        _name: SwitchPositions
+      <Range>k__BackingField: -1
+      <TargetsCount>k__BackingField: 1
+      <TargetConstraints>k__BackingField:
+      - <Component>k__BackingField:
+          _name: CurrentActor
+        <MustHave>k__BackingField: 0
+      - <Component>k__BackingField:
+          _name: Actor
+        <MustHave>k__BackingField: 1
