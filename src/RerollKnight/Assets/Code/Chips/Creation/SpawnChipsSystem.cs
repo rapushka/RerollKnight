@@ -4,6 +4,7 @@ using Entitas;
 using Entitas.Generic;
 using UnityEngine;
 using Zenject;
+using Range = Code.Component.Range;
 
 namespace Code
 {
@@ -15,7 +16,6 @@ namespace Code
 		private readonly ChipsConfig _chipsConfig;
 
 		private GameObject _root;
-
 		private int _counter;
 
 		[Inject]
@@ -66,19 +66,18 @@ namespace Code
 
 		private void SetupAbility(Entity<GameScope> chip, AbilityConfig config)
 		{
-			var entity = CreateAbility(chip)
-			             .Is<Teleport>(config.Kind.Is<ChipsScope, Teleport>())
-			             .Is<SwitchPositions>(config.Kind.Is<ChipsScope, SwitchPositions>())
-			             .Add<MaxCountOfTargets, int>(config.TargetsCount)
-			             .Add<TargetConstraints, List<ComponentConstraint>>(config.TargetConstraints);
-
-			if (config.Range > -1)
-				entity.Add<Range, int>(config.Range);
+			CreateAbility(@for: chip)
+				.Is<Teleport>(config.Kind.Is<ChipsScope, Teleport>())
+				.Is<SwitchPositions>(config.Kind.Is<ChipsScope, SwitchPositions>())
+				.Add<MaxCountOfTargets, int>(config.TargetsCount)
+				.Add<TargetConstraints, List<ComponentConstraint>>(config.TargetConstraints)
+				.Add<Range, int>(config.Range, @if: config.Range > -1)
+				;
 		}
 
-		private Entity<ChipsScope> CreateAbility(Entity<GameScope> chip)
+		private Entity<ChipsScope> CreateAbility(Entity<GameScope> @for)
 			=> _contexts.Get<ChipsScope>().CreateEntity()
 			            .Add<Component.AbilityState, AbilityState>(AbilityState.Inactive)
-			            .Add<AbilityOfChip, int>(chip.Get<ChipId>().Value);
+			            .Add<AbilityOfChip, int>(@for.Get<ChipId>().Value);
 	}
 }
