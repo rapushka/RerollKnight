@@ -19,6 +19,8 @@ namespace Code
 			InstallGameplayStateMachine();
 
 			Container.Bind<TurnsQueue>().AsSingle();
+
+			InstallFactories();
 		}
 
 		private void InstallGameplayStateMachine()
@@ -43,6 +45,12 @@ namespace Code
 #if DEBUG
 			Container.BindInterfacesTo<GameplayStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 #endif
+		}
+
+		private void InstallFactories()
+		{
+			// non-zenject factories
+			Container.Bind<ChipsFactory>().AsSingle();
 		}
 	}
 }
