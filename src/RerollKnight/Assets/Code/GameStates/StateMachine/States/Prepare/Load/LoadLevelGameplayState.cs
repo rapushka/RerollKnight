@@ -17,7 +17,7 @@ namespace Code
 
 				// Initialization
 				Add<SpawnFieldSystem>();
-				Add<SpawnChipsSystem>();
+				Add<SpawnPlayerChipsSystem>();
 
 				// Ready
 				Add<ReadyOnAny<Actor>>();

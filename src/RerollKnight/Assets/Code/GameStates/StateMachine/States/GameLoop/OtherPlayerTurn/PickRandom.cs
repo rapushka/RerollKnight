@@ -4,7 +4,7 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class PickRandom<T> : IInitializeSystem
+	public class PickRandom<T> : IInitializeSystem
 		where T : IComponent, new()
 	{
 		private readonly IGroup<Entity<GameScope>> _entities;

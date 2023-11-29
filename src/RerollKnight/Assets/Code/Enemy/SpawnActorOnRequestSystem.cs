@@ -23,6 +23,7 @@ namespace Code
 				.Replace<Component.Coordinates, Coordinates>(request.Get<CoordinatesRequest>().Value)
 				.Is<Actor>(true)
 				.Is<Target>(true)
+				.Identify()
 				;
 		}
 
