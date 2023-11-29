@@ -11,25 +11,28 @@ namespace Code
 	{
 		private readonly ChipsConfig _chipsConfig;
 		private readonly ChipsFactory _chipsFactory;
+		private readonly ILayoutService _layoutService;
+		private readonly IHoldersProvider _holdersProvider;
 
-		private GameObject _root;
 		private int _counter;
 
 		[Inject]
-		public SpawnChipsSystem(ChipsConfig chipsConfig, ChipsFactory chipsFactory)
+		public SpawnChipsSystem
+		(
+			ChipsConfig chipsConfig,
+			ChipsFactory chipsFactory,
+			ILayoutService layoutService,
+			IHoldersProvider holdersProvider
+		)
 		{
 			_chipsConfig = chipsConfig;
 			_chipsFactory = chipsFactory;
+			_layoutService = layoutService;
+			_holdersProvider = holdersProvider;
 		}
 
 		public void Initialize()
 		{
-			_root = new GameObject
-			{
-				name = "Cells Root",
-				transform = { position = new Vector3(4.8f, 4.1f, 3.6f), },
-			};
-
 			foreach (var chip in _chipsConfig.Chips.Select(CreateChip))
 			{
 				chip.Replace<Position, Vector3>(Offset(chip));
@@ -39,9 +42,9 @@ namespace Code
 		}
 
 		private Entity<GameScope> CreateChip(ChipConfig chipConfig)
-			=> _chipsFactory.Create(chipConfig, _root.transform);
+			=> _chipsFactory.Create(chipConfig, _holdersProvider.ChipsHolder.transform);
 
 		private Vector3 Offset(Entity<GameScope> chip)
-			=> chip.Get<Position>().Value + new Vector3(_counter * 0.3f, 0, 0);
+			=> chip.Get<Position>().Value + _counter * _layoutService.ChipsPositionStep;
 	}
 }

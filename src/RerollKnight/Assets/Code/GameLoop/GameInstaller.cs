@@ -7,10 +7,12 @@ namespace Code
 	public class GameInstaller : MonoInstaller<GameInstaller>
 	{
 		[SerializeField] private BehavioursCollector _behavioursCollector;
+		[SerializeField] private HoldersProvider _holdersProvider;
 
 		public override void InstallBindings()
 		{
 			Container.BindInstance(_behavioursCollector.Behaviours).AsSingle();
+			Container.Bind<IHoldersProvider>().FromInstance(_holdersProvider).AsSingle();
 
 			Container.Bind<GameplayFeature>().AsSingle();
 			Container.Bind<GameplayFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
