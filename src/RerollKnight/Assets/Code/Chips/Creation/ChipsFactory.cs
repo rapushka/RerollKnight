@@ -23,6 +23,7 @@ namespace Code
 		public Entity<GameScope> Create(ChipConfig chipConfig, Transform parent = null)
 		{
 			var chip = SpawnChip(parent);
+			chip.Add<Label, string>(chipConfig.Label);
 
 			foreach (var abilityConfig in chipConfig.Abilities)
 				SetupAbility(chip, abilityConfig);

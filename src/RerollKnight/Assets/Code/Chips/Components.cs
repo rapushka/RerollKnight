@@ -12,4 +12,6 @@ namespace Code.Component
 	[RequestScope] public sealed class CastAbility : FlagComponent, ICleanup<DestroyEntity> { }
 
 	[ChipsScope] public sealed class TargetConstraints : ValueComponent<List<ComponentConstraint>> { }
+
+	[GameScope] public sealed class Label : ValueComponent<string>, IEvent { }
 }

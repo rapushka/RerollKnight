@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ChipsConfig
   m_EditorClassIdentifier: 
   <Chips>k__BackingField:
-  - <Abilities>k__BackingField:
+  - <Label>k__BackingField: Teleport
+    <Abilities>k__BackingField:
     - <Kind>k__BackingField:
         _name: Teleport
       <Range>k__BackingField: 1
@@ -25,7 +26,8 @@ MonoBehaviour:
       - <Component>k__BackingField:
           _name: Empty
         <MustHave>k__BackingField: 1
-  - <Abilities>k__BackingField:
+  - <Label>k__BackingField: Swap Positions
+    <Abilities>k__BackingField:
     - <Kind>k__BackingField:
         _name: SwitchPositions
       <Range>k__BackingField: -1

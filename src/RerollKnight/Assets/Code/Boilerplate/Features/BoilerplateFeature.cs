@@ -12,6 +12,7 @@ namespace Code
 			Add(new EventSystem<GameScope, EnableOutline>(contexts));
 			Add(new EventSystem<GameScope, Position>(contexts));
 			Add(new EventSystem<GameScope, Component.TargetState>(contexts));
+			Add(new EventSystem<GameScope, Label>(contexts));
 
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 
