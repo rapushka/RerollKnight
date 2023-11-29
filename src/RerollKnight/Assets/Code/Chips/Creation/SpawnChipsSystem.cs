@@ -35,7 +35,7 @@ namespace Code
 		{
 			foreach (var chip in _chipsConfig.Chips.Select(CreateChip))
 			{
-				chip.Replace<Position, Vector3>(Offset(chip));
+				chip.Replace<Position, Vector3>(_layoutService.ChipsPositionStep * _counter);
 				chip.Add<InitialPosition, Vector3>(chip.Get<Position>().Value);
 				_counter++;
 			}
@@ -43,8 +43,5 @@ namespace Code
 
 		private Entity<GameScope> CreateChip(ChipConfig chipConfig)
 			=> _chipsFactory.Create(chipConfig, _holdersProvider.ChipsHolder.transform);
-
-		private Vector3 Offset(Entity<GameScope> chip)
-			=> chip.Get<Position>().Value + _counter * _layoutService.ChipsPositionStep;
 	}
 }
