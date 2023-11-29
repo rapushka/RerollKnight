@@ -17,7 +17,7 @@ namespace Code
 		public void Initialize()
 		{
 			foreach (var chip in _chips)
-				chip.Add<ChipId, int>(chip.creationIndex);
+				chip.Identify();
 		}
 	}
 }

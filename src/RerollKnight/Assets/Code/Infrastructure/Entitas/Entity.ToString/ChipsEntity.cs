@@ -20,7 +20,7 @@ namespace Code
 
 			var abilityOfChip = entity.GetOrDefault<AbilityOfChip>();
 			if (abilityOfChip is not null)
-				yield return ChipId.Index.GetEntity(abilityOfChip.Value)?.ToString() ?? "no chip!";
+				yield return $"ability of chip: {ID.Index.GetEntity(abilityOfChip.Value)?.ToString() ?? "no chip!"}";
 			// yield return abilityOfChip.Value.ToString();
 		}
 

@@ -5,8 +5,8 @@ namespace Code
 {
 	public static class IdExtensions
 	{
-		public static Entity<TScope> IdentifyChip<TScope>(this Entity<TScope> @this)
+		public static Entity<TScope> Identify<TScope>(this Entity<TScope> @this)
 			where TScope : IScope
-			=> @this.Add<ChipId, int>(@this.creationIndex);
+			=> @this.Add<ID, int>(@this.creationIndex);
 	}
 }

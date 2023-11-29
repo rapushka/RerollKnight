@@ -8,4 +8,6 @@ namespace Code.Component
 	[GameScope] public sealed class Actor : FlagComponent { }
 
 	[RequestScope] public sealed class SpawnActor : FlagComponent, ICleanup<DestroyEntity> { }
+
+	[GameScope] public sealed class ID : PrimaryIndexComponent<GameScope, ID, int> { }
 }

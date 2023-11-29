@@ -33,7 +33,7 @@ namespace Code
 
 		private Entity<GameScope> SpawnChip(Transform parent = null)
 			=> _assets.SpawnBehaviour(_resources.ChipPrefab, parent).Entity
-			          .IdentifyChip();
+			          .Identify();
 
 		private void SetupAbility(Entity<GameScope> chip, AbilityConfig config)
 		{
@@ -49,6 +49,6 @@ namespace Code
 		private Entity<ChipsScope> CreateAbility(Entity<GameScope> @for)
 			=> _contexts.Get<ChipsScope>().CreateEntity()
 			            .Add<Component.AbilityState, AbilityState>(AbilityState.Inactive)
-			            .Add<AbilityOfChip, int>(@for.Get<ChipId>().Value);
+			            .Add<AbilityOfChip, int>(@for.Get<ID>().Value);
 	}
 }

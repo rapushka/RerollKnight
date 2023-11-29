@@ -32,7 +32,7 @@ namespace Code
 		{
 			Component.Coordinates.Index.Initialize();
 			CoordinatesUnderField.Index.Initialize();
-			ChipId.Index.Initialize();
+			ID.Index.Initialize();
 			AbilityOfChip.Index.Initialize();
 		}
 
