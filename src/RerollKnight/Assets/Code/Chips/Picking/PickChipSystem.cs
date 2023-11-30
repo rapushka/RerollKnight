@@ -10,17 +10,14 @@ namespace Code
 	public sealed class PickChipSystem : ReactiveSystem<Entity<GameScope>>
 	{
 		private readonly IStateChangeBus _stateChangeBus;
-		private readonly Contexts _contexts;
+		private readonly Query _query;
 
-		public PickChipSystem(Contexts contexts, IStateChangeBus stateChangeBus)
+		public PickChipSystem(Contexts contexts, IStateChangeBus stateChangeBus, Query query)
 			: base(contexts.Get<GameScope>())
 		{
-			_contexts = contexts;
-
 			_stateChangeBus = stateChangeBus;
+			_query = query;
 		}
-
-		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
 			=> context.CreateCollector(AllOf(Get<Clicked>(), Get<Chip>()));
@@ -29,15 +26,12 @@ namespace Code
 
 		protected override void Execute(List<Entity<GameScope>> entities)
 		{
-			foreach (var e in entities.Where(BelongToCurrentActor))
+			foreach (var e in entities.Where(_query.IsBelongToCurrentActor))
 			{
 				e.Pick();
 				e.Is<Clicked>(false);
 				_stateChangeBus.ToState<ChipPickedGameplayState>();
 			}
 		}
-
-		private bool BelongToCurrentActor(Entity<GameScope> chip)
-			=> chip.Get<BelongToActor>().Value == CurrentActor.Get<ID>().Value;
 	}
 }

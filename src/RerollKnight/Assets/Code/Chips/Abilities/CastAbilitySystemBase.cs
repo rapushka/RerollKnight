@@ -9,12 +9,12 @@ namespace Code
 	public abstract class CastAbilitySystemBase<TAbility> : IInitializeSystem
 		where TAbility : IComponent, new()
 	{
-		private readonly Contexts _contexts;
 		private readonly IGroup<Entity<GameScope>> _targets;
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
+		private readonly Contexts _contexts;
 
 		[Inject]
-		protected CastAbilitySystemBase(Contexts contexts)
+		protected CastAbilitySystemBase(Contexts contexts, Query query)
 		{
 			_contexts = contexts;
 			_targets = contexts.GetGroup(ScopeMatcher<GameScope>.Get<PickedTarget>());

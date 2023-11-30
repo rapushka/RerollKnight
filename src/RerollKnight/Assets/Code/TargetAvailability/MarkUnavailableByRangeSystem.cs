@@ -13,21 +13,22 @@ namespace Code
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
 
 		[Inject]
-		public MarkUnavailableByRangeSystem(Contexts contexts)
+		public MarkUnavailableByRangeSystem(Contexts contexts, Query query)
 		{
 			_contexts = contexts;
+
 			_targets = contexts.GetGroup(ScopeMatcher<GameScope>.Get<AvailableToPick>());
 			_abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<Range>()));
 		}
 
-		private Entity<GameScope> CurrentPlayer => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
+		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
 
 		public void Initialize()
 		{
 			foreach (var ability in _abilities.WhereStateIs(AbilityState.Prepared))
 			foreach (var target in _targets.GetEntities())
 			{
-				var playerPosition = CurrentPlayer.GetCoordinates();
+				var playerPosition = CurrentActor.GetCoordinates();
 				var targetPosition = target.GetCoordinates();
 
 				if (playerPosition.DistanceTo(targetPosition) > ability.Get<Range>().Value)

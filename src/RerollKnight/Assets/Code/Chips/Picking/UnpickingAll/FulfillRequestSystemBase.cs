@@ -4,19 +4,21 @@ using RequestMatcher = Entitas.Generic.ScopeMatcher<Code.RequestScope>;
 
 namespace Code
 {
-	public abstract class FulfillRequestSystemBase<TComponent> : IExecuteSystem
+	public abstract class FulfillRequestSystemBase<TComponent> : IInitializeSystem, IExecuteSystem
 		where TComponent : IComponent, new()
 	{
 		private readonly IGroup<Entity<RequestScope>> _requests;
 
 		protected FulfillRequestSystemBase(Contexts contexts)
-		{
-			_requests = contexts.GetGroup(RequestMatcher.Get<TComponent>());
-		}
+			=> _requests = contexts.GetGroup(RequestMatcher.Get<TComponent>());
 
-		public void Execute()
+		public void Initialize() => FulfillRequest();
+
+		public void Execute() => FulfillRequest();
+
+		private void FulfillRequest()
 		{
-			foreach (var request in _requests)
+			foreach (var request in _requests.GetEntities())
 				OnRequest(request);
 		}
 

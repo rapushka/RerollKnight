@@ -10,14 +10,16 @@ namespace Code
 		public sealed class StateFeature : InjectableFeature
 		{
 			public StateFeature(SystemsFactory factory)
-				: base($"{nameof(CastingAbilitiesGameplayState)}.{nameof(StateFeature)}", factory)
+				: base($"{nameof(LoadLevelGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Registrations
 				Add<RegisterBehavioursSystem>();
 
+				Add<SpawnActorOnRequestSystem>();
+
 				// Initialization
-				Add<SpawnFieldSystem>();
 				Add<SpawnPlayerChipsSystem>();
+				Add<SpawnFieldSystem>();
 
 				// Ready
 				Add<ReadyOnAny<Actor>>();

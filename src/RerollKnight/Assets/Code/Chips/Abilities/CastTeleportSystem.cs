@@ -6,7 +6,7 @@ namespace Code
 {
 	public sealed class CastTeleportSystem : CastAbilitySystemBase<Teleport>
 	{
-		public CastTeleportSystem(Contexts contexts) : base(contexts) { }
+		public CastTeleportSystem(Contexts contexts, Query query) : base(contexts, query) { }
 
 		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> target)
 		{

@@ -17,7 +17,7 @@ namespace Code
 				Add<MarkAllTargetsUnavailableSystem>();
 
 				// # Cell
-				Add<PickRandom<Chip>>();
+				Add<PickRandomOurChip>();
 				// _stateChangeBus.ToState<ChipPickedGameplayState>();
 
 				// # Abilities

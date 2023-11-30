@@ -25,6 +25,8 @@ namespace Code
 				.Is<Target>(true)
 				.Identify()
 				;
+
+			request.Destroy();
 		}
 
 		private Entity<GameScope> SpawnPrefab(Entity<RequestScope> request)

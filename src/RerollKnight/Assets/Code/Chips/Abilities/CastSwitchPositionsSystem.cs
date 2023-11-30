@@ -5,7 +5,7 @@ namespace Code
 {
 	public sealed class CastSwitchPositionsSystem : CastAbilitySystemBase<SwitchPositions>
 	{
-		public CastSwitchPositionsSystem(Contexts contexts) : base(contexts) { }
+		public CastSwitchPositionsSystem(Contexts contexts, Query query) : base(contexts, query) { }
 
 		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> target)
 		{

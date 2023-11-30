@@ -1,28 +1,19 @@
-using Code.Component;
+using System.Linq;
 using Entitas;
-using Entitas.Generic;
-using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
 	public class PickRandomOurChip : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
-		private readonly IGroup<Entity<GameScope>> _chips;
+		private readonly Query _query;
 
-		public PickRandomOurChip(Contexts contexts)
-		{
-			_contexts = contexts;
-
-			_chips = contexts.GetGroup(Get<Chip>());
-		}
-
-		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
+		public PickRandomOurChip(Query query)
+			=> _query = query;
 
 		public void Initialize()
-			=> _chips.Where(BelongToCurrentActor).PickRandom().Pick();
-
-		private bool BelongToCurrentActor(Entity<GameScope> chip)
-			=> chip.Get<BelongToActor>().Value == CurrentActor.Get<ID>().Value;
+		{
+			if (_query.ChipsOfCurrentActor.Any())
+				_query.ChipsOfCurrentActor.PickRandom().Pick();
+		}
 	}
 }

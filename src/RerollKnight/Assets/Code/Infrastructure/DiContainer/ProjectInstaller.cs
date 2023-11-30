@@ -14,6 +14,7 @@ namespace Code
 			Container.BindInstance(Contexts.Instance).AsSingle();
 			Container.Bind<ContextsInitializer>().AsSingle().NonLazy();
 			Container.Bind<SystemsFactory>().AsSingle();
+			Container.Bind<Query>().AsSingle();
 
 			InstallServices();
 		}

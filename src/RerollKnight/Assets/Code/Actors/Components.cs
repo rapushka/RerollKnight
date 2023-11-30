@@ -11,5 +11,5 @@ namespace Code.Component
 
 	[GameScope] public sealed class ID : PrimaryIndexComponent<GameScope, ID, int> { }
 
-	[ChipsScope] public sealed class BelongToActor : IndexComponent<ChipsScope, BelongToActor, int> { }
+	[GameScope] public sealed class BelongToActor : IndexComponent<GameScope, BelongToActor, int> { }
 }
