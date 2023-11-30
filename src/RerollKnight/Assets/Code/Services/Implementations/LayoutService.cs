@@ -4,11 +4,12 @@ namespace Code
 {
 	public interface ILayoutService
 	{
-		Vector3     OverFieldOffset  { get; }
-		Vector3     PickedChipOffset { get; }
-		Coordinates FieldSizes       { get; }
+		Vector3     OverFieldOffset { get; }
+		Coordinates FieldSizes      { get; }
 
-		Vector3 ChipsPositionStep { get; }
+		Vector3 ChipsPositionStep     { get; }
+		Vector3 PickedChipOffset      { get; }
+		Vector3 UnavailableChipOffset { get; }
 	}
 
 	[CreateAssetMenu(fileName = "Layout", menuName = "Layout", order = 0)]

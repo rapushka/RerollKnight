@@ -24,8 +24,8 @@ namespace Code
 			// Add<AvailabilityFeature>();
 
 			// Visuals
-			Add<HoverPickedChipSystem>();
-			Add<UnhoverUnpickedChipSystem>();
+			Add<UpdateChipsPositionSystem>();
+			// Add<UnhoverUnpickedChipSystem>();
 			Add<MoveToDestinationSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
