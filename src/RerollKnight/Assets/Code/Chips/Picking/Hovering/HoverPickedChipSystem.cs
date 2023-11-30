@@ -27,7 +27,7 @@ namespace Code
 			foreach (var e in entites)
 			{
 				var initialPosition = e.Get<InitialPosition>().Value;
-				e.Replace<DestinationPosition, Vector3>(initialPosition + _layoutService.PickingChipOffset);
+				e.Replace<DestinationPosition, Vector3>(initialPosition + _layoutService.PickedChipOffset);
 			}
 		}
 	}

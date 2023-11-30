@@ -9,15 +9,13 @@ namespace Code
 	public sealed class PassTurnToNextActorSystem : IInitializeSystem
 	{
 		private readonly TurnsQueue _turnsQueue;
-		private readonly StateChangeBus _stateChangeBus;
 		private readonly Contexts _contexts;
 
 		[Inject]
-		public PassTurnToNextActorSystem(Contexts contexts, TurnsQueue turnsQueue, StateChangeBus stateChangeBus)
+		public PassTurnToNextActorSystem(Contexts contexts, TurnsQueue turnsQueue)
 		{
 			_contexts = contexts;
 			_turnsQueue = turnsQueue;
-			_stateChangeBus = stateChangeBus;
 		}
 
 		[AllowNull]
@@ -28,11 +26,6 @@ namespace Code
 			CurrentPlayer?.Is<CurrentActor>(false);
 			var actor = _turnsQueue.Next();
 			actor.Is<CurrentActor>(true);
-
-			if (actor.Is<Player>())
-				_stateChangeBus.ToState<ObservingGameplayState>();
-			else
-				_stateChangeBus.ToState<WaitAndThenToState<OtherPlayerTurnGameplayState>>();
 		}
 	}
 }

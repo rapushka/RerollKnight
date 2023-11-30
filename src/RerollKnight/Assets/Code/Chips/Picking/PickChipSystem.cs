@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -7,29 +5,23 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class PickChipSystem : ReactiveSystem<Entity<GameScope>>
+	public sealed class PickChipSystem : IExecuteSystem
 	{
 		private readonly IStateChangeBus _stateChangeBus;
-		private readonly Query _query;
+		private readonly IGroup<Entity<GameScope>> _chips;
 
-		public PickChipSystem(Contexts contexts, IStateChangeBus stateChangeBus, Query query)
-			: base(contexts.Get<GameScope>())
+		public PickChipSystem(Contexts contexts, IStateChangeBus stateChangeBus)
 		{
 			_stateChangeBus = stateChangeBus;
-			_query = query;
+
+			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<AvailableToPick>(), Get<Clicked>()));
 		}
 
-		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
-			=> context.CreateCollector(AllOf(Get<Clicked>(), Get<Chip>()));
-
-		protected override bool Filter(Entity<GameScope> entity) => entity.Is<Clicked>();
-
-		protected override void Execute(List<Entity<GameScope>> entities)
+		public void Execute()
 		{
-			foreach (var e in entities.Where(_query.IsBelongToCurrentActor))
+			foreach (var e in _chips)
 			{
 				e.Pick();
-				e.Is<Clicked>(false);
 				_stateChangeBus.ToState<ChipPickedGameplayState>();
 			}
 		}

@@ -1,0 +1,30 @@
+using Code.Component;
+using Entitas;
+using Entitas.Generic;
+using Zenject;
+
+namespace Code
+{
+	public sealed class ToStateForCurrentActor : IInitializeSystem
+	{
+		private readonly Contexts _contexts;
+		private readonly StateChangeBus _stateChangeBus;
+
+		[Inject]
+		public ToStateForCurrentActor(Contexts contexts, StateChangeBus stateChangeBus)
+		{
+			_contexts = contexts;
+			_stateChangeBus = stateChangeBus;
+		}
+
+		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
+
+		public void Initialize()
+		{
+			if (CurrentActor.Is<Player>())
+				_stateChangeBus.ToState<ObservingGameplayState>();
+			else
+				_stateChangeBus.ToState<WaitAndThenToState<OtherPlayerTurnGameplayState>>();
+		}
+	}
+}

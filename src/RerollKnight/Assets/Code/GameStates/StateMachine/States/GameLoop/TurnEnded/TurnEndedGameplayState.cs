@@ -16,6 +16,10 @@ namespace Code
 				Add<MarkAllTargetsUnavailableSystem>();
 
 				Add<PassTurnToNextActorSystem>();
+				Add<ToStateForCurrentActor>();
+
+				// Tear Down
+				Add<MarkChipsAvailableSystem>();
 			}
 		}
 	}
