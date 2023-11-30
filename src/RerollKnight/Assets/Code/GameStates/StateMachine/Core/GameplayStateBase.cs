@@ -1,4 +1,5 @@
 using Entitas;
+using Zenject;
 
 namespace Code
 {
@@ -14,9 +15,9 @@ namespace Code
 	{
 		private readonly TFeature _systems;
 
-		protected GameplayStateBase(TFeature systems)
+		protected GameplayStateBase(IInstantiator container)
 		{
-			_systems = systems;
+			_systems = container.Instantiate<TFeature>();
 		}
 
 		public override void Enter() => _systems.Initialize();

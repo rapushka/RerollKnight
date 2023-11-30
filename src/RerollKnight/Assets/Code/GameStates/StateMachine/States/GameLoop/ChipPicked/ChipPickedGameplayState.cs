@@ -1,8 +1,10 @@
+using Zenject;
+
 namespace Code
 {
 	public class ChipPickedGameplayState : GameplayStateBase<ChipPickedGameplayState.StateFeature>
 	{
-		public ChipPickedGameplayState(StateFeature systems) : base(systems) { }
+		public ChipPickedGameplayState(IInstantiator container) : base(container) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{

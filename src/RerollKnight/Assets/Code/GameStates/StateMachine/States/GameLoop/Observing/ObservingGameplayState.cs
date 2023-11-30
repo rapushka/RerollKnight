@@ -1,8 +1,10 @@
+using Zenject;
+
 namespace Code
 {
 	public class ObservingGameplayState : GameplayStateBase<ObservingGameplayState.StateFeature>
 	{
-		public ObservingGameplayState(StateFeature systems) : base(systems) { }
+		public ObservingGameplayState(IInstantiator container) : base(container) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{

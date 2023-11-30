@@ -1,8 +1,10 @@
+using Zenject;
+
 namespace Code
 {
 	public class TurnEndedGameplayState : GameplayStateBase<TurnEndedGameplayState.StateFeature>
 	{
-		public TurnEndedGameplayState(StateFeature systems) : base(systems) { }
+		public TurnEndedGameplayState(IInstantiator container) : base(container) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{

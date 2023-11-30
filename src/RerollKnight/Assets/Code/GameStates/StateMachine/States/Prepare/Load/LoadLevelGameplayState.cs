@@ -1,11 +1,12 @@
 using Code.Component;
 using Entitas.Generic;
+using Zenject;
 
 namespace Code
 {
 	public class LoadLevelGameplayState : GameplayStateBase<LoadLevelGameplayState.StateFeature>
 	{
-		public LoadLevelGameplayState(StateFeature systems) : base(systems) { }
+		public LoadLevelGameplayState(IInstantiator container) : base(container) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{

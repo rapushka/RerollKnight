@@ -30,20 +30,6 @@ namespace Code
 			Container.BindInterfacesAndSelfTo<GameplayStateMachine>().AsSingle();
 			Container.BindInterfacesAndSelfTo<StateChangeBus>().AsSingle();
 
-			// Game preparations states
-			Container.Bind<LoadLevelGameplayState.StateFeature>().AsSingle();
-			Container.Bind<InitializeGameplayState.StateFeature>().AsSingle();
-
-			// Game loop states
-			Container.Bind<ObservingGameplayState.StateFeature>().AsSingle();
-			Container.Bind<ChipPickedGameplayState.StateFeature>().AsSingle();
-			Container.Bind<CastingAbilitiesGameplayState.StateFeature>().AsSingle();
-			Container.Bind<TurnEndedGameplayState.StateFeature>().AsSingle();
-			Container.Bind<OtherPlayerTurnGameplayState.StateFeature>().AsSingle();
-
-			Container.Bind<WaitAndThenToState<OtherPlayerTurnGameplayState>.StateFeature>().AsSingle();
-			// Container.Bind<WaitAndThenToState<CastingAbilitiesGameplayState>.StateFeature>().AsSingle();
-
 #if DEBUG
 			Container.BindInterfacesTo<GameplayStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 #endif

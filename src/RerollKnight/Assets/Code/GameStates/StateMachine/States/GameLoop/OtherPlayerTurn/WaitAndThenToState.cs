@@ -1,9 +1,11 @@
+using Zenject;
+
 namespace Code
 {
 	public class WaitAndThenToState<TNextState> : GameplayStateBase<WaitAndThenToState<TNextState>.StateFeature>
 		where TNextState : GameplayStateBase
 	{
-		public WaitAndThenToState(StateFeature systems) : base(systems) { }
+		public WaitAndThenToState(IInstantiator container) : base(container) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{

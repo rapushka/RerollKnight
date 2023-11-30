@@ -1,10 +1,11 @@
 using Code.Component;
+using Zenject;
 
 namespace Code
 {
 	public class OtherPlayerTurnGameplayState : GameplayStateBase<OtherPlayerTurnGameplayState.StateFeature>
 	{
-		public OtherPlayerTurnGameplayState(StateFeature systems) : base(systems) { }
+		public OtherPlayerTurnGameplayState(IInstantiator container) : base(container) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{
@@ -27,7 +28,7 @@ namespace Code
 				// TODO: won't work for multi-target abilities
 				// BUT, "multi-target abilities" is bs imo. so..
 				Add<PickRandom<AvailableToPick>>();
-				Add<CastAbilitiesSystem>();
+				Add<ToGameplayStateSystem<CastingAbilitiesGameplayState>>();
 
 				// Add<EndTurnSystem>();
 			}

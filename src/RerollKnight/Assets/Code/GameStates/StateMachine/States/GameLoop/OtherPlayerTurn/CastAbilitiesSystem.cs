@@ -21,8 +21,10 @@ namespace Code
 
 		public void Initialize()
 		{
-			// if (_abilities.WhereStateIs(AbilityState.Prepared).Any())
-			_stateChangeBus.ToState<CastingAbilitiesGameplayState>();
+			if (_abilities.WhereStateIs(AbilityState.Prepared).Any())
+				_stateChangeBus.ToState<CastingAbilitiesGameplayState>();
+			else
+				Debug.LogError("No prepared abilities");
 		}
 	}
 }

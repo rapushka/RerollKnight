@@ -1,8 +1,10 @@
+using Zenject;
+
 namespace Code
 {
 	public class InitializeGameplayState : GameplayStateBase<InitializeGameplayState.StateFeature>
 	{
-		public InitializeGameplayState(StateFeature systems) : base(systems) { }
+		public InitializeGameplayState(IInstantiator container) : base(container) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{

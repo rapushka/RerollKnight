@@ -14,17 +14,19 @@ namespace Code
 		{
 			_diContainer = diContainer;
 
+			// Game preparations
 			AddState<LoadLevelGameplayState>();
 			AddState<InitializeGameplayState>();
+
+			// Game loop
 			AddState<ObservingGameplayState>();
 			AddState<ChipPickedGameplayState>();
 			AddState<CastingAbilitiesGameplayState>();
 			AddState<TurnEndedGameplayState>();
 			AddState<OtherPlayerTurnGameplayState>();
 
+			// Tooling
 			AddState<WaitAndThenToState<OtherPlayerTurnGameplayState>>();
-
-			// ToState<ObservingGameplayState>();
 
 			_stateChangeBus = stateChangeBus;
 			_stateChangeBus.StateChangeRequired += ToState;

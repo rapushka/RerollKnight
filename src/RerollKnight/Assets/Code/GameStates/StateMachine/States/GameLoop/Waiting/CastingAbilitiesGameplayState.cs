@@ -1,8 +1,10 @@
+using Zenject;
+
 namespace Code
 {
 	public class CastingAbilitiesGameplayState : GameplayStateBase<CastingAbilitiesGameplayState.StateFeature>
 	{
-		public CastingAbilitiesGameplayState(StateFeature systems) : base(systems) { }
+		public CastingAbilitiesGameplayState(IInstantiator container) : base(container) { }
 
 		public sealed class StateFeature : InjectableFeature
 		{
