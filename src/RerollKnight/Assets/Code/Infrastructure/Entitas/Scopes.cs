@@ -12,4 +12,6 @@ namespace Code
 	public class RequestScope : Attribute, IScope { }
 
 	public class ChipsScope : Attribute, IScope { }
+
+	public class InfrastructureScope : Attribute, IScope { }
 }

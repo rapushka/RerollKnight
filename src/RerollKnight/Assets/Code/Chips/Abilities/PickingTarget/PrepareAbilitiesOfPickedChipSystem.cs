@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -16,10 +17,14 @@ namespace Code
 			_contexts = contexts;
 		}
 
-		private Entity<GameScope> PickedChip => _contexts.Get<GameScope>().Unique.GetEntity<PickedChip>();
+		[AllowNull]
+		private Entity<GameScope> PickedChip => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<PickedChip>();
 
 		public void Initialize()
 		{
+			if (PickedChip is null)
+				return;
+
 			foreach (var ability in PickedChip.GetAbilities())
 				ability.Replace<Component.AbilityState, AbilityState>(AbilityState.Prepared);
 		}

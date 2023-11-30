@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Code
 {
+	[RequireComponent(typeof(Collider))]
 	public class ClickReceiver : MonoBehaviour
 	{
 		[SerializeField] private GameEntityBehaviour _entityBehaviour;

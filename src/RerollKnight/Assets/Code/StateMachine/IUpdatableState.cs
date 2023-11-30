@@ -2,6 +2,7 @@ namespace Code
 {
 	public interface IUpdatableState
 	{
-		void OnUpdate();
+		void Execute();
+		void Cleanup();
 	}
 }

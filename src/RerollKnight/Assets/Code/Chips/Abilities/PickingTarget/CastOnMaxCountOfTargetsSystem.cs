@@ -28,7 +28,7 @@ namespace Code
 		public void Execute()
 		{
 			if (FilledAbilities.WhereStateIs(AbilityState.Prepared).Any())
-				_stateChangeBus.ToState<WaitingGameState>();
+				_stateChangeBus.ToState<CastingAbilitiesGameplayState>();
 		}
 	}
 }

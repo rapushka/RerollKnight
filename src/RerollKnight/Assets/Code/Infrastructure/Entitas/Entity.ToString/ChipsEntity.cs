@@ -11,7 +11,8 @@ namespace Code
 		protected override IEnumerable<string> CreateList(Entity<ChipsScope> entity)
 		{
 			yield return entity.ToString<Teleport>();
-			yield return entity.ToString<MaxCountOfTargets, int>("max targets: ");
+			yield return entity.ToString<SwitchPositions>();
+			// yield return entity.ToString<MaxCountOfTargets, int>("max targets: ");
 			yield return entity.ToString<Range, int>("range: ");
 			yield return entity.ToString<Component.AbilityState, AbilityState>("state: ");
 
@@ -19,8 +20,8 @@ namespace Code
 
 			var abilityOfChip = entity.GetOrDefault<AbilityOfChip>();
 			if (abilityOfChip is not null)
-				yield return ChipId.Index.GetEntity(abilityOfChip.Value).ToString() ?? "no chip!";
-				// yield return abilityOfChip.Value.ToString();
+				yield return $"ability of chip: {ID.Index.GetEntity(abilityOfChip.Value)?.ToString() ?? "no chip!"}";
+			// yield return abilityOfChip.Value.ToString();
 		}
 
 		private string TargetConstraints(Entity<ChipsScope> entity)

@@ -2,18 +2,17 @@ using Entitas;
 
 namespace Code
 {
-	public sealed class UpdateGameStateMachineSystem : IExecuteSystem
+	public sealed class UpdateGameplayStateMachineSystem : IExecuteSystem, ICleanupSystem
 	{
-		private readonly GameStateMachine _stateMachine;
+		private readonly GameplayStateMachine _stateMachine;
 
-		public UpdateGameStateMachineSystem(GameStateMachine stateMachine)
+		public UpdateGameplayStateMachineSystem(GameplayStateMachine stateMachine)
 		{
 			_stateMachine = stateMachine;
 		}
 
-		public void Execute()
-		{
-			_stateMachine.OnUpdate();
-		}
+		public void Execute() => _stateMachine.Execute();
+
+		public void Cleanup() => _stateMachine.Cleanup();
 	}
 }

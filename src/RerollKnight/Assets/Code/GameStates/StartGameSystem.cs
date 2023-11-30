@@ -4,11 +4,11 @@ namespace Code
 {
 	public sealed class StartGameSystem : IInitializeSystem
 	{
-		private readonly GameStateMachine _gameStateMachine;
+		private readonly GameplayStateMachine _gameplayStateMachine;
 
-		public StartGameSystem(GameStateMachine gameStateMachine)
-			=> _gameStateMachine = gameStateMachine;
+		public StartGameSystem(GameplayStateMachine gameplayStateMachine)
+			=> _gameplayStateMachine = gameplayStateMachine;
 
-		public void Initialize() => _gameStateMachine.ToState<ObservingGameState>();
+		public void Initialize() => _gameplayStateMachine.ToState<LoadLevelGameplayState>();
 	}
 }

@@ -14,5 +14,7 @@ namespace Code
 		}
 
 		public EntityBehaviour<GameScope> SpawnPlayer() => _assets.SpawnBehaviour(_resources.PlayerPrefab);
+
+		public EntityBehaviour<GameScope> SpawnEnemy() => _assets.SpawnBehaviour(_resources.EnemyPrefab);
 	}
 }

@@ -27,12 +27,12 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
-				_stateChangeBus.ToState<ObservingGameState>();
+				_stateChangeBus.ToState<ObservingGameplayState>();
 				// _entitiesManipulator.UnpickAll(immediately: true);
 				// RequestEmitter.Instance.Send<MarkAllTargetsAvailableRequest>();
 				e.Pick();
 				e.Is<Clicked>(false);
-				_stateChangeBus.ToState<ChipPickedGameState>();
+				_stateChangeBus.ToState<ChipPickedGameplayState>();
 			}
 		}
 	}

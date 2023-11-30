@@ -6,9 +6,9 @@ namespace Code.Component
 
 	[GameScope] public sealed class TargetState : ValueComponent<Code.TargetState>, IEvent { }
 
-	/// <summary>can be a target for a chip usage. sometimes </summary>
+	/// <summary> can be a target for an ability, in general </summary>
 	[GameScope] public sealed class Target : FlagComponent { }
 
-	/// <summary> can be picked as a target.right now </summary>
+	/// <summary> can be picked as a target, right now </summary>
 	[GameScope] public sealed class AvailableToPick : FlagComponent { }
 }

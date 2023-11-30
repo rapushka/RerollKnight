@@ -7,31 +7,38 @@ namespace Code
 	public class GameInstaller : MonoInstaller<GameInstaller>
 	{
 		[SerializeField] private BehavioursCollector _behavioursCollector;
+		[SerializeField] private HoldersProvider _holdersProvider;
 
 		public override void InstallBindings()
 		{
 			Container.BindInstance(_behavioursCollector.Behaviours).AsSingle();
-			Container.Bind<GameFeature>().AsSingle();
+			Container.Bind<IHoldersProvider>().FromInstance(_holdersProvider).AsSingle();
 
-			Container.Bind<GameFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+			Container.Bind<GameplayFeature>().AsSingle();
+			Container.Bind<GameplayFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 
 			Container.Rebind<SystemsFactory>().AsSingle();
-			InstallGameStateMachine();
+			InstallGameplayStateMachine();
+
+			Container.Bind<TurnsQueue>().AsSingle();
+
+			InstallFactories();
 		}
 
-		private void InstallGameStateMachine()
+		private void InstallGameplayStateMachine()
 		{
-			Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle();
+			Container.BindInterfacesAndSelfTo<GameplayStateMachine>().AsSingle();
 			Container.BindInterfacesAndSelfTo<StateChangeBus>().AsSingle();
 
-			Container.Bind<ObservingGameState.StateFeature>().AsSingle();
-			Container.Bind<ChipPickedGameState.StateFeature>().AsSingle();
-			Container.Bind<TurnEndedGameState.StateFeature>().AsSingle();
-			Container.Bind<WaitingGameState.StateFeature>().AsSingle();
-
 #if DEBUG
-			Container.BindInterfacesTo<GameStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+			Container.BindInterfacesTo<GameplayStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 #endif
+		}
+
+		private void InstallFactories()
+		{
+			// non-zenject factories
+			Container.Bind<ChipsFactory>().AsSingle();
 		}
 	}
 }

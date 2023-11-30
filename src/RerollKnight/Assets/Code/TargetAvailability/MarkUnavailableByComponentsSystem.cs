@@ -24,7 +24,7 @@ namespace Code
 			foreach (var ability in _abilities.WhereStateIs(AbilityState.Prepared))
 			foreach (var target in _targets.GetEntities())
 			{
-				if (ability.Get<TargetConstraints>().Value.Any((c) => !target.HasComponent(c.Index)))
+				if (!ability.Get<TargetConstraints>().Value.All((cc) => cc.Match(target)))
 					target.Is<AvailableToPick>(false);
 			}
 		}

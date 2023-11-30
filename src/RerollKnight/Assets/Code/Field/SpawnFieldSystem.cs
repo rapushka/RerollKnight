@@ -10,13 +10,21 @@ namespace Code
 		private readonly IResourcesService _resources;
 		private readonly IAssetsService _assets;
 		private readonly ILayoutService _layout;
+		private readonly IHoldersProvider _holdersProvider;
 
 		[Inject]
-		public SpawnFieldSystem(IResourcesService resources, IAssetsService assets, ILayoutService layout)
+		public SpawnFieldSystem
+		(
+			IResourcesService resources,
+			IAssetsService assets,
+			ILayoutService layout,
+			IHoldersProvider holdersProvider
+		)
 		{
-			_assets = assets;
 			_resources = resources;
+			_assets = assets;
 			_layout = layout;
+			_holdersProvider = holdersProvider;
 		}
 
 		private EntityBehaviour<GameScope> CellPrefab => _resources.CellPrefab;
@@ -26,7 +34,7 @@ namespace Code
 			for (var x = 0; x < _layout.FieldSizes.Column; x++)
 			for (var y = 0; y < _layout.FieldSizes.Row; y++)
 			{
-				var cellBehaviour = _assets.SpawnBehaviour(CellPrefab);
+				var cellBehaviour = _assets.SpawnBehaviour(CellPrefab, _holdersProvider.CellsHolder.transform);
 				cellBehaviour.Entity.Add<CoordinatesUnderField, Coordinates>(new Coordinates(x, y));
 			}
 		}

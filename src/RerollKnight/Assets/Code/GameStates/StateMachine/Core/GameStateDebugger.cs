@@ -7,13 +7,13 @@ using Zenject;
 namespace Code
 {
 #if DEBUG
-	public class GameStateDebugger : MonoBehaviour, IInitializable
+	public class GameplayStateDebugger : MonoBehaviour, IInitializable
 	{
 		private Dictionary<DebugSystemsBehaviour, string> _systems;
-		private GameStateMachine _stateMachine;
+		private GameplayStateMachine _stateMachine;
 
 		[Inject]
-		public void Construct(GameStateMachine stateMachine)
+		public void Construct(GameplayStateMachine stateMachine)
 		{
 			_stateMachine = stateMachine;
 		}

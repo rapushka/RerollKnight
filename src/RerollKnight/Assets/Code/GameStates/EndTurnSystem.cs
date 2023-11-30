@@ -19,7 +19,7 @@ namespace Code
 		{
 			if (_abilities.All((e) => e.Get<Component.AbilityState>().Value is not AbilityState.Casting))
 			{
-				_stateChangeBus.ToState<TurnEndedGameState>();
+				_stateChangeBus.ToState<TurnEndedGameplayState>();
 			}
 		}
 	}
