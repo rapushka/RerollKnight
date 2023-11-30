@@ -19,6 +19,7 @@ namespace Code
 			Add<SpawnActorOnRequestSystem>();
 
 			Add<MarkEmptyCellsSystem>();
+			Add<EndTurnOnRequestSystem>();
 			// Add<ChipsFeature>();
 			// Add<AvailabilityFeature>();
 

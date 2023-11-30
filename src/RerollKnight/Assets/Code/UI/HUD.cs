@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,7 +30,7 @@ namespace Code
 
 		private void OnEndTurnButtonClick()
 		{
-			Debug.Log("end turn");
+			_contexts.Get<RequestScope>().CreateEntity().Add<EndTurn>();
 		}
 	}
 }

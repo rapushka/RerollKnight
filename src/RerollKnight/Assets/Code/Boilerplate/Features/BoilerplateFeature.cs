@@ -19,6 +19,7 @@ namespace Code
 			Add(new DestroyEntitySystem<CastAbility, RequestScope>(contexts));
 			Add(new DestroyEntitySystem<SpawnActor, RequestScope>(contexts));
 			Add(new DestroyEntitySystem<SetAllTargetsAvailability, RequestScope>(contexts));
+			Add(new DestroyEntitySystem<EndTurn, RequestScope>(contexts));
 		}
 	}
 }

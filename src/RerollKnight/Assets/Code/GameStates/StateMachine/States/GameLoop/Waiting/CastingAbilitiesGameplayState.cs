@@ -14,9 +14,10 @@ namespace Code
 				// Initialize
 				Add<MarkAllAbilitiesCastingSystem>();
 				Add<AbilitiesFeature>();
+				Add<ToGameplayStateSystem<ObservingGameplayState>>();
 
 				// Update
-				Add<EndTurnSystem>();
+				// Add<EndTurnSystem>();
 
 				// Tear down
 				Add<ResetAbilityStateSystem>();
