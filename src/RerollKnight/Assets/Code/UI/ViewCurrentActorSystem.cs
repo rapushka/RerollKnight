@@ -14,7 +14,7 @@ namespace Code
 		public ViewCurrentActorSystem(Contexts contexts)
 		{
 			_contexts = contexts;
-			_entities = contexts.GetGroup(AllOf(Get<Label>(), Get<ViewOf>()));
+			_entities = contexts.GetGroup(Get<ViewOf>());
 		}
 
 		[CanBeNull]

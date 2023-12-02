@@ -29,6 +29,8 @@ namespace Code
 
 			Container.Bind<RandomService>().FromInstance(RandomService.Instance).AsSingle();
 			Container.Bind<ServicesMediator>().AsSingle();
+
+			Container.Bind<UiMediator>().AsSingle();
 		}
 	}
 }
