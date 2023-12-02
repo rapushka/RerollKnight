@@ -26,7 +26,7 @@ namespace Code
 
 		public void Execute()
 		{
-			_queueEntity.Replace<DebugName, string>($"turns queue: [{ToString(_turnsQueue.Queue)}]");
+			_queueEntity.Replace<DebugName, string>($"turns queue: [{ToString(_turnsQueue.AllActors)}]");
 		}
 
 		private string ToString(IEnumerable<Entity<GameScope>> list)
@@ -34,21 +34,11 @@ namespace Code
 			return string.Join(", ", list.Select(ToString));
 		}
 
-		private string ToString(Entity<GameScope> entity, int index)
+		private string ToString(Entity<GameScope> entity)
 		{
-			var nextActor = _turnsQueue.Queue.First();
-			var indexOfCurrent = _turnsQueue.AllActors.IndexOf(nextActor) - 1;
-
-			if (indexOfCurrent == -1)
-				indexOfCurrent = _turnsQueue.AllActors.Count;
-
-			var isCurrent = indexOfCurrent == index;
-
 			var body = $"{entity.creationIndex}_{entity.Get<DebugName>().Value}";
 
-			return isCurrent
-				? $">{body}<"
-				: body;
+			return entity.Is<CurrentActor>() ? $">{body}<" : body;
 		}
 	}
 }
