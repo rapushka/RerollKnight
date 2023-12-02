@@ -21,6 +21,7 @@ namespace Code
 			Add<CollectActorsSystem>();
 
 			// Visuals
+			Add<ArrangeChipsViewsSystem>();
 			Add<UpdateChipsPositionSystem>();
 			Add<MoveToDestinationSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
