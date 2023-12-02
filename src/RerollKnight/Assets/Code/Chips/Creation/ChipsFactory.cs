@@ -29,30 +29,28 @@ namespace Code
 			_abilitiesFactory = abilitiesFactory;
 		}
 
-		public Entity<GameScope> Create(ChipConfig chipConfig, bool withView)
-			=> withView ? CreateWithView(chipConfig) : Create(chipConfig);
-
-		public Entity<GameScope> CreateWithView(ChipConfig chipConfig)
-			=> SetupChip(chipConfig, NewBehaviour());
-
-		public Entity<GameScope> Create(ChipConfig chipConfig)
-			=> SetupChip(chipConfig, NewEntity());
-
-		private Entity<GameScope> SetupChip(ChipConfig chipConfig, Entity<GameScope> entity)
+		public Entity<GameScope> Create(ChipConfig chipConfig, Entity<GameScope> actor)
 		{
-			var chip = InitializeChip(entity, chipConfig.Label);
+			var entity = actor.Is<Player>() ? NewBehaviour() : NewEntity();
+			return SetupChip(chipConfig, entity, actor);
+		}
+
+		private Entity<GameScope> SetupChip(ChipConfig chipConfig, Entity<GameScope> entity, Entity<GameScope> actor)
+		{
+			var chip = InitializeChip(entity)
+			           .Add<Label, string>(chipConfig.Label)
+			           .Add<BelongToActor, int>(actor.Get<ID>().Value);
 
 			foreach (var abilityConfig in chipConfig.Abilities)
-				_abilitiesFactory.Create(chip, abilityConfig);
+				_abilitiesFactory.Create(abilityConfig, chip);
 
 			return chip;
 		}
 
-		private Entity<GameScope> InitializeChip(Entity<GameScope> entity, string label)
+		private Entity<GameScope> InitializeChip(Entity<GameScope> entity)
 			=> entity
 			   .Is<Chip>(true)
 			   .Add<DebugName, string>("chip")
-			   .Add<Label, string>(label)
 			   .Identify();
 
 		private Entity<GameScope> NewBehaviour()

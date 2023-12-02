@@ -40,10 +40,7 @@ namespace Code
 		private void CreateChips(IEnumerable<ChipConfig> chips, Entity<GameScope> actor)
 		{
 			foreach (var chipConfig in chips)
-			{
-				_chipsFactory.Create(chipConfig, withView: actor.Is<Player>())
-				             .Add<BelongToActor, int>(actor.Get<ID>().Value);
-			}
+				_chipsFactory.Create(chipConfig, actor);
 		}
 
 		private Entity<GameScope> SpawnPrefab(EntityBehaviour<GameScope> prefab)

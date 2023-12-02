@@ -15,7 +15,7 @@ namespace Code
 			_contexts = contexts;
 		}
 
-		public void Create(Entity<GameScope> chip, AbilityConfig config)
+		public void Create(AbilityConfig config, Entity<GameScope> chip)
 		{
 			Spawn(@for: chip)
 				.Is<Teleport>(config.Kind.Is<Teleport>())
