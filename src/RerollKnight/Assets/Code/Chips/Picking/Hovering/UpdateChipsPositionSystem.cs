@@ -18,9 +18,9 @@ namespace Code
 		}
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
-			=> context.CreateCollector(AllOf(Get<PickedChip>(), Get<Position>()));
+			=> context.CreateCollector(AnyOf(Get<PickedChip>(), Get<AvailableToPick>()).AddedOrRemoved());
 
-		protected override bool Filter(Entity<GameScope> entity) => true;
+		protected override bool Filter(Entity<GameScope> entity) => entity.Is<Chip>();
 
 		protected override void Execute(List<Entity<GameScope>> entites)
 		{
