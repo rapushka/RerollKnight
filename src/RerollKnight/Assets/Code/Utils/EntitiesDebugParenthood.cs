@@ -1,4 +1,4 @@
-using Code.Component;
+using System.Collections;
 using Entitas.Generic;
 using Entitas.VisualDebugging.Unity;
 using UnityEngine;
@@ -6,42 +6,45 @@ using EntityBehaviour = Entitas.VisualDebugging.Unity.EntityBehaviour;
 
 namespace Code
 {
-	public class EntitiesDebugParenthood : MonoBehaviour
+	public abstract class EntitiesDebugParenthood<TScope> : MonoBehaviour
+		where TScope : IScope
 	{
 #if DEBUG
-		private ContextObserverBehaviour _context;
-		private GameObject _cellsRoot;
+		protected ContextObserverBehaviour ContextBehaviour;
 
-		private void Start()
+		private IEnumerator Start()
 		{
 			DontDestroyOnLoad(gameObject);
+
+			yield return null; // Ensure, that contexts were initialized
 
 			var contexts = FindObjectsOfType<ContextObserverBehaviour>();
 
 			foreach (var context in contexts)
 			{
 				// if (context.contextObserver.context is Context<Entity<GameScope>>)
-				if (context.name.Contains(nameof(GameScope)))
-				{
-					_context = context;
-					_cellsRoot = new GameObject("_Cells Root") { transform = { parent = _context.transform } };
-				}
+				if (context.name.Contains(typeof(TScope).Name))
+					ContextBehaviour = context;
 			}
+
+			OnStart();
 		}
 
 		private void Update()
 		{
-			foreach (Transform child in _context.transform)
+			if (ContextBehaviour is null)
+				return;
+
+			foreach (Transform child in ContextBehaviour.transform)
 			{
-				if (!child.gameObject.TryGetComponent<EntityBehaviour>(out var entityBehaviour))
-					continue;
-
-				var gameEntity = (Entity<GameScope>)entityBehaviour.entity;
-
-				if (gameEntity.Is<Cell>())
-					child.SetParent(_cellsRoot.transform);
+				if (child.gameObject.TryGetComponent<EntityBehaviour>(out var entityBehaviour))
+					HandleEntity((Entity<TScope>)entityBehaviour.entity, child);
 			}
 		}
+
+		protected abstract void HandleEntity(Entity<TScope> entity, Transform entityBehaviour);
+
+		protected virtual void OnStart() { }
 #endif
 	}
 }
