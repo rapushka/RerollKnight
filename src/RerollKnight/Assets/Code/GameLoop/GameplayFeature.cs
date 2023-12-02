@@ -29,6 +29,7 @@ namespace Code
 			Add<MoveToDestinationSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
+			Add<ViewCurrentActorSystem>();
 
 			// Cleanups
 			// Add<EndTurnSystem>();

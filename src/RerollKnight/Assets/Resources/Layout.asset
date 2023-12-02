@@ -17,5 +17,5 @@ MonoBehaviour:
     <Column>k__BackingField: 5
     <Row>k__BackingField: 5
   <ChipsPositionStep>k__BackingField: {x: 0, y: 0, z: 0.3}
-  <PickedChipOffset>k__BackingField: {x: -0.125, y: 0.1, z: -0.125}
-  <UnavailableChipOffset>k__BackingField: {x: 0.125, y: -0.1, z: 0.125}
+  <PickedChipOffset>k__BackingField: {x: -0.1, y: 0, z: -0.1}
+  <UnavailableChipOffset>k__BackingField: {x: 0.1, y: 0, z: 0.1}
