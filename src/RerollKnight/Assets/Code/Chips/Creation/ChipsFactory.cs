@@ -38,8 +38,8 @@ namespace Code
 		private void SetupAbility(Entity<GameScope> chip, AbilityConfig config)
 		{
 			CreateAbility(@for: chip)
-				.Is<Teleport>(config.Kind.Is<ChipsScope, Teleport>())
-				.Is<SwitchPositions>(config.Kind.Is<ChipsScope, SwitchPositions>())
+				.Is<Teleport>(config.Kind.Is<Teleport>())
+				.Is<SwitchPositions>(config.Kind.Is<SwitchPositions>())
 				.Add<MaxCountOfTargets, int>(config.TargetsCount)
 				.Add<TargetConstraints, List<ComponentConstraint>>(config.TargetConstraints)
 				.Add<Range, int>(config.Range, @if: config.Range > -1)

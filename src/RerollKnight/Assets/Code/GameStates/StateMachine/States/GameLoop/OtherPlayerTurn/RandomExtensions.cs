@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Entitas;
+using JetBrains.Annotations;
 
 namespace Code
 {
@@ -12,6 +13,11 @@ namespace Code
 			var array = @this as T[] ?? @this.ToArray();
 			return array.PickRandom();
 		}
+
+		[CanBeNull]
+		public static T PickRandomOrDefault<T>(this IGroup<T> @this)
+			where T : class, IEntity
+			=> @this.Any() ? @this.PickRandom() : default;
 
 		public static T PickRandom<T>(this IGroup<T> @this)
 			where T : class, IEntity

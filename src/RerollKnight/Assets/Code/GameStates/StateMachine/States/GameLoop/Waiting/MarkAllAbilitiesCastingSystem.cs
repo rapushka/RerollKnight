@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
 using Entitas.Generic;
+using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
@@ -9,9 +10,10 @@ namespace Code
 	{
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
 
-		public MarkAllAbilitiesCastingSystem()
+		[Inject]
+		public MarkAllAbilitiesCastingSystem(Contexts contexts)
 		{
-			_abilities = Contexts.Instance.GetGroup(Get<Component.AbilityState>());
+			_abilities = contexts.GetGroup(Get<Component.AbilityState>());
 		}
 
 		private IEnumerable<Entity<ChipsScope>> PreparedAbilities => _abilities.WhereStateIs(AbilityState.Prepared);

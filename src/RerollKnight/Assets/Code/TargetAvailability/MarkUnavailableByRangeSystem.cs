@@ -3,6 +3,7 @@ using Entitas;
 using Entitas.Generic;
 using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
+using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
@@ -17,9 +18,13 @@ namespace Code
 		{
 			_contexts = contexts;
 
-			_targets = contexts.GetGroup(ScopeMatcher<GameScope>.Get<AvailableToPick>());
+			_targets = contexts.GetGroup(GameMatcher.AllOf(AvailableToPick, Target));
 			_abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<Range>()));
 		}
+
+		private static IMatcher<Entity<GameScope>> AvailableToPick => GameMatcher.Get<AvailableToPick>();
+
+		private static IMatcher<Entity<GameScope>> Target => GameMatcher.Get<Target>();
 
 		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
 
