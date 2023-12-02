@@ -1,3 +1,4 @@
+using System;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -23,8 +24,10 @@ namespace Code
 		{
 			if (CurrentActor.Is<Player>())
 				_stateChangeBus.ToState<ObservingGameplayState>();
-			else
+			else if (CurrentActor.Is<Enemy>())
 				_stateChangeBus.ToState<WaitAndThenToState<OtherPlayerTurnGameplayState>>();
+			else
+				throw new InvalidOperationException($"Unknown actor entity! {CurrentActor}");
 		}
 	}
 }

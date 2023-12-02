@@ -1,4 +1,3 @@
-using Code.Component;
 using Zenject;
 
 namespace Code
@@ -26,9 +25,9 @@ namespace Code
 				Add<AvailabilityFeature>();
 
 				// TODO: won't work for multi-target abilities
-				// BUT, "multi-target abilities" is bs imo. so..
-				Add<PickRandom<AvailableToPick>>();
-				Add<ToGameplayStateSystem<CastingAbilitiesGameplayState>>();
+				// TODO: casting is broken now
+				// Add<PickRandom<AvailableToPick>>();
+				// Add<ToGameplayStateSystem<CastingAbilitiesGameplayState>>();
 
 				Add<EndTurnWhenNoAvailableChipsSystem>();
 			}
