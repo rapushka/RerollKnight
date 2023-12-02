@@ -16,24 +16,18 @@ namespace Code
 			Add<EmitAllRequestsSystem>();
 
 			Add<UpdateGameplayStateMachineSystem>();
-			Add<SpawnActorOnRequestSystem>();
 
+			Add<SpawnActorOnRequestSystem>();
 			Add<MarkEmptyCellsSystem>();
 			Add<EndTurnOnRequestSystem>();
-			// Add<ChipsFeature>();
-			// Add<AvailabilityFeature>();
 
 			// Visuals
 			Add<UpdateChipsPositionSystem>();
-			// Add<UnhoverUnpickedChipSystem>();
 			Add<MoveToDestinationSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
 			Add<ViewCurrentActorSystem>();
 
-			// Cleanups
-			// Add<EndTurnSystem>();
-			// Add<ResetAbilityStateSystem>();
 #if DEBUG
 			// Debug
 			Add<DebugCurrentGameplayStateSystem>();
