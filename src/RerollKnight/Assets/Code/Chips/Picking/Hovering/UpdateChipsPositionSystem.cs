@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -7,27 +6,25 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class UpdateChipsPositionSystem : ReactiveSystem<Entity<GameScope>>
+	public sealed class UpdateChipsPositionSystem : IExecuteSystem
 	{
 		private readonly ILayoutService _layoutService;
+		private readonly IGroup<Entity<GameScope>> _chips;
 
 		public UpdateChipsPositionSystem(Contexts contexts, ILayoutService layoutService)
-			: base(contexts.Get<GameScope>())
 		{
 			_layoutService = layoutService;
+			_chips = contexts.GetGroup(Get<Chip>());
 		}
 
-		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
-			=> context.CreateCollector(AnyOf(Get<PickedChip>(), Get<AvailableToPick>()).AddedOrRemoved());
-
-		protected override bool Filter(Entity<GameScope> entity) => entity.Is<Chip>();
-
-		protected override void Execute(List<Entity<GameScope>> entites)
+		public void Execute()
 		{
-			foreach (var e in entites)
+			foreach (var e in _chips)
 			{
-				var initialPosition = e.Get<InitialPosition>().Value;
-				e.Replace<DestinationPosition, Vector3>(initialPosition + Offset(e));
+				var newPosition = e.Get<InitialPosition>().Value + Offset(e);
+
+				if (newPosition != e.Get<Position>().Value)
+					e.Replace<DestinationPosition, Vector3>(newPosition);
 			}
 		}
 
