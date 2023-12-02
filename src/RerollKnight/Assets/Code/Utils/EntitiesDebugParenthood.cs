@@ -37,14 +37,21 @@ namespace Code
 
 			foreach (Transform child in ContextBehaviour.transform)
 			{
-				if (child.gameObject.TryGetComponent<EntityBehaviour>(out var entityBehaviour))
-					HandleEntity((Entity<TScope>)entityBehaviour.entity, child);
+				if (TryGetEntity(child.gameObject, out var entity))
+					HandleEntity(entity, child);
 			}
 		}
 
 		protected abstract void HandleEntity(Entity<TScope> entity, Transform entityBehaviour);
 
 		protected virtual void OnStart() { }
+
+		protected bool TryGetEntity(GameObject go, out Entity<TScope> entity)
+		{
+			var hasComponent = go.TryGetComponent<EntityBehaviour>(out var entityBehaviour);
+			entity = hasComponent ? (Entity<TScope>)entityBehaviour.entity : null;
+			return hasComponent;
+		}
 #endif
 	}
 }
