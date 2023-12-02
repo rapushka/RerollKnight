@@ -30,7 +30,7 @@ namespace Code
 				Add<PickRandom<AvailableToPick>>();
 				Add<ToGameplayStateSystem<CastingAbilitiesGameplayState>>();
 
-				// Add<EndTurnSystem>();
+				Add<EndTurnWhenNoAvailableChipsSystem>();
 			}
 		}
 	}
