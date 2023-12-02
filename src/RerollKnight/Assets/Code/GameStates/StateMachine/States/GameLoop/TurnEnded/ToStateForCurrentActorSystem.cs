@@ -6,13 +6,13 @@ using Zenject;
 
 namespace Code
 {
-	public sealed class ToStateForCurrentActor : IInitializeSystem
+	public sealed class ToStateForCurrentActorSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly StateChangeBus _stateChangeBus;
 
 		[Inject]
-		public ToStateForCurrentActor(Contexts contexts, StateChangeBus stateChangeBus)
+		public ToStateForCurrentActorSystem(Contexts contexts, StateChangeBus stateChangeBus)
 		{
 			_contexts = contexts;
 			_stateChangeBus = stateChangeBus;

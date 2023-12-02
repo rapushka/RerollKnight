@@ -17,7 +17,7 @@ namespace Code
 		[CanBeNull]
 		public static T PickRandomOrDefault<T>(this IGroup<T> @this)
 			where T : class, IEntity
-			=> @this.Any() ? default : @this.PickRandom();
+			=> @this.Any() ? @this.PickRandom() : default;
 
 		public static T PickRandom<T>(this IGroup<T> @this)
 			where T : class, IEntity
