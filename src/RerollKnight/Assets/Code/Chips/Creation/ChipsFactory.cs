@@ -20,6 +20,7 @@ namespace Code
 			_resources = resources;
 		}
 
+		// todo: possibility to create chip without view
 		public Entity<GameScope> Create(ChipConfig chipConfig, Transform parent = null)
 		{
 			var chip = SpawnChip(parent);
