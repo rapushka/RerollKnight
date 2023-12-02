@@ -14,13 +14,13 @@ namespace Code
 
 			var ownerID = chip.Get<BelongToActor>().Value;
 
-			foreach (Transform other in ContextBehaviour.transform)
+			foreach (Transform actorBehaviour in ContextBehaviour.transform)
 			{
-				if (TryGetEntity(other.gameObject, out var otherEntity)
-				    && otherEntity.Is<Actor>()
-				    && otherEntity.Get<ID>().Value == ownerID)
+				if (TryGetEntity(actorBehaviour.gameObject, out var actor)
+				    && actor.Is<Actor>()
+				    && actor.Get<ID>().Value == ownerID)
 				{
-					entityBehaviour.SetParent(other);
+					entityBehaviour.SetParent(actorBehaviour);
 				}
 			}
 		}
