@@ -18,7 +18,7 @@ namespace Code
 		public void Initialize()
 		{
 			_actorsFactory.CreatePlayer(new Coordinates(0, 0), _chipsConfig.Chips);
-			_actorsFactory.CreateEnemy(new Coordinates(3, 3));
+			_actorsFactory.CreateEnemy(new Coordinates(3, 3), _chipsConfig.Chips);
 		}
 	}
 }

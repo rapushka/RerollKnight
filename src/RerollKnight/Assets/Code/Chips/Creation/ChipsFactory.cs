@@ -1,37 +1,46 @@
 using Code.Component;
 using Entitas.Generic;
-using UnityEngine;
 using Zenject;
 
 namespace Code
 {
 	public class ChipsFactory
 	{
+		private readonly Contexts _contexts;
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
 		private readonly AbilitiesFactory _abilitiesFactory;
-		private IHoldersProvider _holdersProvider;
+		private readonly IHoldersProvider _holdersProvider;
 
 		[Inject]
 		public ChipsFactory
 		(
+			Contexts contexts,
 			IAssetsService assets,
 			IResourcesService resources,
 			AbilitiesFactory abilitiesFactory,
 			IHoldersProvider holdersProvider
 		)
 		{
+			_contexts = contexts;
 			_holdersProvider = holdersProvider;
 			_assets = assets;
 			_resources = resources;
 			_abilitiesFactory = abilitiesFactory;
 		}
 
-		// todo: possibility to create chip without view
+		public Entity<GameScope> Create(ChipConfig chipConfig, bool withView)
+			=> withView ? CreateWithView(chipConfig) : Create(chipConfig);
+
+		public Entity<GameScope> CreateWithView(ChipConfig chipConfig)
+			=> SetupChip(chipConfig, NewBehaviour());
+
 		public Entity<GameScope> Create(ChipConfig chipConfig)
+			=> SetupChip(chipConfig, NewEntity());
+
+		private Entity<GameScope> SetupChip(ChipConfig chipConfig, Entity<GameScope> entity)
 		{
-			var chip = SpawnChip(_holdersProvider.ChipsHolder.transform);
-			chip.Add<Label, string>(chipConfig.Label);
+			var chip = InitializeChip(entity, chipConfig.Label);
 
 			foreach (var abilityConfig in chipConfig.Abilities)
 				_abilitiesFactory.Create(chip, abilityConfig);
@@ -39,8 +48,16 @@ namespace Code
 			return chip;
 		}
 
-		private Entity<GameScope> SpawnChip(Transform parent = null)
-			=> _assets.SpawnBehaviour(_resources.ChipPrefab, parent).Entity
-			          .Identify();
+		private Entity<GameScope> InitializeChip(Entity<GameScope> entity, string label)
+			=> entity
+			   .Is<Chip>(true)
+			   .Add<DebugName, string>("chip")
+			   .Add<Label, string>(label)
+			   .Identify();
+
+		private Entity<GameScope> NewBehaviour()
+			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity;
+
+		private Entity<GameScope> NewEntity() => _contexts.Get<GameScope>().CreateEntity();
 	}
 }

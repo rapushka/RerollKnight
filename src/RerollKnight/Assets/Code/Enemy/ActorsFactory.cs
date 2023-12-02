@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Code.Component;
 using Entitas.Generic;
 using Zenject;
@@ -20,16 +19,15 @@ namespace Code
 			_chipsFactory = chipsFactory;
 		}
 
-		// TODO: chips shouldn't be null
-		public void CreatePlayer(Coordinates coordinates, IEnumerable<ChipConfig> chips = null)
-			=> Create(_resources.PlayerPrefab, coordinates, chips);
+		public void CreatePlayer(Coordinates coordinates, IEnumerable<ChipConfig> chips)
+			=> Create(SpawnPrefab(_resources.PlayerPrefab), coordinates, chips);
 
-		public void CreateEnemy(Coordinates coordinates, IEnumerable<ChipConfig> chips = null)
-			=> Create(_resources.EnemyPrefab, coordinates, chips);
+		public void CreateEnemy(Coordinates coordinates, IEnumerable<ChipConfig> chips)
+			=> Create(SpawnPrefab(_resources.EnemyPrefab), coordinates, chips);
 
-		private void Create(EntityBehaviour<GameScope> prefab, Coordinates coordinates, IEnumerable<ChipConfig> chips)
+		private void Create(Entity<GameScope> entity, Coordinates coordinates, IEnumerable<ChipConfig> chips)
 		{
-			var actor = SpawnPrefab(prefab)
+			var actor = entity
 			            .Replace<Component.Coordinates, Coordinates>(coordinates)
 			            .Is<Actor>(true)
 			            .Is<Target>(true)
@@ -41,15 +39,12 @@ namespace Code
 
 		private void CreateChips(IEnumerable<ChipConfig> chips, Entity<GameScope> actor)
 		{
-			if (chips is null) // todo: remove when chips will be ensured
-				return;
-
-			foreach (var chip in chips.Select(CreateChip))
-				chip.Add<BelongToActor, int>(actor.Get<ID>().Value);
+			foreach (var chipConfig in chips)
+			{
+				_chipsFactory.Create(chipConfig, withView: actor.Is<Player>())
+				             .Add<BelongToActor, int>(actor.Get<ID>().Value);
+			}
 		}
-
-		private Entity<GameScope> CreateChip(ChipConfig chipConfig)
-			=> _chipsFactory.Create(chipConfig);
 
 		private Entity<GameScope> SpawnPrefab(EntityBehaviour<GameScope> prefab)
 			=> _assets.SpawnBehaviour(prefab).Entity;
