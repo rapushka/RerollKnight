@@ -8,8 +8,6 @@ namespace Code
 		public GameplayFeature(SystemsFactory factory)
 			: base(nameof(GameplayFeature), factory)
 		{
-			// Add<CollectActorsSystem>();
-
 			Add<StartGameSystem>();
 
 			// Game Logic
@@ -19,7 +17,8 @@ namespace Code
 
 			// Add<SpawnActorOnRequestSystem>();
 			Add<MarkEmptyCellsSystem>();
-			Add<EndTurnOnRequestSystem>();
+			Add<EndTurnOnRequestSystem>(); // todo: mb move to Observing state
+			Add<CollectActorsSystem>();
 
 			// Visuals
 			Add<UpdateChipsPositionSystem>();

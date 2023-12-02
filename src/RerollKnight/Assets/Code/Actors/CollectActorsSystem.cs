@@ -13,9 +13,7 @@ namespace Code
 
 		public CollectActorsSystem(Contexts contexts, TurnsQueue turnsQueue)
 			: base(contexts.Get<GameScope>())
-		{
-			_turnsQueue = turnsQueue;
-		}
+			=> _turnsQueue = turnsQueue;
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
 			=> context.CreateCollector(Get<Actor>());
@@ -25,7 +23,10 @@ namespace Code
 		protected override void Execute(List<Entity<GameScope>> entities)
 		{
 			foreach (var e in entities)
-				_turnsQueue.OnActorAdded(e);
+			{
+				if (!_turnsQueue.Contains(e))
+					_turnsQueue.AddActor(e);
+			}
 		}
 	}
 }

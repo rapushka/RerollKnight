@@ -14,7 +14,6 @@ namespace Code
 		private readonly ChipsFactory _chipsFactory;
 		private readonly ILayoutService _layoutService;
 		private readonly IHoldersProvider _holdersProvider;
-		private readonly TurnsQueue _turnsQueue;
 
 		private int _counter;
 
@@ -24,12 +23,10 @@ namespace Code
 			IAssetsService assets,
 			IResourcesService resources,
 			ChipsFactory chipsFactory,
-			ILayoutService layoutService,     // todo: remove these kakuli
-			IHoldersProvider holdersProvider, // todo: remove these kakuli
-			TurnsQueue turnsQueue
+			ILayoutService layoutService,    // todo: remove these kakuli
+			IHoldersProvider holdersProvider // todo: remove these kakuli
 		)
 		{
-			_turnsQueue = turnsQueue;
 			_assets = assets;
 			_resources = resources;
 			_chipsFactory = chipsFactory;
@@ -54,8 +51,6 @@ namespace Code
 				;
 
 			CreateChips(chips, actor);
-
-			_turnsQueue.OnActorAdded(actor);
 		}
 
 		private void CreateChips(IEnumerable<ChipConfig> chips, Entity<GameScope> actor)

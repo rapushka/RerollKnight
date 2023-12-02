@@ -20,13 +20,15 @@ namespace Code
 			return actor;
 		}
 
-		public void OnActorAdded(GameEntity entity)
+		public bool Contains(GameEntity entity) => _allActors.Contains(entity);
+
+		public void AddActor(GameEntity entity)
 		{
 			_allActors.Add(entity);
 			_queue.Add(entity);
 		}
 
-		public void OnActorRemoved(GameEntity entity)
+		public void RemoveActor(GameEntity entity)
 		{
 			_allActors.Remove(entity);
 			_queue.Remove(entity);

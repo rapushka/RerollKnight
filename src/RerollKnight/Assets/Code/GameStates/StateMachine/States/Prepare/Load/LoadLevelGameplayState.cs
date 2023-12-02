@@ -20,6 +20,7 @@ namespace Code
 				// Add<SpawnActorOnRequestSystem>();
 				// Add<SpawnPlayerChipsSystem>();
 				Add<SpawnFieldSystem>();
+				Add<EnsureActorsInQueueSystem>();
 
 				// Ready
 				// Add<ReadyOnAny<Actor>>();
