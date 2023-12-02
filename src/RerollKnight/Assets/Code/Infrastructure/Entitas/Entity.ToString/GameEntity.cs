@@ -9,7 +9,11 @@ namespace Code
 		protected override IEnumerable<string> CreateList(Entity<GameScope> entity)
 		{
 			yield return entity.creationIndex.ToString();
-			yield return entity.ToString<DebugName, string>(defaultValue: "e");
+			yield return entity.ToString<DebugName, string>(defaultValue: "entity");
+
+			yield return entity.ToString<Label, string>(prefix: "\"", postfix: "\"");
+			yield return entity.ToString<ViewOf, GameComponentID>(prefix: "view of: ");
+
 			yield return entity.Is<PickedChip>() ? "<- picked" : string.Empty;
 
 			yield return entity.ToString<Component.Coordinates, Coordinates>(prefix: "–");
