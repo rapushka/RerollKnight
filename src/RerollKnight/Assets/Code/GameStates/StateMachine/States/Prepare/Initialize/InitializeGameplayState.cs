@@ -20,7 +20,6 @@ namespace Code
 				// Ready
 				// Add<ReadyOnAny<Actor>>();
 
-				// TODO: is it the best state?
 				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
 			}
 		}

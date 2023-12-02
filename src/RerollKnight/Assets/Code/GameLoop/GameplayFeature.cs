@@ -8,8 +8,6 @@ namespace Code
 		public GameplayFeature(SystemsFactory factory)
 			: base(nameof(GameplayFeature), factory)
 		{
-			Add<CollectActorsSystem>();
-
 			Add<StartGameSystem>();
 
 			// Game Logic
@@ -17,11 +15,13 @@ namespace Code
 
 			Add<UpdateGameplayStateMachineSystem>();
 
-			Add<SpawnActorOnRequestSystem>();
+			// Add<SpawnActorOnRequestSystem>();
 			Add<MarkEmptyCellsSystem>();
-			Add<EndTurnOnRequestSystem>();
+			Add<EndTurnOnRequestSystem>(); // todo: mb move to Observing state
+			Add<CollectActorsSystem>();
 
 			// Visuals
+			Add<ArrangeChipsViewsSystem>();
 			Add<UpdateChipsPositionSystem>();
 			Add<MoveToDestinationSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
@@ -31,6 +31,7 @@ namespace Code
 #if DEBUG
 			// Debug
 			Add<DebugCurrentGameplayStateSystem>();
+			Add<DebugTurnsQueueSystem>();
 #endif
 
 			Add<BoilerplateFeature>();

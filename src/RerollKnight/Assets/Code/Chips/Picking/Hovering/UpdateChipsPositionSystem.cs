@@ -3,6 +3,7 @@ using Entitas;
 using Entitas.Generic;
 using UnityEngine;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
+using PositionListener = Entitas.Generic.ListenerComponent<Code.GameScope, Code.Component.Position>;
 
 namespace Code
 {
@@ -14,7 +15,7 @@ namespace Code
 		public UpdateChipsPositionSystem(Contexts contexts, ILayoutService layoutService)
 		{
 			_layoutService = layoutService;
-			_chips = contexts.GetGroup(Get<Chip>());
+			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>()));
 		}
 
 		public void Execute()

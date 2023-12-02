@@ -24,8 +24,6 @@ namespace Code
 				Add<PrepareAbilitiesOfPickedChipSystem>();
 				Add<AvailabilityFeature>();
 
-				// TODO: won't work for multi-target abilities
-				// TODO: casting is broken now
 				// Add<PickRandom<AvailableToPick>>();
 				// Add<ToGameplayStateSystem<CastingAbilitiesGameplayState>>();
 

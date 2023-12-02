@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using Code.Component;
 using Entitas.Generic;
-using UnityEngine;
 using Zenject;
 
 namespace Code
@@ -11,44 +9,53 @@ namespace Code
 		private readonly Contexts _contexts;
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
+		private readonly AbilitiesFactory _abilitiesFactory;
+		private readonly IHoldersProvider _holdersProvider;
 
 		[Inject]
-		public ChipsFactory(Contexts contexts, IAssetsService assets, IResourcesService resources)
+		public ChipsFactory
+		(
+			Contexts contexts,
+			IAssetsService assets,
+			IResourcesService resources,
+			AbilitiesFactory abilitiesFactory,
+			IHoldersProvider holdersProvider
+		)
 		{
 			_contexts = contexts;
+			_holdersProvider = holdersProvider;
 			_assets = assets;
 			_resources = resources;
+			_abilitiesFactory = abilitiesFactory;
 		}
 
-		public Entity<GameScope> Create(ChipConfig chipConfig, Transform parent = null)
+		public Entity<GameScope> Create(ChipConfig chipConfig, Entity<GameScope> actor)
 		{
-			var chip = SpawnChip(parent);
-			chip.Add<Label, string>(chipConfig.Label);
+			var entity = actor.Is<Player>() ? NewBehaviour() : NewEntity();
+			return SetupChip(chipConfig, entity, actor);
+		}
+
+		private Entity<GameScope> SetupChip(ChipConfig chipConfig, Entity<GameScope> entity, Entity<GameScope> actor)
+		{
+			var chip = InitializeChip(entity)
+			           .Add<Label, string>(chipConfig.Label)
+			           .Add<BelongToActor, int>(actor.Get<ID>().Value);
 
 			foreach (var abilityConfig in chipConfig.Abilities)
-				SetupAbility(chip, abilityConfig);
+				_abilitiesFactory.Create(abilityConfig, chip);
 
 			return chip;
 		}
 
-		private Entity<GameScope> SpawnChip(Transform parent = null)
-			=> _assets.SpawnBehaviour(_resources.ChipPrefab, parent).Entity
-			          .Identify();
+		private Entity<GameScope> InitializeChip(Entity<GameScope> entity)
+			=> entity
+			   .Is<Chip>(true)
+			   .Add<DebugName, string>("chip")
+			   .Identify();
 
-		private void SetupAbility(Entity<GameScope> chip, AbilityConfig config)
-		{
-			CreateAbility(@for: chip)
-				.Is<Teleport>(config.Kind.Is<Teleport>())
-				.Is<SwitchPositions>(config.Kind.Is<SwitchPositions>())
-				.Add<MaxCountOfTargets, int>(config.TargetsCount)
-				.Add<TargetConstraints, List<ComponentConstraint>>(config.TargetConstraints)
-				.Add<Range, int>(config.Range, @if: config.Range > -1)
-				;
-		}
+		private Entity<GameScope> NewBehaviour()
+			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity;
 
-		private Entity<ChipsScope> CreateAbility(Entity<GameScope> @for)
-			=> _contexts.Get<ChipsScope>().CreateEntity()
-			            .Add<Component.AbilityState, AbilityState>(AbilityState.Inactive)
-			            .Add<AbilityOfChip, int>(@for.Get<ID>().Value);
+		private Entity<GameScope> NewEntity() => _contexts.Get<GameScope>().CreateEntity();
 	}
 }
