@@ -6,30 +6,19 @@ namespace Code
 {
 	public sealed class SpawnActorOnRequestSystem : FulfillRequestSystemBase<SpawnActor>
 	{
-		private readonly IAssetsService _assets;
+		private readonly ActorsFactory _actorsFactory;
 
-		public SpawnActorOnRequestSystem(Contexts contexts, IAssetsService assets)
+		public SpawnActorOnRequestSystem(Contexts contexts, ActorsFactory actorsFactory)
 			: base(contexts)
-		{
-			_assets = assets;
-		}
+			=> _actorsFactory = actorsFactory;
 
 		protected override void OnRequest(Entity<RequestScope> request)
 		{
 			Debug.Assert(request.Has<CoordinatesRequest>());
-			Debug.Assert(request.Has<Prefab>());
 
-			SpawnPrefab(request)
-				.Replace<Component.Coordinates, Coordinates>(request.Get<CoordinatesRequest>().Value)
-				.Is<Actor>(true)
-				.Is<Target>(true)
-				.Identify()
-				;
+			_actorsFactory.CreatePlayer(request.Get<CoordinatesRequest>().Value);
 
 			request.Destroy();
 		}
-
-		private Entity<GameScope> SpawnPrefab(Entity<RequestScope> request)
-			=> _assets.SpawnBehaviour(request.Get<Prefab>().Value).Entity;
 	}
 }

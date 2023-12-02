@@ -31,6 +31,7 @@ namespace Code
 			Container.Bind<ServicesMediator>().AsSingle();
 
 			Container.Bind<UiMediator>().AsSingle();
+			Container.Bind<ActorsFactory>().AsSingle();
 		}
 	}
 }

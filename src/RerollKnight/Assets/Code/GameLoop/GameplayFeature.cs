@@ -17,7 +17,7 @@ namespace Code
 
 			Add<UpdateGameplayStateMachineSystem>();
 
-			Add<SpawnActorOnRequestSystem>();
+			// Add<SpawnActorOnRequestSystem>();
 			Add<MarkEmptyCellsSystem>();
 			Add<EndTurnOnRequestSystem>();
 

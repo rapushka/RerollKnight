@@ -1,4 +1,3 @@
-using Code.Component;
 using Entitas.Generic;
 using Zenject;
 
@@ -16,17 +15,17 @@ namespace Code
 				// Registrations
 				Add<RegisterBehavioursSystem>();
 
-				Add<SpawnActorOnRequestSystem>();
-
 				// Initialization
+				Add<SpawnActorsSystem>();
+				// Add<SpawnActorOnRequestSystem>();
 				Add<SpawnPlayerChipsSystem>();
 				Add<SpawnFieldSystem>();
 
 				// Ready
-				Add<ReadyOnAny<Actor>>();
+				// Add<ReadyOnAny<Actor>>();
 				// Add<ReadyOnTurnsQueueAny>();
 
-				Add<ToStateWhenAllReady<InitializeGameplayState>>();
+				Add<ToState<InitializeGameplayState>>();
 			}
 		}
 	}
