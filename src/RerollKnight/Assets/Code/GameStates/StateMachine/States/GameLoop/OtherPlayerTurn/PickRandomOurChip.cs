@@ -14,14 +14,6 @@ namespace Code
 			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<AvailableToPick>()));
 		}
 
-		public void Initialize()
-		{
-			if (_chips.Any())
-			{
-				var randomChip = _chips.PickRandom();
-				randomChip.Pick();
-				randomChip.Is<AvailableToPick>(false);
-			}
-		}
+		public void Initialize() => _chips.PickRandomOrDefault()?.Pick();
 	}
 }

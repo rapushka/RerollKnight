@@ -22,7 +22,6 @@ namespace Code
 			foreach (var e in _chips.GetEntities())
 			{
 				e.Pick();
-				e.Is<AvailableToPick>(false);
 				_stateChangeBus.ToState<ChipPickedGameplayState>();
 			}
 		}
