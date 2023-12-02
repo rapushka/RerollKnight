@@ -8,7 +8,7 @@ namespace Code
 		public GameplayFeature(SystemsFactory factory)
 			: base(nameof(GameplayFeature), factory)
 		{
-			Add<CollectActorsSystem>();
+			// Add<CollectActorsSystem>();
 
 			Add<StartGameSystem>();
 

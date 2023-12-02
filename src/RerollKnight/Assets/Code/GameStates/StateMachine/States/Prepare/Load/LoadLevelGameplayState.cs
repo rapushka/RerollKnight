@@ -18,7 +18,7 @@ namespace Code
 				// Initialization
 				Add<SpawnActorsSystem>();
 				// Add<SpawnActorOnRequestSystem>();
-				Add<SpawnPlayerChipsSystem>();
+				// Add<SpawnPlayerChipsSystem>();
 				Add<SpawnFieldSystem>();
 
 				// Ready

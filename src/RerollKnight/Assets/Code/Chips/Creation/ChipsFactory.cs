@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
@@ -8,16 +7,16 @@ namespace Code
 {
 	public class ChipsFactory
 	{
-		private readonly Contexts _contexts;
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
+		private readonly AbilitiesFactory _abilitiesFactory;
 
 		[Inject]
-		public ChipsFactory(Contexts contexts, IAssetsService assets, IResourcesService resources)
+		public ChipsFactory(IAssetsService assets, IResourcesService resources, AbilitiesFactory abilitiesFactory)
 		{
-			_contexts = contexts;
 			_assets = assets;
 			_resources = resources;
+			_abilitiesFactory = abilitiesFactory;
 		}
 
 		// todo: possibility to create chip without view
@@ -27,7 +26,7 @@ namespace Code
 			chip.Add<Label, string>(chipConfig.Label);
 
 			foreach (var abilityConfig in chipConfig.Abilities)
-				SetupAbility(chip, abilityConfig);
+				_abilitiesFactory.Create(chip, abilityConfig);
 
 			return chip;
 		}
@@ -35,21 +34,5 @@ namespace Code
 		private Entity<GameScope> SpawnChip(Transform parent = null)
 			=> _assets.SpawnBehaviour(_resources.ChipPrefab, parent).Entity
 			          .Identify();
-
-		private void SetupAbility(Entity<GameScope> chip, AbilityConfig config)
-		{
-			CreateAbility(@for: chip)
-				.Is<Teleport>(config.Kind.Is<Teleport>())
-				.Is<SwitchPositions>(config.Kind.Is<SwitchPositions>())
-				.Add<MaxCountOfTargets, int>(config.TargetsCount)
-				.Add<TargetConstraints, List<ComponentConstraint>>(config.TargetConstraints)
-				.Add<Range, int>(config.Range, @if: config.Range > -1)
-				;
-		}
-
-		private Entity<ChipsScope> CreateAbility(Entity<GameScope> @for)
-			=> _contexts.Get<ChipsScope>().CreateEntity()
-			            .Add<Component.AbilityState, AbilityState>(AbilityState.Inactive)
-			            .Add<AbilityOfChip, int>(@for.Get<ID>().Value);
 	}
 }

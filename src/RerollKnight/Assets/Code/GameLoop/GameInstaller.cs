@@ -38,7 +38,9 @@ namespace Code
 		private void InstallFactories()
 		{
 			// non-zenject factories
+			Container.Bind<ActorsFactory>().AsSingle();
 			Container.Bind<ChipsFactory>().AsSingle();
+			Container.Bind<AbilitiesFactory>().AsSingle();
 		}
 	}
 }
