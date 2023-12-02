@@ -30,6 +30,7 @@ namespace Code
 #if DEBUG
 			// Debug
 			Add<DebugCurrentGameplayStateSystem>();
+			Add<DebugTurnsQueueSystem>();
 #endif
 
 			Add<BoilerplateFeature>();
