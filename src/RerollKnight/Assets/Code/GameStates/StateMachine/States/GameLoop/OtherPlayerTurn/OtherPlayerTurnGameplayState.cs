@@ -22,6 +22,7 @@ namespace Code
 				Add<AvailabilityFeature>();
 
 				Add<PickRandom<Target, AvailableToPick>>();
+				Add<HandleMultiTargetAbilitySystem>();
 
 				// if casting a chip – will pass to Casting State
 				Add<CastAbilitiesSystem>();
