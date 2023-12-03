@@ -11,5 +11,5 @@ namespace Code.Component
 
 	[RequestScope] public sealed class AttachedTo : IndexComponent<RequestScope, AttachedTo, int> { }
 
-	[GameScope] public sealed class Destroyed : FlagComponent, IEvent, ICleanup<DestroyEntity> { }
+	[GameScope, ChipsScope] public sealed class Destroyed : FlagComponent, IEvent, ICleanup<DestroyEntity> { }
 }

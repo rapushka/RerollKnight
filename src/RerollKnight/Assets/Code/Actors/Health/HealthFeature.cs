@@ -8,6 +8,8 @@ namespace Code
 			Add<ApplyChangeHealthSystem>();
 			Add<DestroyEntityWithZeroHpSystem>();
 			Add<ClampMaxHealSystem>();
+
+			Add<DestroyDependentEntitiesWithActorSystem>();
 		}
 	}
 }

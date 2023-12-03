@@ -1,5 +1,6 @@
 using Code.Component;
 using Entitas.Generic;
+using JetBrains.Annotations;
 using Zenject;
 
 namespace Code
@@ -14,10 +15,11 @@ namespace Code
 			_contexts = contexts;
 		}
 
-		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
+		[CanBeNull]
+		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
 
 		public void EndTurn() => _contexts.Get<RequestScope>().CreateEntity().Add<EndTurn>();
 
-		public bool IsEndTurnButtonAvailable => CurrentActor.Is<Player>();
+		public bool IsEndTurnButtonAvailable => CurrentActor?.Is<Player>() ?? false;
 	}
 }
