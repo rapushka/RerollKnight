@@ -7,6 +7,7 @@ namespace Code
 		{
 			Add<CastTeleportSystem>();
 			Add<CastSwitchPositionsSystem>();
+			Add<CastKickSystem>();
 		}
 	}
 }
