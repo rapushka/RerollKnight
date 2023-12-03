@@ -19,10 +19,11 @@ namespace Code
 			Add<MarkEmptyCellsSystem>();
 			Add<EndTurnOnRequestSystem>();
 			Add<CollectActorsSystem>();
-			
+
 			// Health
 			Add<TakeDamageSystem>();
 			Add<HealingSystem>();
+			Add<RemoveDestroyedActorFromQueueSystem>();
 
 			// Visuals
 			Add<ArrangeChipsViewsSystem>();

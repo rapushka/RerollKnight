@@ -21,10 +21,7 @@ namespace Code
 			target.Replace<Health, int>(target.Get<Health, int>() + value);
 
 			if (target.Get<Health>().Value <= 0)
-			{
-				Debug.Log($"{target} has been killed");
-				target.Destroy(); // TODO: better destroy
-			}
+				target.Is<Destroyed>(true);
 
 			request.Destroy();
 		}
