@@ -39,3 +39,16 @@ MonoBehaviour:
       - <Component>k__BackingField:
           _name: Actor
         <MustHave>k__BackingField: 1
+  - <Label>k__BackingField: Kick
+    <Abilities>k__BackingField:
+    - <Kind>k__BackingField:
+        _name: Kick
+      <Range>k__BackingField: 1
+      <TargetsCount>k__BackingField: 1
+      <TargetConstraints>k__BackingField:
+      - <Component>k__BackingField:
+          _name: CurrentActor
+        <MustHave>k__BackingField: 0
+      - <Component>k__BackingField:
+          _name: Actor
+        <MustHave>k__BackingField: 1
