@@ -13,17 +13,14 @@ namespace Code
 				: base($"{nameof(OtherPlayerTurnGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
-				// # Clean
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 
-				// # Cell
 				Add<PickRandom<Chip, AvailableToPick>>();
-				// _stateChangeBus.ToState<ChipPickedGameplayState>();
 
-				// # Abilities
 				Add<PrepareAbilitiesOfPickedChipSystem>();
 				Add<AvailabilityFeature>();
+
 				Add<PickRandom<Target, AvailableToPick>>();
 
 				// if casting a chip – will pass to Casting State
