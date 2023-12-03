@@ -13,16 +13,18 @@ namespace Code
 			// Game Logic
 			Add<EmitAllRequestsSystem>();
 
+			// Gameplay state machine
 			Add<UpdateGameplayStateMachineSystem>();
 
 			// Add<SpawnActorOnRequestSystem>();
 			Add<MarkEmptyCellsSystem>();
 			Add<EndTurnOnRequestSystem>();
-			Add<CollectActorsSystem>();
 
 			// Health
-			Add<TakeDamageSystem>();
-			Add<HealingSystem>();
+			Add<HealthFeature>();
+
+			// Turns queue
+			Add<CollectActorsSystem>();
 			Add<RemoveDestroyedActorFromQueueSystem>();
 
 			// Visuals
