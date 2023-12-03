@@ -10,6 +10,7 @@ namespace Code
 			Add<ClampMaxHealSystem>();
 
 			Add<DestroyDependentEntitiesWithActorSystem>();
+			Add<EndTurnOnCurrentActorDeathSystem>();
 		}
 	}
 }
