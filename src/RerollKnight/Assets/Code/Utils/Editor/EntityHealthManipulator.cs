@@ -7,9 +7,9 @@ using EntityBehaviour = Entitas.VisualDebugging.Unity.EntityBehaviour;
 namespace Code
 {
 	[InitializeOnLoad]
-	public static class EntityClicker
+	public static class EntityHealthManipulator
 	{
-		static EntityClicker()
+		static EntityHealthManipulator()
 		{
 			EditorApplication.hierarchyWindowItemOnGUI += HandleHierarchyWindowItemOnGUI;
 		}
@@ -21,18 +21,29 @@ namespace Code
 			if (gameObject == null || gameObject.GetComponent<EntityBehaviour>() == null)
 				return;
 
-			var buttonRect = new Rect
+			var rectMinus = new Rect
 			(
-				x: selectionRect.xMax - 100f,
+				x: selectionRect.xMax - 130f,
 				y: selectionRect.y,
-				width: 60f,
+				width: 25f,
+				height: selectionRect.height
+			);
+			var rectPlus = new Rect
+			(
+				x: selectionRect.xMax - 160f,
+				y: selectionRect.y,
+				width: 25f,
 				height: selectionRect.height
 			);
 
-			if (gameObject.GetComponent<EntityBehaviour>().entity is Entity<GameScope> entity)
+			if (gameObject.GetComponent<EntityBehaviour>().entity is Entity<GameScope> entity
+			    && entity.Has<Health>())
 			{
-				if (GUI.Button(buttonRect, "Click"))
-					entity.Is<Clicked>(true);
+				if (GUI.Button(rectMinus, "-1"))
+					entity.Replace<Health, int>(entity.Get<Health, int>() - 1);
+
+				if (GUI.Button(rectPlus, "+1"))
+					entity.Replace<Health, int>(entity.Get<Health, int>() + 1);
 			}
 		}
 	}
