@@ -15,7 +15,7 @@ namespace Code
 				yield return $"health: ({entity.Get<Health>().Value}/{entity.Get<MaxHealth>().Value})";
 
 			yield return entity.ToString<Label, string>(prefix: "\"", postfix: "\"");
-			yield return entity.ToString<ViewOf, GameComponentID>(prefix: "view of: ");
+			yield return ViewOf(entity);
 
 			yield return entity.Is<PickedChip>() ? "<- picked" : string.Empty;
 
@@ -25,6 +25,14 @@ namespace Code
 			yield return entity.Is<Target>() ? "\tt" : string.Empty;
 			yield return entity.Is<AvailableToPick>() ? "a" : string.Empty;
 			yield return entity.Is<PickedTarget>() ? "P" : string.Empty;
+		}
+
+		private string ViewOf(Entity<GameScope> entity)
+		{
+			var component = entity.GetOrDefault<ViewOf>();
+			return component is not null
+				? $"view of: [{string.Join(", ", component.Value)}]"
+				: string.Empty;
 		}
 	}
 }

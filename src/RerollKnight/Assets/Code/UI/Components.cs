@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using Entitas.Generic;
 
 namespace Code.Component
 {
-	[GameScope] public sealed class ViewOf : ValueComponent<GameComponentID> { }
+	[GameScope] public sealed class ViewOf : ValueComponent<List<ComponentConstraint>> { }
 }
