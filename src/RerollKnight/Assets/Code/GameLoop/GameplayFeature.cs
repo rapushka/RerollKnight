@@ -17,7 +17,7 @@ namespace Code
 
 			// Add<SpawnActorOnRequestSystem>();
 			Add<MarkEmptyCellsSystem>();
-			Add<EndTurnOnRequestSystem>(); // todo: mb move to Observing state
+			Add<EndTurnOnRequestSystem>();
 			Add<CollectActorsSystem>();
 
 			// Visuals
