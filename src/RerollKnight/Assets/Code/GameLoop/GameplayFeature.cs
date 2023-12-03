@@ -36,6 +36,7 @@ namespace Code
 
 			Add<ViewCurrentActorSystem>();
 			Add<ViewPlayerHealthSystem>();
+			Add<ViewEnemyHealthSystem>();
 
 #if DEBUG
 			// Debug

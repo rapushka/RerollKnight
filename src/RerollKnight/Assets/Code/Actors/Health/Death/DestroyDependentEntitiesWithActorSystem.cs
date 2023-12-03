@@ -29,8 +29,12 @@ namespace Code
 		{
 			foreach (var chip in chips)
 			{
-				var abilities = AbilityOfChip.Index.GetEntities(chip.Get<ID>().Value);
-				DestroyAllAbilities(abilities);
+				if (chip.Is<Chip>())
+				{
+					var abilities = AbilityOfChip.Index.GetEntities(chip.Get<ID>().Value);
+					DestroyAllAbilities(abilities);
+				}
+
 				chip.Is<Destroyed>(true);
 			}
 		}
