@@ -13,12 +13,19 @@ namespace Code
 			// Game Logic
 			Add<EmitAllRequestsSystem>();
 
+			// Gameplay state machine
 			Add<UpdateGameplayStateMachineSystem>();
 
 			// Add<SpawnActorOnRequestSystem>();
 			Add<MarkEmptyCellsSystem>();
 			Add<EndTurnOnRequestSystem>();
+
+			// Health
+			Add<HealthFeature>();
+
+			// Turns queue
 			Add<CollectActorsSystem>();
+			Add<RemoveDestroyedActorFromQueueSystem>();
 
 			// Visuals
 			Add<ArrangeChipsViewsSystem>();
@@ -26,7 +33,10 @@ namespace Code
 			Add<MoveToDestinationSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
+
 			Add<ViewCurrentActorSystem>();
+			Add<ViewPlayerHealthSystem>();
+			Add<ViewEnemyHealthSystem>();
 
 #if DEBUG
 			// Debug

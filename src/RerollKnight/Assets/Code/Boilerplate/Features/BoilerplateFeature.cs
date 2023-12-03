@@ -13,6 +13,8 @@ namespace Code
 			Add(new EventSystem<GameScope, Position>(contexts));
 			Add(new EventSystem<GameScope, Component.TargetState>(contexts));
 			Add(new EventSystem<GameScope, Label>(contexts));
+			Add(new EventSystem<GameScope, Destroyed>(contexts));
+			Add(new EventSystem<ChipsScope, Destroyed>(contexts));
 
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 
@@ -20,6 +22,8 @@ namespace Code
 			Add(new DestroyEntitySystem<SpawnActor, RequestScope>(contexts));
 			Add(new DestroyEntitySystem<SetAllTargetsAvailability, RequestScope>(contexts));
 			Add(new DestroyEntitySystem<EndTurn, RequestScope>(contexts));
+			Add(new DestroyEntitySystem<Destroyed, GameScope>(contexts));
+			Add(new DestroyEntitySystem<Destroyed, ChipsScope>(contexts));
 		}
 	}
 }

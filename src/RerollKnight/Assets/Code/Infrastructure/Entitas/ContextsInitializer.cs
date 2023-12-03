@@ -34,6 +34,7 @@ namespace Code
 			CoordinatesUnderField.Index.Initialize();
 			ID.Index.Initialize();
 			AbilityOfChip.Index.Initialize();
+			BelongToActor.Index.Initialize();
 		}
 
 		private void InitializeFormatters()

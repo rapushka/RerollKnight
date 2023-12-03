@@ -1,3 +1,4 @@
+using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -32,6 +33,9 @@ namespace Code
 		}
 
 		private bool IsViewOfCurrentActor(Entity<GameScope> entity)
-			=> entity.Get<ViewOf>().Value.Is<CurrentActor>();
+			=> entity.Get<ViewOf>().Value.All(ForCurrentActor);
+
+		private bool ForCurrentActor(ComponentConstraint constraint)
+			=> constraint.Is<CurrentActor>();
 	}
 }
