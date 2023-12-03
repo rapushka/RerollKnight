@@ -1,4 +1,5 @@
 using Code.Component;
+using Entitas.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -21,16 +22,26 @@ namespace Code
 			if (GUI.Button(rect, "Click"))
 				entity.Is<Clicked>(true);
 
-			if (entity.Has<Health>())
+			if (entity.Has<Health>() && entity.Has<ID>())
 			{
 				rect = HierarchyHelper.ButtonRect(selectionRect, width: 25f, fromRight: 160f);
 				if (GUI.Button(rect, "-1"))
-					entity.Replace<Health, int>(entity.Get<Health, int>() - 1);
+				{
+					ChangeHeal(entity, -1);
+				}
 
 				rect = HierarchyHelper.ButtonRect(selectionRect, width: 25f, fromRight: 130f);
 				if (GUI.Button(rect, "+1"))
-					entity.Replace<Health, int>(entity.Get<Health, int>() + 1);
+					ChangeHeal(entity, +1);
 			}
+		}
+
+		private static void ChangeHeal(Entity<GameScope> entity, int value)
+		{
+			Contexts.Instance.Get<RequestScope>().CreateEntity()
+			        .Add<ChangeHealth, int>(value)
+			        .Add<AttachedTo, int>(entity.Get<ID>().Value)
+				;
 		}
 	}
 }
