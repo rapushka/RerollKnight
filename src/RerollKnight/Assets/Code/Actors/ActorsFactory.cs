@@ -33,6 +33,7 @@ namespace Code
 			            .Is<Target>(true)
 			            .Identify()
 				;
+			actor.Add<Health, int>(actor.Get<MaxHealth>().Value);
 
 			CreateChips(chips, actor);
 		}
