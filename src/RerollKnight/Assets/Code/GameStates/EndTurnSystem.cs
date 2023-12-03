@@ -18,9 +18,7 @@ namespace Code
 		public void Cleanup()
 		{
 			if (_abilities.All((e) => e.Get<Component.AbilityState>().Value is not AbilityState.Casting))
-			{
 				_stateChangeBus.ToState<TurnEndedGameplayState>();
-			}
 		}
 	}
 }

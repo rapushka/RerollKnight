@@ -1,3 +1,4 @@
+using Code.Component;
 using Zenject;
 
 namespace Code
@@ -12,22 +13,21 @@ namespace Code
 				: base($"{nameof(OtherPlayerTurnGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
-				// # Clean
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 
-				// # Cell
-				Add<PickRandomOurChip>();
-				// _stateChangeBus.ToState<ChipPickedGameplayState>();
+				Add<PickRandom<Chip, AvailableToPick>>();
 
-				// # Abilities
 				Add<PrepareAbilitiesOfPickedChipSystem>();
 				Add<AvailabilityFeature>();
 
-				// Add<PickRandom<AvailableToPick>>();
-				// Add<ToGameplayStateSystem<CastingAbilitiesGameplayState>>();
+				Add<PickRandom<Target, AvailableToPick>>();
+				Add<HandleMultiTargetAbilitySystem>();
 
-				Add<EndTurnWhenNoAvailableChipsSystem>();
+				// if casting a chip – will pass to Casting State
+				Add<CastAbilitiesSystem>();
+				// otherwise – turn will be ended
+				Add<EndTurnOnOutOfChipsSystem>();
 			}
 		}
 	}

@@ -14,6 +14,10 @@ namespace Code
 			_contexts = contexts;
 		}
 
+		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
+
 		public void EndTurn() => _contexts.Get<RequestScope>().CreateEntity().Add<EndTurn>();
+
+		public bool IsEndTurnButtonAvailable => CurrentActor.Is<Player>();
 	}
 }

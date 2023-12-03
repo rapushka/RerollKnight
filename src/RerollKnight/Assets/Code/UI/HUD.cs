@@ -24,5 +24,10 @@ namespace Code
 		{
 			_uiMediator.EndTurn();
 		}
+
+		private void Update()
+		{
+			_endTurnButton.enabled = _uiMediator.IsEndTurnButtonAvailable;
+		}
 	}
 }
