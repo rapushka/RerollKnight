@@ -33,7 +33,9 @@ namespace Code
 			Add<MoveToDestinationSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
+
 			Add<ViewCurrentActorSystem>();
+			Add<ViewPlayerHealthSystem>();
 
 #if DEBUG
 			// Debug
