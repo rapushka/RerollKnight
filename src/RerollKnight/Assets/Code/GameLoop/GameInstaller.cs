@@ -41,6 +41,7 @@ namespace Code
 			Container.Bind<ActorsFactory>().AsSingle();
 			Container.Bind<ChipsFactory>().AsSingle();
 			Container.Bind<AbilitiesFactory>().AsSingle();
+			Container.Bind<UiFactory>().AsSingle();
 		}
 	}
 }

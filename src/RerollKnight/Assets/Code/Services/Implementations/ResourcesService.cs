@@ -1,21 +1,25 @@
 using UnityEngine;
-using GameEntityBeh = Entitas.Generic.EntityBehaviour<Code.GameScope>;
+using GameEntityView = Entitas.Generic.EntityBehaviour<Code.GameScope>;
 
 namespace Code
 {
 	public interface IResourcesService
 	{
-		GameEntityBeh PlayerPrefab { get; }
-		GameEntityBeh CellPrefab   { get; }
-		GameEntityBeh ChipPrefab   { get; }
-		GameEntityBeh EnemyPrefab  { get; }
+		GameEntityView PlayerPrefab     { get; }
+		GameEntityView CellPrefab       { get; }
+		GameEntityView ChipPrefab       { get; }
+		GameEntityView EnemyPrefab      { get; }
+		GameEntityView CurrentActorText { get; }
+		GameEntityView PlayerHealthBar  { get; }
 	}
 
 	public class ResourcesService : IResourcesService
 	{
-		public GameEntityBeh PlayerPrefab => Resources.Load<GameEntityBeh>("Player/Prefab");
-		public GameEntityBeh CellPrefab   => Resources.Load<GameEntityBeh>("Field/CellPrefab");
-		public GameEntityBeh ChipPrefab   => Resources.Load<GameEntityBeh>("Chips/ChipPrefab");
-		public GameEntityBeh EnemyPrefab  => Resources.Load<GameEntityBeh>("Enemy/Enemy");
+		public GameEntityView PlayerPrefab     => Resources.Load<GameEntityView>("Player/Prefab");
+		public GameEntityView CellPrefab       => Resources.Load<GameEntityView>("Field/CellPrefab");
+		public GameEntityView ChipPrefab       => Resources.Load<GameEntityView>("Chips/ChipPrefab");
+		public GameEntityView EnemyPrefab      => Resources.Load<GameEntityView>("Enemy/Enemy");
+		public GameEntityView CurrentActorText => Resources.Load<GameEntityView>("UI/Views/Current Actor Text");
+		public GameEntityView PlayerHealthBar  => Resources.Load<GameEntityView>("UI/Views/Player Health");
 	}
 }

@@ -662,7 +662,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _behaviours:
   - {fileID: 122604593}
-  - {fileID: 1102038856}
 --- !u!4 &1053540397
 Transform:
   m_ObjectHideFlags: 0
@@ -678,17 +677,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 856712995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1102038856 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2285879657160324542, guid: c3e533fc49e1062f7936433126c21dfd, type: 3}
-  m_PrefabInstance: {fileID: 4856034039261530239}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb11f2ebb8c4e82bade6d7d3c26409f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1176538482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ChipsHolder>k__BackingField: {fileID: 1895644616}
   <CellsHolder>k__BackingField: {fileID: 1568119369}
+  <HudHolder>k__BackingField: {fileID: 267276930}
 --- !u!1001 &4856034039261530239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1134,24 +1123,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6541068460860477195, guid: c3e533fc49e1062f7936433126c21dfd, type: 3}
-      propertyPath: _value.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6541068460860477195, guid: c3e533fc49e1062f7936433126c21dfd, type: 3}
-      propertyPath: _value.Array.data[1].<MustHave>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6541068460860477195, guid: c3e533fc49e1062f7936433126c21dfd, type: 3}
-      propertyPath: _value.Array.data[1].<Component>k__BackingField._name
-      value: CurrentActor
-      objectReference: {fileID: 0}
     - target: {fileID: 7743177002486313170, guid: c3e533fc49e1062f7936433126c21dfd, type: 3}
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1553841719929697432, guid: c3e533fc49e1062f7936433126c21dfd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3e533fc49e1062f7936433126c21dfd, type: 3}
