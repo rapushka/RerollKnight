@@ -1,6 +1,7 @@
 using System;
 using Code.Component;
 using Entitas.Generic;
+using UnityEngine;
 
 namespace Code
 {
@@ -18,21 +19,12 @@ namespace Code
 		}
 
 		public Entity<GameScope> CreateHealthBar(Entity<GameScope> actor)
-		{
-			if (actor.Is<Enemy>())
-				return null; // throw new NotImplementedException();
+			=> actor.Is<Enemy>()     ? Create(actor, _resources.EnemyHealthBar, actor.Get<RootTransform>().Value)
+				: actor.Is<Player>() ? Create(actor, _resources.PlayerHealthBar, _holders.HudHolder)
+				                       : throw new InvalidOperationException("Unknown actor");
 
-			if (actor.Is<Player>())
-				return CreatePlayerHealthBar(actor);
-
-			throw new InvalidOperationException("Unknown actor");
-		}
-
-		private Entity<GameScope> CreatePlayerHealthBar(Entity<GameScope> actor)
-		{
-			var healthBar = _assets.SpawnBehaviour(_resources.PlayerHealthBar, _holders.HudHolder).Entity;
-			healthBar.Add<BelongToActor, int>(actor.Get<ID>().Value);
-			return healthBar;
-		}
+		private Entity<GameScope> Create(Entity<GameScope> actor, EntityBehaviour<GameScope> prefab, Transform parent)
+			=> _assets.SpawnBehaviour(prefab, parent).Entity
+			          .Add<BelongToActor, int>(actor.Get<ID>().Value);
 	}
 }

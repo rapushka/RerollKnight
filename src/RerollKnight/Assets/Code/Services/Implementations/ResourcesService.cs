@@ -11,6 +11,7 @@ namespace Code
 		GameEntityView EnemyPrefab      { get; }
 		GameEntityView CurrentActorText { get; }
 		GameEntityView PlayerHealthBar  { get; }
+		GameEntityView EnemyHealthBar   { get; }
 	}
 
 	public class ResourcesService : IResourcesService
@@ -21,5 +22,6 @@ namespace Code
 		public GameEntityView EnemyPrefab      => Resources.Load<GameEntityView>("Enemy/Enemy");
 		public GameEntityView CurrentActorText => Resources.Load<GameEntityView>("UI/Views/Current Actor Text");
 		public GameEntityView PlayerHealthBar  => Resources.Load<GameEntityView>("UI/Views/Player Health");
+		public GameEntityView EnemyHealthBar   => Resources.Load<GameEntityView>("UI/Views/Enemy Health");
 	}
 }
