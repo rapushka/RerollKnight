@@ -11,6 +11,9 @@ namespace Code
 			yield return entity.creationIndex.ToString();
 			yield return entity.ToString<DebugName, string>(defaultValue: "entity");
 
+			if (entity.Has<Health>() && entity.Has<MaxHealth>())
+				yield return $"health: ({entity.Get<Health>().Value}/{entity.Get<MaxHealth>().Value})";
+
 			yield return entity.ToString<Label, string>(prefix: "\"", postfix: "\"");
 			yield return entity.ToString<ViewOf, GameComponentID>(prefix: "view of: ");
 
