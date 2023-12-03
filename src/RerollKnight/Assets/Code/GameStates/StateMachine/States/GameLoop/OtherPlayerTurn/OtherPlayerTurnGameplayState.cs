@@ -1,3 +1,4 @@
+using Code.Component;
 using Zenject;
 
 namespace Code
@@ -17,17 +18,18 @@ namespace Code
 				Add<MarkAllTargetsUnavailableSystem>();
 
 				// # Cell
-				Add<PickRandomOurChip>();
+				Add<PickRandom<Chip, AvailableToPick>>();
 				// _stateChangeBus.ToState<ChipPickedGameplayState>();
 
 				// # Abilities
 				Add<PrepareAbilitiesOfPickedChipSystem>();
 				Add<AvailabilityFeature>();
+				Add<PickRandom<Target, AvailableToPick>>();
 
-				// Add<PickRandom<AvailableToPick>>();
-				// Add<ToGameplayStateSystem<CastingAbilitiesGameplayState>>();
-
-				Add<EndTurnWhenNoAvailableChipsSystem>();
+				// if casting a chip – will pass to Casting State
+				Add<CastAbilitiesSystem>();
+				// otherwise – turn will be ended
+				Add<EndTurnOnOutOfChipsSystem>();
 			}
 		}
 	}

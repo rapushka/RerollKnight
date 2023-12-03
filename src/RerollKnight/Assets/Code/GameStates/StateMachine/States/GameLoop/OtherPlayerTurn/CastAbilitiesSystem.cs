@@ -2,7 +2,6 @@ using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;
 using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
@@ -23,8 +22,6 @@ namespace Code
 		{
 			if (_abilities.WhereStateIs(AbilityState.Prepared).Any())
 				_stateChangeBus.ToState<CastingAbilitiesGameplayState>();
-			else
-				Debug.LogError("No prepared abilities");
 		}
 	}
 }
