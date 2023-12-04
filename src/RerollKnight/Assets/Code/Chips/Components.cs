@@ -13,5 +13,5 @@ namespace Code.Component
 
 	[ChipsScope] public sealed class TargetConstraints : ValueComponent<List<ComponentConstraint>> { }
 
-	[GameScope] public sealed class Label : ValueComponent<string>, IEvent { }
+	[GameScope] public sealed class Label : ValueComponent<string>, IEvent<Self> { }
 }

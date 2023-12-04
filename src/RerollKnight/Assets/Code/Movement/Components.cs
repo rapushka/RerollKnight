@@ -9,5 +9,5 @@ namespace Code.Component
 
 	[GameScope] public sealed class MovingSpeed : ValueComponent<float> { }
 
-	[GameScope] public sealed class Position : ValueComponent<Vector3>, IEvent { }
+	[GameScope] public sealed class Position : ValueComponent<Vector3>, IEvent<Self> { }
 }
