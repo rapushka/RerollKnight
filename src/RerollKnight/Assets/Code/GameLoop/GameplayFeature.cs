@@ -35,8 +35,7 @@ namespace Code
 			Add<OutlineAvailableTargetsSystem>();
 
 			Add<ViewCurrentActorSystem>();
-			Add<ViewPlayerHealthSystem>();
-			Add<ViewEnemyHealthSystem>();
+			Add<ViewHealthSystem>();
 
 #if DEBUG
 			// Debug
