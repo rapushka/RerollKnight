@@ -19,7 +19,7 @@ namespace Code
 		}
 
 		public Entity<GameScope> CreateHealthBar(Entity<GameScope> actor)
-			=> actor.Is<Enemy>()     ? Create(actor, _resources.EnemyHealthBar, actor.Get<RootTransform>().Value)
+			=> actor.Is<Enemy>()     ? Create(actor, _resources.EnemyHealthBar, actor.Get<ViewTransform>().Value)
 				: actor.Is<Player>() ? Create(actor, _resources.PlayerHealthBar, _holders.HudHolder)
 				                       : throw new InvalidOperationException("Unknown actor");
 
