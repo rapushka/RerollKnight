@@ -17,6 +17,7 @@ namespace Code
 			Add(new SelfEventSystem<ChipsScope, Destroyed>(contexts));
 			Add(new SelfEventSystem<GameScope, MaxHealth>(contexts));
 			Add(new SelfEventSystem<GameScope, Health>(contexts));
+			Add(new AnyEventSystem<GameScope, CurrentActor>(contexts));
 
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 

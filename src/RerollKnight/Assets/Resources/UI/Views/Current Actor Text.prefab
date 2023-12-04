@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 734376320188981171}
   - component: {fileID: 2295281642064209250}
   - component: {fileID: 2286799453353208879}
-  - component: {fileID: 7415949769877052252}
-  - component: {fileID: 5716243075066788875}
+  - component: {fileID: 4711564361192343630}
   m_Layer: 5
   m_Name: Current Actor Text
   m_TagString: Untagged
@@ -56,7 +55,6 @@ MonoBehaviour:
   _interruptChildrenEntities: 1
   _componentBehaviours:
   - {fileID: 2286799453353208879}
-  - {fileID: 5716243075066788875}
 --- !u!114 &2286799453353208879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,8 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6b12a840ec403b92ac410a1c7bbdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listener: {fileID: 7415949769877052252}
---- !u!114 &7415949769877052252
+  _listener: {fileID: 4711564361192343630}
+--- !u!114 &4711564361192343630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,24 +77,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3291353199656599695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18056762fc1848d9bbee2301c1d1da46, type: 3}
+  m_Script: {fileID: 11500000, guid: 549b77b1d49d4648b5d68d6709bb54ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 4884788137762138913}
---- !u!114 &5716243075066788875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3291353199656599695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0cbb7a31e83400b9e627767fe895f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value:
-  - _name: CurrentActor
 --- !u!1001 &5490973566172727569
 PrefabInstance:
   m_ObjectHideFlags: 0
