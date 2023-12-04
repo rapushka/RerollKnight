@@ -9,11 +9,23 @@ namespace Code
 	{
 		[SerializeField] private TMP_Text _textMesh;
 
-		public override void OnValueChanged(Entity<GameScope> entity, CurrentActor component)
+		private static ScopeContext<GameScope> Context => Contexts.Instance.Get<GameScope>();
+
+		private static Entity<GameScope> CurrentActor => Context.Unique.GetEntityOrDefault<CurrentActor>();
+
+		public override void Register(Entity<GameScope> entity)
 		{
-			_textMesh.text = entity.Is<Player>() ? "Player's turn"
-				: entity.Is<Enemy>()             ? "Enemy's turn"
-				                                   : "Unknown";
+			base.Register(entity);
+
+			UpdateValue(CurrentActor);
 		}
+
+		public override void OnValueChanged(Entity<GameScope> entity, CurrentActor component) => UpdateValue(entity);
+
+		private void UpdateValue(Entity<GameScope> entity)
+			=> _textMesh.text = entity is null ? "No current actor!"
+				: entity.Is<Player>()          ? "Player's turn"
+				: entity.Is<Enemy>()           ? "Enemy's turn"
+				                                 : "Unknown";
 	}
 }
