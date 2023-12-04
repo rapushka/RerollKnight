@@ -96,12 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value:
-  - <Component>k__BackingField:
-      _name: Player
-    <MustHave>k__BackingField: 1
-  - <Component>k__BackingField:
-      _name: Health
-    <MustHave>k__BackingField: 1
+  - _name: Player
+  - _name: Health
 --- !u!1001 &8080427440022984967
 PrefabInstance:
   m_ObjectHideFlags: 0

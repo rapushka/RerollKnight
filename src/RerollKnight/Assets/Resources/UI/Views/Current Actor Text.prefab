@@ -96,9 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value:
-  - <Component>k__BackingField:
-      _name: CurrentActor
-    <MustHave>k__BackingField: 1
+  - _name: CurrentActor
 --- !u!1001 &5490973566172727569
 PrefabInstance:
   m_ObjectHideFlags: 0

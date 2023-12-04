@@ -3,5 +3,5 @@ using Entitas.Generic;
 
 namespace Code.Component
 {
-	[GameScope] public sealed class ViewOf : ValueComponent<List<ComponentConstraint>> { }
+	[GameScope] public sealed class ViewOf : ValueComponent<List<GameComponentID>> { }
 }

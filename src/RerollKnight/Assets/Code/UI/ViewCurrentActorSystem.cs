@@ -35,7 +35,7 @@ namespace Code
 		private bool IsViewOfCurrentActor(Entity<GameScope> entity)
 			=> entity.Get<ViewOf>().Value.All(ForCurrentActor);
 
-		private bool ForCurrentActor(ComponentConstraint constraint)
-			=> constraint.Is<CurrentActor>();
+		private bool ForCurrentActor(GameComponentID componentID)
+			=> componentID.Is<CurrentActor>();
 	}
 }

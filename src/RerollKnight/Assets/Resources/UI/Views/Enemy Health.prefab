@@ -92,12 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value:
-  - <Component>k__BackingField:
-      _name: Enemy
-    <MustHave>k__BackingField: 1
-  - <Component>k__BackingField:
-      _name: Health
-    <MustHave>k__BackingField: 1
+  - _name: Enemy
+  - _name: Health
 --- !u!1001 &7263103422670107392
 PrefabInstance:
   m_ObjectHideFlags: 0
