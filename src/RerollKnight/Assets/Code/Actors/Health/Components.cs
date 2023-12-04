@@ -2,10 +2,10 @@ using Entitas.Generic;
 
 namespace Code.Component
 {
-	[GameScope] public sealed class MaxHealth : ValueComponent<int> { }
+	[GameScope] public sealed class MaxHealth : ValueComponent<int>, IEvent { }
 
 	/// Current Health
-	[GameScope] public sealed class Health : ValueComponent<int> { }
+	[GameScope] public sealed class Health : ValueComponent<int>, IEvent { }
 
 	[RequestScope] public sealed class ChangeHealth : ValueComponent<int> { }
 

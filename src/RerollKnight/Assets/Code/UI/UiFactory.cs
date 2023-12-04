@@ -24,7 +24,14 @@ namespace Code
 				                       : throw new InvalidOperationException("Unknown actor");
 
 		private Entity<GameScope> Create(Entity<GameScope> actor, EntityBehaviour<GameScope> prefab, Transform parent)
-			=> _assets.SpawnBehaviour(prefab, parent).Entity
-			          .Add<BelongToActor, int>(actor.Get<ID>().Value);
+		{
+			var viewBehaviour = _assets.SpawnBehaviour(prefab, parent);
+			var view = viewBehaviour.Entity
+			                        .Add<BelongToActor, int>(actor.Get<ID>().Value);
+
+			actor.Register(viewBehaviour.GetComponent<HealthBarView>());
+
+			return view;
+		}
 	}
 }

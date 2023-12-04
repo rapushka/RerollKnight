@@ -15,6 +15,8 @@ namespace Code
 			Add(new EventSystem<GameScope, Label>(contexts));
 			Add(new EventSystem<GameScope, Destroyed>(contexts));
 			Add(new EventSystem<ChipsScope, Destroyed>(contexts));
+			Add(new EventSystem<GameScope, MaxHealth>(contexts));
+			Add(new EventSystem<GameScope, Health>(contexts));
 
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 
