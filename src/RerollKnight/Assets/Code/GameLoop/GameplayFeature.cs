@@ -34,8 +34,6 @@ namespace Code
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
 
-			Add<ViewCurrentActorSystem>();
-
 #if DEBUG
 			// Debug
 			Add<DebugCurrentGameplayStateSystem>();

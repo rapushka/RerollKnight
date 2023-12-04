@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7748350808381671960}
   - component: {fileID: 1076203915416095146}
   - component: {fileID: 7741487041904551723}
-  - component: {fileID: 5911669118128054633}
   m_Layer: 5
   m_Name: Player Health
   m_TagString: Untagged
@@ -55,7 +54,6 @@ MonoBehaviour:
   _collectInChildren: 0
   _interruptChildrenEntities: 1
   _componentBehaviours:
-  - {fileID: 5911669118128054633}
   - {fileID: 1076203915416095146}
 --- !u!114 &1076203915416095146
 MonoBehaviour:
@@ -83,21 +81,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 9212933558328376119}
---- !u!114 &5911669118128054633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7038815750860114750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0cbb7a31e83400b9e627767fe895f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value:
-  - _name: Player
-  - _name: Health
 --- !u!1001 &8080427440022984967
 PrefabInstance:
   m_ObjectHideFlags: 0

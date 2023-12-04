@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9177285444427048808}
   - component: {fileID: 1888303187943646426}
   - component: {fileID: 8944477127928373860}
-  - component: {fileID: 5103035504777481241}
   m_Layer: 0
   m_Name: Enemy Health
   m_TagString: Untagged
@@ -51,7 +50,6 @@ MonoBehaviour:
   _collectInChildren: 0
   _interruptChildrenEntities: 1
   _componentBehaviours:
-  - {fileID: 5103035504777481241}
   - {fileID: 1888303187943646426}
 --- !u!114 &1888303187943646426
 MonoBehaviour:
@@ -79,21 +77,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 4215535881871193601}
---- !u!114 &5103035504777481241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8463686318234117710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0cbb7a31e83400b9e627767fe895f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value:
-  - _name: Enemy
-  - _name: Health
 --- !u!1001 &7263103422670107392
 PrefabInstance:
   m_ObjectHideFlags: 0
