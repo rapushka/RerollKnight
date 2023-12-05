@@ -3,5 +3,5 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public class TransformBehaviour : ComponentBehaviour<GameScope, RootTransform, UnityEngine.Transform> { }
+	public class TransformBehaviour : ComponentBehaviour<GameScope, ViewTransform, UnityEngine.Transform> { }
 }
