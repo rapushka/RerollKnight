@@ -3,7 +3,6 @@ using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
 using Zenject;
-using Camera = UnityEngine.Camera;
 
 namespace Code
 {
@@ -12,7 +11,7 @@ namespace Code
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
 		private readonly IHoldersProvider _holders;
-		private Contexts _contexts;
+		private readonly Contexts _contexts;
 
 		[Inject]
 		public UiFactory

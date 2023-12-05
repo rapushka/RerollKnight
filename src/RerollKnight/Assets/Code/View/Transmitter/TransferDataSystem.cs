@@ -16,10 +16,8 @@ namespace Code
 		public void Execute()
 		{
 			foreach (var e in _entities)
-			{
-				foreach (var transport in e.Get<Transport>().Value)
-					transport.Transfer();
-			}
+			foreach (var transport in e.Get<Transport>().Value)
+				transport.Transfer();
 		}
 	}
 }
