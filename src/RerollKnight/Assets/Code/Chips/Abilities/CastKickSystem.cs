@@ -18,7 +18,7 @@ namespace Code
 
 			_contexts.Get<RequestScope>().CreateEntity()
 			         .Add<ChangeHealth, int>(-damage)
-			         .Add<AttachedTo, int>(target.Get<ID>().Value)
+			         .Add<ForeignID, string>(target.Get<ID>().Value)
 				;
 		}
 	}

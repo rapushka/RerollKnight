@@ -9,7 +9,5 @@ namespace Code.Component
 
 	[RequestScope] public sealed class ChangeHealth : ValueComponent<int> { }
 
-	[RequestScope] public sealed class AttachedTo : IndexComponent<RequestScope, AttachedTo, int> { }
-
-	[GameScope, ChipsScope] public sealed class Destroyed : FlagComponent, ICleanup<DestroyEntity>, IEvent<Self> { }
+	[GameScope, ChipsScope, RequestScope] public sealed class Destroyed : FlagComponent, ICleanup<DestroyEntity>, IEvent<Self> { }
 }

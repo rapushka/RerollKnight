@@ -37,7 +37,7 @@ namespace Code
 		{
 			var viewBehaviour = _assets.SpawnBehaviour(prefab, parent);
 			var view = viewBehaviour.Entity
-			                        .Add<ForeignID, int>(actor.Get<ID>().Value)
+			                        .Add<ForeignID, string>(actor.Get<ID>().Value)
 				;
 
 			actor.Register(viewBehaviour.GetComponent<HealthBarView>());

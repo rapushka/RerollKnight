@@ -40,7 +40,7 @@ namespace Code
 		{
 			Contexts.Instance.Get<RequestScope>().CreateEntity()
 			        .Add<ChangeHealth, int>(value)
-			        .Add<AttachedTo, int>(entity.Get<ID>().Value)
+			        .Add<ForeignID, string>(entity.Get<ID>().Value)
 				;
 		}
 	}

@@ -28,6 +28,7 @@ namespace Code
 			Add(new DestroyEntitySystem<EndTurn, RequestScope>(contexts));
 			Add(new DestroyEntitySystem<Destroyed, GameScope>(contexts));
 			Add(new DestroyEntitySystem<Destroyed, ChipsScope>(contexts));
+			Add(new DestroyEntitySystem<Destroyed, RequestScope>(contexts));
 		}
 	}
 }

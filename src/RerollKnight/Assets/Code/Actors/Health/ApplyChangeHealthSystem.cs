@@ -10,10 +10,10 @@ namespace Code
 
 		protected override void OnRequest(Entity<RequestScope> request)
 		{
-			Debug.Assert(request.Has<AttachedTo>());
+			Debug.Assert(request.Has<ForeignID>());
 
 			var value = request.Get<ChangeHealth>().Value;
-			var target = ID.Index.GetEntity(request.Get<AttachedTo>().Value);
+			var target = ID.Index.GetEntity(request.Get<ForeignID>().Value);
 			target.Replace<Health, int>(target.Get<Health, int>() + value);
 
 			request.Destroy();

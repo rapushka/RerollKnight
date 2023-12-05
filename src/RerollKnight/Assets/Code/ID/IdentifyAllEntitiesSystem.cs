@@ -24,15 +24,4 @@ namespace Code
 		}
 	}
 
-	public class CounterServices
-	{
-		private static CounterServices _instance;
-		public static CounterServices Instance => _instance ??= new CounterServices();
-
-		private int _current;
-
-		public int Next => _current++;
-
-		private CounterServices() { }
-	}
 }

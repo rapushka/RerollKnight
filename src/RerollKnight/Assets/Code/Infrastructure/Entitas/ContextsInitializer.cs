@@ -35,6 +35,7 @@ namespace Code
 			ID.Index.Initialize();
 			ForeignID.GetIndex<GameScope>().Initialize();
 			ForeignID.GetIndex<ChipsScope>().Initialize();
+			ForeignID.GetIndex<RequestScope>().Initialize();
 		}
 
 		private void InitializeFormatters()
