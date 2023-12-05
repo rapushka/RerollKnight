@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
@@ -11,38 +12,32 @@ namespace Code
 		public DestroyDependentEntitiesWithActorSystem(Contexts contexts) : base(contexts.Get<GameScope>()) { }
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
-			=> context.CreateCollector(AllOf(Get<Actor>(), Get<Destroyed>()));
+			=> context.CreateCollector(AllOf(Get<ID>(), Get<Destroyed>()));
 
 		protected override bool Filter(Entity<GameScope> entity) => entity.Is<Destroyed>();
 
 		protected override void Execute(List<Entity<GameScope>> entities)
 		{
-			foreach (var actor in entities)
-			{
-				var chips = BelongToActor.Index.GetEntities(actor.Get<ID>().Value);
-				DestroyAllChips(chips);
-				actor.Is<Destroyed>(true);
-			}
+			foreach (var entity in entities)
+				DestroyAllDependant(entity);
 		}
 
-		private static void DestroyAllChips(HashSet<Entity<GameScope>> chips)
+		private void DestroyAllDependant<TScope>(Entity<TScope> entity)
+			where TScope : IScope
 		{
-			foreach (var chip in chips)
-			{
-				if (chip.Is<Chip>())
-				{
-					var abilities = AbilityOfChip.Index.GetEntities(chip.Get<ID>().Value);
-					DestroyAllAbilities(abilities);
-				}
-
-				chip.Is<Destroyed>(true);
-			}
+			DestroyDependant<TScope, GameScope>(entity);
+			DestroyDependant<TScope, ChipsScope>(entity);
 		}
 
-		private static void DestroyAllAbilities(HashSet<Entity<ChipsScope>> abilities)
+		private void DestroyDependant<TScope1, TScope2>(Entity<TScope1> entity)
+			where TScope1 : IScope
+			where TScope2 : IScope
 		{
-			foreach (var ability in abilities)
-				ability.Is<Destroyed>(true);
+			foreach (var e in ForeignID.GetIndex<TScope2>().GetEntities(entity.Get<ID>().Value))
+			{
+				DestroyAllDependant(e);
+				e.Is<Destroyed>(true);
+			}
 		}
 	}
 }

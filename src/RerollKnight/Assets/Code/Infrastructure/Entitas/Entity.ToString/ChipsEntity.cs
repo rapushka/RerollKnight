@@ -18,7 +18,7 @@ namespace Code
 
 			yield return TargetConstraints(entity);
 
-			var abilityOfChip = entity.GetOrDefault<AbilityOfChip>();
+			var abilityOfChip = entity.GetOrDefault<ForeignID>();
 			if (abilityOfChip is not null)
 				yield return $"ability of chip: {ID.Index.GetEntity(abilityOfChip.Value)?.ToString() ?? "no chip!"}";
 			// yield return abilityOfChip.Value.ToString();

@@ -11,6 +11,8 @@ namespace Code
 			Add<StartGameSystem>();
 
 			// Game Logic
+			Add<IdentifyAllEntitiesSystem<GameScope>>();
+			Add<IdentifyAllEntitiesSystem<ChipsScope>>();
 			Add<EmitAllRequestsSystem>();
 
 			// "Input" 

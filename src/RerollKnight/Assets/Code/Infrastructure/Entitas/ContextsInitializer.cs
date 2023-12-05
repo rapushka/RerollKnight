@@ -33,8 +33,8 @@ namespace Code
 			Component.Coordinates.Index.Initialize();
 			CoordinatesUnderField.Index.Initialize();
 			ID.Index.Initialize();
-			AbilityOfChip.Index.Initialize();
-			BelongToActor.Index.Initialize();
+			ForeignID.GetIndex<GameScope>().Initialize();
+			ForeignID.GetIndex<ChipsScope>().Initialize();
 		}
 
 		private void InitializeFormatters()
