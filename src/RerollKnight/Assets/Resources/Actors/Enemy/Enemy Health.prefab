@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8713592542918952261}
   - component: {fileID: 8108637138992041427}
   - component: {fileID: 6714939130657270921}
+  - component: {fileID: 1559485981610686428}
   m_Layer: 0
   m_Name: Enemy Health
   m_TagString: Untagged
@@ -56,6 +57,7 @@ MonoBehaviour:
   - {fileID: 1888303187943646426}
   - {fileID: 8108637138992041427}
   - {fileID: 6714939130657270921}
+  - {fileID: 1559485981610686428}
 --- !u!114 &1888303187943646426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +123,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 8446725486052187884}
+--- !u!114 &1559485981610686428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463686318234117710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e208908f48b642b9bf59f1826d129e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7263103422670107392
 PrefabInstance:
   m_ObjectHideFlags: 0

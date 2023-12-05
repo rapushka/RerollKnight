@@ -9,7 +9,8 @@ namespace Code
 
 		public override void Transfer()
 		{
-			Entity.Replace<Rotation, Quaternion>(_transform.rotation);
+			if (Entity.GetOrDefault<Rotation>()?.Value != _transform.rotation)
+				Entity.Replace<Rotation, Quaternion>(_transform.rotation);
 		}
 	}
 }

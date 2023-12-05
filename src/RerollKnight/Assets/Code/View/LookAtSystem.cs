@@ -3,6 +3,7 @@ using Entitas;
 using Entitas.Generic;
 using UnityEngine;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
+using Camera = Code.Component.Camera;
 
 namespace Code
 {
@@ -23,10 +24,17 @@ namespace Code
 
 				var position = e.Get<Position>().Value;
 				var targetPosition = target.Get<Position>().Value;
-				var targetRotation = target.Get<Rotation>().Value;
 
 				var forwardDirection = targetPosition - position;
-				var rotation = Quaternion.LookRotation(forwardDirection, targetRotation * Vector3.up);
+				var upwards = Vector3.up;
+
+				if (e.Is<WorldSpaceUi>() && target.Is<Camera>())
+				{
+					var targetRotation = target.Get<Rotation>().Value;
+					upwards = targetRotation * Vector3.up;
+				}
+
+				var rotation = Quaternion.LookRotation(forwardDirection, upwards);
 
 				e.Replace<Rotation, Quaternion>(rotation);
 			}

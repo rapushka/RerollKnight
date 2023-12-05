@@ -11,5 +11,7 @@ namespace Code.Component
 
 	[GameScope] public sealed class Rotation : ValueComponent<Quaternion>, IEvent<Self> { }
 
+	[GameScope] public sealed class WorldSpaceUi : FlagComponent { }
+
 	[GameScope] public sealed class Camera : FlagComponent, IUnique { }
 }

@@ -9,7 +9,8 @@ namespace Code
 
 		public override void Transfer()
 		{
-			Entity.Replace<Position, Vector3>(_transform.position);
+			if (Entity.GetOrDefault<Position>()?.Value != _transform.position)
+				Entity.Replace<Position, Vector3>(_transform.position);
 		}
 	}
 }

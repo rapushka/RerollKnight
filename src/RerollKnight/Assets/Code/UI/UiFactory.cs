@@ -11,26 +11,27 @@ namespace Code
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
 		private readonly IHoldersProvider _holders;
-		private readonly Contexts _contexts;
 
 		[Inject]
-		public UiFactory
-			(IAssetsService assets, IResourcesService resources, IHoldersProvider holders, Contexts contexts)
+		public UiFactory(IAssetsService assets, IResourcesService resources, IHoldersProvider holders)
 		{
 			_holders = holders;
 			_resources = resources;
 			_assets = assets;
-			_contexts = contexts;
 		}
-
-		private Entity<GameScope> Camera => _contexts.Get<GameScope>().Unique.GetEntity<Component.Camera>();
 
 		public Entity<GameScope> CreateHealthBar(Entity<GameScope> actor)
 		{
 			return actor.Is<Enemy>() ? CreateEnemyHealthBar(actor)
-				: actor.Is<Player>() ? Create(actor, _resources.PlayerHealthBar, _holders.HudHolder)
+				: actor.Is<Player>() ? CreatePlayerHealthBar(actor)
 				                       : throw new InvalidOperationException("Unknown actor");
 		}
+
+		private Entity<GameScope> CreateEnemyHealthBar(Entity<GameScope> actor)
+			=> Create(actor, _resources.EnemyHealthBar, actor.Get<ViewTransform>().Value);
+
+		private Entity<GameScope> CreatePlayerHealthBar(Entity<GameScope> actor)
+			=> Create(actor, _resources.PlayerHealthBar, _holders.HudHolder);
 
 		private Entity<GameScope> Create(Entity<GameScope> actor, EntityBehaviour<GameScope> prefab, Transform parent)
 		{
@@ -41,13 +42,6 @@ namespace Code
 			actor.Register(viewBehaviour.GetComponent<HealthBarView>());
 
 			return view;
-		}
-
-		private Entity<GameScope> CreateEnemyHealthBar(Entity<GameScope> actor)
-		{
-			var healthBar = Create(actor, _resources.EnemyHealthBar, actor.Get<ViewTransform>().Value);
-			healthBar.Add<LookAt, Entity<GameScope>>(Camera);
-			return healthBar;
 		}
 	}
 }

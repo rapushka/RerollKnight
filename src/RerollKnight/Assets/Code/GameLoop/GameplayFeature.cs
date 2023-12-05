@@ -37,6 +37,7 @@ namespace Code
 			Add<LookAtSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
+			Add<WorldSpaceUiLookAtCameraSystem>();
 
 #if DEBUG
 			// Debug
