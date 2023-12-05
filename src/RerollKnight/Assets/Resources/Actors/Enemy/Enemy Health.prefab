@@ -11,8 +11,11 @@ GameObject:
   - component: {fileID: 8446725486052187884}
   - component: {fileID: 9177285444427048808}
   - component: {fileID: 1888303187943646426}
-  - component: {fileID: 9202157020996569691}
-  - component: {fileID: 5103035504777481241}
+  - component: {fileID: 8944477127928373860}
+  - component: {fileID: 8713592542918952261}
+  - component: {fileID: 8108637138992041427}
+  - component: {fileID: 6714939130657270921}
+  - component: {fileID: 1559485981610686428}
   m_Layer: 0
   m_Name: Enemy Health
   m_TagString: Untagged
@@ -28,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8463686318234117710}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.47366413, y: -0.28963283, z: -0.22472955, w: -0.800782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -51,8 +54,10 @@ MonoBehaviour:
   _collectInChildren: 0
   _interruptChildrenEntities: 1
   _componentBehaviours:
-  - {fileID: 5103035504777481241}
   - {fileID: 1888303187943646426}
+  - {fileID: 8108637138992041427}
+  - {fileID: 6714939130657270921}
+  - {fileID: 1559485981610686428}
 --- !u!114 &1888303187943646426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,8 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6b12a840ec403b92ac410a1c7bbdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listener: {fileID: 9202157020996569691}
---- !u!114 &9202157020996569691
+  _listener: {fileID: 8944477127928373860}
+--- !u!114 &8944477127928373860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,11 +80,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8463686318234117710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18056762fc1848d9bbee2301c1d1da46, type: 3}
+  m_Script: {fileID: 11500000, guid: 56b89bc6ac224e36bb0ac437799db636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 4215535881871193601}
---- !u!114 &5103035504777481241
+--- !u!114 &8713592542918952261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,16 +93,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 8463686318234117710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0cbb7a31e83400b9e627767fe895f9c, type: 3}
+  m_Script: {fileID: 11500000, guid: b07dd7c2619f47b1af8be0da932be722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _value:
-  - <Component>k__BackingField:
-      _name: Enemy
-    <MustHave>k__BackingField: 1
-  - <Component>k__BackingField:
-      _name: Health
-    <MustHave>k__BackingField: 1
+  _transform: {fileID: 8446725486052187884}
+--- !u!114 &8108637138992041427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463686318234117710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6b12a840ec403b92ac410a1c7bbdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listener: {fileID: 8713592542918952261}
+--- !u!114 &6714939130657270921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463686318234117710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8261e8e396746058d678d609fda26a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 8446725486052187884}
+--- !u!114 &1559485981610686428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463686318234117710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e208908f48b642b9bf59f1826d129e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7263103422670107392
 PrefabInstance:
   m_ObjectHideFlags: 0

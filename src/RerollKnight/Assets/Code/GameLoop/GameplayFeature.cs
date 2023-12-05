@@ -13,6 +13,9 @@ namespace Code
 			// Game Logic
 			Add<EmitAllRequestsSystem>();
 
+			// "Input" 
+			Add<TransferDataSystem>();
+
 			// Gameplay state machine
 			Add<UpdateGameplayStateMachineSystem>();
 
@@ -31,12 +34,10 @@ namespace Code
 			Add<ArrangeChipsViewsSystem>();
 			Add<UpdateChipsPositionSystem>();
 			Add<MoveToDestinationSystem>();
+			Add<LookAtSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
-
-			Add<ViewCurrentActorSystem>();
-			Add<ViewPlayerHealthSystem>();
-			Add<ViewEnemyHealthSystem>();
+			Add<WorldSpaceUiLookAtCameraSystem>();
 
 #if DEBUG
 			// Debug

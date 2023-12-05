@@ -3,7 +3,7 @@ using Entitas.Generic;
 namespace Code.Component
 {
 	/// That dude, which makes their turn right now
-	[GameScope] public sealed class CurrentActor : FlagComponent, IUnique { }
+	[GameScope] public sealed class CurrentActor : FlagComponent, IUnique, IEvent<Any> { }
 
 	/// Both Players and Enemies
 	[GameScope] public sealed class Actor : FlagComponent { }

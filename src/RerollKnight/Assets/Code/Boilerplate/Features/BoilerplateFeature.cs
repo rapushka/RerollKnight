@@ -9,12 +9,16 @@ namespace Code
 		public BoilerplateFeature(Contexts contexts)
 			: base(nameof(BoilerplateFeature))
 		{
-			Add(new EventSystem<GameScope, EnableOutline>(contexts));
-			Add(new EventSystem<GameScope, Position>(contexts));
-			Add(new EventSystem<GameScope, Component.TargetState>(contexts));
-			Add(new EventSystem<GameScope, Label>(contexts));
-			Add(new EventSystem<GameScope, Destroyed>(contexts));
-			Add(new EventSystem<ChipsScope, Destroyed>(contexts));
+			Add(new SelfEventSystem<GameScope, EnableOutline>(contexts));
+			Add(new SelfEventSystem<GameScope, Position>(contexts));
+			Add(new SelfEventSystem<GameScope, Component.TargetState>(contexts));
+			Add(new SelfEventSystem<GameScope, Label>(contexts));
+			Add(new SelfEventSystem<GameScope, Destroyed>(contexts));
+			Add(new SelfEventSystem<ChipsScope, Destroyed>(contexts));
+			Add(new SelfEventSystem<GameScope, MaxHealth>(contexts));
+			Add(new SelfEventSystem<GameScope, Health>(contexts));
+			Add(new AnyEventSystem<GameScope, CurrentActor>(contexts));
+			Add(new SelfEventSystem<GameScope, Rotation>(contexts));
 
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 
