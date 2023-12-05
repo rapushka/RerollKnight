@@ -35,7 +35,6 @@ namespace Code
 				}
 
 				var rotation = Quaternion.LookRotation(forwardDirection, upwards);
-
 				e.Replace<Rotation, Quaternion>(rotation);
 			}
 		}

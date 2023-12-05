@@ -19,17 +19,12 @@ namespace Code
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
 			=> context.CreateCollector(Get<WorldSpaceUi>().AddedOrRemoved());
 
-		protected override bool Filter(Entity<GameScope> entity) => true;
+		protected override bool Filter(Entity<GameScope> entity) => entity.Is<WorldSpaceUi>();
 
 		protected override void Execute(List<Entity<GameScope>> entities)
 		{
 			foreach (var e in entities)
-			{
-				if (e.Is<WorldSpaceUi>())
-					e.Add<LookAt, Entity<GameScope>>(Camera);
-				else
-					e.Remove<LookAt>();
-			}
+				e.Add<LookAt, Entity<GameScope>>(Camera);
 		}
 	}
 }
