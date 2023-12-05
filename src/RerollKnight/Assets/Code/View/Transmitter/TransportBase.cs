@@ -4,19 +4,19 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public interface ITransmitter
+	public interface ITransport
 	{
 		void Transfer();
 	}
 
-	public abstract class GameTransmitterBase : ComponentBehaviourBase<GameScope>, ITransmitter
+	public abstract class GameTransportBase : ComponentBehaviourBase<GameScope>, ITransport
 	{
 		protected Entity<GameScope> Entity;
 
 		public override void Add(ref Entity<GameScope> entity)
 		{
 			Entity = entity;
-			entity.AddToList<GameScope, Transmitter, ITransmitter>(this);
+			entity.AddToList<GameScope, Transport, ITransport>(this);
 		}
 
 		public abstract void Transfer();

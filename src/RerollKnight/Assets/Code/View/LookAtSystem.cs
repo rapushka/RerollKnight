@@ -25,12 +25,6 @@ namespace Code
 				var targetPosition = target.Get<Position>().Value;
 				var targetRotation = target.Get<Rotation>().Value;
 
-				// Transform.LookAt
-				// (
-				// 	worldPosition: position + targetRotation * Vector3.back,
-				// 	worldUp: targetRotation * Vector3.up
-				// );
-
 				var forwardDirection = targetPosition - position;
 				var rotation = Quaternion.LookRotation(forwardDirection, targetRotation * Vector3.up);
 

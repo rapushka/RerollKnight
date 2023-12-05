@@ -10,15 +10,15 @@ namespace Code
 
 		public TransferDataSystem(Contexts contexts)
 		{
-			_entities = contexts.GetGroup(ScopeMatcher<GameScope>.Get<Transmitter>());
+			_entities = contexts.GetGroup(ScopeMatcher<GameScope>.Get<Transport>());
 		}
 
 		public void Execute()
 		{
 			foreach (var e in _entities)
 			{
-				foreach (var transmitter in e.Get<Transmitter>().Value)
-					transmitter.Transfer();
+				foreach (var transport in e.Get<Transport>().Value)
+					transport.Transfer();
 			}
 		}
 	}

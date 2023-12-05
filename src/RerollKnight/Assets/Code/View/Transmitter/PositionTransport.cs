@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code
 {
-	public class PositionTransmitter : GameTransmitterBase
+	public class PositionTransport : GameTransportBase
 	{
 		[SerializeField] private Transform _transform;
 

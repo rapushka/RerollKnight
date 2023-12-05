@@ -3,5 +3,5 @@ using Entitas.Generic;
 
 namespace Code.Component
 {
-	[GameScope] public sealed class Transmitter : ValueComponent<List<ITransmitter>> { }
+	[GameScope] public sealed class Transport : ValueComponent<List<ITransport>> { }
 }
