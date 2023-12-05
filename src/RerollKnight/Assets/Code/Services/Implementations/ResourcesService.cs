@@ -16,12 +16,12 @@ namespace Code
 
 	public class ResourcesService : IResourcesService
 	{
-		public GameEntityView PlayerPrefab     => Resources.Load<GameEntityView>("Player/Prefab");
+		public GameEntityView PlayerPrefab     => Resources.Load<GameEntityView>("Actors/Player/Player");
 		public GameEntityView CellPrefab       => Resources.Load<GameEntityView>("Field/CellPrefab");
 		public GameEntityView ChipPrefab       => Resources.Load<GameEntityView>("Chips/ChipPrefab");
-		public GameEntityView EnemyPrefab      => Resources.Load<GameEntityView>("Enemy/Enemy");
-		public GameEntityView CurrentActorText => Resources.Load<GameEntityView>("UI/Views/Current Actor Text");
-		public GameEntityView PlayerHealthBar  => Resources.Load<GameEntityView>("UI/Views/Player Health");
-		public GameEntityView EnemyHealthBar   => Resources.Load<GameEntityView>("UI/Views/Enemy Health");
+		public GameEntityView EnemyPrefab      => Resources.Load<GameEntityView>("Actors/Enemy/Enemy");
+		public GameEntityView CurrentActorText => Resources.Load<GameEntityView>("Actors/Current Actor Text");
+		public GameEntityView PlayerHealthBar  => Resources.Load<GameEntityView>("Actors/Player/Player Health");
+		public GameEntityView EnemyHealthBar   => Resources.Load<GameEntityView>("Actors/Enemy/Enemy Health");
 	}
 }
