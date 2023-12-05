@@ -13,6 +13,9 @@ namespace Code
 			// Game Logic
 			Add<EmitAllRequestsSystem>();
 
+			// "Input" 
+			Add<TransferDataSystem>();
+
 			// Gameplay state machine
 			Add<UpdateGameplayStateMachineSystem>();
 

@@ -19,13 +19,21 @@ namespace Code
 		{
 			foreach (var e in _entities)
 			{
-				var targetTransform = e.Get<LookAt>().Value;
-				var position = e.Get<ViewTransform>().Value.position;
-				var targetPosition = targetTransform.position;
+				var target = e.Get<LookAt>().Value;
 
-				var direction = Vector3.Normalize(targetPosition - position);
+				var position = e.Get<Position>().Value;
+				var targetPosition = target.Get<Position>().Value;
+				var targetRotation = target.Get<Rotation>().Value;
 
-				var rotation = Quaternion.LookRotation(direction);
+				// Transform.LookAt
+				// (
+				// 	worldPosition: position + targetRotation * Vector3.back,
+				// 	worldUp: targetRotation * Vector3.up
+				// );
+
+				var forwardDirection = targetPosition - position;
+				var rotation = Quaternion.LookRotation(forwardDirection, targetRotation * Vector3.up);
+
 				e.Replace<Rotation, Quaternion>(rotation);
 			}
 		}

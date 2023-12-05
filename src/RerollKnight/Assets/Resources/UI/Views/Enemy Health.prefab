@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 9177285444427048808}
   - component: {fileID: 1888303187943646426}
   - component: {fileID: 8944477127928373860}
-  - component: {fileID: 4277743523604880236}
   - component: {fileID: 8948472541611398383}
   - component: {fileID: 8713592542918952261}
   - component: {fileID: 8108637138992041427}
+  - component: {fileID: 6714939130657270921}
   m_Layer: 0
   m_Name: Enemy Health
   m_TagString: Untagged
@@ -55,9 +55,9 @@ MonoBehaviour:
   _interruptChildrenEntities: 1
   _componentBehaviours:
   - {fileID: 1888303187943646426}
-  - {fileID: 4277743523604880236}
   - {fileID: 8948472541611398383}
   - {fileID: 8108637138992041427}
+  - {fileID: 6714939130657270921}
 --- !u!114 &1888303187943646426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,18 +84,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 4215535881871193601}
---- !u!114 &4277743523604880236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8463686318234117710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4394e21b7394d0aa799302ccc8876aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8948472541611398383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +123,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _listener: {fileID: 8713592542918952261}
+--- !u!114 &6714939130657270921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463686318234117710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8261e8e396746058d678d609fda26a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 8446725486052187884}
 --- !u!1001 &7263103422670107392
 PrefabInstance:
   m_ObjectHideFlags: 0

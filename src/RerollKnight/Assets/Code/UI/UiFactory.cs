@@ -2,6 +2,8 @@ using System;
 using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
+using Zenject;
+using Camera = UnityEngine.Camera;
 
 namespace Code
 {
@@ -10,18 +12,26 @@ namespace Code
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
 		private readonly IHoldersProvider _holders;
+		private Contexts _contexts;
 
-		public UiFactory(IAssetsService assets, IResourcesService resources, IHoldersProvider holders)
+		[Inject]
+		public UiFactory
+			(IAssetsService assets, IResourcesService resources, IHoldersProvider holders, Contexts contexts)
 		{
 			_holders = holders;
 			_resources = resources;
 			_assets = assets;
+			_contexts = contexts;
 		}
 
+		private Entity<GameScope> Camera => _contexts.Get<GameScope>().Unique.GetEntity<Component.Camera>();
+
 		public Entity<GameScope> CreateHealthBar(Entity<GameScope> actor)
-			=> actor.Is<Enemy>()     ? Create(actor, _resources.EnemyHealthBar, actor.Get<ViewTransform>().Value)
+		{
+			return actor.Is<Enemy>() ? CreateEnemyHealthBar(actor)
 				: actor.Is<Player>() ? Create(actor, _resources.PlayerHealthBar, _holders.HudHolder)
 				                       : throw new InvalidOperationException("Unknown actor");
+		}
 
 		private Entity<GameScope> Create(Entity<GameScope> actor, EntityBehaviour<GameScope> prefab, Transform parent)
 		{
@@ -32,6 +42,13 @@ namespace Code
 			actor.Register(viewBehaviour.GetComponent<HealthBarView>());
 
 			return view;
+		}
+
+		private Entity<GameScope> CreateEnemyHealthBar(Entity<GameScope> actor)
+		{
+			var healthBar = Create(actor, _resources.EnemyHealthBar, actor.Get<ViewTransform>().Value);
+			healthBar.Add<LookAt, Entity<GameScope>>(Camera);
+			return healthBar;
 		}
 	}
 }
