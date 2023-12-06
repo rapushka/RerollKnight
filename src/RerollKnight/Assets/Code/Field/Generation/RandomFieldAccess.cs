@@ -37,7 +37,7 @@ namespace Code
 
 			var next = _cells.Dequeue();
 
-			while (!next.Is<Empty>())
+			while (!IsEmpty(next))
 			{
 				if (_cells.Any())
 				{
@@ -53,6 +53,12 @@ namespace Code
 			}
 
 			return next;
+		}
+
+		private static bool IsEmpty(Entity<GameScope> cell)
+		{
+			cell.Is<Empty>(cell.IsEmpty());
+			return cell.Is<Empty>();
 		}
 
 		private void Refill()
