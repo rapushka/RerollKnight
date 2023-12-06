@@ -34,8 +34,10 @@ namespace Code
 			for (var x = 0; x < _layout.FieldSizes.Column; x++)
 			for (var y = 0; y < _layout.FieldSizes.Row; y++)
 			{
-				var cellBehaviour = _assets.SpawnBehaviour(CellPrefab, _holdersProvider.CellsHolder.transform);
-				cellBehaviour.Entity.Add<CoordinatesUnderField, Coordinates>(new Coordinates(x, y));
+				_assets.SpawnBehaviour(CellPrefab, _holdersProvider.CellsHolder.transform).Entity
+					.Add<CoordinatesUnderField, Coordinates>(new Coordinates(x, y))
+					.Is<Empty>(true)
+					;
 			}
 		}
 	}
