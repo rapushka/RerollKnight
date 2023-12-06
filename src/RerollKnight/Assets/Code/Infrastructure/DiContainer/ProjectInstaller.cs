@@ -8,6 +8,7 @@ namespace Code
 	{
 		[SerializeField] private LayoutService _layoutService;
 		[SerializeField] private ChipsConfig _chipsConfig;
+		[SerializeField] private GenerationConfig _generationConfig;
 
 		public override void InstallBindings()
 		{
@@ -27,6 +28,7 @@ namespace Code
 			Container.Bind<ITimeService>().To<TimeService>().AsSingle();
 			Container.Bind<IRandomFieldAccess>().To<RandomFieldAccess>().AsSingle();
 			Container.Bind<ChipsConfig>().FromScriptableObject(_chipsConfig).AsSingle();
+			Container.Bind<GenerationConfig>().FromScriptableObject(_generationConfig).AsSingle();
 
 			Container.Bind<RandomService>().FromInstance(RandomService.Instance).AsSingle();
 

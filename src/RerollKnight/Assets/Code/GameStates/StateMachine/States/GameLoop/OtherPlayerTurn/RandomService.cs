@@ -12,5 +12,8 @@ namespace Code
 
 		public int Range(int minInclusive, int maxExclusive)
 			=> _random.Next(minInclusive, maxExclusive);
+
+		public int RangeInclusive(RangeInt range)
+			=> _random.Next(range.Min, range.Max);
 	}
 }
