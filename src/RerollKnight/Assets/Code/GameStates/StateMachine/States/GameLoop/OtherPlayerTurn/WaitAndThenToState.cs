@@ -13,7 +13,7 @@ namespace Code
 				: base($"{nameof(WaitAndThenToState<TNextState>)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
-				Add<WaitingSystem, float>(1f);
+				Add<WaitingSystem, float>(0.5f);
 
 				Add<ToStateWhenAllReady<TNextState>>();
 			}

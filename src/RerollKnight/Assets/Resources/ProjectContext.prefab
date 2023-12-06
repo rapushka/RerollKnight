@@ -76,3 +76,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layoutService: {fileID: 11400000, guid: 53601bad48f32f02a8b4af8a7e7da80e, type: 2}
   _chipsConfig: {fileID: 11400000, guid: 635419c540759b067971df7c0c5f2c39, type: 2}
+  _generationConfig: {fileID: 11400000, guid: 7fb95b31f93a6514792db0af54e2af8c, type: 2}

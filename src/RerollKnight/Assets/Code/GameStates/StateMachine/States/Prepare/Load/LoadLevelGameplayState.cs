@@ -16,10 +16,11 @@ namespace Code
 				Add<RegisterBehavioursSystem>();
 
 				// Initialization
+				Add<SpawnFieldSystem>();
 				Add<SpawnActorsSystem>();
+				Add<SpawnWallsSystem>();
 				// Add<SpawnActorOnRequestSystem>();
 				// Add<SpawnPlayerChipsSystem>();
-				Add<SpawnFieldSystem>();
 				Add<EnsureActorsInQueueSystem>();
 
 				// Ready

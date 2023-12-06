@@ -7,6 +7,10 @@ namespace Code
 {
 	public static class RandomExtensions
 	{
+		
+		public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> @this)
+			=> @this.OrderBy((_) => RandomService.Instance.Range(0, 100));
+
 		public static T PickRandom<T>(this IEnumerable<T> @this)
 			where T : class, IEntity
 		{
