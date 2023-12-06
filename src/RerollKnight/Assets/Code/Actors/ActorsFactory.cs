@@ -28,13 +28,13 @@ namespace Code
 			_uiFactory = uiFactory;
 		}
 
-		public GameEntity CreatePlayer(Coordinates coordinates, IEnumerable<ChipConfig> chips)
+		public GameEntity CreatePlayer(Coordinates coordinates, List<ChipConfigBehaviour> chips)
 			=> Create(SpawnPrefab(_resources.PlayerPrefab), coordinates, chips);
 
-		public GameEntity CreateEnemy(Coordinates coordinates, IEnumerable<ChipConfig> chips)
+		public GameEntity CreateEnemy(Coordinates coordinates, List<ChipConfigBehaviour> chips)
 			=> Create(SpawnPrefab(_resources.EnemyPrefab), coordinates, chips);
 
-		private GameEntity Create(GameEntity entity, Coordinates coordinates, IEnumerable<ChipConfig> chips)
+		private GameEntity Create(GameEntity entity, Coordinates coordinates, List<ChipConfigBehaviour> chips)
 		{
 			var actor = entity
 			            .Replace<Component.Coordinates, Coordinates>(coordinates)
@@ -49,7 +49,7 @@ namespace Code
 			return actor;
 		}
 
-		private void CreateChips(IEnumerable<ChipConfig> chips, Entity<GameScope> actor)
+		private void CreateChips(List<ChipConfigBehaviour> chips, Entity<GameScope> actor)
 		{
 			foreach (var chipConfig in chips)
 				_chipsFactory.Create(chipConfig, actor);

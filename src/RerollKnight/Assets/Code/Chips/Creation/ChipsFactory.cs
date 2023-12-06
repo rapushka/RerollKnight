@@ -29,19 +29,25 @@ namespace Code
 			_abilitiesFactory = abilitiesFactory;
 		}
 
-		public Entity<GameScope> Create(ChipConfig chipConfig, Entity<GameScope> actor)
+		public Entity<GameScope> Create(ChipConfigBehaviour chipConfig, Entity<GameScope> actor)
 		{
 			var entity = actor.Is<Player>() ? NewBehaviour() : NewEntity();
 			return SetupChip(chipConfig, entity, actor);
 		}
 
-		private Entity<GameScope> SetupChip(ChipConfig chipConfig, Entity<GameScope> entity, Entity<GameScope> actor)
+		private Entity<GameScope> SetupChip
+		(
+			ChipConfigBehaviour config,
+			Entity<GameScope> entity,
+			Entity<GameScope> actor
+		)
 		{
 			var chip = InitializeChip(entity)
-			           .Add<Label, string>(chipConfig.Label)
-			           .Add<ForeignID, string>(actor.Get<ID>().Value);
+					.Add<Label, string>(config.Label)
+					.Add<ForeignID, string>(actor.Get<ID>().Value)
+				;
 
-			foreach (var abilityConfig in chipConfig.Abilities)
+			foreach (var abilityConfig in config.Abilities)
 				_abilitiesFactory.Create(abilityConfig, chip);
 
 			return chip;

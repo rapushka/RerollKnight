@@ -32,7 +32,7 @@ namespace Code
 
 		public void Initialize()
 		{
-			_actorsFactory.CreatePlayer(new Coordinates(0, 0), _chipsConfig.Chips);
+			_actorsFactory.CreatePlayer(new Coordinates(0, 0), _chipsConfig.ChipsBehaviours);
 
 			SpawnEnemies();
 		}
@@ -41,7 +41,7 @@ namespace Code
 		{
 			var enemiesCount = _random.RangeInclusive(_generationConfig.EnemiesCount);
 			for (var i = 0; i < enemiesCount; i++)
-				_actorsFactory.CreateEnemy(CoordinatesOfNextEmptyCell, _chipsConfig.Chips);
+				_actorsFactory.CreateEnemy(CoordinatesOfNextEmptyCell, _chipsConfig.ChipsBehaviours);
 		}
 	}
 }
