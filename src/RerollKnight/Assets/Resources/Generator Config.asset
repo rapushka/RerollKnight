@@ -15,6 +15,9 @@ MonoBehaviour:
   <EnemiesCount>k__BackingField:
     Min: 1
     Max: 4
+  <WallsCount>k__BackingField:
+    Min: 0
+    Max: 10
   <FieldSizes>k__BackingField:
     <Column>k__BackingField: 5
     <Row>k__BackingField: 5

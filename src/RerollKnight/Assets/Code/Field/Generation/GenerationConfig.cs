@@ -7,6 +7,7 @@ namespace Code
 	public class GenerationConfig : ScriptableObject
 	{
 		[field: SerializeField] public RangeInt    EnemiesCount { get; private set; }
+		[field: SerializeField] public RangeInt    WallsCount    { get; private set; }
 		[field: SerializeField] public Coordinates FieldSizes   { get; private set; }
 	}
 }

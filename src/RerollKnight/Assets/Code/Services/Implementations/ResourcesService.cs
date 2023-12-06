@@ -12,6 +12,7 @@ namespace Code
 		GameEntityView CurrentActorText { get; }
 		GameEntityView PlayerHealthBar  { get; }
 		GameEntityView EnemyHealthBar   { get; }
+		GameEntityView WallPrefab       { get; }
 	}
 
 	public class ResourcesService : IResourcesService
@@ -23,5 +24,6 @@ namespace Code
 		public GameEntityView CurrentActorText => Resources.Load<GameEntityView>("Actors/Current Actor Text");
 		public GameEntityView PlayerHealthBar  => Resources.Load<GameEntityView>("Actors/Player/Player Health");
 		public GameEntityView EnemyHealthBar   => Resources.Load<GameEntityView>("Actors/Enemy/Enemy Health");
+		public GameEntityView WallPrefab       => Resources.Load<GameEntityView>("Field/Wall Prefab");
 	}
 }

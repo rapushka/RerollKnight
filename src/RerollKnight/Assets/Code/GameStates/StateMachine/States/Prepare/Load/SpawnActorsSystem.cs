@@ -1,4 +1,3 @@
-using Code.Component;
 using Entitas;
 using Zenject;
 
@@ -29,7 +28,7 @@ namespace Code
 			_random = random;
 		}
 
-		private Coordinates CoordinatesOfNextEmptyCell => _field.NextEmptyCell().Get<CoordinatesUnderField>().Value;
+		private Coordinates CoordinatesOfNextEmptyCell => _field.NextEmptyCell().GetCoordinates();
 
 		public void Initialize()
 		{
