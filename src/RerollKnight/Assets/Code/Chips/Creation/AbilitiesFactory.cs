@@ -30,6 +30,6 @@ namespace Code
 		private Entity<ChipsScope> Spawn(Entity<GameScope> @for)
 			=> _contexts.Get<ChipsScope>().CreateEntity()
 			            .Add<Component.AbilityState, AbilityState>(AbilityState.Inactive)
-			            .Add<AbilityOfChip, int>(@for.Get<ID>().Value);
+			            .Add<ForeignID, string>(@for.Get<ID>().Value);
 	}
 }

@@ -12,7 +12,7 @@ namespace Code
 			if (!chip.Is<Chip>())
 				return;
 
-			var ownerID = chip.Get<BelongToActor>().Value;
+			var ownerID = chip.Get<ForeignID>().Value;
 
 			foreach (Transform actorBehaviour in ContextBehaviour.transform)
 			{

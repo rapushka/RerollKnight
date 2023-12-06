@@ -28,8 +28,8 @@ namespace Code
 			Container.Bind<ChipsConfig>().FromScriptableObject(_chipsConfig).AsSingle();
 
 			Container.Bind<RandomService>().FromInstance(RandomService.Instance).AsSingle();
-			Container.Bind<ServicesMediator>().AsSingle();
 
+			Container.Bind<ServicesMediator>().AsSingle();
 			Container.Bind<UiMediator>().AsSingle();
 		}
 	}

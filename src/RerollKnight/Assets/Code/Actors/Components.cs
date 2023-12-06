@@ -15,7 +15,7 @@ namespace Code.Component
 	/// Dumb-ass request
 	[RequestScope] public sealed class SpawnActor : FlagComponent, ICleanup<DestroyEntity> { }
 
-	[GameScope] public sealed class ID : PrimaryIndexComponent<GameScope, ID, int> { }
+	[GameScope, ChipsScope, RequestScope] public sealed class ID : PrimaryIndexComponent<GameScope, ID, string> { }
 
-	[GameScope] public sealed class BelongToActor : IndexComponent<GameScope, BelongToActor, int> { }
+	[GameScope, ChipsScope, RequestScope] public sealed class ForeignID : IndexComponent<ForeignID, string> { }
 }

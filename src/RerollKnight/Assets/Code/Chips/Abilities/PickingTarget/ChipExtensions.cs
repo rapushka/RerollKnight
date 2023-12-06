@@ -7,6 +7,6 @@ namespace Code
 	public static class ChipExtensions
 	{
 		public static HashSet<Entity<ChipsScope>> GetAbilities(this Entity<GameScope> chip)
-			=> AbilityOfChip.Index.GetEntities(chip.Get<ID>().Value);
+			=> ForeignID.GetIndex<ChipsScope>().GetEntities(chip.Get<ID>().Value);
 	}
 }

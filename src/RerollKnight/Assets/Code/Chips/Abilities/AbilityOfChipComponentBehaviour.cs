@@ -9,6 +9,14 @@ namespace Code
 		[SerializeField] private EntityBehaviour<GameScope> _behaviour;
 
 		public override void Add(ref Entity<ChipsScope> entity)
-			=> entity.Add<AbilityOfChip, int>(_behaviour.Entity.creationIndex);
+			=> entity.Add<ForeignID, string>(EnsureID());
+
+		private string EnsureID()
+		{
+			if (!_behaviour.Entity.Has<ID>())
+				_behaviour.Entity.Identify();
+
+			return _behaviour.Entity.Get<ID>().Value;
+		}
 	}
 }

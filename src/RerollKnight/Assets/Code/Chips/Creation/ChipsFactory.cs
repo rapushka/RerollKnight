@@ -39,7 +39,7 @@ namespace Code
 		{
 			var chip = InitializeChip(entity)
 			           .Add<Label, string>(chipConfig.Label)
-			           .Add<BelongToActor, int>(actor.Get<ID>().Value);
+			           .Add<ForeignID, string>(actor.Get<ID>().Value);
 
 			foreach (var abilityConfig in chipConfig.Abilities)
 				_abilitiesFactory.Create(abilityConfig, chip);

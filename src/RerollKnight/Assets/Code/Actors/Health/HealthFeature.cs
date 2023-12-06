@@ -9,7 +9,9 @@ namespace Code
 			Add<DestroyEntityWithZeroHpSystem>();
 			Add<ClampMaxHealSystem>();
 
-			Add<DestroyDependentEntitiesWithActorSystem>();
+			Add<DestroyWithDependentsSystem<GameScope>>();
+			Add<DestroyWithDependentsSystem<ChipsScope>>();
+			Add<DestroyWithDependentsSystem<RequestScope>>();
 			Add<EndTurnOnCurrentActorDeathSystem>();
 		}
 	}
