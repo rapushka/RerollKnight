@@ -3,5 +3,5 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public class CountOfFacesBehaviour : ComponentBehaviour<GameScope, CountOfFaces, int> { }
+	// public class CountOfFacesBehaviour : ComponentBehaviour<GameScope, CountOfFaces, int> { }
 }

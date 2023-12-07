@@ -18,6 +18,4 @@ namespace Code.Component
 	[GameScope, ChipsScope, RequestScope] public sealed class ID : PrimaryIndexComponent<GameScope, ID, string> { }
 
 	[GameScope, ChipsScope, RequestScope] public sealed class ForeignID : IndexComponent<ForeignID, string> { }
-
-	[GameScope] public sealed class CountOfFaces : ValueComponent<int> { }
 }
