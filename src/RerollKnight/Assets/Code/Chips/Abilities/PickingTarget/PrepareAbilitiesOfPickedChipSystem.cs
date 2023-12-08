@@ -3,7 +3,6 @@ using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
-using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {

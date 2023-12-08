@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 3064907247354966882}
   - component: {fileID: 9045724767207878765}
   - component: {fileID: 4585864684482428949}
-  - component: {fileID: 3123202539933193287}
-  - component: {fileID: -8593996335297912625}
+  - component: {fileID: 8708908035441708384}
   m_Layer: 0
   m_Name: Face
   m_TagString: Untagged
@@ -53,7 +52,7 @@ MonoBehaviour:
   _componentBehaviours:
   - {fileID: 9045724767207878765}
   - {fileID: 4585864684482428949}
-  - {fileID: 3123202539933193287}
+  - {fileID: 8708908035441708384}
 --- !u!114 &9045724767207878765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,20 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _behaviour: {fileID: 0}
---- !u!114 &3123202539933193287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821823765271661226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c812c3a913db4cb99f10b12c52e9beec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transform: {fileID: 4599360641746206205}
---- !u!114 &-8593996335297912625
+--- !u!114 &8708908035441708384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

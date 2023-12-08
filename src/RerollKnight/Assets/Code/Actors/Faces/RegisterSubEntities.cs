@@ -15,7 +15,7 @@ namespace Code
 				Register(entityBehaviour);
 		}
 
-		private void Register(EntityBehaviour<TScope> entityBehaviour)
+		private void Register(EntityBehaviour entityBehaviour)
 		{
 			entityBehaviour.CreateEntity(Contexts.Instance);
 			entityBehaviour.Register();

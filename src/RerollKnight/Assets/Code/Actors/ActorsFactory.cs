@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Code.Component;
 using Entitas.Generic;
 using Zenject;
@@ -43,6 +44,9 @@ namespace Code
 			            .Identify()
 				;
 			actor.Add<Health, int>(actor.Get<MaxHealth>().Value);
+
+			var faces = actor.GetDependants().Where((e) => e.Has<Face>());
+			faces.First().MarkAsActive(); // TODO: pick random
 
 			CreateChips(chips, actor);
 			_uiFactory.CreateHealthBar(actor);
