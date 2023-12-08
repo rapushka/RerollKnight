@@ -24,17 +24,14 @@ namespace Code
 		public void AddActor(GameEntity entity)
 		{
 			Queue.Add(entity);
-			// _current ??= entity;
 		}
 
 		public void RemoveActor(GameEntity entity)
 		{
-			// var next = Queue.ItemAfter(entity);
 			Queue.Remove(entity);
 
 			if (_current == entity)
 				_current = default;
-			// _current = next;
 		}
 
 		public void PutFirst(GameEntity actor)
@@ -44,8 +41,6 @@ namespace Code
 
 			Queue.RemoveAt(actorIndex);
 			Queue.Insert(0, actor);
-
-			// _current = actor;
 		}
 	}
 }
