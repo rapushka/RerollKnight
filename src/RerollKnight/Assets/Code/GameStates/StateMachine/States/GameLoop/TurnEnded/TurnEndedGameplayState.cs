@@ -16,6 +16,7 @@ namespace Code
 				Add<MarkAllTargetsUnavailableSystem>();
 
 				Add<PassTurnToNextActorSystem>();
+				Add<DoRerollSystem>();
 				Add<ToStateForCurrentActorSystem>();
 
 				// Tear Down

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Code.Component;
 using Entitas.Generic;
 using Zenject;
@@ -28,13 +29,13 @@ namespace Code
 			_uiFactory = uiFactory;
 		}
 
-		public GameEntity CreatePlayer(Coordinates coordinates, IEnumerable<ChipConfig> chips)
+		public GameEntity CreatePlayer(Coordinates coordinates, List<ChipConfigBehaviour> chips)
 			=> Create(SpawnPrefab(_resources.PlayerPrefab), coordinates, chips);
 
-		public GameEntity CreateEnemy(Coordinates coordinates, IEnumerable<ChipConfig> chips)
+		public GameEntity CreateEnemy(Coordinates coordinates, List<ChipConfigBehaviour> chips)
 			=> Create(SpawnPrefab(_resources.EnemyPrefab), coordinates, chips);
 
-		private GameEntity Create(GameEntity entity, Coordinates coordinates, IEnumerable<ChipConfig> chips)
+		private GameEntity Create(GameEntity entity, Coordinates coordinates, List<ChipConfigBehaviour> chips)
 		{
 			var actor = entity
 			            .Replace<Component.Coordinates, Coordinates>(coordinates)
@@ -44,18 +45,23 @@ namespace Code
 				;
 			actor.Add<Health, int>(actor.Get<MaxHealth>().Value);
 
-			CreateChips(chips, actor);
+			var faces = actor.GetDependants().Where((e) => e.Has<Face>());
+
+			CreateChips(chips, actor, faces);
+			// faces.PickRandom().MarkAsActive(); // TODO: mb to Reroll State
+
 			_uiFactory.CreateHealthBar(actor);
 			return actor;
 		}
 
-		private void CreateChips(IEnumerable<ChipConfig> chips, Entity<GameScope> actor)
+		private void CreateChips(List<ChipConfigBehaviour> chips, GameEntity actor, IEnumerable<GameEntity> faces)
 		{
+			foreach (var face in faces)
 			foreach (var chipConfig in chips)
-				_chipsFactory.Create(chipConfig, actor);
+				_chipsFactory.Create(chipConfig, actor, face);
 		}
 
-		private Entity<GameScope> SpawnPrefab(EntityBehaviour<GameScope> prefab)
+		private GameEntity SpawnPrefab(EntityBehaviour<GameScope> prefab)
 			=> _assets.SpawnBehaviour(prefab).Entity;
 	}
 }

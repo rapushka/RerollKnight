@@ -1,6 +1,7 @@
 using Code.Component;
 using Entitas.Generic;
 using Zenject;
+using GameEntity = Entitas.Generic.Entity<Code.GameScope>;
 
 namespace Code
 {
@@ -29,33 +30,34 @@ namespace Code
 			_abilitiesFactory = abilitiesFactory;
 		}
 
-		public Entity<GameScope> Create(ChipConfig chipConfig, Entity<GameScope> actor)
+		public GameEntity Create(ChipConfigBehaviour chipConfig, GameEntity actor, GameEntity face)
 		{
 			var entity = actor.Is<Player>() ? NewBehaviour() : NewEntity();
-			return SetupChip(chipConfig, entity, actor);
+			return SetupChip(chipConfig, entity, face);
 		}
 
-		private Entity<GameScope> SetupChip(ChipConfig chipConfig, Entity<GameScope> entity, Entity<GameScope> actor)
+		private GameEntity SetupChip(ChipConfigBehaviour config, GameEntity entity, GameEntity face)
 		{
 			var chip = InitializeChip(entity)
-			           .Add<Label, string>(chipConfig.Label)
-			           .Add<ForeignID, string>(actor.Get<ID>().Value);
+			           .Add<Label, string>(config.Label)
+			           .Add<ForeignID, string>(face.EnsureID())
+				;
 
-			foreach (var abilityConfig in chipConfig.Abilities)
+			foreach (var abilityConfig in config.Abilities)
 				_abilitiesFactory.Create(abilityConfig, chip);
 
 			return chip;
 		}
 
-		private Entity<GameScope> InitializeChip(Entity<GameScope> entity)
+		private GameEntity InitializeChip(GameEntity entity)
 			=> entity
 			   .Is<Chip>(true)
 			   .Add<DebugName, string>("chip")
 			   .Identify();
 
-		private Entity<GameScope> NewBehaviour()
+		private GameEntity NewBehaviour()
 			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity;
 
-		private Entity<GameScope> NewEntity() => _contexts.Get<GameScope>().CreateEntity();
+		private GameEntity NewEntity() => _contexts.Get<GameScope>().CreateEntity();
 	}
 }

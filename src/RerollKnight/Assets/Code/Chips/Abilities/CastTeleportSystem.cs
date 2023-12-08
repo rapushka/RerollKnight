@@ -1,6 +1,5 @@
 using Code.Component;
 using Entitas.Generic;
-using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {

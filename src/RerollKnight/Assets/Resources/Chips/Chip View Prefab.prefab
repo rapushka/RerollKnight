@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 8020548845149212099}
   - component: {fileID: 8759797090382965599}
   m_Layer: 0
-  m_Name: ChipPrefab
+  m_Name: Chip View Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

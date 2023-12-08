@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Code
 {
-	public class AbilityOfChipComponentBehaviour : ComponentBehaviourBase<ChipsScope>
+	public class ForeignIDBehaviour : ComponentBehaviourBase<GameScope>
 	{
 		[SerializeField] private EntityBehaviour<GameScope> _behaviour;
 
-		public override void Add(ref Entity<ChipsScope> entity)
+		public override void Add(ref Entity<GameScope> entity)
 			=> entity.Add<ForeignID, string>(EnsureID());
 
 		private string EnsureID()

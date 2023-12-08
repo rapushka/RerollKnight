@@ -41,6 +41,7 @@ namespace Code
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
 			Add<WorldSpaceUiLookAtCameraSystem>();
+			// Add<TurnUpActiveFaceSystem>();
 
 #if DEBUG
 			// Debug

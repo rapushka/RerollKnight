@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Entitas;
 using Entitas.Generic;
-using ChipsEntity = Entitas.Generic.Entity<Code.ChipsScope>;
 
 namespace Code
 {
