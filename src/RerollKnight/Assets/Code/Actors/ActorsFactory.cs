@@ -47,9 +47,8 @@ namespace Code
 
 			var faces = actor.GetDependants().Where((e) => e.Has<Face>());
 
-			// ReSharper disable PossibleMultipleEnumeration - possibly it'll be moved
 			CreateChips(chips, actor, faces);
-			faces.PickRandom().MarkAsActive(); // TODO: mb to Reroll State
+			// faces.PickRandom().MarkAsActive(); // TODO: mb to Reroll State
 
 			_uiFactory.CreateHealthBar(actor);
 			return actor;

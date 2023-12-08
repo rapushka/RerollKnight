@@ -12,47 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8757be90494b4a8a83b4f3d81cfaf4, type: 3}
   m_Name: ChipsConfig
   m_EditorClassIdentifier: 
-  <Chips>k__BackingField:
-  - <Label>k__BackingField: Teleport
-    <Abilities>k__BackingField:
-    - <Kind>k__BackingField:
-        _name: Teleport
-      <Range>k__BackingField: 1
-      <TargetsCount>k__BackingField: 1
-      <TargetConstraints>k__BackingField:
-      - <Component>k__BackingField:
-          _name: Cell
-        <MustHave>k__BackingField: 1
-      - <Component>k__BackingField:
-          _name: Empty
-        <MustHave>k__BackingField: 1
-  - <Label>k__BackingField: Swap Positions
-    <Abilities>k__BackingField:
-    - <Kind>k__BackingField:
-        _name: SwitchPositions
-      <Range>k__BackingField: -1
-      <TargetsCount>k__BackingField: 1
-      <TargetConstraints>k__BackingField:
-      - <Component>k__BackingField:
-          _name: CurrentActor
-        <MustHave>k__BackingField: 0
-      - <Component>k__BackingField:
-          _name: Actor
-        <MustHave>k__BackingField: 1
-  - <Label>k__BackingField: Kick
-    <Abilities>k__BackingField:
-    - <Kind>k__BackingField:
-        _name: Kick
-      <Range>k__BackingField: 1
-      <TargetsCount>k__BackingField: 1
-      <TargetConstraints>k__BackingField:
-      - <Component>k__BackingField:
-          _name: CurrentActor
-        <MustHave>k__BackingField: 0
-      - <Component>k__BackingField:
-          _name: Actor
-        <MustHave>k__BackingField: 1
   <ChipsBehaviours>k__BackingField:
-  - {fileID: -1127751271332936188, guid: ba01ac5e6c63c3578a85e5d22992c504, type: 3}
-  - {fileID: -1127751271332936188, guid: f41ad62cababcf4c794ccba35451219f, type: 3}
   - {fileID: -1127751271332936188, guid: c99328876384e2ff2a7199f94fd99355, type: 3}
+  - {fileID: -1127751271332936188, guid: ba01ac5e6c63c3578a85e5d22992c504, type: 3}

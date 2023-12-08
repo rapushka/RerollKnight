@@ -26,7 +26,7 @@ namespace Code
 
 		public void Execute()
 		{
-			_queueEntity.Replace<DebugName, string>($"turns queue: [{ToString(_turnsQueue.AllActors)}]");
+			_queueEntity.Replace<DebugName, string>($"turns queue: [{ToString(_turnsQueue.Queue)}]");
 		}
 
 		private string ToString(IEnumerable<Entity<GameScope>> list)

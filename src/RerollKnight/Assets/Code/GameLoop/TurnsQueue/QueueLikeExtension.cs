@@ -29,5 +29,16 @@ namespace Code
 		{
 			@this.Insert(0, item);
 		}
+
+		public static T ItemAfter<T>(this List<T> @this, T item)
+		{
+			if (item is null || @this.Count == 1)
+				return @this.First();
+
+			var index = @this.IndexOf(item);
+			index = index < @this.Count - 1 ? index + 1 : 0;
+
+			return @this[index];
+		}
 	}
 }

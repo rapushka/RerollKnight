@@ -15,7 +15,7 @@ namespace Code
 
 		public static Entity<GameScope> SetActiveFace(this Entity<GameScope> actor, Entity<GameScope> face)
 		{
-			actor.Add<ActiveFace, int>(face.Get<Face>().Value);
+			actor.Replace<ActiveFace, int>(face.Get<Face>().Value);
 			return actor;
 		}
 
