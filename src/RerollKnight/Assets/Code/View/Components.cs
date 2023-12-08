@@ -14,4 +14,6 @@ namespace Code.Component
 	[GameScope] public sealed class WorldSpaceUi : FlagComponent { }
 
 	[GameScope] public sealed class Camera : FlagComponent, IUnique { }
+
+	[GameScope] public sealed class Visible : ValueComponent<bool>, IEvent<Self> { }
 }

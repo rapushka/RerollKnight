@@ -22,7 +22,9 @@ namespace Code
 				var face = chip.GetOwner();
 				var actor = face.GetOwner();
 
-				chip.Is<AvailableToPick>(face.IsActiveFace() && actor.Is<CurrentActor>());
+				var isAvailable = face.IsActiveFace() && actor.Is<CurrentActor>();
+				chip.Is<AvailableToPick>(isAvailable);
+				chip.Replace<Visible, bool>(isAvailable);
 			}
 		}
 	}

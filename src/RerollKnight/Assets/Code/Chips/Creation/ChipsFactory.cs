@@ -56,7 +56,8 @@ namespace Code
 			   .Identify();
 
 		private GameEntity NewBehaviour()
-			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity;
+			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity
+			          .Add<Visible, bool>(true);
 
 		private GameEntity NewEntity() => _contexts.Get<GameScope>().CreateEntity();
 	}

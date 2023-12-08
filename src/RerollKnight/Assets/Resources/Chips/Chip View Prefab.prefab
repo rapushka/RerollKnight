@@ -196,6 +196,8 @@ GameObject:
   - component: {fileID: 3876166546127521735}
   - component: {fileID: 8020548845149212099}
   - component: {fileID: 8759797090382965599}
+  - component: {fileID: 4140483649432021079}
+  - component: {fileID: 8060205313898931897}
   m_Layer: 5
   m_Name: Chip View Prefab
   m_TagString: Untagged
@@ -239,6 +241,7 @@ MonoBehaviour:
   - {fileID: 3876166546127521735}
   - {fileID: 6727472092430325804}
   - {fileID: 8020548845149212099}
+  - {fileID: 8060205313898931897}
 --- !u!114 &6873230133604452092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +307,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _root: {fileID: 6075682246088965771}
+--- !u!114 &4140483649432021079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075682246088965771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89364e92d19348eea308e58ab7b037e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 6075682246088965771}
+--- !u!114 &8060205313898931897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075682246088965771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6b12a840ec403b92ac410a1c7bbdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listener: {fileID: 4140483649432021079}
 --- !u!1 &8971087280879619683
 GameObject:
   m_ObjectHideFlags: 0
