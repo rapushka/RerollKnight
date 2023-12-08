@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: Layout
   m_EditorClassIdentifier: 
   <OverFieldOffset>k__BackingField: {x: 0, y: 0.125, z: 0}
-  <FieldSizes>k__BackingField:
-    <Column>k__BackingField: 5
-    <Row>k__BackingField: 5
-  <ChipsPositionStep>k__BackingField: {x: 0, y: 0, z: 0.35}
-  <PickedChipOffset>k__BackingField: {x: -0.1, y: 0.1, z: 0}
-  <UnavailableChipOffset>k__BackingField: {x: 0.2, y: -0.05, z: 0}
+  <ChipsPositionStep>k__BackingField: {x: -1.1, y: 0, z: 0}
+  <PickedChipOffset>k__BackingField: {x: 0, y: 0.5, z: 0}
+  <UnavailableChipOffset>k__BackingField: {x: 0, y: -0.7, z: 0}
