@@ -46,20 +46,23 @@ namespace Code
 			actor.Add<Health, int>(actor.Get<MaxHealth>().Value);
 
 			var faces = actor.GetDependants().Where((e) => e.Has<Face>());
-			faces.First().MarkAsActive(); // TODO: pick random
 
-			CreateChips(chips, actor);
+			// ReSharper disable PossibleMultipleEnumeration - possibly it'll be moved
+			CreateChips(chips, actor, faces);
+			faces.PickRandom().MarkAsActive(); // TODO: mb to Reroll State
+
 			_uiFactory.CreateHealthBar(actor);
 			return actor;
 		}
 
-		private void CreateChips(List<ChipConfigBehaviour> chips, Entity<GameScope> actor)
+		private void CreateChips(List<ChipConfigBehaviour> chips, GameEntity actor, IEnumerable<GameEntity> faces)
 		{
+			foreach (var face in faces)
 			foreach (var chipConfig in chips)
-				_chipsFactory.Create(chipConfig, actor);
+				_chipsFactory.Create(chipConfig, actor, face);
 		}
 
-		private Entity<GameScope> SpawnPrefab(EntityBehaviour<GameScope> prefab)
+		private GameEntity SpawnPrefab(EntityBehaviour<GameScope> prefab)
 			=> _assets.SpawnBehaviour(prefab).Entity;
 	}
 }

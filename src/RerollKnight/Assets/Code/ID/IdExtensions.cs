@@ -6,6 +6,13 @@ namespace Code
 {
 	public static class IdExtensions
 	{
+		public static string EnsureID<TScope>(this Entity<TScope> @this)
+			where TScope : IScope
+		{
+			@this.Identify();
+			return @this.Get<ID>().Value;
+		}
+
 		public static Entity<TScope> Identify<TScope>(this Entity<TScope> @this)
 			where TScope : IScope
 		{
