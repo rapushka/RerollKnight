@@ -34,7 +34,6 @@ namespace Code
 			Add<RemoveDestroyedActorFromQueueSystem>();
 
 			// Visuals
-			// Add<ArrangeChipsViewsSystem>();
 			Add<UpdateChipsPositionSystem>();
 			Add<AlignChipsCenterSystem>();
 			Add<MoveToDestinationSystem>();
@@ -42,7 +41,6 @@ namespace Code
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
 			Add<WorldSpaceUiLookAtCameraSystem>();
-			// Add<TurnUpActiveFaceSystem>();
 
 #if DEBUG
 			// Debug
