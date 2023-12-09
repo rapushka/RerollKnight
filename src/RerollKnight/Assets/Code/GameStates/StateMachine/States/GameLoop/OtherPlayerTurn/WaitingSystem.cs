@@ -8,7 +8,6 @@ namespace Code
 	{
 		private readonly ITimeService _time;
 
-		private float _wholeDuration;
 		private float _spentDuration;
 
 		[Inject]
@@ -16,10 +15,9 @@ namespace Code
 			: base(contexts)
 			=> _time = time;
 
-		public void SetData(float value)
-		{
-			_wholeDuration = value;
-		}
+		public float Value { get; set; }
+
+		private float WholeDuration => Value;
 
 		public override void Initialize()
 		{
@@ -35,7 +33,7 @@ namespace Code
 
 			_spentDuration += _time.DeltaTime;
 
-			if (_spentDuration >= _wholeDuration)
+			if (_spentDuration >= WholeDuration)
 				Ready = true;
 		}
 	}

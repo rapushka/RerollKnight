@@ -25,9 +25,12 @@ namespace Code
 			if (CurrentActor.Is<Player>())
 				StateMachine.ToState<ObservingGameplayState>();
 			else if (CurrentActor.Is<Enemy>())
-				StateMachine.ToState<WaitAndThenToState<OtherPlayerTurnGameplayState>>();
+				StateMachine.ToState<WaitAndThenToState, WaitAndThenToState.Data>(ToOtherPlayerTurnState);
 			else
 				throw new InvalidOperationException($"Unknown actor entity! {CurrentActor}");
 		}
+
+		private static WaitAndThenToState.Data ToOtherPlayerTurnState
+			=> new(typeof(OtherPlayerTurnGameplayState), 0.5f);
 	}
 }

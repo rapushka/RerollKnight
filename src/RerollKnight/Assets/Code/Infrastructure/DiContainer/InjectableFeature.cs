@@ -12,14 +12,11 @@ namespace Code
 			: base(name)
 			=> Factory = factory;
 
-		protected void Add<TSystem>() where TSystem : ISystem => Add(Factory.Create<TSystem>());
-
-		protected void Add<TSystem, TValue>(TValue value)
-			where TSystem : ISystem, IDataReceiver<TValue>
+		protected TSystem Add<TSystem>() where TSystem : ISystem
 		{
 			var system = Factory.Create<TSystem>();
-			system.SetData(value);
 			Add(system);
+			return system;
 		}
 	}
 }

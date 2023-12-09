@@ -18,13 +18,14 @@ namespace Code
 			}
 		}
 
-		protected new void Add<TSystem>() where TSystem : ISystem
+		protected new TSystem Add<TSystem>() where TSystem : ISystem
 		{
 			var system = Factory.Create<TSystem>();
 			if (system is IStateTransferSystem stateTransferSystem)
 				_stateTransferSystems.Add(stateTransferSystem);
 
 			Add(system);
+			return system;
 		}
 	}
 }

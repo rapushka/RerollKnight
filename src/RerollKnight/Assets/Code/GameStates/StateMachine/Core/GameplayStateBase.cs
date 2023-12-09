@@ -12,23 +12,24 @@ namespace Code
 	public abstract class GameplayStateBase<TFeature> : GameplayStateBase
 		where TFeature : StateFeatureBase
 	{
-		private readonly TFeature _systems;
+		protected readonly TFeature Feature;
 
 		protected GameplayStateBase(IInstantiator container)
 		{
-			_systems = container.Instantiate<TFeature>();
+			Feature = container.Instantiate<TFeature>();
+			// (Feature as IDataReceiver<GameplayStateBase<TFeature>>)?.SetData(this);
 		}
 
 		public override void Enter(StateMachineBase stateMachine)
 		{
-			_systems.StateMachine = stateMachine;
-			_systems.Initialize();
+			Feature.StateMachine = stateMachine;
+			Feature.Initialize();
 		}
 
-		public override void Execute() => _systems.Execute();
+		public override void Execute() => Feature.Execute();
 
-		public override void Cleanup() => _systems.Cleanup();
+		public override void Cleanup() => Feature.Cleanup();
 
-		public override void Exit() => _systems.TearDown();
+		public override void Exit() => Feature.TearDown();
 	}
 }

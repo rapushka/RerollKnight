@@ -43,7 +43,7 @@ namespace Code
 				typeof(OtherPlayerTurnGameplayState),
 
 				// Tools
-				typeof(WaitAndThenToState<OtherPlayerTurnGameplayState>)
+				typeof(WaitAndThenToState)
 			);
 
 #if DEBUG

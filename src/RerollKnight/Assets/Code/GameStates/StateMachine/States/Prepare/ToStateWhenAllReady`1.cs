@@ -1,11 +1,11 @@
-using System;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class ToStateWhenAllReady : ICleanupSystem, IStateTransferSystem, IDataReceiver<Type>
+	public sealed class ToStateWhenAllReady<TState> : ICleanupSystem, IStateTransferSystem
+		where TState : GameplayStateBase
 	{
 		private readonly IGroup<Entity<InfrastructureScope>> _entities;
 
@@ -15,15 +15,12 @@ namespace Code
 		}
 
 		public StateMachineBase StateMachine { get; set; }
-		public Type             Value        { get; set; }
-
-		private Type NextState => Value;
 
 		public void Cleanup()
 		{
 			// 'any' is useless here, just for clarity
 			if (!_entities.Any() || _entities.All(IsReady))
-				StateMachine.ToState(NextState);
+				StateMachine.ToState<TState>();
 		}
 
 		private bool IsReady(Entity<InfrastructureScope> entity) => entity.Get<Ready>().Value;
