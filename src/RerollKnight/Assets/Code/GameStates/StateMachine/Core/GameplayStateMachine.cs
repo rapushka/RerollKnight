@@ -1,16 +1,14 @@
-using System;
 using Entitas.Generic;
 using Zenject;
 
 namespace Code
 {
-	public class GameplayStateMachine : StateMachineBase<GameplayStateBase>, IDisposable
+	public class GameplayStateMachine : StateMachineBase
 	{
-		private readonly StateChangeBus _stateChangeBus;
 		private readonly DiContainer _diContainer;
 
 		[Inject]
-		public GameplayStateMachine(DiContainer diContainer, Contexts contexts, StateChangeBus stateChangeBus)
+		public GameplayStateMachine(DiContainer diContainer, Contexts contexts)
 		{
 			_diContainer = diContainer;
 
@@ -27,12 +25,7 @@ namespace Code
 
 			// Tooling
 			AddState<WaitAndThenToState<OtherPlayerTurnGameplayState>>();
-
-			_stateChangeBus = stateChangeBus;
-			_stateChangeBus.StateChangeRequired += ToState;
 		}
-
-		public void Dispose() => _stateChangeBus.StateChangeRequired -= ToState;
 
 		private void AddState<T>()
 			where T : GameplayStateBase

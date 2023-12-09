@@ -6,13 +6,10 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class UnpickChipSystem : ReactiveSystem<Entity<GameScope>>
+	public sealed class UnpickChipSystem : ReactiveSystem<Entity<GameScope>>, IStateTransferSystem
 	{
-		private readonly IStateChangeBus _stateChangeBus;
-
-		public UnpickChipSystem(Contexts contexts, IStateChangeBus stateChangeBus)
-			: base(contexts.Get<GameScope>())
-			=> _stateChangeBus = stateChangeBus;
+		public UnpickChipSystem(Contexts contexts) : base(contexts.Get<GameScope>()) { }
+		public StateMachineBase StateMachine { get; set; }
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
 			=> context.CreateCollector(AllOf(Get<Clicked>(), Get<PickedChip>()));
@@ -24,7 +21,7 @@ namespace Code
 			foreach (var e in entites)
 			{
 				e.Is<Clicked>(false);
-				_stateChangeBus.ToState<ObservingGameplayState>();
+				StateMachine.ToState<ObservingGameplayState>();
 			}
 		}
 	}

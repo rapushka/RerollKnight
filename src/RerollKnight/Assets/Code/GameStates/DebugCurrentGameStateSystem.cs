@@ -17,7 +17,7 @@ namespace Code
 			_gameplayStateMachine = gameplayStateMachine;
 		}
 
-		private GameplayStateBase CurrentGameplayState => _gameplayStateMachine.CurrentState;
+		private IState CurrentGameplayState => _gameplayStateMachine.CurrentState;
 
 		public void Initialize()
 		{

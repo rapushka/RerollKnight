@@ -6,21 +6,19 @@ using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
 {
-	public sealed class CastAbilitiesSystem : IInitializeSystem
+	public sealed class CastAbilitiesSystem : IInitializeSystem, IStateTransferSystem
 	{
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
-		private readonly IStateChangeBus _stateChangeBus;
 
-		public CastAbilitiesSystem(Contexts contexts, IStateChangeBus stateChangeBus)
-		{
-			_stateChangeBus = stateChangeBus;
-			_abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<MaxCountOfTargets>()));
-		}
+		public CastAbilitiesSystem(Contexts contexts)
+			=> _abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<MaxCountOfTargets>()));
+
+		public StateMachineBase StateMachine { get; set; }
 
 		public void Initialize()
 		{
 			if (_abilities.WhereStateIs(AbilityState.Prepared).Any())
-				_stateChangeBus.ToState<CastingAbilitiesGameplayState>();
+				StateMachine.ToState<CastingAbilitiesGameplayState>();
 		}
 	}
 }

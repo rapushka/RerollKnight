@@ -6,26 +6,26 @@ using Zenject;
 
 namespace Code
 {
-	public sealed class ToStateForCurrentActorSystem : IInitializeSystem
+	public sealed class ToStateForCurrentActorSystem : IInitializeSystem, IStateTransferSystem
 	{
 		private readonly Contexts _contexts;
-		private readonly StateChangeBus _stateChangeBus;
 
 		[Inject]
-		public ToStateForCurrentActorSystem(Contexts contexts, StateChangeBus stateChangeBus)
+		public ToStateForCurrentActorSystem(Contexts contexts)
 		{
 			_contexts = contexts;
-			_stateChangeBus = stateChangeBus;
 		}
+
+		public StateMachineBase StateMachine { get; set; }
 
 		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
 
 		public void Initialize()
 		{
 			if (CurrentActor.Is<Player>())
-				_stateChangeBus.ToState<ObservingGameplayState>();
+				StateMachine.ToState<ObservingGameplayState>();
 			else if (CurrentActor.Is<Enemy>())
-				_stateChangeBus.ToState<WaitAndThenToState<OtherPlayerTurnGameplayState>>();
+				StateMachine.ToState<WaitAndThenToState<OtherPlayerTurnGameplayState>>();
 			else
 				throw new InvalidOperationException($"Unknown actor entity! {CurrentActor}");
 		}

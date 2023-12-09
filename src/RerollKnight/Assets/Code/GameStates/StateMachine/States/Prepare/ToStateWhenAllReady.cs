@@ -4,23 +4,23 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class ToStateWhenAllReady<TState> : ICleanupSystem
+	public sealed class ToStateWhenAllReady<TState> : ICleanupSystem, IStateTransferSystem
 		where TState : GameplayStateBase
 	{
 		private readonly IGroup<Entity<InfrastructureScope>> _entities;
-		private readonly StateChangeBus _stateChangeBus;
 
-		public ToStateWhenAllReady(Contexts contexts, StateChangeBus stateChangeBus)
+		public ToStateWhenAllReady(Contexts contexts)
 		{
 			_entities = contexts.GetGroup(ScopeMatcher<InfrastructureScope>.Get<Ready>());
-			_stateChangeBus = stateChangeBus;
 		}
+
+		public StateMachineBase StateMachine { get; set; }
 
 		public void Cleanup()
 		{
 			// 'any' is useless here, just for clarity
 			if (!_entities.Any() || _entities.All(IsReady))
-				_stateChangeBus.ToState<TState>();
+				StateMachine.ToState<TState>();
 		}
 
 		private bool IsReady(Entity<InfrastructureScope> entity) => entity.Get<Ready>().Value;

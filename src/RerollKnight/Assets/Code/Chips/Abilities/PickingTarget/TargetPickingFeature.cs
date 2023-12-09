@@ -1,6 +1,6 @@
 namespace Code
 {
-	public sealed class TargetPickingFeature : InjectableFeature
+	public sealed class TargetPickingFeature : StateFeatureBase
 	{
 		public TargetPickingFeature(SystemsFactory factory)
 			: base(nameof(TargetPickingFeature), factory)

@@ -3,17 +3,16 @@ using JetBrains.Annotations;
 
 namespace Code
 {
-	public abstract class StateMachineBase<TStateBase>
-		where TStateBase : IState
+	public abstract class StateMachineBase
 	{
-		private readonly TypeDictionary<TStateBase> _dictionary = new();
+		private readonly TypeDictionary<IState> _dictionary = new();
 
-		[CanBeNull] private TStateBase _currentState;
+		[CanBeNull] private IState _currentState;
 
-		public TStateBase CurrentState => _currentState ?? throw new NullReferenceException();
+		public IState CurrentState => _currentState ?? throw new NullReferenceException();
 
 		public void ToState<TState>()
-			where TState : TStateBase
+			where TState : IState
 		{
 			ToState(typeof(TState));
 		}
@@ -23,7 +22,7 @@ namespace Code
 			(_currentState as IExitableState)?.Exit();
 
 			_currentState = _dictionary[type];
-			_currentState!.Enter();
+			_currentState!.Enter(this);
 		}
 
 		public void Execute() => (_currentState as IUpdatableState)?.Execute();
@@ -31,7 +30,7 @@ namespace Code
 		public void Cleanup() => (_currentState as IUpdatableState)?.Cleanup();
 
 		protected void AddState<TState>(TState state)
-			where TState : TStateBase
+			where TState : IState
 			=> _dictionary.Add(state);
 	}
 }

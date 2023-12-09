@@ -1,9 +1,8 @@
-using Entitas;
 using Zenject;
 
 namespace Code
 {
-	public abstract class GameplayStateBase : StateBase<GameplayStateMachine>, IExitableState, IUpdatableState
+	public abstract class GameplayStateBase : StateBase, IExitableState, IUpdatableState
 	{
 		public abstract void Exit();
 		public abstract void Execute();
@@ -11,7 +10,7 @@ namespace Code
 	}
 
 	public abstract class GameplayStateBase<TFeature> : GameplayStateBase
-		where TFeature : Systems
+		where TFeature : StateFeatureBase
 	{
 		private readonly TFeature _systems;
 
@@ -20,7 +19,11 @@ namespace Code
 			_systems = container.Instantiate<TFeature>();
 		}
 
-		public override void Enter() => _systems.Initialize();
+		public override void Enter(StateMachineBase stateMachine)
+		{
+			_systems.StateMachine = stateMachine;
+			_systems.Initialize();
+		}
 
 		public override void Execute() => _systems.Execute();
 

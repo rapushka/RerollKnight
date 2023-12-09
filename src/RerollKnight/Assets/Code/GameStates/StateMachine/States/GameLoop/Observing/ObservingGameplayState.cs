@@ -6,7 +6,7 @@ namespace Code
 	{
 		public ObservingGameplayState(IInstantiator container) : base(container) { }
 
-		public sealed class StateFeature : InjectableFeature
+		public sealed class StateFeature : StateFeatureBase
 		{
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(ObservingGameplayState)}.{nameof(StateFeature)}", factory)

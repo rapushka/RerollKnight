@@ -6,7 +6,7 @@ namespace Code
 {
 	public class VisibleView : BaseListener<GameScope, Visible>
 	{
-		[SerializeField] private GameObject _target;
+		// [SerializeField] private GameObject _target;
 
 		public override void OnValueChanged(Entity<GameScope> entity, Visible component)
 		{

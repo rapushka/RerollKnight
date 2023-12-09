@@ -7,7 +7,7 @@ namespace Code
 	{
 		public LoadLevelGameplayState(IInstantiator container) : base(container) { }
 
-		public sealed class StateFeature : InjectableFeature
+		public sealed class StateFeature : StateFeatureBase
 		{
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(LoadLevelGameplayState)}.{nameof(StateFeature)}", factory)

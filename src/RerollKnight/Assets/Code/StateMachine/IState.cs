@@ -2,6 +2,6 @@ namespace Code
 {
 	public interface IState
 	{
-		void Enter();
+		void Enter(StateMachineBase stateMachine);
 	}
 }

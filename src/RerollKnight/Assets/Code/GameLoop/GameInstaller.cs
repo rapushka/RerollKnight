@@ -28,7 +28,6 @@ namespace Code
 		private void InstallGameplayStateMachine()
 		{
 			Container.BindInterfacesAndSelfTo<GameplayStateMachine>().AsSingle();
-			Container.BindInterfacesAndSelfTo<StateChangeBus>().AsSingle();
 
 #if DEBUG
 			Container.BindInterfacesTo<GameplayStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
