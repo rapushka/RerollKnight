@@ -47,8 +47,6 @@ namespace Code
 			var chip = InitializeChip(entity)
 			           .Add<Label, string>(config.Label)
 			           .Add<ForeignID, string>(face.EnsureID())
-			           .Add<Position, Vector3>(Vector3.zero)
-			           .Add<MovingSpeed, float>(_layoutService.ChipsMovingSpeed)
 				;
 
 			foreach (var abilityConfig in config.Abilities)
@@ -65,7 +63,9 @@ namespace Code
 
 		private GameEntity NewBehaviour()
 			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity
-			          .Is<Visible>(true);
+			          .Is<Visible>(true)
+			          .Add<Position, Vector3>(Vector3.zero)
+			          .Add<MovingSpeed, float>(_layoutService.ChipsMovingSpeed);
 
 		private GameEntity NewEntity() => _contexts.Get<GameScope>().CreateEntity();
 	}

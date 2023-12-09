@@ -7,37 +7,34 @@ using PositionListener = Entitas.Generic.ListenerComponent<Code.GameScope, Code.
 
 namespace Code
 {
-	internal sealed class AlignChipsSystem : IExecuteSystem
+	internal sealed class AlignChipsCenterSystem : IExecuteSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _chips;
 		private readonly ILayoutService _layoutService;
 
-		public AlignChipsSystem(Contexts contexts, ILayoutService layoutService)
+		public AlignChipsCenterSystem(Contexts contexts, ILayoutService layoutService)
 		{
 			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>(), Get<Visible>()));
 			_layoutService = layoutService;
 		}
 
-		private float Width => _layoutService.ChipsPanelWidth;
+		private float Width => (_chips.count - 1) * _layoutService.MaxDistanceBetweenChips;
 
 		public void Execute()
 		{
-			var positionsRange = CalculateChipsPanel();
-
-			var positionStep = positionsRange.Delta / (_chips.count + 1);
-			var currentPosition = positionsRange.Min;
+			var range = RangeFloat.FromCenterAndWidth(0, Width);
+			var positionStep = _layoutService.MaxDistanceBetweenChips;
+			var currentPosition = range.Min;
 
 			foreach (var e in _chips)
 			{
-				currentPosition += positionStep;
 				var chipPosition = e.Get<Position>().Value;
 
 				if (!chipPosition.x.ApproximatelyEquals(currentPosition))
 					e.Replace<DestinationPosition, Vector3>(chipPosition.Set(x: currentPosition));
+
+				currentPosition += positionStep;
 			}
 		}
-
-		private RangeFloat CalculateChipsPanel()
-			=> RangeFloat.FromCenterAndRadius(0, Width);
 	}
 }

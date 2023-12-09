@@ -15,8 +15,11 @@ namespace Code
 			Max = max;
 		}
 
+		public static RangeFloat FromCenterAndWidth(float center, float width)
+			=> FromCenterAndRadius(center, width * 0.5f);
+
 		public static RangeFloat FromCenterAndRadius(float center, float radius)
-			=> new() { Min = center - radius, Max = center + radius, };
+			=> new(center - radius, center + radius);
 
 		public float Delta => Max.Delta(Min);
 	}

@@ -6,12 +6,11 @@ namespace Code
 	{
 		Vector3 OverFieldOffset { get; }
 
-		Vector3 ChipsPositionStep        { get; }
-		float   PickedChipPositionY      { get; }
-		float   DefaultChipPositionY     { get; }
-		float   UnavailableChipPositionY { get; }
-		float   ChipsPanelWidth          { get; }
-		float   ChipsMovingSpeed         { get; }
+		float PickedChipPositionY      { get; }
+		float DefaultChipPositionY     { get; }
+		float UnavailableChipPositionY { get; }
+		float MaxDistanceBetweenChips  { get; }
+		float ChipsMovingSpeed         { get; }
 	}
 
 	[CreateAssetMenu(fileName = "Layout", menuName = "Layout", order = 0)]
@@ -20,12 +19,15 @@ namespace Code
 		[field: SerializeField] public Vector3 OverFieldOffset { get; private set; }
 
 		[field: Header("Chips layout")]
-		[field: SerializeField] public Vector3 ChipsPositionStep { get; private set; }
+		[field: SerializeField] public float ChipsMovingSpeed { get; private set; }
 
-		[field: SerializeField] public float PickedChipPositionY      { get; private set; }
+		[field: Header("Picking")]
+		[field: SerializeField] public float PickedChipPositionY { get; private set; }
+
 		[field: SerializeField] public float DefaultChipPositionY     { get; private set; }
 		[field: SerializeField] public float UnavailableChipPositionY { get; private set; }
-		[field: SerializeField] public float ChipsPanelWidth          { get; private set; }
-		[field: SerializeField] public float ChipsMovingSpeed         { get; private set; }
+
+		[field: Header("Arrangement")]
+		[field: SerializeField] public float MaxDistanceBetweenChips { get; private set; }
 	}
 }
