@@ -8,8 +8,11 @@ namespace Code
 
 		public static int Clamp(this int @this, int min = int.MinValue, int max = int.MaxValue)
 			=> Math.Clamp(@this, min, max);
-		
+
 		public static int Clamp<T>(this int @this, T[] array)
 			=> @this.Clamp(0, array.Length);
+
+		public static bool ApproximatelyEquals(this float @this, float other)
+			=> Math.Abs(@this - other) <= Constants.Tolerance;
 	}
 }

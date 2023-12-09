@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Generator Config
   m_EditorClassIdentifier: 
   <EnemiesCount>k__BackingField:
-    Min: 1
-    Max: 4
+    <Min>k__BackingField: 1
+    <Max>k__BackingField: 4
   <WallsCount>k__BackingField:
-    Min: 0
-    Max: 10
+    <Min>k__BackingField: 0
+    <Max>k__BackingField: 10
   <FieldSizes>k__BackingField:
     <Column>k__BackingField: 5
     <Row>k__BackingField: 5

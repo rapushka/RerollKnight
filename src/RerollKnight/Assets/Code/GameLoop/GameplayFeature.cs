@@ -36,6 +36,7 @@ namespace Code
 			// Visuals
 			Add<ArrangeChipsViewsSystem>();
 			Add<UpdateChipsPositionSystem>();
+			Add<AlignChipsSystem>();
 			Add<MoveToDestinationSystem>();
 			Add<LookAtSystem>();
 			Add<SetPositionFromCoordinatesSystem>();

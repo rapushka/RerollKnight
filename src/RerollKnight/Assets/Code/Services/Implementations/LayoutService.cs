@@ -9,6 +9,7 @@ namespace Code
 		Vector3 ChipsPositionStep     { get; }
 		Vector3 PickedChipOffset      { get; }
 		Vector3 UnavailableChipOffset { get; }
+		float   ChipsPanelWidth      { get; }
 	}
 
 	[CreateAssetMenu(fileName = "Layout", menuName = "Layout", order = 0)]
@@ -21,5 +22,6 @@ namespace Code
 
 		[field: SerializeField] public Vector3 PickedChipOffset      { get; private set; }
 		[field: SerializeField] public Vector3 UnavailableChipOffset { get; private set; }
+		[field: SerializeField] public float   ChipsPanelWidth      { get; private set; }
 	}
 }
