@@ -34,14 +34,14 @@ namespace Code
 			Add<RemoveDestroyedActorFromQueueSystem>();
 
 			// Visuals
-			Add<ArrangeChipsViewsSystem>();
 			Add<UpdateChipsPositionSystem>();
+			Add<AlignChipsCenterSystem>();
 			Add<MoveToDestinationSystem>();
+			Add<RotateToDestinationSystem>();
 			Add<LookAtSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
 			Add<WorldSpaceUiLookAtCameraSystem>();
-			// Add<TurnUpActiveFaceSystem>();
 
 #if DEBUG
 			// Debug

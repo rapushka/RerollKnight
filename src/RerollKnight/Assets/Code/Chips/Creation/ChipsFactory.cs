@@ -1,7 +1,10 @@
 using Code.Component;
 using Entitas.Generic;
+using UnityEngine;
 using Zenject;
 using GameEntity = Entitas.Generic.Entity<Code.GameScope>;
+using Label = Code.Component.Label;
+using Position = Code.Component.Position;
 
 namespace Code
 {
@@ -12,6 +15,7 @@ namespace Code
 		private readonly IResourcesService _resources;
 		private readonly AbilitiesFactory _abilitiesFactory;
 		private readonly IHoldersProvider _holdersProvider;
+		private readonly ILayoutService _layoutService;
 
 		[Inject]
 		public ChipsFactory
@@ -20,7 +24,8 @@ namespace Code
 			IAssetsService assets,
 			IResourcesService resources,
 			AbilitiesFactory abilitiesFactory,
-			IHoldersProvider holdersProvider
+			IHoldersProvider holdersProvider,
+			ILayoutService layoutService
 		)
 		{
 			_contexts = contexts;
@@ -28,6 +33,7 @@ namespace Code
 			_assets = assets;
 			_resources = resources;
 			_abilitiesFactory = abilitiesFactory;
+			_layoutService = layoutService;
 		}
 
 		public GameEntity Create(ChipConfigBehaviour chipConfig, GameEntity actor, GameEntity face)
@@ -56,7 +62,10 @@ namespace Code
 			   .Identify();
 
 		private GameEntity NewBehaviour()
-			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity;
+			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity
+			          .Is<Visible>(true)
+			          .Add<Position, Vector3>(Vector3.zero)
+			          .Add<MovingSpeed, float>(_layoutService.ChipsMovingSpeed);
 
 		private GameEntity NewEntity() => _contexts.Get<GameScope>().CreateEntity();
 	}

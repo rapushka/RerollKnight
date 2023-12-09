@@ -3,8 +3,6 @@ using UnityEngine;
 
 namespace Code.Component
 {
-	[GameScope] public sealed class InitialPosition : ValueComponent<Vector3> { }
-
 	[GameScope] public sealed class DestinationPosition : ValueComponent<Vector3> { }
 
 	[GameScope] public sealed class MovingSpeed : ValueComponent<float> { }

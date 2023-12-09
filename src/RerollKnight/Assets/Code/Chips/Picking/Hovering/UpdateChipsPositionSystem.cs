@@ -15,23 +15,24 @@ namespace Code
 		public UpdateChipsPositionSystem(Contexts contexts, ILayoutService layoutService)
 		{
 			_layoutService = layoutService;
-			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>()));
+			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>(), Get<Visible>()));
 		}
 
 		public void Execute()
 		{
 			foreach (var e in _chips)
 			{
-				var newPosition = e.Get<InitialPosition>().Value + Offset(e);
+				var newY = HeightFor(e);
+				var position = e.Get<Position>().Value;
 
-				if (newPosition != e.Get<Position>().Value)
-					e.Replace<DestinationPosition, Vector3>(newPosition);
+				if (!newY.ApproximatelyEquals(position.y))
+					e.Replace<DestinationPosition, Vector3>(position.Set(y: newY));
 			}
 		}
 
-		private Vector3 Offset(Entity<GameScope> entity)
-			=> entity.Is<PickedChip>()          ? _layoutService.PickedChipOffset
-				: !entity.Is<AvailableToPick>() ? _layoutService.UnavailableChipOffset
-				                                  : Vector3.zero;
+		private float HeightFor(Entity<GameScope> entity)
+			=> entity.Is<PickedChip>()          ? _layoutService.PickedChipPositionY
+				: !entity.Is<AvailableToPick>() ? _layoutService.UnavailableChipPositionY
+				                                  : _layoutService.DefaultChipPositionY;
 	}
 }

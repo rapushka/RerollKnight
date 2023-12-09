@@ -20,6 +20,7 @@ namespace Code
 			Add(new AnyEventSystem<GameScope, CurrentActor>(contexts));
 			Add(new SelfEventSystem<GameScope, Rotation>(contexts));
 			Add(new SelfEventSystem<GameScope, ActiveFace>(contexts));
+			Add(new SelfFlagEventSystem<GameScope, Visible>(contexts));
 
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 
