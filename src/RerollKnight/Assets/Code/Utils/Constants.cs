@@ -2,7 +2,7 @@ namespace Code
 {
 	public static class Constants
 	{
-		public const double Tolerance = 0.1f;
+		public const double Tolerance = 0.01f;
 
 		public static class ToolPath
 		{
