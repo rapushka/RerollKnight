@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6773cbbcf50449b694960a1773a7326e, type: 3}
-  m_Name: Layout
+  m_Name: Config View
   m_EditorClassIdentifier: 
   <OverFieldOffset>k__BackingField: {x: 0, y: 0.125, z: 0}
   <ChipsMovingSpeed>k__BackingField: 10
-  <PickedChipPositionY>k__BackingField: 1
+  <PickedChipPositionY>k__BackingField: 0.5
   <DefaultChipPositionY>k__BackingField: 0
   <UnavailableChipPositionY>k__BackingField: -0.25
   <MaxDistanceBetweenChips>k__BackingField: 1.235
+  <EnemyThinkingDuration>k__BackingField: 0.25

@@ -6,7 +6,7 @@ namespace Code
 {
 	public class ProjectInstaller : MonoInstaller<ProjectInstaller>
 	{
-		[SerializeField] private LayoutService _layoutService;
+		[SerializeField] private ViewConfig _viewConfig;
 		[SerializeField] private ChipsConfig _chipsConfig;
 		[SerializeField] private GenerationConfig _generationConfig;
 
@@ -24,7 +24,7 @@ namespace Code
 		{
 			Container.Bind<IResourcesService>().To<ResourcesService>().AsSingle();
 			Container.Bind<IAssetsService>().To<AssetsService>().AsSingle();
-			Container.Bind<ILayoutService>().To<LayoutService>().FromScriptableObject(_layoutService).AsSingle();
+			Container.Bind<IViewConfig>().To<ViewConfig>().FromScriptableObject(_viewConfig).AsSingle();
 			Container.Bind<ITimeService>().To<TimeService>().AsSingle();
 			Container.Bind<IRandomFieldAccess>().To<RandomFieldAccess>().AsSingle();
 			Container.Bind<ChipsConfig>().FromScriptableObject(_chipsConfig).AsSingle();
@@ -34,6 +34,7 @@ namespace Code
 
 			Container.Bind<ServicesMediator>().AsSingle();
 			Container.Bind<UiMediator>().AsSingle();
+
 		}
 	}
 }

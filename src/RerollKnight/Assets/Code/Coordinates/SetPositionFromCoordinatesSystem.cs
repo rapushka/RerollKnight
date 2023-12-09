@@ -9,11 +9,11 @@ namespace Code
 {
 	public sealed class SetPositionFromCoordinatesSystem : IExecuteSystem
 	{
-		private readonly ILayoutService _layout;
+		private readonly IViewConfig _layout;
 		private readonly IGroup<Entity<GameScope>> _entities;
 
 		[Inject]
-		public SetPositionFromCoordinatesSystem(Contexts contexts, ILayoutService layout)
+		public SetPositionFromCoordinatesSystem(Contexts contexts, IViewConfig layout)
 		{
 			_layout = layout;
 			_entities = contexts.GetGroup(AnyOf(Get<Component.Coordinates>(), Get<CoordinatesUnderField>()));

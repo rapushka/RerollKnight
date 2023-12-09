@@ -5,21 +5,18 @@ namespace Code
 {
 	public abstract class InjectableFeature : Feature
 	{
-		private readonly SystemsFactory _factory;
+		protected readonly SystemsFactory Factory;
 
 		[Inject]
 		protected InjectableFeature(string name, SystemsFactory factory)
 			: base(name)
-			=> _factory = factory;
+			=> Factory = factory;
 
-		protected void Add<TSystem>() where TSystem : ISystem => Add(_factory.Create<TSystem>());
-
-		protected void Add<TSystem, TValue>(TValue value)
-			where TSystem : ISystem, IDataReceiver<TValue>
+		protected TSystem Add<TSystem>() where TSystem : ISystem
 		{
-			var system = _factory.Create<TSystem>();
-			system.SetData(value);
+			var system = Factory.Create<TSystem>();
 			Add(system);
+			return system;
 		}
 	}
 }

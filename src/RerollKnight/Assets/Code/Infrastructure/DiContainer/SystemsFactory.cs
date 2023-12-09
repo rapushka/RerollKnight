@@ -13,5 +13,13 @@ namespace Code
 		public TSystem Create<TSystem>()
 			where TSystem : ISystem
 			=> _diContainer.Instantiate<TSystem>();
+
+		public TSystem Create<TSystem>(StateMachineBase stateMachine)
+			where TSystem : ISystem, IStateTransferSystem
+		{
+			var system = Create<TSystem>();
+			system.StateMachine = stateMachine;
+			return system;
+		}
 	}
 }

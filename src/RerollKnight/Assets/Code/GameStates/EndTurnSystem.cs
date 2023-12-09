@@ -4,21 +4,21 @@ using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
 {
-	public sealed class EndTurnSystem : ICleanupSystem
+	public sealed class EndTurnSystem : ICleanupSystem, IStateTransferSystem
 	{
-		private readonly IStateChangeBus _stateChangeBus;
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
 
-		public EndTurnSystem(Contexts contexts, IStateChangeBus stateChangeBus)
+		public EndTurnSystem(Contexts contexts)
 		{
-			_stateChangeBus = stateChangeBus;
 			_abilities = contexts.GetGroup(Get<Component.AbilityState>());
 		}
+
+		public StateMachineBase StateMachine { get; set; }
 
 		public void Cleanup()
 		{
 			if (_abilities.All((e) => e.Get<Component.AbilityState>().Value is not AbilityState.Casting))
-				_stateChangeBus.ToState<TurnEndedGameplayState>();
+				StateMachine.ToState<TurnEndedGameplayState>();
 		}
 	}
 }

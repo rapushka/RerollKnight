@@ -5,15 +5,15 @@ namespace Code
 {
 	public sealed class EndTurnOnRequestSystem : FulfillRequestSystemBase<EndTurn>
 	{
-		private readonly IStateChangeBus _stateChangeBus;
+		private readonly GameplayStateMachine _stateMachine;
 
-		public EndTurnOnRequestSystem(Contexts contexts, IStateChangeBus stateChangeBus)
+		public EndTurnOnRequestSystem(Contexts contexts, GameplayStateMachine stateMachine)
 			: base(contexts)
-			=> _stateChangeBus = stateChangeBus;
+			=> _stateMachine = stateMachine;
 
 		protected override void OnRequest(Entity<RequestScope> request)
 		{
-			_stateChangeBus.ToState<TurnEndedGameplayState>();
+			_stateMachine.ToState<TurnEndedGameplayState>();
 		}
 	}
 }

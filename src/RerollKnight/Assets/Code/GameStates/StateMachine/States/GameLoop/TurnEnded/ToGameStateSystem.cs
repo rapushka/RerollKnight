@@ -2,13 +2,11 @@ using Entitas;
 
 namespace Code
 {
-	public sealed class ToState<TState> : IInitializeSystem
+	public sealed class ToState<TState> : IInitializeSystem, IStateTransferSystem
 		where TState : GameplayStateBase
 	{
-		private readonly IStateChangeBus _stateChangeBus;
+		public StateMachineBase StateMachine { get; set; }
 
-		public ToState(IStateChangeBus stateChangeBus) => _stateChangeBus = stateChangeBus;
-
-		public void Initialize() => _stateChangeBus.ToState<TState>();
+		public void Initialize() => StateMachine.ToState<TState>();
 	}
 }

@@ -28,7 +28,23 @@ namespace Code
 		private void InstallGameplayStateMachine()
 		{
 			Container.BindInterfacesAndSelfTo<GameplayStateMachine>().AsSingle();
-			Container.BindInterfacesAndSelfTo<StateChangeBus>().AsSingle();
+
+			Container.BindInterfacesAndSelfToAsSingle
+			(
+				// Game preparations
+				typeof(LoadLevelGameplayState),
+				typeof(InitializeGameplayState),
+
+				// Game loop
+				typeof(ObservingGameplayState),
+				typeof(ChipPickedGameplayState),
+				typeof(CastingAbilitiesGameplayState),
+				typeof(TurnEndedGameplayState),
+				typeof(OtherPlayerTurnGameplayState),
+
+				// Tools
+				typeof(WaitAndThenToState)
+			);
 
 #if DEBUG
 			Container.BindInterfacesTo<GameplayStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();

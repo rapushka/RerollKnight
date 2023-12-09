@@ -8,11 +8,11 @@ namespace Code
 {
 	public sealed class EndTurnOnCurrentActorDeathSystem : ReactiveSystem<Entity<GameScope>>
 	{
-		private readonly StateChangeBus _stateChangeBus;
+		private GameplayStateMachine _stateMachine;
 
-		public EndTurnOnCurrentActorDeathSystem(Contexts contexts, StateChangeBus stateChangeBus)
+		public EndTurnOnCurrentActorDeathSystem(Contexts contexts, GameplayStateMachine stateMachine)
 			: base(contexts.Get<GameScope>())
-			=> _stateChangeBus = stateChangeBus;
+			=> _stateMachine = stateMachine;
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
 			=> context.CreateCollector(AllOf(Get<Actor>(), Get<Destroyed>()));
@@ -25,7 +25,7 @@ namespace Code
 			foreach (var actor in entities)
 			{
 				if (actor.Is<CurrentActor>())
-					_stateChangeBus.ToState<TurnEndedGameplayState>();
+					_stateMachine.ToState<TurnEndedGameplayState>();
 			}
 		}
 	}

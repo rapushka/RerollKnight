@@ -9,12 +9,12 @@ namespace Code
 {
 	public sealed class UpdateChipsPositionSystem : IExecuteSystem
 	{
-		private readonly ILayoutService _layoutService;
+		private readonly IViewConfig _viewConfig;
 		private readonly IGroup<Entity<GameScope>> _chips;
 
-		public UpdateChipsPositionSystem(Contexts contexts, ILayoutService layoutService)
+		public UpdateChipsPositionSystem(Contexts contexts, IViewConfig viewConfig)
 		{
-			_layoutService = layoutService;
+			_viewConfig = viewConfig;
 			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>(), Get<Visible>()));
 		}
 
@@ -31,8 +31,8 @@ namespace Code
 		}
 
 		private float HeightFor(Entity<GameScope> entity)
-			=> entity.Is<PickedChip>()          ? _layoutService.PickedChipPositionY
-				: !entity.Is<AvailableToPick>() ? _layoutService.UnavailableChipPositionY
-				                                  : _layoutService.DefaultChipPositionY;
+			=> entity.Is<PickedChip>()          ? _viewConfig.PickedChipPositionY
+				: !entity.Is<AvailableToPick>() ? _viewConfig.UnavailableChipPositionY
+				                                  : _viewConfig.DefaultChipPositionY;
 	}
 }

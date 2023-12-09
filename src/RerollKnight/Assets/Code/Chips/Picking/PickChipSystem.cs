@@ -5,24 +5,23 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class PickChipSystem : IExecuteSystem
+	public sealed class PickChipSystem : IExecuteSystem, IStateTransferSystem
 	{
-		private readonly IStateChangeBus _stateChangeBus;
 		private readonly IGroup<Entity<GameScope>> _chips;
 
-		public PickChipSystem(Contexts contexts, IStateChangeBus stateChangeBus)
+		public PickChipSystem(Contexts contexts)
 		{
-			_stateChangeBus = stateChangeBus;
-
 			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<AvailableToPick>(), Get<Clicked>()));
 		}
+
+		public StateMachineBase StateMachine { get; set; }
 
 		public void Execute()
 		{
 			foreach (var e in _chips.GetEntities())
 			{
 				e.Pick();
-				_stateChangeBus.ToState<ChipPickedGameplayState>();
+				StateMachine.ToState<ChipPickedGameplayState>();
 			}
 		}
 	}

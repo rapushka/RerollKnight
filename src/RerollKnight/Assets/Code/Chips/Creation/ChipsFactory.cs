@@ -15,7 +15,7 @@ namespace Code
 		private readonly IResourcesService _resources;
 		private readonly AbilitiesFactory _abilitiesFactory;
 		private readonly IHoldersProvider _holdersProvider;
-		private readonly ILayoutService _layoutService;
+		private readonly IViewConfig _viewConfig;
 
 		[Inject]
 		public ChipsFactory
@@ -25,7 +25,7 @@ namespace Code
 			IResourcesService resources,
 			AbilitiesFactory abilitiesFactory,
 			IHoldersProvider holdersProvider,
-			ILayoutService layoutService
+			IViewConfig viewConfig
 		)
 		{
 			_contexts = contexts;
@@ -33,7 +33,7 @@ namespace Code
 			_assets = assets;
 			_resources = resources;
 			_abilitiesFactory = abilitiesFactory;
-			_layoutService = layoutService;
+			_viewConfig = viewConfig;
 		}
 
 		public GameEntity Create(ChipConfigBehaviour chipConfig, GameEntity actor, GameEntity face)
@@ -65,7 +65,7 @@ namespace Code
 			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity
 			          .Is<Visible>(true)
 			          .Add<Position, Vector3>(Vector3.zero)
-			          .Add<MovingSpeed, float>(_layoutService.ChipsMovingSpeed);
+			          .Add<MovingSpeed, float>(_viewConfig.ChipsMovingSpeed);
 
 		private GameEntity NewEntity() => _contexts.Get<GameScope>().CreateEntity();
 	}
