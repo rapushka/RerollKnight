@@ -29,6 +29,23 @@ namespace Code
 		{
 			Container.BindInterfacesAndSelfTo<GameplayStateMachine>().AsSingle();
 
+			Container.BindInterfacesAndSelfToAsSingle
+			(
+				// Game preparations
+				typeof(LoadLevelGameplayState),
+				typeof(InitializeGameplayState),
+
+				// Game loop
+				typeof(ObservingGameplayState),
+				typeof(ChipPickedGameplayState),
+				typeof(CastingAbilitiesGameplayState),
+				typeof(TurnEndedGameplayState),
+				typeof(OtherPlayerTurnGameplayState),
+
+				// Tools
+				typeof(WaitAndThenToState<OtherPlayerTurnGameplayState>)
+			);
+
 #if DEBUG
 			Container.BindInterfacesTo<GameplayStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
 #endif
