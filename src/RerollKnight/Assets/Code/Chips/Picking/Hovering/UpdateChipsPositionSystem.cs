@@ -22,7 +22,7 @@ namespace Code
 		{
 			foreach (var e in _chips)
 			{
-				var newY = e.Get<InitialPosition>().Value.y + OffsetY(e);
+				var newY = HeightFor(e);
 				var position = e.Get<Position>().Value;
 
 				if (!newY.ApproximatelyEquals(position.y))
@@ -30,9 +30,9 @@ namespace Code
 			}
 		}
 
-		private float OffsetY(Entity<GameScope> entity)
-			=> entity.Is<PickedChip>()          ? _layoutService.PickedChipOffset.y
-				: !entity.Is<AvailableToPick>() ? _layoutService.UnavailableChipOffset.y
-				                                  : 0f;
+		private float HeightFor(Entity<GameScope> entity)
+			=> entity.Is<PickedChip>()          ? _layoutService.PickedChipPositionY
+				: !entity.Is<AvailableToPick>() ? _layoutService.UnavailableChipPositionY
+				                                  : _layoutService.DefaultChipPositionY;
 	}
 }

@@ -15,5 +15,5 @@ namespace Code.Component
 
 	[GameScope] public sealed class Camera : FlagComponent, IUnique { }
 
-	[GameScope] public sealed class Visible : ValueComponent<bool>, IEvent<Self> { }
+	[GameScope] public sealed class Visible : FlagComponent, IEvent<Self> { }
 }

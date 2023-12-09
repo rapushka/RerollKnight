@@ -34,7 +34,7 @@ namespace Code
 			Add<RemoveDestroyedActorFromQueueSystem>();
 
 			// Visuals
-			Add<ArrangeChipsViewsSystem>();
+			// Add<ArrangeChipsViewsSystem>();
 			Add<UpdateChipsPositionSystem>();
 			Add<AlignChipsSystem>();
 			Add<MoveToDestinationSystem>();

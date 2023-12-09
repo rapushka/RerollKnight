@@ -24,7 +24,7 @@ namespace Code
 
 				var isAvailable = face.IsActiveFace() && actor.Is<CurrentActor>();
 				chip.Is<AvailableToPick>(isAvailable);
-				chip.Replace<Visible, bool>(isAvailable);
+				chip.Is<Visible>(isAvailable);
 			}
 		}
 	}

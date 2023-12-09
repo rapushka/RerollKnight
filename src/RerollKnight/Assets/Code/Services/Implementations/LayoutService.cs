@@ -6,10 +6,11 @@ namespace Code
 	{
 		Vector3 OverFieldOffset { get; }
 
-		Vector3 ChipsPositionStep     { get; }
-		Vector3 PickedChipOffset      { get; }
-		Vector3 UnavailableChipOffset { get; }
-		float   ChipsPanelWidth      { get; }
+		Vector3 ChipsPositionStep        { get; }
+		float   PickedChipPositionY      { get; }
+		float   DefaultChipPositionY     { get; }
+		float   UnavailableChipPositionY { get; }
+		float   ChipsPanelWidth          { get; }
 	}
 
 	[CreateAssetMenu(fileName = "Layout", menuName = "Layout", order = 0)]
@@ -20,8 +21,9 @@ namespace Code
 		[field: Header("Chips layout")]
 		[field: SerializeField] public Vector3 ChipsPositionStep { get; private set; }
 
-		[field: SerializeField] public Vector3 PickedChipOffset      { get; private set; }
-		[field: SerializeField] public Vector3 UnavailableChipOffset { get; private set; }
-		[field: SerializeField] public float   ChipsPanelWidth      { get; private set; }
+		[field: SerializeField] public float PickedChipPositionY      { get; private set; }
+		[field: SerializeField] public float DefaultChipPositionY     { get; private set; }
+		[field: SerializeField] public float UnavailableChipPositionY { get; private set; }
+		[field: SerializeField] public float ChipsPanelWidth          { get; private set; }
 	}
 }

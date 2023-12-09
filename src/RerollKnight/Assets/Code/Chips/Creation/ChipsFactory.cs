@@ -1,7 +1,10 @@
 using Code.Component;
 using Entitas.Generic;
+using UnityEngine;
 using Zenject;
 using GameEntity = Entitas.Generic.Entity<Code.GameScope>;
+using Label = Code.Component.Label;
+using Position = Code.Component.Position;
 
 namespace Code
 {
@@ -41,6 +44,7 @@ namespace Code
 			var chip = InitializeChip(entity)
 			           .Add<Label, string>(config.Label)
 			           .Add<ForeignID, string>(face.EnsureID())
+			           .Add<Position, Vector3>(Vector3.zero)
 				;
 
 			foreach (var abilityConfig in config.Abilities)
@@ -57,7 +61,7 @@ namespace Code
 
 		private GameEntity NewBehaviour()
 			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity
-			          .Add<Visible, bool>(true);
+			          .Is<Visible>(true);
 
 		private GameEntity NewEntity() => _contexts.Get<GameScope>().CreateEntity();
 	}

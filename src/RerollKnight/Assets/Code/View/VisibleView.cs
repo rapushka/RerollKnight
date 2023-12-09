@@ -9,6 +9,6 @@ namespace Code
 		[SerializeField] private GameObject _target;
 
 		public override void OnValueChanged(Entity<GameScope> entity, Visible component)
-			=> _target.SetActive(component.Value);
+			=> _target.SetActive(entity.Is<Visible>());
 	}
 }

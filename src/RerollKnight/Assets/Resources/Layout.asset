@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <OverFieldOffset>k__BackingField: {x: 0, y: 0.125, z: 0}
   <ChipsPositionStep>k__BackingField: {x: -1.1, y: 0, z: 0}
-  <PickedChipOffset>k__BackingField: {x: 0, y: 0.5, z: 0}
-  <UnavailableChipOffset>k__BackingField: {x: 0, y: -0.7, z: 0}
+  <PickedChipPositionY>k__BackingField: 1
+  <DefaultChipPositionY>k__BackingField: 0
+  <UnavailableChipPositionY>k__BackingField: -1
   <ChipsPanelWidth>k__BackingField: 6

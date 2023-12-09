@@ -28,7 +28,7 @@ namespace Code
 			foreach (var chip in chips)
 			{
 				chip.Replace<Position, Vector3>(_layoutService.ChipsPositionStep * _counter);
-				chip.Add<InitialPosition, Vector3>(chip.Get<Position>().Value);
+				// chip.Add<InitialPosition, Vector3>(chip.Get<Position>().Value);
 
 				_counter++;
 			}
