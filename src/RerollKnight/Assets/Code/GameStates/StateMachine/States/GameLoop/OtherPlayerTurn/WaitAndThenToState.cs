@@ -33,6 +33,8 @@ namespace Code
 			}
 		}
 
+		public static Data To<TState>(float after) => new(typeof(TState), after);
+
 		public class Data
 		{
 			public Type NextState;

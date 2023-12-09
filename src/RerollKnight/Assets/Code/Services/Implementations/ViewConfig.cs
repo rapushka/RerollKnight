@@ -11,6 +11,8 @@ namespace Code
 		float UnavailableChipPositionY { get; }
 		float MaxDistanceBetweenChips  { get; }
 		float ChipsMovingSpeed         { get; }
+
+		float EnemyThinkingDuration { get; }
 	}
 
 	[CreateAssetMenu(fileName = "ViewConfig", menuName = "ViewConfig", order = 0)]
@@ -29,5 +31,8 @@ namespace Code
 
 		[field: Header("Arrangement")]
 		[field: SerializeField] public float MaxDistanceBetweenChips { get; private set; }
+
+		[field: Header("Timings")]
+		[field: SerializeField] public float EnemyThinkingDuration { get; private set; }
 	}
 }
