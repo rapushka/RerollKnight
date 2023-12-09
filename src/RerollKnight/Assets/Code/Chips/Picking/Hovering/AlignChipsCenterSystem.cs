@@ -10,20 +10,20 @@ namespace Code
 	internal sealed class AlignChipsCenterSystem : IExecuteSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _chips;
-		private readonly ILayoutService _layoutService;
+		private readonly IViewConfig _viewConfig;
 
-		public AlignChipsCenterSystem(Contexts contexts, ILayoutService layoutService)
+		public AlignChipsCenterSystem(Contexts contexts, IViewConfig viewConfig)
 		{
 			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>(), Get<Visible>()));
-			_layoutService = layoutService;
+			_viewConfig = viewConfig;
 		}
 
-		private float Width => (_chips.count - 1) * _layoutService.MaxDistanceBetweenChips;
+		private float Width => (_chips.count - 1) * _viewConfig.MaxDistanceBetweenChips;
 
 		public void Execute()
 		{
 			var range = RangeFloat.FromCenterAndWidth(0, Width);
-			var positionStep = _layoutService.MaxDistanceBetweenChips;
+			var positionStep = _viewConfig.MaxDistanceBetweenChips;
 			var currentPosition = range.Min;
 
 			foreach (var e in _chips)

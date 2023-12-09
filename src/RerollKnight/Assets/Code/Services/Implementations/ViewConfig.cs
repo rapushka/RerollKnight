@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Code
 {
-	public interface ILayoutService
+	public interface IViewConfig
 	{
 		Vector3 OverFieldOffset { get; }
 
@@ -13,8 +13,8 @@ namespace Code
 		float ChipsMovingSpeed         { get; }
 	}
 
-	[CreateAssetMenu(fileName = "Layout", menuName = "Layout", order = 0)]
-	public class LayoutService : ScriptableObject, ILayoutService
+	[CreateAssetMenu(fileName = "ViewConfig", menuName = "ViewConfig", order = 0)]
+	public class ViewConfig : ScriptableObject, IViewConfig
 	{
 		[field: SerializeField] public Vector3 OverFieldOffset { get; private set; }
 
