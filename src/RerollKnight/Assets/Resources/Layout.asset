@@ -17,5 +17,4 @@ MonoBehaviour:
   <PickedChipPositionY>k__BackingField: 1
   <DefaultChipPositionY>k__BackingField: 0
   <UnavailableChipPositionY>k__BackingField: -0.25
-  <MaxDistanceBetweenChips>k__BackingField: 1.1
-  <RerollRotationSpeed>k__BackingField: 1
+  <MaxDistanceBetweenChips>k__BackingField: 1.235
