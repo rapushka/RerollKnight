@@ -37,6 +37,7 @@ namespace Code
 			Add<UpdateChipsPositionSystem>();
 			Add<AlignChipsCenterSystem>();
 			Add<MoveToDestinationSystem>();
+			Add<RotateToDestinationSystem>();
 			Add<LookAtSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();

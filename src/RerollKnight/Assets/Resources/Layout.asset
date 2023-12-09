@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Layout
   m_EditorClassIdentifier: 
   <OverFieldOffset>k__BackingField: {x: 0, y: 0.125, z: 0}
-  <ChipsPositionStep>k__BackingField: {x: -1.1, y: 0, z: 0}
+  <ChipsMovingSpeed>k__BackingField: 10
   <PickedChipPositionY>k__BackingField: 1
   <DefaultChipPositionY>k__BackingField: 0
   <UnavailableChipPositionY>k__BackingField: -0.25
   <MaxDistanceBetweenChips>k__BackingField: 1.1
-  <ChipsMovingSpeed>k__BackingField: 10
+  <RerollRotationSpeed>k__BackingField: 1

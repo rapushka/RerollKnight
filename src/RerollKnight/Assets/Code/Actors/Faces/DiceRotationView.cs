@@ -10,14 +10,17 @@ namespace Code
 	/// <summary> temporary (i hope) </summary>
 	public class DiceRotationView : BaseListener<GameScope, ActiveFace>
 	{
-		[SerializeField] private Transform _bodyTransform;
+		[SerializeField] private EntityBehaviour<GameScope> _bodyBehaviour;
 		[SerializeField] private List<RotationEntry> _rotations;
 
 		public override void OnValueChanged(Entity<GameScope> entity, ActiveFace component)
 		{
 			var rotation = _rotations.SingleOrDefault((r) => r.Number == component.Value)?.Quaternion;
 			if (rotation is not null)
-				_bodyTransform.rotation = Quaternion.Euler(rotation.Value);
+			{
+				_bodyBehaviour.Entity.Replace<DestinationRotation, Quaternion>(Quaternion.Euler(rotation.Value));
+				// _bodyTransform.rotation = Quaternion.Euler(rotation.Value);
+			}
 		}
 
 		[Serializable]
