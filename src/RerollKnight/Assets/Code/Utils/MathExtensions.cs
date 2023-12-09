@@ -6,6 +6,8 @@ namespace Code
 	{
 		public static int Delta(this int @this, int other) => Math.Abs(@this - other);
 
+		public static float Delta(this float @this, float other) => Math.Abs(@this - other);
+
 		public static int Clamp(this int @this, int min = int.MinValue, int max = int.MaxValue)
 			=> Math.Clamp(@this, min, max);
 

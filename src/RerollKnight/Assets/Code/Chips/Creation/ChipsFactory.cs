@@ -15,6 +15,7 @@ namespace Code
 		private readonly IResourcesService _resources;
 		private readonly AbilitiesFactory _abilitiesFactory;
 		private readonly IHoldersProvider _holdersProvider;
+		private readonly ILayoutService _layoutService;
 
 		[Inject]
 		public ChipsFactory
@@ -23,7 +24,8 @@ namespace Code
 			IAssetsService assets,
 			IResourcesService resources,
 			AbilitiesFactory abilitiesFactory,
-			IHoldersProvider holdersProvider
+			IHoldersProvider holdersProvider,
+			ILayoutService layoutService
 		)
 		{
 			_contexts = contexts;
@@ -31,6 +33,7 @@ namespace Code
 			_assets = assets;
 			_resources = resources;
 			_abilitiesFactory = abilitiesFactory;
+			_layoutService = layoutService;
 		}
 
 		public GameEntity Create(ChipConfigBehaviour chipConfig, GameEntity actor, GameEntity face)
@@ -45,6 +48,7 @@ namespace Code
 			           .Add<Label, string>(config.Label)
 			           .Add<ForeignID, string>(face.EnsureID())
 			           .Add<Position, Vector3>(Vector3.zero)
+			           .Add<MovingSpeed, float>(_layoutService.ChipsMovingSpeed)
 				;
 
 			foreach (var abilityConfig in config.Abilities)

@@ -18,6 +18,6 @@ namespace Code
 		public static RangeFloat FromCenterAndRadius(float center, float radius)
 			=> new() { Min = center - radius, Max = center + radius, };
 
-		public float Delta => Max - Min;
+		public float Delta => Max.Delta(Min);
 	}
 }

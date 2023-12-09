@@ -11,6 +11,7 @@ namespace Code
 		float   DefaultChipPositionY     { get; }
 		float   UnavailableChipPositionY { get; }
 		float   ChipsPanelWidth          { get; }
+		float   ChipsMovingSpeed         { get; }
 	}
 
 	[CreateAssetMenu(fileName = "Layout", menuName = "Layout", order = 0)]
@@ -25,5 +26,6 @@ namespace Code
 		[field: SerializeField] public float DefaultChipPositionY     { get; private set; }
 		[field: SerializeField] public float UnavailableChipPositionY { get; private set; }
 		[field: SerializeField] public float ChipsPanelWidth          { get; private set; }
+		[field: SerializeField] public float ChipsMovingSpeed         { get; private set; }
 	}
 }

@@ -11,18 +11,14 @@ namespace Code
 	{
 		private readonly IGroup<Entity<GameScope>> _chips;
 		private readonly ILayoutService _layoutService;
-		private readonly IHoldersProvider _holdersProvider;
 
-		public AlignChipsSystem(Contexts contexts, ILayoutService layoutService, IHoldersProvider holdersProvider)
+		public AlignChipsSystem(Contexts contexts, ILayoutService layoutService)
 		{
 			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>(), Get<Visible>()));
-			_holdersProvider = holdersProvider;
 			_layoutService = layoutService;
 		}
 
 		private float Width => _layoutService.ChipsPanelWidth;
-
-		private float Center => _holdersProvider.ChipsHolder.position.x;
 
 		public void Execute()
 		{
@@ -33,17 +29,15 @@ namespace Code
 
 			foreach (var e in _chips)
 			{
-				var newPositionX = currentPosition;
+				currentPosition += positionStep;
 				var chipPosition = e.Get<Position>().Value;
 
-				if (!newPositionX.ApproximatelyEquals(chipPosition.x))
-					e.Replace<DestinationPosition, Vector3>(chipPosition.Set(x: newPositionX));
-
-				currentPosition += positionStep;
+				if (!chipPosition.x.ApproximatelyEquals(currentPosition))
+					e.Replace<DestinationPosition, Vector3>(chipPosition.Set(x: currentPosition));
 			}
 		}
 
 		private RangeFloat CalculateChipsPanel()
-			=> RangeFloat.FromCenterAndRadius(Center, Width);
+			=> RangeFloat.FromCenterAndRadius(0, Width);
 	}
 }
