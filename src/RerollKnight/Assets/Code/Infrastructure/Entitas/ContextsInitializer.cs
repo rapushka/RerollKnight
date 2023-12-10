@@ -31,7 +31,6 @@ namespace Code
 		private void InitializeIndexes()
 		{
 			Component.Coordinates.Index.Initialize();
-			CoordinatesUnderField.Index.Initialize();
 			ID.Index.Initialize();
 			ForeignID.GetIndex<GameScope>().Initialize();
 			ForeignID.GetIndex<ChipsScope>().Initialize();

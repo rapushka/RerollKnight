@@ -35,7 +35,7 @@ namespace Code
 			for (var y = 0; y < _generationConfig.FieldSizes.Row; y++)
 			{
 				_assets.SpawnBehaviour(CellPrefab, _holdersProvider.CellsHolder.transform).Entity
-				       .Add<CoordinatesUnderField, Coordinates>(new Coordinates(x, y))
+				       .Add<Component.Coordinates, Coordinates>(new Coordinates(x, y, Coordinates.Layer.Bellow))
 				       .Is<Empty>(true)
 					;
 			}

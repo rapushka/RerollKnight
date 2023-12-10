@@ -14,7 +14,7 @@ namespace Code
 
 		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> target)
 		{
-			const int damage = 1;
+			const int damage = 1; // TODO: take it out
 
 			_contexts.Get<RequestScope>().CreateEntity()
 			         .Add<ChangeHealth, int>(-damage)

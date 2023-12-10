@@ -6,24 +6,47 @@ namespace Code
 	[Serializable]
 	public class Coordinates
 	{
-		[field: SerializeField] public int Column { get; private set; }
-		[field: SerializeField] public int Row    { get; private set; }
-
-		public Coordinates(Vector2 vector)
+		public enum Layer
 		{
-			Column = (int)vector.x;
-			Row = (int)vector.y;
+			/// <summary> For disabled entities </summary>
+			None,
+			/// <summary> Standing on cell, e.g Player/Enemy/Wall </summary>
+			Default,
+			/// <summary> For cells itself </summary>
+			Bellow,
+			/// <summary> Where the room on the level </summary>
+			Room,
+			/// <summary> e.g Click at some coordinates </summary>
+			Request,
 		}
 
-		public Coordinates(int column, int row)
+		[field: SerializeField] public int   Column  { get; private set; }
+		[field: SerializeField] public int   Row     { get; private set; }
+		[field: SerializeField] public Layer OnLayer { get; private set; }
+
+		public Coordinates(Vector2 vector)
+			: this((int)vector.x, (int)vector.y) { }
+
+		public Coordinates(int column, int row, Layer layer = Layer.None)
 		{
 			Column = column;
 			Row = row;
+			OnLayer = layer;
 		}
 
 		public Vector3 ToTopDown() => ((Vector2)this).ToTopDown();
 
 		public int DistanceTo(Coordinates other) => Mathf.Max(Column.Delta(other.Column), Row.Delta(other.Row));
+
+		public Coordinates WithLayer(Layer layer)
+			=> new(Column, Row, layer);
+
+		protected bool Equals(Coordinates other)
+			=> OnLayer is not Layer.None
+			   && other.OnLayer is not Layer.None
+			   && Column == other.Column
+			   && Row == other.Row
+			   && OnLayer == other.OnLayer;
 
 		public static explicit operator Vector2(Coordinates coordinates)
 			=> new(coordinates.Column, coordinates.Row);
@@ -31,12 +54,9 @@ namespace Code
 		public override bool Equals(object obj) => obj is Coordinates coordinates
 		                                           && Equals(coordinates);
 
-		protected bool Equals(Coordinates other) => Column == other.Column
-		                                            && Row == other.Row;
-
 		// ReSharper disable NonReadonlyMemberInGetHashCode – needed fo view in the inspector
-		public override int GetHashCode() => HashCode.Combine(Column, Row);
+		public override int GetHashCode() => HashCode.Combine(Column, Row, OnLayer);
 
-		public override string ToString() => $"[{Column}; {Row}]";
+		public override string ToString() => $"({OnLayer.ToString()})–[{Column}; {Row}]";
 	}
 }
