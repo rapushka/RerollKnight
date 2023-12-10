@@ -2,7 +2,6 @@ using System;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 using Zenject;
 
 namespace Code
@@ -25,11 +24,8 @@ namespace Code
 
 		public void Initialize()
 		{
-			if (StateMachine.CurrentState is TossDicesGameplayState)
-			{
-				Debug.Log("yas, it is reroll");
+			if (StateMachine.CurrentState is RerollDicesGameplayState)
 				return;
-			}
 
 			if (CurrentActor.Is<Player>())
 				StateMachine.ToState<ObservingGameplayState>();

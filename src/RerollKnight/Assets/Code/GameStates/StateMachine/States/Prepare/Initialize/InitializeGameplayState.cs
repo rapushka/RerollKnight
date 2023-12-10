@@ -20,7 +20,7 @@ namespace Code
 				// Ready
 				// Add<ReadyOnAny<Actor>>();
 
-				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
+				Add<ToStateWhenAllReady<RerollDicesGameplayState>>();
 			}
 		}
 	}

@@ -6,7 +6,7 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public class RandomRotationSystem : IInitializeSystem, IExecuteSystem
+	public class RandomRotationSystem : IExecuteSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _group;
 		private readonly RandomService _random;
@@ -21,15 +21,6 @@ namespace Code
 
 		private Quaternion RandomRotation
 			=> _random.Rotation();
-
-		public void Initialize()
-		{
-			foreach (var e in _group.GetEntities())
-			{
-				// e.Replace<Rotation, Quaternion>(RandomRotation);
-				// e.Replace<DestinationRotation, Quaternion>(RandomRotation);
-			}
-		}
 
 		public void Execute()
 		{

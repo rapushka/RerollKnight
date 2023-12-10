@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Code
 {
-	public sealed class PassTurnToNextActorSystem : IInitializeSystem
+	public sealed class PassTurnToNextActorSystem : IInitializeSystem, IStateTransferSystem
 	{
 		private readonly TurnsQueue _turnsQueue;
 		private readonly Contexts _contexts;
@@ -18,11 +18,16 @@ namespace Code
 			_turnsQueue = turnsQueue;
 		}
 
+		public StateMachineBase StateMachine { get; set; }
+
 		[AllowNull]
 		private Entity<GameScope> CurrentPlayer => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
 
 		public void Initialize()
 		{
+			if (_turnsQueue.CurrentIsLast)
+				StateMachine.ToState<RerollDicesGameplayState>();
+
 			CurrentPlayer?.Is<CurrentActor>(false);
 			var actor = _turnsQueue.Next();
 			actor.Is<CurrentActor>(true);

@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
@@ -7,8 +8,6 @@ namespace Code
 	public sealed class WaitingSystem : ReadyOnConditionSystemBase, IExecuteSystem, IDataReceiver<float>
 	{
 		private readonly ITimeService _time;
-
-		private float _spentDuration;
 
 		[Inject]
 		public WaitingSystem(Contexts contexts, ITimeService time)
@@ -23,7 +22,10 @@ namespace Code
 		{
 			base.Initialize();
 
-			_spentDuration = 0;
+			ReadinessEntity
+				.Add<SpentTime, float>(0f)
+				.Add<WholeTime, float>(Value)
+				;
 		}
 
 		public void Execute()
@@ -31,9 +33,10 @@ namespace Code
 			if (Ready)
 				return;
 
-			_spentDuration += _time.DeltaTime;
+			var nextSpentTime = ReadinessEntity.Get<SpentTime>().Value + _time.DeltaTime;
+			ReadinessEntity.Replace<SpentTime, float>(nextSpentTime);
 
-			if (_spentDuration >= WholeDuration)
+			if (nextSpentTime >= WholeDuration)
 				Ready = true;
 		}
 	}

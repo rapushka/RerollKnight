@@ -1,28 +1,28 @@
-using Code.Component;
 using Entitas;
 using Entitas.Generic;
-using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
+using Zenject;
 
 namespace Code
 {
 	public sealed class ThrowDicesSystem : IExecuteSystem
 	{
-		private readonly IGroup<Entity<GameScope>> _entities;
-		private readonly IViewConfig _viewConfig;
+		// private readonly IGroup<Entity<GameScope>> _entities;
+		// private readonly IViewConfig _viewConfig;
 
+		[Inject]
 		public ThrowDicesSystem(Contexts contexts, IViewConfig viewConfig)
 		{
-			_viewConfig = viewConfig;
-			_entities = contexts.GetGroup(Get<Actor>());
+			// _viewConfig = viewConfig;
+			// _entities = contexts.GetGroup(Get<Actor>());
 		}
 
 		public void Execute()
 		{
-			foreach (var e in _entities)
-			{
-				// _viewConfig.RerollDuration
-				// _viewConfig.RerollThrowHeight
-			}
+			// foreach (var e in _entities)
+			// {
+			// 	_viewConfig.RerollDuration
+			// 	_viewConfig.RerollThrowHeight
+			// }
 		}
 	}
 }

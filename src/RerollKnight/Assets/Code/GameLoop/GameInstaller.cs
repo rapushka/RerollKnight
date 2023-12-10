@@ -40,6 +40,7 @@ namespace Code
 				typeof(ChipPickedGameplayState),
 				typeof(CastingAbilitiesGameplayState),
 				typeof(TurnEndedGameplayState),
+				typeof(RerollDicesGameplayState),
 				typeof(OtherPlayerTurnGameplayState),
 
 				// Tools

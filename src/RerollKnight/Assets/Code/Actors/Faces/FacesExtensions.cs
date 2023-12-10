@@ -20,7 +20,7 @@ namespace Code
 		}
 
 		public static bool IsActiveFace(this Entity<GameScope> face)
-			=> face.GetOwner().Get<ActiveFace>().Value == face.Get<Face>().Value;
+			=> face.Get<Face>().Value == face.GetOwner().GetOrDefault<ActiveFace>()?.Value;
 
 		public static Entity<GameScope> GetActiveFace(this Entity<GameScope> actor)
 		{

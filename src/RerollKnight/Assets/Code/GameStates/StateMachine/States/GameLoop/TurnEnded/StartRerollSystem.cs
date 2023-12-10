@@ -17,7 +17,7 @@ namespace Code
 		public void Initialize()
 		{
 			if (_turnsQueue.CurrentIsLast)
-				StateMachine.ToState<TossDicesGameplayState>();
+				StateMachine.ToState<RerollDicesGameplayState>();
 		}
 	}
 }
