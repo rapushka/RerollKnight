@@ -48,7 +48,9 @@ namespace Code
 			);
 
 #if DEBUG
-			Container.BindInterfacesTo<GameplayStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+			Container.BindInterfacesTo<GameplayStateDebugger>()
+			         .FromNewComponentOnNewGameObject().AsSingle()
+			         .NonLazy();
 #endif
 		}
 

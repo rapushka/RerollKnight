@@ -34,7 +34,6 @@ namespace Code
 
 			Container.Bind<ServicesMediator>().AsSingle();
 			Container.Bind<UiMediator>().AsSingle();
-
 		}
 	}
 }

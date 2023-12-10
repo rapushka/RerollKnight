@@ -17,7 +17,7 @@ namespace Code
 
 				// Add<StartRerollSystem>();
 				Add<PassTurnToNextActorSystem>();
-				Add<ToStateForCurrentActorSystem>();
+				Add<ToCurrentActorStateIfNotRerollSystem>();
 
 				// Tear Down
 				Add<MarkChipsAvailableSystem>();

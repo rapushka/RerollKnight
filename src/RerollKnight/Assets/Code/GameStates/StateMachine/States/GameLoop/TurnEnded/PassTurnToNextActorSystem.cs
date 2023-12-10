@@ -25,12 +25,12 @@ namespace Code
 
 		public void Initialize()
 		{
-			if (_turnsQueue.CurrentIsLast)
-				StateMachine.ToState<RerollDicesGameplayState>();
-
 			CurrentPlayer?.Is<CurrentActor>(false);
 			var actor = _turnsQueue.Next();
 			actor.Is<CurrentActor>(true);
+
+			if (_turnsQueue.CurrentIsFirst)
+				StateMachine.ToState<RerollDicesGameplayState>();
 		}
 	}
 }

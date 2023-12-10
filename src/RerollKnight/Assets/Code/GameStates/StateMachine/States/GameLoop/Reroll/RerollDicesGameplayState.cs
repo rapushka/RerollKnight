@@ -20,7 +20,12 @@ namespace Code
 
 				// Add<PassTurnToNextActorSystem>();
 
-				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
+				Add<ToCurrentActorStateWhenAllReadySystem>();
+				// Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
+
+				// TearDown
+				Add<SetRandomSideRolledSystem>();
+				Add<UnMarkAllDicesDetachedSystem>();
 			}
 		}
 	}
