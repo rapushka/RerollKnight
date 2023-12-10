@@ -18,7 +18,11 @@ namespace Code
 		public void Initialize()
 		{
 			foreach (var player in _players)
+			{
 				_turnsQueue.PutFirst(player);
+				// _turnsQueue.Next();
+				// player.Is<CurrentActor>(true);
+			}
 		}
 	}
 }

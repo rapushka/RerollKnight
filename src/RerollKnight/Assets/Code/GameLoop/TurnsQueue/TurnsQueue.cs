@@ -12,6 +12,7 @@ namespace Code
 		public List<GameEntity> Queue { get; } = new();
 
 		public bool CurrentIsFirst => _current == Queue.First();
+		public bool CurrentIsLast  => _current == Queue.Last();
 
 		public GameEntity Next()
 		{

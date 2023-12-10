@@ -15,12 +15,13 @@ namespace Code
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 
-				Add<PassTurnToNextActorSystem>();
-				Add<DoRerollSystem>();
-				Add<ToStateForCurrentActorSystem>();
+				// Add<StartRerollSystem>();
+				// Add<PassTurnToNextActorSystem>();
+				// Add<ToCurrentActorStateIfNotRerollSystem>();
+				Add<RerollIfNeededSystem>();
 
 				// Tear Down
-				Add<MarkChipsAvailableSystem>();
+				// Add<MarkAvailableChipsSystem>();
 			}
 		}
 	}

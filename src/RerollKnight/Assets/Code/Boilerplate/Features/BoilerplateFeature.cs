@@ -21,6 +21,7 @@ namespace Code
 			Add(new SelfEventSystem<GameScope, Rotation>(contexts));
 			Add(new SelfEventSystem<GameScope, ActiveFace>(contexts));
 			Add(new SelfFlagEventSystem<GameScope, Visible>(contexts));
+			Add(new SelfFlagEventSystem<GameScope, Detached>(contexts));
 
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 

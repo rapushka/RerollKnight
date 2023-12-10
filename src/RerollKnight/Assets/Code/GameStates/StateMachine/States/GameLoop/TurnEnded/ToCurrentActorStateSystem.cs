@@ -6,13 +6,13 @@ using Zenject;
 
 namespace Code
 {
-	public sealed class ToStateForCurrentActorSystem : IInitializeSystem, IStateTransferSystem
+	public sealed class ToCurrentActorStateSystem : IStateTransferSystem, IInitializeSystem
 	{
 		private readonly Contexts _contexts;
-		private IViewConfig _viewConfig;
+		private readonly IViewConfig _viewConfig;
 
 		[Inject]
-		public ToStateForCurrentActorSystem(Contexts contexts, IViewConfig viewConfig)
+		private ToCurrentActorStateSystem(Contexts contexts, IViewConfig viewConfig)
 		{
 			_contexts = contexts;
 			_viewConfig = viewConfig;
@@ -23,6 +23,11 @@ namespace Code
 		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
 
 		public void Initialize()
+		{
+			ChangeState();
+		}
+
+		private void ChangeState()
 		{
 			if (CurrentActor.Is<Player>())
 				StateMachine.ToState<ObservingGameplayState>();

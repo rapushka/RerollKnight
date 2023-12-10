@@ -8,25 +8,25 @@ namespace Code
 	{
 		private readonly Contexts _contexts;
 
-		private Entity<InfrastructureScope> _readinessEntity;
+		protected Entity<InfrastructureScope> ReadinessEntity;
 
 		protected ReadyOnConditionSystemBase(Contexts contexts) => _contexts = contexts;
 
 		protected bool Ready
 		{
-			get => _readinessEntity.Get<Ready>().Value;
-			set => _readinessEntity.Replace<Ready, bool>(value);
+			get => ReadinessEntity.Get<Ready>().Value;
+			set => ReadinessEntity.Replace<Ready, bool>(value);
 		}
 
 		public virtual void Initialize()
 		{
-			_readinessEntity = _contexts.Get<InfrastructureScope>().CreateEntity();
+			ReadinessEntity = _contexts.Get<InfrastructureScope>().CreateEntity();
 			Ready = false;
 		}
 
 		public virtual void TearDown()
 		{
-			_readinessEntity.Destroy();
+			ReadinessEntity.Destroy();
 		}
 	}
 }

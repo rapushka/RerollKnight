@@ -1,7 +1,7 @@
-using System.Diagnostics.CodeAnalysis;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using JetBrains.Annotations;
 using Zenject;
 
 namespace Code
@@ -18,7 +18,7 @@ namespace Code
 			_turnsQueue = turnsQueue;
 		}
 
-		[AllowNull]
+		[CanBeNull]
 		private Entity<GameScope> CurrentPlayer => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
 
 		public void Initialize()

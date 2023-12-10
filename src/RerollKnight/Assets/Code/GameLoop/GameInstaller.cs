@@ -40,6 +40,8 @@ namespace Code
 				typeof(ChipPickedGameplayState),
 				typeof(CastingAbilitiesGameplayState),
 				typeof(TurnEndedGameplayState),
+				typeof(RerollDicesGameplayState),
+				typeof(PassTurnGameplayState),
 				typeof(OtherPlayerTurnGameplayState),
 
 				// Tools
@@ -47,7 +49,9 @@ namespace Code
 			);
 
 #if DEBUG
-			Container.BindInterfacesTo<GameplayStateDebugger>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+			Container.BindInterfacesTo<GameplayStateDebugger>()
+			         .FromNewComponentOnNewGameObject().AsSingle()
+			         .NonLazy();
 #endif
 		}
 

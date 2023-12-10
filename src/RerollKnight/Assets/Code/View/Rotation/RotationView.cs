@@ -10,7 +10,8 @@ namespace Code
 
 		public override void OnValueChanged(Entity<GameScope> entity, Rotation component)
 		{
-			_transform.rotation = component.Value;
+			if (!entity.Is<Detached>())
+				_transform.rotation = component.Value;
 		}
 	}
 }

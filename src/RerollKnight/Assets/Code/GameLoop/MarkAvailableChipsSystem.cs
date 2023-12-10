@@ -7,12 +7,12 @@ using GameEntity = Entitas.Generic.Entity<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class MarkChipsAvailableSystem : ITearDownSystem
+	public sealed class MarkAvailableChipsSystem : ITearDownSystem
 	{
 		private readonly IGroup<GameEntity> _chips;
 
 		[Inject]
-		public MarkChipsAvailableSystem(Contexts contexts)
+		public MarkAvailableChipsSystem(Contexts contexts)
 			=> _chips = contexts.GetGroup(Get<Chip>());
 
 		public void TearDown()
