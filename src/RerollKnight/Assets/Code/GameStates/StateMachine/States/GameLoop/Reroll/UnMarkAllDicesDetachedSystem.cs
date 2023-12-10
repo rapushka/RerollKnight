@@ -16,7 +16,7 @@ namespace Code
 		public void TearDown()
 		{
 			foreach (var e in _dices)
-				e.Is<Detached>(true);
+				e.Is<Detached>(false);
 		}
 	}
 }

@@ -8,6 +8,6 @@ namespace Code.Component
 		[SerializeField] private GameObject _limbsRoot;
 
 		public override void OnValueChanged(Entity<GameScope> entity, Detached component)
-			=> _limbsRoot.SetActive(entity.Is<Detached>());
+			=> _limbsRoot.SetActive(!entity.Is<Detached>());
 	}
 }
