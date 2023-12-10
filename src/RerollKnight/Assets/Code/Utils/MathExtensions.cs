@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Code
 {
@@ -16,5 +17,8 @@ namespace Code
 
 		public static bool ApproximatelyEquals(this float @this, float other)
 			=> Math.Abs(@this - other) <= Constants.Tolerance;
+
+		public static float Sin(this float @this, float wholeDuration)
+			=> Mathf.Sin(@this / wholeDuration * Mathf.PI);
 	}
 }

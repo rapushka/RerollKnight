@@ -21,22 +21,17 @@ namespace Code
 			_timers = contexts.GetGroup(ScopeMatcher<InfrastructureScope>.Get<SpentTime>());
 		}
 
+		private float WholeDuration => _viewConfig.RerollDuration;
+
+		private float MaxHeight => _viewConfig.RerollThrowHeight;
+
 		public void Execute()
 		{
 			foreach (var timer in _timers)
+			foreach (var actor in _actors)
 			{
-				foreach (var actor in _actors)
-				{
-					var wholeDuration = _viewConfig.RerollDuration;
-					var spentDuration = timer.Get<SpentTime>().Value;
-					var maxHeight = _viewConfig.RerollThrowHeight;
-
-					var position = actor.Get<Position>().Value;
-
-					var currentHeight = Mathf.Sin(spentDuration / wholeDuration * Mathf.PI) * maxHeight;
-					position.y = currentHeight;
-					actor.Replace<Position, Vector3>(position);
-				}
+				var currentHeight = timer.Get<SpentTime>().Value.Sin(WholeDuration) * MaxHeight;
+				actor.Replace<Position, Vector3>(actor.Get<Position>().Value.Set(y: currentHeight));
 			}
 		}
 	}
