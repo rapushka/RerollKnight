@@ -48,7 +48,6 @@ namespace Code
 			var faces = actor.GetDependants().Where((e) => e.Has<Face>());
 
 			CreateChips(chips, actor, faces);
-			// faces.PickRandom().MarkAsActive(); // TODO: mb to Reroll State
 
 			_uiFactory.CreateHealthBar(actor);
 			return actor;
