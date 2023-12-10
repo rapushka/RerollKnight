@@ -37,7 +37,6 @@ namespace Code
 				_assets.SpawnBehaviour(CellPrefab, _holdersProvider.CellsHolder.transform).Entity
 				       .Add<CoordinatesUnderField, Coordinates>(new Coordinates(x, y))
 				       .Is<Empty>(true)
-				       .Is<ExistsBetweenRooms>(true)
 					;
 			}
 		}

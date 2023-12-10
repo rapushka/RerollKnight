@@ -2,5 +2,5 @@ using Entitas.Generic;
 
 namespace Code.Component
 {
-	[GameScope] public sealed class ExistsBetweenRooms : FlagComponent { }
+	[GameScope] public sealed class RoomResident : FlagComponent { }
 }

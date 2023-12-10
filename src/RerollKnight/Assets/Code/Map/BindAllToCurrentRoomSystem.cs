@@ -13,7 +13,7 @@ namespace Code
 		public BindAllToCurrentRoomSystem(Contexts contexts)
 		{
 			_contexts = contexts;
-			_roomResidents = _contexts.GetGroup(AllOf(Get<ID>()).NoneOf(Get<ExistsBetweenRooms>(), Get<ForeignID>()));
+			_roomResidents = _contexts.GetGroup(AllOf(Get<RoomResident>()).NoneOf(Get<ForeignID>()));
 		}
 
 		public void Initialize()

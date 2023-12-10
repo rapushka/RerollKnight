@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas.Generic;
 using Zenject;
 
@@ -25,6 +26,7 @@ namespace Code
 		public Entity<GameScope> Create(Coordinates coordinates)
 			=> _assets.SpawnBehaviour(_resources.WallPrefab, _holdersProvider.CellsHolder.transform).Entity
 			          .Add<Component.Coordinates, Coordinates>(coordinates)
+			          .Is<RoomResident>(true)
 			          .Identify();
 	}
 }
