@@ -16,9 +16,9 @@ namespace Code
 			=> _turnsQueue = turnsQueue;
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
-			=> context.CreateCollector(Get<Actor>());
+			=> context.CreateCollector(AnyOf(Get<Actor>(), Get<Disabled>()).AddedOrRemoved());
 
-		protected override bool Filter(Entity<GameScope> entity) => entity.Is<Actor>();
+		protected override bool Filter(Entity<GameScope> entity) => entity.Is<Actor>() && !entity.Is<Disabled>();
 
 		protected override void Execute(List<Entity<GameScope>> entities)
 		{

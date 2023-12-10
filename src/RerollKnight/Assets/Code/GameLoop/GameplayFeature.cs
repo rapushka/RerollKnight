@@ -31,7 +31,10 @@ namespace Code
 
 			// Turns queue
 			Add<CollectActorsSystem>();
-			Add<RemoveDestroyedActorFromQueueSystem>();
+			Add<RemoveInactiveActorFromQueueSystem>();
+
+			// Wandering around the Rooms
+			Add<CascadeDisableSystem<GameScope>>();
 
 			// Visuals
 			Add<UpdateChipsPositionSystem>();

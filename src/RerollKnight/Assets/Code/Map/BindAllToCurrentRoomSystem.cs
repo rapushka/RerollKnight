@@ -18,7 +18,7 @@ namespace Code
 
 		public void Initialize()
 		{
-			var roomEntity = _contexts.Get<GameScope>().CreateEntity();
+			var roomEntity = _contexts.Get<GameScope>().CreateEntity().Identify();
 			roomEntity.Add<DebugName, string>("Room");
 			roomEntity.Add<Component.Coordinates, Coordinates>(new Coordinates(0, 0, Coordinates.Layer.Room));
 
