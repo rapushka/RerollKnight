@@ -19,8 +19,7 @@ namespace Code
 			_time = time;
 		}
 
-		private Quaternion RandomRotation
-			=> _random.Rotation();
+		private Quaternion RandomRotation => _random.Rotation();
 
 		public void Execute()
 		{
@@ -28,7 +27,8 @@ namespace Code
 			{
 				var rotation = e.Get<Rotation>().Value;
 				var rotationSpeed = e.Get<RotationSpeed>().Value;
-				rotation = Quaternion.RotateTowards(rotation, RandomRotation, _time.DeltaTime * rotationSpeed);
+
+				rotation *= Quaternion.Euler(RandomRotation.eulerAngles * rotationSpeed * _time.DeltaTime);
 				e.Replace<Rotation, Quaternion>(rotation);
 			}
 		}

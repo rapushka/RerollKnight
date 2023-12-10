@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ChipsHolder>k__BackingField: {fileID: 1895644616}
   <CellsHolder>k__BackingField: {fileID: 1568119369}
-  <HudHolder>k__BackingField: {fileID: 0}
+  <HudHolder>k__BackingField: {fileID: 1288504069}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
