@@ -20,7 +20,7 @@ namespace Code
 		{
 			var roomEntity = _contexts.Get<GameScope>().CreateEntity();
 			roomEntity.Add<DebugName, string>("Room");
-			// roomEntity.Add<Component.Coordinates, Coordinates>(new Coordinates(0, 0, Coordinates.Layer.Room));
+			roomEntity.Add<Component.Coordinates, Coordinates>(new Coordinates(0, 0, Coordinates.Layer.Room));
 
 			foreach (var e in _roomResidents.GetEntities())
 				e.Add<ForeignID, string>(roomEntity.EnsureID());

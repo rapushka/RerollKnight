@@ -5,9 +5,9 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class DestroyWithDependentsSystem<TScope> : ReactiveSystem<Entity<TScope>> where TScope : IScope
+	public sealed class CascadeDestroySystem<TScope> : ReactiveSystem<Entity<TScope>> where TScope : IScope
 	{
-		public DestroyWithDependentsSystem(Contexts contexts) : base(contexts.Get<TScope>()) { }
+		public CascadeDestroySystem(Contexts contexts) : base(contexts.Get<TScope>()) { }
 
 		protected override ICollector<Entity<TScope>> GetTrigger(IContext<Entity<TScope>> context)
 			=> context.CreateCollector(ScopeMatcher<TScope>.AllOf(ID, Destroyed));
