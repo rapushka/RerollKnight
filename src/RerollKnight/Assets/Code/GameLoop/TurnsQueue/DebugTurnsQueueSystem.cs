@@ -21,7 +21,8 @@ namespace Code
 
 		public void Initialize()
 		{
-			_queueEntity = _contexts.Get<GameScope>().CreateEntity();
+			_queueEntity = _contexts.Get<GameScope>().CreateEntity()
+			                        .Is<ExistsBetweenRooms>(true);
 		}
 
 		public void Execute()

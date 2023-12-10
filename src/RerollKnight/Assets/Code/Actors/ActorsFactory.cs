@@ -30,7 +30,8 @@ namespace Code
 		}
 
 		public GameEntity CreatePlayer(Coordinates coordinates, List<ChipConfigBehaviour> chips)
-			=> Create(SpawnPrefab(_resources.PlayerPrefab), coordinates, chips);
+			=> Create(SpawnPrefab(_resources.PlayerPrefab), coordinates, chips)
+				.Is<ExistsBetweenRooms>(true);
 
 		public GameEntity CreateEnemy(Coordinates coordinates, List<ChipConfigBehaviour> chips)
 			=> Create(SpawnPrefab(_resources.EnemyPrefab), coordinates, chips);
