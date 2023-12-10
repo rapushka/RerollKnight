@@ -35,6 +35,7 @@ namespace Code
 
 			// Wandering around the Rooms
 			Add<CascadeDisableSystem<GameScope>>();
+			Add<CacheLayerOfDisabledSystem>();
 
 			// Visuals
 			Add<UpdateChipsPositionSystem>();
