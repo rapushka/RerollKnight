@@ -1,16 +1,17 @@
 using Entitas;
-using Entitas.Generic;
 using Zenject;
 
 namespace Code
 {
-	public sealed class StartRerollSystem : IInitializeSystem, IStateTransferSystem
+	public sealed class RerollIfNeededSystem : IInitializeSystem, IStateTransferSystem
 	{
 		private readonly TurnsQueue _turnsQueue;
 
 		[Inject]
-		public StartRerollSystem(Contexts contexts, TurnsQueue turnsQueue)
-			=> _turnsQueue = turnsQueue;
+		public RerollIfNeededSystem(TurnsQueue turnsQueue)
+		{
+			_turnsQueue = turnsQueue;
+		}
 
 		public StateMachineBase StateMachine { get; set; }
 
@@ -18,6 +19,8 @@ namespace Code
 		{
 			if (_turnsQueue.CurrentIsLast)
 				StateMachine.ToState<RerollDicesGameplayState>();
+			else
+				StateMachine.ToState<PassTurnGameplayState>();
 		}
 	}
 }

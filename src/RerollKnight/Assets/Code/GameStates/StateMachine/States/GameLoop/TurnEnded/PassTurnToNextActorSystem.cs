@@ -1,12 +1,12 @@
-using System.Diagnostics.CodeAnalysis;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using JetBrains.Annotations;
 using Zenject;
 
 namespace Code
 {
-	public sealed class PassTurnToNextActorSystem : IInitializeSystem, IStateTransferSystem
+	public sealed class PassTurnToNextActorSystem : IInitializeSystem
 	{
 		private readonly TurnsQueue _turnsQueue;
 		private readonly Contexts _contexts;
@@ -18,9 +18,7 @@ namespace Code
 			_turnsQueue = turnsQueue;
 		}
 
-		public StateMachineBase StateMachine { get; set; }
-
-		[AllowNull]
+		[CanBeNull]
 		private Entity<GameScope> CurrentPlayer => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
 
 		public void Initialize()
@@ -28,9 +26,6 @@ namespace Code
 			CurrentPlayer?.Is<CurrentActor>(false);
 			var actor = _turnsQueue.Next();
 			actor.Is<CurrentActor>(true);
-
-			if (_turnsQueue.CurrentIsFirst)
-				StateMachine.ToState<RerollDicesGameplayState>();
 		}
 	}
 }

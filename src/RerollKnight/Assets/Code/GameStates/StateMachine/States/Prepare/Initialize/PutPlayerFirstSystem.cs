@@ -20,8 +20,8 @@ namespace Code
 			foreach (var player in _players)
 			{
 				_turnsQueue.PutFirst(player);
-				_turnsQueue.Next();
-				player.Is<CurrentActor>(true);
+				// _turnsQueue.Next();
+				// player.Is<CurrentActor>(true);
 			}
 		}
 	}

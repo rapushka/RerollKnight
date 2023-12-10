@@ -41,6 +41,7 @@ namespace Code
 				typeof(CastingAbilitiesGameplayState),
 				typeof(TurnEndedGameplayState),
 				typeof(RerollDicesGameplayState),
+				typeof(PassTurnGameplayState),
 				typeof(OtherPlayerTurnGameplayState),
 
 				// Tools

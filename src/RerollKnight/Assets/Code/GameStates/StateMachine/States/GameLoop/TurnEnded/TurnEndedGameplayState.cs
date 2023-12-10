@@ -16,11 +16,12 @@ namespace Code
 				Add<MarkAllTargetsUnavailableSystem>();
 
 				// Add<StartRerollSystem>();
-				Add<PassTurnToNextActorSystem>();
-				Add<ToCurrentActorStateIfNotRerollSystem>();
+				// Add<PassTurnToNextActorSystem>();
+				// Add<ToCurrentActorStateIfNotRerollSystem>();
+				Add<RerollIfNeededSystem>();
 
 				// Tear Down
-				Add<MarkAvailableChipsSystem>();
+				// Add<MarkAvailableChipsSystem>();
 			}
 		}
 	}

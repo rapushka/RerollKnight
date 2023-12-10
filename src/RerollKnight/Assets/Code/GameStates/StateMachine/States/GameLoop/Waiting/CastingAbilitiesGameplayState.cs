@@ -16,7 +16,8 @@ namespace Code
 				Add<MarkPickedChipUnavailableSystem>();
 				Add<MarkAllAbilitiesCastingSystem>();
 				Add<AbilitiesFeature>();
-				Add<ToCurrentActorStateIfNotRerollSystem>();
+				Add<ToCurrentActorStateSystem>();
+				// Add<ToCurrentActorStateIfNotRerollSystem>();
 
 				// Update
 				// Add<EndTurnSystem>();

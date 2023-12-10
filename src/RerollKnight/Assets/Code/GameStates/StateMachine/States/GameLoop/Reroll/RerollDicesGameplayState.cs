@@ -11,22 +11,22 @@ namespace Code
 			public StateFeature(SystemsFactory factory, IViewConfig viewConfig)
 				: base($"{nameof(RerollDicesGameplayState)}.{nameof(StateFeature)}", factory)
 			{
-				// StateMachine.ToState<WaitAndThenToState, WaitAndThenToState.Data>(ToOtherPlayerTurnState);
-				Add<WaitingSystem, float>(viewConfig.RerollDuration);
-
+				// Initialize
 				Add<MarkAllDicesDetachedSystem>();
 				Add<ThrowDicesSystem>();
 				Add<RandomRotationSystem>();
 
+				Add<WaitingSystem, float>(viewConfig.RerollDuration);
+
 				// Add<PassTurnToNextActorSystem>();
 
-				Add<ToCurrentActorStateWhenAllReadySystem>();
+				Add<ToStateWhenAllReady<PassTurnGameplayState>>();
 				// Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
 
 				// TearDown
 				Add<SetRandomSideRolledSystem>();
 				Add<UnMarkAllDicesDetachedSystem>();
-				Add<MarkAvailableChipsSystem>();
+				// Add<MarkAvailableChipsSystem>();
 			}
 		}
 	}

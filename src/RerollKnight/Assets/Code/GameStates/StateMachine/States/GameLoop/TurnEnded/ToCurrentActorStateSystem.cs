@@ -1,17 +1,18 @@
 using System;
 using Code.Component;
+using Entitas;
 using Entitas.Generic;
 using Zenject;
 
 namespace Code
 {
-	public abstract class ToCurrentActorStateSystem : IStateTransferSystem
+	public sealed class ToCurrentActorStateSystem : IStateTransferSystem, IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly IViewConfig _viewConfig;
 
 		[Inject]
-		protected ToCurrentActorStateSystem(Contexts contexts, IViewConfig viewConfig)
+		private ToCurrentActorStateSystem(Contexts contexts, IViewConfig viewConfig)
 		{
 			_contexts = contexts;
 			_viewConfig = viewConfig;
@@ -21,7 +22,12 @@ namespace Code
 
 		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
 
-		protected void ChangeState()
+		public void Initialize()
+		{
+			ChangeState();
+		}
+
+		private void ChangeState()
 		{
 			if (CurrentActor.Is<Player>())
 				StateMachine.ToState<ObservingGameplayState>();
