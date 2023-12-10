@@ -28,7 +28,7 @@ namespace Code
 				var rotation = e.Get<Rotation>().Value;
 				var rotationSpeed = e.Get<RotationSpeed>().Value;
 
-				rotation *= Quaternion.Euler(RandomRotatgion.eulerAngles * rotationSpeed * _time.DeltaTime);
+				rotation *= Quaternion.Euler(RandomRotation.eulerAngles * rotationSpeed * _time.DeltaTime);
 				e.Replace<Rotation, Quaternion>(rotation);
 			}
 		}
