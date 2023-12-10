@@ -42,11 +42,12 @@ namespace Code
 			=> new(Column, Row, layer);
 
 		protected bool Equals(Coordinates other)
-			=> OnLayer is not Layer.None
-			   && other.OnLayer is not Layer.None
+			=> !IsBothNone(other)
 			   && Column == other.Column
 			   && Row == other.Row
 			   && OnLayer == other.OnLayer;
+
+		private bool IsBothNone(Coordinates other) => OnLayer is Layer.None && other.OnLayer is Layer.None;
 
 		public static explicit operator Vector2(Coordinates coordinates)
 			=> new(coordinates.Column, coordinates.Row);

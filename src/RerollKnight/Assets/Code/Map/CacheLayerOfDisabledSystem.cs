@@ -11,7 +11,7 @@ namespace Code
 		public CacheLayerOfDisabledSystem(Contexts contexts) : base(contexts.Get<GameScope>()) { }
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
-			=> context.CreateCollector(AllOf(Get<Disabled>(), Get<Component.Coordinates>()).AddedOrRemoved());
+			=> context.CreateCollector(Get<Disabled>().AddedOrRemoved());
 
 		protected override bool Filter(Entity<GameScope> entity) => entity.Has<Component.Coordinates>();
 
@@ -34,7 +34,7 @@ namespace Code
 					e.RemoveSafety<CashedLayer>();
 				}
 
-				if (!Equals(e.Get<Component.Coordinates>().Value, newCoordinates))
+				if (!e.Get<Component.Coordinates>().Value.Equals(newCoordinates))
 					e.Replace<Component.Coordinates, Coordinates>(newCoordinates);
 			}
 		}
