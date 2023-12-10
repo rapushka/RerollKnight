@@ -10,7 +10,7 @@ namespace Code
 {
 	public interface IRandomFieldAccess
 	{
-		Entity<GameScope> NextEmptyCell();
+		Entity<GameScope> NextEmptyCell(Coordinates.Layer layer = Coordinates.Layer.Bellow);
 	}
 
 	public class RandomFieldAccess : IRandomFieldAccess
@@ -25,11 +25,11 @@ namespace Code
 			_contexts = contexts;
 		}
 
-		public Entity<GameScope> NextEmptyCell()
+		public Entity<GameScope> NextEmptyCell(Coordinates.Layer layer = Coordinates.Layer.Bellow)
 		{
 			var wasRefilled = false;
 
-			if (!_cells.Any())
+			if (!CellsOnLayer(layer).Any())
 			{
 				Refill();
 				wasRefilled = true;
@@ -37,7 +37,7 @@ namespace Code
 
 			var next = _cells.Dequeue();
 
-			while (!IsEmpty(next))
+			while (!IsEmpty(next) || !OnSameLayer(next, layer))
 			{
 				if (_cells.Any())
 				{
@@ -46,7 +46,7 @@ namespace Code
 				}
 
 				if (wasRefilled)
-					throw new InvalidOperationException("There's no empty cells anymore");
+					throw NoEmptyCellException(layer);
 
 				Refill();
 				wasRefilled = true;
@@ -54,6 +54,12 @@ namespace Code
 
 			return next;
 		}
+
+		private IEnumerable<Entity<GameScope>> CellsOnLayer(Coordinates.Layer layer)
+			=> _cells.Where((e) => OnSameLayer(e, layer));
+
+		private static bool OnSameLayer(Entity<GameScope> entity, Coordinates.Layer layer)
+			=> entity.GetCoordinates().OnLayer == layer;
 
 		private static bool IsEmpty(Entity<GameScope> cell)
 		{
@@ -65,5 +71,8 @@ namespace Code
 		{
 			_cells = _contexts.GetGroup(AllOf(Get<Cell>(), Get<Empty>())).GetEntities().Shuffle().ToList();
 		}
+
+		private static InvalidOperationException NoEmptyCellException(Coordinates.Layer layer)
+			=> new($"There's no empty cells on layer {layer.ToString()} anymore");
 	}
 }
