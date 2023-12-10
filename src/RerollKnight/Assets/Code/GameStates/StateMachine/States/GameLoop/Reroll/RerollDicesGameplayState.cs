@@ -26,6 +26,7 @@ namespace Code
 				// TearDown
 				Add<SetRandomSideRolledSystem>();
 				Add<UnMarkAllDicesDetachedSystem>();
+				Add<MarkAvailableChipsSystem>();
 			}
 		}
 	}

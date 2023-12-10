@@ -20,7 +20,7 @@ namespace Code
 				Add<ToCurrentActorStateIfNotRerollSystem>();
 
 				// Tear Down
-				Add<MarkChipsAvailableSystem>();
+				Add<MarkAvailableChipsSystem>();
 			}
 		}
 	}
