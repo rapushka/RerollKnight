@@ -15,8 +15,8 @@ namespace Code
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 
+				Add<StartRerollSystem>();
 				Add<PassTurnToNextActorSystem>();
-				Add<DoRerollSystem>();
 				Add<ToStateForCurrentActorSystem>();
 
 				// Tear Down

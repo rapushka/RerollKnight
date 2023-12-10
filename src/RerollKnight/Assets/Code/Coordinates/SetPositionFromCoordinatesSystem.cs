@@ -21,7 +21,7 @@ namespace Code
 
 		public void Execute()
 		{
-			foreach (var e in _entities)
+			foreach (var e in _entities.Where((e) => !e.Is<Detached>()))
 			{
 				var position = e.GetCoordinates().ToTopDown();
 

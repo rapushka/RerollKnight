@@ -2,6 +2,7 @@ using System;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace Code
@@ -9,7 +10,7 @@ namespace Code
 	public sealed class ToStateForCurrentActorSystem : IInitializeSystem, IStateTransferSystem
 	{
 		private readonly Contexts _contexts;
-		private IViewConfig _viewConfig;
+		private readonly IViewConfig _viewConfig;
 
 		[Inject]
 		public ToStateForCurrentActorSystem(Contexts contexts, IViewConfig viewConfig)
@@ -24,6 +25,12 @@ namespace Code
 
 		public void Initialize()
 		{
+			if (StateMachine.CurrentState is TossDicesGameplayState)
+			{
+				Debug.Log("yas, it is reroll");
+				return;
+			}
+
 			if (CurrentActor.Is<Player>())
 				StateMachine.ToState<ObservingGameplayState>();
 			else if (CurrentActor.Is<Enemy>())

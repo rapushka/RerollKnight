@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Code
 {
 	/// <summary> For determinism 🤓 </summary>
@@ -15,5 +17,13 @@ namespace Code
 
 		public int RangeInclusive(RangeInt range)
 			=> _random.Next(range.Min, range.Max);
+
+		public Quaternion Rotation()
+			=> Quaternion.Euler
+			(
+				_random.Next(0, 360),
+				_random.Next(0, 360),
+				_random.Next(0, 360)
+			);
 	}
 }

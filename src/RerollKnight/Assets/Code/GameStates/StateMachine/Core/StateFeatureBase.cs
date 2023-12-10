@@ -20,11 +20,11 @@ namespace Code
 
 		protected new TSystem Add<TSystem>() where TSystem : ISystem
 		{
-			var system = Factory.Create<TSystem>();
+			var system = base.Add<TSystem>();
+
 			if (system is IStateTransferSystem stateTransferSystem)
 				_stateTransferSystems.Add(stateTransferSystem);
 
-			Add(system);
 			return system;
 		}
 	}
