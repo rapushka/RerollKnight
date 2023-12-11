@@ -20,6 +20,10 @@ namespace Code
 			foreach (var e in entities)
 			{
 				var coordinates = e.GetCoordinates();
+
+				if (coordinates.OnLayer is Coordinates.Layer.Room)
+					continue;
+
 				Coordinates newCoordinates;
 
 				if (e.Is<Disabled>())

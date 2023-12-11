@@ -22,7 +22,7 @@ namespace Code
 				Add<EnsureActorsInQueueSystem>();
 				// Add<BindAllToCurrentRoomSystem>();
 
-				Add<ToState<InitializeGameplayState>>();
+				Add<ToStateWhenAllReady<InitializeGameplayState>>();
 			}
 		}
 	}

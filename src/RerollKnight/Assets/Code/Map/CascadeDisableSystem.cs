@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine.Assertions.Must;
 
 namespace Code
 {
@@ -35,7 +36,7 @@ namespace Code
 			where TScope1 : IScope
 			where TScope2 : IScope
 		{
-			foreach (var e in ForeignID.GetIndex<TScope2>().GetEntities(parent.Get<ID>().Value))
+			foreach (var e in ForeignID.GetIndex<TScope2>().GetEntities(parent.EnsureID()))
 			{
 				DisableAllDependant(e);
 				e.Is<Disabled>(parent.Is<Disabled>());

@@ -8,7 +8,7 @@ namespace Code
 	{
 		public enum Layer
 		{
-			/// <summary> For disabled entities, Won't compare </summary>
+			/// <summary> For disabled entities, Equals always will return false </summary>
 			None,
 			/// <summary> Standing on cell, e.g Player/Enemy/Wall </summary>
 			Default,
@@ -18,7 +18,7 @@ namespace Code
 			Room,
 			/// <summary> e.g Click at some coordinates </summary>
 			Request,
-			/// <summary> For coordinates, where layer doesn't matter </summary>
+			/// <summary> Layer will be ignored on Equals </summary>
 			Ignore,
 		}
 
@@ -36,6 +36,8 @@ namespace Code
 			OnLayer = layer;
 		}
 
+		public static Coordinates Zero => new(0, 0);
+
 		public Vector3 ToTopDown() => ((Vector2)this).ToTopDown();
 
 		public int DistanceTo(Coordinates other) => Mathf.Max(Column.Delta(other.Column), Row.Delta(other.Row));
@@ -50,21 +52,27 @@ namespace Code
 			=> new(Column, value, OnLayer);
 
 		public Coordinates Add(int column = 0, int row = 0)
-			=> new(Column + column, Row + row);
-
-		protected bool Equals(Coordinates other)
-			=> !IsBothNone(other)
-			   && Column == other.Column
-			   && Row == other.Row
-			   && OnLayer == other.OnLayer;
-
-		private bool IsBothNone(Coordinates other) => OnLayer is Layer.None && other.OnLayer is Layer.None;
+			=> new(Column + column, Row + row, OnLayer);
 
 		public static explicit operator Vector2(Coordinates coordinates)
 			=> new(coordinates.Column, coordinates.Row);
 
+		public static bool operator ==(Coordinates left, Coordinates right)
+			=> left?.Equals(right) ?? false;
+
+		public static bool operator !=(Coordinates left, Coordinates right) => !(left == right);
+
 		public override bool Equals(object obj) => obj is Coordinates coordinates
 		                                           && Equals(coordinates);
+
+		protected bool Equals(Coordinates other)
+			=> !IsOnLayerNone(other)
+			   && Column == other.Column
+			   && Row == other.Row
+			   && (OnLayer == other.OnLayer || IgnoreLayer(other));
+
+		private bool IsOnLayerNone(Coordinates other) => OnLayer is Layer.None || other.OnLayer is Layer.None;
+		private bool IgnoreLayer(Coordinates other)   => OnLayer is Layer.Ignore || other.OnLayer is Layer.Ignore;
 
 		// ReSharper disable NonReadonlyMemberInGetHashCode – needed fo view in the inspector
 		public override int GetHashCode() => HashCode.Combine(Column, Row, OnLayer);

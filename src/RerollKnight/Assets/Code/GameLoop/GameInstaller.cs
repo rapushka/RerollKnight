@@ -63,8 +63,10 @@ namespace Code
 			Container.Bind<AbilitiesFactory>().AsSingle();
 			Container.Bind<UiFactory>().AsSingle();
 			Container.Bind<WallsFactory>().AsSingle();
-			Container.Bind<LevelFactory>().AsSingle();
 			Container.Bind<RoomFactory>().AsSingle();
+			Container.Bind<CellsSpawner>().AsSingle();
+			Container.Bind<ActorsSpawner>().AsSingle();
+			Container.Bind<WallsSpawner>().AsSingle();
 		}
 	}
 }
