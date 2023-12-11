@@ -20,7 +20,7 @@ namespace Code
 
 				// Initialization
 				Add<EnsureActorsInQueueSystem>();
-				Add<BindAllToCurrentRoomSystem>();
+				// Add<BindAllToCurrentRoomSystem>();
 
 				Add<ToState<InitializeGameplayState>>();
 			}

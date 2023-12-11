@@ -32,10 +32,14 @@ namespace Code
 
 		public void Initialize()
 		{
+			SpawnPlayer();
+			SpawnEnemies();
+		}
+
+		private void SpawnPlayer()
+		{
 			var zeroCoordinates = new Coordinates(0, 0, Coordinates.Layer.Default);
 			_actorsFactory.CreatePlayer(zeroCoordinates, _chipsConfig.ChipsBehaviours);
-
-			SpawnEnemies();
 		}
 
 		private void SpawnEnemies()

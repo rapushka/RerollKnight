@@ -31,12 +31,13 @@ namespace Code
 
 		public void Initialize()
 		{
-			for (var x = 0; x < _generationConfig.LevelSizes.Column; x++)
-			for (var y = 0; y < _generationConfig.LevelSizes.Row; y++)
+			var sizes = _generationConfig.RoomSizes;
+			for (var x = 0; x < sizes.Column; x++)
+			for (var y = 0; y < sizes.Row; y++)
 			{
 				_assets.SpawnBehaviour(CellPrefab, _holdersProvider.CellsHolder.transform).Entity
-				       .Add<Component.Coordinates, Coordinates>(new Coordinates(x, y, Coordinates.Layer.Bellow))
-				       .Is<Empty>(true)
+					.Add<Component.Coordinates, Coordinates>(new Coordinates(x, y, Coordinates.Layer.Bellow))
+					.Is<Empty>(true)
 					;
 			}
 		}
