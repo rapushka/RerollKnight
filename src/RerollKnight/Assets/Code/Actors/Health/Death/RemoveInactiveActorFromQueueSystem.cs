@@ -5,14 +5,14 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class RemoveDestroyedActorFromQueueSystem : IExecuteSystem
+	public sealed class RemoveInactiveActorFromQueueSystem : IExecuteSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _entities;
 		private readonly TurnsQueue _turnsQueue;
 
-		public RemoveDestroyedActorFromQueueSystem(Contexts contexts, TurnsQueue turnsQueue)
+		public RemoveInactiveActorFromQueueSystem(Contexts contexts, TurnsQueue turnsQueue)
 		{
-			_entities = contexts.GetGroup(AllOf(Get<Actor>(), Get<Destroyed>()));
+			_entities = contexts.GetGroup(AllOf(Get<Actor>()).AnyOf(Get<Destroyed>(), Get<Disabled>()));
 			_turnsQueue = turnsQueue;
 		}
 

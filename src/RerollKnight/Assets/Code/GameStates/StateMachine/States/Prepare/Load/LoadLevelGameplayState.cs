@@ -23,6 +23,8 @@ namespace Code
 				// Add<SpawnPlayerChipsSystem>();
 				Add<EnsureActorsInQueueSystem>();
 
+				Add<BindAllToCurrentRoomSystem>();
+
 				// Ready
 				// Add<ReadyOnAny<Actor>>();
 				// Add<ReadyOnTurnsQueueAny>();

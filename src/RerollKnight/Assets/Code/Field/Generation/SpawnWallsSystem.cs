@@ -25,12 +25,17 @@ namespace Code
 			_random = random;
 		}
 
+		private Coordinates RandomCoordinates => _field.NextEmptyCell().GetCoordinates();
+
 		public void Initialize()
 		{
 			var count = _random.RangeInclusive(_generationConfig.WallsCount);
 
 			for (var i = 0; i < count; i++)
-				_wallsFactory.Create(_field.NextEmptyCell().GetCoordinates());
+			{
+				var coordinates = RandomCoordinates.WithLayer(Coordinates.Layer.Default);
+				_wallsFactory.Create(coordinates);
+			}
 		}
 	}
 }

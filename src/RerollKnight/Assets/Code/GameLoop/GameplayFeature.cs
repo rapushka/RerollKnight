@@ -29,9 +29,13 @@ namespace Code
 			// Health
 			Add<HealthFeature>();
 
+			// Wandering around the Rooms
+			Add<CascadeDisableSystem<GameScope>>();
+			Add<CacheLayerOfDisabledSystem>();
+
 			// Turns queue
 			Add<CollectActorsSystem>();
-			Add<RemoveDestroyedActorFromQueueSystem>();
+			Add<RemoveInactiveActorFromQueueSystem>();
 
 			// Visuals
 			Add<UpdateChipsPositionSystem>();

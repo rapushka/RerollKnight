@@ -33,7 +33,8 @@ namespace Code
 			=> Create(SpawnPrefab(_resources.PlayerPrefab), coordinates, chips);
 
 		public GameEntity CreateEnemy(Coordinates coordinates, List<ChipConfigBehaviour> chips)
-			=> Create(SpawnPrefab(_resources.EnemyPrefab), coordinates, chips);
+			=> Create(SpawnPrefab(_resources.EnemyPrefab), coordinates, chips)
+				.Is<RoomResident>(true);
 
 		private GameEntity Create(GameEntity entity, Coordinates coordinates, List<ChipConfigBehaviour> chips)
 		{

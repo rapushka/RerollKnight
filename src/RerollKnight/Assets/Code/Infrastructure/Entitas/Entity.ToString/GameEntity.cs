@@ -16,8 +16,7 @@ namespace Code
 
 			yield return entity.ToString<Label, string>(prefix: "\"", postfix: "\"");
 
-			yield return entity.ToString<Component.Coordinates, Coordinates>(prefix: "–");
-			yield return entity.ToString<CoordinatesUnderField, Coordinates>(prefix: "_");
+			yield return entity.ToString<Component.Coordinates, Coordinates>();
 
 			yield return entity.Is<Target>() ? "\ttarget" : string.Empty;
 			yield return entity.Is<AvailableToPick>() ? "available" : string.Empty;
