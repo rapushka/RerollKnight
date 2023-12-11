@@ -1,7 +1,6 @@
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
@@ -51,11 +50,8 @@ namespace Code
 
 		public void Execute()
 		{
-			if (_currentCoordinates == _lastCoordinates)
-			{
-				Ready = true;
+			if (Ready)
 				return;
-			}
 
 			var roomEntity = _roomFactory.Create(_currentCoordinates);
 
@@ -64,6 +60,12 @@ namespace Code
 
 			BindResidentsToRoom(roomEntity);
 			roomEntity.Is<Disabled>(true);
+
+			if (_currentCoordinates == _lastCoordinates)
+			{
+				Ready = true;
+				return;
+			}
 
 			_currentCoordinates = NextCoordinates();
 		}
