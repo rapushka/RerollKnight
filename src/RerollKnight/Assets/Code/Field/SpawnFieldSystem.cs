@@ -31,8 +31,8 @@ namespace Code
 
 		public void Initialize()
 		{
-			for (var x = 0; x < _generationConfig.FieldSizes.Column; x++)
-			for (var y = 0; y < _generationConfig.FieldSizes.Row; y++)
+			for (var x = 0; x < _generationConfig.LevelSizes.Column; x++)
+			for (var y = 0; y < _generationConfig.LevelSizes.Row; y++)
 			{
 				_assets.SpawnBehaviour(CellPrefab, _holdersProvider.CellsHolder.transform).Entity
 				       .Add<Component.Coordinates, Coordinates>(new Coordinates(x, y, Coordinates.Layer.Bellow))

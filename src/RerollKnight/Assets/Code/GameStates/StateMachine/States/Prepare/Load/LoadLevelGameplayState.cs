@@ -15,19 +15,12 @@ namespace Code
 				// Registrations
 				Add<RegisterBehavioursSystem>();
 
+				// Generation
+				Add<GenerateLevelSystem>();
+
 				// Initialization
-				Add<SpawnFieldSystem>();
-				Add<SpawnActorsSystem>();
-				Add<SpawnWallsSystem>();
-				// Add<SpawnActorOnRequestSystem>();
-				// Add<SpawnPlayerChipsSystem>();
 				Add<EnsureActorsInQueueSystem>();
-
 				Add<BindAllToCurrentRoomSystem>();
-
-				// Ready
-				// Add<ReadyOnAny<Actor>>();
-				// Add<ReadyOnTurnsQueueAny>();
 
 				Add<ToState<InitializeGameplayState>>();
 			}

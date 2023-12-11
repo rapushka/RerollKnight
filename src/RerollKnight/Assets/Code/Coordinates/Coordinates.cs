@@ -8,7 +8,7 @@ namespace Code
 	{
 		public enum Layer
 		{
-			/// <summary> For disabled entities </summary>
+			/// <summary> For disabled entities, Won't compare </summary>
 			None,
 			/// <summary> Standing on cell, e.g Player/Enemy/Wall </summary>
 			Default,
@@ -18,6 +18,8 @@ namespace Code
 			Room,
 			/// <summary> e.g Click at some coordinates </summary>
 			Request,
+			/// <summary> For coordinates, where layer doesn't matter </summary>
+			Ignore,
 		}
 
 		[field: SerializeField] public int   Column  { get; private set; }
@@ -40,6 +42,15 @@ namespace Code
 
 		public Coordinates WithLayer(Layer layer)
 			=> new(Column, Row, layer);
+
+		public Coordinates WithColumn(int value)
+			=> new(value, Row, OnLayer);
+
+		public Coordinates WithRow(int value)
+			=> new(Column, value, OnLayer);
+
+		public Coordinates Add(int column = 0, int row = 0)
+			=> new(Column + column, Row + row);
 
 		protected bool Equals(Coordinates other)
 			=> !IsBothNone(other)

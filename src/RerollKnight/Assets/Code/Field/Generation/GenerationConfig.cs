@@ -8,6 +8,7 @@ namespace Code
 	{
 		[field: SerializeField] public RangeInt    EnemiesCount { get; private set; }
 		[field: SerializeField] public RangeInt    WallsCount    { get; private set; }
-		[field: SerializeField] public Coordinates FieldSizes   { get; private set; }
+		/// <summary> Measured in rooms </summary>
+		[field: SerializeField] public Coordinates LevelSizes   { get; private set; }
 	}
 }
