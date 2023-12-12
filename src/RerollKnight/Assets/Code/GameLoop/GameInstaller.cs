@@ -21,6 +21,7 @@ namespace Code
 			InstallGameplayStateMachine();
 
 			Container.Bind<TurnsQueue>().AsSingle();
+			Container.Bind<MapProvider>().AsSingle();
 
 			InstallFactories();
 		}
@@ -65,9 +66,12 @@ namespace Code
 			Container.Bind<UiFactory>().AsSingle();
 			Container.Bind<WallsFactory>().AsSingle();
 			Container.Bind<RoomFactory>().AsSingle();
+			Container.Bind<DoorsFactory>().AsSingle();
+
 			Container.Bind<CellsSpawner>().AsSingle();
 			Container.Bind<ActorsSpawner>().AsSingle();
 			Container.Bind<WallsSpawner>().AsSingle();
+			Container.Bind<DoorsSpawner>().AsSingle();
 		}
 	}
 }

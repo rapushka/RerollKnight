@@ -16,6 +16,7 @@ namespace Code
 			=> _contexts.Get<GameScope>().CreateEntity()
 			            .Identify()
 			            .Add<DebugName, string>("Room")
+			            .Is<Room>(true)
 			            .Add<Component.Coordinates, Coordinates>(coordinates);
 	}
 }

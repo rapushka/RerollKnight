@@ -15,13 +15,16 @@ namespace Code
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 				Add<HideAllChipsSystem>();
-				// Spawn doors
+				Add<SpawnDoorsSystem>();
 
 				// Execute
 				// On Door click:
 				// - move player to opposite door
 				// - exit prev room
 				// - enter next room
+				
+				// TearDown
+				// Hide necessary doors
 			}
 		}
 	}
