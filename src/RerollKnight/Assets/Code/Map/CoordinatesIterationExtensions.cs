@@ -13,8 +13,8 @@ namespace Code
 
 		private static IEnumerable<Coordinates> NeighborsWithDiagonals(this Coordinates @this)
 		{
-			var start = @this.Add(column: -1, row: -1).WithLayer(Coordinates.Layer.Ignore);
-			var end = @this.Add(column: 1, row: 1).WithLayer(Coordinates.Layer.Ignore);
+			var start = @this.Add(column: -1, row: -1);
+			var end = @this.Add(column: 1, row: 1);
 
 			var current = start;
 

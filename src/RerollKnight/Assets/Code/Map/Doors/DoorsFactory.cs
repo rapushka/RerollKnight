@@ -1,7 +1,6 @@
 using System;
 using Code.Component;
 using Entitas.Generic;
-using UnityEngine;
 using Zenject;
 
 namespace Code
@@ -54,15 +53,7 @@ namespace Code
 			return entity;
 		}
 
-		private static InvalidOperationException CantCreateDoorException(Entity<GameScope> roomEntity)
-			=> new($"Can't create door for the room: {roomEntity}");
-	}
-
-	public enum Direction // TODO: needed??
-	{
-		TopLeft,
-		TopRight,
-		DownRight,
-		DownLeft,
+		private InvalidOperationException CantCreateDoorException(Entity<GameScope> roomEntity)
+			=> new($"The Room {roomEntity} isn't neighbor for the {_mapProvider.CurrentRoom}");
 	}
 }
