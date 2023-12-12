@@ -37,7 +37,8 @@ namespace Code
 			var center = lengthOfSide / 2;                         // TODO: and with odd length
 
 			var entity = _assets.SpawnBehaviour(_resources.DoorPrefab, _holdersProvider.CellsHolder).Entity
-			                    .Add<DoorTo, Entity<GameScope>>(roomEntity);
+			                    .Add<DoorTo, Entity<GameScope>>(roomEntity)
+			                    .Is<AvailableToPick>(true);
 
 			var direction = _mapProvider.CurrentRoom.GetCoordinates() - roomEntity.GetCoordinates();
 
