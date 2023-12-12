@@ -12,7 +12,9 @@ namespace Code
 				: base($"{nameof(WanderingGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
-				// Disable stuff
+				Add<UnpickAllSystem>();
+				Add<MarkAllTargetsUnavailableSystem>();
+				Add<HideAllChipsSystem>();
 				// Spawn doors
 
 				// Execute
