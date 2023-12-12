@@ -17,14 +17,14 @@ namespace Code
 				Add<HideAllChipsSystem>();
 				Add<SpawnDoorsSystem>();
 
+				Add<OnDoorClickState>();
 				// Execute
 				// On Door click:
-				// - move player to opposite door
-				// - exit prev room
-				// - enter next room
-				
+				// - teleport player to door
+				// - The Enter the Room State 
+
 				// TearDown
-				// Hide necessary doors
+				Add<DestroyDoorsSystem>();
 			}
 		}
 	}

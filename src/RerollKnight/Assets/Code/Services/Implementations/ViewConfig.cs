@@ -15,6 +15,7 @@ namespace Code
 		float EnemyThinkingDuration { get; }
 		float RerollDuration        { get; }
 		float RerollThrowHeight     { get; }
+		float RoomTransferDuration  { get; }
 	}
 
 	[CreateAssetMenu(fileName = "ViewConfig", menuName = "ViewConfig", order = 0)]
@@ -37,7 +38,8 @@ namespace Code
 		[field: Header("Timings")]
 		[field: SerializeField] public float EnemyThinkingDuration { get; private set; }
 
-		[field: SerializeField] public float RerollDuration    { get; private set; }
-		[field: SerializeField] public float RerollThrowHeight { get; private set; }
+		[field: SerializeField] public float RoomTransferDuration { get; private set; }
+		[field: SerializeField] public float RerollDuration       { get; private set; }
+		[field: SerializeField] public float RerollThrowHeight    { get; private set; }
 	}
 }

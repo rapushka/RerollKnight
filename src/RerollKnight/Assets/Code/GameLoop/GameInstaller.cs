@@ -36,7 +36,7 @@ namespace Code
 				typeof(LoadLevelGameplayState),
 				typeof(InitializeGameplayState),
 
-				// Game loop
+				// Fight
 				typeof(ObservingGameplayState),
 				typeof(ChipPickedGameplayState),
 				typeof(CastingAbilitiesGameplayState),
@@ -44,7 +44,10 @@ namespace Code
 				typeof(RerollDicesGameplayState),
 				typeof(PassTurnGameplayState),
 				typeof(OtherPlayerTurnGameplayState),
+
+				// Wandering
 				typeof(WanderingGameplayState),
+				typeof(EnterRoomGameplayState),
 
 				// Tools
 				typeof(WaitAndThenToState)
