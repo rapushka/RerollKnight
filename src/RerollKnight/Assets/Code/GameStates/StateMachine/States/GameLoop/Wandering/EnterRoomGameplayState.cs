@@ -9,7 +9,7 @@ namespace Code
 		public sealed class StateFeature : StateFeatureBase
 		{
 			public StateFeature(SystemsFactory factory)
-				: base($"{nameof(WanderingGameplayState)}.{nameof(StateFeature)}", factory)
+				: base($"{nameof(EnterRoomGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// move player to opposite door
 				// exit prev room

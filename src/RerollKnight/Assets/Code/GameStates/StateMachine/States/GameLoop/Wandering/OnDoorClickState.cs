@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
@@ -11,9 +12,13 @@ namespace Code
 		private readonly Contexts _contexts;
 		private readonly IViewConfig _viewConfig;
 
-		public OnDoorClickState(Contexts contexts)
+		[Inject]
+		public OnDoorClickState(Contexts contexts, IViewConfig viewConfig)
 			: base(contexts.Get<GameScope>())
-			=> _contexts = contexts;
+		{
+			_contexts = contexts;
+			_viewConfig = viewConfig;
+		}
 
 		public StateMachineBase StateMachine { get; set; }
 

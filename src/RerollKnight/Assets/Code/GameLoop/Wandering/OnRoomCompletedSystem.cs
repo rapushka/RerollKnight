@@ -12,6 +12,7 @@ namespace Code
 		private readonly GameplayStateMachine _stateMachine;
 		private readonly IGroup<Entity<GameScope>> _enemies;
 		private readonly IGroup<Entity<GameScope>> _players;
+		private readonly IGroup<Entity<GameScope>> _doors;
 
 		[Inject]
 		public OnRoomCompletedSystem(Contexts contexts, GameplayStateMachine stateMachine)
@@ -20,11 +21,13 @@ namespace Code
 
 			_enemies = contexts.GetGroup(AllOf(Get<Enemy>()).NoneOf(Get<Disabled>()));
 			_players = contexts.GetGroup(Get<Player>());
+			_doors = contexts.GetGroup(Get<DoorTo>());
 		}
 
 		public void Execute()
 		{
-			if (_stateMachine.CurrentState is LoadLevelGameplayState or InitializeGameplayState or WanderingGameplayState)
+			if (_stateMachine.CurrentState is LoadLevelGameplayState or InitializeGameplayState
+			    || _doors.Any())
 				return;
 
 			if (!_enemies.Any())
