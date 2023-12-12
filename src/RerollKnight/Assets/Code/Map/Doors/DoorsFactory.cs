@@ -48,8 +48,6 @@ namespace Code
 				: direction == (0, -1) ? new Coordinates(lengthOfSide, center) // down left
 				: direction == (-1, 0) ? new Coordinates(center, lengthOfSide) // down right
 				                         : throw CantCreateDoorException(roomEntity);
-			Debug.Log
-				($"CurrentRoom: {_mapProvider.CurrentRoom} | roomEntity: {roomEntity} | coordinates: {coordinates}");
 
 			entity.Add<Component.Coordinates, Coordinates>(coordinates.WithLayer(Coordinates.Layer.Bellow));
 
