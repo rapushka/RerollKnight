@@ -43,6 +43,7 @@ namespace Code
 				typeof(RerollDicesGameplayState),
 				typeof(PassTurnGameplayState),
 				typeof(OtherPlayerTurnGameplayState),
+				typeof(WanderingGameplayState),
 
 				// Tools
 				typeof(WaitAndThenToState)
