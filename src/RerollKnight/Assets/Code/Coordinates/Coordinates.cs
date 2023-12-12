@@ -65,6 +65,15 @@ namespace Code
 		public static Coordinates operator -(Coordinates left, Coordinates right)
 			=> new(left.Column - right.Column, left.Row - right.Row, Layer.Ignore);
 
+		public static bool operator ==(Coordinates left, (int, int) right)
+			=> left is not null && left.Column == right.Item1 && left.Row == right.Item2;
+
+		public static bool operator ==((int, int) left, Coordinates right)
+			=> right is not null && right.Column == left.Item1 && right.Row == left.Item2;
+
+		public static bool operator !=(Coordinates left, (int, int) right) => !(left == right);
+		public static bool operator !=((int, int) right, Coordinates left) => !(right == left);
+
 		public override bool Equals(object obj) => obj is Coordinates coordinates
 		                                           && Equals(coordinates);
 

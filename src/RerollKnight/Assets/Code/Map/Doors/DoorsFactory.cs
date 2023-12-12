@@ -1,13 +1,13 @@
 using System;
 using Code.Component;
 using Entitas.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace Code
 {
 	public class DoorsFactory
 	{
-		private readonly Contexts _contexts;
 		private readonly IResourcesService _resources;
 		private readonly IAssetsService _assets;
 		private readonly IHoldersProvider _holdersProvider;
@@ -25,7 +25,6 @@ namespace Code
 			GenerationConfig generationConfig
 		)
 		{
-			_contexts = contexts;
 			_resources = resources;
 			_assets = assets;
 			_holdersProvider = holdersProvider;
@@ -44,11 +43,13 @@ namespace Code
 			var direction = _mapProvider.CurrentRoom.GetCoordinates() - roomEntity.GetCoordinates();
 
 			var coordinates
-				= direction.Column == -1 ? new Coordinates(-1, center)           // top left
-				: direction.Column == 1  ? new Coordinates(center, -1)           // top right
-				: direction.Row == -1    ? new Coordinates(lengthOfSide, center) // down left
-				: direction.Row == 1     ? new Coordinates(center, lengthOfSide) // down right
-				                           : throw CantCreateDoorException(roomEntity);
+				= direction == (1, 0)  ? new Coordinates(-1, center)           // top left
+				: direction == (0, 1)  ? new Coordinates(center, -1)           // top right
+				: direction == (0, -1) ? new Coordinates(lengthOfSide, center) // down left
+				: direction == (-1, 0) ? new Coordinates(center, lengthOfSide) // down right
+				                         : throw CantCreateDoorException(roomEntity);
+			Debug.Log
+				($"CurrentRoom: {_mapProvider.CurrentRoom} | roomEntity: {roomEntity} | coordinates: {coordinates}");
 
 			entity.Add<Component.Coordinates, Coordinates>(coordinates.WithLayer(Coordinates.Layer.Bellow));
 
