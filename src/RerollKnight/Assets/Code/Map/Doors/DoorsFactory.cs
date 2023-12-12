@@ -35,19 +35,19 @@ namespace Code
 
 		public Entity<GameScope> CreateDoor(Entity<GameScope> roomEntity)
 		{
-			var lenghtOfSide = _generationConfig.RoomSizes.Column; // TODO: now will work only for square levels
-			var center = (lenghtOfSide / 2) + 1; // TODO: and with odd length
+			var lengthOfSide = _generationConfig.RoomSizes.Column; // TODO: now will work only for square levels
+			var center = lengthOfSide / 2;                         // TODO: and with odd length
 
 			var entity = _assets.SpawnBehaviour(_resources.DoorPrefab, _holdersProvider.CellsHolder).Entity
-				.Add<DoorTo, Entity<GameScope>>(roomEntity);
+			                    .Add<DoorTo, Entity<GameScope>>(roomEntity);
 
 			var direction = _mapProvider.CurrentRoom.GetCoordinates() - roomEntity.GetCoordinates();
 
 			var coordinates
-				= direction.Column == -1 ? new Coordinates(-1, center) // top left
-				: direction.Column == 1  ? new Coordinates(center, -1) // top right
-				: direction.Row == -1    ? new Coordinates(lenghtOfSide + 1, center) // down left
-				: direction.Row == 1     ? new Coordinates(lenghtOfSide + 1, -1) // down right
+				= direction.Column == -1 ? new Coordinates(-1, center)           // top left
+				: direction.Column == 1  ? new Coordinates(center, -1)           // top right
+				: direction.Row == -1    ? new Coordinates(lengthOfSide, center) // down left
+				: direction.Row == 1     ? new Coordinates(center, lengthOfSide) // down right
 				                           : throw CantCreateDoorException(roomEntity);
 
 			entity.Add<Component.Coordinates, Coordinates>(coordinates.WithLayer(Coordinates.Layer.Bellow));
