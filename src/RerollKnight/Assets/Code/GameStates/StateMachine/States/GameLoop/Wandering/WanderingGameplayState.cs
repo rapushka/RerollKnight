@@ -8,7 +8,8 @@ namespace Code
 
 		public sealed class StateFeature : StateFeatureBase
 		{
-			public StateFeature(string name, SystemsFactory factory) : base(name, factory)
+			public StateFeature(SystemsFactory factory)
+				: base($"{nameof(WanderingGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
 				// Disable stuff

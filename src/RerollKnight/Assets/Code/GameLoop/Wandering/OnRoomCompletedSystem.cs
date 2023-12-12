@@ -18,12 +18,15 @@ namespace Code
 		{
 			_stateMachine = stateMachine;
 
-			_enemies = contexts.GetGroup(Get<Enemy>());
+			_enemies = contexts.GetGroup(AllOf(Get<Enemy>()).NoneOf(Get<Disabled>()));
 			_players = contexts.GetGroup(Get<Player>());
 		}
 
 		public void Execute()
 		{
+			if (_stateMachine.CurrentState is LoadLevelGameplayState or InitializeGameplayState or WanderingGameplayState)
+				return;
+
 			if (!_enemies.Any())
 				OnRoomCleared();
 
@@ -32,7 +35,9 @@ namespace Code
 		}
 
 		private void OnRoomCleared()
-			=> _stateMachine.ToState<WanderingGameplayState>();
+		{
+			_stateMachine.ToState<WanderingGameplayState>();
+		}
 
 		private void OnGameOver()
 			=> Debug.Log("TODO: Game Over");

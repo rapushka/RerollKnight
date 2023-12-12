@@ -15,7 +15,7 @@ namespace Code
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 
-				// Update
+				// Execute
 				Add<PickChipSystem>();
 			}
 		}
