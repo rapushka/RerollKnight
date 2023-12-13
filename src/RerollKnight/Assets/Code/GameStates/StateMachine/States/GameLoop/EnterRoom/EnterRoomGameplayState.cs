@@ -11,6 +11,8 @@ namespace Code
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(EnterRoomGameplayState)}.{nameof(StateFeature)}", factory)
 			{
+				Add<SwitchCurrentRoomSystem>();
+				Add<FlipEntranceDoorSystem>();
 				// move player to opposite door
 				// exit prev room
 				// enter next room

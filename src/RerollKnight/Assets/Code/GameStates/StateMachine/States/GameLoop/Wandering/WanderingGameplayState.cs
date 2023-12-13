@@ -18,10 +18,6 @@ namespace Code
 				Add<SpawnDoorsSystem>();
 
 				Add<OnDoorClickState>();
-				// Execute
-				// On Door click:
-				// - teleport player to door
-				// - The Enter the Room State 
 
 				// TearDown
 				Add<DestroyDoorsSystem>();

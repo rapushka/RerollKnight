@@ -22,6 +22,7 @@ namespace Code
 
 			Container.Bind<TurnsQueue>().AsSingle();
 			Container.Bind<MapProvider>().AsSingle();
+			Container.Bind<CoordinatesCalculator>().AsSingle();
 
 			InstallFactories();
 		}
