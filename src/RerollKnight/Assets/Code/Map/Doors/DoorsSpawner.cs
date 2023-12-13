@@ -14,7 +14,7 @@ namespace Code
 		public void Spawn()
 		{
 			foreach (var roomEntity in _mapProvider.NeighborsOfCurrentRoom)
-				_doorsFactory.CreateDoor(roomEntity);
+				_doorsFactory.CreateExit(roomEntity);
 		}
 	}
 }

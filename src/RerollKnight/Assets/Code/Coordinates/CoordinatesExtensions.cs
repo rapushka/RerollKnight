@@ -5,6 +5,9 @@ namespace Code
 {
 	public static class CoordinatesExtensions
 	{
+		public static Entity<GameScope> ReplaceCoordinates(this Entity<GameScope> @this, Coordinates value)
+			=> @this.Replace<Component.Coordinates, Coordinates>(value);
+
 		public static Coordinates GetCoordinates(this Entity<GameScope> @this, Coordinates.Layer withLayer)
 			=> @this.GetCoordinates().WithLayer(withLayer);
 

@@ -30,11 +30,17 @@ namespace Code
 			_coordinatesCalculator = coordinatesCalculator;
 		}
 
-		public Entity<GameScope> CreateDoor(Entity<GameScope> roomEntity)
+		public Entity<GameScope> CreateEntrance(Entity<GameScope> roomEntity)
+			=> CreateDoor(roomEntity);
+
+		public Entity<GameScope> CreateExit(Entity<GameScope> roomEntity)
+			=> CreateDoor(roomEntity)
+				.Is<AvailableToPick>(true);
+
+		private Entity<GameScope> CreateDoor(Entity<GameScope> roomEntity)
 			=> _assets.SpawnBehaviour(_resources.DoorPrefab, _holdersProvider.CellsHolder).Entity
-			          .Add<DoorTo, Entity<GameScope>>(roomEntity)
-			          .Is<AvailableToPick>(true)
-			          .Add<Component.Coordinates, Coordinates>(TransitionCoordinates(@for: roomEntity));
+			          .Add<Component.Coordinates, Coordinates>(TransitionCoordinates(@for: roomEntity))
+			          .Add<DoorTo, Entity<GameScope>>(roomEntity);
 
 		private Coordinates TransitionCoordinates(Entity<GameScope> @for)
 			=> _coordinatesCalculator.TransitionBetweenRooms(_mapProvider.CurrentRoom, @for)
