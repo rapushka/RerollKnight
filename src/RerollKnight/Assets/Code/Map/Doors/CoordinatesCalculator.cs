@@ -19,8 +19,8 @@ namespace Code
 
 		private Coordinates TopLeft   => new(-1, CenterCoordinates);
 		private Coordinates ToRight   => new(CenterCoordinates, -1);
-		private Coordinates DownLeft  => new(LengthOfSide, CenterCoordinates);
-		private Coordinates DownRight => new(CenterCoordinates, LengthOfSide);
+		private Coordinates DownLeft  => new(CenterCoordinates, LengthOfSide);
+		private Coordinates DownRight => new(LengthOfSide, CenterCoordinates);
 
 		public Coordinates TransitionBetweenRooms(Entity<GameScope> room1, Entity<GameScope> room2)
 		{

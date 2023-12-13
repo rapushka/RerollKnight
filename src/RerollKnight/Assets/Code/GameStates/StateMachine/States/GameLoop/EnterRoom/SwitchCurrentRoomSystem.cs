@@ -10,7 +10,7 @@ namespace Code
 		private readonly IGroup<Entity<GameScope>> _doors;
 		private readonly MapProvider _mapProvider;
 		private readonly DoorsFactory _doorsFactory;
-		private Contexts _contexts;
+		private readonly Contexts _contexts;
 
 		public SwitchCurrentRoomSystem(Contexts contexts, MapProvider mapProvider, DoorsFactory doorsFactory)
 		{
