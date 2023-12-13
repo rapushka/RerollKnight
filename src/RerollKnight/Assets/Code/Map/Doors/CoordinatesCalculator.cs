@@ -1,4 +1,5 @@
 using System;
+using Entitas;
 using Entitas.Generic;
 
 namespace Code
@@ -12,21 +13,29 @@ namespace Code
 			_generationConfig = generationConfig;
 		}
 
+		private int LengthOfSide => _generationConfig.RoomSizes.Column; // TODO: now will work only for square levels
+
+		private int CenterCoordinates => LengthOfSide / 2; // TODO: and with odd length
+
+		private Coordinates TopLeft   => new(-1, CenterCoordinates);
+		private Coordinates ToRight   => new(CenterCoordinates, -1);
+		private Coordinates DownLeft  => new(LengthOfSide, CenterCoordinates);
+		private Coordinates DownRight => new(CenterCoordinates, LengthOfSide);
+
 		public Coordinates TransitionBetweenRooms(Entity<GameScope> room1, Entity<GameScope> room2)
 		{
-			var lengthOfSide = _generationConfig.RoomSizes.Column; // TODO: now will work only for square levels
-			var center = lengthOfSide / 2;                         // TODO: and with odd length
-
 			var direction = room1.GetCoordinates() - room2.GetCoordinates();
-
-			return direction == (1, 0) ? new Coordinates(-1, center)           // top left
-				: direction == (0, 1)  ? new Coordinates(center, -1)           // top right
-				: direction == (0, -1) ? new Coordinates(lengthOfSide, center) // down left
-				: direction == (-1, 0) ? new Coordinates(center, lengthOfSide) // down right
-				                         : throw CantCreateDoorException(room1, room2);
+			return DirectionToCoordinates(room1, room2, direction);
 		}
 
-		private InvalidOperationException CantCreateDoorException(Entity<GameScope> room1, Entity<GameScope> room2)
+		private Coordinates DirectionToCoordinates(Entity room1, Entity room2, Coordinates direction)
+			=> direction == (1, 0)     ? TopLeft
+				: direction == (0, 1)  ? ToRight
+				: direction == (0, -1) ? DownLeft
+				: direction == (-1, 0) ? DownRight
+				                         : throw CantCreateDoorException(room1, room2);
+
+		private InvalidOperationException CantCreateDoorException(Entity room1, Entity room2)
 			=> new($"The Room {room1} isn't neighbor for the {room2}");
 	}
 }
