@@ -9,6 +9,12 @@ namespace Code
 		protected override IEnumerable<string> CreateList(Entity<GameScope> entity)
 		{
 			yield return entity.creationIndex.ToString();
+
+			yield return entity.ToString<Disabled>();
+
+			if (entity.Is<Room>() && !entity.Is<Disabled>())
+				yield return "Current Room -> ";
+
 			yield return entity.ToString<DebugName, string>(defaultValue: "e");
 
 			if (entity.Has<Health>() && entity.Has<MaxHealth>())
