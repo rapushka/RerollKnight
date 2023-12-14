@@ -31,15 +31,24 @@ namespace Code
 		}
 
 		public Entity<GameScope> CreateEntrance(Entity<GameScope> roomEntity)
-			=> CreateDoor(roomEntity);
+			=> GetDoor(roomEntity);
 
 		public Entity<GameScope> CreateExit(Entity<GameScope> roomEntity)
-			=> CreateDoor(roomEntity)
+			=> GetDoor(roomEntity)
+				.Is<AvailableToPick>(true)
 				.Is<AvailableToPick>(true);
 
-		private Entity<GameScope> CreateDoor(Entity<GameScope> roomEntity)
+		private Entity<GameScope> GetDoor(Entity<GameScope> roomEntity)
+		{
+			var transitionCoordinates = TransitionCoordinates(@for: roomEntity);
+
+			return Component.Coordinates.Index.GetEntity(transitionCoordinates)
+				?? NewDoor(roomEntity, transitionCoordinates);
+		}
+
+		private Entity<GameScope> NewDoor(Entity<GameScope> roomEntity, Coordinates transitionCoordinates)
 			=> _assets.SpawnBehaviour(_resources.DoorPrefab, _holdersProvider.CellsHolder).Entity
-			          .Add<Component.Coordinates, Coordinates>(TransitionCoordinates(@for: roomEntity))
+			          .Add<Component.Coordinates, Coordinates>(transitionCoordinates)
 			          .Add<DoorTo, Entity<GameScope>>(roomEntity);
 
 		private Coordinates TransitionCoordinates(Entity<GameScope> @for)
