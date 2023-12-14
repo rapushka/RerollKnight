@@ -11,17 +11,12 @@ namespace Code
 			public StateFeature(SystemsFactory factory)
 				: base($"{nameof(EnterRoomGameplayState)}.{nameof(StateFeature)}", factory)
 			{
+				// Initialize
 				Add<SwitchCurrentRoomSystem>();
 				Add<ClearCurrentPlayerSystem>();
 				Add<PutPlayerFirstSystem>();
-				// Add<FlipEntranceDoorSystem>();
-				// move player to opposite door
-				// exit prev room
-				// enter next room
 
-				// To Observing State
 				Add<ToState<TurnEndedGameplayState>>();
-				// Add<ToState<ObservingGameplayState>>();
 			}
 		}
 	}
