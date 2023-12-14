@@ -31,11 +31,11 @@ namespace Code
 		}
 
 		public Entity<GameScope> CreateEntrance(Entity<GameScope> roomEntity)
-			=> GetDoor(roomEntity);
+			=> GetDoor(roomEntity)
+				.Is<AvailableToPick>(false);
 
 		public Entity<GameScope> CreateExit(Entity<GameScope> roomEntity)
 			=> GetDoor(roomEntity)
-				.Is<AvailableToPick>(true)
 				.Is<AvailableToPick>(true);
 
 		private Entity<GameScope> GetDoor(Entity<GameScope> roomEntity)
