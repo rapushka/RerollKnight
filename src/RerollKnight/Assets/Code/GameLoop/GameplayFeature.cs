@@ -30,6 +30,7 @@ namespace Code
 			Add<HealthFeature>();
 
 			// Wandering around the Rooms
+			Add<DestroyEmptyDoorSystem>();
 			Add<OnRoomCompletedSystem>();
 			Add<CascadeDisableSystem<GameScope>>();
 			Add<CacheLayerOfDisabledSystem>();
