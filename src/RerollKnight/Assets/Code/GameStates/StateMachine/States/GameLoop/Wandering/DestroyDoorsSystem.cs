@@ -14,10 +14,7 @@ namespace Code
 		public void TearDown()
 		{
 			foreach (var door in _doors)
-			{
-				if (!door.Is<Clicked>())
-					door.Is<Destroyed>(true);
-			}
+				door.Is<Destroyed>(true);
 		}
 	}
 }

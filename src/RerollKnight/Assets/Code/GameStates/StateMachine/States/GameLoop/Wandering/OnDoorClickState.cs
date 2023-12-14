@@ -35,6 +35,8 @@ namespace Code
 			{
 				var coordinates = door.GetCoordinates(withLayer: Coordinates.Layer.Default);
 				CurrentActor.Replace<Component.Coordinates, Coordinates>(coordinates);
+				var roomOfDoor = door.Get<DoorTo>().Value;
+				roomOfDoor.Is<NextRoom>(true);
 
 				StateMachine.WaitAndThenToState<EnterRoomGameplayState>(_viewConfig.RoomTransferDuration);
 			}

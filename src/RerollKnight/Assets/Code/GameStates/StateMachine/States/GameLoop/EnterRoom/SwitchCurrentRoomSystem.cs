@@ -7,7 +7,6 @@ namespace Code
 {
 	public sealed class SwitchCurrentRoomSystem : IInitializeSystem
 	{
-		private readonly IGroup<Entity<GameScope>> _doors;
 		private readonly MapProvider _mapProvider;
 		private readonly DoorsFactory _doorsFactory;
 		private readonly Contexts _contexts;
@@ -16,27 +15,22 @@ namespace Code
 		{
 			_contexts = contexts;
 			_mapProvider = mapProvider;
-			_doors = contexts.GetGroup(Get<DoorTo>());
 			_doorsFactory = doorsFactory;
 		}
-
-		private Entity<GameScope> ExitFromPrevRoom => _doors.GetSingleEntity();
 
 		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
 
 		public void Initialize()
 		{
-			var exitFromPrevRoom = ExitFromPrevRoom;
 			var previousRoom = _mapProvider.CurrentRoom;
 
 			previousRoom.Is<Disabled>(true);
-			var targetRoom = exitFromPrevRoom.Get<DoorTo>().Value;
-			targetRoom.Is<Disabled>(false);
+			var nextRoom = _contexts.Get<GameScope>().Unique.GetEntity<NextRoom>();
+			nextRoom.Is<Disabled>(false);
 
 			// Flip Entrance
 			var entrance = _doorsFactory.CreateEntrance(previousRoom);
 			CurrentActor.ReplaceCoordinates(entrance.GetCoordinates(Coordinates.Layer.Default));
-			exitFromPrevRoom.Is<Destroyed>(true);
 		}
 	}
 }
