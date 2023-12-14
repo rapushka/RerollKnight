@@ -12,6 +12,7 @@ namespace Code
 				: base($"{nameof(ObservingGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
+				Add<CheckIfRoomCompletedSystem>();
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 
