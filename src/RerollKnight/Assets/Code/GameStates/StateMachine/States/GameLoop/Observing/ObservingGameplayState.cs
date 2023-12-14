@@ -15,6 +15,7 @@ namespace Code
 				Add<CheckIfRoomCompletedSystem>();
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
+				Add<AvailablePickDoorsIfThereIsNoEnemiesSystem>();
 
 				// Execute
 				Add<PickChipSystem>();
