@@ -36,7 +36,8 @@ namespace Code
 
 		public Entity<GameScope> CreateExit(Entity<GameScope> roomEntity)
 			=> GetDoor(roomEntity)
-				.Is<AvailableToPick>(true);
+				.Is<AvailableToPick>(true)
+				.Is<Destroyed>(false);
 
 		private Entity<GameScope> GetDoor(Entity<GameScope> roomEntity)
 		{
@@ -48,11 +49,11 @@ namespace Code
 
 		private Entity<GameScope> NewDoor(Entity<GameScope> roomEntity, Coordinates transitionCoordinates)
 			=> _assets.SpawnBehaviour(_resources.DoorPrefab, _holdersProvider.CellsHolder).Entity
-			          .Add<Component.Coordinates, Coordinates>(transitionCoordinates)
-			          .Add<DoorTo, Entity<GameScope>>(roomEntity);
+				.Add<Component.Coordinates, Coordinates>(transitionCoordinates)
+				.Add<DoorTo, Entity<GameScope>>(roomEntity);
 
 		private Coordinates TransitionCoordinates(Entity<GameScope> @for)
 			=> _coordinatesCalculator.TransitionBetweenRooms(_mapProvider.CurrentRoom, @for)
-			                         .WithLayer(Coordinates.Layer.Bellow);
+				.WithLayer(Coordinates.Layer.Bellow);
 	}
 }
