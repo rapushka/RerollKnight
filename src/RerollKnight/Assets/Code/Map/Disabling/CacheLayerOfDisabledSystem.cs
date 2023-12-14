@@ -38,7 +38,7 @@ namespace Code
 					e.RemoveSafety<CashedLayer>();
 				}
 
-				if (!e.Get<Component.Coordinates>().Value.Equals(newCoordinates))
+				if (e.Get<Component.Coordinates>().Value != newCoordinates)
 					e.Replace<Component.Coordinates, Coordinates>(newCoordinates);
 			}
 		}
