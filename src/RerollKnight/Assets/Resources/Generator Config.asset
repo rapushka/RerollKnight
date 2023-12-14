@@ -18,6 +18,11 @@ MonoBehaviour:
   <WallsCount>k__BackingField:
     <Min>k__BackingField: 0
     <Max>k__BackingField: 10
-  <FieldSizes>k__BackingField:
+  <LevelSizes>k__BackingField:
     <Column>k__BackingField: 5
     <Row>k__BackingField: 5
+    <OnLayer>k__BackingField: 5
+  <RoomSizes>k__BackingField:
+    <Column>k__BackingField: 5
+    <Row>k__BackingField: 5
+    <OnLayer>k__BackingField: 5

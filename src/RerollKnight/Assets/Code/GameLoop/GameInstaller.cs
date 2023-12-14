@@ -21,6 +21,8 @@ namespace Code
 			InstallGameplayStateMachine();
 
 			Container.Bind<TurnsQueue>().AsSingle();
+			Container.Bind<MapProvider>().AsSingle();
+			Container.Bind<CoordinatesCalculator>().AsSingle();
 
 			InstallFactories();
 		}
@@ -35,7 +37,7 @@ namespace Code
 				typeof(LoadLevelGameplayState),
 				typeof(InitializeGameplayState),
 
-				// Game loop
+				// Fight
 				typeof(ObservingGameplayState),
 				typeof(ChipPickedGameplayState),
 				typeof(CastingAbilitiesGameplayState),
@@ -43,6 +45,10 @@ namespace Code
 				typeof(RerollDicesGameplayState),
 				typeof(PassTurnGameplayState),
 				typeof(OtherPlayerTurnGameplayState),
+
+				// Wandering
+				typeof(WanderingGameplayState),
+				typeof(EnterRoomGameplayState),
 
 				// Tools
 				typeof(WaitAndThenToState)
@@ -63,6 +69,13 @@ namespace Code
 			Container.Bind<AbilitiesFactory>().AsSingle();
 			Container.Bind<UiFactory>().AsSingle();
 			Container.Bind<WallsFactory>().AsSingle();
+			Container.Bind<RoomFactory>().AsSingle();
+			Container.Bind<DoorsFactory>().AsSingle();
+
+			Container.Bind<CellsSpawner>().AsSingle();
+			Container.Bind<ActorsSpawner>().AsSingle();
+			Container.Bind<WallsSpawner>().AsSingle();
+			Container.Bind<DoorsSpawner>().AsSingle();
 		}
 	}
 }

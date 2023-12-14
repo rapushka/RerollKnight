@@ -8,6 +8,8 @@ namespace Code.Component
 
 	[ChipsScope] public sealed class Kick : FlagComponent { }
 
+	[ChipsScope] public sealed class Damage : ValueComponent<int> { }
+
 	[ChipsScope] public sealed class MaxCountOfTargets : ValueComponent<int> { }
 
 	[ChipsScope] public sealed class Range : ValueComponent<int> { }

@@ -1,13 +1,18 @@
 using System;
-using Code.Component;
 using Entitas.Generic;
 
 namespace Code
 {
 	public static class CoordinatesExtensions
 	{
+		public static Entity<GameScope> ReplaceCoordinates(this Entity<GameScope> @this, Coordinates value)
+			=> @this.Replace<Component.Coordinates, Coordinates>(value);
+
+		public static Coordinates GetCoordinates(this Entity<GameScope> @this, Coordinates.Layer withLayer)
+			=> @this.GetCoordinates().WithLayer(withLayer);
+
 		public static Coordinates GetCoordinates(this Entity<GameScope> @this)
-			=> @this.GetSingle<Component.Coordinates, CoordinatesUnderField, Coordinates>();
+			=> @this.Get<Component.Coordinates>().Value;
 
 		public static TValue GetSingle<T1, T2, TValue>(this Entity<GameScope> @this)
 			where T1 : ValueComponent<TValue>, new()

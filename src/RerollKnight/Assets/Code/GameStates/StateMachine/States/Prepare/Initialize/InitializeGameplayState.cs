@@ -16,6 +16,7 @@ namespace Code
 				// Add<IdentifyChipsSystem>();
 
 				Add<PutPlayerFirstSystem>();
+				Add<EnterFirstRoomSystem>();
 
 				// Ready
 				// Add<ReadyOnAny<Actor>>();

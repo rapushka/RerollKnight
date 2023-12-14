@@ -11,6 +11,7 @@ namespace Code
 			Add<MarkAllTargetsAvailableSystem>();
 			// Add<SetAllAvailabilitySystem>();
 
+			Add<MarkDisabledUnavailableSystem>();
 			Add<MarkUnavailableByRangeSystem>();
 			Add<MarkUnavailableByComponentsSystem>();
 		}

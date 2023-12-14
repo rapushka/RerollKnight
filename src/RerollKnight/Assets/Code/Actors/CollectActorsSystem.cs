@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -6,25 +5,22 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class CollectActorsSystem : ReactiveSystem<Entity<GameScope>>
+	public sealed class CollectActorsSystem : IExecuteSystem
 	{
 		private readonly TurnsQueue _turnsQueue;
-		private readonly IGroup<Entity<GameScope>> _entities;
+		private readonly IGroup<Entity<GameScope>> _actors;
 
 		public CollectActorsSystem(Contexts contexts, TurnsQueue turnsQueue)
-			: base(contexts.Get<GameScope>())
-			=> _turnsQueue = turnsQueue;
-
-		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
-			=> context.CreateCollector(Get<Actor>());
-
-		protected override bool Filter(Entity<GameScope> entity) => entity.Is<Actor>();
-
-		protected override void Execute(List<Entity<GameScope>> entities)
 		{
-			foreach (var e in entities)
+			_turnsQueue = turnsQueue;
+			_actors = contexts.GetGroup(Get<Actor>());
+		}
+
+		public void Execute()
+		{
+			foreach (var e in _actors)
 			{
-				if (!_turnsQueue.Contains(e))
+				if (!e.Is<Disabled>() && !_turnsQueue.Contains(e))
 					_turnsQueue.AddActor(e);
 			}
 		}

@@ -28,20 +28,28 @@ namespace Code
 			_random = random;
 		}
 
-		private Coordinates CoordinatesOfNextEmptyCell => _field.NextEmptyCell().GetCoordinates();
+		private Coordinates NextRandomCoordinates => _field.NextEmptyCell().GetCoordinates();
 
 		public void Initialize()
 		{
-			_actorsFactory.CreatePlayer(new Coordinates(0, 0), _chipsConfig.ChipsBehaviours);
-
+			SpawnPlayer();
 			SpawnEnemies();
+		}
+
+		private void SpawnPlayer()
+		{
+			var zeroCoordinates = new Coordinates(0, 0, Coordinates.Layer.Default);
+			_actorsFactory.CreatePlayer(zeroCoordinates, _chipsConfig.ChipsBehaviours);
 		}
 
 		private void SpawnEnemies()
 		{
 			var enemiesCount = _random.RangeInclusive(_generationConfig.EnemiesCount);
 			for (var i = 0; i < enemiesCount; i++)
-				_actorsFactory.CreateEnemy(CoordinatesOfNextEmptyCell, _chipsConfig.ChipsBehaviours);
+			{
+				var coordinates = NextRandomCoordinates.WithLayer(Coordinates.Layer.Default);
+				_actorsFactory.CreateEnemy(coordinates, _chipsConfig.ChipsBehaviours);
+			}
 		}
 	}
 }
