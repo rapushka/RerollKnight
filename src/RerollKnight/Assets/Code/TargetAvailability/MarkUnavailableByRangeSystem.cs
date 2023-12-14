@@ -18,15 +18,13 @@ namespace Code
 		{
 			_contexts = contexts;
 
-			_targets = contexts.GetGroup(GameMatcher.AllOf(AvailableToPick, Target).NoneOf(Disabled));
+			_targets = contexts.GetGroup(GameMatcher.AllOf(AvailableToPick, Target));
 			_abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<Range>()));
 		}
 
 		private static IMatcher<Entity<GameScope>> AvailableToPick => GameMatcher.Get<AvailableToPick>();
 
 		private static IMatcher<Entity<GameScope>> Target => GameMatcher.Get<Target>();
-
-		private static IMatcher<Entity<GameScope>> Disabled => GameMatcher.Get<Disabled>();
 
 		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
 
