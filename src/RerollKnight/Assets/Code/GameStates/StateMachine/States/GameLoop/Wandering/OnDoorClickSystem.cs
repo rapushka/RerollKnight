@@ -7,22 +7,24 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class OnDoorClickState : ReactiveSystem<Entity<GameScope>>, IStateTransferSystem
+	public sealed class OnDoorClickSystem : ReactiveSystem<Entity<GameScope>>, IStateTransferSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly IViewConfig _viewConfig;
+		private TurnsQueue _turnsQueue;
 
 		[Inject]
-		public OnDoorClickState(Contexts contexts, IViewConfig viewConfig)
+		public OnDoorClickSystem(Contexts contexts, IViewConfig viewConfig, TurnsQueue turnsQueue)
 			: base(contexts.Get<GameScope>())
 		{
 			_contexts = contexts;
 			_viewConfig = viewConfig;
+			_turnsQueue = turnsQueue;
 		}
 
 		public StateMachineBase StateMachine { get; set; }
 
-		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
+		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
 			=> context.CreateCollector(AllOf(Get<DoorTo>(), Get<Clicked>()));
@@ -34,7 +36,10 @@ namespace Code
 			foreach (var door in entities)
 			{
 				var coordinates = door.GetCoordinates(withLayer: Coordinates.Layer.Default);
-				CurrentActor.Replace<Component.Coordinates, Coordinates>(coordinates);
+				if (CurrentActor is null)
+					_turnsQueue.Next().Is<CurrentActor>(true);
+
+				CurrentActor!.Replace<Component.Coordinates, Coordinates>(coordinates);
 				var roomOfDoor = door.Get<DoorTo>().Value;
 				roomOfDoor.Is<NextRoom>(true);
 

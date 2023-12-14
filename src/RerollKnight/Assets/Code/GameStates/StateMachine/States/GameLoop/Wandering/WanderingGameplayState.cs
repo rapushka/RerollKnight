@@ -17,7 +17,7 @@ namespace Code
 				Add<HideAllChipsSystem>();
 				Add<SpawnDoorsSystem>();
 
-				Add<OnDoorClickState>();
+				Add<OnDoorClickSystem>();
 
 				// TearDown
 				Add<DestroyDoorsSystem>();

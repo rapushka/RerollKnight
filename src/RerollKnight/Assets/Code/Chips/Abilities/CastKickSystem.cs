@@ -1,5 +1,6 @@
 using Code.Component;
 using Entitas.Generic;
+using UnityEngine;
 
 namespace Code
 {
@@ -14,10 +15,10 @@ namespace Code
 
 		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> target)
 		{
-			const int damage = 1; // TODO: take it out
+			Debug.Assert(ability.Has<Damage>());
 
 			_contexts.Get<RequestScope>().CreateEntity()
-			         .Add<ChangeHealth, int>(-damage)
+			         .Add<ChangeHealth, int>(-ability.Get<Damage>().Value)
 			         .Add<ForeignID, string>(target.Get<ID>().Value)
 				;
 		}
