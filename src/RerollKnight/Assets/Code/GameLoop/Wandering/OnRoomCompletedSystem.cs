@@ -1,4 +1,5 @@
-﻿using Code.Component;
+﻿using System.Collections.Generic;
+using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using UnityEngine;
@@ -7,29 +8,29 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class OnRoomCompletedSystem : IExecuteSystem
+	public sealed class OnRoomCompletedSystem : ReactiveSystem<Entity<GameScope>>
 	{
 		private readonly GameplayStateMachine _stateMachine;
 		private readonly IGroup<Entity<GameScope>> _enemies;
 		private readonly IGroup<Entity<GameScope>> _players;
-		private readonly IGroup<Entity<GameScope>> _doors;
 
 		[Inject]
 		public OnRoomCompletedSystem(Contexts contexts, GameplayStateMachine stateMachine)
+			: base(contexts.Get<GameScope>())
 		{
 			_stateMachine = stateMachine;
 
 			_enemies = contexts.GetGroup(AllOf(Get<Enemy>()).NoneOf(Get<Disabled>()));
 			_players = contexts.GetGroup(Get<Player>());
-			_doors = contexts.GetGroup(Get<DoorTo>());
 		}
 
-		public void Execute()
-		{
-			if (_stateMachine.CurrentState is LoadLevelGameplayState or InitializeGameplayState
-			    || _doors.Any())
-				return;
+		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
+			=> context.CreateCollector(AnyOf(Get<Player>(), Get<Enemy>()).Removed());
 
+		protected override bool Filter(Entity<GameScope> entity) => true;
+
+		protected override void Execute(List<Entity<GameScope>> entities)
+		{
 			if (!_enemies.Any())
 				OnRoomCleared();
 
@@ -38,9 +39,7 @@ namespace Code
 		}
 
 		private void OnRoomCleared()
-		{
-			_stateMachine.ToState<WanderingGameplayState>();
-		}
+			=> _stateMachine.ToState<WanderingGameplayState>();
 
 		private void OnGameOver()
 			=> Debug.Log("TODO: Game Over");
