@@ -1,7 +1,6 @@
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
-using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
@@ -27,6 +26,7 @@ namespace Code
 			previousRoom.Is<Disabled>(true);
 			var nextRoom = _contexts.Get<GameScope>().Unique.GetEntity<NextRoom>();
 			nextRoom.Is<Disabled>(false);
+			nextRoom.Is<NextRoom>(false);
 
 			// Flip Entrance
 			var entrance = _doorsFactory.CreateEntrance(previousRoom);
