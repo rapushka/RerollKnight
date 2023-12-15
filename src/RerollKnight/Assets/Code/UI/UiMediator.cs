@@ -27,6 +27,8 @@ namespace Code
 
 		public void OpenGameplay() => _sceneTransfer.ToGameplay();
 
+		public void Pause() => _sceneTransfer.ToMainMenu();
+
 		public void OpenSettings() { }
 
 		public void Exit()

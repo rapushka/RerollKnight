@@ -7,6 +7,7 @@ namespace Code
 	public class HUD : MonoBehaviour
 	{
 		[SerializeField] private Button _endTurnButton;
+		[SerializeField] private Button _pauseButton;
 
 		private UiMediator _uiMediator;
 
@@ -15,19 +16,18 @@ namespace Code
 			=> _uiMediator = uiMediator;
 
 		private void OnEnable()
-			=> _endTurnButton.onClick.AddListener(OnEndTurnButtonClick);
-
-		private void OnDisable()
-			=> _endTurnButton.onClick.RemoveListener(OnEndTurnButtonClick);
+		{
+			_endTurnButton.onClick.AddListener(OnEndTurnButtonClick);
+			_pauseButton.onClick.AddListener(OnPauseButtonClick);
+		}
 
 		private void OnEndTurnButtonClick()
-		{
-			_uiMediator.EndTurn();
-		}
+			=> _uiMediator.EndTurn();
+
+		private void OnPauseButtonClick()
+			=> _uiMediator.Pause();
 
 		private void Update()
-		{
-			_endTurnButton.enabled = _uiMediator.IsEndTurnButtonAvailable;
-		}
+			=> _endTurnButton.enabled = _uiMediator.IsEndTurnButtonAvailable;
 	}
 }
