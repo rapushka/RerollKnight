@@ -9,11 +9,13 @@ namespace Code
 	public class UiMediator
 	{
 		private Contexts _contexts;
+		private ISceneTransfer _sceneTransfer;
 
 		[Inject]
-		public void Construct(Contexts contexts)
+		public void Construct(Contexts contexts, ISceneTransfer sceneTransfer)
 		{
 			_contexts = contexts;
+			_sceneTransfer = sceneTransfer;
 		}
 
 		[CanBeNull]
@@ -23,7 +25,7 @@ namespace Code
 
 		public bool IsEndTurnButtonAvailable => CurrentActor?.Is<Player>() ?? false;
 
-		public void OpenGameplay() { }
+		public void OpenGameplay() => _sceneTransfer.ToGameplay();
 
 		public void OpenSettings() { }
 

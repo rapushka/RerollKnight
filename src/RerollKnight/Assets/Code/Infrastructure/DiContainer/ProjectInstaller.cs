@@ -12,6 +12,8 @@ namespace Code
 
 		public override void InstallBindings()
 		{
+			Container.BindInterfacesTo<Starter>().AsSingle();
+
 			Container.BindInstance(Contexts.Instance).AsSingle();
 			Container.Bind<ContextsInitializer>().AsSingle().NonLazy();
 			Container.Bind<SystemsFactory>().AsSingle();
@@ -34,6 +36,8 @@ namespace Code
 
 			Container.Bind<ServicesMediator>().AsSingle();
 			Container.Bind<UiMediator>().AsSingle();
+
+			Container.Bind<ISceneTransfer>().To<SceneTransfer>().AsSingle();
 		}
 	}
 }
