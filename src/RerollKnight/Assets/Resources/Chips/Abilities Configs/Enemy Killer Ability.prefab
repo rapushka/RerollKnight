@@ -52,7 +52,6 @@ MonoBehaviour:
   _interruptChildrenEntities: 1
   _componentBehaviours:
   - {fileID: -7143361992002859495}
-  - {fileID: 0}
   - {fileID: 4438489512886087768}
   - {fileID: 915410690454322718}
   - {fileID: 8922502445419947486}
