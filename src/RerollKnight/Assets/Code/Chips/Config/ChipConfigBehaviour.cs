@@ -7,5 +7,6 @@ namespace Code
 	{
 		[field: SerializeField] public string                       Label     { get; private set; }
 		[field: SerializeField] public List<AbilityConfigBehaviour> Abilities { get; private set; }
+		[field: SerializeField] public float                        Cost      { get; private set; }
 	}
 }

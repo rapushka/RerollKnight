@@ -44,9 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e9a9743e124236b2677170811bc061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collectInChildren: 0
-  _interruptChildrenEntities: 1
-  _componentBehaviours: []
   <Label>k__BackingField: Kick
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: 6827462f2e7e4c423bb80a456b75dc30, type: 3}
+  <Cost>k__BackingField: 3

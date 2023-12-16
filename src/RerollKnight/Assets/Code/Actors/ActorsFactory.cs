@@ -11,7 +11,7 @@ namespace Code
 	{
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
-		private readonly ChipsFactory _chipsFactory;
+		private readonly ChipsGenerator _chipsGenerator;
 		private readonly UiFactory _uiFactory;
 
 		[Inject]
@@ -19,24 +19,24 @@ namespace Code
 		(
 			IAssetsService assets,
 			IResourcesService resources,
-			ChipsFactory chipsFactory,
+			ChipsGenerator chipsGenerator,
 			UiFactory uiFactory
 		)
 		{
 			_assets = assets;
 			_resources = resources;
-			_chipsFactory = chipsFactory;
+			_chipsGenerator = chipsGenerator;
 			_uiFactory = uiFactory;
 		}
 
-		public GameEntity CreatePlayer(Coordinates coordinates, List<ChipConfigBehaviour> chips)
-			=> Create(SpawnPrefab(_resources.PlayerPrefab), coordinates, chips);
+		public GameEntity CreatePlayer(Coordinates coordinates)
+			=> Create(SpawnPrefab(_resources.PlayerPrefab), coordinates);
 
-		public GameEntity CreateEnemy(Coordinates coordinates, List<ChipConfigBehaviour> chips)
-			=> Create(SpawnPrefab(_resources.EnemyPrefab), coordinates, chips)
+		public GameEntity CreateEnemy(Coordinates coordinates)
+			=> Create(SpawnPrefab(_resources.EnemyPrefab), coordinates)
 				.Is<RoomResident>(true);
 
-		private GameEntity Create(GameEntity entity, Coordinates coordinates, List<ChipConfigBehaviour> chips)
+		private GameEntity Create(GameEntity entity, Coordinates coordinates)
 		{
 			var actor = entity
 			            .Replace<Component.Coordinates, Coordinates>(coordinates)
@@ -48,17 +48,16 @@ namespace Code
 
 			var faces = actor.GetDependants().Where((e) => e.Has<Face>());
 
-			CreateChips(chips, actor, faces);
+			CreateChips(actor, faces);
 
 			_uiFactory.CreateHealthBar(actor);
 			return actor;
 		}
 
-		private void CreateChips(List<ChipConfigBehaviour> chips, GameEntity actor, IEnumerable<GameEntity> faces)
+		private void CreateChips(GameEntity actor, IEnumerable<GameEntity> faces)
 		{
 			foreach (var face in faces)
-			foreach (var chipConfig in chips)
-				_chipsFactory.Create(chipConfig, actor, face);
+				_chipsGenerator.CreateChipsFor(actor, face);
 		}
 
 		private GameEntity SpawnPrefab(EntityBehaviour<GameScope> prefab)
