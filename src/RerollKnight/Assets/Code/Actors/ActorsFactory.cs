@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using Code.Component;
 using Entitas.Generic;
 using Zenject;
@@ -46,18 +44,15 @@ namespace Code
 				;
 			actor.Add<Health, int>(actor.Get<MaxHealth>().Value);
 
-			var faces = actor.GetDependants().Where((e) => e.Has<Face>());
-
-			CreateChips(actor, faces);
+			CreateChips(actor);
 
 			_uiFactory.CreateHealthBar(actor);
 			return actor;
 		}
 
-		private void CreateChips(GameEntity actor, IEnumerable<GameEntity> faces)
+		private void CreateChips(GameEntity actor)
 		{
-			foreach (var face in faces)
-				_chipsGenerator.CreateChipsFor(actor, face);
+			_chipsGenerator.CreateChipsFor(actor);
 		}
 
 		private GameEntity SpawnPrefab(EntityBehaviour<GameScope> prefab)
