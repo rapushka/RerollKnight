@@ -8,7 +8,7 @@ namespace Code
 		LocaleKey[] Locales             { get; }
 		LocaleKey   CurrentLocalization { get; }
 
-		string GetLocalized(string key, params object[] arguments);
+		string GetLocalized(string table, string key, params object[] arguments);
 
 		void SelectLocalization(LocaleKey key);
 	}
@@ -22,10 +22,10 @@ namespace Code
 		public int IndexOfCurrentLocale => LocalizationSettings.AvailableLocales.Locales
 		                                                       .IndexOf(LocalizationSettings.SelectedLocale);
 
-		public string GetLocalized(string key, params object[] arguments)
+		public string GetLocalized(string table, string key, params object[] arguments)
 			=> LocalizationSettings.StringDatabase.GetLocalizedString
 			(
-				"Game",
+				table,
 				key,
 				locale: null,
 				FallbackBehavior.UseProjectSettings,

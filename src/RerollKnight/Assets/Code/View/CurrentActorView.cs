@@ -36,7 +36,7 @@ namespace Code
 				: entity.Is<Enemy>()  ? LocalizationKey.EnemyCurrentActor
 				                        : LocalizationKey.NoCurrentActor;
 
-			_textMesh.text = _localizationService.GetLocalized(key);
+			_textMesh.text = _localizationService.GetLocalized(LocalizationTable.Game, key);
 		}
 	}
 }
