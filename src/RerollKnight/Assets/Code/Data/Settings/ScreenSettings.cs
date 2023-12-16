@@ -1,13 +1,14 @@
+using System.Linq;
 using UnityEngine;
 
 namespace Code
 {
 	public class ScreenSettings
 	{
-		public Resolution CurrentResolution
+		public Vector2Int CurrentResolution
 		{
-			get => Screen.currentResolution;
-			set => Screen.SetResolution(value.width, value.height, IsFullscreen);
+			get => AsVector(Screen.currentResolution);
+			set => Screen.SetResolution(value.x, value.y, IsFullscreen);
 		}
 
 		public bool IsFullscreen
@@ -16,6 +17,8 @@ namespace Code
 			set => Screen.fullScreen = value;
 		}
 
-		public Resolution[] AvailableResolutions => Screen.resolutions;
+		public Vector2Int[] AvailableResolutions => Screen.resolutions.Select(AsVector).ToArray();
+
+		private static Vector2Int AsVector(Resolution resolution) => new(resolution.width, resolution.height);
 	}
 }

@@ -6,7 +6,7 @@ namespace Code
 	{
 		LocaleKey  Localization { get; set; }
 		bool       IsFullscreen { get; set; }
-		Resolution Resolution   { get; set; }
+		Vector2Int Resolution   { get; set; }
 	}
 
 	public class PlayerPrefsStorage : IStorageService
@@ -26,13 +26,13 @@ namespace Code
 			set => PlayerPrefs.SetInt("Settings.IsFullscreen", value ? True : False);
 		}
 
-		public Resolution Resolution
+		public Vector2Int Resolution
 		{
-			get => new() { width = ScreenWidth, height = ScreenHeight };
+			get => new() { x = ScreenWidth, y = ScreenHeight };
 			set
 			{
-				ScreenWidth = value.width;
-				ScreenHeight = value.height;
+				ScreenWidth = value.x;
+				ScreenHeight = value.y;
 			}
 		}
 
