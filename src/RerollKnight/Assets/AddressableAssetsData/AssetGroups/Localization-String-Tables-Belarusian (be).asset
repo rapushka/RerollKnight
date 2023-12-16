@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Belarusian (be)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Belarusian (be)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b086fefcba73369efb65a125de842eaa
+  m_SerializeEntries:
+  - m_GUID: cb2c7da73d0ccd9b79baa2be96cf60ab
+    m_Address: Game_be
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-be
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 6e888db4cd2cb639e95d13c6278a1980, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 47b129dc1b5b331cca6b150936e40909, type: 2}
+    - {fileID: 11400000, guid: 0cb3a726c2d4e19c79adeaa372105eff, type: 2}
