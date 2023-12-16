@@ -17,6 +17,7 @@ namespace Code
 		{
 			_assetsService = assetsService;
 			_canvasProvider = canvasProvider;
+
 			_windows = InstantiateAll(windowPrefabs);
 		}
 

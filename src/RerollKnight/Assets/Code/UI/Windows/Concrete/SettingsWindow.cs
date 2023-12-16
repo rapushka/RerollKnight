@@ -6,6 +6,7 @@ namespace Code
 {
 	public class SettingsWindow : WindowBase
 	{
+		[Header("General")]
 		[SerializeField] private LocalizationSelector _localizationSelector;
 
 // ReSharper disable NotAccessedField.Local
