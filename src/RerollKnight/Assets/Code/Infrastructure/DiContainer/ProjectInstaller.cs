@@ -58,6 +58,8 @@ namespace Code
 			Container.Bind<ISceneTransfer>().To<SceneTransfer>().AsSingle();
 			Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
 			Container.Bind<WindowsService>().AsSingle();
+
+			Container.Bind<IStorageService>().To<PlayerPrefsStorage>().AsSingle();
 		}
 	}
 }

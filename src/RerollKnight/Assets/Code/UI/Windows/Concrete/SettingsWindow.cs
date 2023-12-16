@@ -19,17 +19,21 @@ namespace Code
 		[SerializeField] private Slider _soundsVolumeSlider;
 
 		private ILocalizationService _localizationService;
+		private IStorageService _storageService;
 
 		[Inject]
-		public void Construct(ILocalizationService localizationService)
+		public void Construct(ILocalizationService localizationService, IStorageService storageService)
 		{
 			_localizationService = localizationService;
+			_storageService = storageService;
 		}
 
 		public override void Initialize()
 		{
 			_localizationSelector.Fill(_localizationService.Locales);
-			_localizationSelector.Selected = _localizationService.CurrentLocalization;
+			_localizationSelector.Selected = _storageService.Localization;
+
+			OnLocalizationSelected(_storageService.Localization);
 		}
 
 		protected override void OnEnable()
@@ -45,6 +49,9 @@ namespace Code
 		}
 
 		private void OnLocalizationSelected(LocaleKey localeKey)
-			=> _localizationService.SelectLocalization(localeKey);
+		{
+			_localizationService.SelectLocalization(localeKey);
+			_storageService.Localization = localeKey;
+		}
 	}
 }
