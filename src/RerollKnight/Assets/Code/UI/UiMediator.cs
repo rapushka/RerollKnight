@@ -1,44 +1,32 @@
-using Code.Component;
-using Entitas.Generic;
-using JetBrains.Annotations;
-using UnityEngine;
 using Zenject;
 
 namespace Code
 {
 	public class UiMediator
 	{
-		private Contexts _contexts;
 		private ISceneTransfer _sceneTransfer;
+		private WindowsService _windows;
+		private Game _game;
 
 		[Inject]
-		public void Construct(Contexts contexts, ISceneTransfer sceneTransfer)
+		public void Construct(ISceneTransfer sceneTransfer, WindowsService windows, Game game)
 		{
-			_contexts = contexts;
 			_sceneTransfer = sceneTransfer;
+			_windows = windows;
+			_game = game;
 		}
 
-		[CanBeNull]
-		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
+		public void EndTurn() => _game.EndTurn();
 
-		public void EndTurn() => _contexts.Get<RequestScope>().CreateEntity().Add<EndTurn>();
+		public bool IsEndTurnButtonAvailable => _game.IsPlayerCurrentActor;
 
-		public bool IsEndTurnButtonAvailable => CurrentActor?.Is<Player>() ?? false;
-
-		public void OpenGameplay() => _sceneTransfer.ToGameplay();
+		public void OpenGameplayScene() => _sceneTransfer.ToGameplay();
 
 		public void Pause() => _sceneTransfer.ToMainMenu();
 
-		public void OpenSettings() { }
+		public void OpenWindow<TWindow>() where TWindow : IWindow => _windows.Open<TWindow>();
+		public void CloseCurrentWindow()                          => _windows.CloseCurrent();
 
-		public void Exit()
-		{
-#if UNITY_EDITOR
-			if (UnityEditor.EditorApplication.isPlaying)
-				UnityEditor.EditorApplication.ExitPlaymode();
-#endif
-
-			Application.Quit();
-		}
+		public void Exit() => _game.Exit();
 	}
 }

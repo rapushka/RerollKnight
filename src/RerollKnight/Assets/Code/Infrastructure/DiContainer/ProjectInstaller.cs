@@ -14,6 +14,8 @@ namespace Code
 		{
 			Container.BindInterfacesTo<Starter>().AsSingle();
 
+			Container.Bind<Game>().AsSingle();
+
 			Container.BindInstance(Contexts.Instance).AsSingle();
 			Container.Bind<ContextsInitializer>().AsSingle().NonLazy();
 			Container.Bind<SystemsFactory>().AsSingle();
