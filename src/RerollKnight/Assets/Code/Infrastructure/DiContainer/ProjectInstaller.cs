@@ -9,10 +9,12 @@ namespace Code
 		[SerializeField] private ViewConfig _viewConfig;
 		[SerializeField] private ChipsConfig _chipsConfig;
 		[SerializeField] private GenerationConfig _generationConfig;
+		[SerializeField] private WindowBase[] _windows;
 
 		public override void InstallBindings()
 		{
 			Container.BindInterfacesTo<Starter>().AsSingle();
+			Container.BindInterfacesAndSelfTo<CanvasProvider>().AsSingle();
 
 			Container.Bind<Game>().AsSingle();
 
@@ -30,6 +32,9 @@ namespace Code
 #endif
 
 			InstallServices();
+
+			foreach (var window in _windows)
+				Container.Bind<IWindow>().FromInstance(window).AsTransient();
 		}
 
 		private void InstallServices()
@@ -48,6 +53,7 @@ namespace Code
 
 			Container.Bind<ISceneTransfer>().To<SceneTransfer>().AsSingle();
 			Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
+			Container.Bind<WindowsService>().AsSingle();
 		}
 	}
 }

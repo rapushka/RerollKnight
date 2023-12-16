@@ -8,6 +8,7 @@ namespace Code
 	{
 		[SerializeField] private LocalizationSelector _localizationSelector;
 
+// ReSharper disable NotAccessedField.Local
 		[Header("Video Settings")]
 		[SerializeField] private Toggle _fullScreenToggle;
 		[SerializeField] private Selector<Resolution> _resolutionSelector;
