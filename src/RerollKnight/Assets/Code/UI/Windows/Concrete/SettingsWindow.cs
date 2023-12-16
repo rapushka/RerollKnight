@@ -9,26 +9,55 @@ namespace Code
 		[Header("General")]
 		[SerializeField] private LocalizationSelector _localizationSelector;
 
-// ReSharper disable NotAccessedField.Local
 		[Header("Video Settings")]
-		[SerializeField] private Toggle _fullScreenToggle;
+		[SerializeField] private Toggle _fullscreenToggle;
 		[SerializeField] private Selector<Resolution> _resolutionSelector;
 
+// ReSharper disable NotAccessedField.Local
 		[Header("Audio Settings")]
 		[SerializeField] private Slider _musicVolumeSlider;
 		[SerializeField] private Slider _soundsVolumeSlider;
 
 		private ILocalizationService _localizationService;
 		private IStorageService _storageService;
+		private ScreenSettings _screen;
 
 		[Inject]
-		public void Construct(ILocalizationService localizationService, IStorageService storageService)
+		public void Construct
+		(
+			ILocalizationService localizationService,
+			IStorageService storageService,
+			ScreenSettings screen
+		)
 		{
 			_localizationService = localizationService;
 			_storageService = storageService;
+			_screen = screen;
 		}
 
 		public override void Initialize()
+		{
+			InitializeLocalization();
+			InitializeScreenSettings();
+		}
+
+		protected override void OnEnable()
+		{
+			base.OnEnable();
+			_localizationSelector.OptionSelected += OnLocalizationSelected;
+			_resolutionSelector.OptionSelected += OnResolutionSelected;
+			_fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggle);
+		}
+
+		protected override void OnDisable()
+		{
+			base.OnDisable();
+			_localizationSelector.OptionSelected -= OnLocalizationSelected;
+			_resolutionSelector.OptionSelected -= OnResolutionSelected;
+			_fullscreenToggle.onValueChanged.RemoveListener(OnFullscreenToggle);
+		}
+
+		private void InitializeLocalization()
 		{
 			_localizationSelector.Fill(_localizationService.Locales);
 			_localizationSelector.Selected = _storageService.Localization;
@@ -36,22 +65,33 @@ namespace Code
 			OnLocalizationSelected(_storageService.Localization);
 		}
 
-		protected override void OnEnable()
-		{
-			base.OnEnable();
-			_localizationSelector.OptionSelected += OnLocalizationSelected;
-		}
-
-		protected override void OnDisable()
-		{
-			base.OnDisable();
-			_localizationSelector.OptionSelected -= OnLocalizationSelected;
-		}
-
 		private void OnLocalizationSelected(LocaleKey localeKey)
 		{
 			_localizationService.SelectLocalization(localeKey);
 			_storageService.Localization = localeKey;
+		}
+
+		private void InitializeScreenSettings()
+		{
+			_screen.CurrentResolution = _storageService.Resolution;
+			_screen.IsFullscreen = _storageService.IsFullscreen;
+
+			_resolutionSelector.Fill(_screen.AvailableResolutions);
+			_resolutionSelector.Selected = _screen.CurrentResolution;
+
+			_fullscreenToggle.isOn = _screen.IsFullscreen;
+		}
+
+		private void OnResolutionSelected(Resolution resolution)
+		{
+			_screen.CurrentResolution = resolution;
+			_storageService.Resolution = resolution;
+		}
+
+		private void OnFullscreenToggle(bool isOn)
+		{
+			_screen.IsFullscreen = isOn;
+			_storageService.IsFullscreen = isOn;
 		}
 	}
 }
