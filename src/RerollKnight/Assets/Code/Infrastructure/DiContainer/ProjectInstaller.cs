@@ -28,7 +28,6 @@ namespace Code
 			Container.Bind<IAssetsService>().To<AssetsService>().AsSingle();
 			Container.Bind<IViewConfig>().To<ViewConfig>().FromScriptableObject(_viewConfig).AsSingle();
 			Container.Bind<ITimeService>().To<TimeService>().AsSingle();
-			Container.Bind<IRandomFieldAccess>().To<RandomFieldAccess>().AsSingle();
 			Container.Bind<ChipsConfig>().FromScriptableObject(_chipsConfig).AsSingle();
 			Container.Bind<GenerationConfig>().FromScriptableObject(_generationConfig).AsSingle();
 

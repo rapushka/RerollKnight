@@ -56,6 +56,15 @@ namespace Code
 #endif
 
 			Add<BoilerplateFeature>();
+
+			// TearDown
+			Add(new ClearReactivitySystem(this));
+			Add<ResetContext<GameScope>>();
+			Add<ResetContext<PlayerScope>>();
+			Add<ResetContext<InputScope>>();
+			Add<ResetContext<RequestScope>>();
+			Add<ResetContext<ChipsScope>>();
+			Add<ResetContext<InfrastructureScope>>();
 		}
 	}
 }
