@@ -27,6 +27,22 @@ MonoBehaviour:
     m_Key: ExitButton
     m_Metadata:
       m_Items: []
+  - m_Id: 1966975696896
+    m_Key: EndTurnButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2076136652800
+    m_Key: PlayerCurrentActor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2118515900416
+    m_Key: EnemyCurrentActor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3739736031232
+    m_Key: NoCurrentActor
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

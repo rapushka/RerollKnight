@@ -30,6 +30,22 @@ MonoBehaviour:
     m_Localized: Exit
     m_Metadata:
       m_Items: []
+  - m_Id: 1966975696896
+    m_Localized: End Turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2076136652800
+    m_Localized: Player's turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2118515900416
+    m_Localized: Enemies' turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3739736031232
+    m_Localized: Nobody's turn
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

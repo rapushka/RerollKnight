@@ -247,6 +247,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5032514479943866422, guid: 69227e4ae4a1c9fa2a870877d4d6abdb, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 1966975696896
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032514479943866422, guid: 69227e4ae4a1c9fa2a870877d4d6abdb, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:be8bb58715c491d61b5b044539179ab6
+      objectReference: {fileID: 0}
     - target: {fileID: 5350647774810929303, guid: 69227e4ae4a1c9fa2a870877d4d6abdb, type: 3}
       propertyPath: m_Name
       value: End Turn Button
