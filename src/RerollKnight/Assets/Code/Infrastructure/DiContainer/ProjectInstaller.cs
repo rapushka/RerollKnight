@@ -19,6 +19,12 @@ namespace Code
 			Container.Bind<SystemsFactory>().AsSingle();
 			Container.Bind<Query>().AsSingle();
 
+			Container.Bind<FpsCounter>()
+			         .FromNewComponentOnNewGameObject()
+			         .UnderTransform(transform)
+			         .AsSingle()
+			         .NonLazy();
+
 			InstallServices();
 		}
 
