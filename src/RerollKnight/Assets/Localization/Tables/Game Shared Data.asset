@@ -43,6 +43,38 @@ MonoBehaviour:
     m_Key: NoCurrentActor
     m_Metadata:
       m_Items: []
+  - m_Id: 164815689695232
+    m_Key: SettingsWindowTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 164956857384960
+    m_Key: LocalizationOption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165053355737088
+    m_Key: FullscreenModeOption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165318393806848
+    m_Key: ScreenResolutionOption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165457112023040
+    m_Key: VideoSettingsTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165650817564672
+    m_Key: AudioSettingsTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165911267065856
+    m_Key: MusicVolumeOption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165979424505856
+    m_Key: SoundsVolumeOption
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
