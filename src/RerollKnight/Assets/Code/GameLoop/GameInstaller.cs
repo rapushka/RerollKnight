@@ -24,6 +24,8 @@ namespace Code
 			Container.Bind<MapProvider>().AsSingle();
 			Container.Bind<CoordinatesCalculator>().AsSingle();
 
+			Container.Bind<IRandomFieldAccess>().To<RandomFieldAccess>().AsSingle();
+
 			InstallFactories();
 		}
 

@@ -12,10 +12,20 @@ namespace Code
 
 		public override void InstallBindings()
 		{
+			Container.BindInterfacesTo<Starter>().AsSingle();
+
 			Container.BindInstance(Contexts.Instance).AsSingle();
 			Container.Bind<ContextsInitializer>().AsSingle().NonLazy();
 			Container.Bind<SystemsFactory>().AsSingle();
 			Container.Bind<Query>().AsSingle();
+
+#if Develop
+			Container.Bind<FpsCounter>()
+			         .FromNewComponentOnNewGameObject()
+			         .UnderTransform(transform)
+			         .AsSingle()
+			         .NonLazy();
+#endif
 
 			InstallServices();
 		}
@@ -26,7 +36,6 @@ namespace Code
 			Container.Bind<IAssetsService>().To<AssetsService>().AsSingle();
 			Container.Bind<IViewConfig>().To<ViewConfig>().FromScriptableObject(_viewConfig).AsSingle();
 			Container.Bind<ITimeService>().To<TimeService>().AsSingle();
-			Container.Bind<IRandomFieldAccess>().To<RandomFieldAccess>().AsSingle();
 			Container.Bind<ChipsConfig>().FromScriptableObject(_chipsConfig).AsSingle();
 			Container.Bind<GenerationConfig>().FromScriptableObject(_generationConfig).AsSingle();
 
@@ -34,6 +43,8 @@ namespace Code
 
 			Container.Bind<ServicesMediator>().AsSingle();
 			Container.Bind<UiMediator>().AsSingle();
+
+			Container.Bind<ISceneTransfer>().To<SceneTransfer>().AsSingle();
 		}
 	}
 }

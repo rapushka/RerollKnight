@@ -2,7 +2,6 @@
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
@@ -13,12 +12,14 @@ namespace Code
 		private readonly GameplayStateMachine _stateMachine;
 		private readonly IGroup<Entity<GameScope>> _enemies;
 		private readonly IGroup<Entity<GameScope>> _players;
+		private readonly ISceneTransfer _sceneTransfer;
 
 		[Inject]
-		public OnRoomCompletedSystem(Contexts contexts, GameplayStateMachine stateMachine)
+		public OnRoomCompletedSystem(Contexts contexts, GameplayStateMachine stateMachine, ISceneTransfer sceneTransfer)
 			: base(contexts.Get<GameScope>())
 		{
 			_stateMachine = stateMachine;
+			_sceneTransfer = sceneTransfer;
 
 			_enemies = contexts.GetGroup(AllOf(Get<Enemy>()).NoneOf(Get<Disabled>()));
 			_players = contexts.GetGroup(Get<Player>());
@@ -42,6 +43,6 @@ namespace Code
 			=> _stateMachine.ToState<WanderingGameplayState>();
 
 		private void OnGameOver()
-			=> Debug.Log("TODO: Game Over");
+			=> _sceneTransfer.ToMainMenu();
 	}
 }
