@@ -77,3 +77,5 @@ MonoBehaviour:
   _viewConfig: {fileID: 11400000, guid: 53601bad48f32f02a8b4af8a7e7da80e, type: 2}
   _chipsConfig: {fileID: 11400000, guid: 635419c540759b067971df7c0c5f2c39, type: 2}
   _generationConfig: {fileID: 11400000, guid: 7fb95b31f93a6514792db0af54e2af8c, type: 2}
+  _windows:
+  - {fileID: 6593586174595022757, guid: b60ee5dfedb9a7c778c9f5f0c8ed4278, type: 3}

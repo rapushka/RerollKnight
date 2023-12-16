@@ -13,8 +13,9 @@ namespace Code
 
 		public override void InstallBindings()
 		{
+			var canvas = Instantiate(Resources.Load<Canvas>("UI/Canvas"), transform);
+
 			Container.BindInterfacesTo<Starter>().AsSingle();
-			Container.BindInterfacesAndSelfTo<CanvasProvider>().AsSingle();
 
 			Container.Bind<Game>().AsSingle();
 
@@ -34,7 +35,10 @@ namespace Code
 			InstallServices();
 
 			foreach (var window in _windows)
-				Container.Bind<IWindow>().FromInstance(window).AsTransient();
+				Container.BindInterfacesAndSelfTo(window.GetType())
+				         .FromComponentInNewPrefab(window)
+				         .UnderTransform(canvas.transform)
+				         .AsSingle();
 		}
 
 		private void InstallServices()

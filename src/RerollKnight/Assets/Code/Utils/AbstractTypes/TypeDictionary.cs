@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Code
 {
@@ -21,6 +20,12 @@ namespace Code
 		public void Set<T>(T value) where T : TBase => this[typeof(T)] = value;
 
 		public static TypeDictionary<TBase> FromIEnumerable(IEnumerable<TBase> source)
-			=> (TypeDictionary<TBase>)source.ToDictionary((x) => x.GetType());
+		{
+			var dictionary = new TypeDictionary<TBase>();
+			foreach (var item in source)
+				dictionary.Add(item);
+
+			return dictionary;
+		}
 	}
 }
