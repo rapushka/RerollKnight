@@ -24,5 +24,12 @@ namespace Code
 			_settingsButton.onClick.AddListener(_uiMediator.OpenWindow<SettingsWindow>);
 			_exitButton.onClick.AddListener(_uiMediator.Exit);
 		}
+
+		private void OnDisable()
+		{
+			_playButton.onClick.RemoveListener(_uiMediator.OpenGameplayScene);
+			_settingsButton.onClick.RemoveListener(_uiMediator.OpenWindow<SettingsWindow>);
+			_exitButton.onClick.RemoveListener(_uiMediator.Exit);
+		}
 	}
 }

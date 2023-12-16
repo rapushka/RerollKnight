@@ -21,6 +21,12 @@ namespace Code
 			_pauseButton.onClick.AddListener(OnPauseButtonClick);
 		}
 
+		private void OnDisable()
+		{
+			_endTurnButton.onClick.RemoveListener(OnEndTurnButtonClick);
+			_pauseButton.onClick.RemoveListener(OnPauseButtonClick);
+		}
+
 		private void OnEndTurnButtonClick()
 			=> _uiMediator.EndTurn();
 
