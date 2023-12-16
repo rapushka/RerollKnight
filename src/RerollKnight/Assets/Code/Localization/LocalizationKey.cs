@@ -6,4 +6,9 @@ namespace Code
 		public const string EnemyCurrentActor = "EnemyCurrentActor";
 		public const string NoCurrentActor = "NoCurrentActor";
 	}
+
+	public static class LocalizationTable
+	{
+		public const string Game = "Game";
+	}
 }

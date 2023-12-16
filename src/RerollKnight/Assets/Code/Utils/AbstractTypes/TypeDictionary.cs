@@ -18,5 +18,14 @@ namespace Code
 		public T Get<T>() where T : TBase => (T)this[typeof(T)];
 
 		public void Set<T>(T value) where T : TBase => this[typeof(T)] = value;
+
+		public static TypeDictionary<TBase> FromIEnumerable(IEnumerable<TBase> source)
+		{
+			var dictionary = new TypeDictionary<TBase>();
+			foreach (var item in source)
+				dictionary.Add(item);
+
+			return dictionary;
+		}
 	}
 }

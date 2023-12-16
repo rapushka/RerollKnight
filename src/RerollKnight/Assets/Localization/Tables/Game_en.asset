@@ -46,6 +46,38 @@ MonoBehaviour:
     m_Localized: Nobody's turn
     m_Metadata:
       m_Items: []
+  - m_Id: 164815689695232
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 164956857384960
+    m_Localized: 'Language:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165053355737088
+    m_Localized: 'Fullscreen:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165318393806848
+    m_Localized: 'Screen resolution:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165457112023040
+    m_Localized: Video Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165650817564672
+    m_Localized: Audio Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165911267065856
+    m_Localized: 'Music Volume:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 165979424505856
+    m_Localized: 'Sounds Volume:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
