@@ -30,7 +30,19 @@ namespace Code
 		{
 			_localizationSelector.Fill(_localizationService.Locales);
 			_localizationSelector.Selected = _localizationService.CurrentLocalization;
+			// OnLocalizationSelected(_localizationService.CurrentLocalization);
+		}
+
+		protected override void OnEnable()
+		{
+			base.OnEnable();
 			_localizationSelector.OptionSelected += OnLocalizationSelected;
+		}
+
+		protected override void OnDisable()
+		{
+			base.OnDisable();
+			_localizationSelector.OptionSelected -= OnLocalizationSelected;
 		}
 
 		private void OnLocalizationSelected(LocaleKey localeKey)

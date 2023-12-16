@@ -11,13 +11,13 @@ namespace Code
 
 		private bool IsOpen { get => _root.activeSelf; set => _root.SetActive(value); }
 
-		private void OnEnable()
+		protected virtual void OnEnable()
 		{
 			// ReSharper disable once Unity.NoNullPropagation – if button is destroyed it have to throw an error
 			_closeButton?.onClick.AddListener(Close);
 		}
 
-		private void OnDisable()
+		protected virtual void OnDisable()
 		{
 			// ReSharper disable once Unity.NoNullPropagation – if button is destroyed it have to throw an error
 			_closeButton?.onClick.RemoveListener(Close);

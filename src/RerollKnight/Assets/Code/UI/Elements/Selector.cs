@@ -21,7 +21,11 @@ namespace Code
 		public TBase Selected
 		{
 			get => _options[_currentIndex];
-			set => _currentIndex = _options.IndexOf(value);
+			set
+			{
+				_currentIndex = _options.IndexOf(value);
+				UpdateVariantText();
+			}
 		}
 
 		public void Fill(IEnumerable<TBase> options)
