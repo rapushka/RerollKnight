@@ -30,7 +30,6 @@ namespace Code
 		{
 			_localizationSelector.Fill(_localizationService.Locales);
 			_localizationSelector.Selected = _localizationService.CurrentLocalization;
-			// OnLocalizationSelected(_localizationService.CurrentLocalization);
 		}
 
 		protected override void OnEnable()
