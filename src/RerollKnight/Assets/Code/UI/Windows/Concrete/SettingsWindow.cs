@@ -28,9 +28,6 @@ namespace Code
 
 		public override void Initialize()
 		{
-			foreach (var locale in _localizationService.Locales)
-				Debug.Log($"locale = {locale}");
-
 			_localizationSelector.Fill(_localizationService.Locales);
 			_localizationSelector.Selected = _localizationService.CurrentLocalization;
 			_localizationSelector.OptionSelected += OnLocalizationSelected;
