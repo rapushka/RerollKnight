@@ -45,6 +45,7 @@ namespace Code
 			Container.Bind<UiMediator>().AsSingle();
 
 			Container.Bind<ISceneTransfer>().To<SceneTransfer>().AsSingle();
+			Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
 		}
 	}
 }
