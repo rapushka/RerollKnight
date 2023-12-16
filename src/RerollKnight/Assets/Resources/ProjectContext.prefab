@@ -79,3 +79,4 @@ MonoBehaviour:
   _generationConfig: {fileID: 11400000, guid: 7fb95b31f93a6514792db0af54e2af8c, type: 2}
   _windows:
   - {fileID: 6593586174595022757, guid: b60ee5dfedb9a7c778c9f5f0c8ed4278, type: 3}
+  _audioMixerGroup: {fileID: 24300002, guid: ee7a52c08ca855429926452d0e905719, type: 2}

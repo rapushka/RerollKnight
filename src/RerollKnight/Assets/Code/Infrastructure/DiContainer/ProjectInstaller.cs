@@ -1,5 +1,6 @@
 using Entitas.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Zenject;
 
 namespace Code
@@ -10,11 +11,10 @@ namespace Code
 		[SerializeField] private ChipsConfig _chipsConfig;
 		[SerializeField] private GenerationConfig _generationConfig;
 		[SerializeField] private WindowBase[] _windows;
+		[SerializeField] private AudioMixerGroup _audioMixerGroup;
 
 		public override void InstallBindings()
 		{
-			var canvas = Instantiate(Resources.Load<Canvas>("UI/Canvas"), transform);
-
 			Container.BindInterfacesTo<Starter>().AsSingle();
 
 			Container.Bind<Game>().AsSingle();
@@ -33,12 +33,9 @@ namespace Code
 #endif
 
 			InstallServices();
+			InstallWindows();
 
-			foreach (var window in _windows)
-				Container.BindInterfacesAndSelfTo(window.GetType())
-				         .FromComponentInNewPrefab(window)
-				         .UnderTransform(canvas.transform)
-				         .AsSingle();
+			Container.BindInstance(_audioMixerGroup).AsSingle();
 		}
 
 		private void InstallServices()
@@ -62,6 +59,17 @@ namespace Code
 
 			Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
 			Container.Bind<ScreenSettings>().AsSingle();
+		}
+
+		private void InstallWindows()
+		{
+			var canvas = Instantiate(Resources.Load<Canvas>("UI/Canvas"), transform);
+
+			foreach (var window in _windows)
+				Container.BindInterfacesAndSelfTo(window.GetType())
+				         .FromComponentInNewPrefab(window)
+				         .UnderTransform(canvas.transform)
+				         .AsSingle();
 		}
 	}
 }

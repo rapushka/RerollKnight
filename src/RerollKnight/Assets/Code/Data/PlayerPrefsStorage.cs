@@ -7,6 +7,8 @@ namespace Code
 		LocaleKey  Localization { get; set; }
 		bool       IsFullscreen { get; set; }
 		Vector2Int Resolution   { get; set; }
+		float      MusicVolume  { get; set; }
+		float      SoundsVolume { get; set; }
 	}
 
 	public class PlayerPrefsStorage : IStorageService
@@ -34,6 +36,18 @@ namespace Code
 				ScreenWidth = value.x;
 				ScreenHeight = value.y;
 			}
+		}
+
+		public float MusicVolume
+		{
+			get => PlayerPrefs.GetFloat("Settings.MusicVolume", Constants.Audio.DefaultVolume.Music);
+			set => PlayerPrefs.SetFloat("Settings.MusicVolume", value);
+		}
+
+		public float SoundsVolume
+		{
+			get => PlayerPrefs.GetFloat("Settings.SoundsVolume", Constants.Audio.DefaultVolume.Sound);
+			set => PlayerPrefs.SetFloat("Settings.SoundsVolume", value);
 		}
 
 		private int ScreenWidth
