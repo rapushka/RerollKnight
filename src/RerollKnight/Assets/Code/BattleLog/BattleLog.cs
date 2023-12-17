@@ -21,9 +21,6 @@ namespace Code
 		{
 			_wholeHeight = _root.rect.height;
 			_entryHeight = _logEntryPrefab.GetComponent<RectTransform>().rect.height;
-
-			Debug.Log($"_logEntryHeight = {_entryHeight}");
-			Debug.Log($"_wholeHeight = {_wholeHeight}");
 		}
 
 		public void Log(string message)
