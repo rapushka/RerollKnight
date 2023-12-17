@@ -4,7 +4,7 @@ namespace Code
 	{
 		Unavailable = -1,
 		Available,
-		Selected,
+		Hovered,
 		Wrong,
 	}
 }
