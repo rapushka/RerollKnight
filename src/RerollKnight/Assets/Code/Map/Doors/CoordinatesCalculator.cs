@@ -17,6 +17,8 @@ namespace Code
 
 		private int CenterCoordinates => LengthOfSide / 2; // TODO: and with odd length
 
+		public Coordinates RoomCenter => new(CenterCoordinates, CenterCoordinates);
+
 		private Coordinates TopLeft   => new(-1, CenterCoordinates);
 		private Coordinates ToRight   => new(CenterCoordinates, -1);
 		private Coordinates DownLeft  => new(CenterCoordinates, LengthOfSide);

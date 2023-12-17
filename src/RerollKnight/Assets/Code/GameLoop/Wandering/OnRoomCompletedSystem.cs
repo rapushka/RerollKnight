@@ -13,18 +13,24 @@ namespace Code
 		private readonly IGroup<Entity<GameScope>> _enemies;
 		private readonly IGroup<Entity<GameScope>> _players;
 		private readonly WindowsService _windows;
+		private readonly MapProvider _mapProvider;
+		private readonly RewardFactory _rewardFactory;
 
 		[Inject]
 		public OnRoomCompletedSystem
 		(
 			Contexts contexts,
 			GameplayStateMachine stateMachine,
-			WindowsService windows
+			WindowsService windows,
+			MapProvider mapProvider,
+			RewardFactory rewardFactory
 		)
 			: base(contexts.Get<GameScope>())
 		{
 			_stateMachine = stateMachine;
 			_windows = windows;
+			_mapProvider = mapProvider;
+			_rewardFactory = rewardFactory;
 
 			_enemies = contexts.GetGroup(AllOf(Get<Enemy>()).NoneOf(Get<Disabled>()));
 			_players = contexts.GetGroup(Get<Player>());
@@ -45,7 +51,11 @@ namespace Code
 		}
 
 		private void OnRoomCleared()
-			=> _stateMachine.ToState<WanderingGameplayState>();
+		{
+			_mapProvider.CurrentRoom.Is<CompletedRoom>(true);
+			_rewardFactory.Create();
+			_stateMachine.ToState<WanderingGameplayState>();
+		}
 
 		private void OnGameOver()
 			=> _windows.Show<GameOverWindow>();
