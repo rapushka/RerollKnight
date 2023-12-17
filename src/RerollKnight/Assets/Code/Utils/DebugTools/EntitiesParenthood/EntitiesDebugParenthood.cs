@@ -37,7 +37,7 @@ namespace Code
 
 			foreach (Transform child in ContextBehaviour.transform)
 			{
-				if (TryGetEntity(child.gameObject, out var entity))
+				if (TryGetEntity(child.gameObject, out var entity) && entity.isEnabled)
 					HandleEntity(entity, child);
 			}
 		}

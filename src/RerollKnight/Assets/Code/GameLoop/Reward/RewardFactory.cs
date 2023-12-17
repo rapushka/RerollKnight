@@ -50,6 +50,7 @@ namespace Code
 			var config = RandomChipConfig;
 
 			return _assets.SpawnBehaviour(_resources.RewardPrefab).Entity
+			              .Identify()
 			              .Is<Reward>(true)
 			              .Is<RoomResident>(true)
 			              .Add<ForeignID, string>(currentRoom.EnsureID())

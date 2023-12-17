@@ -23,7 +23,7 @@ namespace Code
 			{
 				var owner = (Entity<GameScope>)ownerBehaviour.entity;
 
-				if (owner.EnsureID() == ownerID)
+				if (owner.isEnabled && owner.EnsureID() == ownerID)
 					entityBehaviour.SetParent(ownerBehaviour.transform);
 			}
 		}
