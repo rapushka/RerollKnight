@@ -19,6 +19,8 @@ namespace Code
 				Add<ToCurrentActorStateSystem>();
 				// Add<ToCurrentActorStateIfNotRerollSystem>();
 
+				Add<BattleLogAbilitiesSystem>();
+
 				// Update
 				// Add<EndTurnSystem>();
 

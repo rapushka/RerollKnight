@@ -827,6 +827,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 713215143322749015, guid: c3e533fc49e1062f7936433126c21dfd, type: 3}
   m_PrefabInstance: {fileID: 1288504067}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1288504070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4248943322969622665, guid: c3e533fc49e1062f7936433126c21dfd, type: 3}
+  m_PrefabInstance: {fileID: 1288504067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d5565d75394ff39a1ed740baa84ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1447662095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,6 +1117,7 @@ MonoBehaviour:
     <MainCamera>k__BackingField: {fileID: 169868707}
     <UICamera>k__BackingField: {fileID: 466334147}
   _miniMap: {fileID: 867025090}
+  _battleLog: {fileID: 1288504070}
 --- !u!1 &2109370913
 GameObject:
   m_ObjectHideFlags: 0
