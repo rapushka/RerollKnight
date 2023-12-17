@@ -19,5 +19,11 @@ namespace Code
 				sidePreview.SetData(face);
 			}
 		}
+
+		protected override void OnHide()
+		{
+			foreach (Transform child in _sidesRoot)
+				Destroy(child.gameObject);
+		}
 	}
 }

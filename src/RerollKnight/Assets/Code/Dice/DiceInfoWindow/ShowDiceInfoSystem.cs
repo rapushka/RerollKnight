@@ -25,7 +25,7 @@ namespace Code
 
 		protected override void Execute(List<Entity<GameScope>> entities)
 		{
-			if (_stateMachine.CurrentState is ChipPickedGameplayState)
+			if (_stateMachine.CurrentState is not ObservingGameplayState)
 				return;
 
 			foreach (var dice in entities)
