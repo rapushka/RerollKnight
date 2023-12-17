@@ -9,16 +9,17 @@ namespace Code
 {
 	public class ChipUiPreview : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	{
-		[SerializeField] private TMP_Text _labelMesh;
+		[SerializeField] private TMP_Text _labelTextMesh;
+		[SerializeField] private GameObject _descriptionRoot;
+		[SerializeField] private TMP_Text _descriptionTextMesh;
 
-		private Entity<GameScope> _chipEntity;
-
-		public bool Hovered { set => _chipEntity.Is<Hovered>(value); }
+		public bool Hovered { set => _descriptionRoot.SetActive(value); }
 
 		public void SetData(Entity<GameScope> chipEntity)
 		{
-			_chipEntity = chipEntity;
-			_labelMesh.text = chipEntity.Get<Label>().Value;
+			_labelTextMesh.text = chipEntity.Get<Label>().Value;
+			_descriptionTextMesh.text = chipEntity.Get<Description>().Value;
+			Hovered = false;
 		}
 
 		public void OnPointerEnter(PointerEventData eventData) => Hovered = true;
