@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
@@ -29,7 +30,10 @@ namespace Code
 				return;
 
 			foreach (var dice in entities)
+			{
+				Debug.Log($"dice = {dice}");
 				_windows.Show<DiceInfoWindow>().SetData(dice);
+			}
 		}
 	}
 }
