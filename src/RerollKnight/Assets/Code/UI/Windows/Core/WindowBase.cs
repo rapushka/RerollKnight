@@ -14,37 +14,37 @@ namespace Code
 		protected virtual void OnEnable()
 		{
 			// ReSharper disable once Unity.NoNullPropagation – if button is destroyed it have to throw an error
-			_closeButton?.onClick.AddListener(Close);
+			_closeButton?.onClick.AddListener(Hide);
 		}
 
 		protected virtual void OnDisable()
 		{
 			// ReSharper disable once Unity.NoNullPropagation – if button is destroyed it have to throw an error
-			_closeButton?.onClick.RemoveListener(Close);
+			_closeButton?.onClick.RemoveListener(Hide);
 		}
 
 		public virtual void Initialize() { }
 
-		public void Open()
+		public void Show()
 		{
 			if (!IsOpen)
 			{
 				IsOpen = true;
-				OnOpen();
+				OnShow();
 			}
 		}
 
-		public void Close()
+		public void Hide()
 		{
 			if (IsOpen)
 			{
 				IsOpen = false;
-				OnClose();
+				OnHide();
 			}
 		}
 
-		protected virtual void OnOpen() { }
+		protected virtual void OnShow() { }
 
-		protected virtual void OnClose() { }
+		protected virtual void OnHide() { }
 	}
 }

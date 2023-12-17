@@ -305,7 +305,7 @@ MonoBehaviour:
   lineIntensity: 2
   fillAmount: 0.2
   lineColor0: {r: 1, g: 0.32126835, b: 0, a: 1}
-  lineColor1: {r: 1, g: 1, b: 1, a: 1}
+  lineColor1: {r: 1, g: 1, b: 1, a: 0.6862745}
   lineColor2: {r: 1, g: 0.009412543, b: 0, a: 1}
   additiveRendering: 0
   backfaceCulling: 1

@@ -2,7 +2,7 @@ namespace Code
 {
 	public interface IWindow
 	{
-		void Open();
-		void Close();
+		void Show();
+		void Hide();
 	}
 }

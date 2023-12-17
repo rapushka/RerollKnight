@@ -46,10 +46,12 @@ namespace Code
 			Add<RotateToDestinationSystem>();
 			Add<LookAtSystem>();
 			Add<SetPositionFromCoordinatesSystem>();
-			Add<OutlineAvailableTargetsSystem>();
+			// Add<OutlineHoveredTargetsSystem>();
+			Add<OutlineTargetsSystem>();
 			Add<WorldSpaceUiLookAtCameraSystem>();
 			Add<ShowChipDescriptionSystem>();
 			Add<AlignChipDescriptionAboveChipSystem>();
+			Add<ShowDiceInfoSystem>();
 
 #if DEBUG
 			// Debug
