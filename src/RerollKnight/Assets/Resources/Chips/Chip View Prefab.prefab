@@ -339,6 +339,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5459346792386793088}
     m_Modifications:
     - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
+      propertyPath: m_text
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
       propertyPath: m_fontSize
       value: 5
       objectReference: {fileID: 0}
@@ -369,6 +373,10 @@ PrefabInstance:
     - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6806393294133734597, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
       propertyPath: m_Name
