@@ -48,3 +48,7 @@ MonoBehaviour:
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: f2b7ae2dd29ecd161ab08fdc18b0e5a3, type: 3}
   <Cost>k__BackingField: 1
+  <Description>k__BackingField: 'Teleports dice to the selected empty cell
+
+    range
+    = 1 cell'
