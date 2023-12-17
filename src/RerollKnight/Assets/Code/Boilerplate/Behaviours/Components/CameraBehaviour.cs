@@ -3,5 +3,5 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class CameraBehaviour : ComponentBehaviour<GameScope, Camera> { }
+	public sealed class CameraBehaviour : ComponentBehaviour<GameScope, Camera, UnityEngine.Camera> { }
 }

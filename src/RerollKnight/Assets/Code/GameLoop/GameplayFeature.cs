@@ -49,6 +49,7 @@ namespace Code
 			Add<OutlineAvailableTargetsSystem>();
 			Add<WorldSpaceUiLookAtCameraSystem>();
 			Add<ShowChipDescriptionSystem>();
+			Add<AlignChipDescriptionAboveChipSystem>();
 
 #if DEBUG
 			// Debug
