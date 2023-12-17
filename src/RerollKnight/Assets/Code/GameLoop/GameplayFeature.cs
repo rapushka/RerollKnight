@@ -35,6 +35,8 @@ namespace Code
 			Add<CascadeDisableSystem<GameScope>>();
 			Add<CacheLayerOfDisabledSystem>();
 
+			Add<PickRewardSystem>();
+
 			// Turns queue
 			Add<CollectActorsSystem>();
 			Add<RemoveInactiveActorFromQueueSystem>();
