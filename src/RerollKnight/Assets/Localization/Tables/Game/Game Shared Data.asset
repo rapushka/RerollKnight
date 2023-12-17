@@ -79,6 +79,14 @@ MonoBehaviour:
     m_Key: ChipDescriptionTitle
     m_Metadata:
       m_Items: []
+  - m_Id: 558351400517632
+    m_Key: DiceInfoTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 561068210601984
+    m_Key: ActiveSideLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
