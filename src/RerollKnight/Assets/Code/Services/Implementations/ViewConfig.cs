@@ -18,6 +18,7 @@ namespace Code
 		float RoomTransferDuration  { get; }
 
 		Vector3 ChipDescriptionOffset { get; }
+		float   RewardOffset          { get; }
 	}
 
 	[CreateAssetMenu(fileName = "ViewConfig", menuName = "ViewConfig", order = 0)]
@@ -45,5 +46,7 @@ namespace Code
 		[field: SerializeField] public float RerollThrowHeight    { get; private set; }
 
 		[field: SerializeField] public Vector3 ChipDescriptionOffset { get; private set; }
+
+		[field: SerializeField] public float RewardOffset { get; private set; }
 	}
 }

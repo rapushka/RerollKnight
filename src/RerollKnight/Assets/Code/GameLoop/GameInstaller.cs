@@ -75,6 +75,7 @@ namespace Code
 			Container.Bind<WallsFactory>().AsSingle();
 			Container.Bind<RoomFactory>().AsSingle();
 			Container.Bind<DoorsFactory>().AsSingle();
+			Container.Bind<RewardFactory>().AsSingle();
 
 			Container.Bind<CellsSpawner>().AsSingle();
 			Container.Bind<ActorsSpawner>().AsSingle();
