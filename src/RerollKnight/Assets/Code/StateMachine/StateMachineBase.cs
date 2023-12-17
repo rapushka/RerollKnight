@@ -9,6 +9,8 @@ namespace Code
 
 		[CanBeNull] private IState _currentState;
 
+		[CanBeNull] public IState NullableCurrentState => _currentState;
+
 		public IState CurrentState => _currentState ?? throw new NullReferenceException();
 
 		public void ToState<TState>()
