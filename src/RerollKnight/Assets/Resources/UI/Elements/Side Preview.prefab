@@ -171,6 +171,9 @@ MonoBehaviour:
   _isActiveLabel: {fileID: 6142200178170938696}
   _sideNumberTextMesh: {fileID: 7021022610213023073}
   _chipPreviewPrefab: {fileID: 8782336074666463871, guid: 221fb633bf59b56518cee22faa6bcd6f, type: 3}
+  _chipsLayoutGroup: {fileID: 4887555346693262972}
+  _chipsOverflowThreshold: 5
+  _overflowShorter: 15
 --- !u!1 &6142200178170938696
 GameObject:
   m_ObjectHideFlags: 0
