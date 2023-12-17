@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using Code.Component;
+using Entitas;
 using Entitas.Generic;
 using UnityEngine;
 using Zenject;
@@ -16,6 +16,7 @@ namespace Code
 		private GameplayStateMachine _stateMachine;
 		private Contexts _contexts;
 		private MapProvider _mapProvider;
+		private IGroup<Entity<GameScope>> _rooms;
 
 		[Inject]
 		public void Construct(GameplayStateMachine stateMachine, Contexts contexts, MapProvider mapProvider)
@@ -23,6 +24,8 @@ namespace Code
 			_contexts = contexts;
 			_stateMachine = stateMachine;
 			_mapProvider = mapProvider;
+
+			_rooms = _contexts.GetGroup(Get<Room>());
 		}
 
 		public void Initialize()
@@ -30,25 +33,17 @@ namespace Code
 			StartCoroutine(LoadMap());
 		}
 
-		private IEnumerable<Entity<GameScope>> Rooms
-			=> _contexts.Get<GameScope>().GetGroup(Get<Room>()).GetEntities();
-
 		public IEnumerator LoadMap()
 		{
 			yield return new WaitUntil(WaitForLevelLoading);
 
-			//
-			foreach (var room in Rooms)
+			foreach (var room in _rooms)
 			{
-				Debug.Log($"room.coordinates = {room.GetCoordinates()}");
 				var roomPreview = Instantiate(_roomPreviewPrefab, _root);
 				roomPreview.SetData(_mapProvider, room);
 			}
 		}
 
-		private bool WaitForLevelLoading()
-		{
-			return _stateMachine.CurrentState is ObservingGameplayState;
-		}
+		private bool WaitForLevelLoading() => _stateMachine.NullableCurrentState is ObservingGameplayState;
 	}
 }

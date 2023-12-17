@@ -9,12 +9,14 @@ namespace Code
 		[SerializeField] private BehavioursCollector _behavioursCollector;
 		[SerializeField] private HoldersProvider _holdersProvider;
 		[SerializeField] private CamerasProvider _camerasProvider;
+		[SerializeField] private MiniMap _miniMap;
 
 		public override void InstallBindings()
 		{
 			Container.BindInstance(_behavioursCollector.Behaviours).AsSingle();
 			Container.Bind<IHoldersProvider>().FromInstance(_holdersProvider).AsSingle();
 			Container.Bind<CamerasProvider>().FromInstance(_camerasProvider).AsSingle();
+			Container.BindInterfacesTo<MiniMap>().FromInstance(_miniMap).AsSingle();
 
 			Container.Bind<GameplayFeature>().AsSingle();
 			Container.Bind<GameplayFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
