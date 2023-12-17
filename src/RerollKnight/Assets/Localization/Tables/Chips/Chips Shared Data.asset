@@ -13,8 +13,40 @@ MonoBehaviour:
   m_Name: Chips Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: Chips
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: 108139614b9481cc2af5eb4fe5fd42c3
+  m_Entries:
+  - m_Id: 256785989632
+    m_Key: EnemyKillerLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 338876907520
+    m_Key: EnemyKillerDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 393876815872
+    m_Key: KickLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 465922375680
+    m_Key: KickDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 509610246144
+    m_Key: SwapPositionsLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 646336167936
+    m_Key: SawpPositionsDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 736975077376
+    m_Key: TeleportLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 762602274816
+    m_Key: TeleportDescription
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

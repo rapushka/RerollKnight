@@ -54,3 +54,24 @@ MonoBehaviour:
     any range
 
     Ignores obstacles'
+  <LabelKey>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
+    m_TableEntryReference:
+      m_KeyId: 509610246144
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <DescriptionKey>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
+    m_TableEntryReference:
+      m_KeyId: 646336167936
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

@@ -52,3 +52,24 @@ MonoBehaviour:
 
     range
     = 1 cell'
+  <LabelKey>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
+    m_TableEntryReference:
+      m_KeyId: 736975077376
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <DescriptionKey>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
+    m_TableEntryReference:
+      m_KeyId: 762602274816
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
