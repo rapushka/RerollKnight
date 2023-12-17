@@ -32,6 +32,11 @@ namespace Code
 			where TScope : IScope
 			=> ID.GetIndex<TScope>().GetEntity(@this.Get<ForeignID>().Value);
 
+		public static Entity<TScopeOwner> GetOwner<TScopeOur, TScopeOwner>(this Entity<TScopeOur> @this)
+			where TScopeOur : IScope
+			where TScopeOwner : IScope
+			=> ID.GetIndex<TScopeOwner>().GetEntity(@this.Get<ForeignID>().Value);
+
 		public static HashSet<Entity<GameScope>> GetDependants(this Entity<GameScope> @this)
 			=> @this.GetDependants<GameScope>();
 

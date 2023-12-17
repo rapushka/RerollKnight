@@ -15,11 +15,12 @@ namespace Code
 				Add<MarkAllTargetsUnavailableSystem>();
 				Add<MarkPickedChipUnavailableSystem>();
 				Add<MarkAllAbilitiesCastingSystem>();
+				
+				Add<BattleLogAbilitiesSystem>();
+				
 				Add<AbilitiesFeature>();
 				Add<ToCurrentActorStateSystem>();
 				// Add<ToCurrentActorStateIfNotRerollSystem>();
-
-				Add<BattleLogAbilitiesSystem>();
 
 				// Update
 				// Add<EndTurnSystem>();

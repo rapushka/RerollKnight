@@ -1,3 +1,4 @@
+using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
@@ -21,7 +22,8 @@ namespace Code
 		{
 			foreach (var ability in _abilities.WhereStateIs(AbilityState.Casting))
 			{
-				_battleLog.Log($"{ability} Was Casted");
+				var chip = ability.GetOwner<ChipsScope, GameScope>();
+				_battleLog.Log($"{chip.Get<Label>().Value} Was Casted");
 			}
 		}
 	}

@@ -61,7 +61,7 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 1
+  m_ReverseArrangement: 0
 --- !u!1 &4259819543955360787
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 450, y: 225}
+  m_SizeDelta: {x: 450, y: 300}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &4248943322969622665
 MonoBehaviour:
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _logEntryPrefab: {fileID: 1797588380882921243, guid: fd00f8b4371a285b9ae59fbe807c1602, type: 3}
   _root: {fileID: 9024521921336818892}
-  _opacityStep: 0.2
 --- !u!1 &7443499870663517506
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,11 +455,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1105836167741213231, guid: 69227e4ae4a1c9fa2a870877d4d6abdb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -100
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 1105836167741213231, guid: 69227e4ae4a1c9fa2a870877d4d6abdb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 250
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 1105836167741213231, guid: 69227e4ae4a1c9fa2a870877d4d6abdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -5,13 +5,26 @@ namespace Code
 {
 	public class BattleLog : MonoBehaviour
 	{
+		private const float Spacing = 5f;
+
 		[SerializeField] private LogEntry _logEntryPrefab;
 		[SerializeField] private RectTransform _root;
 
-		[Header("View")]
-		[SerializeField] private float _opacityStep;
-
 		private readonly List<LogEntry> _showedLogs = new();
+		private float _entryHeight;
+		private float _wholeHeight;
+
+		// Tricky way to fade and have all entries fit into root
+		private float OpacityStep => 1 / ((_wholeHeight - _entryHeight) / (_entryHeight + Spacing));
+
+		private void Start()
+		{
+			_wholeHeight = _root.rect.height;
+			_entryHeight = _logEntryPrefab.GetComponent<RectTransform>().rect.height;
+
+			Debug.Log($"_logEntryHeight = {_entryHeight}");
+			Debug.Log($"_wholeHeight = {_wholeHeight}");
+		}
 
 		public void Log(string message)
 		{
@@ -24,10 +37,13 @@ namespace Code
 			for (var i = _showedLogs.Count - 1; i >= 0; i--)
 			{
 				var log = _showedLogs[i];
-				log.Opacity -= _opacityStep;
+				log.Opacity -= OpacityStep;
 
-				if (log.Opacity == 0f)
+				if (log.Opacity <= 0f)
+				{
 					_showedLogs.Remove(log);
+					Destroy(log.gameObject);
+				}
 			}
 		}
 
@@ -35,7 +51,7 @@ namespace Code
 		{
 			var logEntry = Instantiate(_logEntryPrefab, _root);
 			logEntry.Message = message;
-			logEntry.Opacity = 1;
+			logEntry.Opacity = 1f;
 
 			return logEntry;
 		}
