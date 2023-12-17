@@ -17,3 +17,5 @@ MonoBehaviour:
   - {fileID: -1127751271332936188, guid: f41ad62cababcf4c794ccba35451219f, type: 3}
   - {fileID: -1127751271332936188, guid: ba01ac5e6c63c3578a85e5d22992c504, type: 3}
   - {fileID: -1127751271332936188, guid: 0c8ca4a58a7187e908fff256986f517c, type: 3}
+  <PlayerBudget>k__BackingField: 10
+  <EnemyBudget>k__BackingField: 5

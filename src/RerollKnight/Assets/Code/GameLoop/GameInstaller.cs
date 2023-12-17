@@ -78,6 +78,8 @@ namespace Code
 			Container.Bind<ActorsSpawner>().AsSingle();
 			Container.Bind<WallsSpawner>().AsSingle();
 			Container.Bind<DoorsSpawner>().AsSingle();
+
+			Container.Bind<ChipsGenerator>().AsSingle();
 		}
 	}
 }

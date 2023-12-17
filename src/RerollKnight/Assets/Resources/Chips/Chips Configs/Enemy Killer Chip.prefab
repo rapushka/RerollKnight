@@ -47,3 +47,4 @@ MonoBehaviour:
   <Label>k__BackingField: Enemy Killer
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: ac5c86241bb37716bbc841b13194fe5b, type: 3}
+  <Cost>k__BackingField: 9
