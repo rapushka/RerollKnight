@@ -75,6 +75,10 @@ MonoBehaviour:
     m_Key: SoundsVolumeOption
     m_Metadata:
       m_Items: []
+  - m_Id: 495892220297216
+    m_Key: ChipDescriptionTitle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

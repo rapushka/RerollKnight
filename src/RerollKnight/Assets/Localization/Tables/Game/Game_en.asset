@@ -78,6 +78,10 @@ MonoBehaviour:
     m_Localized: 'Sounds Volume:'
     m_Metadata:
       m_Items: []
+  - m_Id: 495892220297216
+    m_Localized: Chip Description
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

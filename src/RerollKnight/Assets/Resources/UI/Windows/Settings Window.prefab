@@ -1808,10 +1808,48 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1260706851624492863, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1440586654276828991}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 79065455674052487, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4226164923626729681}
   m_SourcePrefab: {fileID: 100100000, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
+--- !u!114 &1968814865519245482 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7411877586737809114, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
+  m_PrefabInstance: {fileID: 9047421406235049584}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7849787236519059791 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1260706851624492863, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
   m_PrefabInstance: {fileID: 9047421406235049584}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8977363222966530551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 79065455674052487, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
+  m_PrefabInstance: {fileID: 9047421406235049584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4226164923626729681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977363222966530551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c4f1a7021f4d8d91c44c91b7285e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _root: {fileID: 8977363222966530551}
+  _closeButton: {fileID: 1968814865519245482}
+  _localizationSelector: {fileID: 6753431408543215159}
+  _fullscreenToggle: {fileID: 1493976500575506247}
+  _resolutionSelector: {fileID: 280802156775244266}
+  _musicVolumeSlider: {fileID: 1703406421475597147}
+  _soundsVolumeSlider: {fileID: 138463142302680102}
