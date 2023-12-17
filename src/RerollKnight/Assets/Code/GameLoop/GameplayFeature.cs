@@ -51,6 +51,7 @@ namespace Code
 			Add<WorldSpaceUiLookAtCameraSystem>();
 			Add<ShowChipDescriptionSystem>();
 			Add<AlignChipDescriptionAboveChipSystem>();
+			Add<ShowDiceInfoSystem>();
 
 #if DEBUG
 			// Debug
