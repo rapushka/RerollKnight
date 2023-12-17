@@ -12,14 +12,19 @@ namespace Code
 		private readonly GameplayStateMachine _stateMachine;
 		private readonly IGroup<Entity<GameScope>> _enemies;
 		private readonly IGroup<Entity<GameScope>> _players;
-		private readonly ISceneTransfer _sceneTransfer;
+		private readonly WindowsService _windows;
 
 		[Inject]
-		public OnRoomCompletedSystem(Contexts contexts, GameplayStateMachine stateMachine, ISceneTransfer sceneTransfer)
+		public OnRoomCompletedSystem
+		(
+			Contexts contexts,
+			GameplayStateMachine stateMachine,
+			WindowsService windows
+		)
 			: base(contexts.Get<GameScope>())
 		{
 			_stateMachine = stateMachine;
-			_sceneTransfer = sceneTransfer;
+			_windows = windows;
 
 			_enemies = contexts.GetGroup(AllOf(Get<Enemy>()).NoneOf(Get<Disabled>()));
 			_players = contexts.GetGroup(Get<Player>());
@@ -43,6 +48,6 @@ namespace Code
 			=> _stateMachine.ToState<WanderingGameplayState>();
 
 		private void OnGameOver()
-			=> _sceneTransfer.ToMainMenu();
+			=> _windows.Show<GameOverWindow>();
 	}
 }
