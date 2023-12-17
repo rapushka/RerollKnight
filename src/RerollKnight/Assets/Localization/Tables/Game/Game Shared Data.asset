@@ -9,75 +9,84 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Game_en
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Game Shared Data
   m_EditorClassIdentifier: 
-  m_LocaleId:
-    m_Code: en
-  m_SharedData: {fileID: 11400000, guid: be8bb58715c491d61b5b044539179ab6, type: 2}
-  m_Metadata:
-    m_Items: []
-  m_TableData:
+  m_TableCollectionName: Game
+  m_TableCollectionNameGuidString: be8bb58715c491d61b5b044539179ab6
+  m_Entries:
   - m_Id: 73901752320
-    m_Localized: Play
+    m_Key: PlayButton
     m_Metadata:
       m_Items: []
   - m_Id: 204776620032
-    m_Localized: Settings
+    m_Key: SettingsButton
     m_Metadata:
       m_Items: []
   - m_Id: 264558034944
-    m_Localized: Exit
+    m_Key: ExitButton
     m_Metadata:
       m_Items: []
   - m_Id: 1966975696896
-    m_Localized: End Turn
+    m_Key: EndTurnButton
     m_Metadata:
       m_Items: []
   - m_Id: 2076136652800
-    m_Localized: Player's turn
+    m_Key: PlayerCurrentActor
     m_Metadata:
       m_Items: []
   - m_Id: 2118515900416
-    m_Localized: Enemies' turn
+    m_Key: EnemyCurrentActor
     m_Metadata:
       m_Items: []
   - m_Id: 3739736031232
-    m_Localized: Nobody's turn
+    m_Key: NoCurrentActor
     m_Metadata:
       m_Items: []
   - m_Id: 164815689695232
-    m_Localized: Settings
+    m_Key: SettingsWindowTitle
     m_Metadata:
       m_Items: []
   - m_Id: 164956857384960
-    m_Localized: 'Language:'
+    m_Key: LocalizationOption
     m_Metadata:
       m_Items: []
   - m_Id: 165053355737088
-    m_Localized: 'Fullscreen:'
+    m_Key: FullscreenModeOption
     m_Metadata:
       m_Items: []
   - m_Id: 165318393806848
-    m_Localized: 'Screen resolution:'
+    m_Key: ScreenResolutionOption
     m_Metadata:
       m_Items: []
   - m_Id: 165457112023040
-    m_Localized: Video Settings
+    m_Key: VideoSettingsTitle
     m_Metadata:
       m_Items: []
   - m_Id: 165650817564672
-    m_Localized: Audio Settings
+    m_Key: AudioSettingsTitle
     m_Metadata:
       m_Items: []
   - m_Id: 165911267065856
-    m_Localized: 'Music Volume:'
+    m_Key: MusicVolumeOption
     m_Metadata:
       m_Items: []
   - m_Id: 165979424505856
-    m_Localized: 'Sounds Volume:'
+    m_Key: SoundsVolumeOption
     m_Metadata:
       m_Items: []
+  - m_Id: 495892220297216
+    m_Key: ChipDescriptionTitle
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4425768862012145688
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4425768862012145688
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1702692136543

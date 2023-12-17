@@ -10,5 +10,6 @@ namespace Code
 	public static class LocalizationTable
 	{
 		public const string Game = "Game";
+		public const string Chips = "Chips";
 	}
 }

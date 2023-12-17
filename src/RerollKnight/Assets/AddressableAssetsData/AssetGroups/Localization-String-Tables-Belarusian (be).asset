@@ -24,6 +24,12 @@ MonoBehaviour:
     - Locale-be
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5be028b27a9c38c8282c648bfb49e72b
+    m_Address: Chips_be
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-be
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 6e888db4cd2cb639e95d13c6278a1980, type: 2}
   m_SchemaSet:

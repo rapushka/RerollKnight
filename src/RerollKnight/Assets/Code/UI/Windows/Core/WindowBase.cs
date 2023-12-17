@@ -23,7 +23,7 @@ namespace Code
 			_closeButton?.onClick.RemoveListener(Close);
 		}
 
-		public abstract void Initialize();
+		public virtual void Initialize() { }
 
 		public void Open()
 		{

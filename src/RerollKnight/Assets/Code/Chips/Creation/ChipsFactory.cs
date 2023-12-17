@@ -45,7 +45,8 @@ namespace Code
 		private GameEntity SetupChip(ChipConfigBehaviour config, GameEntity entity, GameEntity face)
 		{
 			var chip = InitializeChip(entity)
-			           .Add<Label, string>(config.Label)
+			           .Add<Label, string>(config.LabelKey.GetLocalizedString())
+			           .Add<Description, string>(config.DescriptionKey.GetLocalizedString())
 			           .Add<ForeignID, string>(face.EnsureID())
 				;
 

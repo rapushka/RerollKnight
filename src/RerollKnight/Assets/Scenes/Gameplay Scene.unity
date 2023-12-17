@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5809de78c18745a881e3388d7add8953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _value: {fileID: 169868707}
 --- !u!114 &169868714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,6 +1160,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _behavioursCollector: {fileID: 1053540396}
   _holdersProvider: {fileID: 2109370915}
+  _camerasProvider:
+    <MainCamera>k__BackingField: {fileID: 169868707}
+    <UICamera>k__BackingField: {fileID: 466334147}
 --- !u!1 &2109370913
 GameObject:
   m_ObjectHideFlags: 0

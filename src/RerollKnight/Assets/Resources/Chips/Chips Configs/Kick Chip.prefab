@@ -48,3 +48,28 @@ MonoBehaviour:
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: 6827462f2e7e4c423bb80a456b75dc30, type: 3}
   <Cost>k__BackingField: 3
+  <Description>k__BackingField: 'Deals 1 damage to the selected enemy
+
+    range
+    = 1 cell'
+  <LabelKey>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
+    m_TableEntryReference:
+      m_KeyId: 393876815872
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <DescriptionKey>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
+    m_TableEntryReference:
+      m_KeyId: 465922375680
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

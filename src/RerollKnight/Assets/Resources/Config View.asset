@@ -22,3 +22,4 @@ MonoBehaviour:
   <RoomTransferDuration>k__BackingField: 0
   <RerollDuration>k__BackingField: 1
   <RerollThrowHeight>k__BackingField: 1.5
+  <ChipDescriptionOffset>k__BackingField: {x: 300, y: 300, z: 0}

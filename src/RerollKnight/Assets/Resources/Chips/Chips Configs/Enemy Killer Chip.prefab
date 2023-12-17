@@ -48,3 +48,27 @@ MonoBehaviour:
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: ac5c86241bb37716bbc841b13194fe5b, type: 3}
   <Cost>k__BackingField: 9
+  <Description>k__BackingField: 'Kills the selected emeny
+
+    in any range'
+  <LabelKey>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
+    m_TableEntryReference:
+      m_KeyId: 256785989632
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <DescriptionKey>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
+    m_TableEntryReference:
+      m_KeyId: 338876907520
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

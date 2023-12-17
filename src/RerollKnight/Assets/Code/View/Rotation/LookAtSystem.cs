@@ -28,7 +28,7 @@ namespace Code
 				var forwardDirection = targetPosition - position;
 				var upwards = Vector3.up;
 
-				if (e.Is<WorldSpaceUi>() && target.Is<Camera>())
+				if (e.Is<WorldSpaceUi>() && target.Has<Camera>())
 				{
 					var targetRotation = target.Get<Rotation>().Value;
 					upwards = targetRotation * Vector3.up;
