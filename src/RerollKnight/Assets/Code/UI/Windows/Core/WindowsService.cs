@@ -18,7 +18,7 @@ namespace Code
 				window.Close();
 		}
 
-		public void Open<TWindow>()
+		public void Show<TWindow>()
 			where TWindow : IWindow
 		{
 			_currentWindow?.Close();
@@ -26,7 +26,14 @@ namespace Code
 			_currentWindow.Open();
 		}
 
-		public void CloseCurrent()
+		public void Hide<TWindow>()
+			where TWindow : IWindow
+		{
+			if (_currentWindow is TWindow)
+				HideCurrent();
+		}
+
+		public void HideCurrent()
 		{
 			_currentWindow.Close();
 			_currentWindow = null;

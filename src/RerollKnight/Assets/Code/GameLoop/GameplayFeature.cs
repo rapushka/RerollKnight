@@ -48,6 +48,7 @@ namespace Code
 			Add<SetPositionFromCoordinatesSystem>();
 			Add<OutlineAvailableTargetsSystem>();
 			Add<WorldSpaceUiLookAtCameraSystem>();
+			Add<ShowChipDescriptionSystem>();
 
 #if DEBUG
 			// Debug
