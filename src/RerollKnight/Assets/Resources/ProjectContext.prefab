@@ -80,4 +80,5 @@ MonoBehaviour:
   _windows:
   - {fileID: 4226164923626729681, guid: b60ee5dfedb9a7c778c9f5f0c8ed4278, type: 3}
   - {fileID: 4397895308399406202, guid: 4ef54eff7bffcefdab66d2510acf1fc9, type: 3}
+  - {fileID: 7689285681527064964, guid: e774c6293e41b180aa9a6ce74a7c97e3, type: 3}
   _audioMixerGroup: {fileID: 24300002, guid: ee7a52c08ca855429926452d0e905719, type: 2}

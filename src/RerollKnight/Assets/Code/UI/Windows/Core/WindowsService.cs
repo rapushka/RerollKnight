@@ -15,15 +15,18 @@ namespace Code
 			_windows = TypeDictionary<IWindow>.FromIEnumerable(windows);
 
 			foreach (var (_, window) in _windows)
-				window.Close();
+				window.Hide();
 		}
 
-		public void Show<TWindow>()
+		public TWindow Show<TWindow>()
 			where TWindow : IWindow
 		{
-			_currentWindow?.Close();
-			_currentWindow = _windows.Get<TWindow>();
-			_currentWindow.Open();
+			_currentWindow?.Hide();
+			var newWindow = _windows.Get<TWindow>();
+			_currentWindow = newWindow;
+			_currentWindow.Show();
+
+			return newWindow;
 		}
 
 		public void Hide<TWindow>()
@@ -35,7 +38,7 @@ namespace Code
 
 		public void HideCurrent()
 		{
-			_currentWindow.Close();
+			_currentWindow.Hide();
 			_currentWindow = null;
 		}
 	}

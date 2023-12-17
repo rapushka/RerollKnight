@@ -24,9 +24,9 @@ namespace Code
 
 		private Entity<GameScope> HoveredChip => _hoveredChips.GetSingleEntity();
 
-		protected override void OnOpen()
+		protected override void OnShow()
 		{
-			base.OnOpen();
+			base.OnShow();
 
 			var hoveredChip = HoveredChip;
 			_descriptionTextMesh.text = hoveredChip.Get<Description>().Value;

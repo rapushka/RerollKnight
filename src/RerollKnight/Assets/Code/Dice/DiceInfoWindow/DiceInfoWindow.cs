@@ -1,0 +1,23 @@
+using System.Linq;
+using Code.Component;
+using Entitas.Generic;
+using UnityEngine;
+
+namespace Code
+{
+	public class DiceInfoWindow : WindowBase
+	{
+		[Header("Content")]
+		[SerializeField] private RectTransform _sidesRoot;
+		[SerializeField] private SidePreview _sidePreviewPrefab;
+
+		public void SetData(Entity<GameScope> diceEntity)
+		{
+			foreach (var face in diceEntity.GetDependants().Where((e) => e.Has<Face>()))
+			{
+				var sidePreview = Instantiate(_sidePreviewPrefab, _sidesRoot);
+				sidePreview.SetData(face);
+			}
+		}
+	}
+}
