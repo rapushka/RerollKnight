@@ -12,12 +12,13 @@ namespace Code
 				: base($"{nameof(CastingAbilitiesGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
+				Add<MarkAllAbilitiesCastingSystem>();
+
+				Add<BattleLogAbilitiesSystem>();
+
 				Add<MarkAllTargetsUnavailableSystem>();
 				Add<MarkPickedChipUnavailableSystem>();
-				Add<MarkAllAbilitiesCastingSystem>();
-				
-				Add<BattleLogAbilitiesSystem>();
-				
+
 				Add<AbilitiesFeature>();
 				Add<ToCurrentActorStateSystem>();
 				// Add<ToCurrentActorStateIfNotRerollSystem>();
