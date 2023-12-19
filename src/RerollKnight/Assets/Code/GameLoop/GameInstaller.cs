@@ -10,6 +10,7 @@ namespace Code
 		[SerializeField] private HoldersProvider _holdersProvider;
 		[SerializeField] private CamerasProvider _camerasProvider;
 		[SerializeField] private MiniMap _miniMap;
+		[SerializeField] private BattleLog _battleLog;
 
 		public override void InstallBindings()
 		{
@@ -17,6 +18,7 @@ namespace Code
 			Container.Bind<IHoldersProvider>().FromInstance(_holdersProvider).AsSingle();
 			Container.Bind<CamerasProvider>().FromInstance(_camerasProvider).AsSingle();
 			Container.BindInterfacesTo<MiniMap>().FromInstance(_miniMap).AsSingle();
+			Container.Bind<BattleLog>().FromInstance(_battleLog).AsSingle();
 
 			Container.Bind<GameplayFeature>().AsSingle();
 			Container.Bind<GameplayFeatureAdapter>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
