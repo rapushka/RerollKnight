@@ -3,6 +3,8 @@ using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
+using static Code.LocalizationKey;
+using static Code.LocalizationTable;
 using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 
 namespace Code
@@ -11,14 +13,22 @@ namespace Code
 	{
 		private readonly Contexts _contexts;
 		private readonly BattleLog _battleLog;
+		private readonly ILocalizationService _localization;
+
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
 		private readonly IGroup<Entity<GameScope>> _targets;
 
 		[Inject]
-		public BattleLogAbilitiesSystem(Contexts contexts, BattleLog battleLog)
+		public BattleLogAbilitiesSystem
+		(
+			Contexts contexts,
+			BattleLog battleLog,
+			ILocalizationService localization
+		)
 		{
 			_contexts = contexts;
 			_battleLog = battleLog;
+			_localization = localization;
 
 			_abilities = contexts.GetGroup(Get<Component.AbilityState>());
 			_targets = contexts.GetGroup(ScopeMatcher<GameScope>.Get<PickedTarget>());
@@ -29,7 +39,10 @@ namespace Code
 		public void Initialize()
 		{
 			var chipLabel = PickedChip.Get<Label>().Value;
-			_battleLog.Log($"The {chipLabel} has been Casted to {BuildTargetsString()}");
+			var target = BuildTargetsString();
+			var localizedString = Localize(ChipCastedMessage, chipLabel, target);
+
+			_battleLog.Log(localizedString);
 		}
 
 		private string BuildTargetsString()
@@ -37,9 +50,13 @@ namespace Code
 
 		private string GetTargetName(Entity<GameScope> entity)
 		{
-			var coordinates = entity.GetCoordinates();
-			var coordinatesString = $"({coordinates.Column}, {coordinates.Row})";
-			return $"{entity.Get<DebugName>().Value} at {coordinatesString}";
+			var targetDisplayName = entity.GetDisplayName();
+			var coordinates = entity.GetCoordinates().ToShortString();
+
+			return Localize(EntityAtCoordinatesMessage, targetDisplayName, coordinates);
 		}
+
+		private string Localize(string key, params object[] args)
+			=> _localization.GetLocalized(table: DisplayNames, key, args);
 	}
 }

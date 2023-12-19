@@ -30,6 +30,18 @@ MonoBehaviour:
     m_Localized: Cell
     m_Metadata:
       m_Items: []
+  - m_Id: 2217749925888
+    m_Localized: The {0} has been Casted to {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2715085328384
+    m_Localized: '{0} at {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 194795163648
+    m_Localized: Wall
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

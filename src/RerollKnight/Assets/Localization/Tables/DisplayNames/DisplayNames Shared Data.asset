@@ -31,6 +31,14 @@ MonoBehaviour:
     m_Key: WallName
     m_Metadata:
       m_Items: []
+  - m_Id: 2217749925888
+    m_Key: ChipCastedMessage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2715085328384
+    m_Key: EntityAtCoordinatesMessage
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
