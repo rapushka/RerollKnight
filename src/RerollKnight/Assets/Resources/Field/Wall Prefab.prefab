@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7113299477963409430}
   - component: {fileID: -5655419308955692693}
   - component: {fileID: 3889930488753664220}
+  - component: {fileID: 7504726618289009982}
   m_Layer: 0
   m_Name: Wall Prefab
   m_TagString: Untagged
@@ -63,6 +64,7 @@ MonoBehaviour:
   - {fileID: 3154851446481043025}
   - {fileID: 7113299477963409430}
   - {fileID: 3889930488753664220}
+  - {fileID: 7504726618289009982}
 --- !u!114 &3468450537307153656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +181,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _listener: {fileID: -5655419308955692693}
+--- !u!114 &7504726618289009982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676666804276131510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465351be584240979a5b9d2366206d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value:
+    m_TableReference:
+      m_TableCollectionName: GUID:d9c8c300e309f4e41a149f709664eabe
+    m_TableEntryReference:
+      m_KeyId: 194795163648
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &3139724084795586930
 GameObject:
   m_ObjectHideFlags: 0

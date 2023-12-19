@@ -95,6 +95,6 @@ namespace Code
 
 		public override string ToString() => $"({OnLayer.ToString()})–[{Column}; {Row}]";
 
-		public string ToShortString() => $"([{Column}; {Row})";
+		public string ToShortString() => $"({Column}; {Row})";
 	}
 }
