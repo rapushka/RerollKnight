@@ -9,13 +9,28 @@ namespace Code
 		[SerializeField] private LogEntry _logEntryPrefab;
 		[SerializeField] private RectTransform _root;
 		[SerializeField] private int _maxCountOfLogs;
+		[SerializeField] private float _oldLogsDim;
 
 		private readonly List<LogEntry> _showedLogs = new();
 
 		public void Log(string message)
 		{
-			_showedLogs.Add(NewLogEntry(message));
+			DimOldLogs();
+			AddNewLog(message);
+			RemoveTooOldLogs();
+		}
 
+		private void DimOldLogs()
+		{
+			if (_showedLogs.Any())
+				_showedLogs.Last().Opacity -= _oldLogsDim;
+		}
+
+		private void AddNewLog(string message)
+			=> _showedLogs.Add(NewLogEntry(message));
+
+		private void RemoveTooOldLogs()
+		{
 			if (_showedLogs.Count > _maxCountOfLogs)
 				Remove(_showedLogs.First());
 		}
