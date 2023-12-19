@@ -5,7 +5,7 @@ using Entitas.Generic;
 using Zenject;
 using static Code.LocalizationKey;
 using static Code.LocalizationTable;
-using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
+using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
@@ -15,7 +15,6 @@ namespace Code
 		private readonly BattleLog _battleLog;
 		private readonly ILocalizationService _localization;
 
-		private readonly IGroup<Entity<ChipsScope>> _abilities;
 		private readonly IGroup<Entity<GameScope>> _targets;
 
 		[Inject]
@@ -30,8 +29,7 @@ namespace Code
 			_battleLog = battleLog;
 			_localization = localization;
 
-			_abilities = contexts.GetGroup(Get<Component.AbilityState>());
-			_targets = contexts.GetGroup(ScopeMatcher<GameScope>.Get<PickedTarget>());
+			_targets = contexts.GetGroup(Get<PickedTarget>());
 		}
 
 		private Entity<GameScope> PickedChip => _contexts.Get<GameScope>().Unique.GetEntity<PickedChip>();
