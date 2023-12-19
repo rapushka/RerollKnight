@@ -36,6 +36,9 @@ namespace Code
 
 		public void Initialize()
 		{
+			if (!_targets.Any())
+				return;
+
 			var chipLabel = PickedChip.Get<Label>().Value;
 			var target = BuildTargetsString();
 			var localizedString = Localize(ChipCastedMessage, chipLabel, target);
