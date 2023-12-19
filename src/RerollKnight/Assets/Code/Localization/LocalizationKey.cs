@@ -11,5 +11,6 @@ namespace Code
 	{
 		public const string Game = "Game";
 		public const string Chips = "Chips";
+		public const string DisplayNames = "DisplayNames";
 	}
 }
