@@ -15,6 +15,14 @@ namespace Code
 			}
 		}
 
+		public static IEnumerable<TResult> Select<TSource, TResult>
+			(this IGroup<TSource> @this, Func<TSource, TResult> selector)
+			where TSource : class, IEntity
+		{
+			foreach (var entity in @this)
+				yield return selector.Invoke(entity);
+		}
+
 		public static bool Any<T>(this IGroup<T> @this)
 			where T : class, IEntity
 			=> @this.Any((_) => true);

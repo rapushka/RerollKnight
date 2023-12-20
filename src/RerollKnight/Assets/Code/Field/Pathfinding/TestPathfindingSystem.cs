@@ -1,4 +1,3 @@
-using System.Xml;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -11,10 +10,10 @@ namespace Code
 	public class TestPathfindingSystem : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
-		private readonly PathfindingService _pathfinding;
+		private readonly Pathfinding _pathfinding;
 		private readonly IGroup<Entity<GameScope>> _clicked;
 
-		public TestPathfindingSystem(Contexts contexts, PathfindingService pathfinding)
+		public TestPathfindingSystem(Contexts contexts, Pathfinding pathfinding)
 		{
 			_contexts = contexts;
 			_pathfinding = pathfinding;
@@ -31,6 +30,7 @@ namespace Code
 				var targetCoordinates = target.GetCoordinates().WithLayer(Default);
 				var path = _pathfinding.FindPath(CurrentActor.GetCoordinates(), targetCoordinates);
 
+				Debug.Log("found path:");
 				foreach (var coordinates in path)
 					Debug.Log(coordinates);
 
