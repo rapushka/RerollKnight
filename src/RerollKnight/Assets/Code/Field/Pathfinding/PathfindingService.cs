@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Code
@@ -14,5 +16,10 @@ namespace Code
 
 		private static int ManhattanDistance(Coordinates first, Coordinates second)
 			=> Mathf.Abs(first.Column - second.Column) + Mathf.Abs(first.Row - second.Row);
+
+		public IEnumerable<Coordinates> FindPath(Coordinates start, Coordinates target)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
