@@ -4,11 +4,13 @@ using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using UnityEngine;
 using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
+	/// <summary> A* </summary>
 	public class Pathfinding
 	{
 		private const int DistanceBetweenCells = 1;
@@ -45,7 +47,9 @@ namespace Code
 
 			// ---
 
-			while (_openList.Count > 0)
+			int counter = 100;
+
+			while (_openList.Count > 0 && counter > 0)
 			{
 				var currentNode = _openList.GetMinFCostNode();
 
@@ -55,7 +59,7 @@ namespace Code
 				_openList.Remove(currentNode);
 				_closedList.Add(currentNode);
 
-				foreach (var neighborNode in currentNode.Coordinates.Neighbors().Select((c) => new PathNode(c)))
+				foreach (var neighborNode in Neighbors(currentNode)) // 
 				{
 					if (_closedList.Contains(neighborNode))
 						continue;
@@ -72,12 +76,22 @@ namespace Code
 							_openList.Add(neighborNode);
 					}
 				}
+
+				counter--;
 			}
+
+			if (counter <= 0)
+				Debug.LogError("prevent endless loop");
 
 			// ---
 
 			throw new NotImplementedException("There is no path!!!");
 		}
+
+		private IEnumerable<PathNode> Neighbors(PathNode currentNode)
+			=> currentNode.Coordinates.Neighbors()
+			              .Select((c) => new PathNode(c))
+			              .Where((n) => _grid.Contains(n));
 
 		private IEnumerable<Coordinates> CalculatePath(PathNode endNode)
 		{
