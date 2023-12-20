@@ -1,3 +1,4 @@
+using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -31,11 +32,19 @@ namespace Code
 				var targetCoordinates = target.GetCoordinates().WithLayer(Default);
 				var path = _pathfinding.FindPath(actorCoordinates, targetCoordinates);
 
-				Debug.Log("found path:");
-				foreach (var coordinates in path)
-					Debug.Log(coordinates);
+				// ReSharper disable PossibleMultipleEnumeration
+				if (path.Any())
+				{
+					Debug.Log("found path:");
+					foreach (var coordinates in path)
+						Debug.Log(coordinates);
 
-				Debug.Log("---");
+					Debug.Log("---");
+				}
+				else
+				{
+					Debug.Log("path not found:(");
+				}
 			}
 		}
 	}

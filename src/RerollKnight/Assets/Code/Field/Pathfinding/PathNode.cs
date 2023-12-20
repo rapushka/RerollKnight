@@ -1,3 +1,5 @@
+using static Code.Coordinates.Layer;
+
 namespace Code
 {
 	public class PathNode
@@ -8,7 +10,9 @@ namespace Code
 
 		public int FCost => GCost + HCost;
 
-		public int GCost { get; set; } = int.MaxValue; // TODO: mb -1? :(
+		public bool IsEmpty => !Component.Coordinates.Index.HasEntity(Coordinates.WithLayer(Default));
+
+		public int GCost { get; set; } = int.MaxValue;
 
 		public int HCost { get; set; }
 

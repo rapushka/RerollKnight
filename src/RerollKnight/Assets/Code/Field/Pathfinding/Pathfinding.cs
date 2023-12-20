@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.Component;
@@ -67,6 +66,12 @@ namespace Code
 					if (_closedList.Contains(neighborNode))
 						continue;
 
+					if (!neighborNode.IsEmpty)
+					{
+						_closedList.Add(neighborNode);
+						continue;
+					}
+
 					var tentativeGCost = currentNode.GCost + DistanceBetweenCells;
 
 					if (tentativeGCost < neighborNode.GCost)
@@ -88,7 +93,7 @@ namespace Code
 
 			// ---
 
-			throw new NotImplementedException("There is no path!!!");
+			return Enumerable.Empty<Coordinates>();
 		}
 
 		private IEnumerable<PathNode> Neighbors(PathNode currentNode)
