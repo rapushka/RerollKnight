@@ -6,6 +6,7 @@ using Entitas;
 using Entitas.Generic;
 using UnityEngine;
 using Zenject;
+using static Code.Coordinates.Layer;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
@@ -36,14 +37,16 @@ namespace Code
 
 		public IEnumerable<Coordinates> FindPath(Coordinates start, Coordinates end)
 		{
+			Cleanup();
+
 			var startNode = new PathNode(start);
 			var endNode = new PathNode(end);
 			_openList.Add(startNode);
 
-			_grid.AddRange(_cells.Select((c) => new PathNode(c.GetCoordinates())));
+			_grid.AddRange(_cells.Select((c) => new PathNode(c.GetCoordinates(withLayer: Default))));
 
 			startNode.GCost = 0;
-			startNode.HCost = _measuring.Distance(startNode.Coordinates, endNode.Coordinates);
+			startNode.HCost = _measuring.Distance(startNode, endNode);
 
 			// ---
 
@@ -59,7 +62,7 @@ namespace Code
 				_openList.Remove(currentNode);
 				_closedList.Add(currentNode);
 
-				foreach (var neighborNode in Neighbors(currentNode)) // 
+				foreach (var neighborNode in Neighbors(currentNode))
 				{
 					if (_closedList.Contains(neighborNode))
 						continue;
@@ -89,9 +92,9 @@ namespace Code
 		}
 
 		private IEnumerable<PathNode> Neighbors(PathNode currentNode)
-			=> currentNode.Coordinates.Neighbors()
+			=> currentNode.Coordinates.Neighbors(allowDiagonal: true)
 			              .Select((c) => new PathNode(c))
-			              .Where((n) => _grid.Contains(n));
+			              .Where((pn) => _grid.Contains(pn));
 
 		private IEnumerable<Coordinates> CalculatePath(PathNode endNode)
 		{
@@ -110,6 +113,7 @@ namespace Code
 
 		private void Cleanup()
 		{
+			_grid.Clear();
 			_openList.Clear();
 			_closedList.Clear();
 		}
@@ -117,7 +121,10 @@ namespace Code
 
 	public static class PathfindingExtensions
 	{
-		public static PathNode GetMinFCostNode(this IEnumerable<PathNode> list)
-			=> list.OrderBy((pn) => pn.FCost).FirstOrDefault();
+		public static PathNode GetMinFCostNode(this List<PathNode> list)
+		{
+			var minFCost = list.Min((pn) => pn.FCost);
+			return list.First((pn) => pn.FCost == minFCost);
+		}
 	}
 }

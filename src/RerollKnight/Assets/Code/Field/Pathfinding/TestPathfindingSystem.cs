@@ -27,8 +27,9 @@ namespace Code
 		{
 			foreach (var target in _clicked)
 			{
+				var actorCoordinates = CurrentActor.GetCoordinates().WithLayer(Default);
 				var targetCoordinates = target.GetCoordinates().WithLayer(Default);
-				var path = _pathfinding.FindPath(CurrentActor.GetCoordinates(), targetCoordinates);
+				var path = _pathfinding.FindPath(actorCoordinates, targetCoordinates);
 
 				Debug.Log("found path:");
 				foreach (var coordinates in path)
