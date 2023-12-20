@@ -50,14 +50,14 @@ namespace Code
 
 			// ---
 
-			int counter = 100;
+			var counter = 10_000;
 
 			while (_openList.Count > 0 && counter > 0)
 			{
 				var currentNode = _openList.GetMinFCostNode();
 
 				if (currentNode == endNode)
-					return CalculatePath(endNode);
+					return CalculatePath(currentNode);
 
 				_openList.Remove(currentNode);
 				_closedList.Add(currentNode);
