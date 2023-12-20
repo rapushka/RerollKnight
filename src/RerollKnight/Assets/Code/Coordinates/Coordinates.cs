@@ -42,7 +42,6 @@ namespace Code
 
 		public Vector3 ToTopDown() => ((Vector2) this).ToTopDown();
 
-		public int DistanceTo(Coordinates other) => Mathf.Max(Column.Delta(other.Column), Row.Delta(other.Row));
 
 		public Coordinates WithLayer(Layer layer)
 			=> new(Column, Row, layer);
