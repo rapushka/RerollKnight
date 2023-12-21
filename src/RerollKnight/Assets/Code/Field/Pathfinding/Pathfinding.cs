@@ -13,7 +13,8 @@ namespace Code
 	/// <summary> A* </summary>
 	public class Pathfinding
 	{
-		private const int DistanceBetweenCells = 1;
+		private const int StraightCost = 10;
+		private const int DiagonalCost = 14;
 
 		private readonly MeasuringService _measuring;
 		private readonly IGroup<Entity<GameScope>> _cells;
@@ -30,11 +31,48 @@ namespace Code
 		public Pathfinding(Contexts contexts, MapProvider map, MeasuringService measuring)
 		{
 			_measuring = measuring;
-
 			_cells = contexts.GetGroup(Get<Cell>());
 		}
 
-		public IEnumerable<Coordinates> FindPath(Coordinates start, Coordinates end)
+		public bool IsStraightLinePath(Coordinates start, Coordinates end)
+		{
+			var path = FindPath(start, end);
+
+			if (!path.Any())
+				return false;
+
+			if (path.Count <= 2)
+				return true;
+
+			var first = path[0].WithLayer(Ignore);
+			var second = path[1].WithLayer(Ignore);
+
+			var direction = second - first;
+			var directionLog = $"direction = {direction} | ";
+
+			var previous = first;
+			foreach (var tmp in path.Skip(1))
+			{
+				var current = tmp.WithLayer(Ignore);
+
+				Debug.Log
+				(
+					directionLog
+					+ $"previous: {previous} | "
+					+ $"current: {current} | "
+					+ $"is straight: {current - previous == direction}"
+				);
+
+				if (current - previous != direction)
+					return false;
+
+				previous = current;
+			}
+
+			return true;
+		}
+
+		public List<Coordinates> FindPath(Coordinates start, Coordinates end)
 		{
 			Cleanup();
 
@@ -72,7 +110,7 @@ namespace Code
 						continue;
 					}
 
-					var tentativeGCost = currentNode.GCost + DistanceBetweenCells;
+					var tentativeGCost = currentNode.GCost + CalculateCost(neighborNode, currentNode);
 
 					if (tentativeGCost < neighborNode.GCost)
 					{
@@ -93,7 +131,7 @@ namespace Code
 
 			// ---
 
-			return Enumerable.Empty<Coordinates>();
+			return Enumerable.Empty<Coordinates>().ToList();
 		}
 
 		private IEnumerable<PathNode> Neighbors(PathNode currentNode)
@@ -101,7 +139,7 @@ namespace Code
 			              .Select((c) => new PathNode(c))
 			              .Where((pn) => _grid.Contains(pn));
 
-		private IEnumerable<Coordinates> CalculatePath(PathNode endNode)
+		private List<Coordinates> CalculatePath(PathNode endNode)
 		{
 			var result = new List<Coordinates> { endNode };
 
@@ -121,6 +159,17 @@ namespace Code
 			_grid.Clear();
 			_openList.Clear();
 			_closedList.Clear();
+		}
+
+		// TODO: WTF U"R SELECTING DIAGONALS WITH NO REASONS???? STUPID IDIOT!!!
+		private static int CalculateCost(PathNode firstNode, PathNode secondNode)
+		{
+			var first = secondNode.Coordinates;
+			var second = firstNode.Coordinates;
+
+			return first.Column == second.Column || first.Column == second.Column
+				? StraightCost
+				: DiagonalCost;
 		}
 	}
 

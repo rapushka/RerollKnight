@@ -55,6 +55,9 @@ namespace Code
 		public static explicit operator Vector2(Coordinates coordinates)
 			=> new(coordinates.Column, coordinates.Row);
 
+		public static explicit operator Coordinates(Vector2 vector)
+			=> new(vector);
+
 		public static bool operator ==(Coordinates left, Coordinates right)
 			=> left?.Equals(right) ?? false;
 
@@ -87,6 +90,7 @@ namespace Code
 		private bool IgnoreLayer(Coordinates other) => OnLayer is Layer.Ignore || other.OnLayer is Layer.Ignore;
 
 		// ReSharper disable NonReadonlyMemberInGetHashCode – needed fo view in the inspector
+
 		public override int GetHashCode() => HashCode.Combine(Column, Row, OnLayer);
 
 		public override string ToString() => $"({OnLayer.ToString()})–[{Column}; {Row}]";

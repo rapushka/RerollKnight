@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using static Code.Coordinates.Layer;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
@@ -30,21 +32,27 @@ namespace Code
 			{
 				var actorCoordinates = CurrentActor.GetCoordinates().WithLayer(Default);
 				var targetCoordinates = target.GetCoordinates().WithLayer(Default);
-				var path = _pathfinding.FindPath(actorCoordinates, targetCoordinates);
+				// var path = _pathfinding.FindPath(actorCoordinates, targetCoordinates);
 
-				// ReSharper disable PossibleMultipleEnumeration
-				if (path.Any())
-				{
-					Debug.Log("found path:");
-					foreach (var coordinates in path)
-						Debug.Log(coordinates);
+				var isStraightLinePath = _pathfinding.IsStraightLinePath(actorCoordinates, targetCoordinates);
+				Debug.Log($"isStraightLinePath = {isStraightLinePath}");
+			}
+		}
 
-					Debug.Log("---");
-				}
-				else
-				{
-					Debug.Log("path not found:(");
-				}
+		[UsedImplicitly]
+		private static void PrintPath(List<Coordinates> path)
+		{
+			if (path.Any())
+			{
+				Debug.Log("found path:");
+				foreach (var coordinates in path)
+					Debug.Log(coordinates);
+
+				Debug.Log("---");
+			}
+			else
+			{
+				Debug.Log("path not found:(");
 			}
 		}
 	}
