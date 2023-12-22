@@ -34,10 +34,7 @@ namespace Code
 
 		private void OnSidePicked(int sideNumber)
 		{
-			Context.CreateEntity()
-			       .Identify()
-			       .Add<ForeignID, string>(CurrentActor.EnsureID())
-			       .Add<PredefinedNextSide, int>(sideNumber);
+			CurrentActor.Add<PredefinedNextSide, int>(sideNumber);
 
 			Hide();
 		}
