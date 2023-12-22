@@ -13,4 +13,6 @@ namespace Code.Component
 	[ChipsScope] public sealed class ConsiderObstacles : FlagComponent { }
 
 	[ChipsScope] public sealed class ConstrainByVisibility : FlagComponent { }
+
+	[ChipsScope] public sealed class SetNextSide : FlagComponent { }
 }

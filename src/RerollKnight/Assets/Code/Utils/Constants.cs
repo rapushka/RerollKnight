@@ -3,6 +3,7 @@ namespace Code
 	public static class Constants
 	{
 		public const double Tolerance = 0.01f;
+		public const int PlayerSidesCount = 6; // TODO: config
 
 		public static class ToolPath
 		{

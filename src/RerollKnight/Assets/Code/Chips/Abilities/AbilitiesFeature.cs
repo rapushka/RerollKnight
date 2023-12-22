@@ -8,6 +8,7 @@ namespace Code
 			// Add<CastTeleportSystem>();
 			Add<CastSwapPositionsSystem>();
 			Add<CastDealDamageSystem>();
+			Add<CastSetNextSideSystem>();
 		}
 	}
 }

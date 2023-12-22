@@ -7,7 +7,7 @@ namespace Code
 	{
 		private readonly Contexts _contexts;
 
-		public CastDealDamageSystem(Contexts contexts, Query query) : base(contexts, query)
+		public CastDealDamageSystem(Contexts contexts) : base(contexts)
 		{
 			_contexts = contexts;
 		}

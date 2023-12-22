@@ -11,7 +11,7 @@ namespace Code
 		private readonly GameplayStateMachine _stateMachine;
 		private readonly WindowsService _windows;
 
-		public ShowDiceInfoSystem(Contexts contexts, GameplayStateMachine stateMachine, WindowsService windows)
+		public ShowDiceInfoSystem(Contexts contexts, GameplayStateMachine stateMachine, WindowsService windows) // TODO: use UI mediator!
 			: base(contexts.Get<GameScope>())
 		{
 			_stateMachine = stateMachine;

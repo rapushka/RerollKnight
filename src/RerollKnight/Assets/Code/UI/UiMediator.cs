@@ -24,9 +24,10 @@ namespace Code
 
 		public void Pause() => _sceneTransfer.ToMainMenu();
 
-		public void ShowWindow<TWindow>() where TWindow : IWindow => _windows.Show<TWindow>();
-		public void HideWindow<TWindow>() where TWindow : IWindow => _windows.Hide<TWindow>();
-		public void HideCurrentWindow()                           => _windows.HideCurrent();
+		public void    ShowWindow<TWindow>() where TWindow : IWindow       => _windows.Show<TWindow>();
+		public void    HideWindow<TWindow>() where TWindow : IWindow       => _windows.Hide<TWindow>();
+		public void    HideCurrentWindow()                                 => _windows.HideCurrent();
+		public TWindow ShowAndGetWindow<TWindow>() where TWindow : IWindow => _windows.Show<TWindow>();
 
 		public void Exit() => _game.Exit();
 	}

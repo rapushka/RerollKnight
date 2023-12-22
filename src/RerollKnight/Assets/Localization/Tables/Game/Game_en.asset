@@ -98,6 +98,10 @@ MonoBehaviour:
     m_Localized: Back to Main Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 2467729133223936
+    m_Localized: Pick the Side
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
