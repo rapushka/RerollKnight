@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2271565112316749193}
   - component: {fileID: 4438489512886087768}
   - component: {fileID: 915410690454322718}
-  - component: {fileID: -7143361992002859495}
   - component: {fileID: 8922502445419947486}
   m_Layer: 0
   m_Name: Kick Ability
@@ -52,7 +51,6 @@ MonoBehaviour:
   _collectInChildren: 0
   _interruptChildrenEntities: 1
   _componentBehaviours:
-  - {fileID: -7143361992002859495}
   - {fileID: 2271565112316749193}
   - {fileID: 4438489512886087768}
   - {fileID: 915410690454322718}
@@ -102,18 +100,6 @@ MonoBehaviour:
   - <Component>k__BackingField:
       _name: CurrentActor
     <MustHave>k__BackingField: 0
---- !u!114 &-7143361992002859495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502534925063096562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4d674dfe4d2439289f384c81cae1148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8922502445419947486
 MonoBehaviour:
   m_ObjectHideFlags: 0
