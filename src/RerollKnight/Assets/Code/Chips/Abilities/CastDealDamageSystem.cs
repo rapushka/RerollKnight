@@ -3,11 +3,11 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class CastKickSystem : CastAbilitySystemBase<DealDamage>
+	public sealed class CastDealDamageSystem : CastAbilitySystemBase<DealDamage>
 	{
 		private readonly Contexts _contexts;
 
-		public CastKickSystem(Contexts contexts, Query query) : base(contexts, query)
+		public CastDealDamageSystem(Contexts contexts, Query query) : base(contexts, query)
 		{
 			_contexts = contexts;
 		}

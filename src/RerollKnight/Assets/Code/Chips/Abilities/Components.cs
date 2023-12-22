@@ -2,9 +2,7 @@ using Entitas.Generic;
 
 namespace Code.Component
 {
-	[ChipsScope] public sealed class Teleport : FlagComponent { }
-
-	[ChipsScope] public sealed class SwitchPositions : FlagComponent { }
+	[ChipsScope] public sealed class SwapPositions : FlagComponent { }
 
 	[ChipsScope] public sealed class DealDamage : ValueComponent<int> { }
 

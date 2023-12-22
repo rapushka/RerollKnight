@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7926960549085314717}
   - component: {fileID: 3304350988803758735}
   m_Layer: 0
-  m_Name: Switch Positions Ability
+  m_Name: Swap Positions Ability
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5,9 +5,9 @@ namespace Code
 		public AbilitiesFeature(SystemsFactory factory)
 			: base(nameof(AbilitiesFeature), factory)
 		{
-			Add<CastTeleportSystem>();
-			Add<CastSwitchPositionsSystem>();
-			Add<CastKickSystem>();
+			// Add<CastTeleportSystem>();
+			Add<CastSwapPositionsSystem>();
+			Add<CastDealDamageSystem>();
 		}
 	}
 }
