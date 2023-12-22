@@ -22,14 +22,12 @@ namespace Code
 			Ignore,
 		}
 
-		[field: SerializeField] public int Column { get; private set; }
-		[field: SerializeField] public int Row { get; private set; }
+		[field: SerializeField] public int   Column  { get; private set; }
+		[field: SerializeField] public int   Row     { get; private set; }
 		[field: SerializeField] public Layer OnLayer { get; private set; }
 
 		public Coordinates(Vector2 vector)
-			: this((int) vector.x, (int) vector.y)
-		{
-		}
+			: this((int)vector.x, (int)vector.y) { }
 
 		public Coordinates(int column, int row, Layer layer = Layer.None)
 		{
@@ -40,9 +38,7 @@ namespace Code
 
 		public static Coordinates Zero => new(0, 0);
 
-		public Vector3 ToTopDown() => ((Vector2) this).ToTopDown();
-
-		public int DistanceTo(Coordinates other) => Mathf.Max(Column.Delta(other.Column), Row.Delta(other.Row));
+		public Vector3 ToTopDown() => ((Vector2)this).ToTopDown();
 
 		public Coordinates WithLayer(Layer layer)
 			=> new(Column, Row, layer);
@@ -58,6 +54,9 @@ namespace Code
 
 		public static explicit operator Vector2(Coordinates coordinates)
 			=> new(coordinates.Column, coordinates.Row);
+
+		public static explicit operator Coordinates(Vector2 vector)
+			=> new(vector);
 
 		public static bool operator ==(Coordinates left, Coordinates right)
 			=> left?.Equals(right) ?? false;
@@ -78,19 +77,20 @@ namespace Code
 		public static bool operator !=((int, int) right, Coordinates left) => !(right == left);
 
 		public override bool Equals(object obj) => obj is Coordinates coordinates
-			&& Equals(coordinates);
+		                                           && Equals(coordinates);
 
 		protected bool Equals(Coordinates other)
 			=> !IsOnLayerNone(other)
-				&& Column == other.Column
-				&& Row == other.Row
-				&& (OnLayer == other.OnLayer || IgnoreLayer(other));
+			   && Column == other.Column
+			   && Row == other.Row
+			   && (OnLayer == other.OnLayer || IgnoreLayer(other));
 
 		private bool IsOnLayerNone(Coordinates other) => OnLayer is Layer.None || other.OnLayer is Layer.None;
 
 		private bool IgnoreLayer(Coordinates other) => OnLayer is Layer.Ignore || other.OnLayer is Layer.Ignore;
 
 		// ReSharper disable NonReadonlyMemberInGetHashCode – needed fo view in the inspector
+
 		public override int GetHashCode() => HashCode.Combine(Column, Row, OnLayer);
 
 		public override string ToString() => $"({OnLayer.ToString()})–[{Column}; {Row}]";

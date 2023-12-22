@@ -14,6 +14,7 @@ namespace Code
 			Add<MarkDisabledUnavailableSystem>();
 			Add<MarkUnavailableByRangeSystem>();
 			Add<MarkUnavailableByComponentsSystem>();
+			Add<MarkUnavailableByObstaclesSystem>();
 		}
 	}
 }

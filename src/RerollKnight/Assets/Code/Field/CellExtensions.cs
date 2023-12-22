@@ -5,15 +5,19 @@ namespace Code
 {
 	public static class CellExtensions
 	{
+		public static bool IsEmpty(this Entity<GameScope> @this) => !@this.IsOccupied();
+
 		public static bool IsOccupied(this Entity<GameScope> @this)
+			=> @this.GetCoordinates(withLayer: Coordinates.Layer.Default).IsOccupied();
+
+		public static bool IsEmpty(this Coordinates @this) => !@this.IsOccupied();
+
+		public static bool IsOccupied(this Coordinates @this)
 		{
 			var index = Component.Coordinates.Index;
-			var onCellCoordinates = @this.GetCoordinates(withLayer: Coordinates.Layer.Default);
 
-			return index.HasEntity(onCellCoordinates)
-				&& !index.GetEntity(onCellCoordinates).Is<Disabled>();
+			return index.HasEntity(@this)
+			       && !index.GetEntity(@this).Is<Disabled>();
 		}
-
-		public static bool IsEmpty(this Entity<GameScope> @this) => !@this.IsOccupied();
 	}
 }

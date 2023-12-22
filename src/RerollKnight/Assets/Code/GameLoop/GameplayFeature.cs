@@ -59,6 +59,9 @@ namespace Code
 			// Debug
 			Add<DebugCurrentGameplayStateSystem>();
 			Add<DebugTurnsQueueSystem>();
+
+			// TMP
+			// Add<TestPathfindingSystem>();
 #endif
 
 			Add<BoilerplateFeature>();

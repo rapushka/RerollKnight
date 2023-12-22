@@ -47,6 +47,14 @@ MonoBehaviour:
     m_Key: TeleportDescription
     m_Metadata:
       m_Items: []
+  - m_Id: 1581913309659136
+    m_Key: WalkLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1582257108369408
+    m_Key: WalkDescription
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

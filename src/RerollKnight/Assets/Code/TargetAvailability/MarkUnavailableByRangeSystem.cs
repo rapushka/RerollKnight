@@ -10,13 +10,15 @@ namespace Code
 	public sealed class MarkUnavailableByRangeSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
+		private readonly MeasuringService _measuring;
 		private readonly IGroup<Entity<GameScope>> _targets;
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
 
 		[Inject]
-		public MarkUnavailableByRangeSystem(Contexts contexts, Query query)
+		public MarkUnavailableByRangeSystem(Contexts contexts, Query query, MeasuringService measuring)
 		{
 			_contexts = contexts;
+			_measuring = measuring;
 
 			_targets = contexts.GetGroup(GameMatcher.AllOf(AvailableToPick, Target));
 			_abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<Range>()));
@@ -35,8 +37,9 @@ namespace Code
 			{
 				var playerPosition = CurrentActor.GetCoordinates();
 				var targetPosition = target.GetCoordinates();
+				var distance = _measuring.Distance(playerPosition, targetPosition);
 
-				if (playerPosition.DistanceTo(targetPosition) > ability.Get<Range>().Value)
+				if (distance > ability.Get<Range>().Value)
 					target.Is<AvailableToPick>(false);
 			}
 		}

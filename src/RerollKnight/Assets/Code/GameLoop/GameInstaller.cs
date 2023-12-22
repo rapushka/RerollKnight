@@ -31,6 +31,9 @@ namespace Code
 			Container.Bind<CoordinatesCalculator>().AsSingle();
 
 			Container.Bind<IRandomFieldAccess>().To<RandomFieldAccess>().AsSingle();
+			Container.Bind<MeasuringService>().AsSingle();
+			Container.Bind<Pathfinding>().AsSingle();
+			Container.Bind<Vision>().AsSingle();
 
 			InstallFactories();
 		}

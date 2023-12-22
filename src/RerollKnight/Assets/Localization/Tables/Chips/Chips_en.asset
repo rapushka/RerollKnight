@@ -62,6 +62,19 @@ MonoBehaviour:
       cell'
     m_Metadata:
       m_Items: []
+  - m_Id: 1581913309659136
+    m_Localized: Walk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1582257108369408
+    m_Localized: 'Moves your dice to the selected empty cell
+
+      range = 2 cells
+
+      consider
+      obstacles'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
