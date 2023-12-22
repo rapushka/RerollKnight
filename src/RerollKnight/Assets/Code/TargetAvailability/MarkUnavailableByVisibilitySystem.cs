@@ -7,20 +7,20 @@ using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class MarkUnavailableByObstaclesSystem : IInitializeSystem
+	public sealed class MarkUnavailableByVisibilitySystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
-		private readonly Pathfinding _pathfinding;
+		private readonly VisionService _visionService;
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
 		private readonly IGroup<Entity<GameScope>> _targets;
 
-		public MarkUnavailableByObstaclesSystem(Contexts contexts, Pathfinding pathfinding)
+		public MarkUnavailableByVisibilitySystem(Contexts contexts, VisionService visionService)
 		{
 			_contexts = contexts;
-			_pathfinding = pathfinding;
+			_visionService = visionService;
 
 			_targets = contexts.GetGroup(GameMatcher.AllOf(AvailableToPick, Target));
-			_abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<ConsiderObstacles>()));
+			_abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<ConstrainByVisibility>()));
 		}
 
 		private static IMatcher<Entity<GameScope>> AvailableToPick => GameMatcher.Get<AvailableToPick>();
@@ -31,14 +31,14 @@ namespace Code
 
 		public void Initialize()
 		{
-			foreach (var ability in _abilities.WhereStateIs(AbilityState.Prepared))
+			foreach (var _ in _abilities.WhereStateIs(AbilityState.Prepared))
 			foreach (var target in _targets.GetEntities())
 			{
 				var playerPosition = CurrentActor.GetCoordinates(withLayer: Default);
 				var targetPosition = target.GetCoordinates(withLayer: Default);
-				var pathLength = _pathfinding.FindPath(playerPosition, targetPosition).Count - 1;
+				var isVisible = _visionService.IsVisible(playerPosition, targetPosition);
 
-				if (pathLength == -1 || pathLength > ability.Get<Range>().Value)
+				if (!isVisible)
 					target.Is<AvailableToPick>(false);
 			}
 		}

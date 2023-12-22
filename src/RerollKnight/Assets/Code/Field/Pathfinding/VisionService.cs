@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Code
 {
-	public class Vision
+	public class VisionService
 	{
 		public bool IsVisible(Coordinates subject, Coordinates target)
 		{
