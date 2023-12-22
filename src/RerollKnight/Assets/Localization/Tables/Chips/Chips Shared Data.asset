@@ -63,6 +63,14 @@ MonoBehaviour:
     m_Key: PistolDescription
     m_Metadata:
       m_Items: []
+  - m_Id: 1992345983860736
+    m_Key: PickNextSideLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1992566591668224
+    m_Key: PickNextSideDescription
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
