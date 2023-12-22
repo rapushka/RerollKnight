@@ -13,13 +13,13 @@ namespace Code
 	public class TestPathfindingSystem : IExecuteSystem
 	{
 		private readonly Contexts _contexts;
-		private readonly Pathfinding _pathfinding;
+		private readonly Vision _vision;
 		private readonly IGroup<Entity<GameScope>> _clicked;
 
-		public TestPathfindingSystem(Contexts contexts, Pathfinding pathfinding)
+		public TestPathfindingSystem(Contexts contexts, Vision vision)
 		{
 			_contexts = contexts;
-			_pathfinding = pathfinding;
+			_vision = vision;
 
 			_clicked = contexts.GetGroup(AllOf(Get<Component.Coordinates>(), Get<Clicked>()));
 		}
@@ -34,7 +34,7 @@ namespace Code
 				var targetCoordinates = target.GetCoordinates().WithLayer(Default);
 				// var path = _pathfinding.FindPath(actorCoordinates, targetCoordinates);
 
-				var isStraightLinePath = _pathfinding.IsStraightLinePath(actorCoordinates, targetCoordinates);
+				var isStraightLinePath = _vision.IsVisible(actorCoordinates, targetCoordinates);
 				Debug.Log($"isStraightLinePath = {isStraightLinePath}");
 			}
 		}

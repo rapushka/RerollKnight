@@ -34,44 +34,6 @@ namespace Code
 			_cells = contexts.GetGroup(Get<Cell>());
 		}
 
-		public bool IsStraightLinePath(Coordinates start, Coordinates end)
-		{
-			var path = FindPath(start, end);
-
-			if (!path.Any())
-				return false;
-
-			if (path.Count <= 2)
-				return true;
-
-			var first = path[0].WithLayer(Ignore);
-			var second = path[1].WithLayer(Ignore);
-
-			var direction = second - first;
-			var directionLog = $"direction = {direction} | ";
-
-			var previous = first;
-			foreach (var tmp in path.Skip(1))
-			{
-				var current = tmp.WithLayer(Ignore);
-
-				Debug.Log
-				(
-					directionLog
-					+ $"previous: {previous} | "
-					+ $"current: {current} | "
-					+ $"is straight: {current - previous == direction}"
-				);
-
-				if (current - previous != direction)
-					return false;
-
-				previous = current;
-			}
-
-			return true;
-		}
-
 		public List<Coordinates> FindPath(Coordinates start, Coordinates end)
 		{
 			Cleanup();
