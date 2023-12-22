@@ -55,6 +55,14 @@ MonoBehaviour:
     m_Key: WalkDescription
     m_Metadata:
       m_Items: []
+  - m_Id: 1966550062153728
+    m_Key: PistolLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1966801900748800
+    m_Key: PistolDescription
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -75,6 +75,17 @@ MonoBehaviour:
       obstacles'
     m_Metadata:
       m_Items: []
+  - m_Id: 1966550062153728
+    m_Localized: Pistol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1966801900748800
+    m_Localized: 'Shoots at the enemy dealing 1 damage
+
+      Can''t be used through
+      obstacles'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
