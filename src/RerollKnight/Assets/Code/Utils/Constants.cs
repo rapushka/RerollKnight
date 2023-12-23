@@ -22,6 +22,9 @@ namespace Code
 				// Display Names
 				public const string ChipCastedMessage = "ChipCastedMessage";
 				public const string EntityAtCoordinatesMessage = "EntityAtCoordinatesMessage";
+
+				// Abilities
+				public const string DealDamageAbility = "DealDamageAbility";
 			}
 
 			public static class Table

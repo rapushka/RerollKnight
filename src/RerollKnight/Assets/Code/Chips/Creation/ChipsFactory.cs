@@ -49,12 +49,13 @@ namespace Code
 		{
 			var chip = InitializeChip(entity)
 			           .Add<Label, string>(config.LabelKey.GetLocalizedString())
-			           .Add<Description, string>(_descriptionBuilder.Build(config))
 			           .Add<ForeignID, string>(face.EnsureID())
 				;
 
 			foreach (var abilityConfig in config.Abilities)
 				_abilitiesFactory.Create(abilityConfig, chip);
+
+			chip.Add<Description, string>(_descriptionBuilder.Build(chip));
 
 			return chip;
 		}

@@ -95,6 +95,10 @@ MonoBehaviour:
     m_Key: SpitDescription
     m_Metadata:
       m_Items: []
+  - m_Id: 2214153131606016
+    m_Key: DealDamageAbility
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

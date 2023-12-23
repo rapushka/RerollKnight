@@ -126,6 +126,10 @@ MonoBehaviour:
       used through obstacles'
     m_Metadata:
       m_Items: []
+  - m_Id: 2214153131606016
+    m_Localized: Deal {0} damage
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
