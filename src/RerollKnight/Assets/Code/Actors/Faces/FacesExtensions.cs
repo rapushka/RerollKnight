@@ -22,6 +22,9 @@ namespace Code
 		public static bool IsActiveFace(this Entity<GameScope> face)
 			=> face.Get<Face>().Value == face.GetOwner().GetOrDefault<ActiveFace>()?.Value;
 
+		public static bool IsNextFace(this Entity<GameScope> face)
+			=> face.Get<Face>().Value == face.GetOwner().GetOrDefault<PredefinedNextSide>()?.Value;
+
 		public static Entity<GameScope> GetActiveFace(this Entity<GameScope> actor)
 		{
 			var activeFace = actor.Get<ActiveFace>().Value;

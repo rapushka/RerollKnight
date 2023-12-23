@@ -11,6 +11,7 @@ namespace Code
 	{
 		[SerializeField] private Transform _chipsRoot;
 		[SerializeField] private GameObject _isActiveLabel;
+		[SerializeField] private GameObject _isNextLabel;
 		[SerializeField] private TMP_Text _sideNumberTextMesh;
 		[SerializeField] private ChipUiPreview _chipPreviewPrefab;
 		[SerializeField] private HorizontalLayoutGroup _chipsLayoutGroup;
@@ -23,6 +24,7 @@ namespace Code
 		{
 			_sideNumberTextMesh.text = sideEntity.Get<Face>().Value.ToString();
 			_isActiveLabel.SetActive(sideEntity.IsActiveFace());
+			_isNextLabel.SetActive(sideEntity.IsNextFace());
 			var chipsCount = 0;
 
 			foreach (var chip in sideEntity.GetDependants().Where((e) => e.Is<Chip>()))

@@ -102,6 +102,10 @@ MonoBehaviour:
     m_Localized: Pick the Side
     m_Metadata:
       m_Items: []
+  - m_Id: 2652729883443200
+    m_Localized: Is Next
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

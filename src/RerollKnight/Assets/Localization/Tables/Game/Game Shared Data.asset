@@ -99,6 +99,10 @@ MonoBehaviour:
     m_Key: PickSideTitle
     m_Metadata:
       m_Items: []
+  - m_Id: 2652729883443200
+    m_Key: NextSideLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
