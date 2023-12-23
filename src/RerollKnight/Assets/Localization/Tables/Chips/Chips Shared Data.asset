@@ -36,7 +36,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 646336167936
-    m_Key: SawpPositionsDescription
+    m_Key: SwapPositionsDescription
     m_Metadata:
       m_Items: []
   - m_Id: 736975077376
@@ -73,6 +73,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2195453838049280
     m_Key: SpitLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2203861261697024
+    m_Key: PushLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2204029017079808
+    m_Key: PushDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2206079306121216
+    m_Key: PickNextSideLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2206178321055744
+    m_Key: PickNextSideDescription
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2206704920117248
+    m_Key: SpitDescription
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -80,7 +80,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1966801900748800
-    m_Localized: Doesn't cause any damage, maybe only moral...
+    m_Localized: 'Deals 1 damage
+
+      Can''t be used through obstacles'
     m_Metadata:
       m_Items: []
   - m_Id: 1992345983860736
@@ -94,6 +96,34 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2195453838049280
     m_Localized: Spit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2203861261697024
+    m_Localized: Push
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2204029017079808
+    m_Localized: 'Pushes enemy back 2 cells
+
+      Crashing into an obstacle will
+      deal 1 damage to the enemy
+
+      Use distance = 1 cell'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2206079306121216
+    m_Localized: Pick Next Side
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2206178321055744
+    m_Localized: Allows pick side, that will be thrown after next reroll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2206704920117248
+    m_Localized: 'Doesn''t cause any damage, maybe only moral...
+
+      Can''t be
+      used through obstacles'
     m_Metadata:
       m_Items: []
   references:

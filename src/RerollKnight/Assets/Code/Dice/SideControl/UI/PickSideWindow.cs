@@ -34,7 +34,7 @@ namespace Code
 
 		private void OnSidePicked(int sideNumber)
 		{
-			_actor.Add<PredefinedNextSide, int>(sideNumber);
+			_actor.Replace<PredefinedNextSide, int>(sideNumber);
 
 			Hide();
 		}

@@ -17,7 +17,9 @@ namespace Code
 			var distance = ability.Get<PushDistance>().Value;
 			var pushDelta = direction * distance;
 
-			while (pushDelta != Coordinates.Zero)
+			var counter = 100;
+
+			while (pushDelta != Coordinates.Zero.WithLayer(Coordinates.Layer.Ignore))
 			{
 				var nextCoordinates = target.GetCoordinates() + direction;
 
@@ -30,6 +32,12 @@ namespace Code
 				target.ReplaceCoordinates(nextCoordinates);
 
 				pushDelta -= direction;
+
+				if (counter-- < 0)
+				{
+					Debug.LogError("prevent endless loop");
+					break;
+				}
 			}
 		}
 	}
