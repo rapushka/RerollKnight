@@ -23,31 +23,36 @@ namespace Code
 
 			foreach (var ability in chip.GetDependants<ChipsScope>())
 			{
-				if (ability.Has<DealDamage>())
-					Append(Localized(Key.DealDamageAbility, ability.Get<DealDamage>().Value));
+				AppendAbility(ability);
 
 				if (ability.Has<Range>())
 					Append(Localized(Key.RangeAbility, ability.Get<Range>().Value));
 
-				if (ability.Is<SetNextSide>())
-					Append(Localized(Key.PickNextSideAbility));
-
-				if (ability.Is<ShowNextSide>())
-					Append(Localized(Key.ShowNextSideAbility));
-
 				AppendAccessDescription(ability);
-
-				if (ability.Has<PushDistance>())
-					Append(Localized(Key.PushAbility, ability.Get<PushDistance>().Value));
-
-				if (ability.Is<SwapPositions>())
-					Append(Localized(Key.SwapPositionsAbility));
 
 				if (ability.Has<TargetConstraints>())
 					Append(BuildTargetConstrains(ability));
 			}
 
 			return _stringBuilder.ToString().Trim();
+		}
+
+		private void AppendAbility(Entity<ChipsScope> ability)
+		{
+			if (ability.Has<DealDamage>())
+				Append(Localized(Key.DealDamageAbility, ability.Get<DealDamage>().Value));
+
+			if (ability.Is<SetNextSide>())
+				Append(Localized(Key.PickNextSideAbility));
+
+			if (ability.Is<ShowNextSide>())
+				Append(Localized(Key.ShowNextSideAbility));
+
+			if (ability.Has<PushDistance>())
+				Append(Localized(Key.PushAbility, ability.Get<PushDistance>().Value));
+
+			if (ability.Is<SwapPositions>())
+				Append(Localized(Key.SwapPositionsAbility));
 		}
 
 		private void AppendAccessDescription(Entity<ChipsScope> ability)

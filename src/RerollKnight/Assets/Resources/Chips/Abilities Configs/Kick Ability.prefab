@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9089965641458215925}
   - component: {fileID: 5989036471068430585}
-  - component: {fileID: 2271565112316749193}
-  - component: {fileID: 4438489512886087768}
-  - component: {fileID: 915410690454322718}
   - component: {fileID: 8922502445419947486}
+  - component: {fileID: 2271565112316749193}
+  - component: {fileID: 915410690454322718}
+  - component: {fileID: 4438489512886087768}
   m_Layer: 0
   m_Name: Kick Ability
   m_TagString: Untagged
@@ -55,6 +55,19 @@ MonoBehaviour:
   - {fileID: 4438489512886087768}
   - {fileID: 915410690454322718}
   - {fileID: 8922502445419947486}
+--- !u!114 &8922502445419947486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cf893399b846a3b91f7208cf5d7cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 1
 --- !u!114 &2271565112316749193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,19 +78,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4f7615b29bc4628915ae7c41a39a26e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value: 1
---- !u!114 &4438489512886087768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502534925063096562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d900a06e37d46288bb579d7338ef455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
   - <Component>k__BackingField:
       _name: CurrentActor
     <MustHave>k__BackingField: 0
---- !u!114 &8922502445419947486
+--- !u!114 &4438489512886087768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1502534925063096562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96cf893399b846a3b91f7208cf5d7cf9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d900a06e37d46288bb579d7338ef455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 1

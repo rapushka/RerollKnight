@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9089965641458215925}
   - component: {fileID: 5989036471068430585}
-  - component: {fileID: 4438489512886087768}
-  - component: {fileID: 915410690454322718}
   - component: {fileID: 8922502445419947486}
   - component: {fileID: -6851035643439281238}
+  - component: {fileID: 915410690454322718}
+  - component: {fileID: 4438489512886087768}
   m_Layer: 0
   m_Name: Pistol Ability
   m_TagString: Untagged
@@ -52,41 +52,9 @@ MonoBehaviour:
   _interruptChildrenEntities: 1
   _componentBehaviours:
   - {fileID: 4438489512886087768}
-  - {fileID: 915410690454322718}
   - {fileID: 8922502445419947486}
+  - {fileID: 915410690454322718}
   - {fileID: -6851035643439281238}
---- !u!114 &4438489512886087768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502534925063096562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d900a06e37d46288bb579d7338ef455, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value: 1
---- !u!114 &915410690454322718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502534925063096562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88807b05c9864b94a5dcf05b65569cef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value:
-  - <Component>k__BackingField:
-      _name: Actor
-    <MustHave>k__BackingField: 1
-  - <Component>k__BackingField:
-      _name: CurrentActor
-    <MustHave>k__BackingField: 0
 --- !u!114 &8922502445419947486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +80,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a4261db81b48b1b4202792ef60035a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &915410690454322718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88807b05c9864b94a5dcf05b65569cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value:
+  - <Component>k__BackingField:
+      _name: Actor
+    <MustHave>k__BackingField: 1
+  - <Component>k__BackingField:
+      _name: CurrentActor
+    <MustHave>k__BackingField: 0
+--- !u!114 &4438489512886087768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d900a06e37d46288bb579d7338ef455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 1
