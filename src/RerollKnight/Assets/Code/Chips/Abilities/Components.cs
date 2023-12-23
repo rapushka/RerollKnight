@@ -15,6 +15,8 @@ namespace Code.Component
 
 	[ChipsScope] public sealed class CrashDamage : ValueComponent<int> { }
 
+	[ChipsScope] public sealed class Recoil : ValueComponent<int> { }
+
 	// Options (?) 
 	[ChipsScope] public sealed class MaxCountOfTargets : ValueComponent<int> { }
 
