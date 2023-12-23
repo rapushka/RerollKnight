@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5989036471068430585}
   - component: {fileID: 4438489512886087768}
   - component: {fileID: 915410690454322718}
-  - component: {fileID: -1927753341381851959}
+  - component: {fileID: -5245394258284093664}
   m_Layer: 0
   m_Name: Show Next Side Ability
   m_TagString: Untagged
@@ -52,7 +52,7 @@ MonoBehaviour:
   _componentBehaviours:
   - {fileID: 4438489512886087768}
   - {fileID: 915410690454322718}
-  - {fileID: -1927753341381851959}
+  - {fileID: -5245394258284093664}
 --- !u!114 &4438489512886087768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   - <Component>k__BackingField:
       _name: Actor
     <MustHave>k__BackingField: 1
---- !u!114 &-1927753341381851959
+--- !u!114 &-5245394258284093664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,6 +91,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1502534925063096562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58277033be124f5197d52a07281b193c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3843633dcd5c465b9977945b8f507964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

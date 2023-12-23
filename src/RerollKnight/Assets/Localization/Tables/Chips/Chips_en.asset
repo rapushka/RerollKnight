@@ -87,11 +87,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1992345983860736
-    m_Localized: Pick Next Side
+    m_Localized: Show Next Side
     m_Metadata:
       m_Items: []
   - m_Id: 1992566591668224
-    m_Localized: Allow to select, which side will be thrown after next reroll
+    m_Localized: Shows, which side will be thrown after next reroll in Dice Info
+      window
     m_Metadata:
       m_Items: []
   references:
