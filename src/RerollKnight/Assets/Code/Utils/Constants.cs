@@ -34,6 +34,7 @@ namespace Code
 				public const string ConsiderObstaclesAbility = "ConsiderObstaclesAbility";
 				public const string IgnoreObstaclesAbility = "IgnoreObstaclesAbility";
 				public const string PushAbility = "PushAbility";
+				public const string SwapPositionsAbility = "SwapPositionsAbility";
 			}
 
 			public static class Table

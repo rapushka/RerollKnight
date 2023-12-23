@@ -119,6 +119,26 @@ MonoBehaviour:
     m_Key: ShowNextSideAbility
     m_Metadata:
       m_Items: []
+  - m_Id: 2226666942447616
+    m_Key: ConstrainByVisibilityAbility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2227269869453312
+    m_Key: ConsiderObstaclesAbility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2227500426149888
+    m_Key: IgnoreObstaclesAbility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2228965731418112
+    m_Key: PushAbility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2229994413834240
+    m_Key: SwapPositionsAbility
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

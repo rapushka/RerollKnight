@@ -152,6 +152,26 @@ MonoBehaviour:
       in the Dice Info window
     m_Metadata:
       m_Items: []
+  - m_Id: 2226666942447616
+    m_Localized: The target must be visible for the caster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2227269869453312
+    m_Localized: Considers Obstacles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2227500426149888
+    m_Localized: Ignores Obstacles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2228965731418112
+    m_Localized: Pushes back {0} cells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2229994413834240
+    m_Localized: Moves your dice to the picked position
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

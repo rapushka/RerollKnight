@@ -40,6 +40,9 @@ namespace Code
 				if (ability.Has<PushDistance>())
 					Append(Localized(Key.PushAbility, ability.Get<PushDistance>().Value));
 
+				if (ability.Is<SwapPositions>())
+					Append(Localized(Key.SwapPositionsAbility));
+
 				if (ability.Has<TargetConstraints>())
 					Append(BuildTargetConstrains(ability));
 			}
