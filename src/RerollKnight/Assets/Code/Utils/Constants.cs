@@ -30,6 +30,9 @@ namespace Code
 				public const string RangeAbility = "RangeAbility";
 				public const string PickNextSideAbility = "PickNextSideAbility";
 				public const string ShowNextSideAbility = "ShowNextSideAbility";
+				public const string ConstrainByVisibilityAbility = "ConstrainByVisibilityAbility";
+				public const string ConsiderObstaclesAbility = "ConsiderObstaclesAbility";
+				public const string IgnoreObstaclesAbility = "IgnoreObstaclesAbility";
 			}
 
 			public static class Table
