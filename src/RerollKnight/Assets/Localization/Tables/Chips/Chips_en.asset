@@ -130,6 +130,14 @@ MonoBehaviour:
     m_Localized: Deal {0} damage
     m_Metadata:
       m_Items: []
+  - m_Id: 2217133729857536
+    m_Localized: 'Not '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2217200322822144
+    m_Localized: 'Target must be:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

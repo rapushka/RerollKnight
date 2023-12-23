@@ -42,6 +42,18 @@ MonoBehaviour:
     m_Localized: Wall
     m_Metadata:
       m_Items: []
+  - m_Id: 1405628797108224
+    m_Localized: Current Dice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1405865297133568
+    m_Localized: Dice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406026962386944
+    m_Localized: Empty
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

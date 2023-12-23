@@ -99,6 +99,14 @@ MonoBehaviour:
     m_Key: DealDamageAbility
     m_Metadata:
       m_Items: []
+  - m_Id: 2217133729857536
+    m_Key: NotPrefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2217200322822144
+    m_Key: TargetMustBePrefix
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

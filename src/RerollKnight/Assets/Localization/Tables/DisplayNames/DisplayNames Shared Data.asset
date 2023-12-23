@@ -39,6 +39,18 @@ MonoBehaviour:
     m_Key: EntityAtCoordinatesMessage
     m_Metadata:
       m_Items: []
+  - m_Id: 1405628797108224
+    m_Key: CurrentActorName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1405865297133568
+    m_Key: ActorName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406026962386944
+    m_Key: EmptyName
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

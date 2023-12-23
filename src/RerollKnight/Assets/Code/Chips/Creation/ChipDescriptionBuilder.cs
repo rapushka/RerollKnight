@@ -25,7 +25,30 @@ namespace Code
 				if (ability.Has<DealDamage>())
 					stringBuilder.Append(Localized(Key.DealDamageAbility, ability.Get<DealDamage>().Value));
 
-				// if 
+				if (ability.Has<TargetConstraints>())
+					stringBuilder.Append(BuildTargetConstrains(ability));
+			}
+
+			return stringBuilder.ToString();
+		}
+
+		private string BuildTargetConstrains(Entity<ChipsScope> ability)
+		{
+			// Localized(Key.TargetConstrains, )
+			var stringBuilder = new StringBuilder();
+
+			var constraints = ability.Get<TargetConstraints>().Value;
+
+			stringBuilder.AppendLine(Localized(Key.TargetMustBePrefix));
+
+			foreach (var constraint in constraints)
+			{
+				if (!constraint.MustHave)
+					stringBuilder.Append(Localized(Key.NotPrefix));
+
+				var name = $"{constraint.Component}Name";
+				var displayName = _localization.GetLocalized(Table.DisplayNames, name);
+				stringBuilder.AppendLine(displayName);
 			}
 
 			return stringBuilder.ToString();

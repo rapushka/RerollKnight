@@ -25,6 +25,8 @@ namespace Code
 
 				// Abilities
 				public const string DealDamageAbility = "DealDamageAbility";
+				public const string NotPrefix = "NotPrefix";
+				public const string TargetMustBePrefix = "TargetMustBePrefix";
 			}
 
 			public static class Table
