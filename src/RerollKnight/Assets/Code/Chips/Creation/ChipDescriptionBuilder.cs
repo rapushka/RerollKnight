@@ -38,7 +38,7 @@ namespace Code
 					Append(BuildTargetConstrains(ability));
 			}
 
-			return stringBuilder.ToString();
+			return stringBuilder.ToString().Trim();
 
 			void Append(string value)
 			{
