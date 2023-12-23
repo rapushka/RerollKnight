@@ -28,6 +28,8 @@ namespace Code
 				public const string NotPrefix = "NotPrefix";
 				public const string TargetMustBePrefix = "TargetMustBePrefix";
 				public const string RangeAbility = "RangeAbility";
+				public const string PickNextSideAbility = "PickNextSideAbility";
+				public const string ShowNextSideAbility = "ShowNextSideAbility";
 			}
 
 			public static class Table

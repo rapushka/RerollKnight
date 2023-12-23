@@ -28,6 +28,12 @@ namespace Code
 				if (ability.Has<Range>())
 					Append(Localized(Key.RangeAbility, ability.Get<Range>().Value));
 
+				if (ability.Is<SetNextSide>())
+					Append(Localized(Key.PickNextSideAbility));
+
+				if (ability.Is<ShowNextSide>())
+					Append(Localized(Key.ShowNextSideAbility));
+
 				if (ability.Has<TargetConstraints>())
 					Append(BuildTargetConstrains(ability));
 			}

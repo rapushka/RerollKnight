@@ -142,6 +142,16 @@ MonoBehaviour:
     m_Localized: Range = {0} cells
     m_Metadata:
       m_Items: []
+  - m_Id: 2225274936836096
+    m_Localized: Allows to select the side of the dice that will become active after
+      the next reroll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2225724192931840
+    m_Localized: Shows which side of the dice will be active after the next reroll
+      in the Dice Info window
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
