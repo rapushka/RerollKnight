@@ -18,7 +18,7 @@ namespace Code
 			var distance = ability.Get<PushDistance>().Value;
 			var pushDelta = direction * distance;
 
-			var counter = 100;
+			var counter = 100; // TODO: remove this sometimes:(
 
 			var kickedWall = false;
 
