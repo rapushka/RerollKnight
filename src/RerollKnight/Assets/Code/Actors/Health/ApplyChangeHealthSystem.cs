@@ -14,7 +14,9 @@ namespace Code
 
 			var value = request.Get<ChangeHealth>().Value;
 			var target = ID.Index.GetEntity(request.Get<ForeignID>().Value);
-			target.Replace<Health, int>(target.Get<Health, int>() + value);
+
+			if (target.Has<Health>())
+				target.Replace<Health, int>(target.Get<Health, int>() + value);
 
 			request.Destroy();
 		}

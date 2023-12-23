@@ -151,6 +151,14 @@ MonoBehaviour:
     m_Key: RecoilAbility
     m_Metadata:
       m_Items: []
+  - m_Id: 2268134105104384
+    m_Key: PerpendicularSpreadAbility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2269787130642432
+    m_Key: ShotgunLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

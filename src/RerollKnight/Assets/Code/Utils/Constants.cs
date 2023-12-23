@@ -38,6 +38,7 @@ namespace Code
 				public const string CrashDamageAbility = "CrashDamageAbility";
 				public const string AllowDiagonalsAbility = "AllowDiagonalsAbility";
 				public const string RecoilAbility = "RecoilAbility";
+				public const string PerpendicularSpreadAbility = "PerpendicularSpreadAbility";
 			}
 
 			public static class Table

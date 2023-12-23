@@ -25,6 +25,9 @@ namespace Code
 			{
 				AppendAbility(ability);
 
+				if (ability.Has<PerpendicularSpread>())
+					Append(Localized(Key.PerpendicularSpreadAbility, ability.Get<PerpendicularSpread>().Value));
+
 				if (ability.Has<Range>())
 					Append(Localized(Key.RangeAbility, ability.Get<Range>().Value));
 
