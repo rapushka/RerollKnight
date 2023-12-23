@@ -80,10 +80,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1966801900748800
-    m_Localized: 'Shoots at the enemy dealing 1 damage
-
-      Can''t be used through
-      obstacles'
+    m_Localized: Doesn't cause any damage, maybe only moral...
     m_Metadata:
       m_Items: []
   - m_Id: 1992345983860736
@@ -93,6 +90,10 @@ MonoBehaviour:
   - m_Id: 1992566591668224
     m_Localized: Shows, which side will be thrown after next reroll in Dice Info
       window
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2195453838049280
+    m_Localized: Spit
     m_Metadata:
       m_Items: []
   references:
