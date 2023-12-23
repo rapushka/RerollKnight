@@ -16,6 +16,7 @@ namespace Code
 		private readonly AbilitiesFactory _abilitiesFactory;
 		private readonly IHoldersProvider _holdersProvider;
 		private readonly IViewConfig _viewConfig;
+		private readonly ChipDescriptionBuilder _descriptionBuilder;
 
 		[Inject]
 		public ChipsFactory
@@ -25,7 +26,8 @@ namespace Code
 			IResourcesService resources,
 			AbilitiesFactory abilitiesFactory,
 			IHoldersProvider holdersProvider,
-			IViewConfig viewConfig
+			IViewConfig viewConfig,
+			ChipDescriptionBuilder descriptionBuilder
 		)
 		{
 			_contexts = contexts;
@@ -34,6 +36,7 @@ namespace Code
 			_resources = resources;
 			_abilitiesFactory = abilitiesFactory;
 			_viewConfig = viewConfig;
+			_descriptionBuilder = descriptionBuilder;
 		}
 
 		public GameEntity Create(ChipConfigBehaviour chipConfig, GameEntity actor, GameEntity face)
@@ -46,7 +49,7 @@ namespace Code
 		{
 			var chip = InitializeChip(entity)
 			           .Add<Label, string>(config.LabelKey.GetLocalizedString())
-			           .Add<Description, string>(config.DescriptionKey.GetLocalizedString())
+			           .Add<Description, string>(_descriptionBuilder.Build(config))
 			           .Add<ForeignID, string>(face.EnsureID())
 				;
 

@@ -90,6 +90,7 @@ namespace Code
 			Container.Bind<DoorsSpawner>().AsSingle();
 
 			Container.Bind<ChipsGenerator>().AsSingle();
+			Container.Bind<ChipDescriptionBuilder>().AsSingle();
 		}
 	}
 }
