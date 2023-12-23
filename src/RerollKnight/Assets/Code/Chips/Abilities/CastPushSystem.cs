@@ -1,6 +1,7 @@
 using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
+using static Code.Coordinates.Layer;
 
 namespace Code
 {
@@ -19,11 +20,13 @@ namespace Code
 
 			var counter = 100;
 
-			while (pushDelta != Coordinates.Zero.WithLayer(Coordinates.Layer.Ignore))
+			while (pushDelta != Coordinates.Zero.WithLayer(Ignore))
 			{
 				var nextCoordinates = target.GetCoordinates() + direction;
 
-				if (Component.Coordinates.Index.HasEntity(nextCoordinates))
+				var index = Component.Coordinates.Index;
+				if (index.HasEntity(nextCoordinates)
+				    || !index.HasEntity(nextCoordinates.WithLayer(Bellow)))
 				{
 					Debug.Log("Bonk");
 					break;
