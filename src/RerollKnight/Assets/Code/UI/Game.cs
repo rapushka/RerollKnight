@@ -20,6 +20,10 @@ namespace Code
 
 		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntityOrDefault<CurrentActor>();
 
+		public int PlayerNextSide => IsPlayerCurrentActor ? NextSide : -1;
+
+		private int NextSide => CurrentActor.GetOrDefault<PredefinedNextSide>()?.Value ?? -1;
+
 		public void EndTurn() => _contexts.Get<RequestScope>().CreateEntity().Add<EndTurn>();
 
 		public void Exit()

@@ -20,6 +20,9 @@ namespace Code
 
 		public bool IsEndTurnButtonAvailable => _game.IsPlayerCurrentActor;
 
+		/// <summary> -1 if unknown </summary>
+		public int PlayerNextSide => _game.PlayerNextSide;
+
 		public void OpenGameplayScene() => _sceneTransfer.ToGameplay();
 
 		public void Pause() => _sceneTransfer.ToMainMenu();

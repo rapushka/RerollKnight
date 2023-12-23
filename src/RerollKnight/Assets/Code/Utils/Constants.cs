@@ -3,11 +3,33 @@ namespace Code
 	public static class Constants
 	{
 		public const double Tolerance = 0.01f;
-		public const int PlayerSidesCount = 6; // TODO: config
 
 		public static class ToolPath
 		{
 			public const string Root = "Reroll Knight/";
+		}
+
+		public static class Localization
+		{
+			public static class Key
+			{
+				// Game
+				public const string PlayerCurrentActor = "PlayerCurrentActor";
+				public const string EnemyCurrentActor = "EnemyCurrentActor";
+				public const string NoCurrentActor = "NoCurrentActor";
+				public const string NextSideHudView = "NextSideHudView";
+
+				// Display Names
+				public const string ChipCastedMessage = "ChipCastedMessage";
+				public const string EntityAtCoordinatesMessage = "EntityAtCoordinatesMessage";
+			}
+
+			public static class Table
+			{
+				public const string Game = "Game";
+				public const string Chips = "Chips";
+				public const string DisplayNames = "DisplayNames";
+			}
 		}
 
 		public static class Audio

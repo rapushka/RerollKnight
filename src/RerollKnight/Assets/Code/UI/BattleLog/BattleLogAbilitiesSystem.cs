@@ -3,8 +3,8 @@ using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
-using static Code.LocalizationKey;
-using static Code.LocalizationTable;
+using static Code.Constants.Localization.Key;
+using static Code.Constants.Localization.Table;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code

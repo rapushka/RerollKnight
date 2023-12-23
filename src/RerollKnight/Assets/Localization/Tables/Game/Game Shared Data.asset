@@ -103,6 +103,10 @@ MonoBehaviour:
     m_Key: NextSideLabel
     m_Metadata:
       m_Items: []
+  - m_Id: 2656027315224576
+    m_Key: NextSideHudView
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
