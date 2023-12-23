@@ -37,6 +37,9 @@ namespace Code
 
 				AppendAccessDescription(ability);
 
+				if (ability.Has<PushDistance>())
+					Append(Localized(Key.PushAbility, ability.Get<PushDistance>().Value));
+
 				if (ability.Has<TargetConstraints>())
 					Append(BuildTargetConstrains(ability));
 			}

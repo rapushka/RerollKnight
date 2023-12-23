@@ -33,6 +33,7 @@ namespace Code
 				public const string ConstrainByVisibilityAbility = "ConstrainByVisibilityAbility";
 				public const string ConsiderObstaclesAbility = "ConsiderObstaclesAbility";
 				public const string IgnoreObstaclesAbility = "IgnoreObstaclesAbility";
+				public const string PushAbility = "PushAbility";
 			}
 
 			public static class Table
