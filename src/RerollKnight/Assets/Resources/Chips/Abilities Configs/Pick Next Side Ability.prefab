@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _value:
   - <Component>k__BackingField:
-      _name: CurrentActor
+      _name: Actor
     <MustHave>k__BackingField: 1
 --- !u!114 &-1927753341381851959
 MonoBehaviour:

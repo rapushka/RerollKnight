@@ -14,7 +14,7 @@ namespace Code
 
 		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> target)
 		{
-			_uiMediator.ShowAndGetWindow<PickSideWindow>();
+			_uiMediator.ShowAndGetWindow<PickSideWindow>().SetData(target);
 		}
 	}
 }

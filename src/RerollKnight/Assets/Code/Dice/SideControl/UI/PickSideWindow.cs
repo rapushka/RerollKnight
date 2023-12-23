@@ -9,16 +9,16 @@ namespace Code
 		[SerializeField] private SideButton _sideButtonPrefab;
 		[SerializeField] private Transform _sidesRoot;
 
-		private static Entity<GameScope> CurrentActor => Context.Unique.GetEntity<CurrentActor>();
+		private Entity<GameScope> _actor;
 
-		private static ScopeContext<GameScope> Context => Contexts.Instance.Get<GameScope>();
-
-		protected override void OnShow()
+		public void SetData(Entity<GameScope> actor)
 		{
-			for (var i = 0; i < Constants.PlayerSidesCount; i++)
+			_actor = actor;
+
+			foreach (var face in actor.GetDependants().WhereHas<Face>())
 			{
 				var sideButton = Instantiate(_sideButtonPrefab, _sidesRoot);
-				sideButton.SetData(i + 1);
+				sideButton.SetData(face.Get<Face>().Value);
 				sideButton.Clicked += OnSidePicked;
 			}
 		}
@@ -34,7 +34,7 @@ namespace Code
 
 		private void OnSidePicked(int sideNumber)
 		{
-			CurrentActor.Add<PredefinedNextSide, int>(sideNumber);
+			_actor.Add<PredefinedNextSide, int>(sideNumber);
 
 			Hide();
 		}
