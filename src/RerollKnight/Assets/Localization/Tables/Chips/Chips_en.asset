@@ -176,6 +176,14 @@ MonoBehaviour:
     m_Localized: When colliding with an obstacle, the dice will take {0} damage
     m_Metadata:
       m_Items: []
+  - m_Id: 2260308477558784
+    m_Localized: Allows diagonals when calculating range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2260865200111616
+    m_Localized: Has a recoil on {0} cells
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

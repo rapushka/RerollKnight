@@ -8,14 +8,14 @@ namespace Code
 	{
 		public static void TakeDamage(this Entity<GameScope> @this, int value)
 		{
-			Debug.Assert(value > 0);
+			Debug.Assert(value >= 0);
 
 			@this.ChangeHealth(-value);
 		}
 
 		public static void Heal(this Entity<GameScope> @this, int value)
 		{
-			Debug.Assert(value > 0);
+			Debug.Assert(value >= 0);
 
 			@this.ChangeHealth(value);
 		}

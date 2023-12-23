@@ -143,6 +143,14 @@ MonoBehaviour:
     m_Key: CrashDamageAbility
     m_Metadata:
       m_Items: []
+  - m_Id: 2260308477558784
+    m_Key: AllowDiagonalsAbility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2260865200111616
+    m_Key: RecoilAbility
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

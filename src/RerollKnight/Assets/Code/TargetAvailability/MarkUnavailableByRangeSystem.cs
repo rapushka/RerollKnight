@@ -37,7 +37,7 @@ namespace Code
 			{
 				var playerPosition = CurrentActor.GetCoordinates();
 				var targetPosition = target.GetCoordinates();
-				var distance = _measuring.Distance(playerPosition, targetPosition);
+				var distance = _measuring.Distance(playerPosition, targetPosition, ability.Has<AllowDiagonals>());
 
 				if (distance > ability.Get<Range>().Value)
 					target.Is<AvailableToPick>(false);

@@ -13,10 +13,6 @@ namespace Code.Component
 
 	[ChipsScope] public sealed class PushDistance : ValueComponent<int> { }
 
-	[ChipsScope] public sealed class CrashDamage : ValueComponent<int> { }
-
-	[ChipsScope] public sealed class Recoil : ValueComponent<int> { }
-
 	// Options (?) 
 	[ChipsScope] public sealed class MaxCountOfTargets : ValueComponent<int> { }
 
@@ -25,4 +21,10 @@ namespace Code.Component
 	[ChipsScope] public sealed class ConsiderObstacles : FlagComponent { }
 
 	[ChipsScope] public sealed class ConstrainByVisibility : FlagComponent { }
+
+	[ChipsScope] public sealed class AllowDiagonals : FlagComponent { }
+
+	[ChipsScope] public sealed class CrashDamage : ValueComponent<int> { }
+
+	[ChipsScope] public sealed class Recoil : ValueComponent<int> { }
 }

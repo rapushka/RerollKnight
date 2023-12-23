@@ -28,6 +28,12 @@ namespace Code
 				if (ability.Has<Range>())
 					Append(Localized(Key.RangeAbility, ability.Get<Range>().Value));
 
+				if (ability.Is<AllowDiagonals>())
+					Append(Localized(Key.AllowDiagonalsAbility));
+
+				if (ability.Has<Recoil>())
+					Append(Localized(Key.RecoilAbility, ability.Get<Recoil>().Value));
+
 				if (ability.Has<CrashDamage>())
 					Append(Localized(Key.CrashDamageAbility, ability.Get<CrashDamage>().Value));
 

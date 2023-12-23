@@ -36,6 +36,8 @@ namespace Code
 				public const string PushAbility = "PushAbility";
 				public const string SwapPositionsAbility = "SwapPositionsAbility";
 				public const string CrashDamageAbility = "CrashDamageAbility";
+				public const string AllowDiagonalsAbility = "AllowDiagonalsAbility";
+				public const string RecoilAbility = "RecoilAbility";
 			}
 
 			public static class Table
