@@ -25,6 +25,9 @@ namespace Code
 				if (ability.Has<DealDamage>())
 					Append(Localized(Key.DealDamageAbility, ability.Get<DealDamage>().Value));
 
+				if (ability.Has<Range>())
+					Append(Localized(Key.RangeAbility, ability.Get<Range>().Value));
+
 				if (ability.Has<TargetConstraints>())
 					Append(BuildTargetConstrains(ability));
 			}

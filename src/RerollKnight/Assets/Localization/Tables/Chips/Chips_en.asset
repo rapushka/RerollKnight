@@ -138,6 +138,10 @@ MonoBehaviour:
     m_Localized: 'Target must be:'
     m_Metadata:
       m_Items: []
+  - m_Id: 2221574445023232
+    m_Localized: Range = {0} cells
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

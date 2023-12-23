@@ -107,6 +107,10 @@ MonoBehaviour:
     m_Key: TargetMustBePrefix
     m_Metadata:
       m_Items: []
+  - m_Id: 2221574445023232
+    m_Key: RangeAbility
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

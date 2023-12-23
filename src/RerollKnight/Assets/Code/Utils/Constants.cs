@@ -27,6 +27,7 @@ namespace Code
 				public const string DealDamageAbility = "DealDamageAbility";
 				public const string NotPrefix = "NotPrefix";
 				public const string TargetMustBePrefix = "TargetMustBePrefix";
+				public const string RangeAbility = "RangeAbility";
 			}
 
 			public static class Table
