@@ -18,12 +18,7 @@ namespace Code
 		public void TearDown()
 		{
 			foreach (var actor in _actors.GetEntities())
-			{
-				var randomFace = actor.GetDependants().WhereHas<Face>().PickRandom();
-				actor.Add<PredefinedNextSide, int>(randomFace.Get<Face>().Value);
-
-				// randomFace.MarkAsActive();
-			}
+				actor.PredefineRandomSide();
 		}
 	}
 }

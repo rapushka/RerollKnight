@@ -9,6 +9,7 @@ namespace Code
 			Add<CastSwapPositionsSystem>();
 			Add<CastDealDamageSystem>();
 			Add<CastSetNextSideSystem>();
+			Add<CastShowNextSideSystem>();
 		}
 	}
 }
