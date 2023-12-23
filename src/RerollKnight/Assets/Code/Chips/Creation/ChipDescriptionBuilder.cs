@@ -23,25 +23,27 @@ namespace Code
 			foreach (var ability in chip.GetDependants<ChipsScope>())
 			{
 				if (ability.Has<DealDamage>())
-					stringBuilder.Append(Localized(Key.DealDamageAbility, ability.Get<DealDamage>().Value));
+					Append(Localized(Key.DealDamageAbility, ability.Get<DealDamage>().Value));
 
 				if (ability.Has<TargetConstraints>())
-					stringBuilder.Append(BuildTargetConstrains(ability));
+					Append(BuildTargetConstrains(ability));
 			}
 
 			return stringBuilder.ToString();
+
+			void Append(string value)
+			{
+				stringBuilder.AppendLine(value);
+				stringBuilder.AppendLine();
+			}
 		}
 
 		private string BuildTargetConstrains(Entity<ChipsScope> ability)
 		{
-			// Localized(Key.TargetConstrains, )
-			var stringBuilder = new StringBuilder();
+			var stringBuilder = new StringBuilder()
+				.AppendLine(Localized(Key.TargetMustBePrefix));
 
-			var constraints = ability.Get<TargetConstraints>().Value;
-
-			stringBuilder.AppendLine(Localized(Key.TargetMustBePrefix));
-
-			foreach (var constraint in constraints)
+			foreach (var constraint in ability.Get<TargetConstraints>().Value)
 			{
 				if (!constraint.MustHave)
 					stringBuilder.Append(Localized(Key.NotPrefix));
