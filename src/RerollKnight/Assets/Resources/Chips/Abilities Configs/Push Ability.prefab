@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2271565112316749193}
   - component: {fileID: 4438489512886087768}
   - component: {fileID: 915410690454322718}
+  - component: {fileID: 967104886127191507}
   m_Layer: 0
   m_Name: Push Ability
   m_TagString: Untagged
@@ -51,10 +52,11 @@ MonoBehaviour:
   _collectInChildren: 0
   _interruptChildrenEntities: 1
   _componentBehaviours:
+  - {fileID: 4635600459369065434}
   - {fileID: 2271565112316749193}
   - {fileID: 4438489512886087768}
   - {fileID: 915410690454322718}
-  - {fileID: 4635600459369065434}
+  - {fileID: 967104886127191507}
 --- !u!114 &4635600459369065434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,3 +115,16 @@ MonoBehaviour:
   - <Component>k__BackingField:
       _name: CurrentActor
     <MustHave>k__BackingField: 0
+--- !u!114 &967104886127191507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7bf6529f4a4329aabc13c3c66e2d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 1

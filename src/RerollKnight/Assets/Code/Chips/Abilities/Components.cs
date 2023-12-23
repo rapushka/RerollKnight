@@ -13,6 +13,8 @@ namespace Code.Component
 
 	[ChipsScope] public sealed class PushDistance : ValueComponent<int> { }
 
+	[ChipsScope] public sealed class CrashDamage : ValueComponent<int> { }
+
 	// Options (?) 
 	[ChipsScope] public sealed class MaxCountOfTargets : ValueComponent<int> { }
 

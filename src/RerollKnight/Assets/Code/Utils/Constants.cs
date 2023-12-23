@@ -35,6 +35,7 @@ namespace Code
 				public const string IgnoreObstaclesAbility = "IgnoreObstaclesAbility";
 				public const string PushAbility = "PushAbility";
 				public const string SwapPositionsAbility = "SwapPositionsAbility";
+				public const string CrashDamageAbility = "CrashDamageAbility";
 			}
 
 			public static class Table

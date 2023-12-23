@@ -139,6 +139,10 @@ MonoBehaviour:
     m_Key: SwapPositionsAbility
     m_Metadata:
       m_Items: []
+  - m_Id: 2257363165986816
+    m_Key: CrashDamageAbility
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -20,6 +20,8 @@ namespace Code
 
 			var counter = 100;
 
+			var kickedWall = false;
+
 			while (pushDelta != Coordinates.Zero.WithLayer(Ignore))
 			{
 				var nextCoordinates = target.GetCoordinates() + direction;
@@ -28,7 +30,7 @@ namespace Code
 				if (index.HasEntity(nextCoordinates)
 				    || !index.HasEntity(nextCoordinates.WithLayer(Bellow)))
 				{
-					Debug.Log("Bonk");
+					kickedWall = true;
 					break;
 				}
 
@@ -42,6 +44,9 @@ namespace Code
 					break;
 				}
 			}
+
+			if (kickedWall)
+				target.TakeDamage(ability.GetOrDefault<CrashDamage>()?.Value ?? 0);
 		}
 	}
 }

@@ -28,6 +28,9 @@ namespace Code
 				if (ability.Has<Range>())
 					Append(Localized(Key.RangeAbility, ability.Get<Range>().Value));
 
+				if (ability.Has<CrashDamage>())
+					Append(Localized(Key.CrashDamageAbility, ability.Get<CrashDamage>().Value));
+
 				AppendAccessDescription(ability);
 
 				if (ability.Has<TargetConstraints>())

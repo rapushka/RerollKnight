@@ -172,6 +172,10 @@ MonoBehaviour:
     m_Localized: Moves your dice to the picked position
     m_Metadata:
       m_Items: []
+  - m_Id: 2257363165986816
+    m_Localized: When colliding with an obstacle, the enemy will take {0} damage
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

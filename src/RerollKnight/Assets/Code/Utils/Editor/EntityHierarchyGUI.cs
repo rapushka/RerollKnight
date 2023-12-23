@@ -36,12 +36,6 @@ namespace Code
 			}
 		}
 
-		private static void ChangeHeal(Entity<GameScope> entity, int value)
-		{
-			Contexts.Instance.Get<RequestScope>().CreateEntity()
-			        .Add<ChangeHealth, int>(value)
-			        .Add<ForeignID, string>(entity.Get<ID>().Value)
-				;
-		}
+		private static void ChangeHeal(Entity<GameScope> entity, int value) => entity.ChangeHealth(value);
 	}
 }
