@@ -12,7 +12,6 @@ namespace Code
 		[SerializeField] private Transform _chipsRoot;
 		[SerializeField] private Button _confirmButton;
 
-		private Entity<GameScope> _actor;
 		private Entity<GameScope> _pickedSide;
 		private Entity<GameScope> _pickedChip;
 
@@ -63,7 +62,7 @@ namespace Code
 
 		protected override void OnSidePicked(int sideNumber)
 		{
-			_pickedSide = _actor.GetFace(sideNumber);
+			_pickedSide = Actor.GetFace(sideNumber);
 
 			foreach (var button in SideButtons)
 				button.IsSelected = button.SideNumber == sideNumber;

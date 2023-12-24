@@ -20,6 +20,11 @@ namespace Code
 		protected virtual void OnEnable()  => _button.onClick.AddListener(InvokeClicked);
 		protected virtual void OnDisable() => _button.onClick.RemoveListener(InvokeClicked);
 
+		private void Start()
+		{
+			IsSelected = false;
+		}
+
 		private void InvokeClicked() => Clicked?.Invoke();
 	}
 }

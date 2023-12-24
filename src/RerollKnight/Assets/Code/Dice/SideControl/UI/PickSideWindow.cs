@@ -10,13 +10,13 @@ namespace Code
 		[SerializeField] private SideButton _sideButtonPrefab;
 		[SerializeField] private Transform _sidesRoot;
 
-		private Entity<GameScope> _actor;
+		protected Entity<GameScope> Actor;
 
 		protected readonly List<SideButton> SideButtons = new();
 
 		public virtual void SetData(Entity<GameScope> actor)
 		{
-			_actor = actor;
+			Actor = actor;
 
 			foreach (var face in actor.GetDependants().WhereHas<Face>())
 			{
@@ -40,7 +40,7 @@ namespace Code
 
 		protected virtual void OnSidePicked(int sideNumber)
 		{
-			_actor.Replace<PredefinedNextSide, int>(sideNumber);
+			Actor.Replace<PredefinedNextSide, int>(sideNumber);
 			Hide();
 		}
 	}
