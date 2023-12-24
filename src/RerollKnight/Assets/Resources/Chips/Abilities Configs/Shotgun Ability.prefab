@@ -54,10 +54,13 @@ MonoBehaviour:
   _collectInChildren: 0
   _interruptChildrenEntities: 1
   _componentBehaviours:
-  - {fileID: 4438489512886087768}
   - {fileID: 8922502445419947486}
   - {fileID: 915410690454322718}
+  - {fileID: 4438489512886087768}
   - {fileID: -2756619762964394608}
+  - {fileID: -656417668569864927}
+  - {fileID: 3809751888186583763}
+  - {fileID: 2168341838044236197}
 --- !u!114 &8922502445419947486
 MonoBehaviour:
   m_ObjectHideFlags: 0

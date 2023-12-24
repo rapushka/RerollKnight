@@ -20,12 +20,12 @@ namespace Code
 			target.TakeDamage(ability.Get<DealDamage>().Value);
 		}
 
-		private void ShootWithSpread(Entity<ChipsScope> ability, Entity<GameScope> target) // TODO: doesn't wokr:(((
+		private void ShootWithSpread(Entity<ChipsScope> ability, Entity<GameScope> target)
 		{
 			var targetCoordinates = target.GetCoordinates();
 			var casterCoordinates = CurrentActor.GetCoordinates();
 
-			var direction = (casterCoordinates - targetCoordinates).Normalize();
+			var direction = (targetCoordinates - casterCoordinates).Normalize();
 			var spreadSize = ability.Get<PerpendicularSpread>().Value;
 
 			var spreadDirection
@@ -37,7 +37,7 @@ namespace Code
 
 			var counter = 100; // TODO: remove:(
 
-			while (spreadDirection != Coordinates.Zero.WithLayer(Coordinates.Layer.Ignore))
+			while (spread != Coordinates.Zero.WithLayer(Coordinates.Layer.Ignore))
 			{
 				DoDamageIfHasEntity(ability, targetCoordinates - spread);
 				DoDamageIfHasEntity(ability, targetCoordinates + spread);
