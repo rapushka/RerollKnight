@@ -18,6 +18,8 @@ namespace Code.Component
 
 	[ChipsScope] public sealed class Range : ValueComponent<int> { }
 
+	[ChipsScope] public sealed class InactiveRange : ValueComponent<int> { }
+
 	[ChipsScope] public sealed class ConsiderObstacles : FlagComponent { }
 
 	[ChipsScope] public sealed class ConstrainByVisibility : FlagComponent { }

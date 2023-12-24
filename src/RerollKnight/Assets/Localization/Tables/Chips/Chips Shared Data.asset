@@ -159,6 +159,10 @@ MonoBehaviour:
     m_Key: ShotgunLabel
     m_Metadata:
       m_Items: []
+  - m_Id: 2532363827625984
+    m_Key: InactiveRangeAbility
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

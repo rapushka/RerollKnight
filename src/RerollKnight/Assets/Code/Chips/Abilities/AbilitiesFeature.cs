@@ -10,6 +10,7 @@ namespace Code
 			Add<CastSetNextSideSystem>();
 			Add<CastShowNextSideSystem>();
 			Add<CastPushSystem>();
+			Add<CastRecoilSystem>();
 		}
 	}
 }

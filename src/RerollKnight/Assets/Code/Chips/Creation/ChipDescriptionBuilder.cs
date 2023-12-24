@@ -31,6 +31,9 @@ namespace Code
 				if (ability.Has<Range>())
 					Append(Localized(Key.RangeAbility, ability.Get<Range>().Value));
 
+				if (ability.Has<InactiveRange>())
+					Append(Localized(Key.InactiveRangeAbility, ability.Get<InactiveRange>().Value + 1));
+
 				if (ability.Is<AllowDiagonals>())
 					Append(Localized(Key.AllowDiagonalsAbility));
 

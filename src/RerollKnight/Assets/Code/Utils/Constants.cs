@@ -39,6 +39,7 @@ namespace Code
 				public const string AllowDiagonalsAbility = "AllowDiagonalsAbility";
 				public const string RecoilAbility = "RecoilAbility";
 				public const string PerpendicularSpreadAbility = "PerpendicularSpreadAbility";
+				public const string InactiveRangeAbility = "InactiveRangeAbility";
 			}
 
 			public static class Table
