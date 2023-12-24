@@ -44,14 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e9a9743e124236b2677170811bc061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Label>k__BackingField: Kick
-  <Abilities>k__BackingField:
-  - {fileID: 5989036471068430585, guid: 6827462f2e7e4c423bb80a456b75dc30, type: 3}
-  <Cost>k__BackingField: 3
-  <Description>k__BackingField: 'Deals 1 damage to the selected enemy
-
-    range
-    = 1 cell'
   <LabelKey>k__BackingField:
     m_TableReference:
       m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
@@ -61,15 +53,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <DescriptionKey>k__BackingField:
-    m_TableReference:
-      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
-    m_TableEntryReference:
-      m_KeyId: 465922375680
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
+  <Cost>k__BackingField: 5
+  <Abilities>k__BackingField:
+  - {fileID: 5989036471068430585, guid: 6827462f2e7e4c423bb80a456b75dc30, type: 3}
   references:
     version: 2
     RefIds: []
