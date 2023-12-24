@@ -7,7 +7,6 @@ namespace Code
 	public class ChipKinds
 	{
 		private readonly ChipsConfig _chipsConfig;
-		private ChipsComponentID[] _attackingComponents;
 
 		[Inject]
 		public ChipKinds(ChipsConfig chipsConfig)
