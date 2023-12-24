@@ -28,5 +28,6 @@ MonoBehaviour:
   <PlayerOnlyChips>k__BackingField:
   - {fileID: -1127751271332936188, guid: cba90b48e4b7cde2481d7b87c4178e83, type: 3}
   - {fileID: -1127751271332936188, guid: 178c45f8f48aff5349598a5cdcb86612, type: 3}
+  - {fileID: -1127751271332936188, guid: 1f23960f7817e4153bb1398205e75dac, type: 3}
   <PlayerBudget>k__BackingField: 15
   <EnemyBudget>k__BackingField: 15

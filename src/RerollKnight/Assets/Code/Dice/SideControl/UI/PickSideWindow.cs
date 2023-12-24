@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
@@ -9,33 +10,37 @@ namespace Code
 		[SerializeField] private SideButton _sideButtonPrefab;
 		[SerializeField] private Transform _sidesRoot;
 
-		private Entity<GameScope> _actor;
+		protected Entity<GameScope> Actor;
 
-		public void SetData(Entity<GameScope> actor)
+		protected readonly List<SideButton> SideButtons = new();
+
+		public virtual void SetData(Entity<GameScope> actor)
 		{
-			_actor = actor;
+			Actor = actor;
 
 			foreach (var face in actor.GetDependants().WhereHas<Face>())
 			{
 				var sideButton = Instantiate(_sideButtonPrefab, _sidesRoot);
 				sideButton.SetData(face.Get<Face>().Value);
 				sideButton.Clicked += OnSidePicked;
+				SideButtons.Add(sideButton);
 			}
 		}
 
 		protected override void OnHide()
 		{
-			foreach (Transform child in _sidesRoot)
+			foreach (var sideButton in SideButtons)
 			{
-				child.GetComponent<SideButton>().Clicked -= OnSidePicked;
-				Destroy(child.gameObject);
+				sideButton.Clicked -= OnSidePicked;
+				Destroy(sideButton.gameObject);
 			}
+
+			SideButtons.Clear();
 		}
 
-		private void OnSidePicked(int sideNumber)
+		protected virtual void OnSidePicked(int sideNumber)
 		{
-			_actor.Replace<PredefinedNextSide, int>(sideNumber);
-
+			Actor.Replace<PredefinedNextSide, int>(sideNumber);
 			Hide();
 		}
 	}

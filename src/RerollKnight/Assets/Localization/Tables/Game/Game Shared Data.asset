@@ -107,6 +107,14 @@ MonoBehaviour:
     m_Key: NextSideHudView
     m_Metadata:
       m_Items: []
+  - m_Id: 3153248427130880
+    m_Key: ConfirmButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3159197309157376
+    m_Key: MoveChipToSideTitle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

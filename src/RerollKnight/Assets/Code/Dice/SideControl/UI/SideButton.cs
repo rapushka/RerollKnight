@@ -1,28 +1,31 @@
 using System;
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace Code
 {
-	public class SideButton : MonoBehaviour
+	public class SideButton : ButtonBase
 	{
-		[SerializeField] private TMP_Text _textMesh;
-		[SerializeField] private Button _button;
+		public new event Action<int> Clicked;
 
-		public event Action<int> Clicked;
+		public int SideNumber { get; private set; }
 
-		private int _sideNumber;
+		protected override void OnEnable()
+		{
+			base.OnEnable();
+			base.Clicked += InvokeClicked;
+		}
 
-		protected void OnEnable()  => _button.onClick.AddListener(InvokeClicked);
-		protected void OnDisable() => _button.onClick.RemoveListener(InvokeClicked);
+		protected override void OnDisable()
+		{
+			base.OnDisable();
+			base.Clicked -= InvokeClicked;
+		}
 
 		public void SetData(int sideNumber)
 		{
-			_sideNumber = sideNumber;
-			_textMesh.text = _sideNumber.ToString();
+			SideNumber = sideNumber;
+			Text = SideNumber.ToString();
 		}
 
-		private void InvokeClicked() => Clicked?.Invoke(_sideNumber);
+		private void InvokeClicked() => Clicked?.Invoke(SideNumber);
 	}
 }

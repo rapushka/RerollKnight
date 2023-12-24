@@ -11,6 +11,7 @@ namespace Code
 			Add<CastShowNextSideSystem>();
 			Add<CastRecoilSystem>();
 			Add<CastPushSystem>();
+			Add<CastMoveChipToSideSystem>();
 
 			Add<MarkAllAbilitiesCastedSystem>();
 		}
