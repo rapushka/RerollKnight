@@ -56,7 +56,8 @@ namespace Code
 						continue;
 
 					if (closerCell is null
-					    || closerCell.Get<DistanceToPlayer>().Value > cell.Get<DistanceToPlayer>().Value)
+					    || (closerCell.Get<DistanceToPlayer>().Value > cell.Get<DistanceToPlayer>().Value
+					        && cell.Get<DistanceToPlayer>().Value != 0))
 					{
 						closerCell = cell;
 					}

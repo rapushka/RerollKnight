@@ -35,6 +35,7 @@ namespace Code
 			Container.Bind<Pathfinding>().AsSingle();
 			Container.Bind<VisionService>().AsSingle();
 			Container.Bind<ChipKinds>().AsSingle();
+			Container.Bind<AvailabilityService>().AsSingle();
 
 			InstallFactories();
 		}
