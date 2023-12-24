@@ -11,7 +11,7 @@ namespace Code
 
 		private Entity<GameScope> _actor;
 
-		public void SetData(Entity<GameScope> actor)
+		public virtual void SetData(Entity<GameScope> actor)
 		{
 			_actor = actor;
 
@@ -32,10 +32,9 @@ namespace Code
 			}
 		}
 
-		private void OnSidePicked(int sideNumber)
+		protected virtual void OnSidePicked(int sideNumber)
 		{
 			_actor.Replace<PredefinedNextSide, int>(sideNumber);
-
 			Hide();
 		}
 	}

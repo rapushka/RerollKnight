@@ -110,6 +110,14 @@ MonoBehaviour:
     m_Localized: 'Next side: {0}'
     m_Metadata:
       m_Items: []
+  - m_Id: 3153248427130880
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3159197309157376
+    m_Localized: Move Chip to Side
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

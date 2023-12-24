@@ -1,28 +1,33 @@
 using System;
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
+using Code.Component;
+using Entitas.Generic;
 
 namespace Code
 {
-	public class ChipButton : MonoBehaviour
+	public class ChipButton : ButtonBase
 	{
-		[SerializeField] private TMP_Text _textMesh;
-		[SerializeField] private Button _button;
+		public new event Action<Entity<GameScope>> Clicked;
 
-		public event Action<int> Clicked;
+		private Entity<GameScope> _chip;
 
-		private int _sideNumber;
-
-		protected void OnEnable()  => _button.onClick.AddListener(InvokeClicked);
-		protected void OnDisable() => _button.onClick.RemoveListener(InvokeClicked);
-
-		public void SetData(int sideNumber)
+		protected override void OnEnable()
 		{
-			_sideNumber = sideNumber;
-			_textMesh.text = _sideNumber.ToString();
+			base.OnEnable();
+			base.Clicked += InvokeClicked;
 		}
 
-		private void InvokeClicked() => Clicked?.Invoke(_sideNumber);
+		protected override void OnDisable()
+		{
+			base.OnDisable();
+			base.Clicked -= InvokeClicked;
+		}
+
+		public void SetData(Entity<GameScope> chip)
+		{
+			_chip = chip;
+			Text = _chip.Get<Label>().ToString();
+		}
+
+		private void InvokeClicked() => Clicked?.Invoke(_chip);
 	}
 }

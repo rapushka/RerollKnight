@@ -1,40 +1,64 @@
 using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Code
 {
-	public class MoveChipToSideWindow : WindowBase
+	public class MoveChipToSideWindow : PickSideWindow
 	{
-		[SerializeField] private SideButton _sideButtonPrefab;
-		[SerializeField] private Transform _sidesRoot;
+		[SerializeField] private ChipButton _chipButtonPrefab;
+		[SerializeField] private Transform _chipsRoot;
+		[SerializeField] private Button _confirmButton;
 
 		private Entity<GameScope> _actor;
+		private Entity<GameScope> _pickedSide;
+		private Entity<GameScope> _pickedChip;
 
-		public void SetData(Entity<GameScope> actor)
+		protected override void OnShow()
 		{
-			_actor = actor;
-
-			foreach (var face in actor.GetDependants().WhereHas<Face>())
-			{
-				var sideButton = Instantiate(_sideButtonPrefab, _sidesRoot);
-				sideButton.SetData(face.Get<Face>().Value);
-				sideButton.Clicked += OnSidePicked;
-			}
+			base.OnShow();
+			_confirmButton.onClick.AddListener(OnConfirmClicked);
 		}
 
 		protected override void OnHide()
 		{
-			foreach (Transform child in _sidesRoot)
+			base.OnHide();
+			_confirmButton.onClick.RemoveListener(OnConfirmClicked);
+		}
+
+		public override void SetData(Entity<GameScope> actor)
+		{
+			base.SetData(actor);
+
+			var activeSide = actor.GetActiveFace();
+
+			foreach (var chip in activeSide.GetDependants().WhereHas<Chip>())
 			{
-				child.GetComponent<SideButton>().Clicked -= OnSidePicked;
-				Destroy(child.gameObject);
+				var sideButton = Instantiate(_chipButtonPrefab, _chipsRoot);
+				sideButton.SetData(chip);
+				sideButton.Clicked += OnChipPicked;
 			}
 		}
 
-		private void OnSidePicked(int sideNumber)
+		private void OnChipPicked(Entity<GameScope> chip)
 		{
-			_actor.Replace<PredefinedNextSide, int>(sideNumber);
+			_pickedChip = chip;
+		}
+
+		protected override void OnSidePicked(int sideNumber)
+		{
+			_pickedSide = _actor.GetFace(sideNumber);
+		}
+
+		private void OnConfirmClicked()
+		{
+			if (_pickedChip is null || _pickedSide is null)
+				return;
+
+			_pickedChip.Replace<ForeignID, string>(_pickedSide.EnsureID());
+			_pickedChip.Is<AvailableToPick>(false);
+			_pickedChip.Is<Visible>(false);
 
 			Hide();
 		}

@@ -222,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6878605811737399689, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
-      value: 2467729133223936
+      value: 3159197309157376
       objectReference: {fileID: 0}
     - target: {fileID: 6878605811737399689, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
       propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
@@ -287,10 +287,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc59780633844a5a69731f19fb4e50d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _root: {fileID: 0}
+  _root: {fileID: 5659808411732888601}
   _closeButton: {fileID: 0}
-  _sideButtonPrefab: {fileID: 0}
-  _sidesRoot: {fileID: 0}
+  _sideButtonPrefab: {fileID: 5028153835955731314, guid: f328da65e971389679895b16782ec601, type: 3}
+  _sidesRoot: {fileID: 7916115005709589964}
+  _chipButtonPrefab: {fileID: 1501718864397474708, guid: 2193901bce9064c2a8f88a289686a773, type: 3}
+  _chipsRoot: {fileID: 2562146601298685418}
+  _confirmButton: {fileID: 3727588520601218446}
 --- !u!224 &6840306392395750561 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1260706851624492863, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
@@ -437,6 +440,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69227e4ae4a1c9fa2a870877d4d6abdb, type: 3}
+--- !u!114 &3727588520601218446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7559901001643544870, guid: 69227e4ae4a1c9fa2a870877d4d6abdb, type: 3}
+  m_PrefabInstance: {fileID: 6580084419415456936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6055546855833056903 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1105836167741213231, guid: 69227e4ae4a1c9fa2a870877d4d6abdb, type: 3}
