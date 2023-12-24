@@ -29,7 +29,6 @@ namespace Code
 			foreach (var target in _targets)
 			{
 				Cast(ability, target);
-				ability.Replace<Component.AbilityState, AbilityState>(AbilityState.Casted);
 			}
 		}
 

@@ -15,13 +15,13 @@ namespace Code
 
 			var direction = (casterCoordinates - targetCoordinates).Normalize();
 			var distance = ability.Get<Recoil>().Value;
-			var pushDelta = direction * distance;
+			var recoilDelta = direction * distance;
 
 			var counter = 100; // TODO: remove this sometimes:(
 
 			var kickedWall = false;
 
-			while (pushDelta != Coordinates.Zero.WithLayer(Coordinates.Layer.Ignore))
+			while (recoilDelta != Coordinates.Zero.WithLayer(Coordinates.Layer.Ignore))
 			{
 				var nextCoordinates = CurrentActor.GetCoordinates() + direction;
 
@@ -35,7 +35,7 @@ namespace Code
 
 				CurrentActor.ReplaceCoordinates(nextCoordinates);
 
-				pushDelta -= direction;
+				recoilDelta -= direction;
 
 				if (counter-- < 0)
 				{

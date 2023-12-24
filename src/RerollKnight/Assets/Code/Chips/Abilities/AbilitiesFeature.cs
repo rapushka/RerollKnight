@@ -9,8 +9,10 @@ namespace Code
 			Add<CastDealDamageSystem>();
 			Add<CastSetNextSideSystem>();
 			Add<CastShowNextSideSystem>();
-			Add<CastPushSystem>();
 			Add<CastRecoilSystem>();
+			Add<CastPushSystem>();
+
+			Add<MarkAllAbilitiesCastedSystem>();
 		}
 	}
 }
