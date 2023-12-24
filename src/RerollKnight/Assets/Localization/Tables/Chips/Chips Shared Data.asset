@@ -167,6 +167,10 @@ MonoBehaviour:
     m_Key: SniperRifleLabel
     m_Metadata:
       m_Items: []
+  - m_Id: 2661838137540608
+    m_Key: MoveChipToSideLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

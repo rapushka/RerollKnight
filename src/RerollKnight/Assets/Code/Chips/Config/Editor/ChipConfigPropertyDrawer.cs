@@ -14,20 +14,23 @@ namespace Code.Editor
 			EditorGUI.BeginProperty(position, label, property);
 			using var scope = new EditorGUILayout.HorizontalScope();
 
-			var target = (ChipConfigBehaviour)property.objectReferenceValue;
+			var target = property.objectReferenceValue as ChipConfigBehaviour;
+			DrawObjectField(property, target);
 
-			DrawObjectField(target);
-			DrawCostField(target);
-			DrawRarityField(target);
+			if (target is not null)
+			{
+				DrawCostField(target);
+				DrawRarityField(target);
+			}
 
 			EditorGUI.EndProperty();
 			property.serializedObject.ApplyModifiedProperties();
 			EditorUtility.SetDirty(target);
 		}
 
-		private static void DrawObjectField(ChipConfigBehaviour target)
+		private static void DrawObjectField(SerializedProperty property, Object target)
 		{
-			EditorGUILayout.ObjectField(target, typeof(ChipConfigBehaviour), false);
+			property.objectReferenceValue = EditorGUILayout.ObjectField(target, typeof(ChipConfigBehaviour), false);
 		}
 
 		private static void DrawCostField(ChipConfigBehaviour target)
