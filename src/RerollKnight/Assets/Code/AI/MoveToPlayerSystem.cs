@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -27,26 +29,17 @@ namespace Code
 
 		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
 
+		private EnemyStrategy EnemyStrategy => CurrentActor.Get<CurrentStrategy>().Value;
+
+		private IEnumerable<Entity<GameScope>> MovementChips => _chips.Where(_chipKinds.IsMovementChip);
+
 		public void Initialize()
 		{
-			if (CurrentActor.Get<CurrentStrategy>().Value is not EnemyStrategy.MoveToPlayer)
-				return;
-
-			foreach (var chip in _chips)
-			{
-				if (!_chipKinds.IsMovementChip(chip))
-					continue;
-
-				var moved = MoveToPlayer(chip);
-
-				if (moved)
-					return;
-			}
-
-			CurrentActor.Replace<CurrentStrategy, EnemyStrategy>(EnemyStrategy.EndTurn);
+			if (EnemyStrategy is EnemyStrategy.MoveToPlayer && !MovementChips.Any(CanMoveToPlayer))
+				CurrentActor.Replace<CurrentStrategy, EnemyStrategy>(EnemyStrategy.EndTurn);
 		}
 
-		private bool MoveToPlayer(Entity<GameScope> chip)
+		private bool CanMoveToPlayer(Entity<GameScope> chip)
 		{
 			// _availability.MarkAllTargetsAvailable();
 			Entity<GameScope> closerCell = null;
@@ -67,12 +60,12 @@ namespace Code
 					}
 				}
 
-				if (closerCell is null)
-					continue;
-
-				chip.Pick();
-				closerCell.Pick();
-				return true;
+				if (closerCell is not null)
+				{
+					chip.Pick();
+					closerCell.Pick();
+					return true;
+				}
 			}
 
 			return false;

@@ -30,14 +30,17 @@ namespace Code
 
 		public void Initialize()
 		{
+			if (CurrentActor.Get<CurrentStrategy>().Value is not EnemyStrategy.Attack)
+				return;
+
 			foreach (var player in _players)
 			{
 				var isAttacked = TryAttackWithEachChip(player);
 				if (isAttacked)
 					return;
-
-				CurrentActor.Replace<CurrentStrategy, EnemyStrategy>(EnemyStrategy.MoveToPlayer);
 			}
+
+			CurrentActor.Replace<CurrentStrategy, EnemyStrategy>(EnemyStrategy.MoveToPlayer);
 		}
 
 		private bool TryAttackWithEachChip(Entity<GameScope> player)
