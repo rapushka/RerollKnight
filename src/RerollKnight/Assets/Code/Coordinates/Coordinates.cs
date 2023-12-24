@@ -52,11 +52,23 @@ namespace Code
 		public Coordinates Add(int column = 0, int row = 0)
 			=> new(Column + column, Row + row, OnLayer);
 
+		public Coordinates Normalize()
+			=> new(Column.Clamp(min: -1, max: 1), Row.Clamp(min: -1, max: 1), OnLayer);
+
 		public static explicit operator Vector2(Coordinates coordinates)
 			=> new(coordinates.Column, coordinates.Row);
 
 		public static explicit operator Coordinates(Vector2 vector)
 			=> new(vector);
+
+		public static Coordinates operator +(Coordinates left, Coordinates right)
+			=> left.Add(column: right.Column, row: right.Row);
+
+		public static Coordinates operator *(Coordinates source, int multiplier)
+			=> new(source.Column * multiplier, source.Row * multiplier, source.OnLayer);
+
+		public static Coordinates operator *(int multiplier, Coordinates source)
+			=> new(source.Column * multiplier, source.Row * multiplier, source.OnLayer);
 
 		public static bool operator ==(Coordinates left, Coordinates right)
 			=> left?.Equals(right) ?? false;

@@ -13,8 +13,10 @@ namespace Code
 
 			Add<MarkDisabledUnavailableSystem>();
 			Add<MarkUnavailableByRangeSystem>();
+			Add<MarkUnavailableByInactiveRangeSystem>();
 			Add<MarkUnavailableByComponentsSystem>();
 			Add<MarkUnavailableByObstaclesSystem>();
+			Add<MarkUnavailableByVisibilitySystem>();
 		}
 	}
 }

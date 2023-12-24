@@ -44,15 +44,10 @@ namespace Code
 				;
 			actor.Add<Health, int>(actor.Get<MaxHealth>().Value);
 
-			CreateChips(actor);
+			_chipsGenerator.CreateChipsFor(actor);
 
 			_uiFactory.CreateHealthBar(actor);
 			return actor;
-		}
-
-		private void CreateChips(GameEntity actor)
-		{
-			_chipsGenerator.CreateChipsFor(actor);
 		}
 
 		private GameEntity SpawnPrefab(EntityBehaviour<GameScope> prefab)

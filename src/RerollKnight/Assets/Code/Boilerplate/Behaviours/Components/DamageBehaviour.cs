@@ -3,5 +3,5 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public class DamageBehaviour : ComponentBehaviour<ChipsScope, Damage, int> { }
+	public class DealDamageBehaviour : ComponentBehaviour<ChipsScope, DealDamage, int> { }
 }

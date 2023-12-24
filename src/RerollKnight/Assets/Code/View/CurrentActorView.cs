@@ -3,6 +3,7 @@ using Entitas.Generic;
 using TMPro;
 using UnityEngine;
 using Zenject;
+using static Code.Constants;
 
 namespace Code
 {
@@ -31,12 +32,12 @@ namespace Code
 
 		private void UpdateValue(Entity<GameScope> entity)
 		{
-			var key = entity is null  ? LocalizationKey.NoCurrentActor
-				: entity.Is<Player>() ? LocalizationKey.PlayerCurrentActor
-				: entity.Is<Enemy>()  ? LocalizationKey.EnemyCurrentActor
-				                        : LocalizationKey.NoCurrentActor;
+			var key = entity is null  ? Localization.Key.NoCurrentActor
+				: entity.Is<Player>() ? Localization.Key.PlayerCurrentActor
+				: entity.Is<Enemy>()  ? Localization.Key.EnemyCurrentActor
+				                        : Localization.Key.NoCurrentActor;
 
-			_textMesh.text = _localizationService.GetLocalized(LocalizationTable.Game, key);
+			_textMesh.text = _localizationService.GetLocalized(Localization.Table.Game, key);
 		}
 	}
 }

@@ -75,6 +75,140 @@ MonoBehaviour:
       obstacles'
     m_Metadata:
       m_Items: []
+  - m_Id: 1966550062153728
+    m_Localized: Pistol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1966801900748800
+    m_Localized: 'Deals 1 damage
+
+      Can''t be used through obstacles'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1992345983860736
+    m_Localized: Show Next Side
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1992566591668224
+    m_Localized: Shows, which side will be thrown after next reroll in Dice Info
+      window
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2195453838049280
+    m_Localized: Spit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2203861261697024
+    m_Localized: Push
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2204029017079808
+    m_Localized: 'Pushes enemy back 2 cells
+
+      Crashing into an obstacle will
+      deal 1 damage to the enemy
+
+      Use distance = 1 cell'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2206079306121216
+    m_Localized: Pick Next Side
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2206178321055744
+    m_Localized: Allows pick side, that will be thrown after next reroll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2206704920117248
+    m_Localized: 'Doesn''t cause any damage, maybe only moral...
+
+      Can''t be
+      used through obstacles'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2214153131606016
+    m_Localized: Deals {0} damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2217133729857536
+    m_Localized: 'Not '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2217200322822144
+    m_Localized: 'Target must be:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2221574445023232
+    m_Localized: Range = {0} cells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2225274936836096
+    m_Localized: Allows to select the side of the dice that will become active after
+      the next reroll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2225724192931840
+    m_Localized: Shows which side of the dice will be active after the next reroll
+      in the Dice Info window
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2226666942447616
+    m_Localized: The target must be visible for the caster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2227269869453312
+    m_Localized: Considers Obstacles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2227500426149888
+    m_Localized: Ignores Obstacles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2228965731418112
+    m_Localized: Pushes back {0} cells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2229994413834240
+    m_Localized: Moves your dice to the picked position
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2257363165986816
+    m_Localized: When colliding with an obstacle, the dice will take {0} damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2260308477558784
+    m_Localized: Allows diagonals when calculating range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2260865200111616
+    m_Localized: Has a recoil on {0} cells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2268134105104384
+    m_Localized: Has spread = {0} cells in both sides
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2269787130642432
+    m_Localized: Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532363827625984
+    m_Localized: Minimal distance = {0} cells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2536508546564096
+    m_Localized: Sniper rifle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2661838137540608
+    m_Localized: Move Chip to the Other Side
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2668040745598976
+    m_Localized: Allows to select a chip and then select the side of the dice on
+      which the chip will be moved
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -2,6 +2,7 @@ using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
+using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
@@ -12,15 +13,12 @@ namespace Code
 
 		[Inject]
 		public SetRandomSideRolledSystem(Contexts contexts)
-			=> _actors = contexts.GetGroup(ScopeMatcher<GameScope>.Get<Actor>());
+			=> _actors = contexts.GetGroup(AllOf(Get<Actor>()).NoneOf(Get<PredefinedNextSide>()));
 
 		public void TearDown()
 		{
-			foreach (var actor in _actors)
-			{
-				var randomFace = actor.GetDependants().WhereHas<Face>().PickRandom();
-				randomFace.MarkAsActive();
-			}
+			foreach (var actor in _actors.GetEntities())
+				actor.PredefineRandomSide();
 		}
 	}
 }

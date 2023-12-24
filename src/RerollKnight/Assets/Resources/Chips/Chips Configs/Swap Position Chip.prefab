@@ -44,16 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e9a9743e124236b2677170811bc061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Label>k__BackingField: Sawp position
-  <Abilities>k__BackingField:
-  - {fileID: 3620070087366233103, guid: 2e3e2862964db36e78de7649ee7206c9, type: 3}
-  <Cost>k__BackingField: 2
-  <Description>k__BackingField: 'Swaps your position with position of any other dice
-
-    in
-    any range
-
-    Ignores obstacles'
   <LabelKey>k__BackingField:
     m_TableReference:
       m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
@@ -63,15 +53,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <DescriptionKey>k__BackingField:
-    m_TableReference:
-      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
-    m_TableEntryReference:
-      m_KeyId: 646336167936
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
+  <Cost>k__BackingField: 2
+  <Rarity>k__BackingField: 0.2
+  <Abilities>k__BackingField:
+  - {fileID: 3620070087366233103, guid: 2e3e2862964db36e78de7649ee7206c9, type: 3}
   references:
     version: 2
     RefIds: []

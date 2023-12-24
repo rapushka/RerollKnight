@@ -33,7 +33,7 @@ namespace Code
 			Container.Bind<IRandomFieldAccess>().To<RandomFieldAccess>().AsSingle();
 			Container.Bind<MeasuringService>().AsSingle();
 			Container.Bind<Pathfinding>().AsSingle();
-			Container.Bind<Vision>().AsSingle();
+			Container.Bind<VisionService>().AsSingle();
 
 			InstallFactories();
 		}
@@ -90,6 +90,7 @@ namespace Code
 			Container.Bind<DoorsSpawner>().AsSingle();
 
 			Container.Bind<ChipsGenerator>().AsSingle();
+			Container.Bind<ChipDescriptionBuilder>().AsSingle();
 		}
 	}
 }

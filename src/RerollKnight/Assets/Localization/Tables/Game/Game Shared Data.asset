@@ -95,6 +95,26 @@ MonoBehaviour:
     m_Key: BackToMainMenuButton
     m_Metadata:
       m_Items: []
+  - m_Id: 2467729133223936
+    m_Key: PickSideTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2652729883443200
+    m_Key: NextSideLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2656027315224576
+    m_Key: NextSideHudView
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3153248427130880
+    m_Key: ConfirmButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3159197309157376
+    m_Key: MoveChipToSideTitle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

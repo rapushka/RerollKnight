@@ -1,6 +1,8 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using static Code.Constants.Localization;
 
 namespace Code
 {
@@ -8,12 +10,17 @@ namespace Code
 	{
 		[SerializeField] private Button _endTurnButton;
 		[SerializeField] private Button _pauseButton;
+		[SerializeField] private TMP_Text _nextSideTextMesh;
 
 		private UiMediator _uiMediator;
+		private ILocalizationService _localization;
 
 		[Inject]
-		public void Construct(UiMediator uiMediator)
-			=> _uiMediator = uiMediator;
+		public void Construct(UiMediator uiMediator, ILocalizationService localization)
+		{
+			_uiMediator = uiMediator;
+			_localization = localization;
+		}
 
 		private void OnEnable()
 		{
@@ -34,6 +41,19 @@ namespace Code
 			=> _uiMediator.Pause();
 
 		private void Update()
+		{
+			UpdateEndTurnButton();
+			UpdateNextSideView();
+		}
+
+		private void UpdateEndTurnButton()
 			=> _endTurnButton.enabled = _uiMediator.IsEndTurnButtonAvailable;
+
+		private void UpdateNextSideView()
+		{
+			var nextSide = _uiMediator.PlayerNextSide;
+			_nextSideTextMesh.gameObject.SetActive(nextSide != -1);
+			_nextSideTextMesh.text = _localization.GetLocalized(Table.Game, Key.NextSideHudView, nextSide);
+		}
 	}
 }

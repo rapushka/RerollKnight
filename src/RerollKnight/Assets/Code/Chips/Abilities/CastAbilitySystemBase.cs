@@ -14,7 +14,7 @@ namespace Code
 		private readonly Contexts _contexts;
 
 		[Inject]
-		protected CastAbilitySystemBase(Contexts contexts, Query query)
+		protected CastAbilitySystemBase(Contexts contexts)
 		{
 			_contexts = contexts;
 			_targets = contexts.GetGroup(ScopeMatcher<GameScope>.Get<PickedTarget>());
@@ -29,7 +29,6 @@ namespace Code
 			foreach (var target in _targets)
 			{
 				Cast(ability, target);
-				ability.Replace<Component.AbilityState, AbilityState>(AbilityState.Casted);
 			}
 		}
 

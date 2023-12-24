@@ -1,4 +1,3 @@
-using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -37,7 +36,8 @@ namespace Code
 			{
 				var playerPosition = CurrentActor.GetCoordinates(withLayer: Default);
 				var targetPosition = target.GetCoordinates(withLayer: Default);
-				var pathLength = _pathfinding.FindPath(playerPosition, targetPosition).Count() - 1;
+				var allowDiagonals = ability.Has<AllowDiagonals>();
+				var pathLength = _pathfinding.FindPath(playerPosition, targetPosition, allowDiagonals).Count - 1;
 
 				if (pathLength == -1 || pathLength > ability.Get<Range>().Value)
 					target.Is<AvailableToPick>(false);

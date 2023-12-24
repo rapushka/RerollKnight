@@ -34,7 +34,7 @@ namespace Code
 			_cells = contexts.GetGroup(Get<Cell>());
 		}
 
-		public List<Coordinates> FindPath(Coordinates start, Coordinates end)
+		public List<Coordinates> FindPath(Coordinates start, Coordinates end, bool allowDiagonals = true)
 		{
 			Cleanup();
 
@@ -61,7 +61,7 @@ namespace Code
 				_openList.Remove(currentNode);
 				_closedList.Add(currentNode);
 
-				foreach (var neighborNode in Neighbors(currentNode))
+				foreach (var neighborNode in Neighbors(currentNode, allowDiagonals))
 				{
 					if (_closedList.Contains(neighborNode))
 						continue;
@@ -96,8 +96,8 @@ namespace Code
 			return Enumerable.Empty<Coordinates>().ToList();
 		}
 
-		private IEnumerable<PathNode> Neighbors(PathNode currentNode)
-			=> currentNode.Coordinates.Neighbors(allowDiagonal: true)
+		private IEnumerable<PathNode> Neighbors(PathNode currentNode, bool allowDiagonals)
+			=> currentNode.Coordinates.Neighbors(allowDiagonals)
 			              .Select((c) => new PathNode(c))
 			              .Where((pn) => _grid.Contains(pn));
 

@@ -98,6 +98,26 @@ MonoBehaviour:
     m_Localized: Back to Main Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 2467729133223936
+    m_Localized: Pick the Side
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2652729883443200
+    m_Localized: Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2656027315224576
+    m_Localized: 'Next side: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3153248427130880
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3159197309157376
+    m_Localized: Move Chip to Side
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

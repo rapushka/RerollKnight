@@ -43,5 +43,15 @@ namespace Code
 		public static HashSet<Entity<TScope>> GetDependants<TScope>(this Entity<TScope> @this)
 			where TScope : IScope
 			=> ForeignID.GetIndex<TScope>().GetEntities(@this.Get<ID>().Value);
+
+		public static HashSet<Entity<TScopeDependant>> GetDependants<TScopeDependant>(this Entity<GameScope> @this)
+			where TScopeDependant : IScope
+			=> @this.GetDependants<GameScope, TScopeDependant>();
+
+		public static HashSet<Entity<TScopeDependant>> GetDependants<TScopeOur, TScopeDependant>
+			(this Entity<TScopeOur> @this)
+			where TScopeOur : IScope
+			where TScopeDependant : IScope
+			=> ForeignID.GetIndex<TScopeDependant>().GetEntities(@this.Get<ID>().Value);
 	}
 }

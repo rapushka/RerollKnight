@@ -5,9 +5,15 @@ namespace Code
 		public AbilitiesFeature(SystemsFactory factory)
 			: base(nameof(AbilitiesFeature), factory)
 		{
-			Add<CastTeleportSystem>();
-			Add<CastSwitchPositionsSystem>();
-			Add<CastKickSystem>();
+			Add<CastSwapPositionsSystem>();
+			Add<CastDealDamageSystem>();
+			Add<CastSetNextSideSystem>();
+			Add<CastShowNextSideSystem>();
+			Add<CastRecoilSystem>();
+			Add<CastPushSystem>();
+			Add<CastMoveChipToSideSystem>();
+
+			Add<MarkAllAbilitiesCastedSystem>();
 		}
 	}
 }

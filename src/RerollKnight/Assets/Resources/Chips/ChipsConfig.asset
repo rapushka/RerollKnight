@@ -16,7 +16,18 @@ MonoBehaviour:
   - {fileID: -1127751271332936188, guid: c99328876384e2ff2a7199f94fd99355, type: 3}
   - {fileID: -1127751271332936188, guid: f41ad62cababcf4c794ccba35451219f, type: 3}
   - {fileID: -1127751271332936188, guid: ba01ac5e6c63c3578a85e5d22992c504, type: 3}
-  - {fileID: -1127751271332936188, guid: 0c8ca4a58a7187e908fff256986f517c, type: 3}
   - {fileID: -1127751271332936188, guid: 6a01f9f8abd6c28ffbbb2cf822dbaf66, type: 3}
-  <PlayerBudget>k__BackingField: 10
-  <EnemyBudget>k__BackingField: 5
+  - {fileID: -1127751271332936188, guid: 6379d0dce303411d9bc59a6aff5c2ed2, type: 3}
+  - {fileID: -1127751271332936188, guid: 178c45f8f48aff5349598a5cdcb86612, type: 3}
+  - {fileID: -1127751271332936188, guid: cba90b48e4b7cde2481d7b87c4178e83, type: 3}
+  - {fileID: -1127751271332936188, guid: c2662e2186c3f9001bacafca6aa80c3b, type: 3}
+  - {fileID: -1127751271332936188, guid: ebb32862dae889522821840b6d4f4883, type: 3}
+  - {fileID: -1127751271332936188, guid: 1b055195757f4c426b69e66109f7e3bd, type: 3}
+  - {fileID: -1127751271332936188, guid: 2fe9785232e5f0e0fb3040dcc04b4d77, type: 3}
+  - {fileID: -1127751271332936188, guid: 1f23960f7817e4153bb1398205e75dac, type: 3}
+  <PlayerOnlyChips>k__BackingField:
+  - {fileID: -1127751271332936188, guid: cba90b48e4b7cde2481d7b87c4178e83, type: 3}
+  - {fileID: -1127751271332936188, guid: 178c45f8f48aff5349598a5cdcb86612, type: 3}
+  - {fileID: -1127751271332936188, guid: 1f23960f7817e4153bb1398205e75dac, type: 3}
+  <PlayerBudget>k__BackingField: 15
+  <EnemyBudget>k__BackingField: 15

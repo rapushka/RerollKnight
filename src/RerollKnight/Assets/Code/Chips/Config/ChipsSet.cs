@@ -21,8 +21,6 @@ namespace Code
 			Fill();
 		}
 
-		private IEnumerable<ChipConfigBehaviour> AllChips => _chipsConfig.ChipsBehaviours;
-
 		private void Fill()
 		{
 			var faces = _actor.GetDependants().Where((e) => e.Has<Face>());
@@ -37,21 +35,23 @@ namespace Code
 				                      : throw new InvalidOperationException();
 
 		private IEnumerable<ChipConfigBehaviour> FilterForPlayer()
-			=> CollectChipsForBudget(_chipsConfig.PlayerBudget);
+			=> CollectChipsForBudget(_chipsConfig.PlayerBudget, _chipsConfig.ChipsBehaviours);
 
 		private IEnumerable<ChipConfigBehaviour> FilterForEnemy()
-			=> CollectChipsForBudget(_chipsConfig.EnemyBudget);
+			=> CollectChipsForBudget(_chipsConfig.EnemyBudget, _chipsConfig.EnemyChips);
 
-		private IEnumerable<ChipConfigBehaviour> CollectChipsForBudget(float currentBudget)
+		private IEnumerable<ChipConfigBehaviour> CollectChipsForBudget
+			(float currentBudget, IEnumerable<ChipConfigBehaviour> allChips)
 		{
+			var allChipsArray = allChips as ChipConfigBehaviour[] ?? allChips.ToArray();
 			while (currentBudget > 0)
 			{
-				var affordableChips = AllChips.Where((c) => c.Cost <= currentBudget).ToArray();
+				var affordableChips = allChipsArray.Where((c) => c.Cost <= currentBudget).ToArray();
 
 				if (!affordableChips.Any())
 					yield break;
 
-				var randomChip = affordableChips.PickRandom();
+				var randomChip = affordableChips.PickRandomWithRarity();
 
 				yield return randomChip;
 				currentBudget -= randomChip.Cost;
