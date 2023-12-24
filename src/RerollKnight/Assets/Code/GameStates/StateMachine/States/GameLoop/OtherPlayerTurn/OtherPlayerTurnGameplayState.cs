@@ -21,6 +21,7 @@ namespace Code
 				Add<UpdateDistanceToPlayerSystem>();
 				Add<TryAttackSystem>();
 				Add<MoveToPlayerSystem>();
+				// TODO: defence
 
 				Add<PrepareAbilitiesOfPickedChipSystem>();
 				// Add<AvailabilityFeature>();
@@ -31,7 +32,8 @@ namespace Code
 				// if casting a chip – will pass to Casting State
 				Add<CastAbilitiesSystem>();
 				// otherwise – turn will be ended
-				Add<EndTurnOnOutOfChipsSystem>();
+				// Add<EndTurnOnOutOfChipsSystem>();
+				Add<EndTurnOnStrategySystem>();
 			}
 		}
 	}

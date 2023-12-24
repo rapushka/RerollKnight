@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Code.Component;
 using Entitas;
@@ -16,14 +17,18 @@ namespace Code
 			_chipKinds = chipKinds;
 		}
 
-		private bool HasAnyAttackingChip
-			=> CurrentActor.GetDependants().WhereHas<Chip>().Any(_chipKinds.IsAttackingChip);
+		private bool HasAnyAttackingChip => Chips.Any(_chipKinds.IsAttackingChip);
+
+		private IEnumerable<Entity<GameScope>> Chips => CurrentActor.GetDependants().WhereHas<Chip>();
 
 		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
 
 		public void Initialize()
 		{
-			var strategy = HasAnyAttackingChip ? EnemyStrategy.Attack : EnemyStrategy.Defence;
+			var strategy = Chips.Any()
+				? HasAnyAttackingChip ? EnemyStrategy.Attack : EnemyStrategy.Defence
+				: EnemyStrategy.EndTurn;
+
 			CurrentActor.Replace<CurrentStrategy, EnemyStrategy>(strategy);
 		}
 	}

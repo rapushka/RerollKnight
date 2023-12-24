@@ -41,7 +41,6 @@ namespace Code
 
 		private bool CanMoveToPlayer(Entity<GameScope> chip)
 		{
-			// _availability.MarkAllTargetsAvailable();
 			Entity<GameScope> closerCell = null;
 
 			foreach (var ability in chip.GetDependants<GameScope, ChipsScope>())
