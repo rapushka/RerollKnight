@@ -9,10 +9,13 @@ namespace Code
 	{
 		[SerializeField] private TMP_Text _textMesh;
 		[SerializeField] private Button _button;
+		[SerializeField] private GameObject _selected;
 
 		public event Action Clicked;
 
 		public string Text { get => _textMesh.text; set => _textMesh.text = value; }
+
+		public bool IsSelected { set => _selected.SetActive(value); }
 
 		protected virtual void OnEnable()  => _button.onClick.AddListener(InvokeClicked);
 		protected virtual void OnDisable() => _button.onClick.RemoveListener(InvokeClicked);

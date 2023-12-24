@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace Code
 		private Entity<GameScope> _pickedSide;
 		private Entity<GameScope> _pickedChip;
 
+		private readonly List<ChipButton> _chipButtons = new();
+
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -25,6 +28,14 @@ namespace Code
 		{
 			base.OnHide();
 			_confirmButton.onClick.RemoveListener(OnConfirmClicked);
+
+			foreach (var chipButton in _chipButtons)
+			{
+				chipButton.Clicked -= OnChipPicked;
+				Destroy(chipButton.gameObject);
+			}
+
+			_chipButtons.Clear();
 		}
 
 		public override void SetData(Entity<GameScope> actor)
@@ -35,9 +46,10 @@ namespace Code
 
 			foreach (var chip in activeSide.GetDependants().WhereHas<Chip>())
 			{
-				var sideButton = Instantiate(_chipButtonPrefab, _chipsRoot);
-				sideButton.SetData(chip);
-				sideButton.Clicked += OnChipPicked;
+				var chipButton = Instantiate(_chipButtonPrefab, _chipsRoot);
+				chipButton.SetData(chip);
+				chipButton.Clicked += OnChipPicked;
+				_chipButtons.Add(chipButton);
 			}
 		}
 

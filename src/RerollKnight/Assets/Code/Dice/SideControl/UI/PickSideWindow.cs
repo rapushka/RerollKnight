@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace Code
 
 		private Entity<GameScope> _actor;
 
+		protected readonly List<SideButton> SideButtons = new();
+
 		public virtual void SetData(Entity<GameScope> actor)
 		{
 			_actor = actor;
@@ -20,16 +23,19 @@ namespace Code
 				var sideButton = Instantiate(_sideButtonPrefab, _sidesRoot);
 				sideButton.SetData(face.Get<Face>().Value);
 				sideButton.Clicked += OnSidePicked;
+				SideButtons.Add(sideButton);
 			}
 		}
 
 		protected override void OnHide()
 		{
-			foreach (Transform child in _sidesRoot)
+			foreach (var sideButton in SideButtons)
 			{
-				child.GetComponent<SideButton>().Clicked -= OnSidePicked;
-				Destroy(child.gameObject);
+				sideButton.Clicked -= OnSidePicked;
+				Destroy(sideButton.gameObject);
 			}
+
+			SideButtons.Clear();
 		}
 
 		protected virtual void OnSidePicked(int sideNumber)
