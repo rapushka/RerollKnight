@@ -16,10 +16,14 @@ namespace Code
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 
-				Add<PickRandom<Chip, AvailableToPick>>();
+				// 🧐
+				Add<ChooseEnemyStrategySystem>();
+				Add<UpdateDistanceToPlayerSystem>();
+				Add<TryAttackSystem>();
+				Add<MoveToPlayerSystem>();
 
 				Add<PrepareAbilitiesOfPickedChipSystem>();
-				Add<AvailabilityFeature>();
+				// Add<AvailabilityFeature>();
 
 				Add<PickRandom<Target, AvailableToPick>>();
 				Add<HandleMultiTargetAbilitySystem>();
