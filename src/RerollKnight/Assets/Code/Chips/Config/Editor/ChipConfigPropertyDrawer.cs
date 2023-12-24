@@ -11,18 +11,17 @@ namespace Code.Editor
 
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
-			using (var scope = new EditorGUILayout.HorizontalScope())
-			{
-				var target = (ChipConfigBehaviour)property.objectReferenceValue;
-				EditorGUILayout.ObjectField(target, typeof(ChipConfigBehaviour), false);
-				var cost = target.Cost;
+			using var scope = new EditorGUILayout.HorizontalScope();
 
-				EditorGUILayout.LabelField(nameof(ChipConfigBehaviour.Cost) + ":", GUILayout.Width(35f));
-				var newCost = EditorGUILayout.IntField(cost);
+			var target = (ChipConfigBehaviour)property.objectReferenceValue;
+			EditorGUILayout.ObjectField(target, typeof(ChipConfigBehaviour), false);
+			var cost = target.Cost;
 
-				if (newCost != cost)
-					target.SetPrivateFieldValue("_cost", newCost);
-			}
+			EditorGUILayout.LabelField(nameof(ChipConfigBehaviour.Cost) + ":", GUILayout.Width(35f));
+			var newCost = EditorGUILayout.IntField(cost);
+
+			if (newCost != cost)
+				target.SetPrivateFieldValue("_cost", newCost);
 		}
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
