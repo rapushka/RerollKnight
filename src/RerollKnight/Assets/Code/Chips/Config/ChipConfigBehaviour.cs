@@ -7,9 +7,10 @@ namespace Code
 	public class ChipConfigBehaviour : MonoBehaviour
 	{
 		[field: SerializeField] public LocalizedString LabelKey { get; private set; }
-		[SerializeField] private int _cost;
-		[field: SerializeField] public List<AbilityConfigBehaviour> Abilities { get; private set; }
 
-		public int Cost => _cost;
+		[field: UnityEngine.Serialization.FormerlySerializedAs("_cost")]
+		[field: SerializeField] public int Cost { get; private set; }
+
+		[field: SerializeField] public List<AbilityConfigBehaviour> Abilities { get; private set; }
 	}
 }

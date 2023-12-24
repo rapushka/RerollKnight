@@ -1,6 +1,7 @@
-using Entitas.Generic;
+using System;
 using UnityEditor;
 using UnityEngine;
+using static System.Reflection.BindingFlags;
 
 namespace Code.Editor
 {
@@ -21,10 +22,25 @@ namespace Code.Editor
 			var newCost = EditorGUILayout.IntField(cost);
 
 			if (newCost != cost)
-				target.SetPrivateFieldValue("_cost", newCost);
+				target.SetPrivatePropertyValue("Cost", newCost);
 		}
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 			=> _lineHeight / 2;
+	}
+
+	public static class ReflectionExtensions
+	{
+		public static void SetPrivatePropertyValue<T>(this object @this, string propertyName, T value)
+		{
+			var type = @this.GetType();
+			var propertyInfo = type.GetProperty(propertyName, Instance | NonPublic | Public)
+			                   ?? throw NoPropertyException(propertyName, type);
+
+			propertyInfo.SetValue(@this, value);
+		}
+
+		private static ArgumentException NoPropertyException(string propertyName, Type type)
+			=> new($"Property '{propertyName}' not found in type '{type}'.");
 	}
 }
