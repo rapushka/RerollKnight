@@ -25,7 +25,7 @@ namespace Code
 		public void SetData(Entity<GameScope> chip)
 		{
 			Chip = chip;
-			Text = Chip.Get<Label>().ToString();
+			Text = Chip.Get<Label>().Value;
 		}
 
 		private void InvokeClicked() => Clicked?.Invoke(Chip);

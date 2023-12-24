@@ -35,6 +35,9 @@ namespace Code
 			}
 
 			_chipButtons.Clear();
+
+			_pickedChip = null;
+			_pickedSide = null;
 		}
 
 		public override void SetData(Entity<GameScope> actor)
