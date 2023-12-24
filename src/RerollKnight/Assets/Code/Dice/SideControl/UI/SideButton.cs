@@ -6,7 +6,7 @@ namespace Code
 	{
 		public new event Action<int> Clicked;
 
-		private int _sideNumber;
+		public int SideNumber { get; private set; }
 
 		protected override void OnEnable()
 		{
@@ -22,10 +22,10 @@ namespace Code
 
 		public void SetData(int sideNumber)
 		{
-			_sideNumber = sideNumber;
-			Text = _sideNumber.ToString();
+			SideNumber = sideNumber;
+			Text = SideNumber.ToString();
 		}
 
-		private void InvokeClicked() => Clicked?.Invoke(_sideNumber);
+		private void InvokeClicked() => Clicked?.Invoke(SideNumber);
 	}
 }

@@ -56,11 +56,17 @@ namespace Code
 		private void OnChipPicked(Entity<GameScope> chip)
 		{
 			_pickedChip = chip;
+
+			foreach (var button in _chipButtons)
+				button.IsSelected = button.Chip == _pickedChip;
 		}
 
 		protected override void OnSidePicked(int sideNumber)
 		{
 			_pickedSide = _actor.GetFace(sideNumber);
+
+			foreach (var button in SideButtons)
+				button.IsSelected = button.SideNumber == sideNumber;
 		}
 
 		private void OnConfirmClicked()

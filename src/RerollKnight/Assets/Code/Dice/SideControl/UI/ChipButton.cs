@@ -8,7 +8,7 @@ namespace Code
 	{
 		public new event Action<Entity<GameScope>> Clicked;
 
-		private Entity<GameScope> _chip;
+		public Entity<GameScope> Chip { get; private set; }
 
 		protected override void OnEnable()
 		{
@@ -24,10 +24,10 @@ namespace Code
 
 		public void SetData(Entity<GameScope> chip)
 		{
-			_chip = chip;
-			Text = _chip.Get<Label>().ToString();
+			Chip = chip;
+			Text = Chip.Get<Label>().ToString();
 		}
 
-		private void InvokeClicked() => Clicked?.Invoke(_chip);
+		private void InvokeClicked() => Clicked?.Invoke(Chip);
 	}
 }
