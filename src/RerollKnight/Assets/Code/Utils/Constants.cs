@@ -40,6 +40,7 @@ namespace Code
 				public const string RecoilAbility = "RecoilAbility";
 				public const string PerpendicularSpreadAbility = "PerpendicularSpreadAbility";
 				public const string InactiveRangeAbility = "InactiveRangeAbility";
+				public const string MoveChipToSideAbility = "MoveChipToSideAbility";
 			}
 
 			public static class Table

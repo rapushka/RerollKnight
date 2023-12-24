@@ -51,6 +51,14 @@ MonoBehaviour:
     m_Key: EmptyName
     m_Metadata:
       m_Items: []
+  - m_Id: 1855722726047744
+    m_Key: ChipName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1855831559847936
+    m_Key: PickedChipName
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

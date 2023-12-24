@@ -204,6 +204,11 @@ MonoBehaviour:
     m_Localized: Move Chip to the Other Side
     m_Metadata:
       m_Items: []
+  - m_Id: 2668040745598976
+    m_Localized: Allows to select a chip and then select the side of the dice on
+      which the chip will be moved
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

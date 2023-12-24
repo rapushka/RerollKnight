@@ -68,6 +68,9 @@ namespace Code
 
 			if (ability.Is<SwapPositions>())
 				Append(Localized(Key.SwapPositionsAbility));
+
+			if (ability.Is<MoveChipToSide>())
+				Append(Localized(Key.MoveChipToSideAbility));
 		}
 
 		private void AppendAccessDescription(Entity<ChipsScope> ability)

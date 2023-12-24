@@ -26,9 +26,9 @@ namespace Code
 			=> face.Get<Face>().Value == face.GetOwner().GetOrDefault<PredefinedNextSide>()?.Value;
 
 		public static Entity<GameScope> GetActiveFace(this Entity<GameScope> actor)
-		{
-			var activeFace = actor.Get<ActiveFace>().Value;
-			return actor.GetDependants().Single((f) => f.GetOrDefault<Face>()?.Value == activeFace);
-		}
+			=> actor.GetFace(actor.Get<ActiveFace>().Value);
+
+		public static Entity<GameScope> GetFace(this Entity<GameScope> actor, int value)
+			=> actor.GetDependants().Single((f) => f.GetOrDefault<Face>()?.Value == value);
 	}
 }
