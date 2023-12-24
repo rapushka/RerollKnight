@@ -21,11 +21,8 @@ namespace Code.Editor
 			DrawRarityField(target);
 
 			EditorGUI.EndProperty();
-			var changed = property.serializedObject.ApplyModifiedProperties();
+			property.serializedObject.ApplyModifiedProperties();
 			EditorUtility.SetDirty(target);
-
-			if (changed)
-				Debug.Log($"changed");
 		}
 
 		private static void DrawObjectField(ChipConfigBehaviour target)
