@@ -51,7 +51,7 @@ namespace Code
 				if (!affordableChips.Any())
 					yield break;
 
-				var randomChip = affordableChips.PickRandom();
+				var randomChip = affordableChips.PickRandomWithRarity();
 
 				yield return randomChip;
 				currentBudget -= randomChip.Cost;
