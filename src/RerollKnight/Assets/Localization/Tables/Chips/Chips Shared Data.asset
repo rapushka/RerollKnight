@@ -163,6 +163,10 @@ MonoBehaviour:
     m_Key: InactiveRangeAbility
     m_Metadata:
       m_Items: []
+  - m_Id: 2536508546564096
+    m_Key: SniperRifleLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
