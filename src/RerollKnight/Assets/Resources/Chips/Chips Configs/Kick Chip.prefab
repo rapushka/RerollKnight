@@ -54,6 +54,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Cost>k__BackingField: 5
+  <Rarity>k__BackingField: 1
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: 6827462f2e7e4c423bb80a456b75dc30, type: 3}
   references:

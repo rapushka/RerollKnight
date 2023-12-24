@@ -1,7 +1,5 @@
-using System;
 using UnityEditor;
 using UnityEngine;
-using static System.Reflection.BindingFlags;
 using static UnityEngine.GUILayout;
 
 namespace Code.Editor
@@ -13,6 +11,7 @@ namespace Code.Editor
 
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
+			EditorGUI.BeginProperty(position, label, property);
 			using var scope = new EditorGUILayout.HorizontalScope();
 
 			var target = (ChipConfigBehaviour)property.objectReferenceValue;
@@ -20,6 +19,13 @@ namespace Code.Editor
 			DrawObjectField(target);
 			DrawCostField(target);
 			DrawRarityField(target);
+
+			EditorGUI.EndProperty();
+			var changed = property.serializedObject.ApplyModifiedProperties();
+			EditorUtility.SetDirty(target);
+
+			if (changed)
+				Debug.Log($"changed");
 		}
 
 		private static void DrawObjectField(ChipConfigBehaviour target)
@@ -49,20 +55,5 @@ namespace Code.Editor
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 			=> _lineHeight / 2;
-	}
-
-	public static class ReflectionExtensions
-	{
-		public static void SetPrivatePropertyValue<T>(this object @this, string propertyName, T value)
-		{
-			var type = @this.GetType();
-			var propertyInfo = type.GetProperty(propertyName, Instance | NonPublic | Public)
-			                   ?? throw NoPropertyException(propertyName, type);
-
-			propertyInfo.SetValue(@this, value);
-		}
-
-		private static ArgumentException NoPropertyException(string propertyName, Type type)
-			=> new($"Property '{propertyName}' not found in type '{type}'.");
 	}
 }

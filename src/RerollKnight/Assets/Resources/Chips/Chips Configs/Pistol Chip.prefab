@@ -53,16 +53,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <DescriptionKey>k__BackingField:
-    m_TableReference:
-      m_TableCollectionName: GUID:108139614b9481cc2af5eb4fe5fd42c3
-    m_TableEntryReference:
-      m_KeyId: 1966801900748800
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
   <Cost>k__BackingField: 5
+  <Rarity>k__BackingField: 1
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: 93bb2cece689f78bca43b36abf17a32a, type: 3}
   references:
