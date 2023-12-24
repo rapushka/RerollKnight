@@ -37,11 +37,17 @@ namespace Code
 			{
 				var isAttacked = TryAttackWithEachChip(player);
 				if (isAttacked)
+				{
+					ChangeStrategy(EnemyStrategy.Waiting);
 					return;
+				}
 			}
 
-			CurrentActor.Replace<CurrentStrategy, EnemyStrategy>(EnemyStrategy.MoveToPlayer);
+			ChangeStrategy(EnemyStrategy.MoveToPlayer);
 		}
+
+		private void ChangeStrategy(EnemyStrategy strategy)
+			=> CurrentActor.Replace<CurrentStrategy, EnemyStrategy>(strategy);
 
 		private bool TryAttackWithEachChip(Entity<GameScope> player)
 		{

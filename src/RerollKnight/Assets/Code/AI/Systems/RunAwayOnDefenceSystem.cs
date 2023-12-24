@@ -8,7 +8,7 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public sealed class MoveToPlayerSystem : IInitializeSystem
+	public sealed class RunAwayOnDefenceSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly ChipKinds _chipKinds;
@@ -17,7 +17,7 @@ namespace Code
 		private readonly IGroup<Entity<GameScope>> _cells;
 
 		[Inject]
-		public MoveToPlayerSystem(Contexts contexts, ChipKinds chipKinds, AvailabilityService availability)
+		public RunAwayOnDefenceSystem(Contexts contexts, ChipKinds chipKinds, AvailabilityService availability)
 		{
 			_contexts = contexts;
 			_chipKinds = chipKinds;
@@ -35,16 +35,16 @@ namespace Code
 
 		public void Initialize()
 		{
-			if (EnemyStrategy is not EnemyStrategy.MoveToPlayer)
+			if (EnemyStrategy is not EnemyStrategy.Defence)
 				return;
 
-			var strategy = MovementChips.Any(CanMoveToPlayer) ? EnemyStrategy.Waiting : EnemyStrategy.EndTurn;
+			var strategy = MovementChips.Any(CanMoveAwayFromPlayer) ? EnemyStrategy.Waiting : EnemyStrategy.EndTurn;
 			CurrentActor.Replace<CurrentStrategy, EnemyStrategy>(strategy);
 		}
 
-		private bool CanMoveToPlayer(Entity<GameScope> chip)
+		private bool CanMoveAwayFromPlayer(Entity<GameScope> chip)
 		{
-			Entity<GameScope> closerCell = null;
+			Entity<GameScope> farthestCell = null;
 
 			foreach (var ability in chip.GetDependants<GameScope, ChipsScope>())
 			{
@@ -55,17 +55,17 @@ namespace Code
 					if (!cell.Is<AvailableToPick>())
 						continue;
 
-					if (closerCell is null
-					    || closerCell.Get<DistanceToPlayer>().Value > cell.Get<DistanceToPlayer>().Value)
+					if (farthestCell is null
+					    || farthestCell.Get<DistanceToPlayer>().Value < cell.Get<DistanceToPlayer>().Value)
 					{
-						closerCell = cell;
+						farthestCell = cell;
 					}
 				}
 
-				if (closerCell is not null)
+				if (farthestCell is not null)
 				{
 					chip.Pick();
-					closerCell.Pick();
+					farthestCell.Pick();
 					return true;
 				}
 			}
