@@ -11,7 +11,8 @@ namespace Code
 		private readonly GameplayStateMachine _stateMachine;
 		private readonly WindowsService _windows;
 
-		public ShowDiceInfoSystem(Contexts contexts, GameplayStateMachine stateMachine, WindowsService windows) // TODO: use UI mediator!
+		public ShowDiceInfoSystem
+			(Contexts contexts, GameplayStateMachine stateMachine, WindowsService windows) // TODO: use UI mediator!
 			: base(contexts.Get<GameScope>())
 		{
 			_stateMachine = stateMachine;
@@ -29,7 +30,7 @@ namespace Code
 				return;
 
 			foreach (var dice in entities)
-				_windows.Show<DiceInfoWindow>().SetData(dice);
+				_windows.Show<DiceInfoWindow>()?.SetData(dice);
 		}
 	}
 }

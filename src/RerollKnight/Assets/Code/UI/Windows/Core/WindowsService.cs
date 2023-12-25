@@ -21,6 +21,9 @@ namespace Code
 		public TWindow Show<TWindow>()
 			where TWindow : IWindow
 		{
+			if (_currentWindow is IUninterruptedWindow && _currentWindow.IsOpen)
+				return default;
+
 			_currentWindow?.Hide();
 			var newWindow = _windows.Get<TWindow>();
 			_currentWindow = newWindow;

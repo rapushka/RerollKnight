@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Code
 {
-	public class SettingsWindow : WindowBase
+	public class SettingsWindow : WindowBase, IUninterruptedWindow
 	{
 		[Header("General")]
 		[SerializeField] private LocalizationSelector _localizationSelector;
