@@ -26,6 +26,9 @@ namespace Code
 				// Update
 				// Add<EndTurnSystem>();
 
+				// Visuals
+				Add<TurnCasterToTargetSystem>();
+
 				// Tear down
 				Add<ResetAbilityStateSystem>();
 			}
