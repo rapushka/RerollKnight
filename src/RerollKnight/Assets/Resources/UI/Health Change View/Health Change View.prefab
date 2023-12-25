@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 7285185723553674252}
   - component: {fileID: 441526970789746593}
   - component: {fileID: 4039648068130895712}
+  - component: {fileID: 8191655974016600886}
+  - component: {fileID: 141559339460311190}
   m_Layer: 0
   m_Name: Health Change View
   m_TagString: Untagged
@@ -59,6 +61,7 @@ MonoBehaviour:
   - {fileID: 2064222641593664407}
   - {fileID: 7285185723553674252}
   - {fileID: 4039648068130895712}
+  - {fileID: 141559339460311190}
 --- !u!114 &2502512504723820433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +154,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _listener: {fileID: 441526970789746593}
+--- !u!114 &8191655974016600886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794858843030070197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fbf38a07ff7423a9b315e78d7a858f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _root: {fileID: 7794858843030070197}
+--- !u!114 &141559339460311190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794858843030070197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6b12a840ec403b92ac410a1c7bbdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listener: {fileID: 8191655974016600886}
 --- !u!1001 &1128788868942879285
 PrefabInstance:
   m_ObjectHideFlags: 0

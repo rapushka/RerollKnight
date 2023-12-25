@@ -26,7 +26,9 @@ namespace Code
 			              .Add<Position, Vector3>(targetPosition)
 			              .Add<HealthChanged, int>(delta)
 			              .Add<DestinationPosition, Vector3>(targetPosition + _viewConfig.HealthChangeViewFlyDirection)
-			              .Add<MovingSpeed, float>(_viewConfig.HealthChangeViewFlySpeed);
+			              .Add<MovingSpeed, float>(_viewConfig.HealthChangeViewFlySpeed)
+			              .Is<DestroyAfterReachingDestination>(true)
+				;
 		}
 	}
 }
