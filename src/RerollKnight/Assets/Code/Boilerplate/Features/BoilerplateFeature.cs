@@ -9,7 +9,7 @@ namespace Code
 		public BoilerplateFeature(Contexts contexts)
 			: base(nameof(BoilerplateFeature))
 		{
-			Add(new SelfEventSystem<GameScope, EnableOutline>(contexts));
+			Add(new SelfFlagEventSystem<GameScope, EnableOutline>(contexts));
 			Add(new SelfEventSystem<GameScope, Position>(contexts));
 			Add(new SelfEventSystem<GameScope, Component.TargetState>(contexts));
 			Add(new SelfEventSystem<GameScope, Label>(contexts));
