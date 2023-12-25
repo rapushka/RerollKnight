@@ -21,6 +21,7 @@ namespace Code
 		float   RewardOffset                 { get; }
 		Vector3 HealthChangeViewFlyDirection { get; }
 		float   HealthChangeViewFlySpeed     { get; }
+		float   ShowChipDescriptionDelay     { get; }
 	}
 
 	[CreateAssetMenu(fileName = "ViewConfig", menuName = "ViewConfig", order = 0)]
@@ -32,7 +33,8 @@ namespace Code
 		[field: Header("Chips layout")]
 		[field: SerializeField] public float ChipsMovingSpeed { get; private set; }
 
-		[field: SerializeField] public Vector3 ChipDescriptionOffset { get; private set; }
+		[field: SerializeField] public Vector3 ChipDescriptionOffset    { get; private set; }
+		[field: SerializeField] public float   ShowChipDescriptionDelay { get; private set; } = 0.2f;
 
 		[field: Header("Picking")]
 		[field: SerializeField] public float PickedChipPositionY { get; private set; }
