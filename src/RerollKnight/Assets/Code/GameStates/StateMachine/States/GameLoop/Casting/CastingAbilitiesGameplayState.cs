@@ -19,15 +19,14 @@ namespace Code
 				Add<MarkAllTargetsUnavailableSystem>();
 				Add<MarkPickedChipUnavailableSystem>();
 
+				Add<TurnCasterToTargetSystem>();
+
 				Add<AbilitiesFeature>();
 				Add<ToCurrentActorStateSystem>();
 				// Add<ToCurrentActorStateIfNotRerollSystem>();
 
 				// Update
 				// Add<EndTurnSystem>();
-
-				// Visuals
-				Add<TurnCasterToTargetSystem>();
 
 				// Tear down
 				Add<ResetAbilityStateSystem>();
