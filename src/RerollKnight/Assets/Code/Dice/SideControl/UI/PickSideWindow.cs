@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code
 {
-	public class PickSideWindow : WindowBase
+	public class PickSideWindow : WindowBase, IUninterruptedWindow
 	{
 		[SerializeField] private SideButton _sideButtonPrefab;
 		[SerializeField] private Transform _sidesRoot;

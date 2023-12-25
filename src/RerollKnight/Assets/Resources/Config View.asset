@@ -16,6 +16,7 @@ MonoBehaviour:
   <RoomTransferDuration>k__BackingField: 0
   <ChipsMovingSpeed>k__BackingField: 10
   <ChipDescriptionOffset>k__BackingField: {x: 0, y: 300, z: 0}
+  <ShowChipDescriptionDelay>k__BackingField: 0.5
   <PickedChipPositionY>k__BackingField: 0.5
   <DefaultChipPositionY>k__BackingField: 0
   <UnavailableChipPositionY>k__BackingField: -0.5

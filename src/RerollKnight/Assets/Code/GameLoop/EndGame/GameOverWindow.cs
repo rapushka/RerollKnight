@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Code
 {
-	public class GameOverWindow : WindowBase
+	public class GameOverWindow : WindowBase, IUninterruptedWindow
 	{
 		[SerializeField] private Button _backToMainMenuButton;
 		private ISceneTransfer _sceneTransfer;

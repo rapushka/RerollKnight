@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code
 {
-	public class DiceInfoWindow : WindowBase
+	public class DiceInfoWindow : WindowBase, IUninterruptedWindow
 	{
 		[Header("Content")]
 		[SerializeField] private RectTransform _sidesRoot;

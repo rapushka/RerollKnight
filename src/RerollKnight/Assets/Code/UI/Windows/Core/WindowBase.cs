@@ -9,7 +9,7 @@ namespace Code
 		[SerializeField] private GameObject _root;
 		[SerializeField] private Button _closeButton;
 
-		private bool IsOpen { get => _root.activeSelf; set => _root.SetActive(value); }
+		public bool IsOpen { get => _root.activeSelf; private set => _root.SetActive(value); }
 
 		protected virtual void OnEnable()
 		{
