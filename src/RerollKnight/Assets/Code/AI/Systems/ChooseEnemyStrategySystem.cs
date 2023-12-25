@@ -1,7 +1,6 @@
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
@@ -31,7 +30,6 @@ namespace Code
 				? HasAnyAttackingChip ? EnemyStrategy.Attack : EnemyStrategy.Defence
 				: EnemyStrategy.EndTurn;
 
-			Debug.Log($"strategy = {strategy}");
 			CurrentActor.Replace<CurrentStrategy, EnemyStrategy>(strategy);
 		}
 	}
