@@ -28,7 +28,7 @@ namespace Code
 			for (var row = 0; row < sizes.Row; row++)
 			{
 				if (wallsLayout.Walls[column, row])
-					_wallsFactory.Create(new Coordinates(column, row, isFirstRoom ? Default : None));
+					_wallsFactory.Create(new Coordinates(column, row, Default));
 			}
 		}
 

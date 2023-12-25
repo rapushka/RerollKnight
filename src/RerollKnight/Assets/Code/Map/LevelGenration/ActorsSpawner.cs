@@ -1,3 +1,5 @@
+using Entitas.Generic;
+
 namespace Code
 {
 	public class ActorsSpawner
@@ -23,10 +25,10 @@ namespace Code
 
 		private Coordinates NextRandomCoordinates => _field.NextEmptyCell().GetCoordinates();
 
-		public void SpawnPlayer()
+		public Entity<GameScope> SpawnPlayer()
 		{
 			var zeroCoordinates = Coordinates.Zero.WithLayer(Coordinates.Layer.Default);
-			_actorsFactory.CreatePlayer(zeroCoordinates);
+			return _actorsFactory.CreatePlayer(zeroCoordinates);
 		}
 
 		public void SpawnEnemies()
