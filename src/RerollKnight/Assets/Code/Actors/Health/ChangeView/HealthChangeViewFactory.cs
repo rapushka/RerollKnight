@@ -24,7 +24,7 @@ namespace Code
 
 			return _assets.SpawnBehaviour(_resources.HealthChangeViewPrefab).Entity
 			              .Add<Position, Vector3>(targetPosition)
-			              .Add<ChangeHealth, int>(delta)
+			              .Add<HealthChanged, int>(delta)
 			              .Add<DestinationPosition, Vector3>(targetPosition + _viewConfig.HealthChangeViewFlyDirection)
 			              .Add<MovingSpeed, float>(_viewConfig.HealthChangeViewFlySpeed);
 		}

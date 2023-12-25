@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 6499385209994962533}
   - component: {fileID: 2064222641593664407}
   - component: {fileID: 7285185723553674252}
+  - component: {fileID: 441526970789746593}
+  - component: {fileID: 4039648068130895712}
   m_Layer: 0
   m_Name: Health Change View
   m_TagString: Untagged
@@ -56,6 +58,7 @@ MonoBehaviour:
   - {fileID: 798608434406649709}
   - {fileID: 2064222641593664407}
   - {fileID: 7285185723553674252}
+  - {fileID: 4039648068130895712}
 --- !u!114 &2502512504723820433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +125,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e208908f48b642b9bf59f1826d129e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &441526970789746593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794858843030070197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07dd7c2619f47b1af8be0da932be722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 6093843008593803078}
+--- !u!114 &4039648068130895712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794858843030070197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6b12a840ec403b92ac410a1c7bbdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listener: {fileID: 441526970789746593}
 --- !u!1001 &1128788868942879285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +162,10 @@ PrefabInstance:
     - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
       propertyPath: m_text
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
+      propertyPath: m_fontSize
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
       propertyPath: m_fontColor.b
@@ -147,12 +180,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190335
       objectReference: {fileID: 0}
     - target: {fileID: 6806393294133734597, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
       propertyPath: m_Name
       value: World Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806393294133734597, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9003832190526384785, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
       propertyPath: m_Pivot.x

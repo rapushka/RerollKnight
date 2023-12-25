@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace Code
 {
-	public class HealthChangeView : BaseListener<GameScope, HealthChange>
+	public class HealthChangeView : BaseListener<GameScope, HealthChanged>
 	{
 		[SerializeField] private TMP_Text _textMesh;
 		[SerializeField] private Color _damageColor = Color.red;
 		[SerializeField] private Color _healColor = Color.green;
 
-		public override void OnValueChanged(Entity<GameScope> entity, HealthChange component)
+		public override void OnValueChanged(Entity<GameScope> entity, HealthChanged component)
 			=> SetData(component.Value);
 
 		public void SetData(int delta)
@@ -24,7 +24,7 @@ namespace Code
 
 		private void ShowDamageTaken(int delta)
 		{
-			_textMesh.text = $"-{delta}";
+			_textMesh.text = delta.ToString();
 			_textMesh.color = _damageColor;
 		}
 
