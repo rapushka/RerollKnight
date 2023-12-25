@@ -13,7 +13,7 @@ namespace Code
 			Debug.Assert(request.Has<ForeignID>());
 
 			var value = request.Get<ChangeHealth>().Value;
-			var target = ID.Index.GetEntity(request.Get<ForeignID>().Value);
+			var target = request.GetTarget<GameScope>();
 
 			if (target.Has<Health>())
 				target.Replace<Health, int>(target.Get<Health, int>() + value);

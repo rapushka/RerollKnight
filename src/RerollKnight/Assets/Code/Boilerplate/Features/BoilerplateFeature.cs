@@ -23,6 +23,7 @@ namespace Code
 			Add(new SelfFlagEventSystem<GameScope, Visible>(contexts));
 			Add(new SelfFlagEventSystem<GameScope, Detached>(contexts));
 			Add(new SelfFlagEventSystem<GameScope, Disabled>(contexts));
+			Add(new SelfEventSystem<GameScope, HealthChanged>(contexts));
 
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 

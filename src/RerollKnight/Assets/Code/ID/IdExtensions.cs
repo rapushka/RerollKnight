@@ -53,5 +53,9 @@ namespace Code
 			where TScopeOur : IScope
 			where TScopeDependant : IScope
 			=> ForeignID.GetIndex<TScopeDependant>().GetEntities(@this.Get<ID>().Value);
+
+		public static Entity<TScope> GetTarget<TScope>(this Entity<RequestScope> @this)
+			where TScope : IScope
+			=> ID.GetIndex<TScope>().GetEntity(@this.Get<ForeignID>().Value);
 	}
 }

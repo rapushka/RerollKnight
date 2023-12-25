@@ -5,6 +5,7 @@ namespace Code
 		public HealthFeature(SystemsFactory factory)
 			: base(nameof(HealthFeature), factory)
 		{
+			Add<ViewChangeHealthSystem>();
 			Add<ApplyChangeHealthSystem>();
 			Add<DestroyEntityWithZeroHpSystem>();
 			Add<ClampMaxHealSystem>();

@@ -37,7 +37,10 @@ namespace Code
 			for (var i = 0; i < enemiesCount; i++)
 			{
 				var coordinates = NextRandomCoordinates.WithLayer(Coordinates.Layer.Default);
-				_actorsFactory.CreateEnemy(coordinates);
+				if (coordinates != Coordinates.Zero.WithLayer(Coordinates.Layer.Default))
+					_actorsFactory.CreateEnemy(coordinates);
+				else
+					i--;
 			}
 		}
 	}
