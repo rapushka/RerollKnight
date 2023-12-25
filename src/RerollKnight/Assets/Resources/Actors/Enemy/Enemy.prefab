@@ -582,6 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 6902015084986977219}
+  _outline: {fileID: 3147297109102878991}
   _duration: 0.2
   _strength: 0.25
   _vibrato: 100
