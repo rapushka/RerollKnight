@@ -56,7 +56,7 @@ namespace Code
 			var roomEntity = _roomFactory.Create(_currentCoordinates);
 
 			_actorsSpawner.SpawnEnemies();
-			_wallsSpawner.SpawnWalls();
+			_wallsSpawner.SpawnWalls(roomEntity);
 
 			BindResidentsToRoom(roomEntity);
 			roomEntity.Is<Disabled>(true);

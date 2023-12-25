@@ -1,34 +1,37 @@
+using System.Linq;
+using Entitas.Generic;
+using static Code.Coordinates.Layer;
+
 namespace Code
 {
 	public class WallsSpawner
 	{
-		private readonly RandomService _random;
-		private readonly IRandomFieldAccess _field;
 		private readonly GenerationConfig _generationConfig;
 		private readonly WallsFactory _wallsFactory;
 
-		public WallsSpawner
-		(
-			RandomService random,
-			IRandomFieldAccess field,
-			GenerationConfig generationConfig,
-			WallsFactory wallsFactory
-		)
+		public WallsSpawner(GenerationConfig generationConfig, WallsFactory wallsFactory)
 		{
-			_random = random;
-			_field = field;
 			_generationConfig = generationConfig;
 			_wallsFactory = wallsFactory;
 		}
 
-		private Coordinates NextRandomCoordinates => _field.NextEmptyCell().GetCoordinates();
-
-		public void SpawnWalls()
+		public void SpawnWalls(Entity<GameScope> roomEntity)
 		{
-			var count = _random.RangeInclusive(_generationConfig.WallsCount);
+			var wallsLayout = IsFirstRoom(roomEntity)
+				? _generationConfig.WallLayouts.Where((rl) => rl.CanBeFirst).PickRandom()
+				: _generationConfig.WallLayouts.PickRandom();
 
-			for (var i = 0; i < count; i++)
-				_wallsFactory.Create(NextRandomCoordinates.WithLayer(Coordinates.Layer.Default));
+			var sizes = _generationConfig.RoomSizes;
+
+			for (var column = 0; column < sizes.Column; column++)
+			for (var row = 0; row < sizes.Row; row++)
+			{
+				if (wallsLayout.Walls[column, row])
+					_wallsFactory.Create(new Coordinates(column, row, Default));
+			}
 		}
+
+		private static bool IsFirstRoom(Entity<GameScope> roomEntity)
+			=> roomEntity.GetCoordinates() == Coordinates.Zero.WithLayer(Room);
 	}
 }
