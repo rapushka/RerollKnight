@@ -17,7 +17,8 @@ namespace Code
 
 		public void SpawnWalls(Entity<GameScope> roomEntity)
 		{
-			var wallsLayout = IsFirstRoom(roomEntity)
+			var isFirstRoom = IsFirstRoom(roomEntity);
+			var wallsLayout = isFirstRoom
 				? _generationConfig.WallLayouts.Where((rl) => rl.CanBeFirst).PickRandom()
 				: _generationConfig.WallLayouts.PickRandom();
 
@@ -27,11 +28,11 @@ namespace Code
 			for (var row = 0; row < sizes.Row; row++)
 			{
 				if (wallsLayout.Walls[column, row])
-					_wallsFactory.Create(new Coordinates(column, row, Default));
+					_wallsFactory.Create(new Coordinates(column, row, isFirstRoom ? Default : None));
 			}
 		}
 
 		private static bool IsFirstRoom(Entity<GameScope> roomEntity)
-			=> roomEntity.GetCoordinates() == Coordinates.Zero.WithLayer(Room);
+			=> roomEntity.GetCoordinates(withLayer: Room) == Coordinates.Zero.WithLayer(Room);
 	}
 }

@@ -22,7 +22,7 @@ namespace Code.Editor
 				var row = rows.GetArrayElementAtIndex(y).FindPropertyRelative("Value");
 				newPosition.height = ElementHeight;
 
-				newPosition.width = ElementHeight; // position.width / Constants.RoomSizes * 0.33f;
+				newPosition.width = ElementHeight;
 				DrawRow(row, newPosition);
 
 				newPosition.x = position.x;
