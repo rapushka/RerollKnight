@@ -25,6 +25,7 @@ namespace Code
 			Add(new SelfFlagEventSystem<GameScope, Disabled>(contexts));
 			Add(new SelfEventSystem<GameScope, HealthChanged>(contexts));
 			Add(new SelfFlagEventSystem<GameScope, AvailableToPick>(contexts));
+			Add(new SelfFlagEventSystem<GameScope, Hoverable>(contexts));
 
 			Add(new RemoveComponentsSystem<Clicked, GameScope>(contexts));
 
