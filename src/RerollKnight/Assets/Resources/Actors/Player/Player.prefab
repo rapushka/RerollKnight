@@ -362,6 +362,7 @@ MonoBehaviour:
   - {fileID: 1469071566979052489}
   - {fileID: 8761945574703728955}
   - {fileID: 3563892781548566025}
+  - {fileID: 6947698941070478960}
 --- !u!114 &9132402743522516104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,6 +722,8 @@ GameObject:
   - component: {fileID: 4489112502014423140}
   - component: {fileID: 4844073562993678207}
   - component: {fileID: 8363306222414013159}
+  - component: {fileID: 9170202695307735017}
+  - component: {fileID: 6947698941070478960}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -854,6 +857,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityBehaviour: {fileID: 4370890605880970255}
+--- !u!114 &9170202695307735017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056227489009913781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e207f6c6ee6429f9b34e0691acf474f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 254112483808506409}
+--- !u!114 &6947698941070478960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056227489009913781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6b12a840ec403b92ac410a1c7bbdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listener: {fileID: 9170202695307735017}
 --- !u!1 &5490058348445534382
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,5 +10,5 @@ namespace Code.Component
 	[GameScope] public sealed class Target : FlagComponent { }
 
 	/// <summary> can be picked as a target, right now </summary>
-	[GameScope] public sealed class AvailableToPick : FlagComponent { }
+	[GameScope] public sealed class AvailableToPick : FlagComponent, IEvent<Self>  { }
 }

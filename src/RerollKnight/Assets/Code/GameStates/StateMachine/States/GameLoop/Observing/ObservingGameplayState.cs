@@ -16,9 +16,13 @@ namespace Code
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 				Add<AvailablePickDoorsIfThereIsNoEnemiesSystem>();
+				Add<MarkTargetsHoverableOnInitializeSystem>();
 
 				// Execute
 				Add<PickChipSystem>();
+
+				// Tear Down
+				Add<UnMarkTargetsHoverableOnTearDownSystem>();
 			}
 		}
 	}
