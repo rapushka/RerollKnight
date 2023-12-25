@@ -13,6 +13,9 @@ namespace Code
 		[field: SerializeField] public float PlayerBudget { get; private set; }
 		[field: SerializeField] public float EnemyBudget  { get; private set; }
 
+		[field: SerializeField] public List<ChipsComponentID> AttackingAbilities { get; private set; }
+		[field: SerializeField] public List<ChipsComponentID> MovementAbilities  { get; private set; }
+
 		public IEnumerable<ChipConfigBehaviour> EnemyChips => ChipsBehaviours.Except(PlayerOnlyChips);
 	}
 }

@@ -1,4 +1,3 @@
-using Code.Component;
 using Zenject;
 
 namespace Code
@@ -16,18 +15,24 @@ namespace Code
 				Add<UnpickAllSystem>();
 				Add<MarkAllTargetsUnavailableSystem>();
 
-				Add<PickRandom<Chip, AvailableToPick>>();
+				// 🧐
+				Add<ChooseEnemyStrategySystem>();
+				Add<UpdateDistanceToPlayerSystem>();
+				Add<TryAttackSystem>();
+				Add<MoveToPlayerSystem>();
+				Add<RunAwayOnDefenceSystem>();
 
 				Add<PrepareAbilitiesOfPickedChipSystem>();
-				Add<AvailabilityFeature>();
+				// Add<AvailabilityFeature>();
 
-				Add<PickRandom<Target, AvailableToPick>>();
-				Add<HandleMultiTargetAbilitySystem>();
+				// Add<PickRandom<Target, AvailableToPick>>();
+				// Add<HandleMultiTargetAbilitySystem>();
 
 				// if casting a chip – will pass to Casting State
 				Add<CastAbilitiesSystem>();
 				// otherwise – turn will be ended
-				Add<EndTurnOnOutOfChipsSystem>();
+				Add<EndTurnOnStrategySystem>();
+				// Add<EndTurnOnOutOfChipsSystem>();
 			}
 		}
 	}
