@@ -2,6 +2,7 @@ using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using Zenject;
+using static Code.Coordinates.Layer;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
@@ -16,6 +17,7 @@ namespace Code
 		private readonly IGroup<Entity<GameScope>> _roomResidents;
 
 		private Coordinates _currentCoordinates;
+		private Entity<GameScope> _player;
 
 		[Inject]
 		public GenerateLevelSystem
@@ -35,7 +37,7 @@ namespace Code
 			_wallsSpawner = wallsSpawner;
 
 			_roomResidents = contexts.GetGroup(AllOf(Get<RoomResident>()).NoneOf(Get<ForeignID>()));
-			_lastCoordinates = generationConfig.LevelSizes.Add(column: -1, row: -1).WithLayer(Coordinates.Layer.Ignore);
+			_lastCoordinates = generationConfig.LevelSizes.Add(column: -1, row: -1).WithLayer(Ignore);
 		}
 
 		public override void Initialize()
@@ -45,7 +47,9 @@ namespace Code
 			_currentCoordinates = Coordinates.Zero.WithLayer(Coordinates.Layer.Room);
 
 			_cellsSpawner.SpawnCells();
-			_actorsSpawner.SpawnPlayer();
+			_player = _actorsSpawner.SpawnPlayer();
+
+			_player.ReplaceCoordinates(_player.GetCoordinates(withLayer: None));
 		}
 
 		public void Execute()
@@ -68,6 +72,13 @@ namespace Code
 			}
 
 			_currentCoordinates = NextCoordinates();
+		}
+
+		public override void TearDown()
+		{
+			base.TearDown();
+
+			_player.ReplaceCoordinates(_player.GetCoordinates(withLayer: Default));
 		}
 
 		private Coordinates NextCoordinates()
