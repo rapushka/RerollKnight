@@ -14,7 +14,9 @@ namespace Code
 		GameEntityView EnemyHealthBar   { get; }
 		GameEntityView WallPrefab       { get; }
 		GameEntityView DoorPrefab       { get; }
-		GameEntityView RewardPrefab       { get; }
+		GameEntityView RewardPrefab     { get; }
+
+		GameEntityView HealthChangeViewPrefab { get; }
 	}
 
 	public class ResourcesService : IResourcesService
@@ -29,5 +31,8 @@ namespace Code
 		public GameEntityView WallPrefab       => Resources.Load<GameEntityView>("Field/Wall Prefab");
 		public GameEntityView DoorPrefab       => Resources.Load<GameEntityView>("Field/Door");
 		public GameEntityView RewardPrefab     => Resources.Load<GameEntityView>("Reward/Reward View");
+
+		public GameEntityView HealthChangeViewPrefab
+			=> Resources.Load<GameEntityView>("UI/Health Change View/Health Change View");
 	}
 }
