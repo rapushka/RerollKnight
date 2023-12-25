@@ -3,6 +3,7 @@ namespace Code
 	public static class Constants
 	{
 		public const double Tolerance = 0.01f;
+		public const int RoomSizes = 7; // TODO: it shouldn't be hardcoded
 
 		public static class ToolPath
 		{

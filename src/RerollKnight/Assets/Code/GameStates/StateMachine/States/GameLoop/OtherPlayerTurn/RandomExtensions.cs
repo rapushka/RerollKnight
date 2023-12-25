@@ -11,7 +11,7 @@ namespace Code
 			=> @this.OrderBy((_) => RandomService.Instance.Range(0, 100));
 
 		public static T PickRandom<T>(this IEnumerable<T> @this)
-			where T : class, IEntity
+			where T : class
 		{
 			var array = @this as T[] ?? @this.ToArray();
 			return array.PickRandom();

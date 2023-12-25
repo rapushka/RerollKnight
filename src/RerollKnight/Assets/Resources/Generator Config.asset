@@ -15,9 +15,6 @@ MonoBehaviour:
   <EnemiesCount>k__BackingField:
     <Min>k__BackingField: 1
     <Max>k__BackingField: 4
-  <WallsCount>k__BackingField:
-    <Min>k__BackingField: 0
-    <Max>k__BackingField: 10
   <LevelSizes>k__BackingField:
     <Column>k__BackingField: 5
     <Row>k__BackingField: 5
@@ -26,3 +23,112 @@ MonoBehaviour:
     <Column>k__BackingField: 7
     <Row>k__BackingField: 7
     <OnLayer>k__BackingField: 5
+  <WallLayouts>k__BackingField:
+  - _walls:
+      Rows:
+      - Value: 00000000000000
+      - Value: 00000100010000
+      - Value: 00010100010100
+      - Value: 00000000000000
+      - Value: 00010100010100
+      - Value: 00000100010000
+      - Value: 00000000000000
+  - _walls:
+      Rows:
+      - Value: 00000000000000
+      - Value: 00010000000100
+      - Value: 00000001000000
+      - Value: 00000101010000
+      - Value: 00000001000000
+      - Value: 00010000000100
+      - Value: 00000000000000
+  - _walls:
+      Rows:
+      - Value: 00000000000000
+      - Value: 00010101010100
+      - Value: 00000000000000
+      - Value: 00000101010000
+      - Value: 00000000000000
+      - Value: 00010101010100
+      - Value: 00000000000000
+  - _walls:
+      Rows:
+      - Value: 00000000000000
+      - Value: 00010000000100
+      - Value: 00010001000100
+      - Value: 00010001000100
+      - Value: 00010001000100
+      - Value: 00010000000100
+      - Value: 00000000000000
+  - _walls:
+      Rows:
+      - Value: 00000000000000
+      - Value: 00000100010000
+      - Value: 00010001000100
+      - Value: 00010000000100
+      - Value: 00000100010000
+      - Value: 00000001000000
+      - Value: 00000000000000
+  - _walls:
+      Rows:
+      - Value: 01010100010101
+      - Value: 01010100010101
+      - Value: 01010100010101
+      - Value: 00000000000000
+      - Value: 01010100010101
+      - Value: 01010100010101
+      - Value: 01010100010101
+  - _walls:
+      Rows:
+      - Value: 01010000000101
+      - Value: 01010000000101
+      - Value: 00000001000000
+      - Value: 00000101010000
+      - Value: 00000001000000
+      - Value: 01010000000101
+      - Value: 01010000000101
+  - _walls:
+      Rows:
+      - Value: 00000000000000
+      - Value: 00010101010100
+      - Value: 00000000000100
+      - Value: 00010101000100
+      - Value: 00010000000100
+      - Value: 00010101010100
+      - Value: 00000000000000
+  - _walls:
+      Rows:
+      - Value: 01010100010101
+      - Value: 01010000000101
+      - Value: 01000100010001
+      - Value: 00000000000000
+      - Value: 01000100010001
+      - Value: 01010000000101
+      - Value: 01010100010101
+  - _walls:
+      Rows:
+      - Value: 01010100010101
+      - Value: 00000000000101
+      - Value: 00010101000101
+      - Value: 00010001000100
+      - Value: 00010000000100
+      - Value: 00010101010100
+      - Value: 00000000000000
+  - _walls:
+      Rows:
+      - Value: 00000000000000
+      - Value: 00010000000100
+      - Value: 00000100010000
+      - Value: 00000001000000
+      - Value: 00000100010000
+      - Value: 00010000000100
+      - Value: 00000000000000
+  - _walls:
+      Rows:
+      - Value: 00000000000000
+      - Value: 00010000000100
+      - Value: 00010001000100
+      - Value: 00000001000000
+      - Value: 00010001000100
+      - Value: 00010000000100
+      - Value: 00000000000000
