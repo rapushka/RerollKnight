@@ -296,7 +296,9 @@ GameObject:
   - component: {fileID: 4530499903289809466}
   - component: {fileID: 3111535986859926558}
   - component: {fileID: 3563892781548566025}
-  - component: {fileID: 7099129330579240543}
+  - component: {fileID: 3444275194601289944}
+  - component: {fileID: 4067339265237087811}
+  - component: {fileID: 6051909606306814592}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -364,6 +366,7 @@ MonoBehaviour:
   - {fileID: 8761945574703728955}
   - {fileID: 3563892781548566025}
   - {fileID: 6947698941070478960}
+  - {fileID: 6051909606306814592}
 --- !u!114 &9132402743522516104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,27 +654,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _listener: {fileID: 3111535986859926558}
---- !u!95 &7099129330579240543
-Animator:
-  serializedVersion: 5
+--- !u!111 &3444275194601289944
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013348523563436917}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 17d04ef6f770d534abe61f3eb278b740, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: d97f7bc75d7cd5e4f9acfa4e11e3298a, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &4067339265237087811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013348523563436917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226aa2040d1c4dc68e048014f5d8ecb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation: {fileID: 3444275194601289944}
+  _idleClip: {fileID: 7400000, guid: d97f7bc75d7cd5e4f9acfa4e11e3298a, type: 2}
+--- !u!114 &6051909606306814592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013348523563436917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6b12a840ec403b92ac410a1c7bbdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listener: {fileID: 4067339265237087811}
 --- !u!1 &2740215878909177901
 GameObject:
   m_ObjectHideFlags: 0
