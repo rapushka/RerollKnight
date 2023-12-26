@@ -13,6 +13,7 @@ namespace Code
 		{
 			Entity.Is<AnimationPrepared>(false);
 			Play(component.Value);
+			Entity.Is<AnimationEnded>(false);
 		}
 
 		public void OnAnimationPrepared()
@@ -25,6 +26,7 @@ namespace Code
 			Play(_idleClip);
 			Entity.Remove<PlayAnimation>();
 			Entity.Is<AnimationPrepared>(false);
+			Entity.Is<AnimationEnded>(true);
 		}
 
 		private void Play(AnimationClip clip)

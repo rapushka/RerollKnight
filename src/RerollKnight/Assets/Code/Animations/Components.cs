@@ -10,4 +10,6 @@ namespace Code.Component
 	[GameScope] public sealed class CastAnimation : ValueComponent<AnimationClip> { }
 
 	[GameScope] public sealed class AnimationPrepared : FlagComponent { }
+
+	[GameScope] public sealed class AnimationEnded : FlagComponent { }
 }
