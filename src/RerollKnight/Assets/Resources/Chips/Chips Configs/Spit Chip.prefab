@@ -57,6 +57,7 @@ MonoBehaviour:
   <Rarity>k__BackingField: 0.1
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: 78f3146eda6696a55a3c771a7e89a742, type: 3}
+  <CastAnimation>k__BackingField: {fileID: 0}
   references:
     version: 2
     RefIds: []

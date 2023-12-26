@@ -20,6 +20,7 @@ namespace Code
 				Add<MarkPickedChipUnavailableSystem>();
 
 				Add<TurnCasterToTargetSystem>();
+				Add<PlayCastAnimationSystem>();
 
 				Add<AbilitiesFeature>();
 				Add<ToCurrentActorStateSystem>();

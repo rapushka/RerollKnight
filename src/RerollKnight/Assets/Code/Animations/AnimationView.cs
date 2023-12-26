@@ -1,7 +1,8 @@
+using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
 
-namespace Code.Component
+namespace Code
 {
 	public class AnimationView : BaseListener<GameScope, PlayAnimation>
 	{
@@ -11,6 +12,7 @@ namespace Code.Component
 		public override void OnValueChanged(Entity<GameScope> entity, PlayAnimation component)
 		{
 			Play(component.Value);
+			entity.Remove<PlayAnimation>(); // TODO: wouldn't it break iteration? 
 		}
 
 		public void OnAnimationEnd()
