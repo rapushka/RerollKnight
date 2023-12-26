@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Code
 {
-	public class AnimationView : BaseListener<GameScope, PlayAnimation>
+	public class AnimatorView : BaseListener<GameScope, PlayAnimation>
 	{
-		[SerializeField] private Animation _animation;
+		[SerializeField] private Animator _animator;
 		[SerializeField] private AnimationClip _idleClip;
 
 		public override void OnValueChanged(Entity<GameScope> entity, PlayAnimation component)
@@ -23,8 +23,7 @@ namespace Code
 
 		private void Play(AnimationClip clip)
 		{
-			_animation.clip = clip;
-			_animation.Play();
+			_animator.Play(clip.name);
 		}
 	}
 }

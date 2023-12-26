@@ -24,7 +24,7 @@ namespace Code
 			var pickedChip = PickedChip;
 
 			if (pickedChip.Has<CastAnimation>())
-				CurrentActor.Add<PlayAnimation, AnimationClip>(pickedChip.Get<CastAnimation>().Value);
+				CurrentActor.Replace<PlayAnimation, AnimationClip>(pickedChip.Get<CastAnimation>().Value);
 		}
 	}
 }
