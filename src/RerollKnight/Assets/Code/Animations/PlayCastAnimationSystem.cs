@@ -14,7 +14,7 @@ namespace Code
 			_contexts = contexts;
 		}
 
-		private Entity<GameScope> PickedChip => Unique.GetEntity<PickedChip>();
+		private Entity<GameScope> PickedChip   => Unique.GetEntity<PickedChip>();
 		private Entity<GameScope> CurrentActor => Unique.GetEntity<CurrentActor>();
 
 		private UniqueComponentsContainer<GameScope> Unique => _contexts.Get<GameScope>().Unique;

@@ -19,9 +19,6 @@ namespace Code
 				Add<MarkAllTargetsUnavailableSystem>();
 				Add<MarkPickedChipUnavailableSystem>();
 
-				Add<TurnCasterToTargetSystem>();
-				Add<PlayCastAnimationSystem>();
-
 				Add<AbilitiesFeature>();
 				Add<ToCurrentActorStateSystem>();
 				// Add<ToCurrentActorStateIfNotRerollSystem>();

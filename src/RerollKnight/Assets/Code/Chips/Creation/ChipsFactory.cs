@@ -52,9 +52,8 @@ namespace Code
 			           .Add<ForeignID, string>(face.EnsureID())
 				;
 
-			if (config.CastAnimation is not null)
+			if (config.CastAnimation != null)
 				chip.Add<CastAnimation, AnimationClip>(config.CastAnimation);
-
 
 			foreach (var abilityConfig in config.Abilities)
 				_abilitiesFactory.Create(abilityConfig, chip);

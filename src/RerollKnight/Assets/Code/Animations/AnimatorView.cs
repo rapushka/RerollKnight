@@ -11,14 +11,20 @@ namespace Code
 
 		public override void OnValueChanged(Entity<GameScope> entity, PlayAnimation component)
 		{
+			Entity.Is<AnimationPrepared>(false);
 			Play(component.Value);
-			entity.Remove<PlayAnimation>(); // TODO: wouldn't it break iteration? 
+		}
+
+		public void OnAnimationPrepared()
+		{
+			Entity.Is<AnimationPrepared>(true);
 		}
 
 		public void OnAnimationEnd()
 		{
-			Debug.Log(nameof(OnAnimationEnd));
 			Play(_idleClip);
+			Entity.Remove<PlayAnimation>();
+			Entity.Is<AnimationPrepared>(false);
 		}
 
 		private void Play(AnimationClip clip)
