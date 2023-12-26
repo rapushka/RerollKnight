@@ -53,7 +53,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Cost>k__BackingField: 3
+  <Cost>k__BackingField: 6
   <Rarity>k__BackingField: 1
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: edf8878a52925f184bdc503610bb5e83, type: 3}
