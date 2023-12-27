@@ -8,7 +8,14 @@ namespace Code
 	{
 		[SerializeField] private GameEntityBehaviour _entityBehaviour;
 
-		public bool Hovered { set => _entityBehaviour.Entity.Is<Hovered>(value); }
+		public bool Hovered
+		{
+			set
+			{
+				if (_entityBehaviour.Entity.isEnabled)
+					_entityBehaviour.Entity.Is<Hovered>(value);
+			}
+		}
 
 		private void OnMouseEnter() => Hovered = true;
 
