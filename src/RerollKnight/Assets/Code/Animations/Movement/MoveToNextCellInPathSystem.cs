@@ -17,7 +17,7 @@ namespace Code
 			_viewConfig = viewConfig;
 			_notDirectedEntities = contexts.GetGroup(AllOf(Get<Path>()).NoneOf(Get<DestinationPosition>()));
 		}
-		
+
 		public void Execute()
 		{
 			foreach (var e in _notDirectedEntities.GetEntities())
@@ -29,7 +29,20 @@ namespace Code
 				e.Replace<MovingSpeed, float>(_viewConfig.DiceWalkingSpeed);
 
 				if (!path.Any())
-					e.Remove<Path>();
+					Finish(e);
+			}
+		}
+
+		private static void Finish(Entity<GameScope> e)
+		{
+			e.Remove<Path>();
+
+			if (e.Has<ListenerComponent<GameScope, PlayAnimation>>())
+			{
+				var listeners = e.Get<ListenerComponent<GameScope, PlayAnimation>>().Value;
+
+				foreach (var animatorView in listeners.Cast<AnimatorView>())
+					animatorView.OnAnimationEnd();
 			}
 		}
 	}

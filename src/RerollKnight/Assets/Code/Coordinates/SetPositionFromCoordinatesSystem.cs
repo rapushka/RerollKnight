@@ -23,6 +23,9 @@ namespace Code
 		{
 			foreach (var e in _entities.Where((e) => !e.Is<Detached>()))
 			{
+				if (e.Has<DontTranslateCoordinates>())
+					return;
+
 				var coordinates = e.Get<Component.Coordinates>().Value;
 				var position = coordinates.ToTopDown();
 

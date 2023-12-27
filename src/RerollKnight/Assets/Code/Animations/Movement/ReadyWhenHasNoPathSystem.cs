@@ -13,8 +13,8 @@ namespace Code
 			_contexts = contexts;
 		}
 
-		private Entity<GameScope> CurrentActor => Unique.GetEntity<CurrentActor>();
-		private UniqueComponentsContainer<GameScope> Unique => _contexts.Get<GameScope>().Unique;
+		private Entity<GameScope>                    CurrentActor => Unique.GetEntity<CurrentActor>();
+		private UniqueComponentsContainer<GameScope> Unique       => _contexts.Get<GameScope>().Unique;
 
 		public override void Initialize()
 		{
@@ -22,6 +22,7 @@ namespace Code
 
 			ReadinessEntity.Add<DebugName, string>("Ready When Has No Path");
 			Execute();
+			CurrentActor.Add<DontTranslateCoordinates>();
 		}
 
 		public void Execute()
@@ -30,7 +31,13 @@ namespace Code
 				return;
 
 			Ready = !CurrentActor.Has<Path>() && !CurrentActor.Has<DestinationPosition>();
-			CurrentActor.RemoveSafety<Component.Coordinates>();
+		}
+
+		public override void TearDown()
+		{
+			base.TearDown();
+
+			CurrentActor.Remove<DontTranslateCoordinates>();
 		}
 	}
 }
