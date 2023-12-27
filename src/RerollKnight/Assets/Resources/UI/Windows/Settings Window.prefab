@@ -515,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151122375162700336, guid: 8a7bc45bb0edb4b0a9894bd71051e1c4, type: 3}
       propertyPath: m_fontSize
-      value: 45
+      value: 38.15
       objectReference: {fileID: 0}
     - target: {fileID: 1151122375162700336, guid: 8a7bc45bb0edb4b0a9894bd71051e1c4, type: 3}
       propertyPath: m_fontStyle
@@ -665,7 +665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151122375162700336, guid: 8a7bc45bb0edb4b0a9894bd71051e1c4, type: 3}
       propertyPath: m_fontSize
-      value: 45
+      value: 38.15
       objectReference: {fileID: 0}
     - target: {fileID: 1151122375162700336, guid: 8a7bc45bb0edb4b0a9894bd71051e1c4, type: 3}
       propertyPath: m_fontStyle
@@ -1382,7 +1382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151122375162700336, guid: 8a7bc45bb0edb4b0a9894bd71051e1c4, type: 3}
       propertyPath: m_fontSize
-      value: 45
+      value: 32.3
       objectReference: {fileID: 0}
     - target: {fileID: 1151122375162700336, guid: 8a7bc45bb0edb4b0a9894bd71051e1c4, type: 3}
       propertyPath: m_fontStyle
@@ -1402,7 +1402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151122375162700336, guid: 8a7bc45bb0edb4b0a9894bd71051e1c4, type: 3}
       propertyPath: m_enableAutoSizing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1151122375162700336, guid: 8a7bc45bb0edb4b0a9894bd71051e1c4, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -1683,6 +1683,18 @@ PrefabInstance:
     - target: {fileID: 79065455674052487, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
       propertyPath: m_Name
       value: Settings Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 389610323676341872, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
+      propertyPath: m_Color.b
+      value: 0.58879006
+      objectReference: {fileID: 0}
+    - target: {fileID: 389610323676341872, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5481706
+      objectReference: {fileID: 0}
+    - target: {fileID: 389610323676341872, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5353675
       objectReference: {fileID: 0}
     - target: {fileID: 1317881465530079202, guid: 59d86c3c756f11ac6bded1c47512db68, type: 3}
       propertyPath: m_Pivot.x
