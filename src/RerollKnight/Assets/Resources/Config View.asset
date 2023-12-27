@@ -27,4 +27,4 @@ MonoBehaviour:
   <RewardOffset>k__BackingField: 3
   <HealthChangeViewFlyDirection>k__BackingField: {x: 0, y: 3, z: 0}
   <HealthChangeViewFlySpeed>k__BackingField: 4
-  <DiceWalkingSpeed>k__BackingField: 5
+  <DiceWalkingSpeed>k__BackingField: 2.5
