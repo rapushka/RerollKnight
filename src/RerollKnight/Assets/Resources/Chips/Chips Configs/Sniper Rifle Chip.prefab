@@ -58,7 +58,7 @@ MonoBehaviour:
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: edf8878a52925f184bdc503610bb5e83, type: 3}
   <CastAnimation>k__BackingField: {fileID: 7400000, guid: be6336027d2faa474bc252e4dc4c8680, type: 2}
-  <ItemPrefab>k__BackingField: {fileID: 2352997721424495953, guid: bb0cd604d12965b48bc6104313af13d8, type: 3}
+  <ItemPrefab>k__BackingField: {fileID: 2632992223163535468, guid: 2591d0cb6cfae226b9dd939aa5de9332, type: 3}
   references:
     version: 2
     RefIds: []
