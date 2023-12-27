@@ -12,6 +12,8 @@ namespace Code
 				: base($"{nameof(StartCastAnimationGameplayState)}.{nameof(StateFeature)}", factory)
 			{
 				// Initialize
+				Add<MarkAllTargetsUnavailableSystem>();
+
 				Add<TurnCasterToTargetSystem>();
 				Add<SpawnHoldingItemInHandSystem>();
 				Add<PlayCastAnimationSystem>();
@@ -19,6 +21,7 @@ namespace Code
 				// Walking
 				Add<SetPathSystem>();
 				Add<ReadyWhenHasNoPathSystem>();
+				Add<TurnToNextCellInPathSystem>();
 				Add<MoveToNextCellInPathSystem>();
 
 				Add<PrepareAnimationSystem>();

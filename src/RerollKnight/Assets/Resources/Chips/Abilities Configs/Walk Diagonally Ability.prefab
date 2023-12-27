@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: -7693847416615654713}
   - component: {fileID: 4438489512886087768}
   - component: {fileID: 915410690454322718}
+  - component: {fileID: 1679938492521655072}
   m_Layer: 0
-  m_Name: Walk Ability
+  m_Name: Walk Diagonally Ability
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,6 +58,7 @@ MonoBehaviour:
   - {fileID: 915410690454322718}
   - {fileID: -7693847416615654713}
   - {fileID: -7510648462553622220}
+  - {fileID: 1679938492521655072}
 --- !u!114 &-7510648462553622220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,3 +128,15 @@ MonoBehaviour:
   - <Component>k__BackingField:
       _name: Empty
     <MustHave>k__BackingField: 1
+--- !u!114 &1679938492521655072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c270d6844e44d3a0c735174c37e2c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

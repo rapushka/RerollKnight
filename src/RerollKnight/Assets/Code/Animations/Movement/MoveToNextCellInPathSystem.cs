@@ -7,7 +7,7 @@ using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
-	public class MoveToNextCellInPathSystem : IExecuteSystem, ITearDownSystem
+	public class MoveToNextCellInPathSystem : IExecuteSystem
 	{
 		private readonly IViewConfig _viewConfig;
 		private readonly IGroup<Entity<GameScope>> _notDirectedEntities;
@@ -25,17 +25,12 @@ namespace Code
 				var path = e.Get<Path>().Value;
 				var nextCoordinates = path.Dequeue();
 
-				Debug.Log($"nextCoordinates = {nextCoordinates} WorldPoint = {nextCoordinates.ToWorldPoint()}");
 				e.Add<DestinationPosition, Vector3>(nextCoordinates.ToWorldPoint());
 				e.Replace<MovingSpeed, float>(_viewConfig.DiceWalkingSpeed);
 
 				if (!path.Any())
 					e.Remove<Path>();
 			}
-		}
-
-		public void TearDown()
-		{
 		}
 	}
 }

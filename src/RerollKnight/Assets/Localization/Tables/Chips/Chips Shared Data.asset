@@ -175,6 +175,10 @@ MonoBehaviour:
     m_Key: MoveChipToSideAbility
     m_Metadata:
       m_Items: []
+  - m_Id: 3748261780410368
+    m_Key: WalkDiagonallyLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
