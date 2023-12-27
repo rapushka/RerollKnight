@@ -209,6 +209,10 @@ MonoBehaviour:
       which the chip will be moved
     m_Metadata:
       m_Items: []
+  - m_Id: 3748261780410368
+    m_Localized: Walk Diagonally
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

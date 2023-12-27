@@ -21,9 +21,10 @@ MonoBehaviour:
   <DefaultChipPositionY>k__BackingField: 0
   <UnavailableChipPositionY>k__BackingField: -0.5
   <MaxDistanceBetweenChips>k__BackingField: 1.235
-  <EnemyThinkingDuration>k__BackingField: 0.25
+  <EnemyThinkingDuration>k__BackingField: 0.5
   <RerollDuration>k__BackingField: 1
   <RerollThrowHeight>k__BackingField: 1.5
   <RewardOffset>k__BackingField: 3
   <HealthChangeViewFlyDirection>k__BackingField: {x: 0, y: 3, z: 0}
   <HealthChangeViewFlySpeed>k__BackingField: 4
+  <DiceWalkingSpeed>k__BackingField: 3.5

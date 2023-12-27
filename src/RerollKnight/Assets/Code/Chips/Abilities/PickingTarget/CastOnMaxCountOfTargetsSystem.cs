@@ -27,7 +27,7 @@ namespace Code
 		public void Execute()
 		{
 			if (FilledAbilities.WhereStateIs(AbilityState.Prepared).Any())
-				StateMachine.ToState<CastingAbilitiesGameplayState>();
+				StateMachine.ToState<StartCastAnimationGameplayState>();
 		}
 	}
 }

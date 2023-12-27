@@ -53,7 +53,9 @@ namespace Code
 				// Fight
 				typeof(ObservingGameplayState),
 				typeof(ChipPickedGameplayState),
+				typeof(StartCastAnimationGameplayState),
 				typeof(CastingAbilitiesGameplayState),
+				// typeof(todo: wait for animations end),
 				typeof(TurnEndedGameplayState),
 				typeof(RerollDicesGameplayState),
 				typeof(PassTurnGameplayState),

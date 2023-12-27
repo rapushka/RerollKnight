@@ -7,7 +7,7 @@ namespace Code.Editor
 	[CustomPropertyDrawer(typeof(ChipConfigBehaviour))]
 	public class ChipConfigDrawer : PropertyDrawer
 	{
-		private static readonly float _lineHeight = EditorGUIUtility.singleLineHeight;
+		private static readonly float LineHeight = EditorGUIUtility.singleLineHeight;
 
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
@@ -54,6 +54,6 @@ namespace Code.Editor
 		}
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-			=> _lineHeight / 2;
+			=> LineHeight / 2;
 	}
 }

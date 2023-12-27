@@ -44,7 +44,7 @@ namespace Code
 				e.Is<AvailableToPick>(true);
 		}
 
-		private void AvailableByRange(Entity<GameScope> target, Entity<ChipsScope> ability)
+		public void AvailableByRange(Entity<GameScope> target, Entity<ChipsScope> ability)
 		{
 			if (!ability.Has<Range>())
 				return;
@@ -57,7 +57,7 @@ namespace Code
 				target.Is<AvailableToPick>(false);
 		}
 
-		private void AvailableByInactiveRange(Entity<GameScope> target, Entity<ChipsScope> ability)
+		public void AvailableByInactiveRange(Entity<GameScope> target, Entity<ChipsScope> ability)
 		{
 			if (!ability.Has<InactiveRange>())
 				return;
@@ -70,7 +70,7 @@ namespace Code
 				target.Is<AvailableToPick>(false);
 		}
 
-		private void AvailableByTargetConstraints(Entity<GameScope> target, Entity<ChipsScope> ability)
+		public void AvailableByTargetConstraints(Entity<GameScope> target, Entity<ChipsScope> ability)
 		{
 			if (!ability.Has<TargetConstraints>())
 				return;
@@ -79,7 +79,7 @@ namespace Code
 				target.Is<AvailableToPick>(false);
 		}
 
-		private void AvailableByObstacles(Entity<GameScope> target, Entity<ChipsScope> ability)
+		public void AvailableByObstacles(Entity<GameScope> target, Entity<ChipsScope> ability)
 		{
 			if (!ability.Has<ConsiderObstacles>())
 				return;
@@ -87,7 +87,9 @@ namespace Code
 			var casterPosition = CurrentActor.GetCoordinates(withLayer: Coordinates.Layer.Default);
 			var targetPosition = target.GetCoordinates(withLayer: Coordinates.Layer.Default);
 			var allowDiagonals = ability.Has<AllowDiagonals>();
-			var pathLength = _pathfinding.FindPath(casterPosition, targetPosition, allowDiagonals).Count - 1;
+
+			var path = _pathfinding.FindPath(casterPosition, targetPosition, allowDiagonals);
+			var pathLength = path.Count - 1;
 
 			if (pathLength == -1 || pathLength > ability.Get<Range>().Value)
 				target.Is<AvailableToPick>(false);

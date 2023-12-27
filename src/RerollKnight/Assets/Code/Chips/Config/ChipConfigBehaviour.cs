@@ -12,6 +12,11 @@ namespace Code
 		[field: SerializeField] public float Rarity { get; private set; }
 
 		[field: SerializeField] public List<AbilityConfigBehaviour> Abilities { get; private set; }
+
+		[field: Header("View")]
+		[field: SerializeField] public AnimationClip CastAnimation { get; private set; }
+
+		[field: SerializeField] public GameObject ItemPrefab { get; private set; }
 	}
 
 	public interface IRarityEntry

@@ -52,6 +52,12 @@ namespace Code
 			           .Add<ForeignID, string>(face.EnsureID())
 				;
 
+			if (config.CastAnimation != null)
+				chip.Add<CastAnimation, AnimationClip>(config.CastAnimation);
+
+			if (config.ItemPrefab != null)
+				chip.Add<HoldingItem, GameObject>(config.ItemPrefab);
+
 			foreach (var abilityConfig in config.Abilities)
 				_abilitiesFactory.Create(abilityConfig, chip);
 

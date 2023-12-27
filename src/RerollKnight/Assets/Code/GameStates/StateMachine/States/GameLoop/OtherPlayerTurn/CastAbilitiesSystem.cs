@@ -18,7 +18,7 @@ namespace Code
 		public void Initialize()
 		{
 			if (_abilities.WhereStateIs(AbilityState.Prepared).Any())
-				StateMachine.ToState<CastingAbilitiesGameplayState>();
+				StateMachine.ToState<StartCastAnimationGameplayState>();
 		}
 	}
 }

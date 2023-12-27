@@ -22,6 +22,8 @@ namespace Code
 		Vector3 HealthChangeViewFlyDirection { get; }
 		float   HealthChangeViewFlySpeed     { get; }
 		float   ShowChipDescriptionDelay     { get; }
+
+		float DiceWalkingSpeed { get; }
 	}
 
 	[CreateAssetMenu(fileName = "ViewConfig", menuName = "ViewConfig", order = 0)]
@@ -60,5 +62,8 @@ namespace Code
 		[field: SerializeField] public Vector3 HealthChangeViewFlyDirection { get; private set; }
 
 		[field: SerializeField] public float HealthChangeViewFlySpeed { get; private set; }
+
+		[field: Header("Animations")]
+		[field: SerializeField] public float DiceWalkingSpeed { get; private set; }
 	}
 }
