@@ -43,7 +43,6 @@ namespace Code
 				var path = _pathfinding.FindPath(casterPosition, targetPosition, allowDiagonals);
 
 				var defaultsPath = path.Select((c) => c.WithLayer(Coordinates.Layer.Default)).ToList();
-				// Debug.Log(string.Join(", ", defaultsPath));
 				CurrentActor.Replace<Path, List<Coordinates>>(defaultsPath);
 			}
 		}

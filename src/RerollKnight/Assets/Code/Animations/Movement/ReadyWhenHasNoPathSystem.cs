@@ -29,7 +29,7 @@ namespace Code
 			if (Ready)
 				return;
 
-			Ready = !CurrentActor.Has<Path>();
+			Ready = !CurrentActor.Has<Path>() && !CurrentActor.Has<DestinationPosition>();
 			CurrentActor.RemoveSafety<Component.Coordinates>();
 		}
 	}
