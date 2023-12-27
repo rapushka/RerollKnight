@@ -16,6 +16,10 @@ namespace Code
 				Add<SpawnHoldingItemInHandSystem>();
 				Add<PlayCastAnimationSystem>();
 
+				// Walking
+				Add<ReadyWhenHasNoPathSystem>();
+				Add<MoveToNextCellInPathSystem>();
+
 				Add<PrepareAnimationSystem>();
 
 				Add<ToStateWhenAllReady<CastingAbilitiesGameplayState>>();

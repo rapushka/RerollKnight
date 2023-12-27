@@ -22,8 +22,10 @@ namespace Code.Component
 
 	[ChipsScope] public sealed class InactiveRange : ValueComponent<int> { }
 
+	/// <summary> There must be a path to the target </summary>
 	[ChipsScope] public sealed class ConsiderObstacles : FlagComponent { }
 
+	/// <summary> The target must be visible </summary>
 	[ChipsScope] public sealed class ConstrainByVisibility : FlagComponent { }
 
 	[ChipsScope] public sealed class AllowDiagonals : FlagComponent { }
