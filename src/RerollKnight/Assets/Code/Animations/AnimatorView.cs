@@ -23,6 +23,9 @@ namespace Code
 
 		public void OnAnimationEnd()
 		{
+			if (!Entity.isEnabled)
+				return;
+
 			Play(_idleClip);
 			Entity.Remove<PlayAnimation>();
 			Entity.Is<AnimationPrepared>(false);
