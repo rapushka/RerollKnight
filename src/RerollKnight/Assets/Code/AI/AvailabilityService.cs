@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
-using UnityEngine;
 using Zenject;
 using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
@@ -95,14 +93,6 @@ namespace Code
 
 			if (pathLength == -1 || pathLength > ability.Get<Range>().Value)
 				target.Is<AvailableToPick>(false);
-			else
-			{
-				var defaultsPath = path.Select((c) => c.WithLayer(Coordinates.Layer.Default)).ToList();
-
-				Debug.Log(string.Join(", ", defaultsPath));
-
-				CurrentActor.Replace<Path, List<Coordinates>>(defaultsPath);
-			}
 		}
 	}
 }

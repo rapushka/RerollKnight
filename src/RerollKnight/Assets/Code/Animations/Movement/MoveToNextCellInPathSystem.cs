@@ -24,6 +24,8 @@ namespace Code
 			{
 				var path = e.Get<Path>().Value;
 				var nextCoordinates = path.Dequeue();
+
+				Debug.Log($"nextCoordinates = {nextCoordinates} WorldPoint = {nextCoordinates.ToWorldPoint()}");
 				e.Add<DestinationPosition, Vector3>(nextCoordinates.ToWorldPoint());
 				e.Replace<MovingSpeed, float>(_viewConfig.DiceWalkingSpeed);
 

@@ -17,6 +17,7 @@ namespace Code
 				Add<PlayCastAnimationSystem>();
 
 				// Walking
+				Add<SetPathSystem>();
 				Add<ReadyWhenHasNoPathSystem>();
 				Add<MoveToNextCellInPathSystem>();
 

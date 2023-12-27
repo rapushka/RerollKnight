@@ -1,7 +1,6 @@
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
-using static Code.Coordinates.Layer;
 using static Entitas.Generic.ScopeMatcher<Code.ChipsScope>;
 using GameMatcher = Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
