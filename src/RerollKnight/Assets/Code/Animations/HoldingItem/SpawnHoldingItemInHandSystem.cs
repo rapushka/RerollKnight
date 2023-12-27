@@ -1,15 +1,15 @@
-﻿using Code.Component;
+using Code.Component;
 using Entitas;
 using Entitas.Generic;
 using UnityEngine;
 
 namespace Code
 {
-	public class PlayCastAnimationSystem : IInitializeSystem
+	public sealed class SpawnHoldingItemInHandSystem : IInitializeSystem
 	{
 		private readonly Contexts _contexts;
 
-		public PlayCastAnimationSystem(Contexts contexts)
+		public SpawnHoldingItemInHandSystem(Contexts contexts)
 		{
 			_contexts = contexts;
 		}
@@ -21,8 +21,8 @@ namespace Code
 
 		public void Initialize()
 		{
-			if (PickedChip.Has<CastAnimation>())
-				CurrentActor.Replace<PlayAnimation, AnimationClip>(PickedChip.Get<CastAnimation>().Value);
+			if (PickedChip.Has<HoldingItem>())
+				CurrentActor.Replace<HoldingItem, GameObject>(PickedChip.Get<HoldingItem>().Value);
 		}
 	}
 }

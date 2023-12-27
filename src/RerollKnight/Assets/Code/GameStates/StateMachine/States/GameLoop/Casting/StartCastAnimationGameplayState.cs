@@ -13,6 +13,7 @@ namespace Code
 			{
 				// Initialize
 				Add<TurnCasterToTargetSystem>();
+				Add<SpawnHoldingItemInHandSystem>();
 				Add<PlayCastAnimationSystem>();
 
 				Add<PrepareAnimationSystem>();

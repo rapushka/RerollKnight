@@ -27,6 +27,9 @@ namespace Code
 			Entity.Remove<PlayAnimation>();
 			Entity.Is<AnimationPrepared>(false);
 			Entity.Is<AnimationEnded>(true);
+
+			// Item
+			Entity.RemoveSafety<HoldingItem>();
 		}
 
 		private void Play(AnimationClip clip)

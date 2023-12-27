@@ -55,8 +55,8 @@ namespace Code
 			if (config.CastAnimation != null)
 				chip.Add<CastAnimation, AnimationClip>(config.CastAnimation);
 
-			if (config.Item != null)
-				chip.Add<HoldingItem, GameObject>(config.Item);
+			if (config.ItemPrefab != null)
+				chip.Add<HoldingItem, GameObject>(config.ItemPrefab);
 
 			foreach (var abilityConfig in config.Abilities)
 				_abilitiesFactory.Create(abilityConfig, chip);

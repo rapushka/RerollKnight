@@ -16,7 +16,7 @@ namespace Code
 		[field: Header("View")]
 		[field: SerializeField] public AnimationClip CastAnimation { get; private set; }
 
-		[field: SerializeField] public GameObject Item { get; private set; }
+		[field: SerializeField] public GameObject ItemPrefab { get; private set; }
 	}
 
 	public interface IRarityEntry
