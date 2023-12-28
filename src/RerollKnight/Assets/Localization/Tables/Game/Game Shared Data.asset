@@ -119,6 +119,14 @@ MonoBehaviour:
     m_Key: LoadingLabel
     m_Metadata:
       m_Items: []
+  - m_Id: 4607784719171584
+    m_Key: AllRoomsClearedTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4608013291962368
+    m_Key: AllRoomsClearedDescription
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

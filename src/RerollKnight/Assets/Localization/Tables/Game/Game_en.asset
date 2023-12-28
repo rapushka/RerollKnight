@@ -122,6 +122,36 @@ MonoBehaviour:
     m_Localized: Loading...
     m_Metadata:
       m_Items: []
+  - m_Id: 4607784719171584
+    m_Localized: All the rooms are cleared!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4608013291962368
+    m_Localized: 'Congratulations! You have cleared all the rooms. There is no more
+      content in the demo... But the full version of the game is in active development!
+
+
+      And
+      further planned::
+
+      - more Chips,
+
+      - floors,
+
+      - different
+      types of enemies,
+
+      - bosses,
+
+      - meta-progression,
+
+      - and
+      definitely something else ;3
+
+
+      Thank you for playing <3'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
