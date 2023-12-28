@@ -308,4 +308,4 @@ MonoBehaviour:
   _closeButton: {fileID: 0}
   _canvasGroup: {fileID: 5008624057860175171}
   _duration: 0.2
-  _additionalWaiting: 0
+  _additionalWaiting: 1.5
