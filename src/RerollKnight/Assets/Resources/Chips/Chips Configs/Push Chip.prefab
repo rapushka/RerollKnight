@@ -54,7 +54,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Cost>k__BackingField: 2
-  <Rarity>k__BackingField: 10
+  <Rarity>k__BackingField: 1
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: d81e1ef6bf6da7a6080b56a29ec9edb7, type: 3}
   <CastAnimation>k__BackingField: {fileID: 7400000, guid: 7462a7cb5b5cf509aad0e9a268f30b05, type: 2}

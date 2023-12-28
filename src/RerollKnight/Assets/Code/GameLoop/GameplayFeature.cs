@@ -77,7 +77,7 @@ namespace Code
 			Add<ResetContext<ChipsScope>>();
 			Add<ResetContext<InfrastructureScope>>();
 
-			Add<HideLoadingCurtainSystem>();
+			Add<HideLoadingCurtainImmediatelySystem>();
 		}
 	}
 }

@@ -12,6 +12,7 @@ namespace Code
 		private readonly GameplayStateMachine _stateMachine;
 		private readonly IGroup<Entity<GameScope>> _enemies;
 		private readonly IGroup<Entity<GameScope>> _players;
+		private readonly IGroup<Entity<GameScope>> _notCompletedRooms;
 		private readonly WindowsService _windows;
 		private readonly MapProvider _mapProvider;
 		private readonly RewardFactory _rewardFactory;
@@ -34,6 +35,7 @@ namespace Code
 
 			_enemies = contexts.GetGroup(AllOf(Get<Enemy>()).NoneOf(Get<Disabled>()));
 			_players = contexts.GetGroup(Get<Player>());
+			_notCompletedRooms = contexts.GetGroup(AllOf(Get<Room>()).NoneOf(Get<CompletedRoom>()));
 		}
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
@@ -48,6 +50,14 @@ namespace Code
 
 			if (!_players.Any())
 				OnGameOver();
+
+			if (!_notCompletedRooms.Any())
+				OnAllRoomsCleared();
+		}
+
+		private void OnAllRoomsCleared()
+		{
+			_windows.Show<EndOfDemoWindow>();
 		}
 
 		private void OnRoomCleared()
