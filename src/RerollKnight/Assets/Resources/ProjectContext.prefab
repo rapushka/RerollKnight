@@ -84,4 +84,5 @@ MonoBehaviour:
   - {fileID: 5359457938778065602, guid: d0dfec187fb0309f68dd141631acd4e8, type: 3}
   - {fileID: 4122067406706152695, guid: d0d79ae8944fe9246a8b9efb5d9c4c24, type: 3}
   - {fileID: 5002497196617489657, guid: c3c7e0cc82ce956188f8fb78210fccbd, type: 3}
+  - {fileID: 5220599705485635723, guid: 5d42fc1d1539c6b4f9fbda4a13cb920e, type: 3}
   _audioMixerGroup: {fileID: 24300002, guid: ee7a52c08ca855429926452d0e905719, type: 2}
