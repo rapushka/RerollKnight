@@ -8,6 +8,7 @@ namespace Code
 		public GameplayFeature(SystemsFactory factory)
 			: base(nameof(GameplayFeature), factory)
 		{
+			Add<ShowLoadingCurtainSystem>();
 			Add<StartGameSystem>();
 
 			// Game Logic
@@ -75,6 +76,8 @@ namespace Code
 			Add<ResetContext<RequestScope>>();
 			Add<ResetContext<ChipsScope>>();
 			Add<ResetContext<InfrastructureScope>>();
+
+			Add<HideLoadingCurtainSystem>();
 		}
 	}
 }

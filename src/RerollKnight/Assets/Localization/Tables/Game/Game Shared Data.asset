@@ -115,6 +115,10 @@ MonoBehaviour:
     m_Key: MoveChipToSideTitle
     m_Metadata:
       m_Items: []
+  - m_Id: 4563937684246528
+    m_Key: LoadingLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
