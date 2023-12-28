@@ -34,7 +34,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1747312785825569169}
   m_Father: {fileID: 0}
@@ -143,6 +143,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8446725486052187884}
     m_Modifications:
+    - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
+      propertyPath: m_fontSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794574595487991041, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6806393294133734597, guid: 5e1e8ff0c3829866cb16c3666d496ebe, type: 3}
       propertyPath: m_Name
       value: World Text
