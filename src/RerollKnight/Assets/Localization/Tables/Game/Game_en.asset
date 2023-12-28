@@ -128,25 +128,28 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4608013291962368
     m_Localized: 'Congratulations! You have cleared all the rooms. There is no more
-      content in the demo... But the full version of the game is in active development!
+      content in the demo...
 
 
-      And
-      further planned:
+      But the full version of the game is in active
+      development!
+
+
+      And further planned:
 
       - more Chips,
 
       - floors,
 
-      - different types
-      of enemies,
+      -
+      different types of enemies,
 
       - bosses,
 
       - meta-progression,
 
-      - and definitely
-      something else ;3
+      -
+      and definitely something else ;3
 
 
       Thank you for playing <3'
