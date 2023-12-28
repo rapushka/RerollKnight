@@ -1,4 +1,6 @@
 ﻿using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using UnityEngine;
 
 namespace Code
@@ -7,6 +9,9 @@ namespace Code
 	{
 		[SerializeField] private CanvasGroup _canvasGroup;
 		[SerializeField] private float _duration;
+		[SerializeField] private float _additionalWaiting;
+
+		private Sequence _sequence;
 
 		protected override void OnShow()
 		{
@@ -21,6 +26,22 @@ namespace Code
 
 		public void HideImmediately() => SetFade(false, 0f);
 
-		private void SetFade(bool value, float duration) => _canvasGroup.DOFade(value.ToFloat(), duration);
+		private void SetFade(bool value, float duration)
+		{
+			_sequence?.Kill();
+
+			if (value)
+			{
+				_sequence = DOTween.Sequence()
+					.Append(_canvasGroup.DOFade(1f, duration));
+			}
+			else
+			{
+				_sequence = DOTween.Sequence()
+					.AppendInterval(_additionalWaiting)
+					.Append(_canvasGroup.DOFade(0f, duration))
+					.AppendCallback(Hide);
+			}
+		}
 	}
 }

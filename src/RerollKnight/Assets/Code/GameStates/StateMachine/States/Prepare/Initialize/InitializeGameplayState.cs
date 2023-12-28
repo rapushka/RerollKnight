@@ -22,6 +22,9 @@ namespace Code
 				// Add<ReadyOnAny<Actor>>();
 
 				Add<ToStateWhenAllReady<RerollDicesGameplayState>>();
+
+				// Tear Down
+				Add<HideLoadingCurtainSystem>();
 			}
 		}
 	}

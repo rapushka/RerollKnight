@@ -18,6 +18,8 @@ namespace Code
 				window.Hide();
 		}
 
+		public IWindow CurrentWindow => _currentWindow;
+
 		public TWindow Show<TWindow>()
 			where TWindow : IWindow
 		{
