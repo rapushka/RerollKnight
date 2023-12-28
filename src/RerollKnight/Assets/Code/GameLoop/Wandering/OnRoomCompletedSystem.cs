@@ -57,7 +57,7 @@ namespace Code
 
 		private void OnAllRoomsCleared()
 		{
-			UnityEngine.Debug.Log("You've completed all the rooms:0");
+			_windows.Show<EndOfDemoWindow>();
 		}
 
 		private void OnRoomCleared()
