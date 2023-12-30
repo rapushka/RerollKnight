@@ -31,7 +31,9 @@ namespace Code
 			{
 				var activeFace = CurrentActor.GetActiveFace();
 
-				_chipsFactory.Create(e.Get<ChipConfig>().Value, CurrentActor, activeFace);
+				var newChip = _chipsFactory.Create(e.Get<ChipConfig>().Value, CurrentActor, activeFace);
+				newChip.Is<AvailableToPick>(false);
+				newChip.Is<Visible>(false);
 				e.Is<Destroyed>(true);
 			}
 		}
