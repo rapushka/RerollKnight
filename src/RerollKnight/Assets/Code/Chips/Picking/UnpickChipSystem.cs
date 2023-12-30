@@ -8,7 +8,13 @@ namespace Code
 {
 	public sealed class UnpickChipSystem : ReactiveSystem<Entity<GameScope>>, IStateTransferSystem
 	{
-		public UnpickChipSystem(Contexts contexts) : base(contexts.Get<GameScope>()) { }
+		private readonly AudioService _audio; // TODO: REMOVE!!!
+
+		public UnpickChipSystem(Contexts contexts, AudioService audio) : base(contexts.Get<GameScope>())
+		{
+			_audio = audio;
+		}
+
 		public StateMachineBase StateMachine { get; set; }
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
@@ -20,6 +26,7 @@ namespace Code
 		{
 			foreach (var e in entites)
 			{
+				_audio.Play(Sound.ChipClick);
 				e.Is<Clicked>(false);
 				StateMachine.ToState<ObservingGameplayState>();
 			}

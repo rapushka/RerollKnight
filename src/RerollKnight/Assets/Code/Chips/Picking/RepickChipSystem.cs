@@ -10,8 +10,13 @@ namespace Code
 {
 	public sealed class RepickChipSystem : ReactiveSystem<Entity<GameScope>>, IStateTransferSystem
 	{
+		private readonly AudioService _audio; // TODO: REMOVE!!!
+
 		[Inject]
-		public RepickChipSystem(Contexts contexts) : base(contexts.Get<GameScope>()) { }
+		public RepickChipSystem(Contexts contexts, AudioService audio) : base(contexts.Get<GameScope>())
+		{
+			_audio = audio;
+		}
 
 		public StateMachineBase StateMachine { get; set; }
 
@@ -24,6 +29,7 @@ namespace Code
 		{
 			foreach (var e in entites.Where((e) => e.Is<AvailableToPick>()))
 			{
+				_audio.Play(Sound.ChipClick);
 				StateMachine.ToState<ObservingGameplayState>();
 				// _entitiesManipulator.UnpickAll(immediately: true);
 				// RequestEmitter.Instance.Send<MarkAllTargetsAvailableRequest>();
