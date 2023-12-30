@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Code
 {
 	public class AudioService
@@ -15,7 +13,6 @@ namespace Code
 
 		public void Play(Sound sound, float volume = 1f)
 		{
-			Debug.Log($"sound = {sound}");
 			_sources.SoundsSource.PlayOneShot(_sounds[sound], volume);
 		}
 	}

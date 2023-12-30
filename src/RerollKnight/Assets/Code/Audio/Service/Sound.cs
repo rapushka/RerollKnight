@@ -9,6 +9,8 @@ namespace Code
 
 		// General
 		ChipClick,
+		DicesThrow,
+		DicesLand,
 
 		// Abilities
 		Kick,
