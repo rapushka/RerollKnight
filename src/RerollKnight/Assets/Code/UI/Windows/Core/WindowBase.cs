@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -10,6 +11,11 @@ namespace Code
 		[SerializeField] private Button _closeButton;
 
 		public bool IsOpen { get => _root.activeSelf; private set => _root.SetActive(value); }
+
+		private void Awake()
+		{
+			Hide();
+		}
 
 		protected virtual void OnEnable()
 		{
