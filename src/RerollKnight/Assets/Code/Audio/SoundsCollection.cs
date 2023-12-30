@@ -15,7 +15,7 @@ namespace Code
 		private Dictionary<Sound, AudioClip> Dictionary
 			=> _dictionary ??= Entries.ToDictionary((e) => e.Type, (e) => e.Clip);
 
-		public AudioClip this[Sound index] => _dictionary[index];
+		public AudioClip this[Sound index] => Dictionary[index];
 
 		[Serializable]
 		public class Entry
