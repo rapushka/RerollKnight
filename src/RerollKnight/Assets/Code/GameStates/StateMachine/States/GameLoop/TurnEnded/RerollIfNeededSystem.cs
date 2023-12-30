@@ -17,10 +17,12 @@ namespace Code
 
 		public void Initialize()
 		{
-			if (_turnsQueue.CurrentIsLast)
+			if (_turnsQueue.CurrentIsLast || RequestRerollDirtyFlag.IsNeeded)
 				StateMachine.ToState<RerollDicesGameplayState>();
 			else
 				StateMachine.ToState<PassTurnGameplayState>();
+
+			RequestRerollDirtyFlag.IsNeeded = false;
 		}
 	}
 }

@@ -15,9 +15,11 @@ namespace Code
 				Add<SwitchCurrentRoomSystem>();
 				Add<ClearCurrentPlayerSystem>();
 				Add<PutPlayerFirstSystem>();
+				Add<SetRerollNeededSystem>();
+				Add<WaitForOneFrameSystem>();
 				// Add<AvailablePickDoorsIfThereIsNoEnemiesSystem>();
 
-				Add<ToState<TurnEndedGameplayState>>();
+				Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
 			}
 		}
 	}
