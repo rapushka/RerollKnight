@@ -1,5 +1,8 @@
+using JetBrains.Annotations;
+
 namespace Code
 {
+	[UsedImplicitly(ImplicitUseTargetFlags.Members)] // Used From Editor
 	public enum Sound
 	{
 		None,
@@ -9,6 +12,8 @@ namespace Code
 
 		// Abilities
 		Kick,
+		Shoot,
+		Spit,
 
 		// UI
 	}
