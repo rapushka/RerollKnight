@@ -12,6 +12,8 @@ namespace Code
 		[SerializeField] private GenerationConfig _generationConfig;
 		[SerializeField] private WindowBase[] _windows;
 		[SerializeField] private AudioMixerGroup _audioMixerGroup;
+		[SerializeField] private AudioSourcesProvider _audioSourcesProvider;
+		[SerializeField] private SoundsCollection _soundsCollection;
 
 		public override void InstallBindings()
 		{
@@ -36,6 +38,8 @@ namespace Code
 			InstallWindows();
 
 			Container.BindInstance(_audioMixerGroup).AsSingle();
+			Container.BindInstance(_audioSourcesProvider).AsSingle();
+			Container.BindInstance(_soundsCollection).AsSingle();
 		}
 
 		private void InstallServices()
@@ -59,6 +63,8 @@ namespace Code
 
 			Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
 			Container.Bind<ScreenSettings>().AsSingle();
+
+			Container.Bind<AudioService>().AsSingle();
 		}
 
 		private void InstallWindows()
