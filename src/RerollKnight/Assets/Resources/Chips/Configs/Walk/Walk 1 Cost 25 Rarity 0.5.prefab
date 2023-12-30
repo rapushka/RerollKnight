@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9089965641458215925}
   - component: {fileID: -1127751271332936188}
   m_Layer: 0
-  m_Name: Walk 1 Cost 25 Rarity 1.2
+  m_Name: Walk 1 Cost 25 Rarity 0.5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Cost>k__BackingField: 25
-  <Rarity>k__BackingField: 1.2
+  <Rarity>k__BackingField: 0.5
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: d43df55baef876c03b3f9ccaf0fc6d4b, type: 3}
   <CastAnimation>k__BackingField: {fileID: 7400000, guid: 0a04403376774e3efb3fcc33ff126d9b, type: 2}

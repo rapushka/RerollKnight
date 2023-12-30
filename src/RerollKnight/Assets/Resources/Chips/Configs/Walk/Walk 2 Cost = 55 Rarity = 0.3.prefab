@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1127751271332936188, guid: 6a01f9f8abd6c28ffbbb2cf822dbaf66, type: 3}
       propertyPath: <Rarity>k__BackingField
-      value: 0.8
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: -1127751271332936188, guid: 6a01f9f8abd6c28ffbbb2cf822dbaf66, type: 3}
       propertyPath: <Abilities>k__BackingField.Array.data[0]
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 5023868011292060435, guid: 20d4f41620d26ac8796ea0dbd5f170a7, type: 3}
     - target: {fileID: 1502534925063096562, guid: 6a01f9f8abd6c28ffbbb2cf822dbaf66, type: 3}
       propertyPath: m_Name
-      value: Walk 2 Cost = 55 Rarity = 0.8
+      value: Walk 2 Cost = 55 Rarity = 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 9089965641458215925, guid: 6a01f9f8abd6c28ffbbb2cf822dbaf66, type: 3}
       propertyPath: m_LocalPosition.x
