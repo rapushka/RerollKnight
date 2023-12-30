@@ -57,6 +57,9 @@ namespace Code
 			Add<AlignChipDescriptionAboveChipSystem>();
 			Add<ShowDiceInfoSystem>();
 
+			// Audio
+			Add<AudioFeature>();
+
 #if DEBUG
 			// Debug
 			Add<DebugCurrentGameplayStateSystem>();
