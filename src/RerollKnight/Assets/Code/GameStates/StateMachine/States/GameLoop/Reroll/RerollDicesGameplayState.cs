@@ -23,6 +23,9 @@ namespace Code
 				Add<ToStateWhenAllReady<PassTurnGameplayState>>();
 				// Add<ToStateWhenAllReady<TurnEndedGameplayState>>();
 
+				// Audio
+				Add<PlayRerollSoundSystem>();
+
 				// TearDown
 				Add<SetRandomSideRolledSystem>();
 				Add<MarkDefinedSideAsActiveSystem>();

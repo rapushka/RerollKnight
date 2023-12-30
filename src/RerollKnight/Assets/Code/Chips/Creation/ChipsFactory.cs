@@ -58,6 +58,12 @@ namespace Code
 			if (config.ItemPrefab != null)
 				chip.Add<HoldingItem, GameObject>(config.ItemPrefab);
 
+			if (config.Sound is not Sound.None)
+				chip.Add<CastSound, Sound>(config.Sound);
+
+			if (config.RepeatRate > 0)
+				chip.Add<RepeatSound, float>(config.RepeatRate);
+
 			foreach (var abilityConfig in config.Abilities)
 				_abilitiesFactory.Create(abilityConfig, chip);
 
