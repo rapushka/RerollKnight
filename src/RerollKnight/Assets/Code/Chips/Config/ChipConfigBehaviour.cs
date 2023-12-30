@@ -11,7 +11,6 @@ namespace Code
 		[field: SerializeField] public int   Cost   { get; private set; }
 		[field: SerializeField] public float Rarity { get; private set; }
 
-		[field: SerializeReference]
 		[field: SerializeField] public List<AbilityConfigBehaviour> Abilities { get; private set; }
 
 		[field: Header("View")]
