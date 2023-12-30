@@ -27,6 +27,9 @@ namespace Code
 				Add<PrepareAnimationSystem>();
 
 				Add<ToStateWhenAllReady<CastingAbilitiesGameplayState>>();
+
+				// Tear Down
+				Add<PlayCastSoundSystem>();
 			}
 		}
 	}

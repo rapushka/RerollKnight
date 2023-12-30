@@ -12,4 +12,6 @@ namespace Code.Component
 	[GameScope] public sealed class AnimationPrepared : FlagComponent { }
 
 	[GameScope] public sealed class AnimationEnded : FlagComponent { }
+
+	[GameScope] public sealed class CastSound : ValueComponent<Sound> { }
 }
