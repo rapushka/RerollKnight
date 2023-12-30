@@ -232,6 +232,8 @@ MonoBehaviour:
       <Clip>k__BackingField: {fileID: 8300000, guid: b691b3ff831afdb058b245504b467360, type: 3}
     - <Type>k__BackingField: 5
       <Clip>k__BackingField: {fileID: 8300000, guid: f4ee879b0c19ba251b7cd3ccae470a24, type: 3}
+    - <Type>k__BackingField: 6
+      <Clip>k__BackingField: {fileID: 8300000, guid: f2332d0d2e8b747c1ba7810a010c46b3, type: 3}
 --- !u!1 &6877513382711427106
 GameObject:
   m_ObjectHideFlags: 0

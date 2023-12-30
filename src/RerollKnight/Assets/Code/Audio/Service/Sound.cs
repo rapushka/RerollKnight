@@ -15,6 +15,7 @@ namespace Code
 		Shoot,
 		Spit,
 		Step,
+		Teleport,
 
 		// UI
 	}
