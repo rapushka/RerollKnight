@@ -25,14 +25,14 @@ MonoBehaviour:
   - {fileID: -1127751271332936188, guid: 1b055195757f4c426b69e66109f7e3bd, type: 3}
   - {fileID: -1127751271332936188, guid: 2fe9785232e5f0e0fb3040dcc04b4d77, type: 3}
   - {fileID: -1127751271332936188, guid: 1f23960f7817e4153bb1398205e75dac, type: 3}
-  - {fileID: -1127751271332936188, guid: 36d70b00c53b8af40ad28283c78b6147, type: 3}
+  - {fileID: 7413785504604697372, guid: b162fde37442a901990361c47ddd7cd0, type: 3}
   <PlayerOnlyChips>k__BackingField:
   - {fileID: -1127751271332936188, guid: cba90b48e4b7cde2481d7b87c4178e83, type: 3}
   - {fileID: -1127751271332936188, guid: 178c45f8f48aff5349598a5cdcb86612, type: 3}
   - {fileID: -1127751271332936188, guid: 1f23960f7817e4153bb1398205e75dac, type: 3}
   - {fileID: -1127751271332936188, guid: 2fe9785232e5f0e0fb3040dcc04b4d77, type: 3}
-  <PlayerBudget>k__BackingField: 15
-  <EnemyBudget>k__BackingField: 10
+  <PlayerBudget>k__BackingField: 100
+  <EnemyBudget>k__BackingField: 75
   <AttackingAbilities>k__BackingField:
   - _name: DealDamage
   - _name: PushDistance
