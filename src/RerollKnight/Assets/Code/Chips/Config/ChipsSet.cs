@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Component;
 using Entitas.Generic;
+using UnityEngine;
 
 namespace Code
 {
@@ -43,6 +44,8 @@ namespace Code
 		private IEnumerable<ChipConfigBehaviour> CollectChipsForBudget
 			(float currentBudget, IEnumerable<ChipConfigBehaviour> allChips)
 		{
+			int counter = 1_000; // TODO: remove:(
+
 			var allChipsArray = allChips as ChipConfigBehaviour[] ?? allChips.ToArray();
 			while (currentBudget > 0)
 			{
@@ -55,6 +58,12 @@ namespace Code
 
 				yield return randomChip;
 				currentBudget -= randomChip.Cost;
+
+				if (counter-- <= 0)
+				{
+					Debug.LogError("prevent endless loop");
+					yield break;
+				}
 			}
 		}
 	}
