@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1502534925063096562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9089965641458215925}
+  - component: {fileID: 5989036471068430585}
+  - component: {fileID: 8922502445419947486}
+  - component: {fileID: -6851035643439281238}
+  - component: {fileID: 915410690454322718}
+  - component: {fileID: 4438489512886087768}
+  m_Layer: 0
+  m_Name: Pistol Damage = 1 -obstacles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9089965641458215925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5989036471068430585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8498054c5a63445da4a9697255fabfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collectInChildren: 0
+  _interruptChildrenEntities: 1
+  _componentBehaviours:
+  - {fileID: 4438489512886087768}
+  - {fileID: 8922502445419947486}
+  - {fileID: 915410690454322718}
+  - {fileID: -6851035643439281238}
+--- !u!114 &8922502445419947486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cf893399b846a3b91f7208cf5d7cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 1
+--- !u!114 &-6851035643439281238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a4261db81b48b1b4202792ef60035a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &915410690454322718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88807b05c9864b94a5dcf05b65569cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value:
+  - <Component>k__BackingField:
+      _name: Actor
+    <MustHave>k__BackingField: 1
+  - <Component>k__BackingField:
+      _name: CurrentActor
+    <MustHave>k__BackingField: 0
+--- !u!114 &4438489512886087768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502534925063096562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d900a06e37d46288bb579d7338ef455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 1
