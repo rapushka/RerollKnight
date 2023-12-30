@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7413785504604697372, guid: b162fde37442a901990361c47ddd7cd0, type: 3}
       propertyPath: <Rarity>k__BackingField
-      value: 0.45
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7413785504604697372, guid: b162fde37442a901990361c47ddd7cd0, type: 3}
       propertyPath: <Abilities>k__BackingField.Array.data[0]

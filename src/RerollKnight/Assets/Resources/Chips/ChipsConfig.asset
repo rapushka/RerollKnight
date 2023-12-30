@@ -17,6 +17,8 @@ MonoBehaviour:
   - {fileID: -1127751271332936188, guid: f41ad62cababcf4c794ccba35451219f, type: 3}
   - {fileID: -1127751271332936188, guid: ba01ac5e6c63c3578a85e5d22992c504, type: 3}
   - {fileID: -1127751271332936188, guid: 6a01f9f8abd6c28ffbbb2cf822dbaf66, type: 3}
+  - {fileID: 7413785504604697372, guid: b162fde37442a901990361c47ddd7cd0, type: 3}
+  - {fileID: 4799981286192263999, guid: 1c9388c14ca4cd0dca77636fd8164a36, type: 3}
   - {fileID: -1127751271332936188, guid: 6379d0dce303411d9bc59a6aff5c2ed2, type: 3}
   - {fileID: -1127751271332936188, guid: 178c45f8f48aff5349598a5cdcb86612, type: 3}
   - {fileID: -1127751271332936188, guid: cba90b48e4b7cde2481d7b87c4178e83, type: 3}
@@ -25,19 +27,16 @@ MonoBehaviour:
   - {fileID: -1127751271332936188, guid: 1b055195757f4c426b69e66109f7e3bd, type: 3}
   - {fileID: -1127751271332936188, guid: 2fe9785232e5f0e0fb3040dcc04b4d77, type: 3}
   - {fileID: -1127751271332936188, guid: 1f23960f7817e4153bb1398205e75dac, type: 3}
-  - {fileID: 7413785504604697372, guid: b162fde37442a901990361c47ddd7cd0, type: 3}
   - {fileID: 6509761027542471647, guid: 5f3a77318d6586632a34b21feae06988, type: 3}
   - {fileID: 5691227117550808327, guid: cb77c08c2475773bd9adac572f12c0dd, type: 3}
   - {fileID: 3289346876351922646, guid: 59070d5be31b34951b74196b3d1af54e, type: 3}
   - {fileID: 1535575866876019917, guid: 47d321395e9dcd3d5b2afbcbf0b99b1e, type: 3}
-  - {fileID: 7413785504604697372, guid: b162fde37442a901990361c47ddd7cd0, type: 3}
-  - {fileID: 4799981286192263999, guid: 1c9388c14ca4cd0dca77636fd8164a36, type: 3}
   <PlayerOnlyChips>k__BackingField:
   - {fileID: -1127751271332936188, guid: cba90b48e4b7cde2481d7b87c4178e83, type: 3}
   - {fileID: -1127751271332936188, guid: 178c45f8f48aff5349598a5cdcb86612, type: 3}
   - {fileID: -1127751271332936188, guid: 1f23960f7817e4153bb1398205e75dac, type: 3}
   - {fileID: -1127751271332936188, guid: 2fe9785232e5f0e0fb3040dcc04b4d77, type: 3}
-  <PlayerBudget>k__BackingField: 100
+  <PlayerBudget>k__BackingField: 125
   <EnemyBudget>k__BackingField: 75
   <AttackingAbilities>k__BackingField:
   - _name: DealDamage
