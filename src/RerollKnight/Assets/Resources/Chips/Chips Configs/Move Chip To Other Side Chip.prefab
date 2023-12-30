@@ -60,6 +60,7 @@ MonoBehaviour:
   <CastAnimation>k__BackingField: {fileID: 0}
   <ItemPrefab>k__BackingField: {fileID: 0}
   <Sound>k__BackingField: 0
+  <RepeatRate>k__BackingField: -1
   references:
     version: 2
     RefIds: []

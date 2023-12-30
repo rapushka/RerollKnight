@@ -17,7 +17,8 @@ namespace Code
 		[field: SerializeField] public AnimationClip CastAnimation { get; private set; }
 
 		[field: SerializeField] public GameObject ItemPrefab { get; private set; }
-		[field: SerializeField] public Sound      Sound  { get; private set; }
+		[field: SerializeField] public Sound      Sound      { get; private set; }
+		[field: SerializeField] public float      RepeatRate { get; private set; } = -1f;
 	}
 
 	public interface IRarityEntry

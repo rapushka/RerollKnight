@@ -23,13 +23,14 @@ namespace Code
 				Add<ReadyWhenHasNoPathSystem>();
 				Add<TurnToNextCellInPathSystem>();
 				Add<MoveToNextCellInPathSystem>();
+				Add<PlayCastSoundRepeatSystem>();
 
 				Add<PrepareAnimationSystem>();
 
 				Add<ToStateWhenAllReady<CastingAbilitiesGameplayState>>();
 
 				// Tear Down
-				Add<PlayCastSoundSystem>();
+				Add<PlayCastSoundOneShotSystem>();
 			}
 		}
 	}

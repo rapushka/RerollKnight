@@ -14,6 +14,7 @@ namespace Code
 		Kick,
 		Shoot,
 		Spit,
+		Step,
 
 		// UI
 	}

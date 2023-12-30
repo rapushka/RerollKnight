@@ -4,12 +4,12 @@ using Entitas.Generic;
 
 namespace Code
 {
-	public sealed class PlayCastSoundSystem : ITearDownSystem
+	public sealed class PlayCastSoundOneShotSystem : ITearDownSystem
 	{
 		private readonly Contexts _contexts;
 		private readonly AudioService _audio;
 
-		public PlayCastSoundSystem(Contexts contexts, AudioService audio)
+		public PlayCastSoundOneShotSystem(Contexts contexts, AudioService audio)
 		{
 			_contexts = contexts;
 			_audio = audio;
@@ -21,8 +21,10 @@ namespace Code
 
 		public void TearDown()
 		{
-			if (PickedChip.Has<CastSound>())
-				_audio.Play(PickedChip.Get<CastSound>().Value);
+			if (PickedChip.Has<CastSound>() && !PickedChip.Has<RepeatSound>())
+				PlayOneShot();
 		}
+
+		private void PlayOneShot() => _audio.Play(PickedChip.Get<CastSound>().Value);
 	}
 }

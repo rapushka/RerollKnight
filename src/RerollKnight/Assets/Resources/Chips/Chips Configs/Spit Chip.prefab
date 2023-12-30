@@ -60,6 +60,7 @@ MonoBehaviour:
   <CastAnimation>k__BackingField: {fileID: 7400000, guid: 3a5f5c0ad506e164cabcd3cb0a8d69da, type: 2}
   <ItemPrefab>k__BackingField: {fileID: 0}
   <Sound>k__BackingField: 4
+  <RepeatRate>k__BackingField: -1
   references:
     version: 2
     RefIds: []

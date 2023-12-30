@@ -14,4 +14,8 @@ namespace Code.Component
 	[GameScope] public sealed class AnimationEnded : FlagComponent { }
 
 	[GameScope] public sealed class CastSound : ValueComponent<Sound> { }
+
+	[GameScope] public sealed class RepeatSound : ValueComponent<float> { }
+
+	[GameScope] public sealed class TimeToNextRepeat : ValueComponent<float> { }
 }
