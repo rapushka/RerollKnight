@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9089965641458215925}
   - component: {fileID: -1127751271332936188}
   m_Layer: 0
-  m_Name: Teleport 1 Cost 25 Rarity = 1
+  m_Name: Teleport 1 Cost 35 Rarity = 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Cost>k__BackingField: 25
+  <Cost>k__BackingField: 35
   <Rarity>k__BackingField: 1
   <Abilities>k__BackingField:
   - {fileID: 5989036471068430585, guid: f2b7ae2dd29ecd161ab08fdc18b0e5a3, type: 3}
