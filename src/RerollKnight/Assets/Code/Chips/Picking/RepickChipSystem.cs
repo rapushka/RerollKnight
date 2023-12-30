@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -21,7 +22,7 @@ namespace Code
 
 		protected override void Execute(List<Entity<GameScope>> entites)
 		{
-			foreach (var e in entites)
+			foreach (var e in entites.Where((e) => e.Is<AvailableToPick>()))
 			{
 				StateMachine.ToState<ObservingGameplayState>();
 				// _entitiesManipulator.UnpickAll(immediately: true);
