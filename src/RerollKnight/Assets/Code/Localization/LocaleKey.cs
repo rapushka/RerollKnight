@@ -4,5 +4,6 @@ namespace Code
 	{
 		Belarusian,
 		English,
+		Russian,
 	}
 }

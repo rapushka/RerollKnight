@@ -169,7 +169,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2229994413834240
-    m_Localized: Moves your dice to the picked position
+    m_Localized: Moves caster to the picked position
     m_Metadata:
       m_Items: []
   - m_Id: 2257363165986816
@@ -205,8 +205,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2668040745598976
-    m_Localized: Allows to select a chip and then select the side of the dice on
-      which the chip will be moved
+    m_Localized: Allows to select a chip and the side of the dice on which the chip
+      will be moved
     m_Metadata:
       m_Items: []
   - m_Id: 3748261780410368
