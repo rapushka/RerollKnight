@@ -139,7 +139,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2221574445023232
-    m_Localized: Range = {0} cells
+    m_Localized: Max Use Range = {0} cells
     m_Metadata:
       m_Items: []
   - m_Id: 2225274936836096
@@ -173,11 +173,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2257363165986816
-    m_Localized: When colliding with an obstacle, the dice will take {0} damage
+    m_Localized: When colliding with an obstacle, the pushed dice will take {0} damage
     m_Metadata:
       m_Items: []
   - m_Id: 2260308477558784
-    m_Localized: Allows diagonals when calculating range
+    m_Localized: Count diagonall movement as 1 cell
     m_Metadata:
       m_Items: []
   - m_Id: 2260865200111616
