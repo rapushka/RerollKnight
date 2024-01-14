@@ -1,5 +1,6 @@
 using Code.Component;
 using Entitas.Generic;
+using UnityEngine;
 
 namespace Code
 {
@@ -12,6 +13,11 @@ namespace Code
 			=> _uiMediator = uiMediator;
 
 		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> target)
-			=> _uiMediator.ShowAndGetWindow<MoveChipToSideWindow>().SetData(target);
+		{
+			var chip = ability.GetOwner<ChipsScope, GameScope>();
+			Debug.Assert(chip.Is<Chip>());
+
+			_uiMediator.ShowAndGetWindow<MoveChipToSideWindow>().SetData(chip, target);
+		}
 	}
 }

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Code
 {
@@ -10,39 +9,14 @@ namespace Code
 	{
 		[SerializeField] private ChipButton _chipButtonPrefab;
 		[SerializeField] private Transform _chipsRoot;
-		[SerializeField] private Button _confirmButton;
 
-		private Entity<GameScope> _pickedSide;
 		private Entity<GameScope> _pickedChip;
 
 		private readonly List<ChipButton> _chipButtons = new();
 
-		protected override void OnShow()
+		public override void SetData(Entity<GameScope> senderChip, Entity<GameScope> actor)
 		{
-			base.OnShow();
-			_confirmButton.onClick.AddListener(OnConfirmClicked);
-		}
-
-		protected override void OnHide()
-		{
-			base.OnHide();
-			_confirmButton.onClick.RemoveListener(OnConfirmClicked);
-
-			foreach (var chipButton in _chipButtons)
-			{
-				chipButton.Clicked -= OnChipPicked;
-				Destroy(chipButton.gameObject);
-			}
-
-			_chipButtons.Clear();
-
-			_pickedChip = null;
-			_pickedSide = null;
-		}
-
-		public override void SetData(Entity<GameScope> actor)
-		{
-			base.SetData(actor);
+			base.SetData(senderChip, actor);
 
 			var activeSide = actor.GetActiveFace();
 
@@ -55,32 +29,57 @@ namespace Code
 			}
 		}
 
+		protected override void OnHide()
+		{
+			base.OnHide();
+
+			DestroyChipButtons();
+
+			_pickedChip = null;
+			PickedSide = null;
+		}
+
+		protected override void OnSidePicked(Entity<GameScope> side)
+		{
+			base.OnSidePicked(side);
+
+			UpdateConfirmAvailability();
+		}
+
 		private void OnChipPicked(Entity<GameScope> chip)
 		{
 			_pickedChip = chip;
 
 			foreach (var button in _chipButtons)
 				button.IsSelected = button.Chip == _pickedChip;
+
+			UpdateConfirmAvailability();
 		}
 
-		protected override void OnSidePicked(int sideNumber)
+		private void DestroyChipButtons()
 		{
-			_pickedSide = Actor.GetFace(sideNumber);
+			foreach (var chipButton in _chipButtons)
+			{
+				chipButton.Clicked -= OnChipPicked;
+				Destroy(chipButton.gameObject);
+			}
 
-			foreach (var button in SideButtons)
-				button.IsSelected = button.SideNumber == sideNumber;
+			_chipButtons.Clear();
 		}
 
-		private void OnConfirmClicked()
+		protected override void OnConfirm()
 		{
-			if (_pickedChip is null || _pickedSide is null)
+			if (_pickedChip is null || PickedSide is null)
 				return;
 
-			_pickedChip.Replace<ForeignID, string>(_pickedSide.EnsureID());
+			_pickedChip.Replace<ForeignID, string>(PickedSide.EnsureID());
 			_pickedChip.Is<AvailableToPick>(false);
 			_pickedChip.Is<Visible>(false);
 
 			Hide();
 		}
+
+		private void UpdateConfirmAvailability()
+			=> IsConfirmAvailable = PickedSide is not null && _pickedChip is not null;
 	}
 }
