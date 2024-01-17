@@ -127,6 +127,10 @@ MonoBehaviour:
     m_Key: AllRoomsClearedDescription
     m_Metadata:
       m_Items: []
+  - m_Id: 10701958954565632
+    m_Key: CancelButton
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

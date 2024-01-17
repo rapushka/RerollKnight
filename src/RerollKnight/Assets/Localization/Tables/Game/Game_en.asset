@@ -155,6 +155,10 @@ MonoBehaviour:
       Thank you for playing <3'
     m_Metadata:
       m_Items: []
+  - m_Id: 10701958954565632
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

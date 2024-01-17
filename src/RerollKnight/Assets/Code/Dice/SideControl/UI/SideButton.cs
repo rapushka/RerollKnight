@@ -1,12 +1,13 @@
 using System;
+using Entitas.Generic;
 
 namespace Code
 {
 	public class SideButton : ButtonBase
 	{
-		public new event Action<int> Clicked;
+		public new event Action<Entity<GameScope>> Clicked;
 
-		public int SideNumber { get; private set; }
+		public Entity<GameScope> Side { get; private set; }
 
 		protected override void OnEnable()
 		{
@@ -20,12 +21,12 @@ namespace Code
 			base.Clicked -= InvokeClicked;
 		}
 
-		public void SetData(int sideNumber)
+		public void SetData(Entity<GameScope> side)
 		{
-			SideNumber = sideNumber;
-			Text = SideNumber.ToString();
+			Side = side;
+			Text = Side.ToString();
 		}
 
-		private void InvokeClicked() => Clicked?.Invoke(SideNumber);
+		private void InvokeClicked() => Clicked?.Invoke(Side);
 	}
 }
