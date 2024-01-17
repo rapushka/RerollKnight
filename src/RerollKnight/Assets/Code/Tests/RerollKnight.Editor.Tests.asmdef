@@ -1,0 +1,25 @@
+{
+    "name": "RerollKnight.Editor.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c12abf3933a43db44ba72bbe33ce3037",
+        "GUID:290ce1c45deb201679958ca5206a21f5",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:a2f2239355369ba4fb6909aeaa41def5",
+        "GUID:a938580faf129dc2dbcd1df2e7d7011e",
+        "GUID:ad60ef1cb1a2ab045b511ff137216a70",
+        "GUID:e372c541aba5148868e12aa078ca7c20",
+        "GUID:9a88817da2cdeb94388ab1c4165583ac"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
