@@ -12,8 +12,6 @@ namespace Code.Editor.Tests
 	{
 		private DiContainer _diContainer;
 
-		private static GameObject[] AllGameObjects => Object.FindObjectsOfType<GameObject>();
-
 		private static ScopeContext<GameScope> Context => Contexts.Instance.Get<GameScope>();
 
 		[SetUp]
@@ -35,13 +33,7 @@ namespace Code.Editor.Tests
 		[TearDown]
 		public void TearDown()
 		{
-			DestroyAllObjectsInScene();
-		}
-
-		private static void DestroyAllObjectsInScene()
-		{
-			foreach (var gameObject in AllGameObjects)
-				Object.DestroyImmediate(gameObject);
+			Destroy.AllGameObjectsOnScene();
 		}
 
 		[Test]
