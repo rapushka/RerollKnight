@@ -76,13 +76,13 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var cellsFactory = _diContainer.Resolve<CellsFactory>();
-
-			// Act.
-			cellsFactory.Create(0, 0);
 			Func<Entity<GameScope>> createSameCell = () => cellsFactory.Create(0, 0);
 
+			// Act.
+			createSameCell.Invoke();
+
 			// Assert.
-			createSameCell.Should().Throw<Exception>();
+			createSameCell.Should().Throw<Entitas.EntityIndexException>();
 		}
 	}
 }
