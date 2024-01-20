@@ -1,7 +1,6 @@
 using System;
 using Entitas.Generic;
 using FluentAssertions;
-using NSubstitute;
 using NUnit.Framework;
 using UnityEngine;
 using Zenject;
@@ -12,6 +11,7 @@ namespace Code.Editor.Tests
 	public class CellGenerationTests
 	{
 		private DiContainer _diContainer;
+		private Transform _cellsHolder;
 
 		private static ScopeContext<GameScope> Context => Contexts.Instance.Get<GameScope>();
 
@@ -24,10 +24,7 @@ namespace Code.Editor.Tests
 			_diContainer.Bind<IAssetsService>().To<AssetsService>().AsSingle();
 			_diContainer.Bind<IResourcesService>().To<ResourcesService>().AsSingle();
 
-			var holdersProvider = Substitute.For<IHoldersProvider>();
-			holdersProvider.CellsHolder.Returns(new GameObject("Cells Holder").transform);
-			_diContainer.BindInstance(holdersProvider);
-
+			_cellsHolder = _diContainer.BindCellsHolder();
 			_diContainer.Bind<Contexts>().FromInstance(Contexts.Instance).AsSingle();
 
 			// ReSharper disable once ObjectCreationAsStatement - it'll still initialize contexts
@@ -41,8 +38,7 @@ namespace Code.Editor.Tests
 			Destroy.All.Entities<GameScope>();
 		}
 
-		[Test]
-		public void _000_WhenSetup_AndNothingIsHappening_ThenShouldBeNoException() { }
+		[Test] public void _000_WhenNothingIsHappening_ThenShouldBeNoException() { }
 
 		[Test]
 		public void _010_WhenFactoryCreateCell_AndThereIsNoCells_ThenEntitiesCountShouldBe1()
@@ -76,13 +72,26 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var cellsFactory = _diContainer.Resolve<CellsFactory>();
-			Func<Entity<GameScope>> createSameCell = () => cellsFactory.Create(0, 0);
+			Action createSameCell = () => cellsFactory.Create(0, 0);
 
 			// Act.
 			createSameCell.Invoke();
 
 			// Assert.
 			createSameCell.Should().Throw<Entitas.EntityIndexException>();
+		}
+
+		[Test]
+		public void _040_WhenFactoryCreateCell_ThenCellsHolderShouldHave1Child()
+		{
+			// Arrange.
+			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+
+			// Act.
+			cellsFactory.Create(0, 0);
+
+			// Assert.
+			_cellsHolder.childCount.Should().Be(1);
 		}
 	}
 }
