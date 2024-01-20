@@ -1,4 +1,5 @@
 using System;
+using Code.Component;
 using Entitas.Generic;
 using FluentAssertions;
 using NUnit.Framework;
@@ -23,6 +24,7 @@ namespace Code.Editor.Tests
 
 			_diContainer.Bind<IAssetsService>().To<AssetsService>().AsSingle();
 			_diContainer.Bind<IResourcesService>().To<ResourcesService>().AsSingle();
+			_diContainer.BindViewConfig();
 
 			_cellsHolder = _diContainer.BindCellsHolder();
 			_diContainer.Bind<Contexts>().FromInstance(Contexts.Instance).AsSingle();
@@ -92,6 +94,40 @@ namespace Code.Editor.Tests
 
 			// Assert.
 			_cellsHolder.childCount.Should().Be(1);
+		}
+
+		[Test]
+		public void _050_WhenFactoryCreateCell_AndXIs0YIs0_ThenCellsPositionShouldBeSameAsHolderPosition()
+		{
+			// Arrange.
+			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+
+			// Act.
+			cellsFactory.Create(0, 0);
+
+			// Assert.
+			var cellViewTransform = _cellsHolder.GetChild(0);
+			cellViewTransform.position.Should().Be(_cellsHolder.transform.position);
+		}
+
+		[Test]
+		public void _060_WhenFactoryCreateCell_AndXIs1YIs1_ThenCellsPositionShouldBeOne()
+		{
+			// Arrange.
+			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+			var system = _diContainer.Instantiate<SetPositionFromCoordinatesSystem>();
+			var eventSystem = new SelfEventSystem<GameScope, Position>(Contexts.Instance);
+
+			// Act.
+			var cellEntity = cellsFactory.Create(1, 1);
+			system.Execute();
+			eventSystem.Execute();
+
+			// Assert.
+			var cellCoordinates = cellEntity.GetCoordinates();
+			var cellView = _cellsHolder.GetChild(0);
+			cellView.position.Should().Be(cellEntity.Get<Position>().Value);
+			cellView.position.Should().Be(cellCoordinates.ToTopDown());
 		}
 	}
 }
