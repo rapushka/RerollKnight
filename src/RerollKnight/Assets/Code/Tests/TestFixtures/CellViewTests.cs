@@ -1,4 +1,3 @@
-using System;
 using Code.Component;
 using Entitas.Generic;
 using FluentAssertions;
@@ -9,12 +8,10 @@ using Zenject;
 namespace Code.Editor.Tests
 {
 	[TestFixture]
-	public class CellGenerationTests
+	public class CellViewTests
 	{
 		private DiContainer _diContainer;
 		private Transform _cellsHolder;
-
-		private static ScopeContext<GameScope> Context => Contexts.Instance.Get<GameScope>();
 
 		[SetUp]
 		public void SetUp()
@@ -40,64 +37,8 @@ namespace Code.Editor.Tests
 			Destroy.All.Entities<GameScope>();
 		}
 
-		[Test] public void _000_WhenNothingIsHappening_ThenShouldBeNoException() { }
-
 		[Test]
-		public void _010_WhenFactoryCreateCell_AndThereIsNoCells_ThenEntitiesCountShouldBe1()
-		{
-			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
-
-			// Act.
-			cellsFactory.Create(0, 0);
-
-			// Assert.
-			Context.GetEntities().Length.Should().Be(1);
-		}
-
-		[Test]
-		public void _020_WhenFactoryCreateCell_AndXIs0YIs0_ThenCellCoordinatesShouldBeZeroBellow()
-		{
-			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
-
-			// Act.
-			var cellEntity = cellsFactory.Create(0, 0);
-
-			// Assert.
-			var cellCoordinates = cellEntity.GetCoordinates();
-			cellCoordinates.Should().Be(Coordinates.Zero.WithLayer(Coordinates.Layer.Bellow));
-		}
-
-		[Test]
-		public void _030_WhenFactoryCreateCell_AndThereIsAlreadyCellWithSameCoordinates_ThenThrowException()
-		{
-			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
-			Action createSameCell = () => cellsFactory.Create(0, 0);
-
-			// Act.
-			createSameCell.Invoke();
-
-			// Assert.
-			createSameCell.Should().Throw<Entitas.EntityIndexException>();
-		}
-
-		[Test]
-		public void _040_WhenFactoryCreateCell_ThenCellsHolderShouldHave1Child()
-		{
-			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
-
-			// Act.
-			cellsFactory.Create(0, 0);
-
-			// Assert.
-			_cellsHolder.childCount.Should().Be(1);
-		}
-
-		[Test]
-		public void _050_WhenFactoryCreateCell_AndXIs0YIs0_ThenCellsPositionShouldBeSameAsHolderPosition()
+		public void _010_WhenFactoryCreateCell_AndXIs0YIs0_ThenCellsPositionShouldBeSameAsHolderPosition()
 		{
 			// Arrange.
 			var cellsFactory = _diContainer.Resolve<CellsFactory>();
@@ -111,7 +52,7 @@ namespace Code.Editor.Tests
 		}
 
 		[Test]
-		public void _060_WhenFactoryCreateCell_AndXIs1YIs1_ThenCellsPositionShouldBeSameAsTopDownCoordinates()
+		public void _020_WhenFactoryCreateCell_AndXIs1YIs1_ThenCellsPositionShouldBeSameAsTopDownCoordinates()
 		{
 			// Arrange.
 			var cellsFactory = _diContainer.Resolve<CellsFactory>();
@@ -131,7 +72,7 @@ namespace Code.Editor.Tests
 		}
 
 		[Test]
-		public void _070_WhenFactoryCreateCell_AndXIs1YIs1_ThenCellsViewPositionShouldBeSameAsCellPosition()
+		public void _030_WhenFactoryCreateCell_AndXIs1YIs1_ThenCellsViewPositionShouldBeSameAsCellPosition()
 		{
 			// Arrange.
 			var cellsFactory = _diContainer.Resolve<CellsFactory>();
