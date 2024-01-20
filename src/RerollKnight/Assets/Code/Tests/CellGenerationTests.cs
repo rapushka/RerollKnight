@@ -111,7 +111,7 @@ namespace Code.Editor.Tests
 		}
 
 		[Test]
-		public void _060_WhenFactoryCreateCell_AndXIs1YIs1_ThenCellsPositionShouldBeOne()
+		public void _060_WhenFactoryCreateCell_AndXIs1YIs1_ThenCellsPositionShouldBeSameAsTopDownCoordinates()
 		{
 			// Arrange.
 			var cellsFactory = _diContainer.Resolve<CellsFactory>();
@@ -125,9 +125,28 @@ namespace Code.Editor.Tests
 
 			// Assert.
 			var cellCoordinates = cellEntity.GetCoordinates();
+			var cellPosition = cellEntity.Get<Position>().Value;
+
+			cellPosition.Should().Be(cellCoordinates.ToTopDown());
+		}
+
+		[Test]
+		public void _070_WhenFactoryCreateCell_AndXIs1YIs1_ThenCellsViewPositionShouldBeSameAsCellPosition()
+		{
+			// Arrange.
+			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+			var system = _diContainer.Instantiate<SetPositionFromCoordinatesSystem>();
+			var eventSystem = new SelfEventSystem<GameScope, Position>(Contexts.Instance);
+
+			// Act.
+			var cellEntity = cellsFactory.Create(1, 1);
+			system.Execute();
+			eventSystem.Execute();
+
+			// Assert.
 			var cellView = _cellsHolder.GetChild(0);
-			cellView.position.Should().Be(cellEntity.Get<Position>().Value);
-			cellView.position.Should().Be(cellCoordinates.ToTopDown());
+			var cellPosition = cellEntity.Get<Position>().Value;
+			cellView.position.Should().Be(cellPosition);
 		}
 	}
 }
