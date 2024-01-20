@@ -1,3 +1,4 @@
+using System;
 using Entitas.Generic;
 using FluentAssertions;
 using NSubstitute;
@@ -27,17 +28,24 @@ namespace Code.Editor.Tests
 			holdersProvider.CellsHolder.Returns(new GameObject("Cells Holder").transform);
 			_diContainer.BindInstance(holdersProvider);
 
-			Contexts.Instance.InitializeScope<GameScope>();
+			_diContainer.Bind<Contexts>().FromInstance(Contexts.Instance).AsSingle();
+
+			// ReSharper disable once ObjectCreationAsStatement - it'll still initialize contexts
+			new ContextsInitializer(Contexts.Instance);
 		}
 
 		[TearDown]
 		public void TearDown()
 		{
-			Destroy.AllGameObjectsOnScene();
+			Destroy.All.GameObjects();
+			Destroy.All.Entities<GameScope>();
 		}
 
 		[Test]
-		public void WhenFactoryCreateCell_AndThereIsNoCells_ThenEntitiesCountShouldBe1()
+		public void _000_WhenSetup_AndNothingIsHappening_ThenShouldBeNoException() { }
+
+		[Test]
+		public void _010_WhenFactoryCreateCell_AndThereIsNoCells_ThenEntitiesCountShouldBe1()
 		{
 			// Arrange.
 			var cellsFactory = _diContainer.Resolve<CellsFactory>();
@@ -50,7 +58,7 @@ namespace Code.Editor.Tests
 		}
 
 		[Test]
-		public void WhenFactoryCreateCell_AndXIs0YIs0_ThenCellCoordinatesShouldBeZeroBellow()
+		public void _020_WhenFactoryCreateCell_AndXIs0YIs0_ThenCellCoordinatesShouldBeZeroBellow()
 		{
 			// Arrange.
 			var cellsFactory = _diContainer.Resolve<CellsFactory>();
@@ -61,6 +69,20 @@ namespace Code.Editor.Tests
 			// Assert.
 			var cellCoordinates = cellEntity.GetCoordinates();
 			cellCoordinates.Should().Be(Coordinates.Zero.WithLayer(Coordinates.Layer.Bellow));
+		}
+
+		[Test]
+		public void _030_WhenFactoryCreateCell_AndThereIsAlreadyCellWithSameCoordinates_ThenThrowException()
+		{
+			// Arrange.
+			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+
+			// Act.
+			cellsFactory.Create(0, 0);
+			Func<Entity<GameScope>> createSameCell = () => cellsFactory.Create(0, 0);
+
+			// Assert.
+			createSameCell.Should().Throw<Exception>();
 		}
 	}
 }
