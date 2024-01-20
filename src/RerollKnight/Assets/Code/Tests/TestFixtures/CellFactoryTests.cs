@@ -8,9 +8,8 @@ using Zenject;
 namespace Code.Editor.Tests
 {
 	[TestFixture]
-	public class CellFactoryTests
+	public class CellFactoryTests : ZenjectUnitTestFixture
 	{
-		private DiContainer _diContainer;
 		private Transform _cellsHolder;
 
 		private static ScopeContext<GameScope> Context => Contexts.Instance.Get<GameScope>();
@@ -18,18 +17,10 @@ namespace Code.Editor.Tests
 		[SetUp]
 		public void SetUp()
 		{
-			_diContainer = new DiContainer();
-			_diContainer.Bind<CellsFactory>().AsSingle();
+			Container.CommonBind();
+			Container.Bind<CellsFactory>().AsSingle();
 
-			_diContainer.Bind<IAssetsService>().To<AssetsService>().AsSingle();
-			_diContainer.Bind<IResourcesService>().To<ResourcesService>().AsSingle();
-			_diContainer.BindViewConfig();
-
-			_cellsHolder = _diContainer.BindCellsHolder();
-			_diContainer.Bind<Contexts>().FromInstance(Contexts.Instance).AsSingle();
-
-			// ReSharper disable once ObjectCreationAsStatement - it'll still initialize contexts
-			new ContextsInitializer(Contexts.Instance);
+			_cellsHolder = Container.BindCellsHolder();
 		}
 
 		[TearDown]
@@ -45,7 +36,7 @@ namespace Code.Editor.Tests
 		public void _010_WhenFactoryCreateCell_AndThereIsNoCells_ThenEntitiesCountShouldBe1()
 		{
 			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+			var cellsFactory = Container.Resolve<CellsFactory>();
 
 			// Act.
 			cellsFactory.Create(0, 0);
@@ -58,7 +49,7 @@ namespace Code.Editor.Tests
 		public void _020_WhenFactoryCreateCell_AndXIs0YIs0_ThenCellCoordinatesShouldBeZeroBellow()
 		{
 			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+			var cellsFactory = Container.Resolve<CellsFactory>();
 
 			// Act.
 			var cellEntity = cellsFactory.Create(0, 0);
@@ -72,7 +63,7 @@ namespace Code.Editor.Tests
 		public void _030_WhenFactoryCreateCell_AndThereIsAlreadyCellWithSameCoordinates_ThenThrowException()
 		{
 			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+			var cellsFactory = Container.Resolve<CellsFactory>();
 			Action createSameCell = () => cellsFactory.Create(0, 0);
 
 			// Act.
@@ -86,7 +77,7 @@ namespace Code.Editor.Tests
 		public void _040_WhenFactoryCreateCell_ThenCellsHolderShouldHave1Child()
 		{
 			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+			var cellsFactory = Container.Resolve<CellsFactory>();
 
 			// Act.
 			cellsFactory.Create(0, 0);
@@ -99,7 +90,7 @@ namespace Code.Editor.Tests
 		public void _045_WhenFactoryCreate2Cells_ThenCellsHolderShouldHave2Children()
 		{
 			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+			var cellsFactory = Container.Resolve<CellsFactory>();
 
 			// Act.
 			cellsFactory.Create(0, 0);

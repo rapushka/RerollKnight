@@ -8,26 +8,17 @@ using Zenject;
 namespace Code.Editor.Tests
 {
 	[TestFixture]
-	public class CellViewTests
+	public class CellViewTests : ZenjectUnitTestFixture
 	{
-		private DiContainer _diContainer;
 		private Transform _cellsHolder;
 
 		[SetUp]
 		public void SetUp()
 		{
-			_diContainer = new DiContainer();
-			_diContainer.Bind<CellsFactory>().AsSingle();
+			Container.CommonBind();
+			Container.Bind<CellsFactory>().AsSingle();
 
-			_diContainer.Bind<IAssetsService>().To<AssetsService>().AsSingle();
-			_diContainer.Bind<IResourcesService>().To<ResourcesService>().AsSingle();
-			_diContainer.BindViewConfig();
-
-			_cellsHolder = _diContainer.BindCellsHolder();
-			_diContainer.Bind<Contexts>().FromInstance(Contexts.Instance).AsSingle();
-
-			// ReSharper disable once ObjectCreationAsStatement - it'll still initialize contexts
-			new ContextsInitializer(Contexts.Instance);
+			_cellsHolder = Container.BindCellsHolder();
 		}
 
 		[TearDown]
@@ -41,7 +32,7 @@ namespace Code.Editor.Tests
 		public void _010_WhenFactoryCreateCell_AndXIs0YIs0_ThenCellsPositionShouldBeSameAsHolderPosition()
 		{
 			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
+			var cellsFactory = Container.Resolve<CellsFactory>();
 
 			// Act.
 			cellsFactory.Create(0, 0);
@@ -55,8 +46,8 @@ namespace Code.Editor.Tests
 		public void _020_WhenFactoryCreateCell_AndXIs1YIs1_ThenCellsPositionShouldBeSameAsTopDownCoordinates()
 		{
 			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
-			var system = _diContainer.Instantiate<SetPositionFromCoordinatesSystem>();
+			var cellsFactory = Container.Resolve<CellsFactory>();
+			var system = Container.Instantiate<SetPositionFromCoordinatesSystem>();
 			var eventSystem = new SelfEventSystem<GameScope, Position>(Contexts.Instance);
 
 			// Act.
@@ -75,8 +66,8 @@ namespace Code.Editor.Tests
 		public void _030_WhenFactoryCreateCell_AndXIs1YIs1_ThenCellsViewPositionShouldBeSameAsCellPosition()
 		{
 			// Arrange.
-			var cellsFactory = _diContainer.Resolve<CellsFactory>();
-			var system = _diContainer.Instantiate<SetPositionFromCoordinatesSystem>();
+			var cellsFactory = Container.Resolve<CellsFactory>();
+			var system = Container.Instantiate<SetPositionFromCoordinatesSystem>();
 			var eventSystem = new SelfEventSystem<GameScope, Position>(Contexts.Instance);
 
 			// Act.

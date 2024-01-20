@@ -1,3 +1,4 @@
+using Entitas.Generic;
 using NSubstitute;
 using UnityEngine;
 using Zenject;
@@ -7,10 +8,22 @@ namespace Code.Editor.Tests
 {
 	public static class BindExtensions
 	{
-		public static Transform BindCellsHolder(this DiContainer diContainer)
+		/// <summary> Common Binding, which is need for majority of the tests, that use injection </summary>
+		public static void CommonBind(this DiContainer @this)
+		{
+			@this.Bind<Contexts>().FromInstance(Contexts.Instance).AsSingle();
+
+			@this.Bind<IAssetsService>().To<AssetsService>().AsSingle();
+			@this.Bind<IResourcesService>().To<ResourcesService>().AsSingle();
+			@this.BindViewConfig();
+
+			Contexts.Instance.Initialize();
+		}
+
+		public static Transform BindCellsHolder(this DiContainer @this)
 		{
 			var cellsHolder = new GameObject(NameOf.CellsHolder).transform;
-			diContainer.BindHolderProvider().CellsHolder.Returns(cellsHolder);
+			@this.BindHolderProvider().CellsHolder.Returns(cellsHolder);
 			return cellsHolder;
 		}
 
