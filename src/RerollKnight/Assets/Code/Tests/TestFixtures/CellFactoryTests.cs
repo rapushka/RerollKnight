@@ -20,7 +20,7 @@ namespace Code.Editor.Tests
 			Container.CommonBind();
 			Container.Bind<CellsFactory>().AsSingle();
 
-			_cellsHolder = Container.BindCellsHolder();
+			_cellsHolder = Container.MockCellsHolder();
 		}
 
 		[TearDown]

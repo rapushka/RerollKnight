@@ -20,18 +20,23 @@ namespace Code.Editor.Tests
 			Contexts.Instance.Initialize();
 		}
 
-		public static Transform BindCellsHolder(this DiContainer @this)
+		public static T Mock<T>(this DiContainer @this)
+			where T : class
 		{
-			var cellsHolder = new GameObject(NameOf.CellsHolder).transform;
-			@this.BindHolderProvider().CellsHolder.Returns(cellsHolder);
-			return cellsHolder;
+			var target = Substitute.For<T>();
+			@this.BindInstance(target);
+			return target;
 		}
 
-		public static IHoldersProvider BindHolderProvider(this DiContainer @this)
+		public static Transform MockCellsHolder(this DiContainer @this)
 		{
-			var holdersProvider = Substitute.For<IHoldersProvider>();
-			@this.BindInstance(holdersProvider);
-			return holdersProvider;
+			return @this.MockCellsHolder(new GameObject(NameOf.CellsHolder));
+		}
+
+		public static Transform MockCellsHolder(this DiContainer @this, GameObject gameObject)
+		{
+			@this.Mock<IHoldersProvider>().CellsHolder.Returns(gameObject.transform);
+			return gameObject.transform;
 		}
 
 		public static void BindViewConfig(this DiContainer diContainer)
