@@ -29,9 +29,7 @@ namespace Code.Editor.Tests
 		}
 
 		public static Transform MockCellsHolder(this DiContainer @this)
-		{
-			return @this.MockCellsHolder(new GameObject(NameOf.CellsHolder));
-		}
+			=> @this.MockCellsHolder(new GameObject(NameOf.CellsHolder));
 
 		public static Transform MockCellsHolder(this DiContainer @this, GameObject gameObject)
 		{
@@ -39,9 +37,16 @@ namespace Code.Editor.Tests
 			return gameObject.transform;
 		}
 
-		public static void BindViewConfig(this DiContainer diContainer)
+		public static Transform MockChipsHolder(this DiContainer @this)
+			=> @this.MockChipsHolder(new GameObject(NameOf.CellsHolder));
+
+		public static Transform MockChipsHolder(this DiContainer @this, GameObject gameObject)
 		{
-			diContainer.Bind<IViewConfig>().To<ViewConfig>().FromResources(ResourcePath.ViewConfig).AsSingle();
+			@this.Mock<IHoldersProvider>().ChipsHolder.Returns(gameObject.transform);
+			return gameObject.transform;
 		}
+
+		public static void BindViewConfig(this DiContainer diContainer)
+			=> diContainer.Bind<IViewConfig>().To<ViewConfig>().FromResources(ResourcePath.ViewConfig).AsSingle();
 	}
 }

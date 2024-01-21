@@ -10,6 +10,7 @@ namespace Code.Editor.Tests
 		public static class NameOf
 		{
 			public const string CellsHolder = "Cells Holder";
+			public const string ChipsHolder = "Chips Holder";
 		}
 	}
 }

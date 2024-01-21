@@ -23,12 +23,7 @@ namespace Code.Editor.Tests
 			_cellsHolder = Container.MockCellsHolder();
 		}
 
-		[TearDown]
-		public void TearDown()
-		{
-			Destroy.All.GameObjects();
-			Destroy.All.Entities<GameScope>();
-		}
+		[TearDown] public void TearDown() => Destroy.Everything();
 
 		[Test] public void _000_WhenNothingIsHappening_ThenShouldBeNoException() { }
 

@@ -5,6 +5,12 @@ namespace Code.Editor.Tests
 {
 	public static class Destroy
 	{
+		public static void Everything()
+		{
+			All.GameObjects();
+			All.Entities<GameScope>();
+		}
+		
 		public static class All
 		{
 			private static GameObject[] GameObjectsOnScene => Object.FindObjectsOfType<GameObject>();
