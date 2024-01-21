@@ -61,5 +61,22 @@ namespace Code.Editor.Tests
 			var chipViewsCount = _holder.childCount;
 			chipViewsCount.Should().Be(1);
 		}
+
+		[Test]
+		public void _030_WhenCreate2Chips_AndOwnerDiceIsPlayer_ThenChipViewsCountShouldBe2()
+		{
+			// Arrange.
+			var chipsFactory = Container.Resolve<ChipsFactory>();
+			var player = NewPlayer;
+			var side = NewEntity;
+
+			// Act.
+			chipsFactory.Create(Mock.ChipConfig(), player, side);
+			chipsFactory.Create(Mock.ChipConfig(), player, side);
+
+			// Assert.
+			var chipViewsCount = _holder.childCount;
+			chipViewsCount.Should().Be(2);
+		}
 	}
 }
