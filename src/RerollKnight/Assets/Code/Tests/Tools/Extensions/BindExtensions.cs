@@ -18,6 +18,7 @@ namespace Code.Editor.Tests
 			@this.BindViewConfig();
 
 			Contexts.Instance.Initialize();
+			Create.Initialize(@this);
 		}
 
 		public static T Mock<T>(this DiContainer @this)
@@ -46,7 +47,14 @@ namespace Code.Editor.Tests
 			return gameObject.transform;
 		}
 
-		public static void BindViewConfig(this DiContainer diContainer)
-			=> diContainer.Bind<IViewConfig>().To<ViewConfig>().FromResources(ResourcePath.ViewConfig).AsSingle();
+		public static void BindViewConfig(this DiContainer @this)
+			=> @this.Bind<IViewConfig>().To<ViewConfig>().FromResources(ResourcePath.ViewConfig).AsSingle();
+
+		public static void BindChipsFactory(this DiContainer @this)
+		{
+			@this.Bind<ChipsFactory>().AsSingle();
+			@this.Mock<IAbilitiesFactory>();
+			@this.Mock<IChipDescriptionBuilder>();
+		}
 	}
 }

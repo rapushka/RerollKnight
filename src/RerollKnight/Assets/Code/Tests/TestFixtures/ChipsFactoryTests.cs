@@ -24,10 +24,7 @@ namespace Code.Editor.Tests
 		public void SetUp()
 		{
 			Container.CommonBind();
-			Container.Bind<ChipsFactory>().AsSingle();
-
-			Container.Mock<IAbilitiesFactory>();
-			Container.Mock<IChipDescriptionBuilder>();
+			Container.BindChipsFactory();
 
 			_holder = Container.MockChipsHolder();
 		}

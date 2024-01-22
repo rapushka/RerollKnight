@@ -25,16 +25,15 @@ namespace Code.Editor.Tests
 
 		[TearDown] public void TearDown() => Destroy.Everything();
 
+		[Repeat(2)]
 		[Test] public void _000_WhenNothingIsHappening_ThenShouldBeNoException() { }
 
 		[Test]
 		public void _010_WhenFactoryCreateCell_AndThereIsNoCells_ThenEntitiesCountShouldBe1()
 		{
 			// Arrange.
-			var cellsFactory = Container.Resolve<CellsFactory>();
-
 			// Act.
-			cellsFactory.Create(0, 0);
+			Create.Cell(0, 0);
 
 			// Assert.
 			Context.GetEntities().Length.Should().Be(1);
@@ -44,10 +43,8 @@ namespace Code.Editor.Tests
 		public void _020_WhenFactoryCreateCell_AndXIs0YIs0_ThenCellCoordinatesShouldBeZeroBellow()
 		{
 			// Arrange.
-			var cellsFactory = Container.Resolve<CellsFactory>();
-
 			// Act.
-			var cellEntity = cellsFactory.Create(0, 0);
+			var cellEntity = Create.Cell(0, 0);
 
 			// Assert.
 			var cellCoordinates = cellEntity.GetCoordinates();
@@ -58,8 +55,7 @@ namespace Code.Editor.Tests
 		public void _030_WhenFactoryCreateCell_AndThereIsAlreadyCellWithSameCoordinates_ThenThrowException()
 		{
 			// Arrange.
-			var cellsFactory = Container.Resolve<CellsFactory>();
-			Action createSameCell = () => cellsFactory.Create(0, 0);
+			Action createSameCell = () => Create.Cell(0, 0);
 
 			// Act.
 			createSameCell.Invoke();
@@ -72,10 +68,9 @@ namespace Code.Editor.Tests
 		public void _040_WhenFactoryCreateCell_ThenCellsHolderShouldHave1Child()
 		{
 			// Arrange.
-			var cellsFactory = Container.Resolve<CellsFactory>();
 
 			// Act.
-			cellsFactory.Create(0, 0);
+			Create.Cell(0, 0);
 
 			// Assert.
 			_cellsHolder.childCount.Should().Be(1);
@@ -85,11 +80,10 @@ namespace Code.Editor.Tests
 		public void _045_WhenFactoryCreate2Cells_ThenCellsHolderShouldHave2Children()
 		{
 			// Arrange.
-			var cellsFactory = Container.Resolve<CellsFactory>();
 
 			// Act.
-			cellsFactory.Create(0, 0);
-			cellsFactory.Create(0, 1);
+			Create.Cell(0, 0);
+			Create.Cell(0, 1);
 
 			// Assert.
 			_cellsHolder.childCount.Should().Be(2);
