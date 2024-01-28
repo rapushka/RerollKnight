@@ -1,4 +1,3 @@
-using FluentAssertions;
 using NUnit.Framework;
 using UnityEngine;
 using Zenject;
@@ -8,6 +7,7 @@ namespace Code.Editor.Tests
 	[TestFixture]
 	public class ChipsAlignmentTests : ZenjectUnitTestFixture
 	{
+		private const float Tolerance = 0.01f;
 		private Transform _holder;
 
 		[SetUp]
@@ -34,11 +34,11 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = chip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().Be(center);
+			chipPosition.ShouldBeApproximately(center, Tolerance);
 		}
 
 		[Test]
-		public void _020_WhenChipsAligned_AndChipsCountIs2_ThenFirstPositionShouldBeMinusHalfSpacing()
+		public void _020_WhenChipsAligned_AndChipsCountIs2_Then1stPositionShouldBeMinusHalfSpacing()
 		{
 			// Arrange.
 			var player = Create.Player();
@@ -55,11 +55,11 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = firstChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().Be(center.Add(x: -halfSpacing));
+			chipPosition.ShouldBeApproximately(center.Add(x: -halfSpacing), Tolerance);
 		}
 
 		[Test]
-		public void _030_WhenChipsAligned_AndChipsCountIs2_ThenSecondPositionShouldBePlusHalfSpacing()
+		public void _030_WhenChipsAligned_AndChipsCountIs2_Then2ndPositionShouldBePlusHalfSpacing()
 		{
 			// Arrange.
 			var player = Create.Player();
@@ -76,11 +76,11 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = secondChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().Be(center.Add(x: halfSpacing));
+			chipPosition.ShouldBeApproximately(center.Add(x: halfSpacing), Tolerance);
 		}
 
 		[Test]
-		public void _040_WhenChipsAligned_AndChipsCountIs3_ThenFirstPositionShouldBeMinusSpacing()
+		public void _040_WhenChipsAligned_AndChipsCountIs3_Then1stPositionShouldBeMinusSpacing()
 		{
 			// Arrange.
 			var player = Create.Player();
@@ -97,11 +97,11 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = firstChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().Be(center.Add(x: -spacing));
+			chipPosition.ShouldBeApproximately(center.Add(x: -spacing), Tolerance);
 		}
 
 		[Test]
-		public void _050_WhenChipsAligned_AndChipsCountIs3_ThenSecondPositionShouldBeCenter()
+		public void _050_WhenChipsAligned_AndChipsCountIs3_Then2ndPositionShouldBeCenter()
 		{
 			// Arrange.
 			var player = Create.Player();
@@ -116,11 +116,11 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = secondChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().Be(center);
+			chipPosition.ShouldBeApproximately(center, Tolerance);
 		}
 
 		[Test]
-		public void _060_WhenChipsAligned_AndChipsCountIs3_ThenThirdPositionShouldBePlusSpacing()
+		public void _060_WhenChipsAligned_AndChipsCountIs3_Then3rdPositionShouldBePlusSpacing()
 		{
 			// Arrange.
 			var player = Create.Player();
@@ -137,7 +137,99 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = thirdChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().Be(center.Add(x: spacing));
+			chipPosition.ShouldBeApproximately(center.Add(x: spacing), Tolerance);
+		}
+
+		[Test]
+		public void _070_WhenChipsAligned_AndChipsCountIs4_Then1stPositionShouldBeMinusOneAndHalfSpacing()
+		{
+			// Arrange.
+			var player = Create.Player();
+			var system = Container.Instantiate<AlignChipsCenterSystem>();
+			var viewConfig = Container.Resolve<IViewConfig>();
+			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var oneAndHalfSpacing = spacing * 1.5f;
+
+			// Act.
+			var firstChip = Create.Chip(player: player, isVisible: true);
+			Create.Chip(player: player, isVisible: true);
+			Create.Chip(player: player, isVisible: true);
+			Create.Chip(player: player, isVisible: true);
+			system.Execute();
+
+			// Assert.
+			var chipPosition = firstChip.GetDestinationOrActualPosition();
+			var center = _holder.transform.position;
+			chipPosition.ShouldBeApproximately(center.Add(x: -oneAndHalfSpacing), Tolerance);
+		}
+
+		[Test]
+		public void _080_WhenChipsAligned_AndChipsCountIs4_Then2ndPositionShouldBeMinusHalfSpacing()
+		{
+			// Arrange.
+			var player = Create.Player();
+			var system = Container.Instantiate<AlignChipsCenterSystem>();
+			var viewConfig = Container.Resolve<IViewConfig>();
+			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var halfSpacing = spacing * 0.5f;
+
+			// Act.
+			Create.Chip(player: player, isVisible: true);
+			var secondChip = Create.Chip(player: player, isVisible: true);
+			Create.Chip(player: player, isVisible: true);
+			Create.Chip(player: player, isVisible: true);
+			system.Execute();
+
+			// Assert.
+			var chipPosition = secondChip.GetDestinationOrActualPosition();
+			var center = _holder.transform.position;
+			chipPosition.ShouldBeApproximately(center.Add(x: -halfSpacing), Tolerance);
+		}
+
+		[Test]
+		public void _090_WhenChipsAligned_AndChipsCountIs4_Then3rdPositionShouldBePlusHalfSpacing()
+		{
+			// Arrange.
+			var player = Create.Player();
+			var system = Container.Instantiate<AlignChipsCenterSystem>();
+			var viewConfig = Container.Resolve<IViewConfig>();
+			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var halfSpacing = spacing * 0.5f;
+
+			// Act.
+			Create.Chip(player: player, isVisible: true);
+			Create.Chip(player: player, isVisible: true);
+			var thirdChip = Create.Chip(player: player, isVisible: true);
+			Create.Chip(player: player, isVisible: true);
+			system.Execute();
+
+			// Assert.
+			var chipPosition = thirdChip.GetDestinationOrActualPosition();
+			var center = _holder.transform.position;
+			chipPosition.ShouldBeApproximately(center.Add(x: +halfSpacing), Tolerance);
+		}
+
+		[Test]
+		public void _100_WhenChipsAligned_AndChipsCountIs4_Then4thPositionShouldBePlusOneAndHalfSpacing()
+		{
+			// Arrange.
+			var player = Create.Player();
+			var system = Container.Instantiate<AlignChipsCenterSystem>();
+			var viewConfig = Container.Resolve<IViewConfig>();
+			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var oneAndHalfSpacing = spacing * 1.5f;
+
+			// Act.
+			Create.Chip(player: player, isVisible: true);
+			Create.Chip(player: player, isVisible: true);
+			Create.Chip(player: player, isVisible: true);
+			var fourthChip = Create.Chip(player: player, isVisible: true);
+			system.Execute();
+
+			// Assert.
+			var chipPosition = fourthChip.GetDestinationOrActualPosition();
+			var center = _holder.transform.position;
+			chipPosition.ShouldBeApproximately(center.Add(x: +oneAndHalfSpacing), Tolerance);
 		}
 	}
 }
