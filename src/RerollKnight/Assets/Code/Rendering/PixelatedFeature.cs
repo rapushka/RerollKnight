@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-namespace Code.Rendering
+namespace Code
 {
 	public class PixelatedFeature : ScriptableRendererFeature
 	{

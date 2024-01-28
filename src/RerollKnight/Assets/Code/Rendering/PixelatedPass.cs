@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace Code.Rendering
+namespace Code
 {
 	public class PixelatedPass : ScriptableRenderPass
 	{
-		private readonly PixelatedFeature.Settings _settings;
+		private PixelatedFeature.Settings _settings;
 
 		private RenderTargetIdentifier _colorBuffer;
 		private RenderTargetIdentifier _pixelBuffer;
