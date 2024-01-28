@@ -7,15 +7,15 @@ namespace Code.Editor.Tests
 	[TestFixture]
 	public class ChipViewTests : ZenjectUnitTestFixture
 	{
-		private Transform _chipsHolder;
+		private Transform _holder;
 
 		[SetUp]
 		public void SetUp()
 		{
 			Container.CommonBind();
-			Container.Bind<CellsFactory>().AsSingle();
+			Container.BindChipsFactory();
 
-			_chipsHolder = Container.MockChipsHolder();
+			_holder = Container.MockChipsHolder();
 		}
 
 		[TearDown] public void TearDown() => Destroy.Everything();
