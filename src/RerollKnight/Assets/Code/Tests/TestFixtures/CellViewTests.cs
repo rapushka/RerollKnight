@@ -1,6 +1,5 @@
 using Code.Component;
 using Entitas.Generic;
-using FluentAssertions;
 using NUnit.Framework;
 using UnityEngine;
 using Zenject;
