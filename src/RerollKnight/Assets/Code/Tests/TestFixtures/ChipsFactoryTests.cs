@@ -13,12 +13,9 @@ namespace Code.Editor.Tests
 	{
 		private Transform _holder;
 
-		private static ScopeContext<GameScope> Context => Contexts.Instance.Get<GameScope>();
-
 		private static IGroup<Entity<GameScope>> Chips => Context.GetGroup(ScopeMatcher<GameScope>.Get<Chip>());
 
-		private static Entity<GameScope> NewPlayer => NewEntity.Is<Player>(true);
-		private static Entity<GameScope> NewEntity => Context.CreateEntity();
+		private static ScopeContext<GameScope> Context => Contexts.Instance.Get<GameScope>();
 
 		[SetUp]
 		public void SetUp()

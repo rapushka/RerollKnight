@@ -1,5 +1,3 @@
-using Code.Component;
-using Entitas.Generic;
 using FluentAssertions;
 using NUnit.Framework;
 using UnityEngine;
@@ -11,13 +9,6 @@ namespace Code.Editor.Tests
 	public class ChipsAlignmentTests : ZenjectUnitTestFixture
 	{
 		private Transform _holder;
-
-		private static ScopeContext<GameScope> Context => Contexts.Instance.Get<GameScope>();
-
-		private static Entity<GameScope> NewPlayer => NewEntity.Is<Player>(true);
-		private static Entity<GameScope> NewEntity => Context.CreateEntity();
-
-		private static IChipConfig MockChipConfig => Mock.ChipConfig();
 
 		[SetUp]
 		public void SetUp()
@@ -47,7 +38,7 @@ namespace Code.Editor.Tests
 		}
 
 		[Test]
-		public void _020_WhenChipsAligned_AndChipsCountIs2_ThenFirstPositionShouldBeHalfSpacing()
+		public void _020_WhenChipsAligned_AndChipsCountIs2_ThenFirstPositionShouldBeMinusHalfSpacing()
 		{
 			// Arrange.
 			var player = Create.Player();
@@ -64,6 +55,27 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = firstChip.GetDestinationOrActualPosition();
 			var halfSpacingFromCenter = _holder.transform.position.Add(x: -distanceFromCenter);
+			chipPosition.Should().Be(halfSpacingFromCenter);
+		}
+
+		[Test]
+		public void _030_WhenChipsAligned_AndChipsCountIs2_ThenSecondPositionShouldBePlusHalfSpacing()
+		{
+			// Arrange.
+			var player = Create.Player();
+			var system = Container.Instantiate<AlignChipsCenterSystem>();
+			var viewConfig = Container.Resolve<IViewConfig>();
+			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var distanceFromCenter = spacing * 0.5f;
+
+			// Act.
+			Create.Chip(player: player, isVisible: true);
+			var secondChip = Create.Chip(player: player, isVisible: true);
+			system.Execute();
+
+			// Assert.
+			var chipPosition = secondChip.GetDestinationOrActualPosition();
+			var halfSpacingFromCenter = _holder.transform.position.Add(x: distanceFromCenter);
 			chipPosition.Should().Be(halfSpacingFromCenter);
 		}
 	}
