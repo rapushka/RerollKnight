@@ -20,6 +20,7 @@ MonoBehaviour:
   <PickedChipPositionY>k__BackingField: 0.5
   <DefaultChipPositionY>k__BackingField: 0
   <UnavailableChipPositionY>k__BackingField: -0.5
+  <InvisibleChipPositionY>k__BackingField: -2
   <MaxDistanceBetweenChips>k__BackingField: 1.235
   <EnemyThinkingDuration>k__BackingField: 0.5
   <RerollDuration>k__BackingField: 1.25

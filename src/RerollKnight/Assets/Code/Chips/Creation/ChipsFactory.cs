@@ -13,10 +13,10 @@ namespace Code
 		private readonly Contexts _contexts;
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
-		private readonly AbilitiesFactory _abilitiesFactory;
+		private readonly IAbilitiesFactory _abilitiesFactory;
 		private readonly IHoldersProvider _holdersProvider;
 		private readonly IViewConfig _viewConfig;
-		private readonly ChipDescriptionBuilder _descriptionBuilder;
+		private readonly IChipDescriptionBuilder _descriptionBuilder;
 
 		[Inject]
 		public ChipsFactory
@@ -24,10 +24,10 @@ namespace Code
 			Contexts contexts,
 			IAssetsService assets,
 			IResourcesService resources,
-			AbilitiesFactory abilitiesFactory,
+			IAbilitiesFactory abilitiesFactory,
 			IHoldersProvider holdersProvider,
 			IViewConfig viewConfig,
-			ChipDescriptionBuilder descriptionBuilder
+			IChipDescriptionBuilder descriptionBuilder
 		)
 		{
 			_contexts = contexts;
@@ -39,13 +39,13 @@ namespace Code
 			_descriptionBuilder = descriptionBuilder;
 		}
 
-		public GameEntity Create(ChipConfigBehaviour chipConfig, GameEntity actor, GameEntity face)
+		public GameEntity Create(IChipConfig chipConfig, GameEntity actor, GameEntity face)
 		{
 			var entity = actor.Is<Player>() ? NewBehaviour() : NewEntity();
 			return SetupChip(chipConfig, entity, face);
 		}
 
-		private GameEntity SetupChip(ChipConfigBehaviour config, GameEntity entity, GameEntity face)
+		private GameEntity SetupChip(IChipConfig config, GameEntity entity, GameEntity face)
 		{
 			var chip = InitializeChip(entity)
 			           .Add<Label, string>(config.LabelKey.GetLocalizedString())
