@@ -7,7 +7,6 @@ namespace Code.Editor.Tests
 	[TestFixture]
 	public class ChipsAlignmentTests : ZenjectUnitTestFixture
 	{
-		private const float Tolerance = 0.01f;
 		private Transform _holder;
 
 		[SetUp]
@@ -37,7 +36,7 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = chip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().BeApproximately(center, Tolerance);
+			chipPosition.Should().BeApproximately(center, Constants.Tolerance);
 		}
 
 		[Test]
@@ -58,7 +57,7 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = firstChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().BeApproximately(center.Add(x: -halfSpacing), Tolerance);
+			chipPosition.Should().BeApproximately(center.Add(x: -halfSpacing), Constants.Tolerance);
 		}
 
 		[Test]
@@ -79,7 +78,7 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = secondChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().BeApproximately(center.Add(x: halfSpacing), Tolerance);
+			chipPosition.Should().BeApproximately(center.Add(x: halfSpacing), Constants.Tolerance);
 		}
 
 		[Test]
@@ -100,7 +99,7 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = firstChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().BeApproximately(center.Add(x: -spacing), Tolerance);
+			chipPosition.Should().BeApproximately(center.Add(x: -spacing), Constants.Tolerance);
 		}
 
 		[Test]
@@ -119,7 +118,7 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = secondChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().BeApproximately(center, Tolerance);
+			chipPosition.Should().BeApproximately(center, Constants.Tolerance);
 		}
 
 		[Test]
@@ -140,7 +139,7 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = thirdChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().BeApproximately(center.Add(x: spacing), Tolerance);
+			chipPosition.Should().BeApproximately(center.Add(x: spacing), Constants.Tolerance);
 		}
 
 		[Test]
@@ -163,7 +162,7 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = firstChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().BeApproximately(center.Add(x: -oneAndHalfSpacing), Tolerance);
+			chipPosition.Should().BeApproximately(center.Add(x: -oneAndHalfSpacing), Constants.Tolerance);
 		}
 
 		[Test]
@@ -186,7 +185,7 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = secondChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().BeApproximately(center.Add(x: -halfSpacing), Tolerance);
+			chipPosition.Should().BeApproximately(center.Add(x: -halfSpacing), Constants.Tolerance);
 		}
 
 		[Test]
@@ -209,7 +208,7 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = thirdChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().BeApproximately(center.Add(x: +halfSpacing), Tolerance);
+			chipPosition.Should().BeApproximately(center.Add(x: +halfSpacing), Constants.Tolerance);
 		}
 
 		[Test]
@@ -232,7 +231,7 @@ namespace Code.Editor.Tests
 			// Assert.
 			var chipPosition = fourthChip.GetDestinationOrActualPosition();
 			var center = _holder.transform.position;
-			chipPosition.Should().BeApproximately(center.Add(x: +oneAndHalfSpacing), Tolerance);
+			chipPosition.Should().BeApproximately(center.Add(x: +oneAndHalfSpacing), Constants.Tolerance);
 		}
 	}
 }
