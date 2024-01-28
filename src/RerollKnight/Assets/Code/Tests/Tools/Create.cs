@@ -20,14 +20,21 @@ namespace Code.Editor.Tests
 
 		public static GameEntity Entity() => Context.CreateEntity();
 
-		public static GameEntity Chip(IChipConfig config = null, GameEntity player = null, GameEntity side = null)
+		public static GameEntity Chip
+		(
+			IChipConfig config = null,
+			GameEntity player = null,
+			GameEntity side = null,
+			bool isVisible = false
+		)
 		{
 			player ??= Entity();
 			side ??= Entity();
 			config ??= Mock.ChipConfig();
 
 			var chipsFactory = Container.Resolve<ChipsFactory>();
-			return chipsFactory.Create(config, player, side);
+			return chipsFactory.Create(config, player, side)
+			                   .Is<Visible>(isVisible);
 		}
 
 		public static GameEntity Cell(int x, int y, Coordinates.Layer layer = Coordinates.Layer.Bellow)
