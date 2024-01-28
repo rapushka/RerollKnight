@@ -9,6 +9,7 @@ namespace Code
 		float PickedChipPositionY      { get; }
 		float DefaultChipPositionY     { get; }
 		float UnavailableChipPositionY { get; }
+		float InvisibleChipPositionY   { get; }
 		float MaxDistanceBetweenChips  { get; }
 		float ChipsMovingSpeed         { get; }
 
@@ -43,6 +44,7 @@ namespace Code
 
 		[field: SerializeField] public float DefaultChipPositionY     { get; private set; }
 		[field: SerializeField] public float UnavailableChipPositionY { get; private set; }
+		[field: SerializeField] public float InvisibleChipPositionY   { get; private set; }
 
 		[field: Header("Arrangement")]
 		[field: SerializeField] public float MaxDistanceBetweenChips { get; private set; }
