@@ -29,20 +29,16 @@ namespace Code.Editor.Tests
 			return target;
 		}
 
-		public static Transform MockCellsHolder(this DiContainer @this)
-			=> @this.MockCellsHolder(new GameObject(NameOf.CellsHolder));
-
-		public static Transform MockCellsHolder(this DiContainer @this, GameObject gameObject)
+		public static Transform MockCellsHolder(this DiContainer @this, GameObject gameObject = null)
 		{
+			gameObject ??= new GameObject(NameOf.CellsHolder);
 			@this.Mock<IHoldersProvider>().CellsHolder.Returns(gameObject.transform);
 			return gameObject.transform;
 		}
 
-		public static Transform MockChipsHolder(this DiContainer @this)
-			=> @this.MockChipsHolder(new GameObject(NameOf.CellsHolder));
-
-		public static Transform MockChipsHolder(this DiContainer @this, GameObject gameObject)
+		public static Transform MockChipsHolder(this DiContainer @this, GameObject gameObject = null)
 		{
+			gameObject ??= new GameObject(NameOf.ChipsHolder);
 			@this.Mock<IHoldersProvider>().ChipsHolder.Returns(gameObject.transform);
 			return gameObject.transform;
 		}

@@ -1,5 +1,6 @@
 using Code.Component;
 using Entitas.Generic;
+using FluentAssertions;
 using NUnit.Framework;
 using UnityEngine;
 using Zenject;
@@ -30,15 +31,18 @@ namespace Code.Editor.Tests
 		[TearDown] public void TearDown() => Destroy.Everything();
 
 		[Test]
-		public void _040_WhenChipsAligned_AndChipsCount1_ThenItsPositionShouldBeEqualToHolderPosition()
+		public void _010_WhenChipsAligned_AndChipsCount1_ThenDesiredPositionShouldBeEqualToHolderPosition()
 		{
 			// Arrange.
+			var chip = Create.Chip(player: Create.Player());
+			chip.Is<Visible>(true);
+			var system = Container.Instantiate<AlignChipsCenterSystem>();
 
 			// Act.
-			var chip = Create.Chip();
+			system.Execute();
 
 			// Assert.z
-			var chipView = _holder.GetChild(0);
+			chip.Get<Position>().Value.Should().Be(_holder.transform.position);
 		}
 	}
 }

@@ -35,10 +35,8 @@ namespace Code.Editor.Tests
 		public void _010_WhenCreateChip_ThenChipsCountShouldBe1()
 		{
 			// Arrange.
-			var chipsFactory = Container.Resolve<ChipsFactory>();
-
 			// Act.
-			chipsFactory.Create(Mock.ChipConfig(), NewEntity, NewEntity);
+			Create.Chip();
 
 			// Assert.
 			var chipsCount = Chips.GetEntities().Length;
@@ -49,10 +47,8 @@ namespace Code.Editor.Tests
 		public void _020_WhenCreateChip_AndOwnerDiceIsPlayer_ThenChipViewsCountShouldBe1()
 		{
 			// Arrange.
-			var chipsFactory = Container.Resolve<ChipsFactory>();
-
 			// Act.
-			chipsFactory.Create(Mock.ChipConfig(), NewPlayer, NewEntity);
+			Create.Chip(player: Create.Player());
 
 			// Assert.
 			var chipViewsCount = _holder.childCount;
@@ -63,13 +59,9 @@ namespace Code.Editor.Tests
 		public void _030_WhenCreate2Chips_AndOwnerDiceIsPlayer_ThenChipViewsCountShouldBe2()
 		{
 			// Arrange.
-			var chipsFactory = Container.Resolve<ChipsFactory>();
-			var player = NewPlayer;
-			var side = NewEntity;
-
 			// Act.
-			chipsFactory.Create(Mock.ChipConfig(), player, side);
-			chipsFactory.Create(Mock.ChipConfig(), player, side);
+			Create.Chip(player: Create.Player());
+			Create.Chip(player: Create.Player());
 
 			// Assert.
 			var chipViewsCount = _holder.childCount;

@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Code
 {
-	/// <summary> Container.Rebind this in each zenject.context, with new dependencies for systems </summary>
+	/// <summary> call Container.Rebind fro it in each Zenject.Context, with new dependencies for systems </summary>
 	public class SystemsFactory
 	{
 		private readonly DiContainer _diContainer;

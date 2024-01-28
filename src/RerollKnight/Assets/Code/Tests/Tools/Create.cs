@@ -22,7 +22,7 @@ namespace Code.Editor.Tests
 
 		public static GameEntity Chip(IChipConfig config = null, GameEntity player = null, GameEntity side = null)
 		{
-			player ??= Player();
+			player ??= Entity();
 			side ??= Entity();
 			config ??= Mock.ChipConfig();
 
