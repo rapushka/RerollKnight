@@ -1,4 +1,3 @@
-using cakeslice;
 using Code.Component;
 using DG.Tweening;
 using Entitas.Generic;
@@ -25,12 +24,12 @@ namespace Code
 			{
 				_sequence?.Kill();
 
-				_outline.enabled = true;
-				_outline.color = (int)TargetState.Wrong;
+				_outline.Enabled = true;
+				_outline.Color = (int)TargetState.Wrong;
 
 				_sequence = DOTween.Sequence()
 				                   .Append(_transform.DOShakePosition(_duration, _strength, _vibrato))
-				                   .AppendCallback(() => _outline.enabled = false);
+				                   .AppendCallback(() => _outline.Enabled = false);
 			}
 
 			_previousHealth = component.Value;
