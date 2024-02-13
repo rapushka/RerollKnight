@@ -1,0 +1,20 @@
+{
+    "name": "Code.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c12abf3933a43db44ba72bbe33ce3037",
+        "GUID:a938580faf129dc2dbcd1df2e7d7011e",
+        "GUID:ad60ef1cb1a2ab045b511ff137216a70"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
