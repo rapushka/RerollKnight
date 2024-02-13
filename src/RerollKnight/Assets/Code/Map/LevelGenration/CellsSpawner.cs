@@ -1,4 +1,3 @@
-using Code.Component;
 using Zenject;
 
 namespace Code
@@ -6,23 +5,13 @@ namespace Code
 	public class CellsSpawner
 	{
 		private readonly GenerationConfig _generationConfig;
-		private readonly IAssetsService _assets;
-		private readonly IResourcesService _resources;
-		private readonly IHoldersProvider _holdersProvider;
+		private readonly CellsFactory _cellsFactory;
 
 		[Inject]
-		public CellsSpawner
-		(
-			GenerationConfig generationConfig,
-			IAssetsService assets,
-			IResourcesService resources,
-			IHoldersProvider holdersProvider
-		)
+		public CellsSpawner(GenerationConfig generationConfig, CellsFactory cellsFactory)
 		{
 			_generationConfig = generationConfig;
-			_assets = assets;
-			_resources = resources;
-			_holdersProvider = holdersProvider;
+			_cellsFactory = cellsFactory;
 		}
 
 		public void SpawnCells()
@@ -32,13 +21,8 @@ namespace Code
 			for (var x = 0; x < sizes.Column; x++)
 			for (var y = 0; y < sizes.Row; y++)
 			{
-				SpawnCell(new Coordinates(x, y, Coordinates.Layer.Bellow));
+				_cellsFactory.Create(x, y);
 			}
 		}
-
-		private void SpawnCell(Coordinates coordinates)
-			=> _assets.SpawnBehaviour(_resources.CellPrefab, _holdersProvider.CellsHolder.transform).Entity
-			          .Add<Component.Coordinates, Coordinates>(coordinates)
-			          .Is<Empty>(true);
 	}
 }

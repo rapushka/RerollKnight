@@ -6,7 +6,12 @@ using static Code.Constants.Localization;
 
 namespace Code
 {
-	public class ChipDescriptionBuilder
+	public interface IChipDescriptionBuilder
+	{
+		string Build(Entity<GameScope> chip);
+	}
+
+	public class ChipDescriptionBuilder : IChipDescriptionBuilder
 	{
 		private readonly ILocalizationService _localization;
 		private StringBuilder _stringBuilder;

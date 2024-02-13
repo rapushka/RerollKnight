@@ -95,7 +95,7 @@ namespace Code
 
 		private void UndoChipCast()
 		{
-			_senderChip.Is<AvailableToPick>();
+			_senderChip?.Is<AvailableToPick>();
 		}
 	}
 }

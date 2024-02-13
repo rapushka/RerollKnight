@@ -39,8 +39,10 @@ namespace Code
 
 		private void InitializeFormatters()
 		{
+#if UNITY_EDITOR
 			Entity<GameScope>.Formatter = new GameEntityFormatter();
 			Entity<ChipsScope>.Formatter = new ChipsEntityFormatter();
+#endif
 		}
 	}
 }

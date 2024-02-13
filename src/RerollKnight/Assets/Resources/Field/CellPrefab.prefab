@@ -347,13 +347,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3139724084795586930}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Script: {fileID: 11500000, guid: bac7fb55636249bb8df61b9ecb504bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  eraseRenderer: 0
+  _outlineMaterial: {fileID: 2100000, guid: bdc4deb8b1f4369c7ae52257910e8fae, type: 2}
+  _renderers:
+  - {fileID: 6531517603039854667}
 --- !u!114 &6917207280859503332
 MonoBehaviour:
   m_ObjectHideFlags: 0

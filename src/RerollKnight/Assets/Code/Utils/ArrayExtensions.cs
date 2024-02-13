@@ -9,5 +9,15 @@ namespace Code
 			var indexOf = Array.IndexOf(@this, item);
 			return clamped ? indexOf.Clamp(min: 0) : indexOf;
 		}
+
+		public static T[] Add<T>(this T[] @this, T item)
+		{
+			Array.Resize(ref @this, @this.Length + 1);
+			@this[^1] = item;
+			return @this;
+		}
+
+		public static void RemoveLast<T>(this T[] @this)
+			=> Array.Resize(ref @this, @this.Length - 1);
 	}
 }

@@ -15,7 +15,7 @@ namespace Code
 		public UpdateChipsPositionSystem(Contexts contexts, IViewConfig viewConfig)
 		{
 			_viewConfig = viewConfig;
-			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>(), Get<Visible>()));
+			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>()));
 		}
 
 		public void Execute()
@@ -32,6 +32,7 @@ namespace Code
 
 		private float HeightFor(Entity<GameScope> entity)
 			=> entity.Is<PickedChip>()          ? _viewConfig.PickedChipPositionY
+				: !entity.Is<Visible>()         ? _viewConfig.InvisibleChipPositionY
 				: !entity.Is<AvailableToPick>() ? _viewConfig.UnavailableChipPositionY
 				                                  : _viewConfig.DefaultChipPositionY;
 	}

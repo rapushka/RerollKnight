@@ -4,7 +4,12 @@ using Zenject;
 
 namespace Code
 {
-	public class AbilitiesFactory
+	public interface IAbilitiesFactory
+	{
+		Entity<ChipsScope> Create(AbilityConfigBehaviour config, Entity<GameScope> chip);
+	}
+
+	public class AbilitiesFactory : IAbilitiesFactory
 	{
 		private readonly Contexts _contexts;
 
@@ -15,18 +20,7 @@ namespace Code
 		}
 
 		public Entity<ChipsScope> Create(AbilityConfigBehaviour config, Entity<GameScope> chip)
-		{
-			return config.AddAll(Spawn(@for: chip));
-
-			// Spawn(@for: chip)
-			// 	.Is<Teleport>(config.Kind.Is<Teleport>())
-			// 	.Is<SwitchPositions>(config.Kind.Is<SwitchPositions>())
-			// 	.Is<Kick>(config.Kind.Is<Kick>())
-			// 	.Add<MaxCountOfTargets, int>(config.TargetsCount)
-			// 	.Add<TargetConstraints, List<ComponentConstraint>>(config.TargetConstraints)
-			// 	.Add<Range, int>(config.Range, @if: config.Range > -1)
-			// 	;
-		}
+			=> config.AddAll(Spawn(@for: chip));
 
 		private Entity<ChipsScope> Spawn(Entity<GameScope> @for)
 			=> _contexts.Get<ChipsScope>().CreateEntity()

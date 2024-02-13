@@ -4,7 +4,19 @@ using UnityEngine.Localization;
 
 namespace Code
 {
-	public class ChipConfigBehaviour : MonoBehaviour, IRarityEntry
+	public interface IChipConfig
+	{
+		LocalizedString              LabelKey      { get; }
+		int                          Cost          { get; }
+		float                        Rarity        { get; }
+		List<AbilityConfigBehaviour> Abilities     { get; }
+		AnimationClip                CastAnimation { get; }
+		GameObject                   ItemPrefab    { get; }
+		Sound                        Sound         { get; }
+		float                        RepeatRate    { get; }
+	}
+
+	public class ChipConfigBehaviour : MonoBehaviour, IRarityEntry, IChipConfig
 	{
 		[field: SerializeField] public LocalizedString LabelKey { get; private set; }
 
@@ -23,6 +35,6 @@ namespace Code
 
 	public interface IRarityEntry
 	{
-		float Rarity { get; }
+		public float Rarity { get; }
 	}
 }
