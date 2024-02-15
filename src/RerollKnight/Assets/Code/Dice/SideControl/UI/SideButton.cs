@@ -24,7 +24,7 @@ namespace Code
 		public void SetData(Entity<GameScope> side)
 		{
 			Side = side;
-			Text = Side.ToString();
+			Text = Side.Get<Component.Face>().Value.ToString();
 		}
 
 		private void InvokeClicked() => Clicked?.Invoke(Side);
