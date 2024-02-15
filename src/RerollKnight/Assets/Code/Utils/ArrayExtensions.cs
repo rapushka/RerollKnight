@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 
 namespace Code
 {
@@ -10,6 +11,7 @@ namespace Code
 			return clamped ? indexOf.Clamp(min: 0) : indexOf;
 		}
 
+		[Pure]
 		public static T[] Add<T>(this T[] @this, T item)
 		{
 			Array.Resize(ref @this, @this.Length + 1);
@@ -17,7 +19,14 @@ namespace Code
 			return @this;
 		}
 
-		public static void RemoveLast<T>(this T[] @this)
-			=> Array.Resize(ref @this, @this.Length - 1);
+		[Pure]
+		public static T[] RemoveAt<T>(this T[] @this, int index)
+		{
+			for (var i = index; i < @this.Length - 1; i++)
+				@this[i] = @this[i + 1];
+
+			Array.Resize(ref @this, @this.Length - 1);
+			return @this;
+		}
 	}
 }

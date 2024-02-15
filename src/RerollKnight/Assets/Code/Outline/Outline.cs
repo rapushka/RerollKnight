@@ -1,4 +1,4 @@
-using System.Linq;
+using System;
 using UnityEngine;
 
 // ReSharper disable LocalVariableHidesMember - UnityEngine.Component.renderer is obsolete
@@ -36,8 +36,12 @@ namespace Code
 		{
 			foreach (var renderer in _renderers)
 			{
-				Debug.Assert(renderer.materials.Last() == MaterialInstance);
-				renderer.materials.RemoveLast();
+				var indexOfOutline = renderer.materials.IndexOf(MaterialInstance);
+
+				if (indexOfOutline == -1)
+					throw new InvalidOperationException($"{name}'s Renderer doesn't have outline");
+
+				renderer.materials = renderer.materials.RemoveAt(indexOfOutline);
 			}
 
 			if (MaterialInstance != null)
