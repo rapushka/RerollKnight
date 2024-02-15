@@ -52,13 +52,13 @@ namespace Code
 
 		private int ScreenWidth
 		{
-			get => PlayerPrefs.GetInt("Settings.Resolution.Width", 1920);
+			get => PlayerPrefs.GetInt("Settings.Resolution.Width", Screen.width);
 			set => PlayerPrefs.SetInt("Settings.Resolution.Width", value);
 		}
 
 		private int ScreenHeight
 		{
-			get => PlayerPrefs.GetInt("Settings.Resolution.Height", 1080);
+			get => PlayerPrefs.GetInt("Settings.Resolution.Height", Screen.height);
 			set => PlayerPrefs.SetInt("Settings.Resolution.Height", value);
 		}
 	}
