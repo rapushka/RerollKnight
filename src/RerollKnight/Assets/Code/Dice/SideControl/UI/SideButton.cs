@@ -1,4 +1,5 @@
 using System;
+using Code.Component;
 using Entitas.Generic;
 
 namespace Code
@@ -24,7 +25,7 @@ namespace Code
 		public void SetData(Entity<GameScope> side)
 		{
 			Side = side;
-			Text = Side.Get<Component.Face>().Value.ToString();
+			Text = Side.Get<Face>().Value.ToString();
 		}
 
 		private void InvokeClicked() => Clicked?.Invoke(Side);
