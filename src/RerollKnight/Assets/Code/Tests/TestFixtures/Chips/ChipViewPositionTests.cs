@@ -34,7 +34,7 @@ namespace Code.Editor.Tests
 
 			// Assert.
 			var chipPosition = chip.GetDestinationOrActualPosition();
-			var defaultY = viewConfig.Chips.DefaultChipPositionY;
+			var defaultY = viewConfig.Chips.DefaultPositionY;
 			chipPosition.y.Should().BeApproximately(defaultY, Constants.Tolerance);
 		}
 
@@ -53,7 +53,7 @@ namespace Code.Editor.Tests
 
 			// Assert.
 			var chipPosition = chip.GetDestinationOrActualPosition();
-			var unavailableY = viewConfig.Chips.UnavailableChipPositionY;
+			var unavailableY = viewConfig.Chips.UnavailablePositionY;
 			chipPosition.y.Should().BeApproximately(unavailableY, Constants.Tolerance);
 		}
 
@@ -71,7 +71,7 @@ namespace Code.Editor.Tests
 
 			// Assert.
 			var chipPosition = chip.GetDestinationOrActualPosition();
-			var invisibleY = viewConfig.Chips.InvisibleChipPositionY;
+			var invisibleY = viewConfig.Chips.InvisiblePositionY;
 			chipPosition.y.Should().BeApproximately(invisibleY, Constants.Tolerance);
 		}
 
@@ -90,7 +90,7 @@ namespace Code.Editor.Tests
 
 			// Assert.
 			var chipPosition = chip.GetDestinationOrActualPosition();
-			var invisibleY = viewConfig.Chips.InvisibleChipPositionY;
+			var invisibleY = viewConfig.Chips.InvisiblePositionY;
 			chipPosition.y.Should().BeApproximately(invisibleY, Constants.Tolerance);
 		}
 
@@ -109,7 +109,7 @@ namespace Code.Editor.Tests
 
 			// Assert.
 			var chipPosition = chip.GetDestinationOrActualPosition();
-			var invisibleY = viewConfig.Chips.PickedChipPositionY;
+			var invisibleY = viewConfig.Chips.PickedPositionY;
 			chipPosition.y.Should().BeApproximately(invisibleY, Constants.Tolerance);
 		}
 	}

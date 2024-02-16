@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Config View
   m_EditorClassIdentifier: 
   <Chips>k__BackingField:
-    <DefaultChipPositionY>k__BackingField: 0
-    <UnavailableChipPositionY>k__BackingField: -0.5
-    <InvisibleChipPositionY>k__BackingField: -2
-    <ChipsMovingSpeed>k__BackingField: 10
-    <ChipDescriptionOffset>k__BackingField: {x: 0, y: 300, z: 0}
-    <ShowChipDescriptionDelay>k__BackingField: 0.5
-    <PickedChipPositionY>k__BackingField: 0.5
-    <MaxDistanceBetweenChips>k__BackingField: 1.235
+    <MovingSpeed>k__BackingField: 10
+    <MaxHorizontalSpacing>k__BackingField: 1.235
+    <DefaultPositionY>k__BackingField: 0
+    <PickedPositionY>k__BackingField: 0.5
+    <UnavailablePositionY>k__BackingField: -0.5
+    <InvisiblePositionY>k__BackingField: -5
+    <DescriptionOffset>k__BackingField: {x: 0, y: 300, z: 0}
+    <ShowDescriptionDelay>k__BackingField: 0.5
   <OverFieldOffset>k__BackingField: {x: 0, y: 0.125, z: 0}
   <RoomTransferDuration>k__BackingField: 0
   <EnemyThinkingDuration>k__BackingField: 0.5

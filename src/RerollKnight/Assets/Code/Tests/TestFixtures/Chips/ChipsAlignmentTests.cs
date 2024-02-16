@@ -46,7 +46,7 @@ namespace Code.Editor.Tests
 			var player = Create.Player();
 			var system = AlignChipsCenterSystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.Chips.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.MaxHorizontalSpacing;
 			var halfSpacing = spacing * 0.5f;
 
 			// Act.
@@ -67,7 +67,7 @@ namespace Code.Editor.Tests
 			var player = Create.Player();
 			var system = AlignChipsCenterSystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.Chips.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.MaxHorizontalSpacing;
 			var halfSpacing = spacing * 0.5f;
 
 			// Act.
@@ -88,7 +88,7 @@ namespace Code.Editor.Tests
 			var player = Create.Player();
 			var system = AlignChipsCenterSystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.Chips.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.MaxHorizontalSpacing;
 
 			// Act.
 			var firstChip = Create.Chip(player: player, isVisible: true);
@@ -128,7 +128,7 @@ namespace Code.Editor.Tests
 			var player = Create.Player();
 			var system = AlignChipsCenterSystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.Chips.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.MaxHorizontalSpacing;
 
 			// Act.
 			Create.Chip(player: player, isVisible: true);
@@ -149,7 +149,7 @@ namespace Code.Editor.Tests
 			var player = Create.Player();
 			var system = AlignChipsCenterSystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.Chips.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.MaxHorizontalSpacing;
 			var oneAndHalfSpacing = spacing * 1.5f;
 
 			// Act.
@@ -172,7 +172,7 @@ namespace Code.Editor.Tests
 			var player = Create.Player();
 			var system = AlignChipsCenterSystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.Chips.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.MaxHorizontalSpacing;
 			var halfSpacing = spacing * 0.5f;
 
 			// Act.
@@ -195,7 +195,7 @@ namespace Code.Editor.Tests
 			var player = Create.Player();
 			var system = AlignChipsCenterSystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.Chips.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.MaxHorizontalSpacing;
 			var halfSpacing = spacing * 0.5f;
 
 			// Act.
@@ -218,7 +218,7 @@ namespace Code.Editor.Tests
 			var player = Create.Player();
 			var system = AlignChipsCenterSystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.Chips.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.MaxHorizontalSpacing;
 			var oneAndHalfSpacing = spacing * 1.5f;
 
 			// Act.

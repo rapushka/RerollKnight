@@ -40,7 +40,7 @@ namespace Code
 				var localPosition = e.Get<Position>().Value;
 				var worldPosition = _holders.ChipsHolder.position - localPosition;
 				var screenPoint = _cameras.UICamera.WorldToScreenPoint(worldPosition);
-				_window.transform.position = screenPoint + _viewConfig.Chips.ChipDescriptionOffset;
+				_window.transform.position = screenPoint + _viewConfig.Chips.DescriptionOffset;
 			}
 		}
 	}
