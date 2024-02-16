@@ -18,12 +18,12 @@ namespace Code
 			_viewConfig = viewConfig;
 		}
 
-		private float Width => (_chips.count - 1) * _viewConfig.MaxDistanceBetweenChips;
+		private float Width => (_chips.count - 1) * _viewConfig.Chips.MaxDistanceBetweenChips;
 
 		public void Execute()
 		{
 			var range = RangeFloat.FromCenterAndWidth(0, Width);
-			var positionStep = _viewConfig.MaxDistanceBetweenChips;
+			var positionStep = _viewConfig.Chips.MaxDistanceBetweenChips;
 			var currentPosition = range.Min;
 
 			foreach (var e in _chips)

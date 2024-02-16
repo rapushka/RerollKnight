@@ -42,7 +42,7 @@ namespace Code
 		private void ShowWindow()
 		{
 			_sequence = DOTween.Sequence()
-			                   .AppendInterval(_viewConfig.ShowChipDescriptionDelay)
+			                   .AppendInterval(_viewConfig.Chips.ShowChipDescriptionDelay)
 			                   .AppendCallback(() => _uiMediator.ShowWindow<ChipDescriptionWindow>())
 				;
 		}

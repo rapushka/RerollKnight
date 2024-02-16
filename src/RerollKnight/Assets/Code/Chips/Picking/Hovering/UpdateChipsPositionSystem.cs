@@ -31,9 +31,9 @@ namespace Code
 		}
 
 		private float HeightFor(Entity<GameScope> entity)
-			=> entity.Is<PickedChip>()          ? _viewConfig.PickedChipPositionY
-				: !entity.Is<Visible>()         ? _viewConfig.InvisibleChipPositionY
-				: !entity.Is<AvailableToPick>() ? _viewConfig.UnavailableChipPositionY
-				                                  : _viewConfig.DefaultChipPositionY;
+			=> entity.Is<PickedChip>()          ? _viewConfig.Chips.PickedChipPositionY
+				: !entity.Is<Visible>()         ? _viewConfig.Chips.InvisibleChipPositionY
+				: !entity.Is<AvailableToPick>() ? _viewConfig.Chips.UnavailableChipPositionY
+				                                  : _viewConfig.Chips.DefaultChipPositionY;
 	}
 }

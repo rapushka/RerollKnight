@@ -82,7 +82,7 @@ namespace Code
 			=> _assets.SpawnBehaviour(_resources.ChipPrefab, _holdersProvider.ChipsHolder.transform).Entity
 			          .Is<Visible>(true)
 			          .Add<Position, Vector3>(Vector3.zero)
-			          .Add<MovingSpeed, float>(_viewConfig.ChipsMovingSpeed);
+			          .Add<MovingSpeed, float>(_viewConfig.Chips.ChipsMovingSpeed);
 
 		private GameEntity NewEntity() => _contexts.Get<GameScope>().CreateEntity();
 	}
