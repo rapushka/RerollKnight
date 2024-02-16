@@ -15,9 +15,9 @@ MonoBehaviour:
   <Chips>k__BackingField:
     <MovingSpeed>k__BackingField: 10
     <MaxHorizontalSpacing>k__BackingField: 1.15
-    <DefaultPositionY>k__BackingField: 4.69
-    <PickedPositionY>k__BackingField: 3.8
-    <UnavailablePositionY>k__BackingField: 5.55
+    <DefaultPositionY>k__BackingField: 0
+    <PickedPositionY>k__BackingField: -0.75
+    <UnavailablePositionY>k__BackingField: 0.5
     <InvisiblePositionY>k__BackingField: 10
     <DescriptionOffset>k__BackingField: {x: 0, y: 300, z: 0}
     <ShowDescriptionDelay>k__BackingField: 0.5
