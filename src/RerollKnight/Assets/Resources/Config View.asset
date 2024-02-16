@@ -19,8 +19,8 @@ MonoBehaviour:
     <PickedOffset>k__BackingField: -0.75
     <UnavailableOffset>k__BackingField: 0.5
     <InvisibleOffset>k__BackingField: 10
-    <DescriptionOffset>k__BackingField: {x: 0, y: 0, z: 0}
-    <ShowDescriptionDelay>k__BackingField: 0.5
+    <DescriptionOffset>k__BackingField: {x: 450, y: 150, z: 0}
+    <ShowDescriptionDelay>k__BackingField: 0.35
   <OverFieldOffset>k__BackingField: {x: 0, y: 0.125, z: 0}
   <RoomTransferDuration>k__BackingField: 0
   <EnemyThinkingDuration>k__BackingField: 0.5
