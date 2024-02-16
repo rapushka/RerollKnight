@@ -8,14 +8,14 @@ namespace Code
 	{
 		[field: SerializeField] public float MovingSpeed { get; private set; }
 
-		[field: SerializeField] public float MaxHorizontalSpacing { get; private set; }
+		[field: SerializeField] public float VerticalSpacing { get; private set; }
 
 		[field: Header("Picking")]
-		[field: SerializeField] public float DefaultPositionY { get; private set; }
+		[field: SerializeField] public float DefaultOffset { get; private set; }
 
-		[field: SerializeField] public float PickedPositionY      { get; private set; }
-		[field: SerializeField] public float UnavailablePositionY { get; private set; }
-		[field: SerializeField] public float InvisiblePositionY   { get; private set; }
+		[field: SerializeField] public float PickedOffset      { get; private set; }
+		[field: SerializeField] public float UnavailableOffset { get; private set; }
+		[field: SerializeField] public float InvisibleOffset   { get; private set; }
 
 		[field: Header("Description")]
 		[field: SerializeField] public Vector3 DescriptionOffset { get; private set; }

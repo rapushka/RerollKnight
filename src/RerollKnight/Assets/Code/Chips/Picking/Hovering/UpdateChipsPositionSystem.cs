@@ -31,9 +31,9 @@ namespace Code
 		}
 
 		private float HorizontalPositionFor(Entity<GameScope> entity)
-			=> entity.Is<PickedChip>()          ? _viewConfig.Chips.PickedPositionY
-				: !entity.Is<Visible>()         ? _viewConfig.Chips.InvisiblePositionY
-				: !entity.Is<AvailableToPick>() ? _viewConfig.Chips.UnavailablePositionY
-				                                  : _viewConfig.Chips.DefaultPositionY;
+			=> entity.Is<PickedChip>()          ? _viewConfig.Chips.PickedOffset
+				: !entity.Is<Visible>()         ? _viewConfig.Chips.InvisibleOffset
+				: !entity.Is<AvailableToPick>() ? _viewConfig.Chips.UnavailableOffset
+				                                  : _viewConfig.Chips.DefaultOffset;
 	}
 }
