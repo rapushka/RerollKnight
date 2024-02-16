@@ -11,29 +11,31 @@ namespace Code
 	{
 		private readonly IGroup<Entity<GameScope>> _chips;
 		private readonly IViewConfig _viewConfig;
+		private readonly IHoldersProvider _holders;
 
-		public AlignChipsCenterSystem(Contexts contexts, IViewConfig viewConfig)
+		public AlignChipsCenterSystem(Contexts contexts, IViewConfig viewConfig, IHoldersProvider holders)
 		{
 			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>(), Get<Visible>()));
 			_viewConfig = viewConfig;
+			_holders = holders;
 		}
 
-		private float Width => (_chips.count - 1) * _viewConfig.Chips.MaxHorizontalSpacing;
+		// private float Width   => (_chips.count - 1) * _viewConfig.Chips.MaxHorizontalSpacing;
+		private float Spacing => _viewConfig.Chips.MaxHorizontalSpacing;
 
 		public void Execute()
 		{
-			var range = RangeFloat.FromCenterAndWidth(0, Width);
-			var positionStep = _viewConfig.Chips.MaxHorizontalSpacing;
-			var currentPosition = range.Min;
+			// var range = RangeFloat.FromCenterAndWidth(0, Width);
+			var currentPositionY = 0f;
 
 			foreach (var e in _chips)
 			{
 				var chipPosition = e.Get<Position>().Value;
 
-				if (!chipPosition.x.ApproximatelyEquals(currentPosition))
-					e.Replace<DestinationPosition, Vector3>(chipPosition.Set(x: currentPosition));
+				if (!chipPosition.y.ApproximatelyEquals(currentPositionY))
+					e.Replace<DestinationPosition, Vector3>(chipPosition.Set(y: currentPositionY));
 
-				currentPosition += positionStep;
+				currentPositionY += Spacing;
 			}
 		}
 	}
