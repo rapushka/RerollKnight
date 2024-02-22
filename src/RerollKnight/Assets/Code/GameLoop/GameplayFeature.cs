@@ -44,7 +44,8 @@ namespace Code
 
 			// Visuals
 			Add<UpdateChipsPositionSystem>();
-			Add<AlignChipsCenterSystem>();
+			Add<UpdateChipsRotationSystem>();
+			Add<AlignChipsVerticallySystem>();
 			Add<MoveToDestinationSystem>();
 			Add<DestroyAfterReachingDestinationSystem>();
 			Add<RotateToDestinationSystem>();

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6773cbbcf50449b694960a1773a7326e, type: 3}
-  m_Name: Config View
+  m_Name: View Config
   m_EditorClassIdentifier: 
   <Chips>k__BackingField:
     <MovingSpeed>k__BackingField: 10
@@ -21,6 +21,9 @@ MonoBehaviour:
     <InvisibleOffset>k__BackingField: 10
     <DescriptionOffset>k__BackingField: {x: 450, y: 150, z: 0}
     <ShowDescriptionDelay>k__BackingField: 0.35
+    <DefaultRotationX>k__BackingField: 30
+    <PickedRotationX>k__BackingField: 75
+    <RotationSpeed>k__BackingField: 5
   <OverFieldOffset>k__BackingField: {x: 0, y: 0.125, z: 0}
   <RoomTransferDuration>k__BackingField: 0
   <EnemyThinkingDuration>k__BackingField: 0.5

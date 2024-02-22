@@ -21,5 +21,11 @@ namespace Code
 		[field: SerializeField] public Vector3 DescriptionOffset { get; private set; }
 
 		[field: SerializeField] public float ShowDescriptionDelay { get; private set; } = 0.2f;
+
+		[field: Header("Rotation")]
+		[field: SerializeField] public float DefaultRotationX { get; private set; }
+
+		[field: SerializeField] public float PickedRotationX { get; private set; }
+		[field: SerializeField] public float RotationSpeed   { get; private set; }
 	}
 }

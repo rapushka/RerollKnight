@@ -7,12 +7,12 @@ using PositionListener = Entitas.Generic.ListenerComponent<Code.GameScope, Code.
 
 namespace Code
 {
-	public sealed class AlignChipsCenterSystem : IExecuteSystem
+	public sealed class AlignChipsVerticallySystem : IExecuteSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _chips;
 		private readonly IViewConfig _viewConfig;
 
-		public AlignChipsCenterSystem(Contexts contexts, IViewConfig viewConfig)
+		public AlignChipsVerticallySystem(Contexts contexts, IViewConfig viewConfig)
 		{
 			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>(), Get<Visible>()));
 			_viewConfig = viewConfig;
