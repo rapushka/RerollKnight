@@ -25,17 +25,17 @@ namespace Code
 			{
 				var current = e.Get<Rotation>().Value;
 				var destination = e.Get<DestinationRotation>().Value;
-				var speed = e.Get<RotationSpeed>().Value;
-				var scaledSpeed = speed * _timeService.DeltaTime;
+				var speed = e.Get<RotationSpeed>().Value * _timeService.DeltaTime;
 
-				if (current.AngleTo(destination) <= scaledSpeed)
+				if (current.AngleTo(destination) <= speed)
 				{
 					e.Replace<Rotation, Quaternion>(destination);
 					e.Remove<DestinationRotation>();
+
 					continue;
 				}
 
-				var nextRotation = Quaternion.Slerp(current, destination, scaledSpeed);
+				var nextRotation = Quaternion.Slerp(current, destination, speed);
 				e.Replace<Rotation, Quaternion>(nextRotation);
 			}
 		}
