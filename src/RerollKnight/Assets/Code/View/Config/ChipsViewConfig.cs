@@ -8,7 +8,9 @@ namespace Code
 	{
 		[field: SerializeField] public float MovingSpeed { get; private set; }
 
-		[field: SerializeField] public float VerticalSpacing { get; private set; }
+		[field: SerializeField] public float VerticalSpacing     { get; private set; }
+		[field: SerializeField] public float AboveFocusedOffsetY { get; private set; }
+		[field: SerializeField] public float FocusedChipOffsetY  { get; private set; }
 
 		[field: Header("Picking")]
 		[field: SerializeField] public float DefaultOffset { get; private set; }

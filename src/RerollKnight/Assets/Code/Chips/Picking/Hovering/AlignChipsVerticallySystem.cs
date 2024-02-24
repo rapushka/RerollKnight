@@ -26,12 +26,18 @@ namespace Code
 
 			foreach (var e in _chips)
 			{
+				if (e.IsFocused())
+					currentPositionY += _viewConfig.Chips.FocusedChipOffsetY;
+
 				var chipPosition = e.Get<Position>().Value;
 
 				if (!chipPosition.y.ApproximatelyEquals(currentPositionY))
 					e.Replace<DestinationPosition, Vector3>(chipPosition.Set(y: currentPositionY));
 
 				currentPositionY += Spacing;
+
+				if (e.IsFocused())
+					currentPositionY += _viewConfig.Chips.AboveFocusedOffsetY;
 			}
 		}
 	}

@@ -24,7 +24,7 @@ namespace Code
 		{
 			foreach (var e in _chips)
 			{
-				var desiredRotationX = e.Is<Hovered>()
+				var desiredRotationX = e.IsFocused()
 					? _viewConfig.Chips.PickedRotationX
 					: _viewConfig.Chips.DefaultRotationX;
 
