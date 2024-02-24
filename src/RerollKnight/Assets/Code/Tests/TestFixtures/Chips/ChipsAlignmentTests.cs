@@ -21,13 +21,14 @@ namespace Code.Editor.Tests
 		[TearDown] public void TearDown() => Destroy.Everything();
 
 		// Just to have less usages of the class from the Tests
-		private AlignChipsCenterSystem AlignChipsCenterSystem => Container.Instantiate<AlignChipsCenterSystem>();
+		private AlignChipsVerticallySystem AlignChipsVerticallySystem
+			=> Container.Instantiate<AlignChipsVerticallySystem>();
 
 		[Test]
 		public void _010_WhenChipsAligned_AndChipsCountIs1_ThenChipPositionShouldBeCenter()
 		{
 			// Arrange.
-			var system = AlignChipsCenterSystem;
+			var system = AlignChipsVerticallySystem;
 
 			// Act.
 			var chip = Create.Chip(player: Create.Player(), isVisible: true);
@@ -44,9 +45,9 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var player = Create.Player();
-			var system = AlignChipsCenterSystem;
+			var system = AlignChipsVerticallySystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.VerticalSpacing;
 			var halfSpacing = spacing * 0.5f;
 
 			// Act.
@@ -65,9 +66,9 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var player = Create.Player();
-			var system = AlignChipsCenterSystem;
+			var system = AlignChipsVerticallySystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.VerticalSpacing;
 			var halfSpacing = spacing * 0.5f;
 
 			// Act.
@@ -86,9 +87,9 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var player = Create.Player();
-			var system = AlignChipsCenterSystem;
+			var system = AlignChipsVerticallySystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.VerticalSpacing;
 
 			// Act.
 			var firstChip = Create.Chip(player: player, isVisible: true);
@@ -107,7 +108,7 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var player = Create.Player();
-			var system = AlignChipsCenterSystem;
+			var system = AlignChipsVerticallySystem;
 
 			// Act.
 			Create.Chip(player: player, isVisible: true);
@@ -126,9 +127,9 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var player = Create.Player();
-			var system = AlignChipsCenterSystem;
+			var system = AlignChipsVerticallySystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.VerticalSpacing;
 
 			// Act.
 			Create.Chip(player: player, isVisible: true);
@@ -147,9 +148,9 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var player = Create.Player();
-			var system = AlignChipsCenterSystem;
+			var system = AlignChipsVerticallySystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.VerticalSpacing;
 			var oneAndHalfSpacing = spacing * 1.5f;
 
 			// Act.
@@ -170,9 +171,9 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var player = Create.Player();
-			var system = AlignChipsCenterSystem;
+			var system = AlignChipsVerticallySystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.VerticalSpacing;
 			var halfSpacing = spacing * 0.5f;
 
 			// Act.
@@ -193,9 +194,9 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var player = Create.Player();
-			var system = AlignChipsCenterSystem;
+			var system = AlignChipsVerticallySystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.VerticalSpacing;
 			var halfSpacing = spacing * 0.5f;
 
 			// Act.
@@ -216,9 +217,9 @@ namespace Code.Editor.Tests
 		{
 			// Arrange.
 			var player = Create.Player();
-			var system = AlignChipsCenterSystem;
+			var system = AlignChipsVerticallySystem;
 			var viewConfig = Container.Resolve<IViewConfig>();
-			var spacing = viewConfig.MaxDistanceBetweenChips;
+			var spacing = viewConfig.Chips.VerticalSpacing;
 			var oneAndHalfSpacing = spacing * 1.5f;
 
 			// Act.

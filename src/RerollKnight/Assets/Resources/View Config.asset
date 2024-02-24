@@ -10,18 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6773cbbcf50449b694960a1773a7326e, type: 3}
-  m_Name: Config View
+  m_Name: View Config
   m_EditorClassIdentifier: 
+  <Chips>k__BackingField:
+    <MovingSpeed>k__BackingField: 10
+    <VerticalSpacing>k__BackingField: 0.35
+    <AboveFocusedOffsetY>k__BackingField: 0.75
+    <FocusedChipOffsetY>k__BackingField: 0.75
+    <DefaultOffset>k__BackingField: 0
+    <PickedOffset>k__BackingField: 0.2
+    <UnavailableOffset>k__BackingField: -0.2
+    <InvisibleOffset>k__BackingField: -10
+    <DescriptionOffset>k__BackingField: {x: 500, y: 150, z: 0}
+    <ShowDescriptionDelay>k__BackingField: 0.35
+    <DefaultRotationX>k__BackingField: 75
+    <PickedRotationX>k__BackingField: 15
+    <RotationSpeed>k__BackingField: 20
   <OverFieldOffset>k__BackingField: {x: 0, y: 0.125, z: 0}
   <RoomTransferDuration>k__BackingField: 0
-  <ChipsMovingSpeed>k__BackingField: 10
-  <ChipDescriptionOffset>k__BackingField: {x: 0, y: 300, z: 0}
-  <ShowChipDescriptionDelay>k__BackingField: 0.5
-  <PickedChipPositionY>k__BackingField: 0.5
-  <DefaultChipPositionY>k__BackingField: 0
-  <UnavailableChipPositionY>k__BackingField: -0.5
-  <InvisibleChipPositionY>k__BackingField: -2
-  <MaxDistanceBetweenChips>k__BackingField: 1.235
   <EnemyThinkingDuration>k__BackingField: 0.5
   <RerollDuration>k__BackingField: 1.25
   <RerollThrowHeight>k__BackingField: 2.5

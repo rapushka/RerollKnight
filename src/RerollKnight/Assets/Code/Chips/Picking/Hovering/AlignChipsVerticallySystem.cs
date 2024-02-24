@@ -7,33 +7,37 @@ using PositionListener = Entitas.Generic.ListenerComponent<Code.GameScope, Code.
 
 namespace Code
 {
-	public sealed class AlignChipsCenterSystem : IExecuteSystem
+	public sealed class AlignChipsVerticallySystem : IExecuteSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _chips;
 		private readonly IViewConfig _viewConfig;
 
-		public AlignChipsCenterSystem(Contexts contexts, IViewConfig viewConfig)
+		public AlignChipsVerticallySystem(Contexts contexts, IViewConfig viewConfig)
 		{
 			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>(), Get<Visible>()));
 			_viewConfig = viewConfig;
 		}
 
-		private float Width => (_chips.count - 1) * _viewConfig.MaxDistanceBetweenChips;
+		private float Spacing => _viewConfig.Chips.VerticalSpacing;
 
 		public void Execute()
 		{
-			var range = RangeFloat.FromCenterAndWidth(0, Width);
-			var positionStep = _viewConfig.MaxDistanceBetweenChips;
-			var currentPosition = range.Min;
+			var currentPositionY = 0f;
 
 			foreach (var e in _chips)
 			{
+				if (e.IsFocused())
+					currentPositionY += _viewConfig.Chips.FocusedChipOffsetY;
+
 				var chipPosition = e.Get<Position>().Value;
 
-				if (!chipPosition.x.ApproximatelyEquals(currentPosition))
-					e.Replace<DestinationPosition, Vector3>(chipPosition.Set(x: currentPosition));
+				if (!chipPosition.y.ApproximatelyEquals(currentPositionY))
+					e.Replace<DestinationPosition, Vector3>(chipPosition.Set(y: currentPositionY));
 
-				currentPosition += positionStep;
+				currentPositionY += Spacing;
+
+				if (e.IsFocused())
+					currentPositionY += _viewConfig.Chips.AboveFocusedOffsetY;
 			}
 		}
 	}

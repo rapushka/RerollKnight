@@ -22,18 +22,18 @@ namespace Code
 		{
 			foreach (var e in _chips)
 			{
-				var newY = HeightFor(e);
+				var newX = HorizontalPositionFor(e);
 				var position = e.Get<Position>().Value;
 
-				if (!newY.ApproximatelyEquals(position.y))
-					e.Replace<DestinationPosition, Vector3>(position.Set(y: newY));
+				if (!newX.ApproximatelyEquals(position.x))
+					e.Replace<DestinationPosition, Vector3>(position.Set(x: newX));
 			}
 		}
 
-		private float HeightFor(Entity<GameScope> entity)
-			=> entity.Is<PickedChip>()          ? _viewConfig.PickedChipPositionY
-				: !entity.Is<Visible>()         ? _viewConfig.InvisibleChipPositionY
-				: !entity.Is<AvailableToPick>() ? _viewConfig.UnavailableChipPositionY
-				                                  : _viewConfig.DefaultChipPositionY;
+		private float HorizontalPositionFor(Entity<GameScope> entity)
+			=> entity.Is<PickedChip>()          ? _viewConfig.Chips.PickedOffset
+				: !entity.Is<Visible>()         ? _viewConfig.Chips.InvisibleOffset
+				: !entity.Is<AvailableToPick>() ? _viewConfig.Chips.UnavailableOffset
+				                                  : _viewConfig.Chips.DefaultOffset;
 	}
 }

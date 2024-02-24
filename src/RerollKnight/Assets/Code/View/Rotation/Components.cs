@@ -10,4 +10,6 @@ namespace Code.Component
 	[GameScope] public sealed class RotationSpeed : ValueComponent<float> { }
 
 	[GameScope] public sealed class LookAt : ValueComponent<Entity<GameScope>>, IEvent<Self> { }
+
+	[GameScope] public sealed class RandomlyRotating : FlagComponent { }
 }

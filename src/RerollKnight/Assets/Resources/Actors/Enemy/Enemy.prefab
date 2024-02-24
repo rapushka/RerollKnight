@@ -325,7 +325,6 @@ GameObject:
   - component: {fileID: 3745786508818132408}
   - component: {fileID: 5762663638454019052}
   - component: {fileID: 7526213400286437963}
-  - component: {fileID: 3035369376148716258}
   - component: {fileID: 1718428839973460723}
   - component: {fileID: 8658749619035091695}
   - component: {fileID: 4363865718734820367}
@@ -398,7 +397,6 @@ MonoBehaviour:
   - {fileID: 3452631030433455795}
   - {fileID: 8869708636875108541}
   - {fileID: 4240876613923533468}
-  - {fileID: 3035369376148716258}
   - {fileID: 2752935368006534321}
   - {fileID: 6230708424866324869}
   - {fileID: 4363865718734820367}
@@ -573,19 +571,6 @@ MonoBehaviour:
     Quaternion: {x: -30, y: 0, z: 110}
   - Number: 4
     Quaternion: {x: -30, y: 0, z: -120}
---- !u!114 &3035369376148716258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4106996472973848952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eb385591c734b5682389729a8da28a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _behaviour: {fileID: 8065657230337917810}
 --- !u!114 &1718428839973460723
 MonoBehaviour:
   m_ObjectHideFlags: 0
