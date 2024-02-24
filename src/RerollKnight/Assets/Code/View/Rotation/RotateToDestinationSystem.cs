@@ -35,7 +35,7 @@ namespace Code
 					continue;
 				}
 
-				var nextRotation = Quaternion.Slerp(current, destination, speed);
+				var nextRotation = Quaternion.Lerp(current, destination, speed);
 				e.Replace<Rotation, Quaternion>(nextRotation);
 			}
 		}

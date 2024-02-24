@@ -57,6 +57,7 @@ namespace Code
 			Add<ShowChipDescriptionSystem>();
 			Add<AlignChipDescriptionAboveChipSystem>();
 			Add<ShowDiceInfoSystem>();
+			Add<RandomRotationSystem>();
 
 			// Audio
 			Add<AudioFeature>();

@@ -24,5 +24,8 @@ namespace Code
 
 			return @this;
 		}
+
+		public static Quaternion AsEuler(this Vector3 @this)
+			=> Quaternion.Euler(@this);
 	}
 }

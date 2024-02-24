@@ -9,19 +9,6 @@ namespace Code
 			=> Quaternion.Angle(@this, other);
 
 		public static Quaternion SetEuler(this Quaternion @this, float x = NaN, float y = NaN, float z = NaN)
-		{
-			var euler = @this.eulerAngles;
-
-			if (!IsNaN(x))
-				euler.x = x;
-
-			if (!IsNaN(y))
-				euler.y = y;
-
-			if (!IsNaN(z))
-				euler.z = z;
-
-			return Quaternion.Euler(euler);
-		}
+			=> @this.eulerAngles.Set(x: x, y: y, z: z).AsEuler();
 	}
 }

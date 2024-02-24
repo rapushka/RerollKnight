@@ -83,9 +83,8 @@ namespace Code
 			          .Is<Visible>(true)
 			          .Add<Position, Vector3>(Vector3.zero)
 			          .Add<MovingSpeed, float>(_viewConfig.Chips.MovingSpeed)
-			          .Add<Rotation, Quaternion>(default)
-			          .Add<RotationSpeed, float>(_viewConfig.Chips.RotationSpeed)
-			          ;
+			          .Add<Rotation, Quaternion>(Quaternion.identity)
+			          .Add<RotationSpeed, float>(_viewConfig.Chips.RotationSpeed);
 
 		private GameEntity NewEntity() => _contexts.Get<GameScope>().CreateEntity();
 	}

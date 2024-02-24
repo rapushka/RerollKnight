@@ -8,13 +8,13 @@ namespace Code
 {
 	public class RandomRotationSystem : IExecuteSystem
 	{
-		private readonly IGroup<Entity<GameScope>> _group;
+		private readonly IGroup<Entity<GameScope>> _entities;
 		private readonly RandomService _random;
 		private readonly ITimeService _time;
 
 		public RandomRotationSystem(Contexts contexts, RandomService random, ITimeService time)
 		{
-			_group = contexts.GetGroup(AllOf(Get<Rotation>(), Get<RotationSpeed>()));
+			_entities = contexts.GetGroup(Get<RandomlyRotating>());
 			_random = random;
 			_time = time;
 		}
@@ -23,9 +23,9 @@ namespace Code
 
 		public void Execute()
 		{
-			foreach (var e in _group.GetEntities())
+			foreach (var e in _entities)
 			{
-				var rotation = e.Get<Rotation>().Value;
+				var rotation = e.GetOrDefault<Rotation>()?.Value ?? Quaternion.identity;
 				var rotationSpeed = e.Get<RotationSpeed>().Value;
 
 				rotation *= Quaternion.Euler(RandomRotation.eulerAngles * rotationSpeed * _time.DeltaTime);
