@@ -43,9 +43,7 @@ namespace Code
 			Add<RemoveInactiveActorFromQueueSystem>();
 
 			// Visuals
-			Add<UpdateChipsPositionSystem>();
-			Add<UpdateChipsRotationSystem>();
-			Add<AlignChipsVerticallySystem>();
+			Add<ChipsViewFeature>();
 			Add<MoveToDestinationSystem>();
 			Add<DestroyAfterReachingDestinationSystem>();
 			Add<RotateToDestinationSystem>();
@@ -54,8 +52,6 @@ namespace Code
 			// Add<OutlineHoveredTargetsSystem>();
 			Add<OutlineTargetsSystem>();
 			Add<WorldSpaceUiLookAtCameraSystem>();
-			Add<ShowChipDescriptionSystem>();
-			Add<AlignChipDescriptionAboveChipSystem>();
 			Add<ShowDiceInfoSystem>();
 			Add<RandomRotationSystem>();
 
