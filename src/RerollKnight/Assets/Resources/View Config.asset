@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Chips>k__BackingField:
     <MovingSpeed>k__BackingField: 10
-    <VerticalSpacing>k__BackingField: 0.15
-    <AboveFocusedOffsetY>k__BackingField: 0.5
-    <FocusedChipOffsetY>k__BackingField: 0.5
+    <VerticalSpacing>k__BackingField: 0.35
+    <AboveFocusedOffsetY>k__BackingField: 0.75
+    <FocusedChipOffsetY>k__BackingField: 0.75
     <DefaultOffset>k__BackingField: 0
     <PickedOffset>k__BackingField: 0.2
     <UnavailableOffset>k__BackingField: -0.2
     <InvisibleOffset>k__BackingField: -10
-    <DescriptionOffset>k__BackingField: {x: 750, y: 150, z: 0}
+    <DescriptionOffset>k__BackingField: {x: 500, y: 150, z: 0}
     <ShowDescriptionDelay>k__BackingField: 0.35
-    <DefaultRotationX>k__BackingField: -342.6
+    <DefaultRotationX>k__BackingField: 75
     <PickedRotationX>k__BackingField: 15
     <RotationSpeed>k__BackingField: 20
   <OverFieldOffset>k__BackingField: {x: 0, y: 0.125, z: 0}
