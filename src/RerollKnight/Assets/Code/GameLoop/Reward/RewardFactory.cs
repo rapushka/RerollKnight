@@ -8,8 +8,6 @@ namespace Code
 	public class RewardFactory
 	{
 		private readonly MapProvider _mapProvider;
-		private readonly CoordinatesCalculator _coordinatesCalculator;
-		private readonly IViewConfig _viewConfig;
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
 		private readonly ChipsConfig _chipsConfig;
@@ -20,24 +18,16 @@ namespace Code
 			IAssetsService assets,
 			IResourcesService resources,
 			MapProvider mapProvider,
-			CoordinatesCalculator coordinatesCalculator,
-			IViewConfig viewConfig,
 			ChipsConfig chipsConfig
 		)
 		{
 			_mapProvider = mapProvider;
-			_coordinatesCalculator = coordinatesCalculator;
-			_viewConfig = viewConfig;
 			_chipsConfig = chipsConfig;
 			_assets = assets;
 			_resources = resources;
 		}
 
 		private ChipConfigBehaviour RandomChipConfig => _chipsConfig.ChipsBehaviours.ToArray().PickRandom();
-
-		// ReSharper disable once UnusedMember.Local - TODO
-		private Vector3 RewardPosition => _coordinatesCalculator.RoomCenter.ToTopDown()
-		                                                        .Add(y: _viewConfig.RewardOffset);
 
 		public Entity<GameScope> Create()
 		{
