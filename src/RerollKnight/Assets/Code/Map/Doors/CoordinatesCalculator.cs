@@ -13,9 +13,9 @@ namespace Code
 			_generationConfig = generationConfig;
 		}
 
-		private int LengthOfSide => _generationConfig.RoomSizes.Column; // TODO: now will work only for square levels
+		private int LengthOfSide => _generationConfig.RoomSizes.Column;
 
-		private int CenterCoordinates => LengthOfSide / 2; // TODO: and with odd length
+		private int CenterCoordinates => LengthOfSide / 2;
 
 		public Coordinates RoomCenter => new(CenterCoordinates, CenterCoordinates);
 

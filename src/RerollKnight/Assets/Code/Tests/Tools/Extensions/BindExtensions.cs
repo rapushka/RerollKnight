@@ -25,7 +25,7 @@ namespace Code.Editor.Tests
 			where T : class
 		{
 			var target = Substitute.For<T>();
-			@this.BindInstance(target);
+			@this.Rebind<T>().FromInstance(target);
 			return target;
 		}
 
@@ -51,6 +51,7 @@ namespace Code.Editor.Tests
 			@this.Bind<ChipsFactory>().AsSingle();
 			@this.Mock<IAbilitiesFactory>();
 			@this.Mock<IChipDescriptionBuilder>();
+			@this.Mock<IHoldersProvider>();
 		}
 	}
 }

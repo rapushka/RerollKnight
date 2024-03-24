@@ -6,7 +6,12 @@ using Zenject;
 
 namespace Code
 {
-	public class UiFactory
+	public interface IUiFactory
+	{
+		Entity<GameScope> CreateHealthBar(Entity<GameScope> actor);
+	}
+
+	public class UiFactory : IUiFactory
 	{
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;

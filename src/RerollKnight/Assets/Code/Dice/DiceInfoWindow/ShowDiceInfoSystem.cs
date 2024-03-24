@@ -9,14 +9,13 @@ namespace Code
 	public sealed class ShowDiceInfoSystem : ReactiveSystem<Entity<GameScope>>
 	{
 		private readonly GameplayStateMachine _stateMachine;
-		private readonly WindowsService _windows;
+		private readonly UiMediator _ui;
 
-		public ShowDiceInfoSystem
-			(Contexts contexts, GameplayStateMachine stateMachine, WindowsService windows) // TODO: use UI mediator!
+		public ShowDiceInfoSystem(Contexts contexts, GameplayStateMachine stateMachine, UiMediator ui)
 			: base(contexts.Get<GameScope>())
 		{
 			_stateMachine = stateMachine;
-			_windows = windows;
+			_ui = ui;
 		}
 
 		protected override ICollector<Entity<GameScope>> GetTrigger(IContext<Entity<GameScope>> context)
@@ -30,7 +29,7 @@ namespace Code
 				return;
 
 			foreach (var dice in entities)
-				_windows.Show<DiceInfoWindow>()?.SetData(dice);
+				_ui.ShowAndGetWindow<DiceInfoWindow>()?.SetData(dice);
 		}
 	}
 }

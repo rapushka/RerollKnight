@@ -10,7 +10,7 @@ namespace Code
 {
 	public sealed class RepickChipSystem : ReactiveSystem<Entity<GameScope>>, IStateTransferSystem
 	{
-		private readonly AudioService _audio; // TODO: REMOVE!!!
+		private readonly AudioService _audio;
 
 		[Inject]
 		public RepickChipSystem(Contexts contexts, AudioService audio) : base(contexts.Get<GameScope>())

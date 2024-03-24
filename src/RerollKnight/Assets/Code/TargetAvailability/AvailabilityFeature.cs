@@ -9,9 +9,9 @@ namespace Code
 			: base(nameof(AvailabilityFeature), factory)
 		{
 			Add<MarkAllTargetsAvailableSystem>();
+			Add<MarkDisabledUnavailableSystem>();
 			// Add<SetAllAvailabilitySystem>();
 
-			Add<MarkDisabledUnavailableSystem>();
 			Add<MarkUnavailableByRangeSystem>();
 			Add<MarkUnavailableByInactiveRangeSystem>();
 			Add<MarkUnavailableByComponentsSystem>();

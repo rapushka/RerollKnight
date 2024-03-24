@@ -6,7 +6,8 @@ namespace Code.Editor.Tests
 
 		public static class ResourcePath
 		{
-			public const string ViewConfig = "Config View";
+			public const string ViewConfig = "View Config";
+			public const string ChipsConfig = "Chips/ChipsConfig";
 		}
 
 		public static class NameOf

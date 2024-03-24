@@ -10,7 +10,7 @@ namespace Code
 		private readonly IAssetsService _assets;
 		private readonly IResourcesService _resources;
 		private readonly ChipsGenerator _chipsGenerator;
-		private readonly UiFactory _uiFactory;
+		private readonly IUiFactory _uiFactory;
 
 		[Inject]
 		public ActorsFactory
@@ -18,7 +18,7 @@ namespace Code
 			IAssetsService assets,
 			IResourcesService resources,
 			ChipsGenerator chipsGenerator,
-			UiFactory uiFactory
+			IUiFactory uiFactory
 		)
 		{
 			_assets = assets;
