@@ -38,7 +38,6 @@ namespace Code
 
 		public void EnsureAvailableByAll(Entity<GameScope> target, Entity<ChipsScope> ability)
 		{
-			// TODO: use these in systems
 			target.Is<AvailableToPick>(true);
 
 			AvailableByRange(target, ability);

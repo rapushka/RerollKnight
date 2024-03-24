@@ -1,4 +1,3 @@
-using System.Linq;
 using Code.Component;
 using Entitas;
 using Entitas.Generic;
@@ -10,12 +9,15 @@ namespace Code
 {
 	public sealed class MarkUnavailableByComponentsSystem : IInitializeSystem
 	{
+		private readonly AvailabilityService _availability;
 		private readonly IGroup<Entity<GameScope>> _targets;
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
 
 		[Inject]
-		public MarkUnavailableByComponentsSystem(Contexts contexts)
+		public MarkUnavailableByComponentsSystem(Contexts contexts, AvailabilityService availability)
 		{
+			_availability = availability;
+
 			_targets = contexts.GetGroup(GameMatcher.AllOf(AvailableToPick, Target));
 			_abilities = contexts.GetGroup(AllOf(Get<TargetConstraints>(), Get<Component.AbilityState>()));
 		}
@@ -28,10 +30,7 @@ namespace Code
 		{
 			foreach (var ability in _abilities.WhereStateIs(AbilityState.Prepared))
 			foreach (var target in _targets.GetEntities())
-			{
-				if (!ability.Get<TargetConstraints>().Value.All((cc) => cc.Match(target)))
-					target.Is<AvailableToPick>(false);
-			}
+				_availability.AvailableByTargetConstraints(target, ability);
 		}
 	}
 }

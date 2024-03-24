@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Chips>k__BackingField:
     <MovingSpeed>k__BackingField: 10
-    <VerticalSpacing>k__BackingField: 0.35
+    <VerticalSpacing>k__BackingField: 0.25
     <AboveFocusedOffsetY>k__BackingField: 0.75
     <FocusedChipOffsetY>k__BackingField: 0.75
     <DefaultOffset>k__BackingField: 0
