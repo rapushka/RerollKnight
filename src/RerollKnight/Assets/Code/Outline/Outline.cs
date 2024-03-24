@@ -43,11 +43,7 @@ namespace Code
 		{
 			set
 			{
-				// Unavailable = -1,
-				// Available,
-				// Hovered,
-				// Wrong,
-				var color = value switch // TODO: config
+				var color = value switch
 				{
 					0 => UnityEngine.Color.yellow,
 					1 => UnityEngine.Color.white,
