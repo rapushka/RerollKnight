@@ -14,6 +14,6 @@ namespace Code
 
 		[field: SerializeField] public int TargetsCount { get; private set; }
 
-		[field: SerializeField] public List<ComponentConstraint> TargetConstraints { get; private set; }
+		[field: SerializeField] public List<GameComponentConstraint> TargetConstraints { get; private set; }
 	}
 }
