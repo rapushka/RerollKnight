@@ -16,8 +16,18 @@ namespace Code.Editor.Tests
 			Container = container;
 		}
 
-		public static GameEntity Player() => Entity().Is<Player>(true);
-		public static GameEntity Enemy()  => Entity().Is<Enemy>(true);
+		public static GameEntity Player(int sideCount = 0) => Dice(sideCount).Is<Player>(true);
+		public static GameEntity Enemy(int sideCount = 0)  => Dice(sideCount).Is<Enemy>(true);
+
+		public static GameEntity Dice(int sideCount = 0)
+		{
+			var e = Entity().Add<Actor>();
+
+			for (var i = 0; i < sideCount; i++)
+				Side(e, i + 1);
+
+			return e;
+		}
 
 		public static GameEntity Side(GameEntity owner, int value = 1)
 			=> Entity()
