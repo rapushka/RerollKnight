@@ -1,12 +1,15 @@
 using Code.Component;
 using Entitas.Generic;
-using static Code.Coordinates.Layer;
 
 namespace Code
 {
 	public sealed class CastPushSystem : CastAbilitySystemBase<PushDistance>
 	{
-		public CastPushSystem(Contexts contexts) : base(contexts) { }
+		private readonly PushCommand _push;
+
+		public CastPushSystem(Contexts contexts, PushCommand push)
+			: base(contexts)
+			=> _push = push;
 
 		protected override void Cast(Entity<ChipsScope> ability, Entity<GameScope> target)
 		{
@@ -16,25 +19,7 @@ namespace Code
 			var direction = (targetCoordinates - casterCoordinates).Normalize();
 			var distance = ability.Get<PushDistance>().Value;
 
-			var hitObstacle = false;
-
-			for (var i = 0; i < distance; i++)
-			{
-				var nextCoordinates = target.GetCoordinates() + direction;
-
-				var index = Component.Coordinates.Index;
-				if (index.HasEntity(nextCoordinates)
-				    || !index.HasEntity(nextCoordinates.WithLayer(Bellow)))
-				{
-					hitObstacle = true;
-					break;
-				}
-
-				target.ReplaceCoordinates(nextCoordinates);
-			}
-
-			if (hitObstacle)
-				target.TakeDamage(ability.GetOrDefault<CrashDamage>()?.Value ?? 0);
+			_push.Do(ability, target, distance, direction);
 		}
 	}
 }
