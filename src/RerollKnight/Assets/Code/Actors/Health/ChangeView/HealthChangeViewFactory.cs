@@ -19,7 +19,6 @@ namespace Code
 
 		public Entity<GameScope> Create(int delta, Entity<GameScope> target)
 		{
-			// TODO: mb try ViewTransform
 			var targetPosition = target.Get<Position>().Value;
 
 			return _assets.SpawnBehaviour(_resources.HealthChangeViewPrefab).Entity
