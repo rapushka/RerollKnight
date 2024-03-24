@@ -1,4 +1,5 @@
 using UnityEngine;
+using static System.Single;
 
 namespace Code
 {
@@ -6,5 +7,8 @@ namespace Code
 	{
 		public static float AngleTo(this Quaternion @this, Quaternion other)
 			=> Quaternion.Angle(@this, other);
+
+		public static Quaternion SetEuler(this Quaternion @this, float x = NaN, float y = NaN, float z = NaN)
+			=> @this.eulerAngles.Set(x: x, y: y, z: z).AsEuler();
 	}
 }

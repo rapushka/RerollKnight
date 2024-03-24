@@ -35,7 +35,9 @@ namespace Code
 			Container.Bind<Pathfinding>().AsSingle();
 			Container.Bind<VisionService>().AsSingle();
 			Container.Bind<ChipKinds>().AsSingle();
+
 			Container.Bind<AvailabilityService>().AsSingle();
+			Container.Bind<PushCommand>().AsSingle();
 
 			InstallFactories();
 		}
@@ -55,7 +57,6 @@ namespace Code
 				typeof(ChipPickedGameplayState),
 				typeof(StartCastAnimationGameplayState),
 				typeof(CastingAbilitiesGameplayState),
-				// typeof(todo: wait for animations end),
 				typeof(TurnEndedGameplayState),
 				typeof(RerollDicesGameplayState),
 				typeof(PassTurnGameplayState),
@@ -81,13 +82,14 @@ namespace Code
 			// non-zenject factories
 			Container.Bind<ActorsFactory>().AsSingle();
 			Container.Bind<ChipsFactory>().AsSingle();
-			Container.Bind<AbilitiesFactory>().AsSingle();
-			Container.Bind<UiFactory>().AsSingle();
+			Container.Bind<IAbilitiesFactory>().To<AbilitiesFactory>().AsSingle();
+			Container.Bind<IUiFactory>().To<UiFactory>().AsSingle();
 			Container.Bind<WallsFactory>().AsSingle();
 			Container.Bind<RoomFactory>().AsSingle();
 			Container.Bind<DoorsFactory>().AsSingle();
 			Container.Bind<RewardFactory>().AsSingle();
 			Container.Bind<HealthChangeViewFactory>().AsSingle();
+			Container.Bind<CellsFactory>().AsSingle();
 
 			Container.Bind<CellsSpawner>().AsSingle();
 			Container.Bind<ActorsSpawner>().AsSingle();
@@ -95,7 +97,7 @@ namespace Code
 			Container.Bind<DoorsSpawner>().AsSingle();
 
 			Container.Bind<ChipsGenerator>().AsSingle();
-			Container.Bind<ChipDescriptionBuilder>().AsSingle();
+			Container.Bind<IChipDescriptionBuilder>().To<ChipDescriptionBuilder>().AsSingle();
 		}
 	}
 }

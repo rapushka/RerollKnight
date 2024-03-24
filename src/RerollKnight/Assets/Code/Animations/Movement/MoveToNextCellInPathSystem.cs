@@ -25,7 +25,12 @@ namespace Code
 				var path = e.Get<Path>().Value;
 				var nextCoordinates = path.Dequeue();
 
-				e.Add<DestinationPosition, Vector3>(nextCoordinates.ToWorldPoint());
+				var position = nextCoordinates.ToTopDown();
+
+				if (nextCoordinates.OnLayer is Coordinates.Layer.Default)
+					position += _viewConfig.OverFieldOffset;
+
+				e.Add<DestinationPosition, Vector3>(position);
 				e.Replace<MovingSpeed, float>(_viewConfig.DiceWalkingSpeed);
 
 				if (!path.Any())

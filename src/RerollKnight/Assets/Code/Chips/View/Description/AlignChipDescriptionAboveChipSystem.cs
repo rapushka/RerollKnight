@@ -13,7 +13,7 @@ namespace Code
 		private readonly CamerasProvider _cameras;
 		private readonly IHoldersProvider _holders;
 
-		private readonly IGroup<Entity<GameScope>> _entities;
+		private readonly IGroup<Entity<GameScope>> _chips;
 
 		[Inject]
 		public AlignChipDescriptionAboveChipSystem
@@ -30,17 +30,17 @@ namespace Code
 			_cameras = cameras;
 			_holders = holders;
 
-			_entities = contexts.GetGroup(AllOf(Get<Chip>(), Get<Hovered>()));
+			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<Hovered>()));
 		}
 
 		public void Execute()
 		{
-			foreach (var e in _entities)
+			foreach (var e in _chips)
 			{
 				var localPosition = e.Get<Position>().Value;
-				var worldPosition = _holders.ChipsHolder.position - localPosition;
+				var worldPosition = _holders.ChipsHolder.TransformPoint(localPosition);
 				var screenPoint = _cameras.UICamera.WorldToScreenPoint(worldPosition);
-				_window.transform.position = screenPoint + _viewConfig.ChipDescriptionOffset;
+				_window.transform.position = screenPoint + _viewConfig.Chips.DescriptionOffset;
 			}
 		}
 	}

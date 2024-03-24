@@ -123,7 +123,6 @@ namespace Code
 			_closedList.Clear();
 		}
 
-		// TODO: WTF U"R SELECTING DIAGONALS WITH NO REASONS???? STUPID IDIOT!!!
 		private static int CalculateCost(PathNode firstNode, PathNode secondNode)
 		{
 			var first = secondNode.Coordinates;

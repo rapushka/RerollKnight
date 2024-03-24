@@ -1,49 +1,46 @@
+using System.Collections.Generic;
 using System.Linq;
 using Code.Component;
-using UnityEngine;
+using Zenject;
 using GameEntity = Entitas.Generic.Entity<Code.GameScope>;
 
 namespace Code
 {
 	public class ChipsGenerator
 	{
-		private readonly ChipsConfig _chipsConfig;
 		private readonly ChipsFactory _chipsFactory;
+		private readonly ChipsConfig _chipsConfig;
+		private readonly Dictionary<int, ChipsSet> _chipsSets;
 
-		private ChipsSet _readyPlayerChips;
-		private ChipsSet _readyEnemyChips;
-
+		[Inject]
 		public ChipsGenerator(ChipsConfig chipsConfig, ChipsFactory chipsFactory)
 		{
-			_chipsConfig = chipsConfig;
 			_chipsFactory = chipsFactory;
+			_chipsConfig = chipsConfig;
+
+			_chipsSets = new Dictionary<int, ChipsSet>();
 		}
 
-		public void CreateChipsFor(GameEntity actor)
+		public void CreateChipsFor(GameEntity dice)
 		{
-			if (actor.Is<Player>())
-				CreateChipsForActor(actor, ref _readyPlayerChips);
+			var sides = dice.GetDependants().Where((e) => e.Has<Face>())
+			                .OrderBy((e) => e.Get<Face>().Value)
+			                .ToArray();
 
-			if (actor.Is<Enemy>())
-				CreateChipsForActor(actor, ref _readyEnemyChips);
-		}
+			var sideCount = sides.Length;
 
-		private void CreateChipsForActor(GameEntity actor, ref ChipsSet chipsSet)
-		{
-			chipsSet ??= new ChipsSet(actor, _chipsConfig);
-			var faces = actor.GetDependants().Where((e) => e.Has<Face>())
-			                 .OrderBy((e) => e.Get<Face>().Value)
-			                 .ToArray();
+			if (!_chipsSets.ContainsKey(sideCount))
+				_chipsSets[sideCount] = ChipsSet.FillForActor(sideCount, dice.Is<Enemy>(), _chipsConfig);
 
-			Debug.Assert(faces.Length == chipsSet.ChipsForFaces.Count);
+			var chipsSet = _chipsSets[sideCount];
 
 			for (var i = 0; i < chipsSet.ChipsForFaces.Count; i++)
 			{
-				var face = faces[i];
+				var side = sides[i];
 				var chipsForFace = chipsSet.ChipsForFaces[i];
 
 				foreach (var chipConfig in chipsForFace)
-					_chipsFactory.Create(chipConfig, actor, face);
+					_chipsFactory.Create(chipConfig, dice, side);
 			}
 		}
 	}

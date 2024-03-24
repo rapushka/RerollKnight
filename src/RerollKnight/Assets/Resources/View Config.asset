@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6773cbbcf50449b694960a1773a7326e, type: 3}
+  m_Name: View Config
+  m_EditorClassIdentifier: 
+  <Chips>k__BackingField:
+    <MovingSpeed>k__BackingField: 10
+    <VerticalSpacing>k__BackingField: 0.25
+    <AboveFocusedOffsetY>k__BackingField: 0.75
+    <FocusedChipOffsetY>k__BackingField: 0.75
+    <DefaultOffset>k__BackingField: 0
+    <PickedOffset>k__BackingField: 0.2
+    <UnavailableOffset>k__BackingField: -0.2
+    <InvisibleOffset>k__BackingField: -10
+    <DescriptionOffset>k__BackingField: {x: 500, y: 150, z: 0}
+    <ShowDescriptionDelay>k__BackingField: 0.35
+    <DefaultRotationX>k__BackingField: 75
+    <PickedRotationX>k__BackingField: 15
+    <RotationSpeed>k__BackingField: 20
+  <OverFieldOffset>k__BackingField: {x: 0, y: 0.125, z: 0}
+  <RoomTransferDuration>k__BackingField: 0
+  <EnemyThinkingDuration>k__BackingField: 0.5
+  <RerollDuration>k__BackingField: 1.25
+  <RerollThrowHeight>k__BackingField: 2.5
+  <RewardOffset>k__BackingField: 3
+  <HealthChangeViewFlyDirection>k__BackingField: {x: 0, y: 3, z: 0}
+  <HealthChangeViewFlySpeed>k__BackingField: 4
+  <DiceWalkingSpeed>k__BackingField: 4.5

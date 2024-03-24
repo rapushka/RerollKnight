@@ -8,7 +8,7 @@ namespace Code
 {
 	public sealed class UnpickChipSystem : ReactiveSystem<Entity<GameScope>>, IStateTransferSystem
 	{
-		private readonly AudioService _audio; // TODO: REMOVE!!!
+		private readonly AudioService _audio;
 
 		public UnpickChipSystem(Contexts contexts, AudioService audio) : base(contexts.Get<GameScope>())
 		{

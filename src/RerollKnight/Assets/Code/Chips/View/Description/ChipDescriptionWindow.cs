@@ -1,10 +1,7 @@
 using Code.Component;
-using Entitas;
 using Entitas.Generic;
 using TMPro;
 using UnityEngine;
-using Zenject;
-using static Entitas.Generic.ScopeMatcher<Code.GameScope>;
 
 namespace Code
 {
@@ -12,24 +9,12 @@ namespace Code
 	{
 		[SerializeField] private TMP_Text _descriptionTextMesh;
 
-		private IGroup<Entity<GameScope>> _hoveredChips;
-		private Contexts _contexts;
+		private Entity<GameScope> _hoveredChip;
 
-		[Inject]
-		public void Construct(Contexts contexts)
-			=> _contexts = contexts;
-
-		public override void Initialize()
-			=> _hoveredChips = _contexts.GetGroup(AllOf(Get<Chip>(), Get<Hovered>()));
-
-		private Entity<GameScope> HoveredChip => _hoveredChips.GetSingleEntity();
-
-		protected override void OnShow()
+		public void SetData(Entity<GameScope> chip)
 		{
-			base.OnShow();
-
-			var hoveredChip = HoveredChip;
-			_descriptionTextMesh.text = hoveredChip.Get<Description>().Value;
+			_hoveredChip = chip;
+			_descriptionTextMesh.text = _hoveredChip.Get<Description>().Value;
 		}
 	}
 }

@@ -5,7 +5,6 @@ using Zenject;
 
 namespace Code
 {
-	// TODO: split into 2 systems!!
 	public sealed class OutlineTargetsSystem : IExecuteSystem
 	{
 		private readonly IGroup<Entity<GameScope>> _targets;

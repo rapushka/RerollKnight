@@ -9,16 +9,14 @@ namespace Code
 {
 	public sealed class MarkUnavailableByInactiveRangeSystem : IInitializeSystem
 	{
-		private readonly Contexts _contexts;
-		private readonly MeasuringService _measuring;
+		private readonly AvailabilityService _availability;
 		private readonly IGroup<Entity<GameScope>> _targets;
 		private readonly IGroup<Entity<ChipsScope>> _abilities;
 
 		[Inject]
-		public MarkUnavailableByInactiveRangeSystem(Contexts contexts, Query query, MeasuringService measuring)
+		public MarkUnavailableByInactiveRangeSystem(Contexts contexts, AvailabilityService availability)
 		{
-			_contexts = contexts;
-			_measuring = measuring;
+			_availability = availability;
 
 			_targets = contexts.GetGroup(GameMatcher.AllOf(AvailableToPick, Target));
 			_abilities = contexts.GetGroup(AllOf(Get<Component.AbilityState>(), Get<InactiveRange>()));
@@ -28,20 +26,11 @@ namespace Code
 
 		private static IMatcher<Entity<GameScope>> Target => GameMatcher.Get<Target>();
 
-		private Entity<GameScope> CurrentActor => _contexts.Get<GameScope>().Unique.GetEntity<CurrentActor>();
-
 		public void Initialize()
 		{
 			foreach (var ability in _abilities.WhereStateIs(AbilityState.Prepared))
 			foreach (var target in _targets.GetEntities())
-			{
-				var playerPosition = CurrentActor.GetCoordinates();
-				var targetPosition = target.GetCoordinates();
-				var distance = _measuring.Distance(playerPosition, targetPosition, ability.Has<AllowDiagonals>());
-
-				if (distance <= ability.Get<InactiveRange>().Value)
-					target.Is<AvailableToPick>(false);
-			}
+				_availability.AvailableByInactiveRange(target, ability);
 		}
 	}
 }

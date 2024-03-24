@@ -33,18 +33,20 @@ namespace Code
 			foreach (var e in entities)
 			{
 				if (e.Is<Hovered>())
-					ShowWindow();
+					ShowWindow(e);
 				else
 					_uiMediator.HideWindow<ChipDescriptionWindow>();
 			}
 		}
 
-		private void ShowWindow()
+		private void ShowWindow(Entity<GameScope> chip)
 		{
 			_sequence = DOTween.Sequence()
-			                   .AppendInterval(_viewConfig.ShowChipDescriptionDelay)
-			                   .AppendCallback(() => _uiMediator.ShowWindow<ChipDescriptionWindow>())
+			                   .AppendInterval(_viewConfig.Chips.ShowDescriptionDelay)
+			                   .AppendCallback(Show)
 				;
+			return;
+			void Show() => _uiMediator.ShowAndGetWindow<ChipDescriptionWindow>().SetData(chip);
 		}
 	}
 }

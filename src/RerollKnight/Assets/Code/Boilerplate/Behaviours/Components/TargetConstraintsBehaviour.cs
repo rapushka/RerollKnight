@@ -5,5 +5,5 @@ using Entitas.Generic;
 namespace Code
 {
 	public class TargetConstraintsBehaviour
-		: ComponentBehaviour<ChipsScope, TargetConstraints, List<ComponentConstraint>> { }
+		: ComponentBehaviour<ChipsScope, TargetConstraints, List<GameComponentConstraint>> { }
 }

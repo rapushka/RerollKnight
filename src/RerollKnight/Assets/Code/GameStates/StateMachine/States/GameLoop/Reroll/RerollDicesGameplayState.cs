@@ -14,7 +14,7 @@ namespace Code
 				// Initialize
 				Add<MarkAllDicesDetachedSystem>();
 				Add<ThrowDicesSystem>();
-				Add<RandomRotationSystem>();
+				Add<RandomlyRotateDiceBodiesSystem>();
 
 				Add<WaitingSystem, float>(viewConfig.RerollDuration);
 

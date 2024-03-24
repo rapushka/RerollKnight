@@ -1,4 +1,3 @@
-using cakeslice;
 using Code.Component;
 using Entitas.Generic;
 using UnityEngine;
@@ -27,8 +26,8 @@ namespace Code
 
 		private void UpdateValue(Entity<GameScope> entity)
 		{
-			_outline.enabled = entity.Is<EnableOutline>();
-			_outline.color = (int)entity.Get<Component.TargetState>().Value;
+			_outline.Enabled = entity.Is<EnableOutline>();
+			_outline.Color = (int)entity.Get<Component.TargetState>().Value;
 		}
 	}
 }

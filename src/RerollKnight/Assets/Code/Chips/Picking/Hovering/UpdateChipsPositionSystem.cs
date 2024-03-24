@@ -15,24 +15,25 @@ namespace Code
 		public UpdateChipsPositionSystem(Contexts contexts, IViewConfig viewConfig)
 		{
 			_viewConfig = viewConfig;
-			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>(), Get<Visible>()));
+			_chips = contexts.GetGroup(AllOf(Get<Chip>(), Get<PositionListener>()));
 		}
 
 		public void Execute()
 		{
 			foreach (var e in _chips)
 			{
-				var newY = HeightFor(e);
+				var newX = HorizontalPositionFor(e);
 				var position = e.Get<Position>().Value;
 
-				if (!newY.ApproximatelyEquals(position.y))
-					e.Replace<DestinationPosition, Vector3>(position.Set(y: newY));
+				if (!newX.ApproximatelyEquals(position.x))
+					e.Replace<DestinationPosition, Vector3>(position.Set(x: newX));
 			}
 		}
 
-		private float HeightFor(Entity<GameScope> entity)
-			=> entity.Is<PickedChip>()          ? _viewConfig.PickedChipPositionY
-				: !entity.Is<AvailableToPick>() ? _viewConfig.UnavailableChipPositionY
-				                                  : _viewConfig.DefaultChipPositionY;
+		private float HorizontalPositionFor(Entity<GameScope> entity)
+			=> entity.Is<PickedChip>()          ? _viewConfig.Chips.PickedOffset
+				: !entity.Is<Visible>()         ? _viewConfig.Chips.InvisibleOffset
+				: !entity.Is<AvailableToPick>() ? _viewConfig.Chips.UnavailableOffset
+				                                  : _viewConfig.Chips.DefaultOffset;
 	}
 }
