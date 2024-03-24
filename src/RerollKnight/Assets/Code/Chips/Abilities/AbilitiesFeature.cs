@@ -7,6 +7,7 @@ namespace Code
 		{
 			Add<CastSwapPositionsSystem>();
 			Add<CastDealDamageSystem>();
+			Add<CastSpreadDamageSystem>();
 			Add<CastSetNextSideSystem>();
 			Add<CastShowNextSideSystem>();
 			Add<CastRecoilSystem>();
