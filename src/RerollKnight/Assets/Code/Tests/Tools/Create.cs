@@ -17,6 +17,12 @@ namespace Code.Editor.Tests
 		}
 
 		public static GameEntity Player() => Entity().Is<Player>(true);
+		public static GameEntity Enemy()  => Entity().Is<Enemy>(true);
+
+		public static GameEntity Side(GameEntity owner, int value = 1)
+			=> Entity()
+			   .Add<ForeignID, string>(owner.EnsureID())
+			   .Add<Face, int>(value);
 
 		public static GameEntity Entity() => Context.CreateEntity();
 

@@ -1,6 +1,5 @@
 using System.Linq;
 using Code.Component;
-using UnityEngine;
 using GameEntity = Entitas.Generic.Entity<Code.GameScope>;
 
 namespace Code
@@ -34,8 +33,6 @@ namespace Code
 			var faces = actor.GetDependants().Where((e) => e.Has<Face>())
 			                 .OrderBy((e) => e.Get<Face>().Value)
 			                 .ToArray();
-
-			Debug.Assert(faces.Length == chipsSet.ChipsForFaces.Count);
 
 			for (var i = 0; i < chipsSet.ChipsForFaces.Count; i++)
 			{

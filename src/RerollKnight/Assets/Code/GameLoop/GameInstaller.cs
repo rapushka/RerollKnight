@@ -84,7 +84,7 @@ namespace Code
 			Container.Bind<ActorsFactory>().AsSingle();
 			Container.Bind<ChipsFactory>().AsSingle();
 			Container.Bind<IAbilitiesFactory>().To<AbilitiesFactory>().AsSingle();
-			Container.Bind<UiFactory>().AsSingle();
+			Container.Bind<IUiFactory>().To<UiFactory>().AsSingle();
 			Container.Bind<WallsFactory>().AsSingle();
 			Container.Bind<RoomFactory>().AsSingle();
 			Container.Bind<DoorsFactory>().AsSingle();
